@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolPulse — Free Online Tools</title>
+    <meta name="description" content="Fast, free online tools — JSON formatter, password generator, QR code maker, word counter, and more. No signup. 100% private — everything runs in your browser.">
+    <meta name="keywords" content="online tools, free tools, JSON formatter, password generator, QR code generator, word counter, base64 encoder, unit converter, developer tools">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="ToolPulse — Free Online Tools">
+    <meta property="og:description" content="Fast, free, privacy-friendly online tools. No signup required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexchalu.github.io/toolpulse/">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    
+    <!-- Google AdSense - Replace ca-pub-XXXXXXX with your publisher ID -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX" crossorigin="anonymous"></script> -->
+    
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo" id="logo">⚡ ToolPulse</a>
+            <p class="tagline">Free tools. No signup. 100% private.</p>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        </div>
+    </header>
+
+    <!-- Ad Slot: Top Banner -->
+    <div class="ad-slot ad-banner" id="ad-top">
+        <!-- AdSense ad unit goes here -->
+    </div>
+
+    <main id="app">
+        <!-- Landing page with tool grid -->
+        <section id="landing" class="page active">
+            <div class="search-bar">
+                <input type="text" id="toolSearch" placeholder="Search tools..." aria-label="Search tools">
+            </div>
+            <div class="tool-grid" id="toolGrid"></div>
+        </section>
+
+        <!-- Tool container -->
+        <section id="toolPage" class="page">
+            <div class="tool-header">
+                <button class="back-btn" id="backBtn">← All Tools</button>
+                <h1 id="toolTitle"></h1>
+                <p id="toolDesc"></p>
+            </div>
+            <div id="toolContent" class="tool-content"></div>
+        </section>
+    </main>
+
+    <!-- Ad Slot: Bottom Banner -->
+    <div class="ad-slot ad-banner" id="ad-bottom">
+        <!-- AdSense ad unit goes here -->
+    </div>
+
+    <footer>
+        <p>ToolPulse — All processing happens in your browser. Nothing is uploaded or stored.</p>
+        <p class="footer-links">
+            <a href="https://github.com/alexchalu/toolpulse" target="_blank">GitHub</a> ·
+            Built with ❤️
+        </p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
