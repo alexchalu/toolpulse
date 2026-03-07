@@ -21,13 +21,17 @@ const tools = [
 
 // ── App State & Navigation ─────────────────────────────────────
 function init() {
+    // Only run SPA logic if we're on the main index page
+    if (!document.getElementById('toolGrid')) return;
     renderGrid();
     setupSearch();
     setupTheme();
     handleRoute();
     window.addEventListener('hashchange', handleRoute);
-    document.getElementById('backBtn').addEventListener('click', () => { location.hash = ''; });
-    document.getElementById('logo').addEventListener('click', (e) => { e.preventDefault(); location.hash = ''; });
+    var backBtn = document.getElementById('backBtn');
+    if (backBtn) backBtn.addEventListener('click', () => { location.hash = ''; });
+    var logo = document.getElementById('logo');
+    if (logo) logo.addEventListener('click', (e) => { e.preventDefault(); location.hash = ''; });
 }
 
 function renderGrid() {
@@ -990,6 +994,25 @@ window.downloadCsv = function() {
     a.href = URL.createObjectURL(blob);
     a.download = 'data.csv';
     a.click();
+};
+
+// ── Expose tools globally for individual pages ─────────────────
+window._toolRenderers = {
+    'json-formatter': renderJSON,
+    'word-counter': renderWordCounter,
+    'password-gen': renderPasswordGen,
+    'qr-generator': renderQRGen,
+    'base64': renderBase64,
+    'color-converter': renderColorConverter,
+    'hash-gen': renderHashGen,
+    'uuid-gen': renderUUIDGen,
+    'url-codec': renderURLCodec,
+    'text-case': renderTextCase,
+    'lorem-ipsum': renderLoremIpsum,
+    'timestamp': renderTimestamp,
+    'percentage-calc': renderPercentageCalc,
+    'unit-converter': renderUnitConverter,
+    'regex-tester': renderRegexTester,
 };
 
 // ── Init ────────────────────────────────────────────────────────

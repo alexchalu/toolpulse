@@ -146,9 +146,10 @@
         // Render tool
         document.addEventListener('DOMContentLoaded', function() {
             const toolId = 'lorem-ipsum-generator';
-            const toolMap = {};
-            if (typeof tools !== 'undefined') tools.forEach(t => toolMap[t.id] = t);
-            // Map new IDs to old IDs for backward compat
+            const container = document.getElementById('toolContent');
+            if (!container) return;
+            
+            // Map page IDs to app.js tool IDs
             const idMap = {
                 'password-generator': 'password-gen',
                 'qr-code-generator': 'qr-generator',
@@ -160,20 +161,17 @@
                 'lorem-ipsum-generator': 'lorem-ipsum',
                 'unix-timestamp-converter': 'timestamp',
                 'percentage-calculator': 'percentage-calc',
-                'unit-converter': 'unit-converter',
-                'regex-tester': 'regex-tester',
-                'json-formatter': 'json-formatter',
-                'word-counter': 'word-counter',
-                'color-converter': 'color-converter',
             };
             const lookupId = idMap[toolId] || toolId;
-            const tool = toolMap[lookupId];
-            if (tool && tool.render) {
-                tool.render(document.getElementById('toolContent'));
-            } else {
-                // New tool - render from page-specific function
+            
+            // Try _toolRenderers from app.js first
+            if (window._toolRenderers && window._toolRenderers[lookupId]) {
+                window._toolRenderers[lookupId](container);
+            }
+            // Then try window.render_xxx for new tools
+            else {
                 const fn = window['render_' + toolId.replace(/-/g, '_')];
-                if (fn) fn(document.getElementById('toolContent'));
+                if (fn) fn(container);
             }
         });
     </script>
