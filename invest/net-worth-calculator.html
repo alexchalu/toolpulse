@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Net Worth Calculator — Track Your Financial Health</title>
+<meta name="description" content="Calculate your net worth by listing assets and liabilities. Free personal net worth calculator and tracker.">
+<meta name="keywords" content="net worth calculator, personal net worth, financial health calculator, assets minus liabilities">
+<link rel="canonical" href="https://alexchalu.github.io/toolpulse/invest/net-worth-calculator.html">
+<meta property="og:title" content="Net Worth Calculator — Track Your Financial Health">
+<meta property="og:description" content="Calculate your net worth by listing assets and liabilities. Free personal net worth calculator and tracker.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<style>
+:root{--bg:#0a0e1a;--s:#111827;--s2:#1f2937;--b:#374151;--t:#f3f4f6;--m:#9ca3af;--a:#6366f1;--a2:#4f46e5;--g:rgba(99,102,241,.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+header{background:var(--s);border-bottom:1px solid var(--b);padding:1rem 1.5rem;position:sticky;top:0;z-index:100}
+.hi{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:1rem}
+.logo{font-size:1.3rem;font-weight:800;color:var(--a);text-decoration:none}
+.back{color:var(--m);text-decoration:none;font-size:.9rem}
+.back:hover{color:var(--a)}
+main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+h1{font-size:2rem;font-weight:900;margin-bottom:.5rem;background:linear-gradient(135deg,#f3f4f6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{color:var(--m);margin-bottom:2rem;font-size:1rem}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem}
+.field{display:flex;flex-direction:column;gap:.25rem}
+.field label{font-size:.85rem;color:var(--m);font-weight:500}
+.field input{padding:.6rem .75rem;background:var(--s2);border:1px solid var(--b);border-radius:8px;color:var(--t);font-size:1rem;outline:none}
+.field input:focus{border-color:var(--a)}
+.btn{background:var(--a);color:#fff;border:none;padding:.75rem 2rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin:1rem 0}
+.btn:hover{background:var(--a2)}
+#result{margin-top:1.5rem}
+.res-cards{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.rc{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem;text-align:center}
+.rc-label{font-size:.8rem;color:var(--m);margin-bottom:.25rem}
+.rc-val{font-size:1.4rem;font-weight:800;color:var(--t)}
+.data-table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:.85rem}
+.data-table th,.data-table td{padding:.5rem;text-align:right;border-bottom:1px solid var(--b)}
+.data-table th{color:var(--m);font-weight:600;text-align:right}
+.data-table td:first-child,.data-table th:first-child{text-align:left}
+.ad{margin:2rem 0;text-align:center;min-height:90px}
+article{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--b)}
+article h2{font-size:1.3rem;margin:1.5rem 0 .75rem;color:var(--t)}
+article p{color:var(--m);margin-bottom:1rem;line-height:1.7}
+article ul{color:var(--m);margin:0 0 1rem 1.5rem}
+article li{margin-bottom:.5rem}
+.related{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--b)}
+.related h3{margin-bottom:1rem}
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem}
+.rel-card{background:var(--s);border:1px solid var(--b);border-radius:8px;padding:.75rem 1rem;text-decoration:none;color:var(--t);font-size:.9rem;font-weight:600}
+.rel-card:hover{border-color:var(--a)}
+footer{text-align:center;padding:2rem 1.5rem;color:var(--m);font-size:.8rem;border-top:1px solid var(--b);margin-top:3rem}
+footer a{color:var(--a);text-decoration:none}
+@media(max-width:600px){.calc-grid,.res-cards{grid-template-columns:1fr}h1{font-size:1.5rem}}
+</style>
+</head>
+<body>
+<header><div class="hi">
+<a href="../index.html" class="logo">🔧 ToolPulse</a>
+<a href="../index.html" class="back">← All Tools</a>
+</div></header>
+<main>
+<h1>Net Worth Calculator</h1>
+<p class="subtitle">Calculate your net worth by listing assets and liabilities. Free personal net worth calculator and tracker.</p>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="calc-grid">
+<div class="field"><label for="cash">Cash & Savings ($)</label><input type="number" id="cash" value="25000" min="0"></div>
+<div class="field"><label for="investments">Investments & Retirement ($)</label><input type="number" id="investments" value="150000" min="0"></div>
+<div class="field"><label for="realEstate">Real Estate Value ($)</label><input type="number" id="realEstate" value="350000" min="0"></div>
+<div class="field"><label for="vehicles">Vehicle Values ($)</label><input type="number" id="vehicles" value="30000" min="0"></div>
+<div class="field"><label for="otherAssets">Other Assets ($)</label><input type="number" id="otherAssets" value="10000" min="0"></div>
+<div class="field"><label for="mortgage">Mortgage Balance ($)</label><input type="number" id="mortgage" value="250000" min="0"></div>
+<div class="field"><label for="carLoans">Car Loans ($)</label><input type="number" id="carLoans" value="15000" min="0"></div>
+<div class="field"><label for="studentLoans">Student Loans ($)</label><input type="number" id="studentLoans" value="30000" min="0"></div>
+<div class="field"><label for="creditCards">Credit Card Debt ($)</label><input type="number" id="creditCards" value="5000" min="0"></div>
+<div class="field"><label for="otherDebt">Other Debts ($)</label><input type="number" id="otherDebt" value="0" min="0"></div>
+</div>
+<button class="btn" onclick="calculate()">Calculate</button>
+<div id="result"></div>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<article><h2>What Is Net Worth?</h2><p>Net worth = assets minus liabilities. It's the single best measure of financial health. The median American household net worth is $192,900 (2023 Federal Reserve data). By age: 35-44 average $549,600, 55-64 average $1.56 million, 65-74 average $1.79 million.</p><h2>How to Grow Your Net Worth</h2><ul><li>Pay down high-interest debt first</li><li>Max out retirement accounts (401k + IRA = $30,500/year)</li><li>Build an emergency fund (3-6 months expenses)</li><li>Invest consistently in low-cost index funds</li><li>Track net worth quarterly to stay motivated</li></ul></article>
+<div class="related"><h3>Related Calculators</h3><div class="rel-grid">
+<a href="401k-calculator.html" class="rel-card">401(k) Retirement Calculator</a>
+<a href="roth-ira-calculator.html" class="rel-card">Roth IRA Calculator</a>
+<a href="compound-interest-calculator.html" class="rel-card">Compound Interest Calculator</a>
+<a href="debt-payoff-calculator.html" class="rel-card">Debt Payoff Calculator</a>
+<a href="investment-return-calculator.html" class="rel-card">Investment Return Calculator</a>
+</div></div>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+</main>
+<footer>
+<p>&copy; 2026 ToolPulse. Free online calculators and tools.</p>
+<p><a href="../index.html">All Tools</a> | <a href="../blog/">Blog</a></p>
+</footer>
+<script>
+function gv(id){return parseFloat(document.getElementById(id).value)||0}
+function calculate(){
+const cash=gv('cash');
+const investments=gv('investments');
+const realEstate=gv('realEstate');
+const vehicles=gv('vehicles');
+const otherAssets=gv('otherAssets');
+const mortgage=gv('mortgage');
+const carLoans=gv('carLoans');
+const studentLoans=gv('studentLoans');
+const creditCards=gv('creditCards');
+const otherDebt=gv('otherDebt');
+
+      const totalAssets = cash + investments + realEstate + vehicles + otherAssets;
+      const totalLiabilities = mortgage + carLoans + studentLoans + creditCards + otherDebt;
+      const netWorth = totalAssets - totalLiabilities;
+      const debtRatio = totalAssets > 0 ? ((totalLiabilities / totalAssets) * 100).toFixed(1) : 0;
+      document.getElementById('result').innerHTML = '<div class="res-cards"><div class="rc"><div class="rc-label">Net Worth</div><div class="rc-val"'+(netWorth>=0?' style="color:#22c55e"':' style="color:#ef4444"')+'>$'+Math.round(netWorth).toLocaleString()+'</div></div><div class="rc"><div class="rc-label">Total Assets</div><div class="rc-val">$'+Math.round(totalAssets).toLocaleString()+'</div></div><div class="rc"><div class="rc-label">Total Liabilities</div><div class="rc-val">$'+Math.round(totalLiabilities).toLocaleString()+'</div></div><div class="rc"><div class="rc-label">Debt-to-Asset Ratio</div><div class="rc-val">'+debtRatio+'%</div></div></div><div style="margin-top:1.5rem"><h3>Asset Breakdown</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.5rem"><div style="padding:.75rem;background:var(--s2);border-radius:8px"><span style="color:var(--m)">Cash:</span> $'+cash.toLocaleString()+'</div><div style="padding:.75rem;background:var(--s2);border-radius:8px"><span style="color:var(--m)">Investments:</span> $'+investments.toLocaleString()+'</div><div style="padding:.75rem;background:var(--s2);border-radius:8px"><span style="color:var(--m)">Real Estate:</span> $'+realEstate.toLocaleString()+'</div><div style="padding:.75rem;background:var(--s2);border-radius:8px"><span style="color:var(--m)">Vehicles:</span> $'+vehicles.toLocaleString()+'</div></div></div>';
+    
+}
+calculate();
+</script>
+</body>
+</html>

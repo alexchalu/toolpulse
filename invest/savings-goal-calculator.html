@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings Goal Calculator — How Long to Save For Anything</title>
+<meta name="description" content="Calculate how long it takes to reach your savings goal, or how much to save monthly. Emergency fund, vacation, down payment calculator.">
+<meta name="keywords" content="savings goal calculator, how long to save, savings calculator, emergency fund calculator">
+<link rel="canonical" href="https://alexchalu.github.io/toolpulse/invest/savings-goal-calculator.html">
+<meta property="og:title" content="Savings Goal Calculator — How Long to Save For Anything">
+<meta property="og:description" content="Calculate how long it takes to reach your savings goal, or how much to save monthly. Emergency fund, vacation, down payment calculator.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<style>
+:root{--bg:#0a0e1a;--s:#111827;--s2:#1f2937;--b:#374151;--t:#f3f4f6;--m:#9ca3af;--a:#6366f1;--a2:#4f46e5;--g:rgba(99,102,241,.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+header{background:var(--s);border-bottom:1px solid var(--b);padding:1rem 1.5rem;position:sticky;top:0;z-index:100}
+.hi{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:1rem}
+.logo{font-size:1.3rem;font-weight:800;color:var(--a);text-decoration:none}
+.back{color:var(--m);text-decoration:none;font-size:.9rem}
+.back:hover{color:var(--a)}
+main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+h1{font-size:2rem;font-weight:900;margin-bottom:.5rem;background:linear-gradient(135deg,#f3f4f6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{color:var(--m);margin-bottom:2rem;font-size:1rem}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem}
+.field{display:flex;flex-direction:column;gap:.25rem}
+.field label{font-size:.85rem;color:var(--m);font-weight:500}
+.field input{padding:.6rem .75rem;background:var(--s2);border:1px solid var(--b);border-radius:8px;color:var(--t);font-size:1rem;outline:none}
+.field input:focus{border-color:var(--a)}
+.btn{background:var(--a);color:#fff;border:none;padding:.75rem 2rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin:1rem 0}
+.btn:hover{background:var(--a2)}
+#result{margin-top:1.5rem}
+.res-cards{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.rc{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem;text-align:center}
+.rc-label{font-size:.8rem;color:var(--m);margin-bottom:.25rem}
+.rc-val{font-size:1.4rem;font-weight:800;color:var(--t)}
+.data-table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:.85rem}
+.data-table th,.data-table td{padding:.5rem;text-align:right;border-bottom:1px solid var(--b)}
+.data-table th{color:var(--m);font-weight:600;text-align:right}
+.data-table td:first-child,.data-table th:first-child{text-align:left}
+.ad{margin:2rem 0;text-align:center;min-height:90px}
+article{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--b)}
+article h2{font-size:1.3rem;margin:1.5rem 0 .75rem;color:var(--t)}
+article p{color:var(--m);margin-bottom:1rem;line-height:1.7}
+article ul{color:var(--m);margin:0 0 1rem 1.5rem}
+article li{margin-bottom:.5rem}
+.related{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--b)}
+.related h3{margin-bottom:1rem}
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem}
+.rel-card{background:var(--s);border:1px solid var(--b);border-radius:8px;padding:.75rem 1rem;text-decoration:none;color:var(--t);font-size:.9rem;font-weight:600}
+.rel-card:hover{border-color:var(--a)}
+footer{text-align:center;padding:2rem 1.5rem;color:var(--m);font-size:.8rem;border-top:1px solid var(--b);margin-top:3rem}
+footer a{color:var(--a);text-decoration:none}
+@media(max-width:600px){.calc-grid,.res-cards{grid-template-columns:1fr}h1{font-size:1.5rem}}
+</style>
+</head>
+<body>
+<header><div class="hi">
+<a href="../index.html" class="logo">🔧 ToolPulse</a>
+<a href="../index.html" class="back">← All Tools</a>
+</div></header>
+<main>
+<h1>Savings Goal Calculator</h1>
+<p class="subtitle">Calculate how long it takes to reach your savings goal, or how much to save monthly. Emergency fund, vacation, down payment calculator.</p>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="calc-grid">
+<div class="field"><label for="goal">Savings Goal ($)</label><input type="number" id="goal" value="50000" min="0"></div>
+<div class="field"><label for="currentSavings">Current Savings ($)</label><input type="number" id="currentSavings" value="5000" min="0"></div>
+<div class="field"><label for="monthlySave">Monthly Savings ($)</label><input type="number" id="monthlySave" value="1000" min="0"></div>
+<div class="field"><label for="rate">Savings Interest Rate (%)</label><input type="number" id="rate" value="4.5" min="0" max="20"></div>
+</div>
+<button class="btn" onclick="calculate()">Calculate</button>
+<div id="result"></div>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<article><h2>Setting Savings Goals</h2><p>Whether it's an emergency fund (3-6 months expenses), a home down payment (20% of home price), or a dream vacation, having a specific target and timeline makes saving actionable. High-yield savings accounts now offer 4-5% APY, making your savings work harder.</p></article>
+<div class="related"><h3>Related Calculators</h3><div class="rel-grid">
+<a href="401k-calculator.html" class="rel-card">401(k) Retirement Calculator</a>
+<a href="roth-ira-calculator.html" class="rel-card">Roth IRA Calculator</a>
+<a href="compound-interest-calculator.html" class="rel-card">Compound Interest Calculator</a>
+<a href="debt-payoff-calculator.html" class="rel-card">Debt Payoff Calculator</a>
+<a href="investment-return-calculator.html" class="rel-card">Investment Return Calculator</a>
+</div></div>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+</main>
+<footer>
+<p>&copy; 2026 ToolPulse. Free online calculators and tools.</p>
+<p><a href="../index.html">All Tools</a> | <a href="../blog/">Blog</a></p>
+</footer>
+<script>
+function gv(id){return parseFloat(document.getElementById(id).value)||0}
+function calculate(){
+const goal=gv('goal');
+const currentSavings=gv('currentSavings');
+const monthlySave=gv('monthlySave');
+const rate=gv('rate');
+
+      const mr = rate / 100 / 12;
+      let bal = currentSavings;
+      let months = 0;
+      while (bal < goal && months < 600) {
+        bal = bal * (1 + mr) + monthlySave;
+        months++;
+      }
+      const totalDeposited = currentSavings + monthlySave * months;
+      const interestEarned = bal - totalDeposited;
+      const yrs = Math.floor(months/12); const mo = months%12;
+      // How much needed monthly to hit goal in specific timeframes
+      const timeframes = [12, 24, 36, 60];
+      let tfRows = '';
+      for (const tf of timeframes) {
+        const needed = mr > 0 ? (goal - currentSavings * Math.pow(1+mr,tf)) * mr / (Math.pow(1+mr,tf) - 1) : (goal - currentSavings) / tf;
+        tfRows += '<tr><td>'+(tf/12)+' year'+(tf>12?'s':'')+'</td><td>$'+Math.round(Math.max(0,needed)).toLocaleString()+'/mo</td></tr>';
+      }
+      document.getElementById('result').innerHTML = '<div class="res-cards"><div class="rc"><div class="rc-label">Time to Goal</div><div class="rc-val">'+(yrs>0?yrs+'y ':'')+ mo+'mo</div></div><div class="rc"><div class="rc-label">Total Deposited</div><div class="rc-val">$'+Math.round(totalDeposited).toLocaleString()+'</div></div><div class="rc"><div class="rc-label">Interest Earned</div><div class="rc-val" style="color:#22c55e">$'+Math.round(interestEarned).toLocaleString()+'</div></div><div class="rc"><div class="rc-label">Final Balance</div><div class="rc-val">$'+Math.round(bal).toLocaleString()+'</div></div></div><h3 style="margin-top:1.5rem">Monthly Savings Needed by Timeframe</h3><table class="data-table"><thead><tr><th>Timeframe</th><th>Monthly Savings Needed</th></tr></thead><tbody>'+tfRows+'</tbody></table>';
+    
+}
+calculate();
+</script>
+</body>
+</html>

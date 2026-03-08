@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment Return Calculator — CAGR & Total Return</title>
+<meta name="description" content="Calculate your investment returns, CAGR, and total growth. Compare stocks, real estate, and other investments.">
+<meta name="keywords" content="investment return calculator, CAGR calculator, stock return calculator, ROI calculator">
+<link rel="canonical" href="https://alexchalu.github.io/toolpulse/invest/investment-return-calculator.html">
+<meta property="og:title" content="Investment Return Calculator — CAGR & Total Return">
+<meta property="og:description" content="Calculate your investment returns, CAGR, and total growth. Compare stocks, real estate, and other investments.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<style>
+:root{--bg:#0a0e1a;--s:#111827;--s2:#1f2937;--b:#374151;--t:#f3f4f6;--m:#9ca3af;--a:#6366f1;--a2:#4f46e5;--g:rgba(99,102,241,.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+header{background:var(--s);border-bottom:1px solid var(--b);padding:1rem 1.5rem;position:sticky;top:0;z-index:100}
+.hi{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:1rem}
+.logo{font-size:1.3rem;font-weight:800;color:var(--a);text-decoration:none}
+.back{color:var(--m);text-decoration:none;font-size:.9rem}
+.back:hover{color:var(--a)}
+main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+h1{font-size:2rem;font-weight:900;margin-bottom:.5rem;background:linear-gradient(135deg,#f3f4f6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{color:var(--m);margin-bottom:2rem;font-size:1rem}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem}
+.field{display:flex;flex-direction:column;gap:.25rem}
+.field label{font-size:.85rem;color:var(--m);font-weight:500}
+.field input{padding:.6rem .75rem;background:var(--s2);border:1px solid var(--b);border-radius:8px;color:var(--t);font-size:1rem;outline:none}
+.field input:focus{border-color:var(--a)}
+.btn{background:var(--a);color:#fff;border:none;padding:.75rem 2rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin:1rem 0}
+.btn:hover{background:var(--a2)}
+#result{margin-top:1.5rem}
+.res-cards{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.rc{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem;text-align:center}
+.rc-label{font-size:.8rem;color:var(--m);margin-bottom:.25rem}
+.rc-val{font-size:1.4rem;font-weight:800;color:var(--t)}
+.data-table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:.85rem}
+.data-table th,.data-table td{padding:.5rem;text-align:right;border-bottom:1px solid var(--b)}
+.data-table th{color:var(--m);font-weight:600;text-align:right}
+.data-table td:first-child,.data-table th:first-child{text-align:left}
+.ad{margin:2rem 0;text-align:center;min-height:90px}
+article{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--b)}
+article h2{font-size:1.3rem;margin:1.5rem 0 .75rem;color:var(--t)}
+article p{color:var(--m);margin-bottom:1rem;line-height:1.7}
+article ul{color:var(--m);margin:0 0 1rem 1.5rem}
+article li{margin-bottom:.5rem}
+.related{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--b)}
+.related h3{margin-bottom:1rem}
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem}
+.rel-card{background:var(--s);border:1px solid var(--b);border-radius:8px;padding:.75rem 1rem;text-decoration:none;color:var(--t);font-size:.9rem;font-weight:600}
+.rel-card:hover{border-color:var(--a)}
+footer{text-align:center;padding:2rem 1.5rem;color:var(--m);font-size:.8rem;border-top:1px solid var(--b);margin-top:3rem}
+footer a{color:var(--a);text-decoration:none}
+@media(max-width:600px){.calc-grid,.res-cards{grid-template-columns:1fr}h1{font-size:1.5rem}}
+</style>
+</head>
+<body>
+<header><div class="hi">
+<a href="../index.html" class="logo">🔧 ToolPulse</a>
+<a href="../index.html" class="back">← All Tools</a>
+</div></header>
+<main>
+<h1>Investment Return Calculator</h1>
+<p class="subtitle">Calculate your investment returns, CAGR, and total growth. Compare stocks, real estate, and other investments.</p>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="calc-grid">
+<div class="field"><label for="initialInvest">Initial Investment ($)</label><input type="number" id="initialInvest" value="50000" min="0"></div>
+<div class="field"><label for="finalValue">Final Value ($)</label><input type="number" id="finalValue" value="125000" min="0"></div>
+<div class="field"><label for="years">Time Period (years)</label><input type="number" id="years" value="5" min="1" max="100"></div>
+<div class="field"><label for="dividends">Total Dividends Received ($)</label><input type="number" id="dividends" value="5000" min="0"></div>
+</div>
+<button class="btn" onclick="calculate()">Calculate</button>
+<div id="result"></div>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<article><h2>Understanding Investment Returns</h2><p>Total return includes both capital appreciation and income (dividends, interest). CAGR (Compound Annual Growth Rate) shows your smoothed annual return, making it easy to compare investments of different durations.</p><h2>Historical Benchmarks</h2><ul><li>S&P 500: ~10% CAGR (1926-2025)</li><li>Real Estate: ~3-4% CAGR (appreciation only)</li><li>Bonds: ~5% CAGR (total return)</li><li>Gold: ~7% CAGR (2000-2025)</li></ul></article>
+<div class="related"><h3>Related Calculators</h3><div class="rel-grid">
+<a href="401k-calculator.html" class="rel-card">401(k) Retirement Calculator</a>
+<a href="roth-ira-calculator.html" class="rel-card">Roth IRA Calculator</a>
+<a href="compound-interest-calculator.html" class="rel-card">Compound Interest Calculator</a>
+<a href="debt-payoff-calculator.html" class="rel-card">Debt Payoff Calculator</a>
+<a href="auto-loan-calculator.html" class="rel-card">Auto Loan Calculator</a>
+</div></div>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+</main>
+<footer>
+<p>&copy; 2026 ToolPulse. Free online calculators and tools.</p>
+<p><a href="../index.html">All Tools</a> | <a href="../blog/">Blog</a></p>
+</footer>
+<script>
+function gv(id){return parseFloat(document.getElementById(id).value)||0}
+function calculate(){
+const initialInvest=gv('initialInvest');
+const finalValue=gv('finalValue');
+const years=gv('years');
+const dividends=gv('dividends');
+
+      const totalReturn = ((finalValue + dividends - initialInvest) / initialInvest * 100);
+      const cagr = ((Math.pow((finalValue + dividends) / initialInvest, 1/years) - 1) * 100);
+      const profit = finalValue + dividends - initialInvest;
+      const annualizedProfit = profit / years;
+      document.getElementById('result').innerHTML = '<div class="res-cards"><div class="rc"><div class="rc-label">Total Return</div><div class="rc-val"'+(totalReturn>=0?' style="color:#22c55e"':' style="color:#ef4444"')+'>'+totalReturn.toFixed(1)+'%</div></div><div class="rc"><div class="rc-label">CAGR (Annualized)</div><div class="rc-val">'+cagr.toFixed(2)+'%</div></div><div class="rc"><div class="rc-label">Total Profit</div><div class="rc-val"'+(profit>=0?' style="color:#22c55e"':' style="color:#ef4444"')+'>$'+Math.round(profit).toLocaleString()+'</div></div><div class="rc"><div class="rc-label">Avg Annual Profit</div><div class="rc-val">$'+Math.round(annualizedProfit).toLocaleString()+'</div></div></div><div style="margin-top:1.5rem;padding:1rem;background:var(--s2);border-radius:8px"><h3>Investment Breakdown</h3><p style="margin-top:.5rem;color:var(--m)">Capital Appreciation: $'+(finalValue-initialInvest).toLocaleString()+' ('+ ((finalValue-initialInvest)/initialInvest*100).toFixed(1)+'%)</p><p style="color:var(--m)">Dividend Income: $'+dividends.toLocaleString()+' ('+((dividends/initialInvest)*100).toFixed(1)+'%)</p><p style="color:var(--m)">Annualized CAGR of '+cagr.toFixed(2)+'% means $1 invested becomes $'+(Math.pow(1+cagr/100,years)).toFixed(2)+' in '+years+' years</p></div>';
+    
+}
+calculate();
+</script>
+</body>
+</html>
