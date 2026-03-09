@@ -1,11 +1,58 @@
-<!DOCTYPE html>
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+// High-volume speed conversions
+const conversions = [
+  { from: 'mph', to: 'kph', name: 'MPH to KPH', category: 'Speed', fromFull: 'Miles Per Hour', toFull: 'Kilometers Per Hour' },
+  { from: 'kph', to: 'mph', name: 'KPH to MPH', category: 'Speed', fromFull: 'Kilometers Per Hour', toFull: 'Miles Per Hour' },
+  { from: 'mph', to: 'ms', name: 'MPH to Meters/Second', category: 'Speed', fromFull: 'Miles Per Hour', toFull: 'Meters Per Second' },
+  { from: 'kph', to: 'ms', name: 'KPH to Meters/Second', category: 'Speed', fromFull: 'Kilometers Per Hour', toFull: 'Meters Per Second' },
+  { from: 'ms', to: 'mph', name: 'Meters/Second to MPH', category: 'Speed', fromFull: 'Meters Per Second', toFull: 'Miles Per Hour' },
+  { from: 'ms', to: 'kph', name: 'Meters/Second to KPH', category: 'Speed', fromFull: 'Meters Per Second', toFull: 'Kilometers Per Hour' },
+  { from: 'knots', to: 'mph', name: 'Knots to MPH', category: 'Speed', fromFull: 'Knots', toFull: 'Miles Per Hour' },
+  { from: 'knots', to: 'kph', name: 'Knots to KPH', category: 'Speed', fromFull: 'Knots', toFull: 'Kilometers Per Hour' },
+  { from: 'mph', to: 'knots', name: 'MPH to Knots', category: 'Speed', fromFull: 'Miles Per Hour', toFull: 'Knots' },
+  { from: 'kph', to: 'knots', name: 'KPH to Knots', category: 'Speed', fromFull: 'Kilometers Per Hour', toFull: 'Knots' },
+  { from: 'mach', to: 'mph', name: 'Mach to MPH', category: 'Speed', fromFull: 'Mach', toFull: 'Miles Per Hour' },
+  { from: 'mach', to: 'kph', name: 'Mach to KPH', category: 'Speed', fromFull: 'Mach', toFull: 'Kilometers Per Hour' },
+  { from: 'mph', to: 'fps', name: 'MPH to Feet/Second', category: 'Speed', fromFull: 'Miles Per Hour', toFull: 'Feet Per Second' },
+  { from: 'fps', to: 'mph', name: 'Feet/Second to MPH', category: 'Speed', fromFull: 'Feet Per Second', toFull: 'Miles Per Hour' },
+  { from: 'kph', to: 'fps', name: 'KPH to Feet/Second', category: 'Speed', fromFull: 'Kilometers Per Hour', toFull: 'Feet Per Second' },
+];
+
+// Conversion formulas
+const formulas = {
+  'mph-kph': (mph) => (mph * 1.60934).toFixed(2),
+  'kph-mph': (kph) => (kph / 1.60934).toFixed(2),
+  'mph-ms': (mph) => (mph * 0.44704).toFixed(2),
+  'kph-ms': (kph) => (kph / 3.6).toFixed(2),
+  'ms-mph': (ms) => (ms / 0.44704).toFixed(2),
+  'ms-kph': (ms) => (ms * 3.6).toFixed(2),
+  'knots-mph': (knots) => (knots * 1.15078).toFixed(2),
+  'knots-kph': (knots) => (knots * 1.852).toFixed(2),
+  'mph-knots': (mph) => (mph / 1.15078).toFixed(2),
+  'kph-knots': (kph) => (kph / 1.852).toFixed(2),
+  'mach-mph': (mach) => (mach * 767.269).toFixed(2),
+  'mach-kph': (mach) => (mach * 1234.8).toFixed(2),
+  'mph-fps': (mph) => (mph * 1.46667).toFixed(2),
+  'fps-mph': (fps) => (fps / 1.46667).toFixed(2),
+  'kph-fps': (kph) => (kph * 0.911344).toFixed(2),
+};
+
+function generatePage(conv) {
+  const slug = `convert-${conv.from}-to-${conv.to}`;
+  const formulaKey = `${conv.from}-${conv.to}`;
+  
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meters/Second to MPH Converter - Free Speed Conversion Tool | ToolPulse</title>
-    <meta name="description" content="Convert Meters Per Second to Miles Per Hour instantly. Free meters/second to mph speed converter. Accurate, fast, easy to use.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-ms-to-mph.html">
+    <title>${conv.name} Converter - Free Speed Conversion Tool | ToolPulse</title>
+    <meta name="description" content="Convert ${conv.fromFull} to ${conv.toFull} instantly. Free ${conv.name.toLowerCase()} speed converter. Accurate, fast, easy to use.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -40,8 +87,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Meters/Second to MPH Converter</h1>
-            <p>Free online Meters Per Second to Miles Per Hour speed converter</p>
+            <h1>${conv.name} Converter</h1>
+            <p>Free online ${conv.fromFull} to ${conv.toFull} speed converter</p>
         </div>
     </div>
 
@@ -53,9 +100,9 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Meters Per Second to Miles Per Hour</h2>
+            <h2>Convert ${conv.fromFull} to ${conv.toFull}</h2>
             <div class="input-group">
-                <label for="input-value">Enter Meters Per Second:</label>
+                <label for="input-value">Enter ${conv.fromFull}:</label>
                 <input type="number" id="input-value" placeholder="Enter speed" step="any">
             </div>
             <div class="result-box" id="result">
@@ -70,16 +117,16 @@
         </div>
 
         <div class="info-section">
-            <h3>About Meters Per Second to Miles Per Hour Conversion</h3>
-            <p>This free online converter helps you quickly convert Meters Per Second to Miles Per Hour. Perfect for travel, driving, aviation, marine navigation, and physics calculations.</p>
+            <h3>About ${conv.fromFull} to ${conv.toFull} Conversion</h3>
+            <p>This free online converter helps you quickly convert ${conv.fromFull} to ${conv.toFull}. Perfect for travel, driving, aviation, marine navigation, and physics calculations.</p>
             
             <h3>Quick Reference Table</h3>
             <div class="table-wrapper">
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>Meters Per Second</th>
-                            <th>Miles Per Hour</th>
+                            <th>${conv.fromFull}</th>
+                            <th>${conv.toFull}</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -112,8 +159,8 @@
     </div>
 
     <script>
-        const formulaKey = 'ms-mph';
-        const formulas = {};
+        const formulaKey = '${formulaKey}';
+        const formulas = ${JSON.stringify(formulas, null, 2)};
         
         const inputEl = document.getElementById('input-value');
         const resultEl = document.getElementById('result-value');
@@ -122,7 +169,7 @@
         function convert(value) {
             const formula = formulas[formulaKey];
             if (!formula) return 'Error';
-            return eval(formula.toString().replace(/^\(.*?\)\s*=>/, 'return ') + '(' + value + ')');
+            return eval(formula.toString().replace(/^\\(.*?\\)\\s*=>/, 'return ') + '(' + value + ')');
         }
         
         inputEl.addEventListener('input', () => {
@@ -132,11 +179,11 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' ms = ' + result + ' mph';
+            resultEl.textContent = value + ' ${conv.from} = ' + result + ' ${conv.to}';
         });
         
         // Generate reference table
-        const referenceValues = ['ms' === 'mach' ? [0.5, 1, 1.5, 2, 3, 5, 10] : [10, 20, 50, 100, 200, 500, 1000]][0];
+        const referenceValues = ['${conv.from}' === 'mach' ? [0.5, 1, 1.5, 2, 3, 5, 10] : [10, 20, 50, 100, 200, 500, 1000]][0];
         referenceValues.forEach(val => {
             const row = document.createElement('tr');
             const result = convert(val);
@@ -145,4 +192,18 @@
         });
     </script>
 </body>
-</html>
+</html>`;
+}
+
+// Generate all pages
+let count = 0;
+conversions.forEach(conv => {
+  const slug = `convert-${conv.from}-to-${conv.to}`;
+  const html = generatePage(conv);
+  fs.writeFileSync(path.join(__dirname, `${slug}.html`), html);
+  count++;
+  console.log(`✓ Generated ${slug}.html`);
+});
+
+console.log(`\n✅ Generated ${count} speed conversion pages`);
+console.log('📝 Next: Update sitemap.xml and push to GitHub');

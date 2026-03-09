@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meters/Second to MPH Converter - Free Speed Conversion Tool | ToolPulse</title>
-    <meta name="description" content="Convert Meters Per Second to Miles Per Hour instantly. Free meters/second to mph speed converter. Accurate, fast, easy to use.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-ms-to-mph.html">
+    <title>Mach to MPH Converter - Free Speed Conversion Tool | ToolPulse</title>
+    <meta name="description" content="Convert Mach to Miles Per Hour instantly. Free mach to mph speed converter. Accurate, fast, easy to use.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-mach-to-mph.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -40,8 +40,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Meters/Second to MPH Converter</h1>
-            <p>Free online Meters Per Second to Miles Per Hour speed converter</p>
+            <h1>Mach to MPH Converter</h1>
+            <p>Free online Mach to Miles Per Hour speed converter</p>
         </div>
     </div>
 
@@ -53,9 +53,9 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Meters Per Second to Miles Per Hour</h2>
+            <h2>Convert Mach to Miles Per Hour</h2>
             <div class="input-group">
-                <label for="input-value">Enter Meters Per Second:</label>
+                <label for="input-value">Enter Mach:</label>
                 <input type="number" id="input-value" placeholder="Enter speed" step="any">
             </div>
             <div class="result-box" id="result">
@@ -70,15 +70,15 @@
         </div>
 
         <div class="info-section">
-            <h3>About Meters Per Second to Miles Per Hour Conversion</h3>
-            <p>This free online converter helps you quickly convert Meters Per Second to Miles Per Hour. Perfect for travel, driving, aviation, marine navigation, and physics calculations.</p>
+            <h3>About Mach to Miles Per Hour Conversion</h3>
+            <p>This free online converter helps you quickly convert Mach to Miles Per Hour. Perfect for travel, driving, aviation, marine navigation, and physics calculations.</p>
             
             <h3>Quick Reference Table</h3>
             <div class="table-wrapper">
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>Meters Per Second</th>
+                            <th>Mach</th>
                             <th>Miles Per Hour</th>
                         </tr>
                     </thead>
@@ -112,7 +112,7 @@
     </div>
 
     <script>
-        const formulaKey = 'ms-mph';
+        const formulaKey = 'mach-mph';
         const formulas = {};
         
         const inputEl = document.getElementById('input-value');
@@ -132,11 +132,11 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' ms = ' + result + ' mph';
+            resultEl.textContent = value + ' mach = ' + result + ' mph';
         });
         
         // Generate reference table
-        const referenceValues = ['ms' === 'mach' ? [0.5, 1, 1.5, 2, 3, 5, 10] : [10, 20, 50, 100, 200, 500, 1000]][0];
+        const referenceValues = ['mach' === 'mach' ? [0.5, 1, 1.5, 2, 3, 5, 10] : [10, 20, 50, 100, 200, 500, 1000]][0];
         referenceValues.forEach(val => {
             const row = document.createElement('tr');
             const result = convert(val);

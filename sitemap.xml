@@ -1051,6 +1051,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-fps-to-mph.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-gallons-to-cups.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1519,7 +1525,37 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-knots-to-kph.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-knots-to-mph.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-kph-to-fps.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-kph-to-knots.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-kph-to-mph.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-kph-to-ms.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1663,6 +1699,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mach-to-kph.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mach-to-mph.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-mb-to-kb.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1789,13 +1837,43 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mph-to-fps.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-mph-to-kmh.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mph-to-knots.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mph-to-kph.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mph-to-ms.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-ms-to-kmh.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-ms-to-kph.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
