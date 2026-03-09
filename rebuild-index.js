@@ -40,6 +40,18 @@ const categories = [
         ]
     },
     {
+        name: '🏘️ Real Estate Investment',
+        id: 'real-estate',
+        tools: [
+            { name: 'Rental Property ROI', desc: 'Calculate cash flow & returns', url: 'calc/rental-property-roi-calculator.html' },
+            { name: 'Cap Rate Calculator', desc: 'Capitalization rate for properties', url: 'calc/cap-rate-calculator.html' },
+            { name: 'NOI Calculator', desc: 'Net operating income', url: 'calc/noi-calculator.html' },
+            { name: 'Property Appreciation', desc: 'Real estate value growth', url: 'calc/real-estate-appreciation-calculator.html' },
+            { name: 'House Flipping ROI', desc: 'Fix-and-flip profit calculator', url: 'calc/house-flipping-calculator.html' },
+            { name: 'Mortgage Refinance', desc: 'Should you refinance?', url: 'calc/mortgage-refinance-calculator.html' },
+        ]
+    },
+    {
         name: '🛡️ Insurance Calculators',
         id: 'insurance',
         tools: [

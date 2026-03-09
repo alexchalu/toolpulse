@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Flipping Calculator - Free Real Estate Investment Tool | ToolPulse</title>
+    <meta name="description" content="Calculate profit on fix-and-flip real estate investments. Free online house flipping calculator with detailed results and explanations.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/calc/house-flipping-calculator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .calc-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .calc-box h2 { margin-bottom: 1.5rem; color: #667eea; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .input-group input { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
+        .input-group input:focus { outline: none; border-color: #667eea; }
+        .btn { background: #667eea; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.3s; }
+        .btn:hover { background: #5568d3; }
+        .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
+        .result-box.show { display: block; }
+        .result-box h3 { color: #667eea; margin-bottom: 1rem; }
+        .result-item { margin-bottom: 0.75rem; padding: 0.75rem; background: white; border-radius: 6px; }
+        .result-item strong { color: #333; }
+        .result-value { color: #667eea; font-size: 1.1rem; font-weight: 700; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #667eea; margin-bottom: 1rem; }
+        .info-section p, .info-section ul { margin-bottom: 1rem; }
+        .info-section ul { margin-left: 1.5rem; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #667eea; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>House Flipping Calculator</h1>
+            <p>Calculate profit on fix-and-flip real estate investments</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="calc-box">
+            <h2>Enter Your Information</h2>
+            
+    <div class="input-group">
+      <label for="purchase-price">Purchase Price ($)</label>
+      <input type="number" id="purchase-price" placeholder="200000" step="any">
+    </div>
+  
+
+    <div class="input-group">
+      <label for="renovation-cost">Renovation Costs ($)</label>
+      <input type="number" id="renovation-cost" placeholder="50000" step="any">
+    </div>
+  
+
+    <div class="input-group">
+      <label for="holding-costs">Holding Costs (monthly) ($)</label>
+      <input type="number" id="holding-costs" placeholder="2000" step="any">
+    </div>
+  
+
+    <div class="input-group">
+      <label for="holding-time">Holding Time (months)</label>
+      <input type="number" id="holding-time" placeholder="6" step="any">
+    </div>
+  
+
+    <div class="input-group">
+      <label for="arv">After Repair Value (ARV) ($)</label>
+      <input type="number" id="arv" placeholder="320000" step="any">
+    </div>
+  
+
+    <div class="input-group">
+      <label for="selling-costs">Selling Costs (%) (agent, closing)</label>
+      <input type="number" id="selling-costs" placeholder="8" step="any">
+    </div>
+  
+            <button class="btn" onclick="calculate()">Calculate</button>
+            
+            <div class="result-box" id="results">
+                <h3>Results</h3>
+                <div id="result-content"></div>
+            </div>
+        </div>
+
+        <!-- Ad Slot 2 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567891" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>About This Calculator</h3>
+            <p>Calculate profit on fix-and-flip real estate investments. This free tool helps real estate investors, homeowners, and property buyers make informed financial decisions.</p>
+            
+            <h3>How to Use</h3>
+            <ol style="margin-left: 1.5rem;">
+                <li>Enter your property and financial information in the fields above</li>
+                <li>Click "Calculate" to see detailed results</li>
+                <li>Review the breakdown to understand your real estate investment metrics</li>
+                <li>Adjust inputs to compare different scenarios</li>
+            </ol>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567892" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>More Tools</h3>
+            <p>Check out our other real estate and financial calculators:</p>
+            <ul>
+                <li><a href="../index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
+            <p><a href="../index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem;">All calculations are for informational purposes only. Consult a financial advisor for investment decisions.</p>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            // Calculator-specific logic will be implemented based on the calculator type
+            const slug = 'house-flipping-calculator';
+            const results = document.getElementById('results');
+            const content = document.getElementById('result-content');
+            
+            // Get all input values
+            const inputs = {};
+            document.querySelectorAll('input').forEach(input => {
+                inputs[input.id] = parseFloat(input.value) || 0;
+            });
+            
+            let html = '';
+            
+            
+            const purchasePrice = inputs['purchase-price'];
+            const renovationCost = inputs['renovation-cost'];
+            const holdingCosts = inputs['holding-costs'];
+            const holdingTime = inputs['holding-time'];
+            const arv = inputs['arv'];
+            const sellingCosts = inputs['selling-costs'];
+            
+            const totalHoldingCosts = holdingCosts * holdingTime;
+            const totalInvestment = purchasePrice + renovationCost + totalHoldingCosts;
+            const sellingCostsDollar = arv * (sellingCosts / 100);
+            const netProfit = arv - totalInvestment - sellingCostsDollar;
+            const roi = (netProfit / totalInvestment) * 100;
+            const annualizedROI = roi * (12 / holdingTime);
+            
+            html = `
+                <div class="result-item"><strong>Purchase Price:</strong> <span class="result-value">${formatCurrency(purchasePrice)}</span></div>
+                <div class="result-item"><strong>Renovation Costs:</strong> <span class="result-value">${formatCurrency(renovationCost)}</span></div>
+                <div class="result-item"><strong>Holding Costs:</strong> <span class="result-value">${formatCurrency(totalHoldingCosts)}</span></div>
+                <div class="result-item"><strong>Selling Costs:</strong> <span class="result-value">${formatCurrency(sellingCostsDollar)}</span></div>
+                <div class="result-item"><strong>Total Investment:</strong> <span class="result-value">${formatCurrency(totalInvestment)}</span></div>
+                <div class="result-item"><strong>After Repair Value:</strong> <span class="result-value">${formatCurrency(arv)}</span></div>
+                <div class="result-item"><strong>Net Profit:</strong> <span class="result-value" style="font-size: 1.3rem; color: ${netProfit >= 0 ? '#10b981' : '#ef4444'}">${formatCurrency(netProfit)}</span></div>
+                <div class="result-item"><strong>ROI:</strong> <span class="result-value">${formatPercent(roi)}</span></div>
+                <div class="result-item"><strong>Annualized ROI:</strong> <span class="result-value">${formatPercent(annualizedROI)}</span></div>
+            `;
+      
+            
+            content.innerHTML = html;
+            results.classList.add('show');
+        }
+        
+        function formatCurrency(num) {
+            return '$' + num.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
+        
+        function formatPercent(num) {
+            return num.toFixed(2) + '%';
+        }
+    </script>
+</body>
+</html>
