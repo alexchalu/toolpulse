@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Long-Term Care Insurance Calculator - Free Long-Term Care Insurance Estimator | ToolPulse</title>
-    <meta name="description" content="Calculate long-term care insurance premiums and coverage needs.. Free long-term care insurance calculator with instant estimates.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/long-term-care-insurance-calculator.html">
+    <title>Earthquake Insurance Calculator - Free Earthquake Insurance Estimator | ToolPulse</title>
+    <meta name="description" content="Estimate earthquake insurance costs based on location and home value.. Free earthquake insurance calculator with instant estimates.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/earthquake-insurance-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Long-Term Care Insurance Calculator</h1>
-            <p>Calculate long-term care insurance premiums and coverage needs.</p>
+            <h1>Earthquake Insurance Calculator</h1>
+            <p>Estimate earthquake insurance costs based on location and home value.</p>
         </div>
     </div>
 
@@ -53,54 +53,49 @@
         </div>
 
         <div class="calc-box">
-            <h2>Long-Term Care Insurance Estimator</h2>
+            <h2>Earthquake Insurance Estimator</h2>
             
         <div class="input-group">
-          <label for="age">Your Age:</label>
-          <input type="number" id="age"  min="40" max="85"  value="60">
+          <label for="home-value">Home Value ($):</label>
+          <input type="number" id="home-value"  min="0"   value="400000">
         </div>
 
         <div class="input-group">
-          <label for="daily-benefit">Daily Benefit Amount ($):</label>
-          <input type="number" id="daily-benefit"  min="0"   value="150">
-        </div>
-
-        <div class="input-group">
-          <label for="benefit-period">Benefit Period:</label>
-          <select id="benefit-period">
-            <option value="3 years">3 years</option>
-<option value="5 years">5 years</option>
-<option value="10 years">10 years</option>
-<option value="Lifetime">Lifetime</option>
+          <label for="location">Location Risk:</label>
+          <select id="location">
+            <option value="Low Risk">Low Risk</option>
+<option value="Moderate Risk">Moderate Risk</option>
+<option value="High Risk (CA, AK, WA)">High Risk (CA, AK, WA)</option>
+<option value="Very High Risk">Very High Risk</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="elimination">Elimination Period (days):</label>
-          <select id="elimination">
-            <option value="30">30</option>
-<option value="60">60</option>
-<option value="90">90</option>
-<option value="180">180</option>
+          <label for="construction">Construction Type:</label>
+          <select id="construction">
+            <option value="Wood Frame">Wood Frame</option>
+<option value="Steel Frame">Steel Frame</option>
+<option value="Concrete">Concrete</option>
+<option value="Brick/Masonry">Brick/Masonry</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="inflation">Inflation Protection:</label>
-          <select id="inflation">
-            <option value="None">None</option>
-<option value="3% Simple">3% Simple</option>
-<option value="3% Compound">3% Compound</option>
-<option value="5% Compound">5% Compound</option>
+          <label for="deductible">Deductible %:</label>
+          <select id="deductible">
+            <option value="5%">5%</option>
+<option value="10%">10%</option>
+<option value="15%">15%</option>
+<option value="20%">20%</option>
+<option value="25%">25%</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="health">Health Status:</label>
-          <select id="health">
-            <option value="Excellent">Excellent</option>
-<option value="Good">Good</option>
-<option value="Fair">Fair</option>
+          <label for="retrofit">Seismic Retrofit?:</label>
+          <select id="retrofit">
+            <option value="Yes">Yes</option>
+<option value="No">No</option>
           </select>
         </div>
             <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
@@ -113,8 +108,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Long-Term Care Insurance</h3>
-            <p>Use this calculator to estimate your long-term care insurance costs. Actual premiums will vary by insurer.</p>
+            <h3>About Earthquake Insurance</h3>
+            <p>Use this calculator to estimate your earthquake insurance costs. Actual premiums will vary by insurer.</p>
             <h3>More Insurance & Financial Tools</h3>
             <ul>
                 <li><a href="index.html">ToolPulse Home - All Tools</a></li>
@@ -149,25 +144,24 @@
             
             
             
+            const homeValue = parseFloat(document.getElementById('home-value').value);
+            const location = document.getElementById('location').value;
+            const deductible = document.getElementById('deductible').value;
+            
+            let rate = 0.002;
+            if (location.includes('Very High')) rate = 0.015;
+            else if (location.includes('High Risk')) rate = 0.010;
+            else if (location.includes('Moderate')) rate = 0.005;
+            
+            const annual = homeValue * rate;
+            monthly = annual / 12;
+            const deductibleAmount = homeValue * (parseInt(deductible) / 100);
+            
+            html += '<div class="result-value">$' + annual.toFixed(2) + '/year</div>';
+            html += '<div class="result-detail">Monthly: $' + monthly.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Deductible Amount: $' + deductibleAmount.toLocaleString() + '</div>';
             
             
-            const age = parseInt(document.getElementById('age').value);
-            const dailyBenefit = parseFloat(document.getElementById('daily-benefit').value);
-            const inflation = document.getElementById('inflation').value;
-            
-            let baseRate = 100;
-            if (age >= 70) baseRate = 400;
-            else if (age >= 65) baseRate = 250;
-            else if (age >= 60) baseRate = 150;
-            
-            monthly = baseRate + (dailyBenefit * 0.5);
-            if (inflation.includes('Compound')) monthly *= 1.5;
-            else if (inflation.includes('Simple')) monthly *= 1.2;
-            
-            const annual = monthly * 12;
-            html += '<div class="result-value">$' + monthly.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Annual Premium: $' + annual.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Daily Benefit: $' + dailyBenefit.toFixed(2) + '</div>';
             
             
             

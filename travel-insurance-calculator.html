@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Insurance Cost Calculator - Free Travel Insurance Tool | ToolPulse</title>
-    <meta name="description" content="Estimate travel insurance premiums for trips, vacations, and international travel. Free travel insurance calculator. Get instant estimates and make informed decisions.">
+    <title>Travel Insurance Calculator - Free Travel Insurance Estimator | ToolPulse</title>
+    <meta name="description" content="Calculate travel insurance costs for trips, cruises, and international travel.. Free travel insurance calculator with instant estimates.">
     <link rel="canonical" href="https://alexchalu.github.io/toolpulse/travel-insurance-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,8 +24,8 @@
         .calc-btn:hover { background: #5568d3; }
         .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
         .result-box h3 { color: #667eea; margin-bottom: 1rem; }
-        .result-box .price { font-size: 2rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
-        .result-box .detail { margin: 0.5rem 0; color: #555; }
+        .result-value { font-size: 1.8rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
+        .result-detail { margin: 0.5rem 0; color: #555; }
         .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
         .info-section h3 { color: #667eea; margin-bottom: 1rem; }
         .info-section p { margin-bottom: 1rem; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Travel Insurance Cost Calculator</h1>
-            <p>Estimate travel insurance premiums for trips, vacations, and international travel</p>
+            <h1>Travel Insurance Calculator</h1>
+            <p>Calculate travel insurance costs for trips, cruises, and international travel.</p>
         </div>
     </div>
 
@@ -53,11 +53,23 @@
         </div>
 
         <div class="calc-box">
-            <h2>Calculate Travel Insurance</h2>
+            <h2>Travel Insurance Estimator</h2>
             
         <div class="input-group">
-          <label for="trip-cost">Trip Cost ($):</label>
-          <input type="number" id="trip-cost"  min="0"   value="3000">
+          <label for="trip-cost">Total Trip Cost ($):</label>
+          <input type="number" id="trip-cost"  min="0"   value="5000">
+        </div>
+
+        <div class="input-group">
+          <label for="destination">Destination:</label>
+          <select id="destination">
+            <option value="Domestic US">Domestic US</option>
+<option value="Canada/Mexico">Canada/Mexico</option>
+<option value="Europe">Europe</option>
+<option value="Asia">Asia</option>
+<option value="South America">South America</option>
+<option value="Africa/Middle East">Africa/Middle East</option>
+          </select>
         </div>
 
         <div class="input-group">
@@ -66,33 +78,25 @@
         </div>
 
         <div class="input-group">
-          <label for="age">Oldest Traveler Age:</label>
-          <input type="number" id="age"  min="18" max="100"  value="40">
-        </div>
-
-        <div class="input-group">
           <label for="duration">Trip Duration (days):</label>
           <input type="number" id="duration"  min="1" max="365"  value="7">
         </div>
 
         <div class="input-group">
-          <label for="destination">Destination Type:</label>
-          <select id="destination">
-            <option value="Domestic">Domestic</option>
-<option value="International">International</option>
-<option value="Adventure/High-Risk">Adventure/High-Risk</option>
+          <label for="coverage-level">Coverage Level:</label>
+          <select id="coverage-level">
+            <option value="Basic">Basic</option>
+<option value="Standard">Standard</option>
+<option value="Premium">Premium</option>
+<option value="Cancel for Any Reason">Cancel for Any Reason</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="coverage">Coverage Level:</label>
-          <select id="coverage">
-            <option value="Basic">Basic</option>
-<option value="Standard">Standard</option>
-<option value="Comprehensive">Comprehensive</option>
-          </select>
+          <label for="avg-age">Average Traveler Age:</label>
+          <input type="number" id="avg-age"  min="0" max="100"  value="45">
         </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Now</button>
+            <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
             <div class="result-box" id="result"></div>
         </div>
 
@@ -103,7 +107,13 @@
 
         <div class="info-section">
             <h3>About Travel Insurance</h3>
-            <p>Use this travel insurance cost calculator to get accurate estimates and make informed financial decisions.</p>
+            <p>Use this calculator to estimate your travel insurance costs. Actual premiums will vary by insurer.</p>
+            <h3>More Insurance & Financial Tools</h3>
+            <ul>
+                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
+            </ul>
         </div>
 
         <div class="ad-placeholder">
@@ -115,41 +125,38 @@
     <div class="footer">
         <div class="container">
             <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></p>
         </div>
     </div>
 
     <script>
         function calculate() {
-            let resultHTML = '<h3>Estimated Cost</h3>';
+            const resultBox = document.getElementById('result');
+            let monthly = 0;
+            let html = '<h3>Estimated Premium</h3>';
             
             
-            const tripCost = parseFloat(document.getElementById('trip-cost').value) || 3000;
-            const travelers = parseInt(document.getElementById('travelers').value) || 2;
-            const age = parseInt(document.getElementById('age').value) || 40;
-            const duration = parseInt(document.getElementById('duration').value) || 7;
-            const destination = document.getElementById('destination').value;
-            const coverage = document.getElementById('coverage').value;
+            const tripCost = parseFloat(document.getElementById('trip-cost').value);
+            const travelers = parseInt(document.getElementById('travelers').value);
+            const duration = parseInt(document.getElementById('duration').value);
+            const avgAge = parseInt(document.getElementById('avg-age').value);
+            const coverage = document.getElementById('coverage-level').value;
             
-            let cost = tripCost * 0.05;
-            cost += travelers * 20;
-            cost += (age - 30) * 2;
-            cost += duration * 5;
+            let rate = 0.05;
+            if (coverage === 'Standard') rate = 0.07;
+            else if (coverage === 'Premium') rate = 0.10;
+            else if (coverage === 'Cancel for Any Reason') rate = 0.12;
             
-            if (destination === 'International') cost *= 1.5;
-            else if (destination === 'Adventure/High-Risk') cost *= 2.2;
+            let cost = tripCost * rate * travelers;
+            if (avgAge > 65) cost *= 1.5;
+            else if (avgAge > 50) cost *= 1.2;
+            if (duration > 14) cost *= 1.3;
             
-            if (coverage === 'Standard') cost *= 1.3;
-            else if (coverage === 'Comprehensive') cost *= 1.7;
-            
-            resultHTML += '<div class="price">$' + cost.toFixed(2) + '</div>';
-            resultHTML += '<div class="detail">Total premium for ' + duration + ' day trip</div>';
-            resultHTML += '<div class="detail">Coverage: ' + coverage + ' | ' + travelers + ' traveler(s)</div>';
-            
-            
-            
-            
-            
+            html += '<div class="result-value">$' + cost.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Trip Cost: $' + tripCost.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Travelers: ' + travelers + '</div>';
+            html += '<div class="result-detail">Duration: ' + duration + ' days</div>';
+            html += '<div class="result-detail">Coverage: ' + coverage + '</div>';
             
             
             
@@ -157,8 +164,13 @@
             
             
             
-            document.getElementById('result').innerHTML = resultHTML;
-            document.getElementById('result').style.display = 'block';
+            
+            
+            
+            
+            
+            resultBox.innerHTML = html;
+            resultBox.style.display = 'block';
         }
     </script>
 </body>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Long-Term Care Insurance Calculator - Free Long-Term Care Insurance Estimator | ToolPulse</title>
-    <meta name="description" content="Calculate long-term care insurance premiums and coverage needs.. Free long-term care insurance calculator with instant estimates.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/long-term-care-insurance-calculator.html">
+    <title>Workers Compensation Calculator - Free Workers Compensation Estimator | ToolPulse</title>
+    <meta name="description" content="Estimate workers comp insurance costs for your business.. Free workers compensation calculator with instant estimates.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/workers-comp-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Long-Term Care Insurance Calculator</h1>
-            <p>Calculate long-term care insurance premiums and coverage needs.</p>
+            <h1>Workers Compensation Calculator</h1>
+            <p>Estimate workers comp insurance costs for your business.</p>
         </div>
     </div>
 
@@ -53,54 +53,47 @@
         </div>
 
         <div class="calc-box">
-            <h2>Long-Term Care Insurance Estimator</h2>
+            <h2>Workers Compensation Estimator</h2>
             
         <div class="input-group">
-          <label for="age">Your Age:</label>
-          <input type="number" id="age"  min="40" max="85"  value="60">
-        </div>
-
-        <div class="input-group">
-          <label for="daily-benefit">Daily Benefit Amount ($):</label>
-          <input type="number" id="daily-benefit"  min="0"   value="150">
-        </div>
-
-        <div class="input-group">
-          <label for="benefit-period">Benefit Period:</label>
-          <select id="benefit-period">
-            <option value="3 years">3 years</option>
-<option value="5 years">5 years</option>
-<option value="10 years">10 years</option>
-<option value="Lifetime">Lifetime</option>
+          <label for="industry">Industry:</label>
+          <select id="industry">
+            <option value="Office/Clerical">Office/Clerical</option>
+<option value="Retail">Retail</option>
+<option value="Restaurant">Restaurant</option>
+<option value="Construction">Construction</option>
+<option value="Manufacturing">Manufacturing</option>
+<option value="Healthcare">Healthcare</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="elimination">Elimination Period (days):</label>
-          <select id="elimination">
-            <option value="30">30</option>
-<option value="60">60</option>
-<option value="90">90</option>
-<option value="180">180</option>
-          </select>
+          <label for="payroll">Annual Payroll ($):</label>
+          <input type="number" id="payroll"  min="0"   value="500000">
         </div>
 
         <div class="input-group">
-          <label for="inflation">Inflation Protection:</label>
-          <select id="inflation">
+          <label for="employees">Number of Employees:</label>
+          <input type="number" id="employees"  min="1" max="1000"  value="10">
+        </div>
+
+        <div class="input-group">
+          <label for="claims-history">Claims History:</label>
+          <select id="claims-history">
             <option value="None">None</option>
-<option value="3% Simple">3% Simple</option>
-<option value="3% Compound">3% Compound</option>
-<option value="5% Compound">5% Compound</option>
+<option value="1-2 claims">1-2 claims</option>
+<option value="3+ claims">3+ claims</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="health">Health Status:</label>
-          <select id="health">
-            <option value="Excellent">Excellent</option>
-<option value="Good">Good</option>
-<option value="Fair">Fair</option>
+          <label for="state">State:</label>
+          <select id="state">
+            <option value="California">California</option>
+<option value="Texas">Texas</option>
+<option value="Florida">Florida</option>
+<option value="New York">New York</option>
+<option value="Other">Other</option>
           </select>
         </div>
             <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
@@ -113,8 +106,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Long-Term Care Insurance</h3>
-            <p>Use this calculator to estimate your long-term care insurance costs. Actual premiums will vary by insurer.</p>
+            <h3>About Workers Compensation</h3>
+            <p>Use this calculator to estimate your workers compensation costs. Actual premiums will vary by insurer.</p>
             <h3>More Insurance & Financial Tools</h3>
             <ul>
                 <li><a href="index.html">ToolPulse Home - All Tools</a></li>
@@ -151,25 +144,24 @@
             
             
             
-            const age = parseInt(document.getElementById('age').value);
-            const dailyBenefit = parseFloat(document.getElementById('daily-benefit').value);
-            const inflation = document.getElementById('inflation').value;
-            
-            let baseRate = 100;
-            if (age >= 70) baseRate = 400;
-            else if (age >= 65) baseRate = 250;
-            else if (age >= 60) baseRate = 150;
-            
-            monthly = baseRate + (dailyBenefit * 0.5);
-            if (inflation.includes('Compound')) monthly *= 1.5;
-            else if (inflation.includes('Simple')) monthly *= 1.2;
-            
-            const annual = monthly * 12;
-            html += '<div class="result-value">$' + monthly.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Annual Premium: $' + annual.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Daily Benefit: $' + dailyBenefit.toFixed(2) + '</div>';
             
             
+            const payroll = parseFloat(document.getElementById('payroll').value);
+            const industry = document.getElementById('industry').value;
+            const employees = parseInt(document.getElementById('employees').value);
+            
+            let rate = 0.01;
+            if (industry === 'Construction') rate = 0.08;
+            else if (industry === 'Manufacturing') rate = 0.05;
+            else if (industry === 'Restaurant') rate = 0.03;
+            else if (industry === 'Healthcare') rate = 0.04;
+            
+            const annual = payroll * rate;
+            monthly = annual / 12;
+            
+            html += '<div class="result-value">$' + annual.toFixed(2) + '/year</div>';
+            html += '<div class="result-detail">Monthly: $' + monthly.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Rate per $100 payroll: $' + (rate * 100).toFixed(2) + '</div>';
             
             
             resultBox.innerHTML = html;

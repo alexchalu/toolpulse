@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Insurance Cost Calculator - Free Business Insurance Tool | ToolPulse</title>
-    <meta name="description" content="Calculate small business insurance premiums including liability, property, and workers comp. Free business insurance calculator. Get instant estimates and make informed decisions.">
+    <title>Business Insurance Calculator - Free Business Insurance Estimator | ToolPulse</title>
+    <meta name="description" content="Estimate business liability, property, and general liability insurance costs.. Free business insurance calculator with instant estimates.">
     <link rel="canonical" href="https://alexchalu.github.io/toolpulse/business-insurance-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,8 +24,8 @@
         .calc-btn:hover { background: #5568d3; }
         .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
         .result-box h3 { color: #667eea; margin-bottom: 1rem; }
-        .result-box .price { font-size: 2rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
-        .result-box .detail { margin: 0.5rem 0; color: #555; }
+        .result-value { font-size: 1.8rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
+        .result-detail { margin: 0.5rem 0; color: #555; }
         .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
         .info-section h3 { color: #667eea; margin-bottom: 1rem; }
         .info-section p { margin-bottom: 1rem; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Business Insurance Cost Calculator</h1>
-            <p>Calculate small business insurance premiums including liability, property, and workers comp</p>
+            <h1>Business Insurance Calculator</h1>
+            <p>Estimate business liability, property, and general liability insurance costs.</p>
         </div>
     </div>
 
@@ -53,17 +53,17 @@
         </div>
 
         <div class="calc-box">
-            <h2>Calculate Business Insurance</h2>
+            <h2>Business Insurance Estimator</h2>
             
         <div class="input-group">
           <label for="business-type">Business Type:</label>
           <select id="business-type">
             <option value="Retail">Retail</option>
-<option value="Office/Professional">Office/Professional</option>
 <option value="Restaurant">Restaurant</option>
-<option value="Construction">Construction</option>
+<option value="Office/Professional">Office/Professional</option>
 <option value="Manufacturing">Manufacturing</option>
-<option value="Service">Service</option>
+<option value="Construction">Construction</option>
+<option value="Service/Consulting">Service/Consulting</option>
           </select>
         </div>
 
@@ -74,7 +74,7 @@
 
         <div class="input-group">
           <label for="employees">Number of Employees:</label>
-          <input type="number" id="employees"  min="0" max="500"  value="5">
+          <input type="number" id="employees"  min="0" max="1000"  value="5">
         </div>
 
         <div class="input-group">
@@ -83,14 +83,15 @@
         </div>
 
         <div class="input-group">
-          <label for="coverage-types">Coverage Needed:</label>
-          <select id="coverage-types">
-            <option value="Liability Only">Liability Only</option>
-<option value="Liability + Property">Liability + Property</option>
-<option value="Full Package (incl. Workers Comp)">Full Package (incl. Workers Comp)</option>
+          <label for="coverage-limit">Liability Coverage Limit:</label>
+          <select id="coverage-limit">
+            <option value="$1 Million">$1 Million</option>
+<option value="$2 Million">$2 Million</option>
+<option value="$5 Million">$5 Million</option>
+<option value="$10 Million">$10 Million</option>
           </select>
         </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Now</button>
+            <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
             <div class="result-box" id="result"></div>
         </div>
 
@@ -101,7 +102,13 @@
 
         <div class="info-section">
             <h3>About Business Insurance</h3>
-            <p>Use this business insurance cost calculator to get accurate estimates and make informed financial decisions.</p>
+            <p>Use this calculator to estimate your business insurance costs. Actual premiums will vary by insurer.</p>
+            <h3>More Insurance & Financial Tools</h3>
+            <ul>
+                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
+            </ul>
         </div>
 
         <div class="ad-placeholder">
@@ -113,38 +120,29 @@
     <div class="footer">
         <div class="container">
             <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></p>
         </div>
     </div>
 
     <script>
         function calculate() {
-            let resultHTML = '<h3>Estimated Cost</h3>';
+            const resultBox = document.getElementById('result');
+            let monthly = 0;
+            let html = '<h3>Estimated Premium</h3>';
             
             
             
             
-            const revenue = parseFloat(document.getElementById('revenue').value) || 500000;
-            const employees = parseInt(document.getElementById('employees').value) || 5;
-            const propertyValue = parseFloat(document.getElementById('property-value').value) || 100000;
-            const businessType = document.getElementById('business-type').value;
-            const coverageTypes = document.getElementById('coverage-types').value;
+            const revenue = parseFloat(document.getElementById('revenue').value);
+            const employees = parseInt(document.getElementById('employees').value);
+            const propertyValue = parseFloat(document.getElementById('property-value').value);
             
-            let annual = revenue * 0.005;
-            annual += employees * 300;
-            annual += propertyValue * 0.01;
+            monthly = 100 + (revenue * 0.002 / 12) + (employees * 50) + (propertyValue * 0.01 / 12);
+            const annual = monthly * 12;
             
-            if (businessType === 'Construction') annual *= 2.5;
-            else if (businessType === 'Restaurant') annual *= 1.8;
-            else if (businessType === 'Manufacturing') annual *= 2.0;
-            
-            if (coverageTypes === 'Liability + Property') annual *= 1.5;
-            else if (coverageTypes === 'Full Package (incl. Workers Comp)') annual *= 2.2;
-            
-            const monthly = annual / 12;
-            resultHTML += '<div class="price">$' + monthly.toFixed(2) + '/month</div>';
-            resultHTML += '<div class="detail">Annual Premium: $' + annual.toFixed(2) + '</div>';
-            resultHTML += '<div class="detail">Coverage: ' + coverageTypes + '</div>';
+            html += '<div class="result-value">$' + monthly.toFixed(2) + '/month</div>';
+            html += '<div class="result-detail">Annual Premium: $' + annual.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Employees: ' + employees + '</div>';
             
             
             
@@ -155,8 +153,8 @@
             
             
             
-            document.getElementById('result').innerHTML = resultHTML;
-            document.getElementById('result').style.display = 'block';
+            resultBox.innerHTML = html;
+            resultBox.style.display = 'block';
         }
     </script>
 </body>

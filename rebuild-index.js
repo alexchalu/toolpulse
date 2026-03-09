@@ -224,6 +224,8 @@ const categories = [
             { name: 'Business Insurance', desc: 'Small business insurance calculator', url: 'business-insurance-calculator.html' },
             { name: 'Long-Term Care', desc: 'LTC insurance premium calculator', url: 'long-term-care-insurance-calculator.html' },
             { name: 'Flood Insurance', desc: 'Flood coverage cost calculator', url: 'flood-insurance-calculator.html' },
+            { name: 'Earthquake Insurance', desc: 'Earthquake coverage calculator', url: 'earthquake-insurance-calculator.html' },
+            { name: 'Workers Comp', desc: 'Workers compensation calculator', url: 'workers-comp-calculator.html' },
         ]
     },
     {

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flood Insurance Cost Calculator - Free Flood Insurance Tool | ToolPulse</title>
-    <meta name="description" content="Calculate flood insurance premiums based on flood zone and property value. Free flood insurance calculator. Get instant estimates and make informed decisions.">
+    <title>Flood Insurance Calculator - Free Flood Insurance Estimator | ToolPulse</title>
+    <meta name="description" content="Calculate NFIP flood insurance premiums for your home or business.. Free flood insurance calculator with instant estimates.">
     <link rel="canonical" href="https://alexchalu.github.io/toolpulse/flood-insurance-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,8 +24,8 @@
         .calc-btn:hover { background: #5568d3; }
         .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
         .result-box h3 { color: #667eea; margin-bottom: 1rem; }
-        .result-box .price { font-size: 2rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
-        .result-box .detail { margin: 0.5rem 0; color: #555; }
+        .result-value { font-size: 1.8rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
+        .result-detail { margin: 0.5rem 0; color: #555; }
         .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
         .info-section h3 { color: #667eea; margin-bottom: 1rem; }
         .info-section p { margin-bottom: 1rem; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Flood Insurance Cost Calculator</h1>
-            <p>Calculate flood insurance premiums based on flood zone and property value</p>
+            <h1>Flood Insurance Calculator</h1>
+            <p>Calculate NFIP flood insurance premiums for your home or business.</p>
         </div>
     </div>
 
@@ -53,42 +53,48 @@
         </div>
 
         <div class="calc-box">
-            <h2>Calculate Flood Insurance</h2>
+            <h2>Flood Insurance Estimator</h2>
             
         <div class="input-group">
-          <label for="home-value">Home Value ($):</label>
-          <input type="number" id="home-value"  min="0"   value="300000">
+          <label for="property-value">Property Value ($):</label>
+          <input type="number" id="property-value"  min="0"   value="300000">
+        </div>
+
+        <div class="input-group">
+          <label for="contents-value">Contents Value ($):</label>
+          <input type="number" id="contents-value"  min="0"   value="50000">
         </div>
 
         <div class="input-group">
           <label for="flood-zone">Flood Zone:</label>
           <select id="flood-zone">
-            <option value="Zone A (High Risk)">Zone A (High Risk)</option>
-<option value="Zone AE (High Risk)">Zone AE (High Risk)</option>
-<option value="Zone X (Moderate Risk)">Zone X (Moderate Risk)</option>
-<option value="Zone X (Low Risk)">Zone X (Low Risk)</option>
+            <option value="Low Risk (X)">Low Risk (X)</option>
+<option value="Moderate Risk (B/C)">Moderate Risk (B/C)</option>
+<option value="High Risk (A/V)">High Risk (A/V)</option>
+<option value="Coastal High Risk (V)">Coastal High Risk (V)</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="elevation">Elevation vs Base:</label>
+          <label for="elevation">Elevation vs Base Flood:</label>
           <select id="elevation">
-            <option value="Below Base Flood">Below Base Flood</option>
-<option value="At Base Flood">At Base Flood</option>
-<option value="Above Base Flood">Above Base Flood</option>
+            <option value="Above BFE">Above BFE</option>
+<option value="At BFE">At BFE</option>
+<option value="1 ft below">1 ft below</option>
+<option value="2+ ft below">2+ ft below</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="building-coverage">Building Coverage ($):</label>
-          <input type="number" id="building-coverage"  min="0"   value="250000">
+          <label for="building-type">Building Type:</label>
+          <select id="building-type">
+            <option value="Single Family">Single Family</option>
+<option value="Condo">Condo</option>
+<option value="Apartment">Apartment</option>
+<option value="Commercial">Commercial</option>
+          </select>
         </div>
-
-        <div class="input-group">
-          <label for="contents-coverage">Contents Coverage ($):</label>
-          <input type="number" id="contents-coverage"  min="0"   value="100000">
-        </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Now</button>
+            <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
             <div class="result-box" id="result"></div>
         </div>
 
@@ -99,7 +105,13 @@
 
         <div class="info-section">
             <h3>About Flood Insurance</h3>
-            <p>Use this flood insurance cost calculator to get accurate estimates and make informed financial decisions.</p>
+            <p>Use this calculator to estimate your flood insurance costs. Actual premiums will vary by insurer.</p>
+            <h3>More Insurance & Financial Tools</h3>
+            <ul>
+                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
+            </ul>
         </div>
 
         <div class="ad-placeholder">
@@ -111,13 +123,35 @@
     <div class="footer">
         <div class="container">
             <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></p>
         </div>
     </div>
 
     <script>
         function calculate() {
-            let resultHTML = '<h3>Estimated Cost</h3>';
+            const resultBox = document.getElementById('result');
+            let monthly = 0;
+            let html = '<h3>Estimated Premium</h3>';
+            
+            
+            
+            
+            
+            
+            const propertyValue = parseFloat(document.getElementById('property-value').value);
+            const contentsValue = parseFloat(document.getElementById('contents-value').value);
+            const zone = document.getElementById('flood-zone').value;
+            
+            let baseRate = 500;
+            if (zone.includes('High Risk')) baseRate = 2000;
+            else if (zone.includes('Moderate')) baseRate = 1000;
+            
+            const annual = baseRate + (propertyValue * 0.002) + (contentsValue * 0.001);
+            monthly = annual / 12;
+            
+            html += '<div class="result-value">$' + annual.toFixed(2) + '/year</div>';
+            html += '<div class="result-detail">Monthly: $' + monthly.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Flood Zone: ' + zone + '</div>';
             
             
             
@@ -126,28 +160,8 @@
             
             
             
-            const homeValue = parseFloat(document.getElementById('home-value').value) || 300000;
-            const floodZone = document.getElementById('flood-zone').value;
-            const buildingCoverage = parseFloat(document.getElementById('building-coverage').value) || 250000;
-            const contentsCoverage = parseFloat(document.getElementById('contents-coverage').value) || 100000;
-            
-            let annual = buildingCoverage * 0.003 + contentsCoverage * 0.002;
-            
-            if (floodZone.includes('Zone A')) annual *= 3.5;
-            else if (floodZone.includes('Moderate Risk')) annual *= 1.5;
-            
-            const monthly = annual / 12;
-            resultHTML += '<div class="price">$' + monthly.toFixed(2) + '/month</div>';
-            resultHTML += '<div class="detail">Annual Premium: $' + annual.toFixed(2) + '</div>';
-            resultHTML += '<div class="detail">Building: $' + buildingCoverage.toLocaleString() + ' | Contents: $' + contentsCoverage.toLocaleString() + '</div>';
-            
-            
-            
-            
-            
-            
-            document.getElementById('result').innerHTML = resultHTML;
-            document.getElementById('result').style.display = 'block';
+            resultBox.innerHTML = html;
+            resultBox.style.display = 'block';
         }
     </script>
 </body>
