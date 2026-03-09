@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renters Insurance Cost Calculator - Estimate Monthly Premium | ToolPulse</title>
+    <meta name="description" content="Free renters insurance calculator. Estimate monthly premium based on coverage amount, deductible, location, and personal property value. Get instant quotes.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/calc/renters-insurance-calculator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .calc-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .calc-box h2 { margin-bottom: 1.5rem; color: #8b5cf6; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .input-group input, .input-group select { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #8b5cf6; }
+        .input-group small { color: #666; font-size: 0.85rem; }
+        .btn { background: #8b5cf6; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%; }
+        .btn:hover { background: #7c3aed; }
+        .results { background: #f3e8ff; border-left: 4px solid #8b5cf6; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
+        .results h3 { color: #7c3aed; margin-bottom: 1rem; }
+        .result-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #e9d5ff; }
+        .result-item:last-child { border-bottom: none; }
+        .result-item strong { color: #6b21a8; font-size: 1.1rem; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #8b5cf6; margin-bottom: 1rem; }
+        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .info-section ul li { margin-bottom: 0.5rem; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #8b5cf6; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>🏠 Renters Insurance Calculator</h1>
+            <p>Estimate your monthly renters insurance premium</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="calc-box">
+            <h2>Calculate Your Renters Insurance Cost</h2>
+            <form id="rentersForm">
+                <div class="input-group">
+                    <label for="propertyValue">Personal Property Value ($)</label>
+                    <input type="number" id="propertyValue" value="30000" step="1000" required>
+                    <small>Total value of belongings (furniture, electronics, clothes, etc.)</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="liability">Liability Coverage ($)</label>
+                    <select id="liability" required>
+                        <option value="100000">$100,000</option>
+                        <option value="300000" selected>$300,000</option>
+                        <option value="500000">$500,000</option>
+                    </select>
+                    <small>Protects you if someone is injured in your rental</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="deductible">Deductible ($)</label>
+                    <select id="deductible" required>
+                        <option value="250">$250</option>
+                        <option value="500" selected>$500</option>
+                        <option value="1000">$1,000</option>
+                        <option value="2500">$2,500</option>
+                    </select>
+                    <small>Amount you pay out-of-pocket before coverage kicks in</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="location">Location Risk Level</label>
+                    <select id="location" required>
+                        <option value="low">Low Risk (rural, low crime)</option>
+                        <option value="medium" selected>Medium Risk (suburban)</option>
+                        <option value="high">High Risk (urban, high crime/weather)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="safety">Safety Features</label>
+                    <select id="safety" required>
+                        <option value="none">None</option>
+                        <option value="smoke" selected>Smoke/Fire Alarms</option>
+                        <option value="full">Alarm + Sprinklers + Security System</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Calculate Premium</button>
+            </form>
+
+            <div class="results" id="results">
+                <h3>Estimated Insurance Cost</h3>
+                <div class="result-item">
+                    <span>Estimated Monthly Premium:</span>
+                    <strong id="monthlyPremium">$0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Estimated Annual Premium:</span>
+                    <strong id="annualPremium">$0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Cost Per Day:</span>
+                    <strong id="dailyCost">$0</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>What Renters Insurance Covers</h3>
+            <ul>
+                <li>✅ <strong>Personal Property:</strong> Damage or theft of your belongings (furniture, electronics, clothing)</li>
+                <li>✅ <strong>Liability Protection:</strong> Legal fees if someone is injured in your rental</li>
+                <li>✅ <strong>Additional Living Expenses:</strong> Hotel costs if your rental becomes uninhabitable</li>
+                <li>✅ <strong>Medical Payments:</strong> Guest injuries regardless of fault</li>
+            </ul>
+
+            <h3>Average Renters Insurance Cost (2026)</h3>
+            <p>National average: <strong>$15-$30/month</strong> or <strong>$180-$360/year</strong> for $30,000-$50,000 in coverage.</p>
+            <p>Renters insurance is one of the most affordable types of insurance, often costing less than $1 per day.</p>
+
+            <h3>How to Lower Your Premium</h3>
+            <ul>
+                <li>💰 Bundle with auto insurance for 10-25% discount</li>
+                <li>💰 Increase your deductible (lowers monthly cost)</li>
+                <li>💰 Install security systems, smoke detectors, deadbolts</li>
+                <li>💰 Ask about loyalty, student, or military discounts</li>
+            </ul>
+        </div>
+
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>More Insurance & Financial Calculators</h3>
+            <ul>
+                <li><a href="../index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health Insurance Calculator</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
+            <p><a href="../index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('rentersForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const propertyValue = parseFloat(document.getElementById('propertyValue').value);
+            const liability = parseFloat(document.getElementById('liability').value);
+            const deductible = parseFloat(document.getElementById('deductible').value);
+            const location = document.getElementById('location').value;
+            const safety = document.getElementById('safety').value;
+            
+            // Base rate calculation (roughly $0.50-$1.00 per $1000 of coverage)
+            let baseRate = (propertyValue / 1000) * 0.75;
+            
+            // Liability adjustment
+            if (liability >= 500000) baseRate += 3;
+            else if (liability >= 300000) baseRate += 2;
+            
+            // Deductible adjustment (higher deductible = lower premium)
+            if (deductible <= 250) baseRate *= 1.2;
+            else if (deductible >= 1000) baseRate *= 0.85;
+            else if (deductible >= 2500) baseRate *= 0.7;
+            
+            // Location risk
+            if (location === 'high') baseRate *= 1.4;
+            else if (location === 'low') baseRate *= 0.8;
+            
+            // Safety features
+            if (safety === 'full') baseRate *= 0.85;
+            else if (safety === 'smoke') baseRate *= 0.95;
+            
+            // Ensure reasonable minimum
+            if (baseRate < 10) baseRate = 10;
+            
+            const monthlyPremium = baseRate;
+            const annualPremium = monthlyPremium * 12;
+            const dailyCost = annualPremium / 365;
+            
+            document.getElementById('monthlyPremium').textContent = '$' + monthlyPremium.toFixed(2);
+            document.getElementById('annualPremium').textContent = '$' + annualPremium.toFixed(2);
+            document.getElementById('dailyCost').textContent = '$' + dailyCost.toFixed(2);
+            
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    </script>
+</body>
+</html>

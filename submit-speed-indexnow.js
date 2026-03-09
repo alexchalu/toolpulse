@@ -3,20 +3,20 @@ const https = require('https');
 
 const urls = [
   'https://alexchalu.github.io/toolpulse/convert-mph-to-kph.html',
+  'https://alexchalu.github.io/toolpulse/convert-mph-to-mps.html',
+  'https://alexchalu.github.io/toolpulse/convert-mph-to-knots.html',
   'https://alexchalu.github.io/toolpulse/convert-kph-to-mph.html',
-  'https://alexchalu.github.io/toolpulse/convert-mph-to-ms.html',
-  'https://alexchalu.github.io/toolpulse/convert-kph-to-ms.html',
-  'https://alexchalu.github.io/toolpulse/convert-ms-to-mph.html',
-  'https://alexchalu.github.io/toolpulse/convert-ms-to-kph.html',
+  'https://alexchalu.github.io/toolpulse/convert-kph-to-mps.html',
+  'https://alexchalu.github.io/toolpulse/convert-kph-to-knots.html',
+  'https://alexchalu.github.io/toolpulse/convert-mps-to-mph.html',
+  'https://alexchalu.github.io/toolpulse/convert-mps-to-kph.html',
+  'https://alexchalu.github.io/toolpulse/convert-mps-to-knots.html',
   'https://alexchalu.github.io/toolpulse/convert-knots-to-mph.html',
   'https://alexchalu.github.io/toolpulse/convert-knots-to-kph.html',
-  'https://alexchalu.github.io/toolpulse/convert-mph-to-knots.html',
-  'https://alexchalu.github.io/toolpulse/convert-kph-to-knots.html',
-  'https://alexchalu.github.io/toolpulse/convert-mach-to-mph.html',
-  'https://alexchalu.github.io/toolpulse/convert-mach-to-kph.html',
-  'https://alexchalu.github.io/toolpulse/convert-mph-to-fps.html',
+  'https://alexchalu.github.io/toolpulse/convert-knots-to-mps.html',
   'https://alexchalu.github.io/toolpulse/convert-fps-to-mph.html',
-  'https://alexchalu.github.io/toolpulse/convert-kph-to-fps.html',
+  'https://alexchalu.github.io/toolpulse/convert-fps-to-mps.html',
+  'https://alexchalu.github.io/toolpulse/convert-mph-to-fps.html',
 ];
 
 const payload = JSON.stringify({
@@ -40,7 +40,7 @@ const options = {
 const req = https.request(options, (res) => {
   console.log(`✅ IndexNow response: ${res.statusCode}`);
   if (res.statusCode === 200) {
-    console.log('✅ Successfully submitted 15 speed URLs to IndexNow');
+    console.log('✅ Successfully submitted 15 speed URLs to IndexNow (Bing + Yandex)');
   }
 });
 

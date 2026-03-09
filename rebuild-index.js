@@ -36,6 +36,8 @@ const categories = [
         tools: [
             { name: 'Car Insurance Cost', desc: 'Auto insurance premium estimator', url: 'car-insurance-calculator.html' },
             { name: 'Pet Insurance Cost', desc: 'Dog & cat insurance calculator', url: 'pet-insurance-calculator.html' },
+            { name: 'Renters Insurance', desc: 'Renters insurance cost estimator', url: 'calc/renters-insurance-calculator.html' },
+            { name: 'Motorcycle Insurance', desc: 'Bike insurance premium calculator', url: 'calc/motorcycle-insurance-calculator.html' },
         ]
     },
     {
