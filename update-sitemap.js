@@ -5,10 +5,18 @@ const path = require('path');
 const baseUrl = 'https://alexchalu.github.io/toolpulse/';
 const today = new Date().toISOString().split('T')[0];
 
-// Get all HTML files
-const files = fs.readdirSync(__dirname)
+// Get all HTML files (root + calc/ subdirectory)
+const rootFiles = fs.readdirSync(__dirname)
   .filter(f => f.endsWith('.html'))
-  .sort();
+  .map(f => f);
+
+const calcFiles = fs.existsSync(__dirname + '/calc') 
+  ? fs.readdirSync(__dirname + '/calc')
+      .filter(f => f.endsWith('.html'))
+      .map(f => 'calc/' + f)
+  : [];
+
+const files = [...rootFiles, ...calcFiles].sort();
 
 let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
 sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';

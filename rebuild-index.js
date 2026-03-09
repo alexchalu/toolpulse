@@ -29,6 +29,14 @@ const categories = [
             { name: 'Car Loan Calculator', desc: 'Auto loan payments & interest', url: 'calc/car-loan-calculator.html' },
             { name: 'Net Pay Calculator', desc: 'Take-home after all taxes', url: 'calc/net-pay-calculator.html' },
             { name: 'Solar Panel ROI', desc: 'Solar investment return & payback', url: 'calc/solar-panel-roi-calculator.html' },
+            { name: '401(k) Calculator', desc: 'Retirement savings with employer match', url: 'calc/401k-calculator.html' },
+            { name: 'Roth IRA Calculator', desc: 'Tax-free retirement account growth', url: 'calc/roth-ira-calculator.html' },
+            { name: 'Traditional IRA', desc: 'Traditional IRA savings calculator', url: 'calc/traditional-ira-calculator.html' },
+            { name: 'Investment Return', desc: 'Calculate investment ROI', url: 'calc/investment-return-calculator.html' },
+            { name: 'Dividend Yield', desc: 'Stock dividend income calculator', url: 'calc/dividend-yield-calculator.html' },
+            { name: 'Stock Portfolio', desc: 'Portfolio growth tracker', url: 'calc/stock-portfolio-calculator.html' },
+            { name: 'Capital Gains Tax', desc: 'Investment tax calculator', url: 'calc/capital-gains-tax-calculator.html' },
+            { name: 'Bond Yield', desc: 'Bond YTM calculator', url: 'calc/bond-yield-calculator.html' },
         ]
     },
     {
