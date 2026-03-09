@@ -3,53 +3,50 @@
 const fs = require('fs');
 const path = require('path');
 
-// Common area conversions (high search volume)
+// High-volume area conversions (real estate, construction, land)
 const conversions = [
-  // Sq Feet to others
-  { from: 'square-feet', fromName: 'Square Feet', to: 'square-meters', toName: 'Square Meters', formula: (v) => (v * 0.092903).toFixed(4) },
-  { from: 'square-feet', fromName: 'Square Feet', to: 'acres', toName: 'Acres', formula: (v) => (v / 43560).toFixed(6) },
-  { from: 'square-feet', fromName: 'Square Feet', to: 'square-yards', toName: 'Square Yards', formula: (v) => (v / 9).toFixed(4) },
+  // Square Feet conversions
+  { from: 'square-feet', to: 'square-meters', name: 'Square Feet to Square Meters', fromUnit: 'sq ft', toUnit: 'sq m', factor: 0.092903 },
+  { from: 'square-feet', to: 'acres', name: 'Square Feet to Acres', fromUnit: 'sq ft', toUnit: 'acres', factor: 0.0000229568 },
+  { from: 'square-feet', to: 'square-yards', name: 'Square Feet to Square Yards', fromUnit: 'sq ft', toUnit: 'sq yd', factor: 0.111111 },
   
-  // Sq Meters to others
-  { from: 'square-meters', fromName: 'Square Meters', to: 'square-feet', toName: 'Square Feet', formula: (v) => (v * 10.7639).toFixed(4) },
-  { from: 'square-meters', fromName: 'Square Meters', to: 'acres', toName: 'Acres', formula: (v) => (v / 4046.86).toFixed(6) },
-  { from: 'square-meters', fromName: 'Square Meters', to: 'hectares', toName: 'Hectares', formula: (v) => (v / 10000).toFixed(6) },
+  // Square Meters conversions
+  { from: 'square-meters', to: 'square-feet', name: 'Square Meters to Square Feet', fromUnit: 'sq m', toUnit: 'sq ft', factor: 10.7639 },
+  { from: 'square-meters', to: 'acres', name: 'Square Meters to Acres', fromUnit: 'sq m', toUnit: 'acres', factor: 0.000247105 },
+  { from: 'square-meters', to: 'hectares', name: 'Square Meters to Hectares', fromUnit: 'sq m', toUnit: 'hectares', factor: 0.0001 },
   
-  // Acres to others
-  { from: 'acres', fromName: 'Acres', to: 'square-feet', toName: 'Square Feet', formula: (v) => (v * 43560).toFixed(2) },
-  { from: 'acres', fromName: 'Acres', to: 'square-meters', toName: 'Square Meters', formula: (v) => (v * 4046.86).toFixed(2) },
-  { from: 'acres', fromName: 'Acres', to: 'hectares', toName: 'Hectares', formula: (v) => (v * 0.404686).toFixed(6) },
-  { from: 'acres', fromName: 'Acres', to: 'square-miles', toName: 'Square Miles', formula: (v) => (v / 640).toFixed(6) },
+  // Acres conversions
+  { from: 'acres', to: 'square-feet', name: 'Acres to Square Feet', fromUnit: 'acres', toUnit: 'sq ft', factor: 43560 },
+  { from: 'acres', to: 'square-meters', name: 'Acres to Square Meters', fromUnit: 'acres', toUnit: 'sq m', factor: 4046.86 },
+  { from: 'acres', to: 'hectares', name: 'Acres to Hectares', fromUnit: 'acres', toUnit: 'hectares', factor: 0.404686 },
   
-  // Hectares to others
-  { from: 'hectares', fromName: 'Hectares', to: 'acres', toName: 'Acres', formula: (v) => (v * 2.47105).toFixed(4) },
-  { from: 'hectares', fromName: 'Hectares', to: 'square-meters', toName: 'Square Meters', formula: (v) => (v * 10000).toFixed(2) },
-  { from: 'hectares', fromName: 'Hectares', to: 'square-feet', toName: 'Square Feet', formula: (v) => (v * 107639).toFixed(2) },
+  // Hectares conversions
+  { from: 'hectares', to: 'acres', name: 'Hectares to Acres', fromUnit: 'hectares', toUnit: 'acres', factor: 2.47105 },
+  { from: 'hectares', to: 'square-meters', name: 'Hectares to Square Meters', fromUnit: 'hectares', toUnit: 'sq m', factor: 10000 },
+  { from: 'hectares', to: 'square-feet', name: 'Hectares to Square Feet', fromUnit: 'hectares', toUnit: 'sq ft', factor: 107639 },
   
-  // Sq Yards
-  { from: 'square-yards', fromName: 'Square Yards', to: 'square-feet', toName: 'Square Feet', formula: (v) => (v * 9).toFixed(4) },
-  { from: 'square-yards', fromName: 'Square Yards', to: 'square-meters', toName: 'Square Meters', formula: (v) => (v * 0.836127).toFixed(4) },
+  // Square Yards
+  { from: 'square-yards', to: 'square-feet', name: 'Square Yards to Square Feet', fromUnit: 'sq yd', toUnit: 'sq ft', factor: 9 },
+  { from: 'square-yards', to: 'square-meters', name: 'Square Yards to Square Meters', fromUnit: 'sq yd', toUnit: 'sq m', factor: 0.836127 },
   
-  // Sq Miles
-  { from: 'square-miles', fromName: 'Square Miles', to: 'acres', toName: 'Acres', formula: (v) => (v * 640).toFixed(2) },
-  { from: 'square-miles', fromName: 'Square Miles', to: 'square-kilometers', toName: 'Square Kilometers', formula: (v) => (v * 2.58999).toFixed(4) },
-  
-  // Sq Kilometers
-  { from: 'square-kilometers', fromName: 'Square Kilometers', to: 'square-miles', toName: 'Square Miles', formula: (v) => (v / 2.58999).toFixed(4) },
-  { from: 'square-kilometers', fromName: 'Square Kilometers', to: 'hectares', toName: 'Hectares', formula: (v) => (v * 100).toFixed(2) },
-  { from: 'square-kilometers', fromName: 'Square Kilometers', to: 'acres', toName: 'Acres', formula: (v) => (v * 247.105).toFixed(2) },
+  // Additional useful conversions
+  { from: 'square-inches', to: 'square-feet', name: 'Square Inches to Square Feet', fromUnit: 'sq in', toUnit: 'sq ft', factor: 0.00694444 },
+  { from: 'square-feet', to: 'square-inches', name: 'Square Feet to Square Inches', fromUnit: 'sq ft', toUnit: 'sq in', factor: 144 },
+  { from: 'square-kilometers', to: 'square-miles', name: 'Square Kilometers to Square Miles', fromUnit: 'sq km', toUnit: 'sq mi', factor: 0.386102 },
+  { from: 'square-miles', to: 'square-kilometers', name: 'Square Miles to Square Kilometers', fromUnit: 'sq mi', toUnit: 'sq km', factor: 2.58999 },
 ];
 
 function generatePage(conv) {
   const slug = `convert-${conv.from}-to-${conv.to}`;
+  const convert = (val) => (val * conv.factor).toFixed(4);
   
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${conv.fromName} to ${conv.toName} Converter - Free Area Conversion | ToolPulse</title>
-    <meta name="description" content="Convert ${conv.fromName.toLowerCase()} to ${conv.toName.toLowerCase()} instantly. Free area converter for real estate, land measurement, and property calculations.">
+    <title>${conv.name} Converter - Free Area Conversion Tool | ToolPulse</title>
+    <meta name="description" content="Convert ${conv.fromUnit} to ${conv.toUnit} instantly. Free ${conv.name.toLowerCase()} converter for real estate, construction, and land measurement. Accurate results.">
     <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -71,7 +68,7 @@ function generatePage(conv) {
         .info-section h3 { color: #667eea; margin-bottom: 1rem; }
         .info-section p { margin-bottom: 1rem; }
         .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-        .info-section li { margin-bottom: 0.5rem; }
+        .info-section ul li { margin-bottom: 0.5rem; }
         .table-wrapper { overflow-x: auto; }
         .conversion-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
         .conversion-table th, .conversion-table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #e0e6ed; }
@@ -87,8 +84,8 @@ function generatePage(conv) {
 <body>
     <div class="header">
         <div class="container">
-            <h1>${conv.fromName} to ${conv.toName} Converter</h1>
-            <p>Free online area converter for real estate, land, and property measurements</p>
+            <h1>${conv.name} Converter</h1>
+            <p>Free online ${conv.fromUnit} to ${conv.toUnit} converter for real estate and land measurement</p>
         </div>
     </div>
 
@@ -100,13 +97,13 @@ function generatePage(conv) {
         </div>
 
         <div class="converter-box">
-            <h2>Convert ${conv.fromName} to ${conv.toName}</h2>
+            <h2>Convert ${conv.name}</h2>
             <div class="input-group">
-                <label for="input-value">Enter ${conv.fromName}:</label>
-                <input type="number" id="input-value" placeholder="Enter area value" step="any" value="1">
+                <label for="input-value">Enter ${conv.fromUnit}:</label>
+                <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
             <div class="result-box" id="result">
-                <strong>Result: </strong><span id="result-value">1 ${conv.fromName} = ${conv.formula(1)} ${conv.toName}</span>
+                <strong>Result: </strong><span id="result-value">Enter a value above</span>
             </div>
         </div>
 
@@ -117,14 +114,13 @@ function generatePage(conv) {
         </div>
 
         <div class="info-section">
-            <h3>About ${conv.fromName} to ${conv.toName} Conversion</h3>
-            <p>This free online area converter helps you quickly convert ${conv.fromName.toLowerCase()} to ${conv.toName.toLowerCase()}. Perfect for:</p>
+            <h3>About ${conv.name} Conversion</h3>
+            <p>This free online converter helps you quickly convert ${conv.fromUnit} to ${conv.toUnit}. Perfect for:</p>
             <ul>
-                <li>Real estate property calculations</li>
-                <li>Land measurement and surveying</li>
-                <li>Construction and architecture planning</li>
-                <li>Garden and landscape design</li>
-                <li>Agricultural land assessment</li>
+                <li>Real estate and property measurement</li>
+                <li>Construction and building projects</li>
+                <li>Land surveying and agricultural planning</li>
+                <li>Home improvement and flooring calculations</li>
             </ul>
             
             <h3>Quick Reference Table</h3>
@@ -132,8 +128,8 @@ function generatePage(conv) {
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>${conv.fromName}</th>
-                            <th>${conv.toName}</th>
+                            <th>${conv.fromUnit}</th>
+                            <th>${conv.toUnit}</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -148,7 +144,8 @@ function generatePage(conv) {
         </div>
 
         <div class="info-section">
-            <h3>More Area Converters & Calculators</h3>
+            <h3>More Area Converters & Tools</h3>
+            <p>Check out our other conversion and calculation tools:</p>
             <ul>
                 <li><a href="index.html">ToolPulse Home - All Tools</a></li>
                 <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
@@ -165,13 +162,13 @@ function generatePage(conv) {
     </div>
 
     <script>
-        const formula = ${conv.formula.toString()};
+        const factor = ${conv.factor};
         const inputEl = document.getElementById('input-value');
         const resultEl = document.getElementById('result-value');
         const tableEl = document.getElementById('reference-table');
         
         function convert(value) {
-            return formula(value);
+            return (value * factor).toFixed(4);
         }
         
         inputEl.addEventListener('input', () => {
@@ -181,15 +178,15 @@ function generatePage(conv) {
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' ${conv.fromName} = ' + result + ' ${conv.toName}';
+            resultEl.textContent = value + ' ${conv.fromUnit} = ' + result + ' ${conv.toUnit}';
         });
         
         // Generate reference table
-        const referenceValues = [1, 5, 10, 25, 50, 100, 500, 1000];
+        const referenceValues = [1, 10, 50, 100, 500, 1000, 5000, 10000];
         referenceValues.forEach(val => {
             const row = document.createElement('tr');
             const result = convert(val);
-            row.innerHTML = '<td>' + val + '</td><td>' + result + '</td>';
+            row.innerHTML = '<td>' + val.toLocaleString() + '</td><td>' + parseFloat(result).toLocaleString() + '</td>';
             tableEl.appendChild(row);
         });
     </script>
@@ -208,4 +205,4 @@ conversions.forEach(conv => {
 });
 
 console.log(`\n✅ Generated ${count} area conversion pages`);
-console.log('📝 Next: Update sitemap.xml and rebuild-index.js');
+console.log('📝 Next: Update sitemap.xml and rebuild-index.js to include these pages');

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Square Yards to Square Feet Converter - Free Area Conversion | ToolPulse</title>
-    <meta name="description" content="Convert square yards to square feet instantly. Free area converter for real estate, land measurement, and property calculations.">
+    <title>Square Yards to Square Feet Converter - Free Area Conversion Tool | ToolPulse</title>
+    <meta name="description" content="Convert sq yd to sq ft instantly. Free square yards to square feet converter for real estate, construction, and land measurement. Accurate results.">
     <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-square-yards-to-square-feet.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,7 +26,7 @@
         .info-section h3 { color: #667eea; margin-bottom: 1rem; }
         .info-section p { margin-bottom: 1rem; }
         .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-        .info-section li { margin-bottom: 0.5rem; }
+        .info-section ul li { margin-bottom: 0.5rem; }
         .table-wrapper { overflow-x: auto; }
         .conversion-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
         .conversion-table th, .conversion-table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #e0e6ed; }
@@ -43,7 +43,7 @@
     <div class="header">
         <div class="container">
             <h1>Square Yards to Square Feet Converter</h1>
-            <p>Free online area converter for real estate, land, and property measurements</p>
+            <p>Free online sq yd to sq ft converter for real estate and land measurement</p>
         </div>
     </div>
 
@@ -57,11 +57,11 @@
         <div class="converter-box">
             <h2>Convert Square Yards to Square Feet</h2>
             <div class="input-group">
-                <label for="input-value">Enter Square Yards:</label>
-                <input type="number" id="input-value" placeholder="Enter area value" step="any" value="1">
+                <label for="input-value">Enter sq yd:</label>
+                <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
             <div class="result-box" id="result">
-                <strong>Result: </strong><span id="result-value">1 Square Yards = 9.0000 Square Feet</span>
+                <strong>Result: </strong><span id="result-value">Enter a value above</span>
             </div>
         </div>
 
@@ -73,13 +73,12 @@
 
         <div class="info-section">
             <h3>About Square Yards to Square Feet Conversion</h3>
-            <p>This free online area converter helps you quickly convert square yards to square feet. Perfect for:</p>
+            <p>This free online converter helps you quickly convert sq yd to sq ft. Perfect for:</p>
             <ul>
-                <li>Real estate property calculations</li>
-                <li>Land measurement and surveying</li>
-                <li>Construction and architecture planning</li>
-                <li>Garden and landscape design</li>
-                <li>Agricultural land assessment</li>
+                <li>Real estate and property measurement</li>
+                <li>Construction and building projects</li>
+                <li>Land surveying and agricultural planning</li>
+                <li>Home improvement and flooring calculations</li>
             </ul>
             
             <h3>Quick Reference Table</h3>
@@ -87,8 +86,8 @@
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>Square Yards</th>
-                            <th>Square Feet</th>
+                            <th>sq yd</th>
+                            <th>sq ft</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -103,7 +102,8 @@
         </div>
 
         <div class="info-section">
-            <h3>More Area Converters & Calculators</h3>
+            <h3>More Area Converters & Tools</h3>
+            <p>Check out our other conversion and calculation tools:</p>
             <ul>
                 <li><a href="index.html">ToolPulse Home - All Tools</a></li>
                 <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
@@ -120,13 +120,13 @@
     </div>
 
     <script>
-        const formula = (v) => (v * 9).toFixed(4);
+        const factor = 9;
         const inputEl = document.getElementById('input-value');
         const resultEl = document.getElementById('result-value');
         const tableEl = document.getElementById('reference-table');
         
         function convert(value) {
-            return formula(value);
+            return (value * factor).toFixed(4);
         }
         
         inputEl.addEventListener('input', () => {
@@ -136,15 +136,15 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' Square Yards = ' + result + ' Square Feet';
+            resultEl.textContent = value + ' sq yd = ' + result + ' sq ft';
         });
         
         // Generate reference table
-        const referenceValues = [1, 5, 10, 25, 50, 100, 500, 1000];
+        const referenceValues = [1, 10, 50, 100, 500, 1000, 5000, 10000];
         referenceValues.forEach(val => {
             const row = document.createElement('tr');
             const result = convert(val);
-            row.innerHTML = '<td>' + val + '</td><td>' + result + '</td>';
+            row.innerHTML = '<td>' + val.toLocaleString() + '</td><td>' + parseFloat(result).toLocaleString() + '</td>';
             tableEl.appendChild(row);
         });
     </script>

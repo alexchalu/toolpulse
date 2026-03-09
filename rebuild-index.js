@@ -64,6 +64,18 @@ const categories = [
         ]
     },
     {
+        name: '📐 Area Converters',
+        id: 'area',
+        tools: [
+            { name: 'Sq Ft to Sq M', desc: 'Square feet to square meters', url: 'convert-square-feet-to-square-meters.html' },
+            { name: 'Sq M to Sq Ft', desc: 'Square meters to square feet', url: 'convert-square-meters-to-square-feet.html' },
+            { name: 'Acres to Sq Ft', desc: 'Acres to square feet', url: 'convert-acres-to-square-feet.html' },
+            { name: 'Acres to Hectares', desc: 'Acres to hectares', url: 'convert-acres-to-hectares.html' },
+            { name: 'Hectares to Acres', desc: 'Hectares to acres', url: 'convert-hectares-to-acres.html' },
+            { name: 'Sq Yd to Sq Ft', desc: 'Square yards to square feet', url: 'convert-square-yards-to-square-feet.html' },
+        ]
+    },
+    {
         name: '💱 Currency Converter',
         id: 'currency',
         tools: [
