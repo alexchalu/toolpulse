@@ -214,6 +214,18 @@ const categories = [
             { name: 'Boat Insurance', desc: 'Watercraft insurance estimator', url: 'boat-insurance-calculator.html' },
             { name: 'RV Insurance', desc: 'Motorhome insurance calculator', url: 'rv-insurance-calculator.html' },
             { name: 'Umbrella Insurance', desc: 'Liability coverage calculator', url: 'umbrella-insurance-calculator.html' },
+            { name: 'Travel Insurance', desc: 'Trip insurance cost estimator', url: 'travel-insurance-calculator.html' },
+            { name: 'Business Insurance', desc: 'Small business insurance calculator', url: 'business-insurance-calculator.html' },
+            { name: 'Long-Term Care', desc: 'LTC insurance premium calculator', url: 'long-term-care-insurance-calculator.html' },
+            { name: 'Flood Insurance', desc: 'Flood coverage cost calculator', url: 'flood-insurance-calculator.html' },
+        ]
+    },
+    {
+        name: '💰 Mortgage & Home Equity',
+        id: 'mortgage-tools',
+        tools: [
+            { name: 'Mortgage Refinance', desc: 'Should you refinance? Break-even analysis', url: 'mortgage-refinance-calculator.html' },
+            { name: 'HELOC Payment', desc: 'Home equity line of credit calculator', url: 'heloc-payment-calculator.html' },
         ]
     },
     {

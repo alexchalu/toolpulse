@@ -2,8 +2,14 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/calc/car-insurance-estimator.html',
-  'https://alexchalu.github.io/toolpulse/calc/pet-insurance-calculator.html',
+  'https://alexchalu.github.io/toolpulse/car-insurance-estimator.html',
+  'https://alexchalu.github.io/toolpulse/pet-insurance-calculator.html',
+  'https://alexchalu.github.io/toolpulse/homeowners-insurance-calculator.html',
+  'https://alexchalu.github.io/toolpulse/renters-insurance-calculator.html',
+  'https://alexchalu.github.io/toolpulse/motorcycle-insurance-calculator.html',
+  'https://alexchalu.github.io/toolpulse/boat-insurance-calculator.html',
+  'https://alexchalu.github.io/toolpulse/rv-insurance-calculator.html',
+  'https://alexchalu.github.io/toolpulse/umbrella-insurance-calculator.html',
 ];
 
 const payload = JSON.stringify({
@@ -27,7 +33,7 @@ const options = {
 const req = https.request(options, (res) => {
   console.log(`✅ IndexNow response: ${res.statusCode}`);
   if (res.statusCode === 200) {
-    console.log('✅ Successfully submitted 2 insurance calculator URLs to IndexNow');
+    console.log('✅ Successfully submitted 8 insurance calculator URLs to IndexNow (Bing + Yandex)');
   }
 });
 
