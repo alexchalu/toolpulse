@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Insurance Cost Calculator 2026 - Dog & Cat Insurance Estimator | ToolPulse</title>
+    <meta name="description" content="Free pet insurance calculator for dogs and cats. Estimate monthly premiums based on pet age, breed, location, and coverage. Compare pet insurance costs and find the best plan in 2026.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/pet-insurance-calculator.html">
+    <meta name="keywords" content="pet insurance calculator, dog insurance cost, cat insurance cost, pet insurance comparison 2026, vet insurance estimator">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .calculator-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .calculator-box h2 { margin-bottom: 1.5rem; color: #667eea; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .input-group input, .input-group select { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #667eea; }
+        .btn { background: #667eea; color: white; border: none; padding: 0.875rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.3s; }
+        .btn:hover { background: #5568d3; }
+        .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
+        .result-box h3 { color: #667eea; margin-bottom: 1rem; font-size: 1.3rem; }
+        .result-item { margin-bottom: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid #e0e6ed; }
+        .result-item:last-child { border-bottom: none; }
+        .result-item strong { color: #667eea; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #667eea; margin-bottom: 1rem; }
+        .info-section p { margin-bottom: 1rem; }
+        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .info-section ul li { margin-bottom: 0.5rem; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        .comparison-table th, .comparison-table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #e0e6ed; }
+        .comparison-table th { background: #f0f4ff; color: #667eea; font-weight: 600; }
+        .comparison-table tr:hover { background: #f9fafb; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #667eea; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>🐾 Pet Insurance Cost Calculator</h1>
+            <p>Estimate your dog or cat insurance premium and compare coverage options in 2026</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="calculator-box">
+            <h2>Calculate Your Pet Insurance Cost</h2>
+            
+            <div class="input-group">
+                <label for="pet-type">Pet Type:</label>
+                <select id="pet-type">
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="pet-age">Pet Age (years):</label>
+                <input type="number" id="pet-age" placeholder="e.g., 3" min="0" max="20" step="0.5">
+            </div>
+
+            <div class="input-group">
+                <label for="breed-size">Breed Size (Dogs) / Indoor-Outdoor (Cats):</label>
+                <select id="breed-size">
+                    <option value="small">Small Breed / Indoor Cat</option>
+                    <option value="medium">Medium Breed / Indoor-Outdoor Cat</option>
+                    <option value="large">Large Breed / Outdoor Cat</option>
+                    <option value="giant">Giant Breed (Dogs only)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="coverage-level">Coverage Level:</label>
+                <select id="coverage-level">
+                    <option value="accident">Accident Only</option>
+                    <option value="standard">Accident & Illness</option>
+                    <option value="comprehensive">Comprehensive (includes wellness)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="deductible">Annual Deductible:</label>
+                <select id="deductible">
+                    <option value="100">$100</option>
+                    <option value="250">$250</option>
+                    <option value="500">$500</option>
+                    <option value="1000">$1,000</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="reimbursement">Reimbursement Rate:</label>
+                <select id="reimbursement">
+                    <option value="70">70%</option>
+                    <option value="80">80%</option>
+                    <option value="90">90%</option>
+                    <option value="100">100%</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="location">Location:</label>
+                <select id="location">
+                    <option value="low">Low-cost area (rural, lower COL)</option>
+                    <option value="medium">Average-cost area (suburban)</option>
+                    <option value="high">High-cost area (urban, high COL)</option>
+                </select>
+            </div>
+
+            <button class="btn" onclick="calculatePetInsurance()">Calculate Pet Insurance Cost</button>
+
+            <div class="result-box" id="result">
+                <h3>📊 Your Estimated Pet Insurance Cost</h3>
+                <div id="result-content"></div>
+            </div>
+        </div>
+
+        <!-- Ad Slot 2 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567891" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>🐕 Average Pet Insurance Costs (2026)</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Coverage Type</th>
+                        <th>Dogs (Monthly)</th>
+                        <th>Cats (Monthly)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Accident Only</td>
+                        <td>$15-$25</td>
+                        <td>$10-$18</td>
+                    </tr>
+                    <tr>
+                        <td>Accident & Illness</td>
+                        <td>$45-$65</td>
+                        <td>$25-$40</td>
+                    </tr>
+                    <tr>
+                        <td>Comprehensive</td>
+                        <td>$65-$100</td>
+                        <td>$40-$60</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <h3>💰 Is Pet Insurance Worth It?</h3>
+            <p><strong>Average emergency vet visit:</strong> $800-$1,500</p>
+            <p><strong>Surgery costs:</strong> $1,500-$5,000+</p>
+            <p><strong>Cancer treatment:</strong> $3,000-$10,000+</p>
+            <p><strong>Chronic condition management:</strong> $200-$500/month</p>
+            
+            <p style="margin-top: 1rem;">Pet insurance typically reimburses 70-90% of covered costs after the deductible. If you'd struggle to pay $2,000+ for an emergency, insurance can provide peace of mind.</p>
+            
+            <h3 style="margin-top: 1.5rem;">✅ When Pet Insurance Makes Sense:</h3>
+            <ul>
+                <li>Your pet is young and healthy (best time to enroll)</li>
+                <li>You don't have $2,000-$5,000 saved for emergencies</li>
+                <li>Your breed is prone to health issues</li>
+                <li>You want access to expensive treatments without financial stress</li>
+            </ul>
+
+            <h3 style="margin-top: 1.5rem;">❌ When It Might Not Be Worth It:</h3>
+            <ul>
+                <li>Your pet is already senior with pre-existing conditions (won't be covered)</li>
+                <li>You have a substantial emergency fund ($5,000+)</li>
+                <li>You're willing to self-insure and budget monthly for vet costs</li>
+            </ul>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567892" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>📋 What Pet Insurance Covers</h3>
+            <p><strong>Accident Only Plans:</strong> Injuries from accidents (broken bones, lacerations, foreign body ingestion, poisoning)</p>
+            
+            <p><strong>Accident & Illness Plans (Most Common):</strong></p>
+            <ul>
+                <li>Accidents and injuries</li>
+                <li>Illnesses (infections, cancer, diabetes, allergies)</li>
+                <li>Diagnostic tests (bloodwork, X-rays, MRI)</li>
+                <li>Surgeries and hospitalization</li>
+                <li>Medications and prescriptions</li>
+                <li>Emergency care</li>
+            </ul>
+
+            <p><strong>Comprehensive Plans (with Wellness Add-On):</strong></p>
+            <ul>
+                <li>All of the above, plus:</li>
+                <li>Annual exams and checkups</li>
+                <li>Vaccinations</li>
+                <li>Dental cleanings</li>
+                <li>Flea/tick prevention</li>
+                <li>Spay/neuter procedures</li>
+            </ul>
+
+            <h3 style="margin-top: 1.5rem;">❌ What's NOT Covered:</h3>
+            <ul>
+                <li>Pre-existing conditions</li>
+                <li>Cosmetic procedures</li>
+                <li>Breeding costs</li>
+                <li>Behavioral issues (varies by provider)</li>
+                <li>Waiting period conditions (typically 14 days for accidents, 30 days for illness)</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h3>💡 Tips to Save on Pet Insurance</h3>
+            <ul>
+                <li><strong>Enroll young:</strong> Premiums are lowest for puppies/kittens and lock in lower rates</li>
+                <li><strong>Annual payment:</strong> Save 5-10% by paying annually instead of monthly</li>
+                <li><strong>Multi-pet discount:</strong> Insure multiple pets for 5-10% discount per pet</li>
+                <li><strong>Higher deductible:</strong> $500-$1,000 deductible can save 15-30% on premiums</li>
+                <li><strong>Lower reimbursement:</strong> 70-80% reimbursement is cheaper than 90-100%</li>
+                <li><strong>Skip wellness coverage:</strong> Pay for routine care out-of-pocket and save on premiums</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h3>More Tools & Calculators</h3>
+            <ul>
+                <li><a href="car-insurance-calculator.html">Car Insurance Calculator</a></li>
+                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. This calculator provides estimates only. Actual pet insurance costs vary by provider, location, and pet health.</p>
+            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+        </div>
+    </div>
+
+    <script>
+        function calculatePetInsurance() {
+            const petType = document.getElementById('pet-type').value;
+            const petAge = parseFloat(document.getElementById('pet-age').value);
+            const breedSize = document.getElementById('breed-size').value;
+            const coverageLevel = document.getElementById('coverage-level').value;
+            const deductible = parseInt(document.getElementById('deductible').value);
+            const reimbursement = parseInt(document.getElementById('reimbursement').value);
+            const location = document.getElementById('location').value;
+
+            if (isNaN(petAge)) {
+                alert('Please enter your pet\'s age');
+                return;
+            }
+
+            // Base premium
+            let basePremium = petType === 'dog' ? 50 : 30;
+
+            // Age factor
+            if (petAge < 1) basePremium *= 0.7;
+            else if (petAge < 3) basePremium *= 1.0;
+            else if (petAge < 7) basePremium *= 1.3;
+            else if (petAge < 10) basePremium *= 1.7;
+            else basePremium *= 2.2;
+
+            // Breed size
+            const sizeMultipliers = {
+                'small': 0.9,
+                'medium': 1.0,
+                'large': 1.3,
+                'giant': 1.6
+            };
+            basePremium *= sizeMultipliers[breedSize];
+
+            // Coverage level
+            if (coverageLevel === 'accident') basePremium *= 0.35;
+            else if (coverageLevel === 'standard') basePremium *= 1.0;
+            else if (coverageLevel === 'comprehensive') basePremium *= 1.5;
+
+            // Deductible (lower deductible = higher premium)
+            const deductibleMultipliers = {
+                100: 1.3,
+                250: 1.15,
+                500: 1.0,
+                1000: 0.8
+            };
+            basePremium *= deductibleMultipliers[deductible];
+
+            // Reimbursement rate
+            const reimbursementMultipliers = {
+                70: 0.85,
+                80: 0.95,
+                90: 1.05,
+                100: 1.2
+            };
+            basePremium *= reimbursementMultipliers[reimbursement];
+
+            // Location
+            const locationMultipliers = {
+                'low': 0.85,
+                'medium': 1.0,
+                'high': 1.25
+            };
+            basePremium *= locationMultipliers[location];
+
+            const monthlyPremium = Math.round(basePremium);
+            const annualPremium = monthlyPremium * 12;
+            const lifetimeCost = annualPremium * 10; // 10-year estimate
+
+            // Calculate what one emergency would cost vs insurance
+            const emergencyVetCost = 1500;
+            const coverageAmount = (emergencyVetCost - deductible) * (reimbursement / 100);
+            const outOfPocket = emergencyVetCost - coverageAmount;
+
+            const resultContent = `
+                <div class="result-item">
+                    <strong>Monthly Premium:</strong> $${monthlyPremium.toLocaleString()}
+                </div>
+                <div class="result-item">
+                    <strong>Annual Premium:</strong> $${annualPremium.toLocaleString()}
+                </div>
+                <div class="result-item">
+                    <strong>Estimated 10-Year Cost:</strong> $${lifetimeCost.toLocaleString()}
+                </div>
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid #667eea;">
+                    <h4 style="color: #667eea; margin-bottom: 1rem;">💡 Example: $1,500 Emergency Vet Visit</h4>
+                    <div class="result-item">
+                        <strong>Total cost:</strong> $1,500
+                    </div>
+                    <div class="result-item">
+                        <strong>Your deductible:</strong> -$${deductible.toLocaleString()}
+                    </div>
+                    <div class="result-item">
+                        <strong>Insurance covers (${reimbursement}%):</strong> $${coverageAmount.toLocaleString()}
+                    </div>
+                    <div class="result-item">
+                        <strong>Your out-of-pocket:</strong> $${outOfPocket.toLocaleString()}
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; font-style: italic;">
+                    💡 These are estimates based on national averages. Actual rates vary by provider, pet breed, and location. Shop multiple insurers to compare.
+                </p>
+            `;
+
+            document.getElementById('result-content').innerHTML = resultContent;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>

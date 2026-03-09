@@ -30,6 +30,14 @@ const categories = [
         ]
     },
     {
+        name: '🛡️ Insurance Calculators',
+        id: 'insurance',
+        tools: [
+            { name: 'Car Insurance Cost', desc: 'Auto insurance premium estimator', url: 'car-insurance-calculator.html' },
+            { name: 'Pet Insurance Cost', desc: 'Dog & cat insurance calculator', url: 'pet-insurance-calculator.html' },
+        ]
+    },
+    {
         name: '⚖️ Health & Fitness',
         id: 'health',
         tools: [
