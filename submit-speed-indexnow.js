@@ -8,15 +8,15 @@ const urls = [
   'https://alexchalu.github.io/toolpulse/convert-kph-to-mph.html',
   'https://alexchalu.github.io/toolpulse/convert-kph-to-mps.html',
   'https://alexchalu.github.io/toolpulse/convert-kph-to-knots.html',
-  'https://alexchalu.github.io/toolpulse/convert-mps-to-mph.html',
-  'https://alexchalu.github.io/toolpulse/convert-mps-to-kph.html',
-  'https://alexchalu.github.io/toolpulse/convert-mps-to-knots.html',
   'https://alexchalu.github.io/toolpulse/convert-knots-to-mph.html',
   'https://alexchalu.github.io/toolpulse/convert-knots-to-kph.html',
   'https://alexchalu.github.io/toolpulse/convert-knots-to-mps.html',
-  'https://alexchalu.github.io/toolpulse/convert-fps-to-mph.html',
-  'https://alexchalu.github.io/toolpulse/convert-fps-to-mps.html',
-  'https://alexchalu.github.io/toolpulse/convert-mph-to-fps.html',
+  'https://alexchalu.github.io/toolpulse/convert-mps-to-mph.html',
+  'https://alexchalu.github.io/toolpulse/convert-mps-to-kph.html',
+  'https://alexchalu.github.io/toolpulse/convert-mps-to-knots.html',
+  'https://alexchalu.github.io/toolpulse/convert-mach-to-mph.html',
+  'https://alexchalu.github.io/toolpulse/convert-mach-to-kph.html',
+  'https://alexchalu.github.io/toolpulse/convert-mph-to-mach.html',
 ];
 
 const payload = JSON.stringify({

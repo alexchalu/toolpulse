@@ -47,6 +47,8 @@ const categories = [
         tools: [
             { name: 'BMI Calculator', desc: 'Body Mass Index', url: 'calc/bmi-calculator.html' },
             { name: 'Calorie Calculator', desc: 'Daily calorie needs + macros', url: 'calc/calorie-calculator.html' },
+            { name: 'Food Calorie Database', desc: 'Nutrition facts for 30+ foods', url: 'calc/food-calorie-calculator.html' },
+            { name: 'Portion Size Calculator', desc: 'Meal prep serving sizes', url: 'calc/portion-size-calculator.html' },
             { name: 'Body Fat Calculator', desc: 'Navy method body fat %', url: 'calc/body-fat-calculator.html' },
             { name: 'Ideal Weight', desc: '4 medical formulas', url: 'calc/ideal-weight.html' },
             { name: 'Pregnancy Due Date', desc: 'Estimated delivery date', url: 'calc/pregnancy-due-date.html' },
