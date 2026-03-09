@@ -12,6 +12,7 @@ const categories = [
             { name: 'Paycheck Calculator', desc: 'Take-home pay after taxes', url: 'calc/paycheck-calculator.html' },
             { name: 'Personal Loan', desc: 'Loan payments & amortization', url: 'calc/personal-loan-calculator.html' },
             { name: 'Student Loan', desc: 'Student debt payoff timeline', url: 'calc/student-loan-calculator.html' },
+            { name: 'Student Loan Forgiveness', desc: 'PSLF & IDR forgiveness estimator', url: 'student-loan-forgiveness-calculator.html' },
             { name: 'ROI Calculator', desc: 'Return on investment', url: 'calc/roi-calculator.html' },
             { name: 'Profit Margin', desc: 'Margin & markup calculator', url: 'calc/margin-calculator.html' },
             { name: 'Rent vs Buy', desc: 'Should you rent or buy?', url: 'calc/rent-vs-buy.html' },

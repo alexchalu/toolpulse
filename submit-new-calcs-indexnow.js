@@ -3,7 +3,8 @@ const https = require('https');
 
 const urls = [
   'https://alexchalu.github.io/toolpulse/calc/solar-panel-roi-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/recipe-scaler.html',
+  'https://alexchalu.github.io/toolpulse/calc/renters-insurance-calculator.html',
+  'https://alexchalu.github.io/toolpulse/calc/motorcycle-insurance-calculator.html',
 ];
 
 const payload = JSON.stringify({
@@ -27,7 +28,7 @@ const options = {
 const req = https.request(options, (res) => {
   console.log(`✅ IndexNow response: ${res.statusCode}`);
   if (res.statusCode === 200) {
-    console.log('✅ Successfully submitted 2 new calculator URLs to IndexNow');
+    console.log('✅ Successfully submitted 3 new calculator URLs to IndexNow (Bing + Yandex)');
   }
 });
 
