@@ -119,6 +119,14 @@ const categories = [
         ]
     },
     {
+        name: '🛡️ Insurance Calculators',
+        id: 'insurance',
+        tools: [
+            { name: 'Car Insurance Cost', desc: 'Estimate auto insurance premiums', url: 'calc/car-insurance-estimator.html' },
+            { name: 'Pet Insurance Cost', desc: 'Dog & cat insurance calculator', url: 'calc/pet-insurance-calculator.html' },
+        ]
+    },
+    {
         name: '🍳 Cooking Conversions',
         id: 'cooking',
         tools: [

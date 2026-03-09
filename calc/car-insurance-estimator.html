@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Insurance Cost Estimator - Compare Rates & Save Money | ToolPulse</title>
+    <meta name="description" content="Free car insurance cost estimator. Compare rates, find savings opportunities, and understand what affects your auto insurance premium. Calculate your estimated monthly cost.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/calc/car-insurance-estimator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .calculator-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .calculator-box h2 { margin-bottom: 1.5rem; color: #667eea; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .form-group input, .form-group select { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: #667eea; }
+        .btn { background: #667eea; color: white; padding: 0.75rem 2rem; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+        .btn:hover { background: #5568d3; }
+        .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
+        .result-box h3 { color: #667eea; margin-bottom: 1rem; }
+        .result-value { font-size: 2rem; font-weight: bold; color: #667eea; margin: 0.5rem 0; }
+        .breakdown { margin-top: 1rem; }
+        .breakdown-item { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #e0e6ed; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #667eea; margin-bottom: 1rem; }
+        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .info-section ul li { margin-bottom: 0.5rem; }
+        .tips-box { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1rem; border-radius: 6px; margin: 1rem 0; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #667eea; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>🚗 Car Insurance Cost Estimator</h1>
+            <p>Compare rates and find out how much you should expect to pay for auto insurance</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="calculator-box">
+            <h2>Calculate Your Estimated Car Insurance Cost</h2>
+            <form id="insurance-form">
+                <div class="form-group">
+                    <label for="age">Your Age</label>
+                    <input type="number" id="age" min="16" max="100" value="30" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="marital-status">Marital Status</label>
+                    <select id="marital-status">
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicle-age">Vehicle Age (years)</label>
+                    <input type="number" id="vehicle-age" min="0" max="30" value="3" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="coverage-type">Coverage Type</label>
+                    <select id="coverage-type">
+                        <option value="liability">Liability Only</option>
+                        <option value="standard" selected>Standard (Liability + Collision)</option>
+                        <option value="comprehensive">Comprehensive (Full Coverage)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="accidents">Accidents/Violations (last 3 years)</label>
+                    <input type="number" id="accidents" min="0" max="10" value="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="credit-score">Credit Score Range</label>
+                    <select id="credit-score">
+                        <option value="excellent">Excellent (750+)</option>
+                        <option value="good" selected>Good (700-749)</option>
+                        <option value="fair">Fair (650-699)</option>
+                        <option value="poor">Poor (below 650)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="annual-mileage">Annual Mileage</label>
+                    <input type="number" id="annual-mileage" min="0" max="100000" value="12000" required>
+                </div>
+
+                <button type="submit" class="btn">Calculate Insurance Cost</button>
+            </form>
+
+            <div class="result-box" id="result">
+                <h3>Your Estimated Car Insurance Cost</h3>
+                <div class="result-value" id="monthly-cost">$0</div>
+                <p style="color: #666; margin-bottom: 1rem;">Estimated monthly premium</p>
+                
+                <div class="breakdown">
+                    <div class="breakdown-item">
+                        <span>Annual Cost:</span>
+                        <strong id="annual-cost">$0</strong>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Coverage Level:</span>
+                        <strong id="coverage-level">-</strong>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Risk Profile:</span>
+                        <strong id="risk-profile">-</strong>
+                    </div>
+                </div>
+
+                <div class="tips-box" style="margin-top: 1.5rem;">
+                    <strong>💡 Ways to Save:</strong>
+                    <ul id="savings-tips" style="margin-top: 0.5rem; margin-left: 1.5rem;"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Slot 2 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567891" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>What Affects Your Car Insurance Rates?</h3>
+            <p>Car insurance companies consider many factors when calculating your premium:</p>
+            <ul>
+                <li><strong>Age & Gender:</strong> Younger drivers (under 25) typically pay more. Males often pay higher rates than females.</li>
+                <li><strong>Driving Record:</strong> Accidents, speeding tickets, and DUIs significantly increase rates.</li>
+                <li><strong>Credit Score:</strong> In most states, better credit scores result in lower premiums.</li>
+                <li><strong>Vehicle Type:</strong> Sports cars and luxury vehicles cost more to insure than sedans.</li>
+                <li><strong>Coverage Level:</strong> Comprehensive coverage costs more than liability-only.</li>
+                <li><strong>Location:</strong> Urban areas with higher accident rates = higher premiums.</li>
+                <li><strong>Annual Mileage:</strong> More driving = higher risk = higher rates.</li>
+                <li><strong>Marital Status:</strong> Married drivers often get discounts.</li>
+            </ul>
+
+            <h3>Average Car Insurance Costs by Age</h3>
+            <ul>
+                <li><strong>Age 16-19:</strong> $3,000-$7,000/year</li>
+                <li><strong>Age 20-24:</strong> $2,000-$4,000/year</li>
+                <li><strong>Age 25-34:</strong> $1,500-$2,500/year</li>
+                <li><strong>Age 35-54:</strong> $1,200-$2,000/year</li>
+                <li><strong>Age 55+:</strong> $1,000-$1,800/year</li>
+            </ul>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567892" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>How to Lower Your Car Insurance</h3>
+            <ul>
+                <li><strong>Bundle Policies:</strong> Combine auto + home insurance for 10-25% savings</li>
+                <li><strong>Increase Deductibles:</strong> Higher deductible = lower monthly premium</li>
+                <li><strong>Ask for Discounts:</strong> Good student, safe driver, military, low mileage</li>
+                <li><strong>Improve Credit Score:</strong> Can save hundreds per year in many states</li>
+                <li><strong>Shop Around:</strong> Compare quotes from 3-5 insurers every year</li>
+                <li><strong>Take Defensive Driving Course:</strong> 5-10% discount in many states</li>
+                <li><strong>Install Safety Features:</strong> Anti-theft devices, dashcams can reduce rates</li>
+                <li><strong>Pay in Full:</strong> Annual payment often cheaper than monthly installments</li>
+            </ul>
+
+            <h3>More Insurance Calculators</h3>
+            <p><a href="../index.html">← Back to ToolPulse Home</a></p>
+            <p><a href="https://alexchalu.github.io/healthcalcs/">Health Insurance Calculator →</a></p>
+            <p><a href="https://alexchalu.github.io/smartcalc/">More Financial Tools →</a></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. All calculations are estimates for informational purposes only.</p>
+            <p><a href="../index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('insurance-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const age = parseInt(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+            const maritalStatus = document.getElementById('marital-status').value;
+            const vehicleAge = parseInt(document.getElementById('vehicle-age').value);
+            const coverageType = document.getElementById('coverage-type').value;
+            const accidents = parseInt(document.getElementById('accidents').value);
+            const creditScore = document.getElementById('credit-score').value;
+            const mileage = parseInt(document.getElementById('annual-mileage').value);
+            
+            // Base rate
+            let baseCost = 1200;
+            
+            // Coverage type multiplier
+            const coverageMultipliers = {
+                'liability': 0.5,
+                'standard': 1.0,
+                'comprehensive': 1.8
+            };
+            baseCost *= coverageMultipliers[coverageType];
+            
+            // Age factor
+            if (age < 20) baseCost *= 2.8;
+            else if (age < 25) baseCost *= 1.8;
+            else if (age < 30) baseCost *= 1.3;
+            else if (age < 40) baseCost *= 1.0;
+            else if (age < 55) baseCost *= 0.9;
+            else baseCost *= 0.95;
+            
+            // Gender factor (males pay ~10% more on average)
+            if (gender === 'male' && age < 25) baseCost *= 1.15;
+            
+            // Marital status (married = 5% discount)
+            if (maritalStatus === 'married') baseCost *= 0.95;
+            
+            // Vehicle age (newer = more expensive)
+            if (vehicleAge < 3) baseCost *= 1.2;
+            else if (vehicleAge < 7) baseCost *= 1.0;
+            else baseCost *= 0.85;
+            
+            // Accidents/violations
+            baseCost += (accidents * 300);
+            
+            // Credit score
+            const creditMultipliers = {
+                'excellent': 0.85,
+                'good': 1.0,
+                'fair': 1.25,
+                'poor': 1.6
+            };
+            baseCost *= creditMultipliers[creditScore];
+            
+            // Mileage
+            if (mileage > 15000) baseCost *= 1.15;
+            else if (mileage < 7500) baseCost *= 0.9;
+            
+            const annualCost = Math.round(baseCost);
+            const monthlyCost = Math.round(annualCost / 12);
+            
+            // Display results
+            document.getElementById('monthly-cost').textContent = '$' + monthlyCost;
+            document.getElementById('annual-cost').textContent = '$' + annualCost.toLocaleString();
+            document.getElementById('coverage-level').textContent = coverageType.charAt(0).toUpperCase() + coverageType.slice(1);
+            
+            // Risk profile
+            let riskLevel = 'Low';
+            if (age < 25 || accidents > 1 || creditScore === 'poor') riskLevel = 'High';
+            else if (age < 30 || accidents === 1 || creditScore === 'fair') riskLevel = 'Medium';
+            document.getElementById('risk-profile').textContent = riskLevel;
+            
+            // Savings tips
+            const tips = [];
+            if (maritalStatus === 'single') tips.push('Get married for potential 5-10% discount');
+            if (accidents > 0) tips.push('Maintain clean driving record for 3+ years to see rates drop');
+            if (creditScore !== 'excellent') tips.push('Improve your credit score to save hundreds per year');
+            if (coverageType === 'comprehensive' && vehicleAge > 10) tips.push('Consider dropping comprehensive coverage on older vehicles');
+            if (mileage > 15000) tips.push('Reduce annual mileage if possible (carpool, public transit)');
+            tips.push('Compare quotes from multiple insurers annually');
+            tips.push('Bundle with home/renters insurance for 10-25% savings');
+            
+            const tipsList = document.getElementById('savings-tips');
+            tipsList.innerHTML = '';
+            tips.slice(0, 5).forEach(tip => {
+                const li = document.createElement('li');
+                li.textContent = tip;
+                tipsList.appendChild(li);
+            });
+            
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    </script>
+</body>
+</html>
