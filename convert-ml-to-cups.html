@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablespoons to Cups Converter - Free Cooking Conversion Tool | ToolPulse</title>
-    <meta name="description" content="Convert tablespoons to cups instantly. Free tablespoons to cups converter for cooking and recipes. Accurate results, easy to use.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-tablespoons-to-cups.html">
+    <title>Milliliters to Cups Converter - Free Cooking Conversion Tool | ToolPulse</title>
+    <meta name="description" content="Convert ml to cups instantly. Free milliliters to cups converter for cooking and recipes. Accurate results, easy to use.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-ml-to-cups.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -40,8 +40,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Tablespoons to Cups Converter</h1>
-            <p>Free online tablespoons to cups converter for cooking and recipes</p>
+            <h1>Milliliters to Cups Converter</h1>
+            <p>Free online ml to cups converter for cooking and recipes</p>
         </div>
     </div>
 
@@ -53,9 +53,9 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Tablespoons to Cups</h2>
+            <h2>Convert Milliliters to Cups</h2>
             <div class="input-group">
-                <label for="input-value">Enter tablespoons:</label>
+                <label for="input-value">Enter ml:</label>
                 <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
             <div class="result-box" id="result">
@@ -70,15 +70,15 @@
         </div>
 
         <div class="info-section">
-            <h3>About Tablespoons to Cups Conversion</h3>
-            <p>This free online converter helps you quickly convert tablespoons to cups. Perfect for cooking, baking, and recipe conversions.</p>
+            <h3>About Milliliters to Cups Conversion</h3>
+            <p>This free online converter helps you quickly convert ml to cups. Perfect for cooking, baking, and recipe conversions.</p>
             
             <h3>Quick Reference Table</h3>
             <div class="table-wrapper">
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>Tablespoons</th>
+                            <th>Ml</th>
                             <th>Cups</th>
                         </tr>
                     </thead>
@@ -112,7 +112,7 @@
     </div>
 
     <script>
-        const formulaKey = 'tablespoons-cups';
+        const formulaKey = 'ml-cups';
         const formulas = {};
         
         const inputEl = document.getElementById('input-value');
@@ -132,7 +132,7 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' tablespoons = ' + result + ' cups';
+            resultEl.textContent = value + ' ml = ' + result + ' cups';
         });
         
         // Generate reference table

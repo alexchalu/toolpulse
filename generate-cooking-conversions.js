@@ -1,11 +1,109 @@
-<!DOCTYPE html>
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+// High-volume cooking/kitchen conversions
+const conversions = [
+  // Temperature
+  { from: 'fahrenheit', to: 'celsius', name: 'Fahrenheit to Celsius', category: 'Temperature' },
+  { from: 'celsius', to: 'fahrenheit', name: 'Celsius to Fahrenheit', category: 'Temperature' },
+  
+  // Volume - US to Metric
+  { from: 'cups', to: 'ml', name: 'Cups to Milliliters', category: 'Volume' },
+  { from: 'cups', to: 'liters', name: 'Cups to Liters', category: 'Volume' },
+  { from: 'tablespoons', to: 'ml', name: 'Tablespoons to Milliliters', category: 'Volume' },
+  { from: 'teaspoons', to: 'ml', name: 'Teaspoons to Milliliters', category: 'Volume' },
+  { from: 'fluid-ounces', to: 'ml', name: 'Fluid Ounces to Milliliters', category: 'Volume' },
+  { from: 'pints', to: 'liters', name: 'Pints to Liters', category: 'Volume' },
+  { from: 'quarts', to: 'liters', name: 'Quarts to Liters', category: 'Volume' },
+  { from: 'gallons', to: 'liters', name: 'Gallons to Liters', category: 'Volume' },
+  
+  // Volume - Metric to US
+  { from: 'ml', to: 'cups', name: 'Milliliters to Cups', category: 'Volume' },
+  { from: 'ml', to: 'tablespoons', name: 'Milliliters to Tablespoons', category: 'Volume' },
+  { from: 'ml', to: 'teaspoons', name: 'Milliliters to Teaspoons', category: 'Volume' },
+  { from: 'liters', to: 'cups', name: 'Liters to Cups', category: 'Volume' },
+  { from: 'liters', to: 'gallons', name: 'Liters to Gallons', category: 'Volume' },
+  
+  // Weight - US to Metric
+  { from: 'ounces', to: 'grams', name: 'Ounces to Grams', category: 'Weight' },
+  { from: 'pounds', to: 'grams', name: 'Pounds to Grams', category: 'Weight' },
+  { from: 'pounds', to: 'kg', name: 'Pounds to Kilograms', category: 'Weight' },
+  
+  // Weight - Metric to US
+  { from: 'grams', to: 'ounces', name: 'Grams to Ounces', category: 'Weight' },
+  { from: 'grams', to: 'pounds', name: 'Grams to Pounds', category: 'Weight' },
+  { from: 'kg', to: 'pounds', name: 'Kilograms to Pounds', category: 'Weight' },
+  
+  // Common cooking conversions
+  { from: 'cups', to: 'tablespoons', name: 'Cups to Tablespoons', category: 'Volume' },
+  { from: 'cups', to: 'teaspoons', name: 'Cups to Teaspoons', category: 'Volume' },
+  { from: 'tablespoons', to: 'teaspoons', name: 'Tablespoons to Teaspoons', category: 'Volume' },
+  { from: 'tablespoons', to: 'cups', name: 'Tablespoons to Cups', category: 'Volume' },
+  { from: 'teaspoons', to: 'tablespoons', name: 'Teaspoons to Tablespoons', category: 'Volume' },
+];
+
+// Conversion formulas
+const formulas = {
+  'fahrenheit-celsius': (f) => ((f - 32) * 5/9).toFixed(2),
+  'celsius-fahrenheit': (c) => ((c * 9/5) + 32).toFixed(2),
+  'cups-ml': (c) => (c * 236.588).toFixed(2),
+  'cups-liters': (c) => (c * 0.236588).toFixed(3),
+  'tablespoons-ml': (t) => (t * 14.7868).toFixed(2),
+  'teaspoons-ml': (t) => (t * 4.92892).toFixed(2),
+  'fluid-ounces-ml': (oz) => (oz * 29.5735).toFixed(2),
+  'pints-liters': (p) => (p * 0.473176).toFixed(3),
+  'quarts-liters': (q) => (q * 0.946353).toFixed(3),
+  'gallons-liters': (g) => (g * 3.78541).toFixed(3),
+  'ml-cups': (ml) => (ml / 236.588).toFixed(3),
+  'ml-tablespoons': (ml) => (ml / 14.7868).toFixed(2),
+  'ml-teaspoons': (ml) => (ml / 4.92892).toFixed(2),
+  'liters-cups': (l) => (l / 0.236588).toFixed(2),
+  'liters-gallons': (l) => (l / 3.78541).toFixed(3),
+  'ounces-grams': (oz) => (oz * 28.3495).toFixed(2),
+  'pounds-grams': (lb) => (lb * 453.592).toFixed(2),
+  'pounds-kg': (lb) => (lb * 0.453592).toFixed(3),
+  'grams-ounces': (g) => (g / 28.3495).toFixed(2),
+  'grams-pounds': (g) => (g / 453.592).toFixed(3),
+  'kg-pounds': (kg) => (kg / 0.453592).toFixed(2),
+  'cups-tablespoons': (c) => (c * 16).toFixed(2),
+  'cups-teaspoons': (c) => (c * 48).toFixed(2),
+  'tablespoons-teaspoons': (t) => (t * 3).toFixed(2),
+  'tablespoons-cups': (t) => (t / 16).toFixed(3),
+  'teaspoons-tablespoons': (t) => (t / 3).toFixed(3),
+};
+
+const reverseFormulas = {
+  'fahrenheit-celsius': 'celsius-fahrenheit',
+  'cups-ml': 'ml-cups',
+  'cups-liters': 'liters-cups',
+  'tablespoons-ml': 'ml-tablespoons',
+  'teaspoons-ml': 'ml-teaspoons',
+  'fluid-ounces-ml': 'ml-fluid-ounces',
+  'pints-liters': 'liters-pints',
+  'quarts-liters': 'liters-quarts',
+  'gallons-liters': 'liters-gallons',
+  'ounces-grams': 'grams-ounces',
+  'pounds-grams': 'grams-pounds',
+  'pounds-kg': 'kg-pounds',
+  'cups-tablespoons': 'tablespoons-cups',
+  'cups-teaspoons': 'teaspoons-cups',
+  'tablespoons-teaspoons': 'teaspoons-tablespoons',
+};
+
+function generatePage(conv) {
+  const slug = `convert-${conv.from}-to-${conv.to}`;
+  const formulaKey = `${conv.from}-${conv.to}`;
+  
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablespoons to Cups Converter - Free Cooking Conversion Tool | ToolPulse</title>
-    <meta name="description" content="Convert tablespoons to cups instantly. Free tablespoons to cups converter for cooking and recipes. Accurate results, easy to use.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-tablespoons-to-cups.html">
+    <title>${conv.name} Converter - Free Cooking Conversion Tool | ToolPulse</title>
+    <meta name="description" content="Convert ${conv.from} to ${conv.to} instantly. Free ${conv.name.toLowerCase()} converter for cooking and recipes. Accurate results, easy to use.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -40,8 +138,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Tablespoons to Cups Converter</h1>
-            <p>Free online tablespoons to cups converter for cooking and recipes</p>
+            <h1>${conv.name} Converter</h1>
+            <p>Free online ${conv.from} to ${conv.to} converter for cooking and recipes</p>
         </div>
     </div>
 
@@ -53,9 +151,9 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Tablespoons to Cups</h2>
+            <h2>Convert ${conv.name}</h2>
             <div class="input-group">
-                <label for="input-value">Enter tablespoons:</label>
+                <label for="input-value">Enter ${conv.from}:</label>
                 <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
             <div class="result-box" id="result">
@@ -70,16 +168,16 @@
         </div>
 
         <div class="info-section">
-            <h3>About Tablespoons to Cups Conversion</h3>
-            <p>This free online converter helps you quickly convert tablespoons to cups. Perfect for cooking, baking, and recipe conversions.</p>
+            <h3>About ${conv.name} Conversion</h3>
+            <p>This free online converter helps you quickly convert ${conv.from} to ${conv.to}. Perfect for cooking, baking, and recipe conversions.</p>
             
             <h3>Quick Reference Table</h3>
             <div class="table-wrapper">
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>Tablespoons</th>
-                            <th>Cups</th>
+                            <th>${conv.from.charAt(0).toUpperCase() + conv.from.slice(1)}</th>
+                            <th>${conv.to.charAt(0).toUpperCase() + conv.to.slice(1)}</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -112,8 +210,8 @@
     </div>
 
     <script>
-        const formulaKey = 'tablespoons-cups';
-        const formulas = {};
+        const formulaKey = '${formulaKey}';
+        const formulas = ${JSON.stringify(formulas, null, 2)};
         
         const inputEl = document.getElementById('input-value');
         const resultEl = document.getElementById('result-value');
@@ -122,7 +220,7 @@
         function convert(value) {
             const formula = formulas[formulaKey];
             if (!formula) return 'Error';
-            return eval(formula.toString().replace(/^\(.*?\)\s*=>/, 'return ') + '(' + value + ')');
+            return eval(formula.toString().replace(/^\\(.*?\\)\\s*=>/, 'return ') + '(' + value + ')');
         }
         
         inputEl.addEventListener('input', () => {
@@ -132,7 +230,7 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' tablespoons = ' + result + ' cups';
+            resultEl.textContent = value + ' ${conv.from} = ' + result + ' ${conv.to}';
         });
         
         // Generate reference table
@@ -145,4 +243,18 @@
         });
     </script>
 </body>
-</html>
+</html>`;
+}
+
+// Generate all pages
+let count = 0;
+conversions.forEach(conv => {
+  const slug = `convert-${conv.from}-to-${conv.to}`;
+  const html = generatePage(conv);
+  fs.writeFileSync(path.join(__dirname, `${slug}.html`), html);
+  count++;
+  console.log(`✓ Generated ${slug}.html`);
+});
+
+console.log(`\n✅ Generated ${count} cooking conversion pages`);
+console.log('📝 Next: Update sitemap.xml and rebuild-index.js to include these pages');

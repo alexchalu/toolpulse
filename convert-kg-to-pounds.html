@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablespoons to Cups Converter - Free Cooking Conversion Tool | ToolPulse</title>
-    <meta name="description" content="Convert tablespoons to cups instantly. Free tablespoons to cups converter for cooking and recipes. Accurate results, easy to use.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-tablespoons-to-cups.html">
+    <title>Kilograms to Pounds Converter - Free Cooking Conversion Tool | ToolPulse</title>
+    <meta name="description" content="Convert kg to pounds instantly. Free kilograms to pounds converter for cooking and recipes. Accurate results, easy to use.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-kg-to-pounds.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -40,8 +40,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Tablespoons to Cups Converter</h1>
-            <p>Free online tablespoons to cups converter for cooking and recipes</p>
+            <h1>Kilograms to Pounds Converter</h1>
+            <p>Free online kg to pounds converter for cooking and recipes</p>
         </div>
     </div>
 
@@ -53,9 +53,9 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Tablespoons to Cups</h2>
+            <h2>Convert Kilograms to Pounds</h2>
             <div class="input-group">
-                <label for="input-value">Enter tablespoons:</label>
+                <label for="input-value">Enter kg:</label>
                 <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
             <div class="result-box" id="result">
@@ -70,16 +70,16 @@
         </div>
 
         <div class="info-section">
-            <h3>About Tablespoons to Cups Conversion</h3>
-            <p>This free online converter helps you quickly convert tablespoons to cups. Perfect for cooking, baking, and recipe conversions.</p>
+            <h3>About Kilograms to Pounds Conversion</h3>
+            <p>This free online converter helps you quickly convert kg to pounds. Perfect for cooking, baking, and recipe conversions.</p>
             
             <h3>Quick Reference Table</h3>
             <div class="table-wrapper">
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>Tablespoons</th>
-                            <th>Cups</th>
+                            <th>Kg</th>
+                            <th>Pounds</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -112,7 +112,7 @@
     </div>
 
     <script>
-        const formulaKey = 'tablespoons-cups';
+        const formulaKey = 'kg-pounds';
         const formulas = {};
         
         const inputEl = document.getElementById('input-value');
@@ -132,7 +132,7 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' tablespoons = ' + result + ' cups';
+            resultEl.textContent = value + ' kg = ' + result + ' pounds';
         });
         
         // Generate reference table

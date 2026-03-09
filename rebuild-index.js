@@ -98,6 +98,24 @@ const categories = [
         ]
     },
     {
+        name: '🍳 Cooking Conversions',
+        id: 'cooking',
+        tools: [
+            { name: '°F to °C', desc: 'Fahrenheit to Celsius', url: 'convert-fahrenheit-to-celsius.html' },
+            { name: '°C to °F', desc: 'Celsius to Fahrenheit', url: 'convert-celsius-to-fahrenheit.html' },
+            { name: 'Cups to ML', desc: 'Cups to Milliliters', url: 'convert-cups-to-ml.html' },
+            { name: 'ML to Cups', desc: 'Milliliters to Cups', url: 'convert-ml-to-cups.html' },
+            { name: 'Tbsp to ML', desc: 'Tablespoons to Milliliters', url: 'convert-tablespoons-to-ml.html' },
+            { name: 'Tsp to ML', desc: 'Teaspoons to Milliliters', url: 'convert-teaspoons-to-ml.html' },
+            { name: 'Oz to Grams', desc: 'Ounces to Grams', url: 'convert-ounces-to-grams.html' },
+            { name: 'Grams to Oz', desc: 'Grams to Ounces', url: 'convert-grams-to-ounces.html' },
+            { name: 'Pounds to Grams', desc: 'Pounds to Grams', url: 'convert-pounds-to-grams.html' },
+            { name: 'Pounds to KG', desc: 'Pounds to Kilograms', url: 'convert-pounds-to-kg.html' },
+            { name: 'KG to Pounds', desc: 'Kilograms to Pounds', url: 'convert-kg-to-pounds.html' },
+            { name: 'Cups to Tbsp', desc: 'Cups to Tablespoons', url: 'convert-cups-to-tablespoons.html' },
+        ]
+    },
+    {
         name: '🔧 Developer Tools',
         id: 'dev',
         tools: [
