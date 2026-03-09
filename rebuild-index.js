@@ -42,6 +42,24 @@ const categories = [
         ]
     },
     {
+        name: '💼 Business Calculators',
+        id: 'business',
+        tools: [
+            { name: 'Business Valuation', desc: 'Calculate business worth', url: 'business-valuation-calculator.html' },
+            { name: 'Break-Even Analysis', desc: 'When will you be profitable?', url: 'break-even-analysis-calculator.html' },
+            { name: 'Startup Costs', desc: 'Total costs to start a business', url: 'startup-cost-calculator.html' },
+            { name: 'Cash Flow', desc: 'Track business cash flow', url: 'cash-flow-calculator.html' },
+            { name: 'Payroll Tax', desc: 'Employer payroll taxes', url: 'payroll-tax-calculator.html' },
+            { name: 'Business Loan', desc: 'Loan payments for business', url: 'business-loan-calculator.html' },
+            { name: 'Inventory Turnover', desc: 'Measure inventory efficiency', url: 'inventory-turnover-calculator.html' },
+            { name: 'Freelance Rate', desc: 'Calculate your hourly rate', url: 'freelance-rate-calculator.html' },
+            { name: 'Customer Lifetime Value', desc: 'CLV calculator', url: 'customer-lifetime-value-calculator.html' },
+            { name: 'Conversion Rate', desc: 'Marketing conversion rates', url: 'conversion-rate-calculator.html' },
+            { name: 'Gross Profit Margin', desc: 'Profit margin & markup', url: 'gross-profit-margin-calculator.html' },
+            { name: 'Revenue per Employee', desc: 'Productivity measure', url: 'revenue-per-employee-calculator.html' },
+        ]
+    },
+    {
         name: '⚖️ Health & Fitness',
         id: 'health',
         tools: [
