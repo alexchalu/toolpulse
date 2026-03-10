@@ -42,15 +42,156 @@ main{max-width:1100px;margin:0 auto;padding:0 1.5rem 3rem}
 .banner a{display:inline-block;background:#fff;color:#4f46e5;font-weight:700;padding:.6rem 1.5rem;border-radius:8px;text-decoration:none}
 footer{text-align:center;padding:2rem 1.5rem;color:var(--m);font-size:.8rem;border-top:1px solid var(--b)}
 footer a{color:var(--a);text-decoration:none;margin:0 .5rem}
-@media(max-width:600px){.hero h1{font-size:1.8rem}.search-box{width:150px}.grid{grid-template-columns:1fr 1fr}}
+/* Navigation */
+.main-nav{display:flex;gap:0;flex:1;justify-content:flex-start;margin-left:1.5rem}
+.nav-item{position:relative}
+.nav-btn{background:none;border:none;color:var(--m);font-size:.9rem;font-weight:600;padding:.5rem 1rem;cursor:pointer;transition:color .2s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{color:var(--t)}
+.nav-link{text-decoration:none;display:inline-block}
+.arrow{font-size:.7rem;margin-left:2px;transition:transform .2s}
+.nav-btn.active .arrow{transform:rotate(180deg)}
+.mega-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.5rem;min-width:680px;z-index:200;box-shadow:0 20px 60px rgba(0,0,0,.5);margin-top:.5rem}
+.mega-menu.show{display:flex;gap:1.5rem;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateX(-50%) translateY(-8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.mega-col{flex:1;min-width:140px}
+.mega-col h4{font-size:.85rem;font-weight:700;margin-bottom:.75rem;color:var(--a);padding-bottom:.5rem;border-bottom:1px solid var(--b)}
+.mega-col a{display:block;color:var(--m);text-decoration:none;font-size:.82rem;padding:.35rem 0;transition:color .15s}
+.mega-col a:hover{color:var(--t)}
+.mobile-toggle{display:none;background:none;border:1px solid var(--b);color:var(--t);font-size:1.3rem;padding:.3rem .6rem;border-radius:6px;cursor:pointer}
+@media(max-width:900px){
+.main-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--s);border-top:1px solid var(--b);flex-direction:column;padding:1rem;z-index:200}
+.main-nav.show{display:flex}
+.mobile-toggle{display:block}
+.mega-menu{position:static;transform:none;min-width:auto;margin-top:0;border:none;border-radius:0;padding:.75rem 0;box-shadow:none;flex-wrap:wrap}
+.mega-menu.show{flex-wrap:wrap}
+.mega-col{min-width:45%;margin-bottom:1rem}
+.nav-btn{width:100%;text-align:left;padding:.75rem 1rem}
+}
+@media(max-width:600px){.hero h1{font-size:1.8rem}.search-box{width:120px}.grid{grid-template-columns:1fr 1fr}.mega-col{min-width:100%}}
 </style>
 </head>
 <body>
-<header><div class="hi">
-<a href="index.html" class="logo">🔧 CalcLeap</a>
-<span class="tag">241+ Free Tools</span>
+<header>
+<div class="hi">
+<a href="index.html" class="logo">⚡ CalcLeap</a>
+<nav class="main-nav">
+<div class="nav-item">
+<button class="nav-btn" onclick="toggleMenu(this)">Calculators <span class="arrow">▾</span></button>
+<div class="mega-menu">
+<div class="mega-col">
+<h4>💰 Finance</h4>
+<a href="calc/mortgage-payment.html">Mortgage Calculator</a>
+<a href="calc/compound-interest.html">Compound Interest</a>
+<a href="calc/paycheck-calculator.html">Paycheck Calculator</a>
+<a href="calc/retirement-calculator.html">Retirement Planner</a>
+<a href="calc/car-loan-calculator.html">Auto Loan</a>
+<a href="calc/roi-calculator.html">ROI Calculator</a>
+<a href="calc/student-loan-calculator.html">Student Loan</a>
+<a href="calc/401k-calculator.html">401(k) Calculator</a>
+</div>
+<div class="mega-col">
+<h4>🛡️ Insurance</h4>
+<a href="life-insurance-calculator.html">Life Insurance</a>
+<a href="car-insurance-calculator.html">Car Insurance</a>
+<a href="home-insurance-calculator.html">Home Insurance</a>
+<a href="business-insurance-calculator.html">Business Insurance</a>
+<a href="boat-insurance-calculator.html">Boat Insurance</a>
+<a href="flood-insurance-calculator.html">Flood Insurance</a>
+</div>
+<div class="mega-col">
+<h4>🗽 Tax</h4>
+<a href="income-tax-calculator.html">Income Tax</a>
+<a href="capital-gains-tax.html">Capital Gains</a>
+<a href="new-york-tax.html">New York Tax</a>
+<a href="california-tax.html">California Tax</a>
+<a href="texas-tax.html">Texas Tax</a>
+<a href="new-jersey-tax.html">New Jersey Tax</a>
+</div>
+<div class="mega-col">
+<h4>⚖️ Health</h4>
+<a href="bmi-calculator.html">BMI Calculator</a>
+<a href="calc/calorie-calculator.html">Calorie Calculator</a>
+<a href="calc/body-fat-calculator.html">Body Fat</a>
+<a href="calc/bmi-calculator.html">BMI (Advanced)</a>
+<a href="calc/pregnancy-due-date.html">Due Date Calculator</a>
+</div>
+</div>
+</div>
+<div class="nav-item">
+<button class="nav-btn" onclick="toggleMenu(this)">Converters <span class="arrow">▾</span></button>
+<div class="mega-menu">
+<div class="mega-col">
+<h4>💱 Currency</h4>
+<a href="convert-usd-to-eur.html">USD to EUR</a>
+<a href="convert-usd-to-gbp.html">USD to GBP</a>
+<a href="convert-usd-to-inr.html">USD to INR</a>
+<a href="convert-usd-to-jpy.html">USD to JPY</a>
+<a href="convert-eur-to-usd.html">EUR to USD</a>
+<a href="convert-gbp-to-usd.html">GBP to USD</a>
+</div>
+<div class="mega-col">
+<h4>📏 Length & Distance</h4>
+<a href="convert-miles-to-km.html">Miles to KM</a>
+<a href="convert-km-to-miles.html">KM to Miles</a>
+<a href="convert-feet-to-meters.html">Feet to Meters</a>
+<a href="convert-meters-to-feet.html">Meters to Feet</a>
+<a href="convert-inches-to-cm.html">Inches to CM</a>
+</div>
+<div class="mega-col">
+<h4>⚖️ Weight</h4>
+<a href="convert-kg-to-lbs.html">KG to Pounds</a>
+<a href="convert-pounds-to-kg.html">Pounds to KG</a>
+<a href="convert-kg-to-ounces.html">KG to Ounces</a>
+<a href="convert-pounds-to-grams.html">Pounds to Grams</a>
+</div>
+<div class="mega-col">
+<h4>🌡️ More</h4>
+<a href="convert-cups-to-ml.html">Cups to ML</a>
+<a href="convert-liters-to-gallons.html">Liters to Gallons</a>
+<a href="convert-mph-to-kph.html">MPH to KPH</a>
+<a href="color-converter.html">Color Converter</a>
+<a href="convert-bytes-to-mb.html">Bytes to MB</a>
+</div>
+</div>
+</div>
+<div class="nav-item">
+<button class="nav-btn" onclick="toggleMenu(this)">Tools <span class="arrow">▾</span></button>
+<div class="mega-menu">
+<div class="mega-col">
+<h4>🔧 Developer</h4>
+<a href="json-formatter.html">JSON Formatter</a>
+<a href="base64-encoder-decoder.html">Base64 Encoder</a>
+<a href="password-generator.html">Password Generator</a>
+<a href="qr-code-generator.html">QR Code Generator</a>
+<a href="regex-tester.html">Regex Tester</a>
+</div>
+<div class="mega-col">
+<h4>✏️ Writing</h4>
+<a href="word-counter.html">Word Counter</a>
+<a href="text-case-converter.html">Case Converter</a>
+<a href="lorem-ipsum-generator.html">Lorem Ipsum</a>
+</div>
+<div class="mega-col">
+<h4>📅 Date & Time</h4>
+<a href="age-calculator.html">Age Calculator</a>
+<a href="days-between-dates.html">Days Between Dates</a>
+<a href="add-days-to-date.html">Add Days to Date</a>
+</div>
+<div class="mega-col">
+<h4>🎲 Fun</h4>
+<a href="calc/love-calculator.html">Love Calculator</a>
+<a href="random-number-generator.html">Random Number</a>
+</div>
+</div>
+</div>
+<div class="nav-item">
+<a href="blog/index.html" class="nav-btn nav-link">Blog</a>
+</div>
+</nav>
+<button class="mobile-toggle" onclick="toggleMobileNav()">☰</button>
 <input type="text" class="search-box" id="search" placeholder="Search tools..." oninput="filterTools()">
-</div></header>
+</div>
+</header>
 
 <div class="hero">
 <h1>Free Online Tools & Calculators</h1>
@@ -541,6 +682,27 @@ function filterTools() {
         cat.style.display = (visible > 0 || !q) ? '' : 'none';
     });
 }
+</script>
+<script>
+function toggleMenu(btn){
+  const menu=btn.nextElementSibling;
+  const wasOpen=menu&&menu.classList.contains('show');
+  // Close all menus first
+  document.querySelectorAll('.mega-menu').forEach(m=>m.classList.remove('show'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  // Toggle this one
+  if(!wasOpen&&menu){menu.classList.add('show');btn.classList.add('active')}
+}
+function toggleMobileNav(){
+  document.querySelector('.main-nav').classList.toggle('show');
+}
+// Close menus when clicking outside
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.nav-item')&&!e.target.closest('.mobile-toggle')){
+    document.querySelectorAll('.mega-menu').forEach(m=>m.classList.remove('show'));
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  }
+});
 </script>
 </body>
 </html>
