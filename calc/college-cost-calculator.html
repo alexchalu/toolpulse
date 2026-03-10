@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Cost Calculator — Estimate 4-Year Tuition & Expenses | CalcLeap</title>
+<meta name="description" content="Calculate the total cost of a 4-year college degree including tuition, room and board, books, and fees. Compare in-state vs out-of-state costs.">
+<link rel="canonical" href="https://calcleap.com/calc/college-cost-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"College Cost Calculator","description":"Calculate the total cost of a 4-year college degree including tuition, room and board, books, and fees.","url":"https://calcleap.com/calc/college-cost-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--bg:#f5f5f7;--surface:#fff;--border:rgba(0,0,0,.08);--text:#1d1d1f;--text-2:#424245;--text-3:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--shadow:0 2px 12px rgba(0,0,0,.06);--r:16px;--r-sm:12px;--r-xs:8px;--mw:980px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:1rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group select,.form-group input{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group select:focus,.form-group input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.btn{display:inline-flex;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.results{display:none;margin-top:1.5rem}
+.result-item{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.result-label{font-size:.85rem;color:var(--text-2)}.result-value{font-size:.95rem;font-weight:700}
+.bar-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.6rem}
+.bar-label{font-size:.75rem;color:var(--text-3);width:80px;text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:24px;background:var(--bg);border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;justify-content:flex-end;padding-right:8px}
+.bar-val{font-size:.65rem;font-weight:700;color:#fff;white-space:nowrap}
+.ad-slot{margin:1.5rem 0}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card p,.info-card li{font-size:.85rem;color:var(--text-2);line-height:1.65}
+.info-card ul{padding-left:1.2rem;margin-top:.5rem}
+.info-card li{margin-bottom:.4rem}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
+th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
+td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
+.related-link:hover{border-color:var(--accent);color:var(--accent)}
+.faq{border-top:1px solid var(--border);padding:.85rem 0}
+.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
+.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+@media(max-width:768px){.nav-links{display:none}.page{padding:0 1.25rem}.page-title{font-size:1.75rem}.related-grid{grid-template-columns:1fr 1fr}.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.related-grid,.footer-inner{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="../index.html" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="../index.html#finance">Finance</a><a href="../index.html#insurance">Insurance</a><a href="../index.html#tax">Tax</a><a href="../index.html#health">Health</a><a href="../index.html#converters">Converters</a><a href="../about.html">About</a></div></div></nav>
+<div class="page">
+<div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="../index.html#education">Education</a><span class="sep">›</span>College Cost Calculator</div>
+<h1 class="page-title">College Cost Calculator</h1>
+<p class="page-desc">Calculate the total cost of a 4-year college degree including tuition, room & board, books, and fees. Compare in-state vs out-of-state costs and plan your education budget.</p>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
+<div class="card"><h2>Estimate Your College Costs</h2>
+<div class="form-group"><label>College Type</label><select id="colType" onchange="updateDefaults();calc()"><option value="public-in">Public University (In-State)</option><option value="public-out">Public University (Out-of-State)</option><option value="private">Private University</option><option value="community">Community College (2-Year)</option><option value="ivy">Ivy League / Elite Private</option></select></div>
+<div class="form-group"><label>Annual Tuition ($)</label><input type="number" id="tuition" value="11260" oninput="calc()"></div>
+<div class="form-group"><label>Room & Board ($/year)</label><input type="number" id="room" value="12310" oninput="calc()"></div>
+<div class="form-group"><label>Books & Supplies ($/year)</label><input type="number" id="books" value="1240" oninput="calc()"></div>
+<div class="form-group"><label>Personal Expenses ($/year)</label><input type="number" id="personal" value="2500" oninput="calc()"></div>
+<div class="form-group"><label>Years to Complete</label><select id="years" onchange="calc()"><option value="2">2 Years</option><option value="4" selected>4 Years</option><option value="5">5 Years</option><option value="6">6 Years</option></select></div>
+<div class="form-group"><label>Annual Cost Increase (%)</label><input type="number" id="increase" value="3.5" step="0.1" oninput="calc()"></div>
+<div class="form-group"><label>Scholarships & Grants ($/year)</label><input type="number" id="scholarships" value="0" oninput="calc()"></div>
+<div class="results" id="results"><div id="out"></div><div id="chart" style="margin-top:1.25rem"></div></div>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
+<div class="info-card"><h3>Average College Costs (2025-2026)</h3>
+<table><tr><th>Type</th><th>Tuition</th><th>Room & Board</th><th>Total/Year</th></tr>
+<tr><td>Public In-State</td><td>$11,260</td><td>$12,310</td><td>$23,570</td></tr>
+<tr><td>Public Out-of-State</td><td>$29,150</td><td>$12,310</td><td>$41,460</td></tr>
+<tr><td>Private Nonprofit</td><td>$41,540</td><td>$14,650</td><td>$56,190</td></tr>
+<tr><td>Community College</td><td>$3,860</td><td>N/A</td><td>~$8,000</td></tr>
+<tr><td>Ivy League</td><td>$62,000</td><td>$18,500</td><td>$80,500</td></tr></table></div>
+
+<div class="info-card"><h3>How to Reduce College Costs</h3>
+<p>College is a major investment. Here are proven strategies to minimize your out-of-pocket costs:</p>
+<ul>
+<li><strong>File FAFSA early</strong> — opens October 1st each year; maximizes federal aid eligibility</li>
+<li><strong>Apply to 20+ scholarships</strong> — local scholarships have less competition and higher odds</li>
+<li><strong>Start at community college</strong> — complete gen-ed requirements at 1/3 the cost, then transfer</li>
+<li><strong>Establish in-state residency</strong> — saves $15K-20K/year at public universities</li>
+<li><strong>Earn AP/CLEP credits</strong> — test out of courses to graduate faster and save a semester</li>
+<li><strong>Use a 529 plan</strong> — tax-advantaged college savings that grows tax-free</li>
+<li><strong>Work-study programs</strong> — earn money while building campus connections</li>
+<li><strong>Negotiate financial aid</strong> — appeal your package with competing offers from other schools</li>
+</ul></div>
+
+<div class="info-card"><h3>Frequently Asked Questions</h3>
+<div class="faq"><p class="faq-q">How much does a 4-year degree cost on average?</p><p class="faq-a">A public in-state 4-year degree costs approximately $94,000-$110,000 total including room & board. Private universities average $225,000-$250,000. With tuition inflation of 3-5% annually, costs continue to rise. Starting at community college can cut total costs by 30-40%.</p></div>
+<div class="faq"><p class="faq-q">Is college worth the investment?</p><p class="faq-a">On average, college graduates earn $1.2 million more over their lifetime than high school graduates. The ROI depends on your major, school, debt level, and career path. STEM and business degrees typically offer the highest financial returns, with median starting salaries of $65,000-$85,000.</p></div>
+<div class="faq"><p class="faq-q">How can I pay for college without student loans?</p><p class="faq-a">Combine scholarships, grants (Pell Grant up to $7,395/year), 529 plan savings, work-study, employer tuition benefits, and military benefits (GI Bill covers full tuition). Many students use a combination of these sources plus modest loans for any gap.</p></div>
+<div class="faq"><p class="faq-q">Should I go to community college first?</p><p class="faq-a">Community college can save $30,000-$60,000 on your total degree cost. At ~$3,800/year vs $11,000-$41,000, the savings are substantial. Ensure your credits will transfer — check articulation agreements with your target 4-year institution before enrolling.</p></div>
+<div class="faq"><p class="faq-q">How fast is tuition increasing?</p><p class="faq-a">Tuition has increased 3-5% annually over the past decade, roughly 2x the rate of general inflation. Public universities average 3.5% annual increases while private schools average 3.8%. This means a degree that costs $100K today could cost $115K in just 4 years.</p></div>
+</div>
+
+<div class="info-card"><h3>Related Tools</h3><div class="related-grid">
+<a href="scholarship-calculator.html" class="related-link">🎓 Scholarship Calculator</a>
+<a href="student-loan-calculator.html" class="related-link">📚 Student Loan Calculator</a>
+<a href="gpa-calculator.html" class="related-link">📊 GPA Calculator</a>
+<a href="compound-interest-calculator.html" class="related-link">💰 Compound Interest</a>
+<a href="savings-calculator.html" class="related-link">🏦 Savings Calculator</a>
+<a href="tuition-roi-calculator.html" class="related-link">📈 Tuition ROI Calculator</a>
+</div></div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+</div>
+
+<footer class="footer"><div class="footer-inner"><div><h5>CalcLeap</h5><p>Free calculators and tools built for accuracy and speed. No signup required.</p></div><div><h5>Popular</h5><a href="bmi-calculator.html">BMI Calculator</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="student-loan-calculator.html">Student Loan</a><a href="sleep-calculator.html">Sleep Calculator</a></div><div><h5>Resources</h5><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></div><div><h5>More</h5><a href="../index.html#finance">Finance</a><a href="../index.html#health">Health</a><a href="../index.html#converters">Converters</a></div></div><div class="footer-bottom"><p>&copy; 2026 CalcLeap. All rights reserved. For informational purposes only.</p></div></footer>
+
+<script>
+const defaults={"public-in":{t:11260,r:12310},"public-out":{t:29150,r:12310},"private":{t:41540,r:14650},"community":{t:3860,r:0},"ivy":{t:62000,r:18500}};
+function updateDefaults(){const d=defaults[document.getElementById("colType").value];document.getElementById("tuition").value=d.t;document.getElementById("room").value=d.r}
+function fmt(n){return n.toLocaleString(undefined,{maximumFractionDigits:0})}
+function calc(){
+  const t=+document.getElementById("tuition").value||0,rb=+document.getElementById("room").value||0,b=+document.getElementById("books").value||0,p=+document.getElementById("personal").value||0,y=+document.getElementById("years").value||4,inc=(+document.getElementById("increase").value||0)/100,sch=+document.getElementById("scholarships").value||0;
+  let tT=0,tR=0,tB=0,tP=0,tS=0;const yd=[];
+  for(let i=0;i<y;i++){const f=Math.pow(1+inc,i);const yt=t*f,yr=rb*f;tT+=yt;tR+=yr;tB+=b;tP+=p;tS+=sch;yd.push({year:i+1,total:yt+yr+b+p-sch})}
+  const grand=tT+tR+tB+tP-tS;
+  document.getElementById("results").style.display="block";
+  let h='<div class="result-item"><span class="result-label">Total Tuition</span><span class="result-value">$'+fmt(tT)+'</span></div>';
+  h+='<div class="result-item"><span class="result-label">Total Room & Board</span><span class="result-value">$'+fmt(tR)+'</span></div>';
+  h+='<div class="result-item"><span class="result-label">Books & Supplies</span><span class="result-value">$'+fmt(tB)+'</span></div>';
+  h+='<div class="result-item"><span class="result-label">Personal Expenses</span><span class="result-value">$'+fmt(tP)+'</span></div>';
+  if(tS>0)h+='<div class="result-item"><span class="result-label">Scholarships & Grants</span><span class="result-value" style="color:#22c55e">-$'+fmt(tS)+'</span></div>';
+  h+='<div class="result-item" style="border-bottom:2px solid var(--accent)"><span class="result-label" style="font-weight:700;font-size:.95rem">Total Cost of Degree</span><span class="result-value" style="font-size:1.3rem;color:var(--accent)">$'+fmt(grand)+'</span></div>';
+  document.getElementById("out").innerHTML=h;
+  const mx=Math.max(...yd.map(d=>d.total));const colors=["#0071e3","#5856d6","#af52de","#ff9500","#ff3b30","#34c759"];
+  let c='<div style="font-size:.8rem;font-weight:600;color:var(--text-2);margin-bottom:.5rem">Cost by Year</div>';
+  yd.forEach((d,i)=>{const pct=mx>0?d.total/mx*100:0;c+='<div class="bar-row"><span class="bar-label">Year '+(i+1)+'</span><div class="bar-track"><div class="bar-fill" style="width:'+pct+'%;background:'+colors[i%6]+'"><span class="bar-val">$'+fmt(d.total)+'</span></div></div></div>'});
+  document.getElementById("chart").innerHTML=c;
+}
+calc();
+</script>
+</body></html>
