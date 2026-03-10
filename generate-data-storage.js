@@ -44,9 +44,9 @@ function generatePage(conv) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${conv.name} Converter - Free Data Storage Calculator | ToolPulse</title>
+    <title>${conv.name} Converter - Free Data Storage Calculator | CalcLeap</title>
     <meta name="description" content="Convert ${conv.from.toUpperCase()} to ${conv.to.toUpperCase()} instantly. Free data storage converter for files, hard drives, and memory. Binary (1024-based) calculations.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${slug}.html">
+    <link rel="canonical" href="https://calcleap.com/${slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -147,7 +147,7 @@ function generatePage(conv) {
             <h3>More Data Storage Converters</h3>
             <p>Check out our other storage conversion tools:</p>
             <ul>
-                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
                 <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
                 <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
             </ul>
@@ -156,7 +156,7 @@ function generatePage(conv) {
 
     <div class="footer">
         <div class="container">
-            <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
+            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
             <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
         </div>
     </div>

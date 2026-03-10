@@ -217,17 +217,17 @@ const template = (calc) => `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${calc.name} - Free Online Tax Calculator | ToolPulse</title>
+    <title>${calc.name} - Free Online Tax Calculator | CalcLeap</title>
     <meta name="description" content="${calc.desc}. Fast, accurate, and completely free. No signup required.">
     <meta name="keywords" content="${calc.keywords}">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${calc.id}.html">
+    <link rel="canonical" href="https://calcleap.com/${calc.id}.html">
     <link rel="stylesheet" href="styles.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1><a href="index.html">🛠️ ToolPulse</a></h1>
+            <h1><a href="index.html">🛠️ CalcLeap</a></h1>
             <p>Free tools for developers and creators</p>
         </div>
     </header>
@@ -288,7 +288,7 @@ const template = (calc) => `<!DOCTYPE html>
             
             <h4>Related Tools</h4>
             <ul class="related-tools">
-                <li><a href="index.html">All ToolPulse Tools</a></li>
+                <li><a href="index.html">All CalcLeap Tools</a></li>
                 <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc Financial Calculators</a></li>
                 <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs Wellness Tools</a></li>
             </ul>
@@ -303,7 +303,7 @@ const template = (calc) => `<!DOCTYPE html>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 ToolPulse | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+            <p>&copy; 2024 CalcLeap | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
         </div>
     </footer>
 

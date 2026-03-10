@@ -2,18 +2,18 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/early-retirement-calculator.html',
-  'https://alexchalu.github.io/toolpulse/social-security-calculator.html',
-  'https://alexchalu.github.io/toolpulse/pension-calculator.html',
-  'https://alexchalu.github.io/toolpulse/required-minimum-distribution-calculator.html',
-  'https://alexchalu.github.io/toolpulse/annuity-calculator.html',
-  'https://alexchalu.github.io/toolpulse/retirement-withdrawal-calculator.html',
+  'https://calcleap.com/early-retirement-calculator.html',
+  'https://calcleap.com/social-security-calculator.html',
+  'https://calcleap.com/pension-calculator.html',
+  'https://calcleap.com/required-minimum-distribution-calculator.html',
+  'https://calcleap.com/annuity-calculator.html',
+  'https://calcleap.com/retirement-withdrawal-calculator.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

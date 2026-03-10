@@ -2,32 +2,32 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/california-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/texas-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/florida-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/new-york-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/pennsylvania-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/illinois-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/ohio-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/georgia-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/north-carolina-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/michigan-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/new-jersey-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/virginia-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/washington-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/arizona-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/massachusetts-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/tennessee-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/indiana-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/maryland-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/colorado-income-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/minnesota-income-tax-calculator.html',
+  'https://calcleap.com/california-income-tax-calculator.html',
+  'https://calcleap.com/texas-income-tax-calculator.html',
+  'https://calcleap.com/florida-income-tax-calculator.html',
+  'https://calcleap.com/new-york-income-tax-calculator.html',
+  'https://calcleap.com/pennsylvania-income-tax-calculator.html',
+  'https://calcleap.com/illinois-income-tax-calculator.html',
+  'https://calcleap.com/ohio-income-tax-calculator.html',
+  'https://calcleap.com/georgia-income-tax-calculator.html',
+  'https://calcleap.com/north-carolina-income-tax-calculator.html',
+  'https://calcleap.com/michigan-income-tax-calculator.html',
+  'https://calcleap.com/new-jersey-income-tax-calculator.html',
+  'https://calcleap.com/virginia-income-tax-calculator.html',
+  'https://calcleap.com/washington-income-tax-calculator.html',
+  'https://calcleap.com/arizona-income-tax-calculator.html',
+  'https://calcleap.com/massachusetts-income-tax-calculator.html',
+  'https://calcleap.com/tennessee-income-tax-calculator.html',
+  'https://calcleap.com/indiana-income-tax-calculator.html',
+  'https://calcleap.com/maryland-income-tax-calculator.html',
+  'https://calcleap.com/colorado-income-tax-calculator.html',
+  'https://calcleap.com/minnesota-income-tax-calculator.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

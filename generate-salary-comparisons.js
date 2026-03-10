@@ -158,7 +158,7 @@ cityPairs.forEach(pair => {
             <li><a href="/">All Calculators</a></li>
         </ul>
 
-        <p><a href="/">← Back to ToolPulse</a></p>
+        <p><a href="/">← Back to CalcLeap</a></p>
     </div>
 
     <script>

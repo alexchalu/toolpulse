@@ -2,18 +2,18 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/mortgage-refinance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/heloc-payment-calculator.html',
-  'https://alexchalu.github.io/toolpulse/401k-withdrawal-calculator.html',
-  'https://alexchalu.github.io/toolpulse/roth-ira-conversion-calculator.html',
-  'https://alexchalu.github.io/toolpulse/reverse-mortgage-calculator.html',
-  'https://alexchalu.github.io/toolpulse/debt-consolidation-calculator.html',
+  'https://calcleap.com/mortgage-refinance-calculator.html',
+  'https://calcleap.com/heloc-payment-calculator.html',
+  'https://calcleap.com/401k-withdrawal-calculator.html',
+  'https://calcleap.com/roth-ira-conversion-calculator.html',
+  'https://calcleap.com/reverse-mortgage-calculator.html',
+  'https://calcleap.com/debt-consolidation-calculator.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

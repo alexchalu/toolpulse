@@ -2,14 +2,14 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/timezone-meeting-planner.html',
-  'https://alexchalu.github.io/toolpulse/recipe-scaling-calculator.html',
+  'https://calcleap.com/timezone-meeting-planner.html',
+  'https://calcleap.com/recipe-scaling-calculator.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const baseUrl = 'https://alexchalu.github.io/toolpulse/';
+const baseUrl = 'https://calcleap.com/';
 const today = new Date().toISOString().split('T')[0];
 
 // Get all HTML files (root + calc/ subdirectory)

@@ -2,30 +2,30 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/convert-watts-to-kilowatts.html',
-  'https://alexchalu.github.io/toolpulse/convert-kilowatts-to-watts.html',
-  'https://alexchalu.github.io/toolpulse/convert-watts-to-horsepower.html',
-  'https://alexchalu.github.io/toolpulse/convert-horsepower-to-watts.html',
-  'https://alexchalu.github.io/toolpulse/convert-kilowatts-to-horsepower.html',
-  'https://alexchalu.github.io/toolpulse/convert-horsepower-to-kilowatts.html',
-  'https://alexchalu.github.io/toolpulse/convert-btu-per-hour-to-watts.html',
-  'https://alexchalu.github.io/toolpulse/convert-watts-to-btu-per-hour.html',
-  'https://alexchalu.github.io/toolpulse/convert-kwh-to-joules.html',
-  'https://alexchalu.github.io/toolpulse/convert-joules-to-kwh.html',
-  'https://alexchalu.github.io/toolpulse/convert-kwh-to-btu.html',
-  'https://alexchalu.github.io/toolpulse/convert-btu-to-kwh.html',
-  'https://alexchalu.github.io/toolpulse/convert-kwh-to-calories.html',
-  'https://alexchalu.github.io/toolpulse/convert-calories-to-kwh.html',
-  'https://alexchalu.github.io/toolpulse/convert-joules-to-calories.html',
-  'https://alexchalu.github.io/toolpulse/convert-calories-to-joules.html',
-  'https://alexchalu.github.io/toolpulse/convert-watt-hours-to-kwh.html',
-  'https://alexchalu.github.io/toolpulse/convert-kwh-to-watt-hours.html',
+  'https://calcleap.com/convert-watts-to-kilowatts.html',
+  'https://calcleap.com/convert-kilowatts-to-watts.html',
+  'https://calcleap.com/convert-watts-to-horsepower.html',
+  'https://calcleap.com/convert-horsepower-to-watts.html',
+  'https://calcleap.com/convert-kilowatts-to-horsepower.html',
+  'https://calcleap.com/convert-horsepower-to-kilowatts.html',
+  'https://calcleap.com/convert-btu-per-hour-to-watts.html',
+  'https://calcleap.com/convert-watts-to-btu-per-hour.html',
+  'https://calcleap.com/convert-kwh-to-joules.html',
+  'https://calcleap.com/convert-joules-to-kwh.html',
+  'https://calcleap.com/convert-kwh-to-btu.html',
+  'https://calcleap.com/convert-btu-to-kwh.html',
+  'https://calcleap.com/convert-kwh-to-calories.html',
+  'https://calcleap.com/convert-calories-to-kwh.html',
+  'https://calcleap.com/convert-joules-to-calories.html',
+  'https://calcleap.com/convert-calories-to-joules.html',
+  'https://calcleap.com/convert-watt-hours-to-kwh.html',
+  'https://calcleap.com/convert-kwh-to-watt-hours.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

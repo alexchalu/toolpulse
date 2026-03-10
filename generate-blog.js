@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * Generate SEO blog articles for ToolPulse
+ * Generate SEO blog articles for CalcLeap
  * Long-form content ranks better and generates organic backlinks
  * Each article targets high-volume "how to" and "best" keywords
  */
 const fs = require('fs');
 const AD = 'ca-pub-3112605892426625';
-const BASE = 'https://alexchalu.github.io/toolpulse';
+const BASE = 'https://calcleap.com';
 
 if (!fs.existsSync(__dirname + '/blog')) fs.mkdirSync(__dirname + '/blog');
 
@@ -20,7 +20,7 @@ function blogPage(slug, title, desc, keywords, content, relatedTools) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${title} | ToolPulse Blog</title>
+<title>${title} | CalcLeap Blog</title>
 <meta name="description" content="${desc}">
 <meta name="keywords" content="${keywords}">
 <link rel="canonical" href="${BASE}/blog/${slug}.html">
@@ -28,7 +28,7 @@ function blogPage(slug, title, desc, keywords, content, relatedTools) {
 <meta property="og:description" content="${desc}">
 <meta property="og:type" content="article">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD}" crossorigin="anonymous"></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${title}","description":"${desc}","author":{"@type":"Organization","name":"ToolPulse"},"publisher":{"@type":"Organization","name":"ToolPulse"},"datePublished":"2026-03-07","url":"${BASE}/blog/${slug}.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${title}","description":"${desc}","author":{"@type":"Organization","name":"CalcLeap"},"publisher":{"@type":"Organization","name":"CalcLeap"},"datePublished":"2026-03-07","url":"${BASE}/blog/${slug}.html"}</script>
 <style>
 :root{--bg:#0a0e1a;--s:#111827;--s2:#1f2937;--b:#374151;--t:#f3f4f6;--m:#9ca3af;--a:#6366f1;--a2:#4f46e5}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -70,7 +70,7 @@ th{color:var(--m);font-weight:600;font-size:.8rem;text-transform:uppercase}
 </style>
 </head>
 <body>
-<header><div class="hi"><a href="../index.html" class="logo">🔧 ToolPulse</a><span class="tag">Free Online Tools & Guides</span></div></header>
+<header><div class="hi"><a href="../index.html" class="logo">🔧 CalcLeap</a><span class="tag">Free Online Tools & Guides</span></div></header>
 <main>
 <nav style="margin-bottom:1rem"><a href="../index.html" style="color:var(--a);text-decoration:none;font-size:.85rem">← Back to Tools</a></nav>
 <h1>${title}</h1>
@@ -86,7 +86,7 @@ th{color:var(--m);font-weight:600;font-size:.8rem;text-transform:uppercase}
 </div>
 <div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 </main>
-<footer><a href="../index.html">ToolPulse</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> · Free online tools & calculators</footer>
+<footer><a href="../index.html">CalcLeap</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> · Free online tools & calculators</footer>
 </body>
 </html>`;
 }
@@ -345,7 +345,7 @@ If you have $500/month in other debts, your max housing becomes $2,500/month.</p
         desc: 'A curated list of the best free online calculators for finance, health, math, and everyday life. No signup, no downloads, works in any browser.',
         keywords: 'best online calculators, free calculators, online calculator tools, best calculator websites, free financial calculators',
         tools: [
-            { name: 'All ToolPulse Calculators', desc: 'Browse all 25+ free calculators', icon: '🔧', url: '../index.html' },
+            { name: 'All CalcLeap Calculators', desc: 'Browse all 25+ free calculators', icon: '🔧', url: '../index.html' },
             { name: 'SmartCalc Finance', desc: '18 financial calculators', icon: '💰', url: 'https://alexchalu.github.io/smartcalc/' },
         ],
         content: `
@@ -526,16 +526,16 @@ articles.forEach(a => {
 // Create blog index
 const blogIndex = `<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Blog — Free Guides & Tips | ToolPulse</title>
+<title>Blog — Free Guides & Tips | CalcLeap</title>
 <meta name="description" content="Free guides on budgeting, health, home buying, and more. Expert tips backed by our free online calculators.">
 <link rel="canonical" href="${BASE}/blog/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD}" crossorigin="anonymous"></script>
 <style>:root{--bg:#0a0e1a;--s:#111827;--s2:#1f2937;--b:#374151;--t:#f3f4f6;--m:#9ca3af;--a:#6366f1}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}header{background:var(--s);border-bottom:1px solid var(--b);padding:.75rem 1.5rem;position:sticky;top:0;z-index:100}.hi{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:1rem}.logo{font-size:1.2rem;font-weight:800;color:var(--a);text-decoration:none}.tag{color:var(--m);font-size:.8rem;flex:1}main{max-width:800px;margin:0 auto;padding:2rem 1.5rem}h1{font-size:2rem;margin-bottom:.5rem}.sub{color:var(--m);margin-bottom:2rem}.post{display:block;background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.5rem;margin-bottom:1rem;text-decoration:none;color:var(--t);transition:.2s}.post:hover{border-color:var(--a);transform:translateY(-2px)}.post h2{font-size:1.2rem;margin-bottom:.5rem;color:var(--t)}.post p{font-size:.9rem;color:var(--m);line-height:1.6}.post .meta{font-size:.75rem;color:var(--m);margin-top:.5rem}footer{text-align:center;padding:2rem;color:var(--m);font-size:.8rem;border-top:1px solid var(--b);margin-top:3rem}footer a{color:var(--a);text-decoration:none}</style></head>
-<body><header><div class="hi"><a href="../index.html" class="logo">🔧 ToolPulse</a><span class="tag">Blog</span></div></header>
-<main><h1>📝 ToolPulse Blog</h1><p class="sub">Free guides, tips, and expert advice — backed by our free calculators</p>
+<body><header><div class="hi"><a href="../index.html" class="logo">🔧 CalcLeap</a><span class="tag">Blog</span></div></header>
+<main><h1>📝 CalcLeap Blog</h1><p class="sub">Free guides, tips, and expert advice — backed by our free calculators</p>
 ${articles.map(a => `<a class="post" href="${a.slug}.html"><h2>${a.title}</h2><p>${a.desc}</p><div class="meta">March 7, 2026 · 8 min read</div></a>`).join('\n')}
 </main>
-<footer><a href="../index.html">ToolPulse</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></footer></body></html>`;
+<footer><a href="../index.html">CalcLeap</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></footer></body></html>`;
 
 fs.writeFileSync(`${__dirname}/blog/index.html`, blogIndex);
 sitemapEntries.push(`    <url><loc>${BASE}/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`);

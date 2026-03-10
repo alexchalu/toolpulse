@@ -2,18 +2,18 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/travel-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/business-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/long-term-care-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/flood-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/mortgage-refinance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/heloc-payment-calculator.html',
+  'https://calcleap.com/travel-insurance-calculator.html',
+  'https://calcleap.com/business-insurance-calculator.html',
+  'https://calcleap.com/long-term-care-insurance-calculator.html',
+  'https://calcleap.com/flood-insurance-calculator.html',
+  'https://calcleap.com/mortgage-refinance-calculator.html',
+  'https://calcleap.com/heloc-payment-calculator.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://alexchalu.github.io/toolpulse/sitemap.xml
+
+Sitemap: https://calcleap.com/sitemap.xml

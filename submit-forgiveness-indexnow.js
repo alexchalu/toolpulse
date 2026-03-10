@@ -4,8 +4,8 @@ const https = require('https');
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
-  urlList: ['https://alexchalu.github.io/toolpulse/student-loan-forgiveness-calculator.html']
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
+  urlList: ['https://calcleap.com/student-loan-forgiveness-calculator.html']
 });
 
 const options = {

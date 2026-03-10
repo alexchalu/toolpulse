@@ -52,9 +52,9 @@ for (const pct of percentages) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} Answer & Calculator | ToolPulse</title>
+    <title>${title} Answer & Calculator | CalcLeap</title>
     <meta name="description" content="${desc}">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/percent/${slug}.html">
+    <link rel="canonical" href="https://calcleap.com/percent/${slug}.html">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -112,7 +112,7 @@ for (const pct of percentages) {
 <body>
     <div class="container">
         <div class="breadcrumb">
-            <a href="/toolpulse/">ToolPulse</a> › <a href="/toolpulse/percentage-calculator.html">Percentage Calculator</a> › ${pct}% of ${amtStr}
+            <a href="/toolpulse/">CalcLeap</a> › <a href="/toolpulse/percentage-calculator.html">Percentage Calculator</a> › ${pct}% of ${amtStr}
         </div>
         <h1>${title}</h1>
         <div class="answer-box">
@@ -190,8 +190,8 @@ for (const pct of percentages) {
         </div>
 
         <div class="footer">
-            <a href="/toolpulse/">ToolPulse</a> · <a href="/toolpulse/percentage-calculator.html">Percentage Calculator</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc Financial Tools</a>
-            <br>© 2026 ToolPulse. Free online tools and calculators.
+            <a href="/toolpulse/">CalcLeap</a> · <a href="/toolpulse/percentage-calculator.html">Percentage Calculator</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc Financial Tools</a>
+            <br>© 2026 CalcLeap. Free online tools and calculators.
         </div>
     </div>
 </body>
@@ -208,7 +208,7 @@ console.log(`Generated ${count} percentage pages in /percent/`);
 
 // Generate sitemap entries for these pages
 const sitemapEntries = pages.map(p => 
-  `  <url><loc>https://alexchalu.github.io/toolpulse/percent/${p.slug}.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>`
+  `  <url><loc>https://calcleap.com/percent/${p.slug}.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>`
 ).join('\n');
 fs.writeFileSync(path.join(dir, 'sitemap-fragment.xml'), sitemapEntries);
 console.log('Sitemap fragment saved.');
@@ -223,9 +223,9 @@ const indexHtml = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Percentage Calculator - What is X% of Y? | ToolPulse</title>
+    <title>Percentage Calculator - What is X% of Y? | CalcLeap</title>
     <meta name="description" content="Calculate any percentage instantly. What is X% of Y? Browse hundreds of pre-calculated percentage answers or use our free calculator.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/percent/">
+    <link rel="canonical" href="https://calcleap.com/percent/">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
@@ -262,8 +262,8 @@ const indexHtml = `<!DOCTYPE html>
         </div>
 
         <div class="footer">
-            <a href="/toolpulse/">← ToolPulse Home</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a>
-            <br>© 2026 ToolPulse
+            <a href="/toolpulse/">← CalcLeap Home</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a>
+            <br>© 2026 CalcLeap
         </div>
     </div>
 </body>

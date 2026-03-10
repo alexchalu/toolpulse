@@ -2,32 +2,32 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/convert-bytes-to-kb.html',
-  'https://alexchalu.github.io/toolpulse/convert-bytes-to-mb.html',
-  'https://alexchalu.github.io/toolpulse/convert-bytes-to-gb.html',
-  'https://alexchalu.github.io/toolpulse/convert-bytes-to-tb.html',
-  'https://alexchalu.github.io/toolpulse/convert-kb-to-bytes.html',
-  'https://alexchalu.github.io/toolpulse/convert-kb-to-mb.html',
-  'https://alexchalu.github.io/toolpulse/convert-kb-to-gb.html',
-  'https://alexchalu.github.io/toolpulse/convert-kb-to-tb.html',
-  'https://alexchalu.github.io/toolpulse/convert-mb-to-bytes.html',
-  'https://alexchalu.github.io/toolpulse/convert-mb-to-kb.html',
-  'https://alexchalu.github.io/toolpulse/convert-mb-to-gb.html',
-  'https://alexchalu.github.io/toolpulse/convert-mb-to-tb.html',
-  'https://alexchalu.github.io/toolpulse/convert-gb-to-bytes.html',
-  'https://alexchalu.github.io/toolpulse/convert-gb-to-kb.html',
-  'https://alexchalu.github.io/toolpulse/convert-gb-to-mb.html',
-  'https://alexchalu.github.io/toolpulse/convert-gb-to-tb.html',
-  'https://alexchalu.github.io/toolpulse/convert-tb-to-bytes.html',
-  'https://alexchalu.github.io/toolpulse/convert-tb-to-kb.html',
-  'https://alexchalu.github.io/toolpulse/convert-tb-to-mb.html',
-  'https://alexchalu.github.io/toolpulse/convert-tb-to-gb.html',
+  'https://calcleap.com/convert-bytes-to-kb.html',
+  'https://calcleap.com/convert-bytes-to-mb.html',
+  'https://calcleap.com/convert-bytes-to-gb.html',
+  'https://calcleap.com/convert-bytes-to-tb.html',
+  'https://calcleap.com/convert-kb-to-bytes.html',
+  'https://calcleap.com/convert-kb-to-mb.html',
+  'https://calcleap.com/convert-kb-to-gb.html',
+  'https://calcleap.com/convert-kb-to-tb.html',
+  'https://calcleap.com/convert-mb-to-bytes.html',
+  'https://calcleap.com/convert-mb-to-kb.html',
+  'https://calcleap.com/convert-mb-to-gb.html',
+  'https://calcleap.com/convert-mb-to-tb.html',
+  'https://calcleap.com/convert-gb-to-bytes.html',
+  'https://calcleap.com/convert-gb-to-kb.html',
+  'https://calcleap.com/convert-gb-to-mb.html',
+  'https://calcleap.com/convert-gb-to-tb.html',
+  'https://calcleap.com/convert-tb-to-bytes.html',
+  'https://calcleap.com/convert-tb-to-kb.html',
+  'https://calcleap.com/convert-tb-to-mb.html',
+  'https://calcleap.com/convert-tb-to-gb.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

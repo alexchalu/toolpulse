@@ -1,4 +1,4 @@
-/* ToolPulse — App Logic */
+/* CalcLeap — App Logic */
 
 // ── Tool Registry ──────────────────────────────────────────────
 const tools = [
@@ -64,7 +64,7 @@ function handleRoute() {
         document.getElementById('toolPage').classList.add('active');
         document.getElementById('toolTitle').textContent = tool.icon + ' ' + tool.name;
         document.getElementById('toolDesc').textContent = tool.desc;
-        document.title = `${tool.name} — ToolPulse`;
+        document.title = `${tool.name} — CalcLeap`;
         const content = document.getElementById('toolContent');
         content.innerHTML = '';
         tool.render(content);
@@ -72,7 +72,7 @@ function handleRoute() {
     } else {
         document.getElementById('landing').classList.add('active');
         document.getElementById('toolPage').classList.remove('active');
-        document.title = 'ToolPulse — Free Online Tools';
+        document.title = 'CalcLeap — Free Online Tools';
     }
 }
 

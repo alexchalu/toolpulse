@@ -6,7 +6,7 @@
  */
 const fs = require('fs');
 const AD = 'ca-pub-3112605892426625';
-const BASE = 'https://alexchalu.github.io/toolpulse';
+const BASE = 'https://calcleap.com';
 
 if (!fs.existsSync(__dirname + '/convert')) fs.mkdirSync(__dirname + '/convert');
 
@@ -20,7 +20,7 @@ function convPage(slug, title, desc, fromUnit, toUnit, factor, formula, reverseF
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${title} — Free Converter | ToolPulse</title>
+<title>${title} — Free Converter | CalcLeap</title>
 <meta name="description" content="${desc}">
 <link rel="canonical" href="${BASE}/convert/${slug}.html">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD}" crossorigin="anonymous"></script>
@@ -62,7 +62,7 @@ footer a{color:var(--a);text-decoration:none}
 </style>
 </head>
 <body>
-<header><div class="hi"><a href="../index.html" class="logo">🔧 ToolPulse</a></div></header>
+<header><div class="hi"><a href="../index.html" class="logo">🔧 CalcLeap</a></div></header>
 <div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <main>
 <h1>${title}</h1>
@@ -83,7 +83,7 @@ footer a{color:var(--a);text-decoration:none}
 </div>
 </main>
 <div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<footer><a href="../index.html">ToolPulse</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></footer>
+<footer><a href="../index.html">CalcLeap</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></footer>
 <script>
 const fromEl=document.getElementById('fromVal'),toEl=document.getElementById('toVal');
 const resEl=document.getElementById('result'),lblEl=document.getElementById('resultLabel');

@@ -2,20 +2,20 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/car-insurance-estimator.html',
-  'https://alexchalu.github.io/toolpulse/pet-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/homeowners-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/renters-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/motorcycle-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/boat-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/rv-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/umbrella-insurance-calculator.html',
+  'https://calcleap.com/car-insurance-estimator.html',
+  'https://calcleap.com/pet-insurance-calculator.html',
+  'https://calcleap.com/homeowners-insurance-calculator.html',
+  'https://calcleap.com/renters-insurance-calculator.html',
+  'https://calcleap.com/motorcycle-insurance-calculator.html',
+  'https://calcleap.com/boat-insurance-calculator.html',
+  'https://calcleap.com/rv-insurance-calculator.html',
+  'https://calcleap.com/umbrella-insurance-calculator.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

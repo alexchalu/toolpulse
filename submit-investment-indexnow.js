@@ -2,20 +2,20 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/calc/401k-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/roth-ira-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/traditional-ira-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/investment-return-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/dividend-yield-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/stock-portfolio-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/capital-gains-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/bond-yield-calculator.html',
+  'https://calcleap.com/calc/401k-calculator.html',
+  'https://calcleap.com/calc/roth-ira-calculator.html',
+  'https://calcleap.com/calc/traditional-ira-calculator.html',
+  'https://calcleap.com/calc/investment-return-calculator.html',
+  'https://calcleap.com/calc/dividend-yield-calculator.html',
+  'https://calcleap.com/calc/stock-portfolio-calculator.html',
+  'https://calcleap.com/calc/capital-gains-tax-calculator.html',
+  'https://calcleap.com/calc/bond-yield-calculator.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

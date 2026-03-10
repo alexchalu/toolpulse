@@ -67,12 +67,12 @@ function generatePage(state) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${state.name} Tax Calculator 2026 — Income, Sales & Property Tax | ToolPulse</title>
+<title>${state.name} Tax Calculator 2026 — Income, Sales & Property Tax | CalcLeap</title>
 <meta name="description" content="Calculate your ${state.name} taxes for 2026. ${hasIncomeTax ? `Income tax rate: ${state.rate}.` : 'No state income tax!'} Sales tax: ${state.sales}. Property tax: ${state.property}. Free calculator with detailed breakdown.">
 <meta name="keywords" content="${state.name} tax calculator, ${state.abbr} income tax, ${state.name} sales tax, ${state.name} property tax, ${state.name} tax rate 2026">
-<link rel="canonical" href="https://alexchalu.github.io/toolpulse/${s}-tax.html">
+<link rel="canonical" href="https://calcleap.com/${s}-tax.html">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"${state.name} Tax Calculator","url":"https://alexchalu.github.io/toolpulse/${s}-tax.html","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculate ${state.name} income tax, sales tax, and property tax for 2026."}
+{"@context":"https://schema.org","@type":"WebApplication","name":"${state.name} Tax Calculator","url":"https://calcleap.com/${s}-tax.html","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculate ${state.name} income tax, sales tax, and property tax for 2026."}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the ${state.name} income tax rate in 2026?","acceptedAnswer":{"@type":"Answer","text":"${hasIncomeTax ? `${state.name} has an income tax rate of ${state.rate} (${state.brackets}).` : `${state.name} has no state income tax.`} ${state.notes}."}},{"@type":"Question","name":"What is the ${state.name} sales tax rate?","acceptedAnswer":{"@type":"Answer","text":"The ${state.name} state sales tax rate is ${state.sales}. Local jurisdictions may add additional sales tax."}},{"@type":"Question","name":"What is the average ${state.name} property tax rate?","acceptedAnswer":{"@type":"Answer","text":"The average effective property tax rate in ${state.name} is ${state.property} of assessed home value."}}]}
@@ -121,7 +121,7 @@ footer a{color:var(--accent);text-decoration:none}
 </head>
 <body>
 <div class="container">
-<div class="breadcrumb"><a href="/toolpulse/">ToolPulse</a> → <a href="/toolpulse/federal-income-tax.html">Tax Calculators</a> → ${state.name}</div>
+<div class="breadcrumb"><a href="/toolpulse/">CalcLeap</a> → <a href="/toolpulse/federal-income-tax.html">Tax Calculators</a> → ${state.name}</div>
 <h1>${state.name} Tax Calculator 2026</h1>
 <p class="subtitle">${state.notes}. Calculate your ${state.abbr} income tax, sales tax, and property tax.</p>
 
@@ -225,8 +225,8 @@ ${hasIncomeTax ? `
 </div>
 
 <footer>
-<p><a href="/toolpulse/">← Back to ToolPulse</a> · <a href="/smartcalc/">SmartCalc Financial Calculators</a></p>
-<p style="margin-top:8px">© 2026 ToolPulse. Free online tools & calculators.</p>
+<p><a href="/toolpulse/">← Back to CalcLeap</a> · <a href="/smartcalc/">SmartCalc Financial Calculators</a></p>
+<p style="margin-top:8px">© 2026 CalcLeap. Free online tools & calculators.</p>
 </footer>
 </div>
 
@@ -316,11 +316,11 @@ const indexPage = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>All 50 State Tax Calculators 2026 — Income, Sales & Property Tax | ToolPulse</title>
+<title>All 50 State Tax Calculators 2026 — Income, Sales & Property Tax | CalcLeap</title>
 <meta name="description" content="Free tax calculators for all 50 US states. Calculate income tax, sales tax, and property tax for 2026. Compare state tax rates side by side.">
-<link rel="canonical" href="https://alexchalu.github.io/toolpulse/state-taxes.html">
+<link rel="canonical" href="https://calcleap.com/state-taxes.html">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage","name":"All 50 State Tax Calculators","url":"https://alexchalu.github.io/toolpulse/state-taxes.html","description":"Tax calculators for every US state — income, sales, and property tax."}
+{"@context":"https://schema.org","@type":"CollectionPage","name":"All 50 State Tax Calculators","url":"https://calcleap.com/state-taxes.html","description":"Tax calculators for every US state — income, sales, and property tax."}
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -370,8 +370,8 @@ ${states.map(s => `<a class="state-card" href="/toolpulse/${slug(s.name)}-tax.ht
 <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>
 <footer>
-<p><a href="/toolpulse/">← Back to ToolPulse</a> · <a href="/smartcalc/">SmartCalc Financial Calculators</a></p>
-<p style="margin-top:8px">© 2026 ToolPulse. Free online tools & calculators.</p>
+<p><a href="/toolpulse/">← Back to CalcLeap</a> · <a href="/smartcalc/">SmartCalc Financial Calculators</a></p>
+<p style="margin-top:8px">© 2026 CalcLeap. Free online tools & calculators.</p>
 </footer>
 </div>
 <script>

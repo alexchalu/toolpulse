@@ -5,7 +5,7 @@
  * Uses approximate rates (updated manually) - the goal is SEO traffic + ads, not forex trading
  */
 const fs = require('fs');
-const SITE_URL = 'https://alexchalu.github.io/toolpulse';
+const SITE_URL = 'https://calcleap.com';
 const AD = 'ca-pub-3112605892426625';
 
 // Major world currencies with approximate rates to USD
@@ -75,7 +75,7 @@ function generatePage(from, to) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} | ToolPulse Currency Converter</title>
+    <title>${title} | CalcLeap Currency Converter</title>
     <meta name="description" content="${desc}">
     <meta name="keywords" content="${keywords}">
     <link rel="canonical" href="${SITE_URL}/${slug}.html">
@@ -90,7 +90,7 @@ function generatePage(from, to) {
     <style>table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)}th{padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--border);background:var(--surface2)}td{padding:.6rem 1rem;border-bottom:1px solid var(--border);font-size:.9rem}tr:hover{background:var(--surface2)}.rate-display{font-size:2.5rem;font-weight:800;color:var(--accent);text-align:center;padding:1.5rem;margin:1rem 0}.swap-btn{background:var(--surface2);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;font-size:1.2rem;cursor:pointer;display:block;margin:0.5rem auto}</style>
 </head>
 <body>
-    <header><div class="header-inner"><a href="index.html" class="logo">⚡ ToolPulse</a><p class="tagline">Free tools. No signup. 100% private.</p><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></div></header>
+    <header><div class="header-inner"><a href="index.html" class="logo">⚡ CalcLeap</a><p class="tagline">Free tools. No signup. 100% private.</p><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></div></header>
 
     <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 
@@ -136,7 +136,7 @@ function generatePage(from, to) {
 
     <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 
-    <footer><p>ToolPulse — Approximate rates for reference only. Not financial advice.</p></footer>
+    <footer><p>CalcLeap — Approximate rates for reference only. Not financial advice.</p></footer>
 
     <script>
         (function(){const b=document.getElementById('themeToggle');const s=localStorage.getItem('tp-theme');if(s==='light'){document.documentElement.setAttribute('data-theme','light');b.textContent='☀️'}b.addEventListener('click',()=>{const l=document.documentElement.getAttribute('data-theme')==='light';document.documentElement.setAttribute('data-theme',l?'dark':'light');b.textContent=l?'🌙':'☀️';localStorage.setItem('tp-theme',l?'dark':'light')})})();

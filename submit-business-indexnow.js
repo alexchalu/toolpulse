@@ -2,24 +2,24 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/business-valuation-calculator.html',
-  'https://alexchalu.github.io/toolpulse/break-even-analysis-calculator.html',
-  'https://alexchalu.github.io/toolpulse/startup-cost-calculator.html',
-  'https://alexchalu.github.io/toolpulse/cash-flow-calculator.html',
-  'https://alexchalu.github.io/toolpulse/payroll-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/business-loan-calculator.html',
-  'https://alexchalu.github.io/toolpulse/inventory-turnover-calculator.html',
-  'https://alexchalu.github.io/toolpulse/freelance-rate-calculator.html',
-  'https://alexchalu.github.io/toolpulse/customer-lifetime-value-calculator.html',
-  'https://alexchalu.github.io/toolpulse/conversion-rate-calculator.html',
-  'https://alexchalu.github.io/toolpulse/gross-profit-margin-calculator.html',
-  'https://alexchalu.github.io/toolpulse/revenue-per-employee-calculator.html',
+  'https://calcleap.com/business-valuation-calculator.html',
+  'https://calcleap.com/break-even-analysis-calculator.html',
+  'https://calcleap.com/startup-cost-calculator.html',
+  'https://calcleap.com/cash-flow-calculator.html',
+  'https://calcleap.com/payroll-tax-calculator.html',
+  'https://calcleap.com/business-loan-calculator.html',
+  'https://calcleap.com/inventory-turnover-calculator.html',
+  'https://calcleap.com/freelance-rate-calculator.html',
+  'https://calcleap.com/customer-lifetime-value-calculator.html',
+  'https://calcleap.com/conversion-rate-calculator.html',
+  'https://calcleap.com/gross-profit-margin-calculator.html',
+  'https://calcleap.com/revenue-per-employee-calculator.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

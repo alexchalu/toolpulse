@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const AD = 'ca-pub-3112605892426625';
-const BASE = 'https://alexchalu.github.io/toolpulse';
+const BASE = 'https://calcleap.com';
 
 const categories = [
     {
@@ -404,14 +404,14 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ToolPulse — ${totalTools}+ Free Online Tools & Calculators</title>
+<title>CalcLeap — ${totalTools}+ Free Online Tools & Calculators</title>
 <meta name="description" content="Free online calculators, converters, and developer tools. ${totalTools}+ tools including mortgage calculator, BMI calculator, currency converter, JSON formatter, and more. No signup required.">
 <meta name="keywords" content="free online tools, online calculator, unit converter, currency converter, developer tools, BMI calculator, mortgage calculator">
 <link rel="canonical" href="${BASE}/">
-<meta property="og:title" content="ToolPulse — ${totalTools}+ Free Online Tools">
+<meta property="og:title" content="CalcLeap — ${totalTools}+ Free Online Tools">
 <meta property="og:description" content="Free calculators, converters, and tools. No signup, works in your browser.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD}" crossorigin="anonymous"></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"ToolPulse","url":"${BASE}/","description":"${totalTools}+ free online tools and calculators","potentialAction":{"@type":"SearchAction","target":"${BASE}/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CalcLeap","url":"${BASE}/","description":"${totalTools}+ free online tools and calculators","potentialAction":{"@type":"SearchAction","target":"${BASE}/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <style>
 :root{--bg:#0a0e1a;--s:#111827;--s2:#1f2937;--b:#374151;--t:#f3f4f6;--m:#9ca3af;--a:#6366f1;--a2:#4f46e5;--g:rgba(99,102,241,.08)}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -448,7 +448,7 @@ footer a{color:var(--a);text-decoration:none;margin:0 .5rem}
 </head>
 <body>
 <header><div class="hi">
-<a href="index.html" class="logo">🔧 ToolPulse</a>
+<a href="index.html" class="logo">🔧 CalcLeap</a>
 <span class="tag">${totalTools}+ Free Tools</span>
 <input type="text" class="search-box" id="search" placeholder="Search tools..." oninput="filterTools()">
 </div></header>
@@ -493,9 +493,9 @@ ${cat.id === 'currency' ? '<a class="more-link" href="convert-usd-to-eur.html">V
 <div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 
 <footer>
-<p>ToolPulse — All tools run in your browser. 100% free, 100% private.</p>
+<p>CalcLeap — All tools run in your browser. 100% free, 100% private.</p>
 <p><a href="index.html">Home</a><a href="blog/">Blog</a><a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a><a href="https://alexchalu.github.io/focustab/">FocusTab</a></p>
-<p style="margin-top:.5rem">© 2026 ToolPulse. All calculations are for informational purposes only.</p>
+<p style="margin-top:.5rem">© 2026 CalcLeap. All calculations are for informational purposes only.</p>
 </footer>
 
 <script>

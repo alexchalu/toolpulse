@@ -312,7 +312,7 @@ articles.forEach(article => {
     <meta name="description" content="${article.description}">
     <meta name="keywords" content="${article.keywords}">
     <link rel="stylesheet" href="/style.css">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/blog/${article.slug}.html">
+    <link rel="canonical" href="https://calcleap.com/blog/${article.slug}.html">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}" crossorigin="anonymous"></script>
     <style>
       article { max-width: 800px; margin: 0 auto; padding: 2rem; }

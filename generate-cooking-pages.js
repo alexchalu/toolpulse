@@ -5,7 +5,7 @@
  * Extremely high search volume — every home cook searches these
  */
 const fs = require('fs');
-const SITE_URL = 'https://alexchalu.github.io/toolpulse';
+const SITE_URL = 'https://calcleap.com';
 const AD = 'ca-pub-3112605892426625';
 
 const conversions = [
@@ -81,7 +81,7 @@ function genPage(c) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} | ToolPulse</title>
+    <title>${title} | CalcLeap</title>
     <meta name="description" content="${desc}">
     <meta name="keywords" content="${kw}">
     <link rel="canonical" href="${SITE_URL}/${slug}.html">
@@ -94,7 +94,7 @@ function genPage(c) {
     <style>table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)}th{padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--border);background:var(--surface2)}td{padding:.6rem 1rem;border-bottom:1px solid var(--border);font-size:.9rem}tr:hover{background:var(--surface2)}</style>
 </head>
 <body>
-    <header><div class="header-inner"><a href="index.html" class="logo">⚡ ToolPulse</a><p class="tagline">Free tools. No signup. 100% private.</p><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></div></header>
+    <header><div class="header-inner"><a href="index.html" class="logo">⚡ CalcLeap</a><p class="tagline">Free tools. No signup. 100% private.</p><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></div></header>
     <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
     <main style="max-width:800px;margin:0 auto;padding:2rem 1.5rem;">
         <nav style="margin-bottom:1rem"><a href="unit-converter.html" style="color:var(--accent);text-decoration:none;font-weight:600">← Unit Converter</a></nav>
@@ -117,7 +117,7 @@ function genPage(c) {
         </div>
     </main>
     <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-    <footer><p>ToolPulse — All calculations happen in your browser.</p></footer>
+    <footer><p>CalcLeap — All calculations happen in your browser.</p></footer>
     <script>
         (function(){const b=document.getElementById('themeToggle');const s=localStorage.getItem('tp-theme');if(s==='light'){document.documentElement.setAttribute('data-theme','light');b.textContent='☀️'}b.addEventListener('click',()=>{const l=document.documentElement.getAttribute('data-theme')==='light';document.documentElement.setAttribute('data-theme',l?'dark':'light');b.textContent=l?'🌙':'☀️';localStorage.setItem('tp-theme',l?'dark':'light')})})();
         function calc(){const v=parseFloat(document.getElementById('fromV').value)||0;document.getElementById('toV').textContent=(v*${c.factor}).toFixed(v*${c.factor}<1?4:2)+' ${c.tu}'}

@@ -8,7 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://alexchalu.github.io/toolpulse';
+const SITE_URL = 'https://calcleap.com';
 const AD_CLIENT = 'ca-pub-3112605892426625';
 
 // High-traffic conversion pairs
@@ -80,7 +80,7 @@ function generateConversionPage(from, to, factor, fromUnit, toUnit, customFn) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} | ToolPulse</title>
+    <title>${title} | CalcLeap</title>
     <meta name="description" content="${desc}">
     <meta name="keywords" content="${keywords}">
     <link rel="canonical" href="${SITE_URL}/${slug}.html">
@@ -104,7 +104,7 @@ function generateConversionPage(from, to, factor, fromUnit, toUnit, customFn) {
     </script>
 </head>
 <body>
-    <header><div class="header-inner"><a href="index.html" class="logo">⚡ ToolPulse</a><p class="tagline">Free tools. No signup. 100% private.</p><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></div></header>
+    <header><div class="header-inner"><a href="index.html" class="logo">⚡ CalcLeap</a><p class="tagline">Free tools. No signup. 100% private.</p><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></div></header>
 
     <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 
@@ -165,7 +165,7 @@ function generateConversionPage(from, to, factor, fromUnit, toUnit, customFn) {
 
     <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 
-    <footer><p>ToolPulse — All processing happens in your browser.</p></footer>
+    <footer><p>CalcLeap — All processing happens in your browser.</p></footer>
 
     <script>
         // Theme

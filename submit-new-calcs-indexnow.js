@@ -2,15 +2,15 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/calc/solar-panel-roi-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/renters-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/motorcycle-insurance-calculator.html',
+  'https://calcleap.com/calc/solar-panel-roi-calculator.html',
+  'https://calcleap.com/calc/renters-insurance-calculator.html',
+  'https://calcleap.com/calc/motorcycle-insurance-calculator.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

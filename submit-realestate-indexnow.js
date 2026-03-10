@@ -2,18 +2,18 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/calc/rental-property-roi-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/cap-rate-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/noi-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/real-estate-appreciation-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/house-flipping-calculator.html',
-  'https://alexchalu.github.io/toolpulse/calc/mortgage-refinance-calculator.html',
+  'https://calcleap.com/calc/rental-property-roi-calculator.html',
+  'https://calcleap.com/calc/cap-rate-calculator.html',
+  'https://calcleap.com/calc/noi-calculator.html',
+  'https://calcleap.com/calc/real-estate-appreciation-calculator.html',
+  'https://calcleap.com/calc/house-flipping-calculator.html',
+  'https://calcleap.com/calc/mortgage-refinance-calculator.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

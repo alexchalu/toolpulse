@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * ToolPulse Build Script
+ * CalcLeap Build Script
  * Generates individual SEO-optimized HTML pages for each tool
  */
 
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://alexchalu.github.io/toolpulse';
+const SITE_URL = 'https://calcleap.com';
 const AD_CLIENT = 'ca-pub-3112605892426625';
 
 const tools = [
@@ -47,12 +47,12 @@ function generateToolPage(tool, allTools) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${tool.name} — Free Online Tool | ToolPulse</title>
+    <title>${tool.name} — Free Online Tool | CalcLeap</title>
     <meta name="description" content="${tool.desc}">
     <meta name="keywords" content="${tool.keywords}">
     <link rel="canonical" href="${SITE_URL}/${tool.id}.html">
     
-    <meta property="og:title" content="${tool.name} — ToolPulse">
+    <meta property="og:title" content="${tool.name} — CalcLeap">
     <meta property="og:description" content="${tool.desc}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${SITE_URL}/${tool.id}.html">
@@ -83,7 +83,7 @@ function generateToolPage(tool, allTools) {
         },
         "isPartOf": {
             "@type": "WebSite",
-            "name": "ToolPulse",
+            "name": "CalcLeap",
             "url": "${SITE_URL}"
         }
     }
@@ -92,7 +92,7 @@ function generateToolPage(tool, allTools) {
 <body>
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo">⚡ ToolPulse</a>
+            <a href="index.html" class="logo">⚡ CalcLeap</a>
             <p class="tagline">Free tools. No signup. 100% private.</p>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
         </div>
@@ -139,7 +139,7 @@ function generateToolPage(tool, allTools) {
     </div>
 
     <footer>
-        <p>ToolPulse — All processing happens in your browser. Nothing is uploaded or stored.</p>
+        <p>CalcLeap — All processing happens in your browser. Nothing is uploaded or stored.</p>
         <p class="footer-links"><a href="https://github.com/alexchalu/toolpulse" target="_blank">GitHub</a> · <a href="https://alexchalu.github.io/smartcalc/">Financial Calculators</a> · Built with ❤️</p>
     </footer>
 
@@ -199,12 +199,12 @@ function generateIndex(allTools) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToolPulse — 25 Free Online Tools | No Signup Required</title>
+    <title>CalcLeap — 25 Free Online Tools | No Signup Required</title>
     <meta name="description" content="25+ free online tools — JSON formatter, password generator, QR code maker, word counter, mortgage calculator, and more. No signup. 100% private — runs in your browser.">
     <meta name="keywords" content="free online tools, developer tools, password generator, json formatter, qr code generator, word counter, base64 encoder, unit converter, mortgage calculator">
     <link rel="canonical" href="${SITE_URL}/">
     
-    <meta property="og:title" content="ToolPulse — 25 Free Online Tools">
+    <meta property="og:title" content="CalcLeap — 25 Free Online Tools">
     <meta property="og:description" content="Fast, free, privacy-friendly online tools. No signup required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${SITE_URL}/">
@@ -219,7 +219,7 @@ function generateIndex(allTools) {
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "ToolPulse",
+        "name": "CalcLeap",
         "description": "25+ free online tools. No signup. 100% private.",
         "url": "${SITE_URL}",
         "potentialAction": {
@@ -233,7 +233,7 @@ function generateIndex(allTools) {
 <body>
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo">⚡ ToolPulse</a>
+            <a href="index.html" class="logo">⚡ CalcLeap</a>
             <p class="tagline">Free tools. No signup. 100% private.</p>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
         </div>
@@ -271,7 +271,7 @@ function generateIndex(allTools) {
     </div>
 
     <footer>
-        <p>ToolPulse — All processing happens in your browser. Nothing is uploaded or stored.</p>
+        <p>CalcLeap — All processing happens in your browser. Nothing is uploaded or stored.</p>
         <p class="footer-links"><a href="https://github.com/alexchalu/toolpulse" target="_blank">GitHub</a> · <a href="https://alexchalu.github.io/smartcalc/">Financial Calculators</a> · Built with ❤️</p>
     </footer>
 
@@ -312,7 +312,7 @@ ${urls.map(u => `    <url><loc>${u.loc}</loc><changefreq>weekly</changefreq><pri
 }
 
 // Build
-console.log('Building ToolPulse...');
+console.log('Building CalcLeap...');
 
 // Generate index
 fs.writeFileSync(path.join(__dirname, 'index.html'), generateIndex(tools));

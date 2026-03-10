@@ -2,18 +2,18 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/bitcoin-profit-calculator.html',
-  'https://alexchalu.github.io/toolpulse/ethereum-calculator.html',
-  'https://alexchalu.github.io/toolpulse/crypto-tax-calculator.html',
-  'https://alexchalu.github.io/toolpulse/crypto-mining-calculator.html',
-  'https://alexchalu.github.io/toolpulse/dogecoin-calculator.html',
-  'https://alexchalu.github.io/toolpulse/crypto-portfolio-tracker.html',
+  'https://calcleap.com/bitcoin-profit-calculator.html',
+  'https://calcleap.com/ethereum-calculator.html',
+  'https://calcleap.com/crypto-tax-calculator.html',
+  'https://calcleap.com/crypto-mining-calculator.html',
+  'https://calcleap.com/dogecoin-calculator.html',
+  'https://calcleap.com/crypto-portfolio-tracker.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 

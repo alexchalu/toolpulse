@@ -142,9 +142,9 @@ function generateHTML(calc) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${calc.title} - Free ${calc.category} Estimator | ToolPulse</title>
+    <title>${calc.title} - Free ${calc.category} Estimator | CalcLeap</title>
     <meta name="description" content="${calc.desc}. Free ${calc.category.toLowerCase()} calculator. Get instant estimates and compare rates.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${calc.slug}.html">
+    <link rel="canonical" href="https://calcleap.com/${calc.slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -242,7 +242,7 @@ function generateHTML(calc) {
         <div class="info-section">
             <h3>More Insurance & Financial Calculators</h3>
             <ul>
-                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
                 <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
                 <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
             </ul>
@@ -251,7 +251,7 @@ function generateHTML(calc) {
 
     <div class="footer">
         <div class="container">
-            <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
+            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
             <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
         </div>
     </div>

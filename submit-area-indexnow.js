@@ -2,30 +2,30 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/convert-square-feet-to-square-meters.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-feet-to-acres.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-feet-to-square-yards.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-meters-to-square-feet.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-meters-to-acres.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-meters-to-hectares.html',
-  'https://alexchalu.github.io/toolpulse/convert-acres-to-square-feet.html',
-  'https://alexchalu.github.io/toolpulse/convert-acres-to-square-meters.html',
-  'https://alexchalu.github.io/toolpulse/convert-acres-to-hectares.html',
-  'https://alexchalu.github.io/toolpulse/convert-hectares-to-acres.html',
-  'https://alexchalu.github.io/toolpulse/convert-hectares-to-square-meters.html',
-  'https://alexchalu.github.io/toolpulse/convert-hectares-to-square-feet.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-yards-to-square-feet.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-yards-to-square-meters.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-inches-to-square-feet.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-feet-to-square-inches.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-kilometers-to-square-miles.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-miles-to-square-kilometers.html',
+  'https://calcleap.com/convert-square-feet-to-square-meters.html',
+  'https://calcleap.com/convert-square-feet-to-acres.html',
+  'https://calcleap.com/convert-square-feet-to-square-yards.html',
+  'https://calcleap.com/convert-square-meters-to-square-feet.html',
+  'https://calcleap.com/convert-square-meters-to-acres.html',
+  'https://calcleap.com/convert-square-meters-to-hectares.html',
+  'https://calcleap.com/convert-acres-to-square-feet.html',
+  'https://calcleap.com/convert-acres-to-square-meters.html',
+  'https://calcleap.com/convert-acres-to-hectares.html',
+  'https://calcleap.com/convert-hectares-to-acres.html',
+  'https://calcleap.com/convert-hectares-to-square-meters.html',
+  'https://calcleap.com/convert-hectares-to-square-feet.html',
+  'https://calcleap.com/convert-square-yards-to-square-feet.html',
+  'https://calcleap.com/convert-square-yards-to-square-meters.html',
+  'https://calcleap.com/convert-square-inches-to-square-feet.html',
+  'https://calcleap.com/convert-square-feet-to-square-inches.html',
+  'https://calcleap.com/convert-square-kilometers-to-square-miles.html',
+  'https://calcleap.com/convert-square-miles-to-square-kilometers.html',
 ];
 
 const payload = JSON.stringify({
   host: 'alexchalu.github.io',
   key: 'a1b2c3d4e5f6g7h8',
-  keyLocation: 'https://alexchalu.github.io/toolpulse/a1b2c3d4e5f6g7h8.txt',
+  keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls
 });
 
