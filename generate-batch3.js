@@ -24,7 +24,7 @@ function calcPage(slug, title, desc, keywords, calcHTML, calcJS) {
 <div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <main><h1>${title}</h1><p class="sub">${desc}</p><div class="calc">${calcHTML}</div></main>
 <div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<footer><a href="../index.html">CalcLeap</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> · <a href="../blog/">Blog</a></footer>
+<footer><a href="../index.html">CalcLeap</a> · <a href="https://calcleap.com/">SmartCalc</a> · <a href="../blog/">Blog</a></footer>
 <script>const $=id=>document.getElementById(id);const fmt=(n,d=2)=>typeof n==='number'?n.toLocaleString('en-US',{maximumFractionDigits:d}):'—';${calcJS}
 if(typeof calc==='function')calc();</script></body></html>`;
 }

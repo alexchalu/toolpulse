@@ -13,7 +13,7 @@ const urls = [
 ];
 
 const payload = JSON.stringify({
-  host: 'alexchalu.github.io',
+  host: 'calcleap.com',
   key: 'a1b2c3d4e5f6g7h8',
   keyLocation: 'https://calcleap.com/a1b2c3d4e5f6g7h8.txt',
   urlList: urls

@@ -178,7 +178,7 @@ function generatePage(state) {
             <ul>
                 <li><a href="calc/paycheck-calculator.html">Paycheck Calculator</a></li>
                 <li><a href="calc/income-tax-calculator.html">Federal Income Tax Calculator</a></li>
-                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
                 <li><a href="index.html">CalcLeap Home - All Tools</a></li>
             </ul>
         </div>
@@ -187,7 +187,7 @@ function generatePage(state) {
     <div class="footer">
         <div class="container">
             <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+            <p><a href="index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a> | <a href="https://calcleap.com/">HealthCalcs</a></p>
         </div>
     </div>
 

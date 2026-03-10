@@ -190,7 +190,7 @@ for (const pct of percentages) {
         </div>
 
         <div class="footer">
-            <a href="/toolpulse/">CalcLeap</a> · <a href="/toolpulse/percentage-calculator.html">Percentage Calculator</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc Financial Tools</a>
+            <a href="/toolpulse/">CalcLeap</a> · <a href="/toolpulse/percentage-calculator.html">Percentage Calculator</a> · <a href="https://calcleap.com/">SmartCalc Financial Tools</a>
             <br>© 2026 CalcLeap. Free online tools and calculators.
         </div>
     </div>
@@ -262,7 +262,7 @@ const indexHtml = `<!DOCTYPE html>
         </div>
 
         <div class="footer">
-            <a href="/toolpulse/">← CalcLeap Home</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a>
+            <a href="/toolpulse/">← CalcLeap Home</a> · <a href="https://calcleap.com/">SmartCalc</a>
             <br>© 2026 CalcLeap
         </div>
     </div>

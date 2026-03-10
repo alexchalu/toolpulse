@@ -86,7 +86,7 @@ th{color:var(--m);font-weight:600;font-size:.8rem;text-transform:uppercase}
 </div>
 <div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 </main>
-<footer><a href="../index.html">CalcLeap</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> · Free online tools & calculators</footer>
+<footer><a href="../index.html">CalcLeap</a> · <a href="https://calcleap.com/">SmartCalc</a> · Free online tools & calculators</footer>
 </body>
 </html>`;
 }
@@ -271,7 +271,7 @@ Use our <a href="../calc/percentage-calculator.html">percentage calculator</a> t
         desc: 'Calculate how much house you can afford based on your income, debts, down payment, and interest rates. Includes the 28/36 rule and affordability calculator.',
         keywords: 'how much house can I afford, home affordability calculator, house budget, mortgage affordability, home buying guide 2026',
         tools: [
-            { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments', icon: '🏠', url: 'https://alexchalu.github.io/smartcalc/mortgage-calculator.html' },
+            { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments', icon: '🏠', url: 'https://calcleap.com/mortgage-calculator.html' },
             { name: 'Rent vs Buy Calculator', desc: 'Should you rent or buy?', icon: '🏡', url: '../calc/rent-vs-buy.html' },
             { name: 'Paycheck Calculator', desc: 'Calculate your take-home pay', icon: '💰', url: '../calc/paycheck-calculator.html' },
         ],
@@ -303,13 +303,13 @@ If you have $500/month in other debts, your max housing becomes $2,500/month.</p
 <tr><td>$150,000</td><td>$600,000</td><td>$3,500</td></tr>
 <tr><td>$200,000</td><td>$800,000</td><td>$4,667</td></tr>
 </table>
-<p><em>*Assumes 20% down, 6.5% rate, 30-year term. Use our <a href="https://alexchalu.github.io/smartcalc/mortgage-calculator.html">mortgage calculator</a> for your exact numbers.</em></p>
+<p><em>*Assumes 20% down, 6.5% rate, 30-year term. Use our <a href="https://calcleap.com/mortgage-calculator.html">mortgage calculator</a> for your exact numbers.</em></p>
 
 <h2>Costs Beyond the Mortgage</h2>
 <p>Your mortgage payment is just the beginning. Budget for:</p>
 <ul>
 <li><strong>Property taxes:</strong> 0.5-2.5% of home value per year ($2,000-$10,000)</li>
-<li><strong>Home insurance:</strong> $1,000-$3,000/year (use our <a href="https://alexchalu.github.io/smartcalc/home-insurance-calculator.html">home insurance calculator</a>)</li>
+<li><strong>Home insurance:</strong> $1,000-$3,000/year (use our <a href="https://calcleap.com/home-insurance-calculator.html">home insurance calculator</a>)</li>
 <li><strong>PMI:</strong> $100-$300/month if down payment is less than 20%</li>
 <li><strong>Maintenance:</strong> Budget 1-2% of home value per year</li>
 <li><strong>HOA fees:</strong> $200-$500/month if applicable</li>
@@ -336,7 +336,7 @@ If you have $500/month in other debts, your max housing becomes $2,500/month.</p
 <div class="cta">
 <h3>Calculate Your Mortgage Payment</h3>
 <p>See exactly what you'd pay monthly</p>
-<a href="https://alexchalu.github.io/smartcalc/mortgage-calculator.html">Mortgage Calculator →</a>
+<a href="https://calcleap.com/mortgage-calculator.html">Mortgage Calculator →</a>
 </div>`
     },
     {
@@ -346,7 +346,7 @@ If you have $500/month in other debts, your max housing becomes $2,500/month.</p
         keywords: 'best online calculators, free calculators, online calculator tools, best calculator websites, free financial calculators',
         tools: [
             { name: 'All CalcLeap Calculators', desc: 'Browse all 25+ free calculators', icon: '🔧', url: '../index.html' },
-            { name: 'SmartCalc Finance', desc: '18 financial calculators', icon: '💰', url: 'https://alexchalu.github.io/smartcalc/' },
+            { name: 'SmartCalc Finance', desc: '18 financial calculators', icon: '💰', url: 'https://calcleap.com/' },
         ],
         content: `
 <p>We've built a collection of the <strong>best free online calculators</strong> that actually work, look great, and respect your privacy. No signups, no downloads, no tracking — just open and use.</p>
@@ -354,22 +354,22 @@ If you have $500/month in other debts, your max housing becomes $2,500/month.</p
 <h2>💰 Financial Calculators</h2>
 
 <h3>1. Mortgage Calculator</h3>
-<p>Calculate your monthly mortgage payment with property tax, insurance, and PMI. Compare 15-year vs 30-year terms. <a href="https://alexchalu.github.io/smartcalc/mortgage-calculator.html">Try it free →</a></p>
+<p>Calculate your monthly mortgage payment with property tax, insurance, and PMI. Compare 15-year vs 30-year terms. <a href="https://calcleap.com/mortgage-calculator.html">Try it free →</a></p>
 
 <h3>2. Paycheck Calculator</h3>
 <p>See your net take-home pay after federal tax, state tax, FICA, 401(k), and deductions. <a href="../calc/paycheck-calculator.html">Try it free →</a></p>
 
 <h3>3. Compound Interest Calculator</h3>
-<p>See how your investments grow over time with compound interest and monthly contributions. <a href="https://alexchalu.github.io/smartcalc/compound-interest.html">Try it free →</a></p>
+<p>See how your investments grow over time with compound interest and monthly contributions. <a href="https://calcleap.com/compound-interest.html">Try it free →</a></p>
 
 <h3>4. Income Tax Calculator</h3>
-<p>Estimate your 2026 federal and state income taxes with bracket breakdowns. <a href="https://alexchalu.github.io/smartcalc/tax-calculator.html">Try it free →</a></p>
+<p>Estimate your 2026 federal and state income taxes with bracket breakdowns. <a href="https://calcleap.com/tax-calculator.html">Try it free →</a></p>
 
 <h3>5. Retirement Calculator</h3>
-<p>Plan your retirement — see how much to save, when you can retire, and if you're on track. <a href="https://alexchalu.github.io/smartcalc/retirement-calculator.html">Try it free →</a></p>
+<p>Plan your retirement — see how much to save, when you can retire, and if you're on track. <a href="https://calcleap.com/retirement-calculator.html">Try it free →</a></p>
 
 <h3>6. Credit Card Payoff Calculator</h3>
-<p>See how long to pay off credit card debt and how much interest you'll pay. <a href="https://alexchalu.github.io/smartcalc/credit-card-payoff.html">Try it free →</a></p>
+<p>See how long to pay off credit card debt and how much interest you'll pay. <a href="https://calcleap.com/credit-card-payoff.html">Try it free →</a></p>
 
 <h3>7. Rent vs Buy Calculator</h3>
 <p>Should you rent or buy? Compare total costs over time. <a href="../calc/rent-vs-buy.html">Try it free →</a></p>
@@ -450,7 +450,7 @@ If you have $500/month in other debts, your max housing becomes $2,500/month.</p
 <h2>🏠 Housing (Save $200-800/month)</h2>
 
 <h3>1. Refinance Your Mortgage</h3>
-<p>If rates have dropped even 0.5% since you got your mortgage, refinancing could save $100-300/month. Use our <a href="https://alexchalu.github.io/smartcalc/mortgage-calculator.html">mortgage calculator</a> to check.</p>
+<p>If rates have dropped even 0.5% since you got your mortgage, refinancing could save $100-300/month. Use our <a href="https://calcleap.com/mortgage-calculator.html">mortgage calculator</a> to check.</p>
 
 <h3>2. Negotiate Your Rent</h3>
 <p>Most landlords would rather keep a good tenant at a small discount than find a new one. Ask for $50-100/month off, especially at renewal time.</p>
@@ -465,7 +465,7 @@ If you have $500/month in other debts, your max housing becomes $2,500/month.</p
 </ul>
 
 <h3>4. Get Better Insurance Rates</h3>
-<p>Shop your home and auto insurance every year. Most people save 15-30% by switching. Use our <a href="https://alexchalu.github.io/smartcalc/home-insurance-calculator.html">home insurance</a> and <a href="https://alexchalu.github.io/smartcalc/car-insurance-calculator.html">car insurance</a> calculators to estimate fair rates.</p>
+<p>Shop your home and auto insurance every year. Most people save 15-30% by switching. Use our <a href="https://calcleap.com/home-insurance-calculator.html">home insurance</a> and <a href="https://calcleap.com/car-insurance-calculator.html">car insurance</a> calculators to estimate fair rates.</p>
 
 <h2>🍔 Food (Save $200-500/month)</h2>
 
@@ -489,7 +489,7 @@ If you have $500/month in other debts, your max housing becomes $2,500/month.</p
 <h2>💳 Debt (Save $100-500/month)</h2>
 
 <h3>10. Attack High-Interest Debt First</h3>
-<p>Credit card interest at 22% APR costs $1,833/year on just a $10,000 balance. Use our <a href="https://alexchalu.github.io/smartcalc/credit-card-payoff.html">credit card payoff calculator</a> to make a plan.</p>
+<p>Credit card interest at 22% APR costs $1,833/year on just a $10,000 balance. Use our <a href="https://calcleap.com/credit-card-payoff.html">credit card payoff calculator</a> to make a plan.</p>
 
 <h3>11. Negotiate Lower Interest Rates</h3>
 <p>Call your credit card company and ask for a lower rate. Success rate: about 70%.</p>
@@ -503,7 +503,7 @@ If you have $500/month in other debts, your max housing becomes $2,500/month.</p
 <p>Split streaming, cloud storage, and phone plans with family or friends.</p>
 
 <h2>📈 Bottom Line</h2>
-<p>Start with the easiest wins first. Even saving an extra $500/month invested at 8% becomes <strong>$456,000 in 25 years</strong> thanks to compound interest. Use our <a href="https://alexchalu.github.io/smartcalc/compound-interest.html">compound interest calculator</a> to see your numbers.</p>
+<p>Start with the easiest wins first. Even saving an extra $500/month invested at 8% becomes <strong>$456,000 in 25 years</strong> thanks to compound interest. Use our <a href="https://calcleap.com/compound-interest.html">compound interest calculator</a> to see your numbers.</p>
 
 <div class="cta">
 <h3>Calculate Your Savings Potential</h3>
@@ -535,7 +535,7 @@ const blogIndex = `<!DOCTYPE html>
 <main><h1>📝 CalcLeap Blog</h1><p class="sub">Free guides, tips, and expert advice — backed by our free calculators</p>
 ${articles.map(a => `<a class="post" href="${a.slug}.html"><h2>${a.title}</h2><p>${a.desc}</p><div class="meta">March 7, 2026 · 8 min read</div></a>`).join('\n')}
 </main>
-<footer><a href="../index.html">CalcLeap</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></footer></body></html>`;
+<footer><a href="../index.html">CalcLeap</a> · <a href="https://calcleap.com/">SmartCalc</a></footer></body></html>`;
 
 fs.writeFileSync(`${__dirname}/blog/index.html`, blogIndex);
 sitemapEntries.push(`    <url><loc>${BASE}/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`);

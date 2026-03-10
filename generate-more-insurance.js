@@ -178,8 +178,8 @@ function generateHTML(calc) {
             <h3>More Insurance & Financial Tools</h3>
             <ul>
                 <li><a href="index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
+                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://calcleap.com/">HealthCalcs - Health & Wellness</a></li>
             </ul>
         </div>
 
@@ -192,7 +192,7 @@ function generateHTML(calc) {
     <div class="footer">
         <div class="container">
             <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></p>
+            <p><a href="index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a></p>
         </div>
     </div>
 

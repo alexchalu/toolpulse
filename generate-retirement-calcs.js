@@ -173,7 +173,7 @@ function generateHTML(calc) {
             <h3>More Retirement & Financial Tools</h3>
             <ul>
                 <li><a href="index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
             </ul>
         </div>
 

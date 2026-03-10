@@ -65,9 +65,9 @@ function generateHTML(state) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${state.name} Property Tax Calculator - Free ${state.abbr} Real Estate Tax Tool | ToolPulse</title>
+    <title>${state.name} Property Tax Calculator - Free ${state.abbr} Real Estate Tax Tool | CalcLeap</title>
     <meta name="description" content="Calculate ${state.name} property tax based on home value. Free ${state.abbr} property tax calculator with effective tax rates.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${slug}.html">
+    <link rel="canonical" href="https://calcleap.com/${slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -146,9 +146,9 @@ function generateHTML(state) {
             <p>${state.name} ranks ${state.rate > 1.5 ? 'among the higher property tax states' : state.rate < 0.7 ? 'among the lower property tax states' : 'in the middle range'} for property tax rates in the United States.</p>
             <h3>More ${state.name} Tools</h3>
             <ul>
-                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
                 <li><a href="${state.name.toLowerCase().replace(/ /g, '-')}-income-tax-calculator.html">${state.name} Income Tax Calculator</a></li>
-                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
             </ul>
         </div>
 
@@ -160,7 +160,7 @@ function generateHTML(state) {
 
     <div class="footer">
         <div class="container">
-            <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
+            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
             <p><a href="index.html">Home</a></p>
         </div>
     </div>

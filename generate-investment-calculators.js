@@ -152,8 +152,8 @@ function generateHTML(calc) {
             <p>Check out our other calculators:</p>
             <ul>
                 <li><a href="../index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
+                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://calcleap.com/">HealthCalcs - Health & Wellness</a></li>
             </ul>
         </div>
     </div>
@@ -161,7 +161,7 @@ function generateHTML(calc) {
     <div class="footer">
         <div class="container">
             <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="../index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+            <p><a href="../index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a> | <a href="https://calcleap.com/">HealthCalcs</a></p>
             <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">Calculations are for informational purposes only. Consult a financial advisor for investment advice.</p>
         </div>
     </div>

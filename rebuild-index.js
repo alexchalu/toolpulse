@@ -503,7 +503,7 @@ ${cat.id === 'currency' ? '<a class="more-link" href="convert-usd-to-eur.html">V
 <div class="banner">
 <h3>💰 Need Financial Calculators?</h3>
 <p>18 specialized finance calculators — mortgage, insurance, tax, retirement, and more</p>
-<a href="https://alexchalu.github.io/smartcalc/">Visit SmartCalc →</a>
+<a href="https://calcleap.com/">Visit SmartCalc →</a>
 </div>
 
 <div class="cat">
@@ -522,7 +522,7 @@ ${cat.id === 'currency' ? '<a class="more-link" href="convert-usd-to-eur.html">V
 
 <footer>
 <p>CalcLeap — All tools run in your browser. 100% free, 100% private.</p>
-<p><a href="index.html">Home</a><a href="blog/">Blog</a><a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a><a href="https://alexchalu.github.io/focustab/">FocusTab</a></p>
+<p><a href="index.html">Home</a><a href="blog/">Blog</a><a href="https://calcleap.com/">SmartCalc</a><a href="https://calcleap.com/focustab/">FocusTab</a></p>
 <p style="margin-top:.5rem">© 2026 CalcLeap. All calculations are for informational purposes only.</p>
 </footer>
 

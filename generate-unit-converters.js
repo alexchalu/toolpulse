@@ -83,7 +83,7 @@ footer a{color:var(--a);text-decoration:none}
 </div>
 </main>
 <div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<footer><a href="../index.html">CalcLeap</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></footer>
+<footer><a href="../index.html">CalcLeap</a> · <a href="https://calcleap.com/">SmartCalc</a></footer>
 <script>
 const fromEl=document.getElementById('fromVal'),toEl=document.getElementById('toVal');
 const resEl=document.getElementById('result'),lblEl=document.getElementById('resultLabel');
