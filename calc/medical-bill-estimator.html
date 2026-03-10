@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Bill Estimator | CalcLeap</title>
+<meta name="description" content="Estimate your medical procedure costs including hospital fees, surgeon fees, anesthesia, and out-of-pocket expenses after insurance">
+<link rel="canonical" href="https://calcleap.com/calc/medical-bill-estimator.html">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Medical Bill Estimator","url":"https://calcleap.com/calc/medical-bill-estimator.html","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'SF Pro Display','Segoe UI',Roboto,sans-serif;background:#fafafa;color:#1d1d1f;line-height:1.6}
+nav{background:rgba(255,255,255,0.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,0.08);position:sticky;top:0;z-index:100;padding:0 24px;height:48px;display:flex;align-items:center;justify-content:space-between}
+nav a{color:#1d1d1f;text-decoration:none;font-size:14px;font-weight:500}
+nav .logo{font-weight:700;font-size:18px;color:#0071e3}
+nav .links a{margin-left:20px;color:#424245;font-size:13px}
+nav .links a:hover{color:#0071e3}
+.breadcrumb{max-width:800px;margin:16px auto 0;padding:0 24px;font-size:13px;color:#86868b}
+.breadcrumb a{color:#0071e3;text-decoration:none}
+.hero{max-width:800px;margin:0 auto;padding:40px 24px 20px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,42px);font-weight:700;letter-spacing:-0.5px;background:linear-gradient(135deg,#1d1d1f 0%,#0071e3 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:#86868b;font-size:17px;margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto}
+.card{max-width:800px;margin:20px auto;padding:32px;background:#fff;border-radius:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.04)}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:14px;font-weight:600;color:#1d1d1f;margin-bottom:6px}
+.form-group input,.form-group select{width:100%;padding:12px 16px;border:1px solid #d2d2d7;border-radius:12px;font-size:16px;background:#fafafa;transition:border-color 0.2s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#0071e3;background:#fff}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.btn{display:inline-block;padding:14px 32px;background:#0071e3;color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;width:100%;transition:background 0.2s}
+.btn:hover{background:#0077ED}
+.results{display:none;margin-top:24px;padding:24px;background:#f5f5f7;border-radius:14px}
+.results h3{font-size:18px;font-weight:700;margin-bottom:16px;color:#1d1d1f}
+.result-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #e8e8ed}
+.result-row:last-child{border-bottom:none}
+.result-label{color:#86868b;font-size:14px}
+.result-value{font-weight:700;font-size:16px;color:#1d1d1f}
+.result-value.highlight{color:#0071e3;font-size:20px}
+.chart-container{margin-top:20px;padding:20px;background:#fff;border-radius:14px}
+.bar{height:32px;border-radius:8px;margin-bottom:8px;display:flex;align-items:center;padding:0 12px;font-size:13px;font-weight:600;color:#fff;transition:width 0.6s ease}
+.content{max-width:800px;margin:30px auto;padding:0 24px}
+.content h2{font-size:24px;font-weight:700;margin:28px 0 12px;color:#1d1d1f}
+.content p,.content li{font-size:15px;color:#424245;line-height:1.7}
+.content ul{padding-left:20px;margin:12px 0}
+.faq{max-width:800px;margin:30px auto;padding:0 24px}
+.faq details{background:#fff;border-radius:14px;margin-bottom:8px;padding:0;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.faq summary{padding:16px 20px;font-weight:600;font-size:15px;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"＋";margin-right:10px;color:#0071e3}
+.faq details[open] summary::before{content:"－"}
+.faq .faq-body{padding:0 20px 16px;font-size:14px;color:#424245;line-height:1.7}
+.ad-slot{max-width:800px;margin:20px auto;padding:0 24px}
+.ad-slot ins{display:block;min-height:90px;border-radius:12px;overflow:hidden}
+.related{max-width:800px;margin:30px auto;padding:0 24px}
+.related h3{font-size:18px;font-weight:700;margin-bottom:16px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.related-grid a{display:block;padding:16px;background:#fff;border-radius:14px;text-decoration:none;color:#1d1d1f;font-size:14px;font-weight:500;box-shadow:0 1px 3px rgba(0,0,0,0.04);transition:transform 0.2s,box-shadow 0.2s}
+.related-grid a:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+footer{max-width:800px;margin:40px auto;padding:20px 24px;border-top:1px solid #e8e8ed;text-align:center;font-size:13px;color:#86868b}
+footer a{color:#0071e3;text-decoration:none;margin:0 8px}
+.disclaimer{max-width:800px;margin:20px auto;padding:12px 24px;font-size:12px;color:#86868b;text-align:center;font-style:italic}
+</style>
+</head>
+<body>
+<nav>
+<a href="/" class="logo">CalcLeap</a>
+<div class="links">
+<a href="/">Tools</a>
+<a href="/about.html">About</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/contact.html">Contact</a>
+</div>
+</nav>
+<div class="breadcrumb"><a href="/">Home</a> → <a href="/">Calculators</a> → Medical Bill Estimator</div>
+<div class="hero">
+<h1>Medical Bill Estimator</h1>
+<p>Estimate your medical procedure costs including hospital fees, surgeon fees, anesthesia, and out-of-pocket expenses after insurance</p>
+</div>
+<div class="ad-slot"><ins class="adsbygoogle" data-ad-client="ca-pub-XXXXXXX" data-ad-slot="1111111" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+<div class="card" id="calculator"></div>
+<div class="ad-slot"><ins class="adsbygoogle" data-ad-client="ca-pub-XXXXXXX" data-ad-slot="2222222" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+<div class="content" id="content"></div>
+<div class="faq" id="faq"></div>
+<div class="related" id="related"></div>
+<div class="ad-slot"><ins class="adsbygoogle" data-ad-client="ca-pub-XXXXXXX" data-ad-slot="3333333" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+<div class="disclaimer">⚖️ This calculator provides estimates only. Actual costs vary by provider, location, insurance plan, and individual circumstances. Always consult with your healthcare provider and insurance company for accurate cost information.</div>
+<footer>
+<p>© 2026 CalcLeap. All rights reserved.</p>
+<a href="/about.html">About</a> | <a href="/privacy.html">Privacy</a> | <a href="/contact.html">Contact</a>
+<p style="margin-top:8px">Last updated: March 2026</p>
+</footer>
+<script src="/calc/js/medical-bill-estimator.js"></script>
+</body>
+</html>

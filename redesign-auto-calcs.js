@@ -1,11 +1,81 @@
-<!DOCTYPE html>
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+// Auto calculators to redesign with Apple theme + charts
+const calculators = [
+  {
+    slug: 'lease-vs-buy-calculator',
+    title: 'Lease vs Buy Car Calculator',
+    desc: 'Compare leasing vs buying a car. Calculate monthly payments, total costs, and see which option saves you more money.',
+    category: 'Auto Purchase'
+  },
+  {
+    slug: 'car-depreciation-calculator',
+    title: 'Car Depreciation Calculator',
+    desc: 'Calculate how much your car will depreciate over time. Estimate future resale value based on age and mileage.',
+    category: 'Auto Value'
+  },
+  {
+    slug: 'gas-savings-calculator',
+    title: 'Gas Savings Calculator',
+    desc: 'Calculate fuel savings by comparing different vehicles or driving habits. See how much you can save annually.',
+    category: 'Fuel Economy'
+  },
+  {
+    slug: 'ev-vs-gas-calculator',
+    title: 'Electric vs Gas Car Calculator',
+    desc: 'Compare total cost of ownership: electric vehicle vs gas car. Factor in fuel, maintenance, and tax incentives.',
+    category: 'EV Comparison'
+  },
+  {
+    slug: 'auto-trade-in-calculator',
+    title: 'Car Trade-In Value Calculator',
+    desc: 'Estimate your car trade-in value based on condition, mileage, and current market trends.',
+    category: 'Trade-In'
+  },
+  {
+    slug: 'car-payment-affordability-calculator',
+    title: 'Car Affordability Calculator',
+    desc: 'How much car can you afford? Calculate based on your income, down payment, and monthly budget.',
+    category: 'Auto Affordability'
+  },
+  {
+    slug: 'auto-sales-tax-calculator',
+    title: 'Auto Sales Tax Calculator',
+    desc: 'Calculate sales tax, registration fees, and total out-the-door cost for your car purchase by state.',
+    category: 'Auto Tax'
+  },
+  {
+    slug: 'car-lease-buyout-calculator',
+    title: 'Lease Buyout Calculator',
+    desc: 'Should you buy out your car lease? Compare buyout cost vs current market value and make an informed decision.',
+    category: 'Lease Buyout'
+  },
+  {
+    slug: 'vehicle-maintenance-cost-calculator',
+    title: 'Vehicle Maintenance Cost Calculator',
+    desc: 'Estimate annual maintenance and repair costs for your vehicle based on age, mileage, and make/model.',
+    category: 'Maintenance'
+  },
+  {
+    slug: 'car-mpg-calculator',
+    title: 'MPG Calculator',
+    desc: 'Calculate your car miles per gallon (MPG) based on distance traveled and fuel consumed.',
+    category: 'Fuel Economy'
+  },
+];
+
+function generateHTML(calc) {
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gas Savings Calculator - Free Fuel Economy Tool | CalcLeap</title>
-    <meta name="description" content="Calculate fuel savings by comparing different vehicles or driving habits. See how much you can save annually.. Free online calculator with instant results.">
-    <link rel="canonical" href="https://calcleap.com/gas-savings-calculator.html">
+    <title>${calc.title} - Free ${calc.category} Tool | CalcLeap</title>
+    <meta name="description" content="${calc.desc}. Free online calculator with instant results.">
+    <link rel="canonical" href="https://calcleap.com/${calc.slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
@@ -47,8 +117,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Gas Savings Calculator</h1>
-            <p>Calculate fuel savings by comparing different vehicles or driving habits. See how much you can save annually.</p>
+            <h1>${calc.title}</h1>
+            <p>${calc.desc}</p>
         </div>
     </div>
 
@@ -57,7 +127,7 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="calc-box">
-            <h2>Fuel Economy Calculator</h2>
+            <h2>${calc.category} Calculator</h2>
             <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your details below to calculate and compare your options.</p>
             <div class="input-group">
                 <label for="price">Vehicle Price ($):</label>
@@ -90,8 +160,8 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="info-section">
-            <h3>About Gas Savings Calculator</h3>
-            <p>Calculate fuel savings by comparing different vehicles or driving habits. See how much you can save annually.</p>
+            <h3>About ${calc.title}</h3>
+            <p>${calc.desc}</p>
             <h3>How It Works</h3>
             <p>This calculator helps you make informed decisions about your vehicle purchase by providing accurate cost estimates based on:</p>
             <ul>
@@ -100,7 +170,7 @@
                 <li>Total cost of financing</li>
                 <li>Monthly payment breakdown</li>
             </ul>
-            <h3>Tips for Fuel Economy</h3>
+            <h3>Tips for ${calc.category}</h3>
             <ul>
                 <li>Compare multiple financing options before deciding</li>
                 <li>Consider the total cost of ownership, not just monthly payments</li>
@@ -144,7 +214,7 @@
             const totalPaid = monthlyPayment * months + down;
             const totalInterest = totalPaid - price;
             
-            let html = '<h3>Your Fuel Economy Results</h3>';
+            let html = '<h3>Your ${calc.category} Results</h3>';
             html += '<div class="result-value">$' + monthlyPayment.toFixed(2).toLocaleString() + '/month</div>';
             html += '<div class="result-detail"><strong>Vehicle Price:</strong> $' + price.toLocaleString() + '</div>';
             html += '<div class="result-detail"><strong>Down Payment:</strong> $' + down.toLocaleString() + '</div>';
@@ -172,4 +242,17 @@
         }
     </script>
 </body>
-</html>
+</html>`;
+}
+
+let count = 0;
+calculators.forEach(calc => {
+  const html = generateHTML(calc);
+  fs.writeFileSync(path.join(__dirname, `${calc.slug}.html`), html);
+  count++;
+  console.log(`✓ Redesigned ${calc.slug}.html`);
+});
+
+console.log(`\n✅ Redesigned ${count} auto calculators with Apple-inspired theme + visual charts`);
+console.log('✨ Quality upgrades: proper branding, calcleap.com URLs, seamless ads, bar charts');
+console.log('📝 Next: Git commit and push');
