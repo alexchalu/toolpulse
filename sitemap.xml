@@ -91,6 +91,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calcleap.com/alimony-calculator.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calcleap.com/annuity-calculator.html</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -715,6 +721,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calcleap.com/car-accident-settlement-calculator.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calcleap.com/car-depreciation-calculator.html</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -764,6 +776,12 @@
   </url>
   <url>
     <loc>https://calcleap.com/chicago-cost-of-living-calculator.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calcleap.com/child-support-calculator.html</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4813,6 +4831,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calcleap.com/personal-injury-settlement-calculator.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calcleap.com/pet-insurance-calculator.html</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -5017,6 +5041,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calcleap.com/slip-and-fall-settlement-calculator.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calcleap.com/social-security-calculator.html</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -5066,6 +5096,12 @@
   </url>
   <url>
     <loc>https://calcleap.com/south-dakota-tax.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calcleap.com/ssdi-calculator.html</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5360,6 +5396,18 @@
   </url>
   <url>
     <loc>https://calcleap.com/workers-comp-calculator.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calcleap.com/workers-comp-settlement-calculator.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calcleap.com/wrongful-death-calculator.html</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
