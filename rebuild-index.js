@@ -114,6 +114,22 @@ const categories = [
         ]
     },
     {
+        name: '🏙️ Cost of Living by City',
+        id: 'city-col',
+        tools: [
+            { name: 'New York COL', desc: 'NYC cost of living', url: 'new-york-cost-of-living-calculator.html' },
+            { name: 'Los Angeles COL', desc: 'LA cost of living', url: 'los-angeles-cost-of-living-calculator.html' },
+            { name: 'San Francisco COL', desc: 'SF Bay Area costs', url: 'san-francisco-cost-of-living-calculator.html' },
+            { name: 'Chicago COL', desc: 'Chicago living costs', url: 'chicago-cost-of-living-calculator.html' },
+            { name: 'Houston COL', desc: 'Houston cost of living', url: 'houston-cost-of-living-calculator.html' },
+            { name: 'Seattle COL', desc: 'Seattle living expenses', url: 'seattle-cost-of-living-calculator.html' },
+            { name: 'Boston COL', desc: 'Boston cost of living', url: 'boston-cost-of-living-calculator.html' },
+            { name: 'Austin COL', desc: 'Austin living costs', url: 'austin-cost-of-living-calculator.html' },
+            { name: 'Denver COL', desc: 'Denver cost of living', url: 'denver-cost-of-living-calculator.html' },
+            { name: 'Miami COL', desc: 'Miami living expenses', url: 'miami-cost-of-living-calculator.html' },
+        ]
+    },
+    {
         name: '🏘️ Real Estate Investment',
         id: 'real-estate',
         tools: [
