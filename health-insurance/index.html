@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Insurance Calculator by State — Compare Premiums & Subsidies | CalcLeap</title>
+<meta name="description" content="Compare health insurance costs across all 50 US states. Calculate premiums, check ACA subsidy eligibility, and find affordable coverage.">
+<link rel="canonical" href="https://calcleap.com/health-insurance/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--bg:#f5f5f7;--surface:#fff;--border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);--text:#1d1d1f;--text-2:#424245;--text-3:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);--shadow:0 2px 12px rgba(0,0,0,.06);--r:16px;--r-sm:12px;--r-xs:8px;--mw:980px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:1rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group select,.form-group input{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group select:focus,.form-group input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn{display:inline-flex;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.results{display:none;margin-top:1.5rem}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.5rem}
+.result-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
+.result-card .label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.25rem}
+.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
+.result-card .sub{font-size:.78rem;color:var(--text-3);margin-top:.15rem}
+.chart-container{margin:1.5rem 0}
+.bar-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+.bar-label{width:120px;font-size:.78rem;font-weight:600;color:var(--text-2);text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:28px;background:var(--bg);border-radius:6px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 .75rem;font-size:.72rem;font-weight:700;color:#fff;transition:width .6s ease}
+.bar-val{font-size:.78rem;font-weight:600;color:var(--text-2);width:80px;flex-shrink:0}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:1.5rem}
+.stat-card{background:var(--accent-bg);border:1px solid rgba(0,113,227,.12);border-radius:var(--r-sm);padding:1rem;text-align:center}
+.stat-card .val{font-size:1.3rem;font-weight:800;color:var(--accent)}
+.stat-card .lbl{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-top:.15rem}
+.ad-slot{margin:1.5rem 0}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card p,.info-card li{font-size:.9rem;color:var(--text-2);line-height:1.6;margin-bottom:.5rem}
+.info-card ul{padding-left:1.25rem}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.5rem;margin-top:.75rem}
+.related-grid a{display:block;padding:.6rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.82rem;font-weight:500;color:var(--text-2);transition:all .15s}
+.related-grid a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
+th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
+td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+.faq-item{border-bottom:1px solid var(--border);padding:1rem 0}
+.faq-item:last-child{border:none}
+.faq-q{font-weight:700;font-size:.92rem;margin-bottom:.5rem;color:var(--text)}
+.faq-a{font-size:.88rem;color:var(--text-2);line-height:1.6}
+.footer{background:var(--white);border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;font-size:.8rem;color:var(--text-3)}
+.footer-col h4{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem;color:var(--text-2)}
+.footer-col a{display:block;padding:.2rem 0;color:var(--text-3);transition:color .15s}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.75rem}
+/* === COMPREHENSIVE COMPONENT STYLES === */ .calc-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.input-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
+.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
+.input-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.input-group input,.input-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
+.input-group input:focus,.input-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
+.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s}
+.radio-label:hover{border-color:var(--accent);color:var(--accent)}
+.radio-label input:checked+span{color:var(--accent);font-weight:600}
+.radio-label input{display:none}
+.toggle-group{display:flex;gap:.25rem;background:var(--bg);border-radius:var(--r-xs);padding:.25rem}
+.toggle-btn{padding:.5rem 1rem;font-size:.82rem;font-weight:600;border:none;background:transparent;border-radius:6px;cursor:pointer;color:var(--text-3);transition:all .2s}
+.toggle-btn.active{background:var(--white);color:var(--accent);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+@media(max-width:700px){.form-row{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr}.stat-grid{grid-template-columns:1fr 1fr}.footer-inner{grid-template-columns:1fr 1fr}.bar-label{width:80px;font-size:.7rem}.related-grid{grid-template-columns:1fr 1fr}}
+.search-box{padding:.75rem 1rem;font-size:.95rem;font-family:var(--font);background:var(--white);border:1px solid var(--border);border-radius:var(--r-xs);width:100%;max-width:400px;margin-bottom:1.5rem;outline:none;transition:all .2s}
+.search-box:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1)}
+.highlight{background:var(--accent-bg);border:1px solid rgba(0,113,227,.15);border-radius:var(--r-sm);padding:1rem;margin-bottom:1rem;font-size:.88rem}
+.highlight strong{color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/bmi-calculator.html">Health</a><a href="/calc/mortgage-calculator.html">Finance</a><a href="/health-insurance/">Insurance</a></div></div></nav>
+<div class="page">
+<div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span>Health Insurance</div>
+<h1 class="page-title">Health Insurance Calculator by State</h1>
+<p class="page-desc">Compare health insurance premiums, ACA marketplace plans, and subsidy eligibility across all 50 US states. Find the most affordable coverage for your household.</p>
+
+<div class="stat-grid">
+<div class="stat-card"><div class="val">50</div><div class="lbl">States Covered</div></div>
+<div class="stat-card"><div class="val">$530/mo</div><div class="lbl">National Avg</div></div>
+<div class="stat-card"><div class="val">40</div><div class="lbl">States Expanded Medicaid</div></div>
+<div class="stat-card"><div class="val">~8%</div><div class="lbl">National Uninsured</div></div>
+</div>
+
+<div class="highlight">🏥 <strong>Most Affordable:</strong> New Mexico ($440/mo), Arizona ($440/mo), Utah ($450/mo) &nbsp;|&nbsp; 💰 <strong>Most Expensive:</strong> Wyoming ($700/mo), West Virginia ($640/mo), Alaska ($760/mo) &nbsp;|&nbsp; 📉 <strong>Lowest Uninsured:</strong> Massachusetts (2.9%), Hawaii (4.0%), Rhode Island (4.1%)</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<input type="text" class="search-box" id="search" placeholder="🔍 Search states..." onkeyup="filterStates()">
+
+<div class="card" style="overflow-x:auto">
+<table id="stateTable">
+<thead><tr><th onclick="sortTable(0)">State ↕</th><th>Code</th><th onclick="sortTable(2)">Annual Avg ↕</th><th onclick="sortTable(3)">Monthly ↕</th><th>Medicaid Expanded</th><th onclick="sortTable(5)">Uninsured ↕</th><th>Top Insurer</th></tr></thead>
+<tbody>
+<tr><td><a href="/health-insurance/alabama-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Alabama</a></td><td>AL</td><td>$6,840</td><td>$570</td><td>✅</td><td>9.1%</td><td>Blue Cross Blue Shield of Alabama</td></tr>
+<tr><td><a href="/health-insurance/alaska-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Alaska</a></td><td>AK</td><td>$9,120</td><td>$760</td><td>✅</td><td>12.8%</td><td>Premera Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/arizona-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Arizona</a></td><td>AZ</td><td>$5,280</td><td>$440</td><td>✅</td><td>10.7%</td><td>Ambetter from Arizona Complete Health</td></tr>
+<tr><td><a href="/health-insurance/arkansas-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Arkansas</a></td><td>AR</td><td>$5,760</td><td>$480</td><td>✅</td><td>8.0%</td><td>QualChoice Health Insurance</td></tr>
+<tr><td><a href="/health-insurance/california-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">California</a></td><td>CA</td><td>$7,440</td><td>$620</td><td>✅</td><td>7.2%</td><td>Kaiser Permanente</td></tr>
+<tr><td><a href="/health-insurance/colorado-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Colorado</a></td><td>CO</td><td>$6,360</td><td>$530</td><td>✅</td><td>6.4%</td><td>Kaiser Foundation Health Plan</td></tr>
+<tr><td><a href="/health-insurance/connecticut-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Connecticut</a></td><td>CT</td><td>$7,080</td><td>$590</td><td>✅</td><td>5.7%</td><td>ConnectiCare</td></tr>
+<tr><td><a href="/health-insurance/delaware-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Delaware</a></td><td>DE</td><td>$6,600</td><td>$550</td><td>✅</td><td>6.1%</td><td>Highmark Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/florida-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Florida</a></td><td>FL</td><td>$7,200</td><td>$600</td><td>❌</td><td>13.2%</td><td>Florida Blue</td></tr>
+<tr><td><a href="/health-insurance/georgia-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Georgia</a></td><td>GA</td><td>$6,480</td><td>$540</td><td>❌</td><td>12.4%</td><td>Anthem Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/hawaii-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Hawaii</a></td><td>HI</td><td>$5,520</td><td>$460</td><td>✅</td><td>4.0%</td><td>HMSA (Hawaii Medical Service Association)</td></tr>
+<tr><td><a href="/health-insurance/idaho-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Idaho</a></td><td>ID</td><td>$5,880</td><td>$490</td><td>✅</td><td>10.3%</td><td>Blue Cross of Idaho</td></tr>
+<tr><td><a href="/health-insurance/illinois-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Illinois</a></td><td>IL</td><td>$6,120</td><td>$510</td><td>✅</td><td>6.8%</td><td>Blue Cross Blue Shield of Illinois</td></tr>
+<tr><td><a href="/health-insurance/indiana-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Indiana</a></td><td>IN</td><td>$5,640</td><td>$470</td><td>✅</td><td>8.2%</td><td>Anthem Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/iowa-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Iowa</a></td><td>IA</td><td>$6,240</td><td>$520</td><td>✅</td><td>5.1%</td><td>Wellmark Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/kansas-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Kansas</a></td><td>KS</td><td>$5,760</td><td>$480</td><td>❌</td><td>9.6%</td><td>Blue Cross Blue Shield of Kansas</td></tr>
+<tr><td><a href="/health-insurance/kentucky-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Kentucky</a></td><td>KY</td><td>$5,520</td><td>$460</td><td>✅</td><td>5.6%</td><td>Anthem Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/louisiana-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Louisiana</a></td><td>LA</td><td>$6,720</td><td>$560</td><td>✅</td><td>8.0%</td><td>Blue Cross Blue Shield of Louisiana</td></tr>
+<tr><td><a href="/health-insurance/maine-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Maine</a></td><td>ME</td><td>$6,000</td><td>$500</td><td>✅</td><td>7.6%</td><td>Anthem Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/maryland-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Maryland</a></td><td>MD</td><td>$6,360</td><td>$530</td><td>✅</td><td>6.0%</td><td>CareFirst BlueCross BlueShield</td></tr>
+<tr><td><a href="/health-insurance/massachusetts-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Massachusetts</a></td><td>MA</td><td>$7,320</td><td>$610</td><td>✅</td><td>2.9%</td><td>Blue Cross Blue Shield of Massachusetts</td></tr>
+<tr><td><a href="/health-insurance/michigan-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Michigan</a></td><td>MI</td><td>$5,880</td><td>$490</td><td>✅</td><td>5.8%</td><td>Blue Cross Blue Shield of Michigan</td></tr>
+<tr><td><a href="/health-insurance/minnesota-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Minnesota</a></td><td>MN</td><td>$6,000</td><td>$500</td><td>✅</td><td>4.5%</td><td>Blue Cross Blue Shield of Minnesota</td></tr>
+<tr><td><a href="/health-insurance/mississippi-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Mississippi</a></td><td>MS</td><td>$5,640</td><td>$470</td><td>❌</td><td>11.8%</td><td>Ambetter from Magnolia Health</td></tr>
+<tr><td><a href="/health-insurance/missouri-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Missouri</a></td><td>MO</td><td>$6,120</td><td>$510</td><td>✅</td><td>9.0%</td><td>Anthem Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/montana-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Montana</a></td><td>MT</td><td>$6,480</td><td>$540</td><td>✅</td><td>8.7%</td><td>Blue Cross Blue Shield of Montana</td></tr>
+<tr><td><a href="/health-insurance/nebraska-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Nebraska</a></td><td>NE</td><td>$6,720</td><td>$560</td><td>✅</td><td>8.3%</td><td>Medica</td></tr>
+<tr><td><a href="/health-insurance/nevada-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Nevada</a></td><td>NV</td><td>$6,000</td><td>$500</td><td>✅</td><td>10.2%</td><td>SilverSummit Healthplan</td></tr>
+<tr><td><a href="/health-insurance/new-hampshire-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">New Hampshire</a></td><td>NH</td><td>$5,760</td><td>$480</td><td>✅</td><td>6.4%</td><td>Anthem Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/new-jersey-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">New Jersey</a></td><td>NJ</td><td>$7,080</td><td>$590</td><td>✅</td><td>8.0%</td><td>Horizon Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/new-mexico-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">New Mexico</a></td><td>NM</td><td>$5,280</td><td>$440</td><td>✅</td><td>10.7%</td><td>Blue Cross Blue Shield of New Mexico</td></tr>
+<tr><td><a href="/health-insurance/new-york-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">New York</a></td><td>NY</td><td>$8,160</td><td>$680</td><td>✅</td><td>5.7%</td><td>Empire Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/north-carolina-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">North Carolina</a></td><td>NC</td><td>$6,360</td><td>$530</td><td>✅</td><td>9.3%</td><td>Blue Cross Blue Shield of North Carolina</td></tr>
+<tr><td><a href="/health-insurance/north-dakota-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">North Dakota</a></td><td>ND</td><td>$6,120</td><td>$510</td><td>✅</td><td>7.8%</td><td>Blue Cross Blue Shield of North Dakota</td></tr>
+<tr><td><a href="/health-insurance/ohio-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Ohio</a></td><td>OH</td><td>$5,640</td><td>$470</td><td>✅</td><td>6.5%</td><td>Medical Mutual of Ohio</td></tr>
+<tr><td><a href="/health-insurance/oklahoma-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Oklahoma</a></td><td>OK</td><td>$6,240</td><td>$520</td><td>✅</td><td>14.3%</td><td>Blue Cross Blue Shield of Oklahoma</td></tr>
+<tr><td><a href="/health-insurance/oregon-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Oregon</a></td><td>OR</td><td>$5,880</td><td>$490</td><td>✅</td><td>5.6%</td><td>Kaiser Foundation Health Plan</td></tr>
+<tr><td><a href="/health-insurance/pennsylvania-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Pennsylvania</a></td><td>PA</td><td>$6,240</td><td>$520</td><td>✅</td><td>5.8%</td><td>Independence Blue Cross</td></tr>
+<tr><td><a href="/health-insurance/rhode-island-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Rhode Island</a></td><td>RI</td><td>$6,000</td><td>$500</td><td>✅</td><td>4.1%</td><td>Blue Cross Blue Shield of Rhode Island</td></tr>
+<tr><td><a href="/health-insurance/south-carolina-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">South Carolina</a></td><td>SC</td><td>$6,480</td><td>$540</td><td>❌</td><td>10.5%</td><td>BlueCross BlueShield of South Carolina</td></tr>
+<tr><td><a href="/health-insurance/south-dakota-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">South Dakota</a></td><td>SD</td><td>$6,720</td><td>$560</td><td>✅</td><td>10.4%</td><td>Avera Health Plans</td></tr>
+<tr><td><a href="/health-insurance/tennessee-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Tennessee</a></td><td>TN</td><td>$5,520</td><td>$460</td><td>❌</td><td>10.6%</td><td>BlueCross BlueShield of Tennessee</td></tr>
+<tr><td><a href="/health-insurance/texas-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Texas</a></td><td>TX</td><td>$6,960</td><td>$580</td><td>❌</td><td>18.4%</td><td>Blue Cross Blue Shield of Texas</td></tr>
+<tr><td><a href="/health-insurance/utah-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Utah</a></td><td>UT</td><td>$5,400</td><td>$450</td><td>✅</td><td>9.2%</td><td>SelectHealth</td></tr>
+<tr><td><a href="/health-insurance/vermont-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Vermont</a></td><td>VT</td><td>$7,560</td><td>$630</td><td>✅</td><td>4.7%</td><td>Blue Cross Blue Shield of Vermont</td></tr>
+<tr><td><a href="/health-insurance/virginia-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Virginia</a></td><td>VA</td><td>$5,880</td><td>$490</td><td>✅</td><td>7.8%</td><td>Anthem Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/washington-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Washington</a></td><td>WA</td><td>$6,240</td><td>$520</td><td>✅</td><td>5.7%</td><td>Premera Blue Cross</td></tr>
+<tr><td><a href="/health-insurance/west-virginia-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">West Virginia</a></td><td>WV</td><td>$7,680</td><td>$640</td><td>✅</td><td>6.2%</td><td>Highmark Blue Cross Blue Shield</td></tr>
+<tr><td><a href="/health-insurance/wisconsin-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Wisconsin</a></td><td>WI</td><td>$6,120</td><td>$510</td><td>❌</td><td>5.4%</td><td>Group Health Cooperative</td></tr>
+<tr><td><a href="/health-insurance/wyoming-health-insurance-calculator.html" style="color:var(--accent);font-weight:600">Wyoming</a></td><td>WY</td><td>$8,400</td><td>$700</td><td>❌</td><td>11.8%</td><td>Blue Cross Blue Shield of Wyoming</td></tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="info-card">
+<h3>🏥 Understanding Health Insurance Costs</h3>
+<p>Health insurance premiums in the United States vary dramatically by state, driven by factors including local healthcare costs, insurer competition, state regulations, Medicaid expansion status, and population health. States that have expanded Medicaid tend to have lower uninsured rates and more competitive marketplace premiums.</p>
+<p>The Affordable Care Act (ACA) marketplace offers four metal tiers — Bronze (60% coverage), Silver (70%), Gold (80%), and Platinum (90%) — with Premium Tax Credits available for households earning 100-400% of the Federal Poverty Level. Enhanced subsidies under the Inflation Reduction Act cap premiums at 8.5% of household income.</p>
+</div>
+
+<div class="info-card">
+<h3>🔗 Related Tools</h3>
+<div class="related-grid">
+<a href="/auto-insurance/">Auto Insurance by State</a>
+<a href="/home-insurance/">Home Insurance by State</a>
+<a href="/disability-insurance/">Disability Insurance by State</a>
+<a href="/social-security/">Social Security by State</a>
+<a href="/workers-comp/">Workers' Comp by State</a>
+<a href="/529/">529 Plans by State</a>
+</div>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+</div>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-col"><h4>Insurance</h4><a href="/auto-insurance/">Auto Insurance</a><a href="/home-insurance/">Home Insurance</a><a href="/health-insurance/">Health Insurance</a><a href="/disability-insurance/">Disability</a></div><div class="footer-col"><h4>Finance</h4><a href="/social-security/">Social Security</a><a href="/workers-comp/">Workers&rsquo; Comp</a><a href="/529/">529 Plans</a><a href="/childcare/">Childcare Cost</a></div><div class="footer-col"><h4>Tools</h4><a href="/bmi-calculator.html">BMI Calculator</a><a href="/calc/mortgage-calculator.html">Mortgage</a><a href="/calc/compound-interest-calculator.html">Compound Interest</a></div><div class="footer-col"><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy Policy</a><a href="/contact.html">Contact</a></div></div><div class="footer-bottom">&copy; 2026 CalcLeap. All rights reserved.</div></footer>
+
+<script>
+function filterStates(){const q=document.getElementById('search').value.toLowerCase();const rows=document.querySelectorAll('#stateTable tbody tr');rows.forEach(r=>{r.style.display=r.textContent.toLowerCase().includes(q)?'':'none'})}
+function sortTable(n){const table=document.getElementById('stateTable');const rows=Array.from(table.querySelectorAll('tbody tr'));const dir=table.dataset.sortDir==='asc'?'desc':'asc';table.dataset.sortDir=dir;rows.sort((a,b)=>{let av=a.cells[n].textContent.replace(/[$,%✅❌]/g,'').trim();let bv=b.cells[n].textContent.replace(/[$,%✅❌]/g,'').trim();const an=parseFloat(av.replace(/,/g,''));const bn=parseFloat(bv.replace(/,/g,''));if(!isNaN(an)&&!isNaN(bn))return dir==='asc'?an-bn:bn-an;return dir==='asc'?av.localeCompare(bv):bv.localeCompare(av)});const tbody=table.querySelector('tbody');rows.forEach(r=>tbody.appendChild(r))}
+</script>
+</body>
+</html>
