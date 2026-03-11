@@ -1,11 +1,81 @@
-<!DOCTYPE html>
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+// High-CPC retirement and investment calculators
+const calculators = [
+  {
+    slug: 'pension-calculator',
+    title: 'Pension Calculator',
+    desc: 'Calculate your pension payout options and compare lump sum vs annuity payments.',
+    category: 'Pension'
+  },
+  {
+    slug: 'pension-lump-sum-calculator',
+    title: 'Pension Lump Sum Calculator',
+    desc: 'Should you take a pension lump sum or monthly payments? Compare lifetime value and tax implications.',
+    category: 'Pension Payout'
+  },
+  {
+    slug: '403b-calculator',
+    title: '403(b) Calculator',
+    desc: 'Calculate 403(b) retirement savings for teachers and non-profit employees. Estimate growth with employer match.',
+    category: '403(b) Retirement'
+  },
+  {
+    slug: '457-plan-calculator',
+    title: '457 Plan Calculator',
+    desc: 'Calculate 457(b) deferred compensation plan savings for government and non-profit employees.',
+    category: '457 Retirement'
+  },
+  {
+    slug: 'sep-ira-calculator',
+    title: 'SEP IRA Calculator',
+    desc: 'Calculate SEP IRA contributions and tax savings for self-employed individuals and small businesses.',
+    category: 'SEP IRA'
+  },
+  {
+    slug: 'simple-ira-calculator',
+    title: 'SIMPLE IRA Calculator',
+    desc: 'Calculate SIMPLE IRA contributions with employer match for small business employees.',
+    category: 'SIMPLE IRA'
+  },
+  {
+    slug: 'backdoor-roth-calculator',
+    title: 'Backdoor Roth IRA Calculator',
+    desc: 'Calculate backdoor Roth IRA conversion benefits and tax implications for high earners.',
+    category: 'Backdoor Roth'
+  },
+  {
+    slug: 'mega-backdoor-roth-calculator',
+    title: 'Mega Backdoor Roth Calculator',
+    desc: 'Calculate mega backdoor Roth 401(k) contributions and after-tax conversion strategies.',
+    category: 'Mega Backdoor Roth'
+  },
+  {
+    slug: 'dividend-reinvestment-calculator',
+    title: 'Dividend Reinvestment Calculator',
+    desc: 'Calculate compound growth from reinvesting dividends vs taking cash payouts.',
+    category: 'Dividend Investing'
+  },
+  {
+    slug: 'dollar-cost-averaging-calculator',
+    title: 'Dollar Cost Averaging Calculator',
+    desc: 'Compare dollar cost averaging vs lump sum investing. See impact of regular contributions.',
+    category: 'Investment Strategy'
+  },
+];
+
+function generateHTML(calc) {
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pension Calculator - Free Pension Tool | CalcLeap</title>
-    <meta name="description" content="Calculate your pension payout options and compare lump sum vs annuity payments.. Free online calculator with compound growth charts and instant results.">
-    <link rel="canonical" href="https://calcleap.com/pension-calculator.html">
+    <title>${calc.title} - Free ${calc.category} Tool | CalcLeap</title>
+    <meta name="description" content="${calc.desc}. Free online calculator with compound growth charts and instant results.">
+    <link rel="canonical" href="https://calcleap.com/${calc.slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
@@ -47,8 +117,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Pension Calculator</h1>
-            <p>Calculate your pension payout options and compare lump sum vs annuity payments.</p>
+            <h1>${calc.title}</h1>
+            <p>${calc.desc}</p>
         </div>
     </div>
 
@@ -57,7 +127,7 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="calc-box">
-            <h2>Calculate Your Pension</h2>
+            <h2>Calculate Your ${calc.category}</h2>
             <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your details below to see projected growth and retirement savings.</p>
             <div class="input-group">
                 <label for="current">Current Balance ($):</label>
@@ -86,9 +156,9 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="info-section">
-            <h3>About Pension Calculator</h3>
-            <p>Calculate your pension payout options and compare lump sum vs annuity payments.</p>
-            <h3>Understanding Pension</h3>
+            <h3>About ${calc.title}</h3>
+            <p>${calc.desc}</p>
+            <h3>Understanding ${calc.category}</h3>
             <p>Key factors that impact your retirement savings:</p>
             <ul>
                 <li>Regular contributions compound over time (time is your biggest advantage)</li>
@@ -170,4 +240,17 @@
         }
     </script>
 </body>
-</html>
+</html>`;
+}
+
+let count = 0;
+calculators.forEach(calc => {
+  const html = generateHTML(calc);
+  fs.writeFileSync(path.join(__dirname, `${calc.slug}.html`), html);
+  count++;
+  console.log(`✓ Generated ${calc.slug}.html`);
+});
+
+console.log(`\n✅ Generated ${count} retirement/investment calculators with Apple design + growth charts`);
+console.log('💰 High-CPC niche: retirement/investment planning ($25-60/click)');
+console.log('📝 Next: Update sitemap and push');
