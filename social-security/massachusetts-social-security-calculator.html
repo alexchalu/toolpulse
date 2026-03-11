@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Massachusetts Social Security Calculator — Estimate Your Benefits | CalcLeap</title>
+<meta name="description" content="Calculate your estimated Social Security benefits in Massachusetts. See retirement, spousal, and disability benefit amounts based on your earnings history.">
+<link rel="canonical" href="https://calcleap.com/social-security/massachusetts-social-security-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Massachusetts Social Security Calculator — CalcLeap">
+<meta property="og:description" content="Estimate your Social Security retirement benefits in Massachusetts. Free calculator with state-specific tax info.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/social-security/massachusetts-social-security-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Massachusetts Social Security Calculator","description":"Calculate estimated Social Security retirement benefits in Massachusetts","url":"https://calcleap.com/social-security/massachusetts-social-security-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--bg:#f5f5f7;--surface:#fff;--border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);--text:#1d1d1f;--text-2:#424245;--text-3:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);--shadow:0 2px 12px rgba(0,0,0,.06);--r:16px;--r-sm:12px;--r-xs:8px;--mw:980px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:1rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group select,.form-group input{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group select:focus,.form-group input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn{display:inline-flex;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.results{display:none;margin-top:1.5rem}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.5rem}
+.result-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center;transition:all .2s}
+.result-box:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.result-box.primary{border-color:rgba(0,113,227,.3);background:rgba(0,113,227,.04)}
+.result-label{font-size:.72rem;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
+.result-val{font-size:1.6rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
+.result-sub{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
+.chart-wrap{margin:1.5rem 0}
+.bar-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.65rem}
+.bar-label{width:90px;font-size:.78rem;font-weight:600;color:var(--text-2);text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:28px;background:var(--bg);border-radius:6px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 .75rem;font-size:.72rem;font-weight:700;color:#fff;transition:width .6s ease}
+.bar-amount{font-size:.78rem;font-weight:600;color:var(--text-2);width:80px;text-align:right;flex-shrink:0}
+.ad-slot{margin:1.5rem 0}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card p,.info-card li{font-size:.9rem;color:var(--text-2);line-height:1.6;margin-bottom:.5rem}
+.info-card ul{padding-left:1.25rem}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
+th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
+td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem}
+.related-link{display:block;padding:1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.85rem;font-weight:500;transition:all .2s}
+.related-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.footer{background:var(--white);border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;font-size:.8rem;color:var(--text-3)}
+.footer-col h4{color:var(--text);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem}
+.footer-col a{display:block;color:var(--text-3);margin-bottom:.5rem;transition:color .15s}.footer-col a:hover{color:var(--accent)}
+.footer-bottom{text-align:center;padding-top:1.5rem;margin-top:1.5rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-3)}
+.tax-badge{display:inline-block;padding:.5rem 1rem;border-radius:var(--r-xs);font-size:.9rem;margin:1rem 0}
+.tax-exempt{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2)}
+.tax-partial{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2)}
+@media(max-width:768px){.form-row{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:repeat(2,1fr)}.page-title{font-size:1.75rem}.related-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/social-security/">Social Security</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div></div></nav>
+<div class="page">
+<div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/social-security/">Social Security</a><span class="sep">›</span>Massachusetts</div>
+<h1 class="page-title">Massachusetts Social Security Calculator</h1>
+<p class="page-desc">Estimate your Social Security retirement benefits in Massachusetts. See how your earnings, age, and filing decisions affect your monthly check.</p>
+
+<div class="card">
+<h2>Calculate Your Massachusetts Benefits</h2>
+<div class="form-row">
+<div class="form-group"><label>Current Age</label><input type="number" id="age" value="55" min="22" max="69"></div>
+<div class="form-group"><label>Planned Retirement Age</label><select id="retireAge"><option value="62">62 (Early — reduced benefits)</option><option value="65">65</option><option value="66">66</option><option value="67" selected>67 (Full Retirement Age)</option><option value="68">68</option><option value="69">69</option><option value="70">70 (Maximum — delayed credits)</option></select></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label>Average Annual Earnings ($)</label><input type="number" id="earnings" value="65000" min="0" step="1000"></div>
+<div class="form-group"><label>Years Worked</label><input type="number" id="yearsWorked" value="30" min="0" max="45"></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label>Filing Status</label><select id="filing"><option value="single">Single</option><option value="married" selected>Married</option></select></div>
+<div class="form-group"><label>Spouse's Monthly Benefit ($, if known)</label><input type="number" id="spouseBenefit" value="0" min="0" step="50"></div>
+</div>
+<button class="btn" onclick="calculate()">Calculate Benefits</button>
+
+<div class="results" id="results">
+<div class="result-grid">
+<div class="result-box primary"><div class="result-label">Monthly Benefit</div><div class="result-val" id="rMonthly">—</div><div class="result-sub">at retirement age</div></div>
+<div class="result-box"><div class="result-label">Annual Benefit</div><div class="result-val" id="rAnnual">—</div><div class="result-sub">before taxes</div></div>
+<div class="result-box"><div class="result-label">Lifetime Benefits</div><div class="result-val" id="rLifetime">—</div><div class="result-sub">estimated to age 85</div></div>
+</div>
+<div class="result-grid">
+<div class="result-box"><div class="result-label">Spousal Benefit</div><div class="result-val" id="rSpousal">—</div><div class="result-sub">50% of primary</div></div>
+<div class="result-box"><div class="result-label">At Age 62 (Early)</div><div class="result-val" id="rEarly">—</div><div class="result-sub">30% reduction</div></div>
+<div class="result-box"><div class="result-label">At Age 70 (Delayed)</div><div class="result-val" id="rDelayed">—</div><div class="result-sub">24% increase</div></div>
+</div>
+
+<div class="chart-wrap">
+<h3 style="font-size:.95rem;font-weight:700;margin-bottom:1rem">Benefit Comparison by Claiming Age</h3>
+<div id="chart"></div>
+</div>
+</div>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
+<div class="info-card">
+<h3>🏛️ Social Security in Massachusetts</h3>
+<div class="tax-badge tax-exempt"><span style="color:#22c55e;font-weight:700">✅ Massachusetts does NOT tax Social Security benefits.</span> Your benefits are 100% state-tax-free.</div>
+<table style="margin-top:1rem">
+<tr><th>Metric</th><th>Massachusetts</th><th>National Avg</th></tr>
+<tr><td>Average Monthly Benefit</td><td><strong>$1,934</strong></td><td>$1,788</td></tr>
+<tr><td>Cost of Living Index</td><td><strong>135</strong></td><td>100</td></tr>
+<tr><td>Average Retirement Age</td><td><strong>64</strong></td><td>63.0</td></tr>
+<tr><td>Median Household Income</td><td><strong>$89,645</strong></td><td>$74,580</td></tr>
+<tr><td>Purchasing Power of $1,800/mo</td><td><strong>$1,333</strong></td><td>$1,800</td></tr>
+</table>
+</div>
+
+<div class="info-card">
+<h3>📊 How Social Security Benefits Are Calculated</h3>
+<p>Social Security uses your <strong>highest 35 years of earnings</strong> to compute your Average Indexed Monthly Earnings (AIME). The Primary Insurance Amount (PIA) is then calculated using a progressive formula:</p>
+<table style="margin:.75rem 0">
+<tr><th>AIME Range (2026)</th><th>Replacement Rate</th></tr>
+<tr><td>First $1,174</td><td>90%</td></tr>
+<tr><td>$1,174 – $7,078</td><td>32%</td></tr>
+<tr><td>Over $7,078</td><td>15%</td></tr>
+</table>
+<p>This progressive formula means lower earners replace a larger percentage of their pre-retirement income. The maximum monthly benefit at Full Retirement Age in 2026 is approximately <strong>$4,018</strong>.</p>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
+<div class="info-card">
+<h3>📅 When to Claim: Early vs. Full vs. Delayed</h3>
+<ul>
+<li><strong>Age 62 (Early):</strong> Benefits are permanently reduced by up to 30%. Best if you need income immediately or have health concerns.</li>
+<li><strong>Age 67 (Full Retirement Age):</strong> You receive 100% of your calculated PIA. No reduction, no bonus.</li>
+<li><strong>Age 70 (Delayed):</strong> Benefits increase by 8% per year past FRA, resulting in up to 24% more. Best if you're healthy and can wait.</li>
+</ul>
+<p style="margin-top:.75rem"><strong>Massachusetts insight:</strong> With a cost of living index of 135, your benefits may not stretch as far as the national average. Consider delaying benefits to age 70 for the maximum monthly amount.</p>
+</div>
+
+<div class="info-card">
+<h3>💡 5 Strategies to Maximize Your Massachusetts Social Security</h3>
+<ul>
+<li><strong>Work at least 35 years</strong> — Zero-earning years drag down your average. Even part-time work helps.</li>
+<li><strong>Maximize earnings in your peak years</strong> — Higher earnings in your 50s and 60s can replace lower-earning years.</li>
+<li><strong>Consider delaying to age 70</strong> — Each year past 67 adds 8% to your monthly benefit permanently.</li>
+<li><strong>Coordinate with your spouse</strong> — One spouse can claim early while the other delays for a higher survivor benefit.</li>
+<li><strong>Take advantage of no state tax</strong> — Massachusetts doesn't tax Social Security, saving you potentially thousands per year.</li>
+</ul>
+</div>
+
+<div class="info-card">
+<h3>❓ Massachusetts Social Security FAQ</h3>
+<details style="margin-bottom:.75rem"><summary style="cursor:pointer;font-weight:600;font-size:.9rem">Does Massachusetts tax Social Security benefits?</summary><p style="padding:.5rem 0 0 1rem;font-size:.88rem;color:var(--text-2)">No. Massachusetts does not impose a state income tax on Social Security benefits. Your benefits are 100% exempt from state taxes.</p></details>
+<details style="margin-bottom:.75rem"><summary style="cursor:pointer;font-weight:600;font-size:.9rem">What is the average Social Security benefit in Massachusetts?</summary><p style="padding:.5rem 0 0 1rem;font-size:.88rem;color:var(--text-2)">The average monthly Social Security retirement benefit in Massachusetts is approximately $1,934. This is above the national average of $1,788.</p></details>
+<details style="margin-bottom:.75rem"><summary style="cursor:pointer;font-weight:600;font-size:.9rem">When should I claim Social Security in Massachusetts?</summary><p style="padding:.5rem 0 0 1rem;font-size:.88rem;color:var(--text-2)">The optimal claiming age depends on your health, finances, and goals. In Massachusetts, with a cost of living index of 135, the higher cost of living may push you to claim earlier if you need income, but delaying maximizes your lifetime benefits if healthy. The average retirement age in Massachusetts is 64.</p></details>
+<details style="margin-bottom:.75rem"><summary style="cursor:pointer;font-weight:600;font-size:.9rem">How does Massachusetts's cost of living affect my benefits?</summary><p style="padding:.5rem 0 0 1rem;font-size:.88rem;color:var(--text-2)">Massachusetts's cost of living index is 135 (national average = 100). This means a $1,800/month benefit has the purchasing power of approximately $1,333/month in national-average terms. Consider supplementing Social Security with retirement savings.</p></details>
+<details style="margin-bottom:.75rem"><summary style="cursor:pointer;font-weight:600;font-size:.9rem">Can I work while collecting Social Security in Massachusetts?</summary><p style="padding:.5rem 0 0 1rem;font-size:.88rem;color:var(--text-2)">Yes. If you're under Full Retirement Age (67), benefits are reduced $1 for every $2 earned above $22,320 (2026). In the year you reach FRA, the threshold is $59,520 with $1 reduction per $3. After FRA, there is no earnings limit. These rules are federal and apply the same in Massachusetts.</p></details>
+<details style="margin-bottom:.75rem"><summary style="cursor:pointer;font-weight:600;font-size:.9rem">What is the maximum Social Security benefit I can receive?</summary><p style="padding:.5rem 0 0 1rem;font-size:.88rem;color:var(--text-2)">The maximum monthly benefit at Full Retirement Age in 2026 is approximately $4,018. At age 70 with delayed credits, this increases to roughly $4,982. To qualify for the maximum, you need 35+ years of earnings at or above the Social Security taxable maximum ($168,600 in 2026).</p></details>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
+<div class="info-card">
+<h3>🔗 Related Massachusetts Calculators</h3>
+<div class="related-grid">
+<a href="/disability-insurance/massachusetts-disability-insurance-calculator.html" class="related-link">📋 Massachusetts Disability Insurance</a>
+<a href="/workers-comp/massachusetts-workers-compensation-calculator.html" class="related-link">🏗️ Massachusetts Workers' Comp</a>
+<a href="/529/massachusetts-529-plan-calculator.html" class="related-link">🎓 Massachusetts 529 Plan</a>
+<a href="/childcare/massachusetts-childcare-cost-calculator.html" class="related-link">👶 Massachusetts Childcare Cost</a>
+<a href="/calc/retirement-calculator.html" class="related-link">🏖️ Retirement Calculator</a>
+<a href="/calc/401k-calculator.html" class="related-link">💰 401(k) Calculator</a>
+<a href="/calc/roth-ira-calculator.html" class="related-link">📈 Roth IRA Calculator</a>
+<a href="/social-security/" class="related-link">🗺️ All States →</a>
+</div>
+</div>
+</div>
+
+<footer class="footer"><div class="footer-inner">
+<div class="footer-col"><h4>CalcLeap</h4><a href="/">Home</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a></div>
+<div class="footer-col"><h4>Popular</h4><a href="/calc/retirement-calculator.html">Retirement</a><a href="/calc/mortgage-payment.html">Mortgage</a><a href="/calc/compound-interest.html">Compound Interest</a><a href="/calc/bmi-calculator.html">BMI</a></div>
+<div class="footer-col"><h4>By State</h4><a href="/social-security/">Social Security</a><a href="/disability-insurance/">Disability Insurance</a><a href="/workers-comp/">Workers' Comp</a><a href="/529/">529 Plans</a></div>
+<div class="footer-col"><h4>Resources</h4><a href="/blog/">Blog</a><a href="/sitemap.xml">Sitemap</a><a href="https://www.ssa.gov" target="_blank" rel="noopener">SSA.gov</a></div>
+</div><div class="footer-bottom">© 2026 CalcLeap. For informational purposes only. Not financial advice. <a href="/privacy.html" style="color:var(--accent)">Privacy Policy</a></div></footer>
+
+<script>
+function calculate(){
+  const age=+document.getElementById('age').value;
+  const retireAge=+document.getElementById('retireAge').value;
+  const earnings=+document.getElementById('earnings').value;
+  const yearsWorked=+document.getElementById('yearsWorked').value;
+  const filing=document.getElementById('filing').value;
+  const spouseBenefit=+document.getElementById('spouseBenefit').value;
+
+  // Calculate AIME (simplified)
+  const totalEarnings35=earnings*Math.min(yearsWorked,35);
+  const aime=Math.round(totalEarnings35/(35*12));
+
+  // Calculate PIA using bend points
+  let pia=0;
+  if(aime<=1174){pia=aime*0.9}
+  else if(aime<=7078){pia=1174*0.9+(aime-1174)*0.32}
+  else{pia=1174*0.9+(7078-1174)*0.32+(aime-7078)*0.15}
+  pia=Math.min(pia,4018);
+
+  // Adjust for claiming age
+  const fra=67;
+  let monthly=pia;
+  if(retireAge<fra){
+    const monthsEarly=(fra-retireAge)*12;
+    const reduction=monthsEarly<=36?monthsEarly*(5/900):36*(5/900)+(monthsEarly-36)*(5/1200);
+    monthly=pia*(1-reduction);
+  }else if(retireAge>fra){
+    const monthsLate=(retireAge-fra)*12;
+    monthly=pia*(1+monthsLate*(2/300));
+  }
+  monthly=Math.round(monthly);
+
+  const annual=monthly*12;
+  const lifetime=annual*(85-retireAge);
+  const early62=Math.round(pia*0.70);
+  const delayed70=Math.round(pia*1.24);
+  const spousal=Math.max(Math.round(monthly/2),spouseBenefit);
+
+  document.getElementById('rMonthly').textContent='$'+monthly.toLocaleString();
+  document.getElementById('rAnnual').textContent='$'+annual.toLocaleString();
+  document.getElementById('rLifetime').textContent='$'+(lifetime>=1e6?(lifetime/1e6).toFixed(1)+'M':lifetime.toLocaleString());
+  document.getElementById('rSpousal').textContent='$'+spousal.toLocaleString();
+  document.getElementById('rEarly').textContent='$'+early62.toLocaleString();
+  document.getElementById('rDelayed').textContent='$'+delayed70.toLocaleString();
+
+  // Build bar chart
+  const ages=[62,63,64,65,66,67,68,69,70];
+  const colors=['#ef4444','#f97316','#f59e0b','#eab308','#84cc16','#22c55e','#14b8a6','#06b6d4','#0071e3'];
+  const benefits=ages.map(a=>{
+    if(a<fra){const m=(fra-a)*12;const r=m<=36?m*(5/900):36*(5/900)+(m-36)*(5/1200);return Math.round(pia*(1-r))}
+    else if(a>fra){return Math.round(pia*(1+(a-fra)*12*(2/300)))}
+    return Math.round(pia);
+  });
+  const maxB=Math.max(...benefits);
+  let chartHTML='';
+  ages.forEach((a,i)=>{
+    const pct=Math.round(benefits[i]/maxB*100);
+    const highlight=a==retireAge?' border:2px solid var(--accent);':'';
+    chartHTML+=`<div class="bar-row"><div class="bar-label">Age ${a}</div><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${colors[i]};${highlight}">${a==retireAge?'← You':''}</div></div><div class="bar-amount">$${benefits[i].toLocaleString()}/mo</div></div>`;
+  });
+  document.getElementById('chart').innerHTML=chartHTML;
+  document.getElementById('results').style.display='block';
+}
+// Auto-calculate on load
+calculate();
+</script>
+</body>
+</html>
