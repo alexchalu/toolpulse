@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicaid Eligibility Calculator by State — Free 2026 Tool | CalcLeap</title>
+<meta name="description" content="Check Medicaid eligibility in all 50 states. Calculate income limits for adults, children, pregnant women. See which states expanded Medicaid and current FPL thresholds.">
+<link rel="canonical" href="https://calcleap.com/medicaid/index.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;
+  --shadow:0 2px 12px rgba(0,0,0,.06);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:700px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+.stat-card{background:var(--bg);border-radius:var(--r-sm);padding:1rem;text-align:center}
+.stat-card .val{font-size:1.5rem;font-weight:800;color:var(--accent)}
+.stat-card .lbl{font-size:.72rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-top:.2rem}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);position:sticky;top:48px}
+th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
+th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
+td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+tr:hover td{background:rgba(0,113,227,.03)}
+.ad-slot{margin:1.5rem 0}
+.search-box{padding:.7rem 1rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;width:100%;margin-bottom:1rem;transition:all .2s}
+.search-box:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.related-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem}
+.related-link{display:block;padding:.6rem .8rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.78rem;color:var(--text-2);font-weight:500;transition:all .2s;text-align:center}
+.related-link:hover{border-color:var(--accent);color:var(--accent)}
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .page{padding:0 1.25rem}
+  .page-title{font-size:1.75rem}
+  .related-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  table{font-size:.75rem}
+}
+@media(max-width:480px){
+  .related-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="../index.html#finance">Finance</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#tax">Tax</a>
+      <a href="../index.html#health">Health</a>
+      <a href="../index.html#converters">Converters</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>Medicaid Eligibility by State
+  </div>
+
+  <h1 class="page-title">Medicaid Eligibility Calculator by State</h1>
+  <p class="page-desc">Check Medicaid eligibility and income limits in all 50 states. See expansion status, FPL thresholds for adults, children, and pregnant women. Updated for 2026.</p>
+
+  <div class="card">
+    <h2>National Medicaid Overview</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem">
+      <div class="stat-card"><div class="val">40</div><div class="lbl">Expansion States</div></div>
+      <div class="stat-card"><div class="val">10</div><div class="lbl">Non-Expansion</div></div>
+      <div class="stat-card"><div class="val">93M+</div><div class="lbl">Total Enrolled</div></div>
+      <div class="stat-card"><div class="val">138%</div><div class="lbl">Expansion FPL</div></div>
+    </div>
+  </div>
+
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <div class="info-card">
+    <h3>All 50 States — Medicaid Income Limits</h3>
+    <input type="text" class="search-box" placeholder="Search by state name..." oninput="filterTable(this.value)">
+    <div style="overflow-x:auto">
+    <table id="stateTable">
+      <thead><tr><th>State</th><th>Code</th><th>Expanded</th><th>Adult FPL</th><th>Child FPL</th><th>Enrolled</th><th>Uninsured</th></tr></thead>
+      <tbody>
+<tr><td><a href="alabama-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Alabama</a></td><td>AL</td><td><span style="color:#f87171;font-weight:700">✗</span></td><td>18%</td><td>317%</td><td>912,000</td><td>9.8%</td></tr>
+<tr><td><a href="alaska-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Alaska</a></td><td>AK</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>208%</td><td>230,000</td><td>12.2%</td></tr>
+<tr><td><a href="arizona-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Arizona</a></td><td>AZ</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>200%</td><td>2,300,000</td><td>9.1%</td></tr>
+<tr><td><a href="arkansas-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Arkansas</a></td><td>AR</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>216%</td><td>1,100,000</td><td>8.0%</td></tr>
+<tr><td><a href="california-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">California</a></td><td>CA</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>266%</td><td>14,900,000</td><td>6.8%</td></tr>
+<tr><td><a href="colorado-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Colorado</a></td><td>CO</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>265%</td><td>1,600,000</td><td>6.7%</td></tr>
+<tr><td><a href="connecticut-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Connecticut</a></td><td>CT</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>323%</td><td>1,050,000</td><td>4.3%</td></tr>
+<tr><td><a href="delaware-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Delaware</a></td><td>DE</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>217%</td><td>310,000</td><td>5.3%</td></tr>
+<tr><td><a href="florida-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Florida</a></td><td>FL</td><td><span style="color:#f87171;font-weight:700">✗</span></td><td>26%</td><td>215%</td><td>5,400,000</td><td>12.7%</td></tr>
+<tr><td><a href="georgia-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Georgia</a></td><td>GA</td><td><span style="color:#f87171;font-weight:700">✗</span></td><td>36%</td><td>252%</td><td>2,600,000</td><td>12.4%</td></tr>
+<tr><td><a href="hawaii-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Hawaii</a></td><td>HI</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>313%</td><td>420,000</td><td>3.2%</td></tr>
+<tr><td><a href="idaho-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Idaho</a></td><td>ID</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>190%</td><td>430,000</td><td>9.4%</td></tr>
+<tr><td><a href="illinois-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Illinois</a></td><td>IL</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>317%</td><td>3,900,000</td><td>5.9%</td></tr>
+<tr><td><a href="indiana-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Indiana</a></td><td>IN</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>262%</td><td>2,100,000</td><td>7.5%</td></tr>
+<tr><td><a href="iowa-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Iowa</a></td><td>IA</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>375%</td><td>780,000</td><td>4.3%</td></tr>
+<tr><td><a href="kansas-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Kansas</a></td><td>KS</td><td><span style="color:#f87171;font-weight:700">✗</span></td><td>38%</td><td>241%</td><td>430,000</td><td>8.7%</td></tr>
+<tr><td><a href="kentucky-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Kentucky</a></td><td>KY</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>218%</td><td>1,600,000</td><td>4.6%</td></tr>
+<tr><td><a href="louisiana-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Louisiana</a></td><td>LA</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>254%</td><td>1,900,000</td><td>7.3%</td></tr>
+<tr><td><a href="maine-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Maine</a></td><td>ME</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>213%</td><td>380,000</td><td>6.0%</td></tr>
+<tr><td><a href="maryland-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Maryland</a></td><td>MD</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>322%</td><td>1,700,000</td><td>5.4%</td></tr>
+<tr><td><a href="massachusetts-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Massachusetts</a></td><td>MA</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>317%</td><td>2,100,000</td><td>2.6%</td></tr>
+<tr><td><a href="michigan-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Michigan</a></td><td>MI</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>217%</td><td>3,000,000</td><td>5.4%</td></tr>
+<tr><td><a href="minnesota-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Minnesota</a></td><td>MN</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>288%</td><td>1,300,000</td><td>3.8%</td></tr>
+<tr><td><a href="mississippi-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Mississippi</a></td><td>MS</td><td><span style="color:#f87171;font-weight:700">✗</span></td><td>26%</td><td>209%</td><td>780,000</td><td>11.5%</td></tr>
+<tr><td><a href="missouri-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Missouri</a></td><td>MO</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>305%</td><td>1,400,000</td><td>7.6%</td></tr>
+<tr><td><a href="montana-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Montana</a></td><td>MT</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>261%</td><td>280,000</td><td>7.2%</td></tr>
+<tr><td><a href="nebraska-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Nebraska</a></td><td>NE</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>218%</td><td>350,000</td><td>7.3%</td></tr>
+<tr><td><a href="nevada-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Nevada</a></td><td>NV</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>205%</td><td>850,000</td><td>10.2%</td></tr>
+<tr><td><a href="new-hampshire-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">New Hampshire</a></td><td>NH</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>324%</td><td>220,000</td><td>4.7%</td></tr>
+<tr><td><a href="new-jersey-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">New Jersey</a></td><td>NJ</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>355%</td><td>2,300,000</td><td>7.1%</td></tr>
+<tr><td><a href="new-mexico-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">New Mexico</a></td><td>NM</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>302%</td><td>900,000</td><td>10.3%</td></tr>
+<tr><td><a href="new-york-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">New York</a></td><td>NY</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>405%</td><td>7,600,000</td><td>5.2%</td></tr>
+<tr><td><a href="north-carolina-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">North Carolina</a></td><td>NC</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>216%</td><td>2,800,000</td><td>9.6%</td></tr>
+<tr><td><a href="north-dakota-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">North Dakota</a></td><td>ND</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>175%</td><td>110,000</td><td>6.5%</td></tr>
+<tr><td><a href="ohio-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Ohio</a></td><td>OH</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>206%</td><td>3,600,000</td><td>5.9%</td></tr>
+<tr><td><a href="oklahoma-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Oklahoma</a></td><td>OK</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>210%</td><td>1,100,000</td><td>12.0%</td></tr>
+<tr><td><a href="oregon-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Oregon</a></td><td>OR</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>305%</td><td>1,500,000</td><td>5.6%</td></tr>
+<tr><td><a href="pennsylvania-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Pennsylvania</a></td><td>PA</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>326%</td><td>3,600,000</td><td>5.2%</td></tr>
+<tr><td><a href="rhode-island-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Rhode Island</a></td><td>RI</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>266%</td><td>350,000</td><td>3.3%</td></tr>
+<tr><td><a href="south-carolina-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">South Carolina</a></td><td>SC</td><td><span style="color:#f87171;font-weight:700">✗</span></td><td>67%</td><td>213%</td><td>1,200,000</td><td>10.4%</td></tr>
+<tr><td><a href="south-dakota-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">South Dakota</a></td><td>SD</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>204%</td><td>130,000</td><td>9.2%</td></tr>
+<tr><td><a href="tennessee-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Tennessee</a></td><td>TN</td><td><span style="color:#f87171;font-weight:700">✗</span></td><td>26%</td><td>211%</td><td>1,800,000</td><td>9.3%</td></tr>
+<tr><td><a href="texas-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Texas</a></td><td>TX</td><td><span style="color:#f87171;font-weight:700">✗</span></td><td>17%</td><td>201%</td><td>5,300,000</td><td>17.3%</td></tr>
+<tr><td><a href="utah-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Utah</a></td><td>UT</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>200%</td><td>430,000</td><td>8.2%</td></tr>
+<tr><td><a href="vermont-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Vermont</a></td><td>VT</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>317%</td><td>200,000</td><td>3.6%</td></tr>
+<tr><td><a href="virginia-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Virginia</a></td><td>VA</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>205%</td><td>2,000,000</td><td>7.1%</td></tr>
+<tr><td><a href="washington-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Washington</a></td><td>WA</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>317%</td><td>2,300,000</td><td>5.3%</td></tr>
+<tr><td><a href="west-virginia-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">West Virginia</a></td><td>WV</td><td><span style="color:#34d399;font-weight:700">✓</span></td><td>138%</td><td>305%</td><td>560,000</td><td>5.2%</td></tr>
+<tr><td><a href="wisconsin-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Wisconsin</a></td><td>WI</td><td><span style="color:#f87171;font-weight:700">✗</span></td><td>100%</td><td>306%</td><td>1,300,000</td><td>4.5%</td></tr>
+<tr><td><a href="wyoming-medicaid-eligibility-calculator.html" style="color:var(--accent);font-weight:600">Wyoming</a></td><td>WY</td><td><span style="color:#f87171;font-weight:700">✗</span></td><td>55%</td><td>200%</td><td>60,000</td><td>11.4%</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <div class="info-card">
+    <h3>Browse by State</h3>
+    <div class="related-grid">
+      <a href="alabama-medicaid-eligibility-calculator.html" class="related-link">Alabama</a>
+      <a href="alaska-medicaid-eligibility-calculator.html" class="related-link">Alaska</a>
+      <a href="arizona-medicaid-eligibility-calculator.html" class="related-link">Arizona</a>
+      <a href="arkansas-medicaid-eligibility-calculator.html" class="related-link">Arkansas</a>
+      <a href="california-medicaid-eligibility-calculator.html" class="related-link">California</a>
+      <a href="colorado-medicaid-eligibility-calculator.html" class="related-link">Colorado</a>
+      <a href="connecticut-medicaid-eligibility-calculator.html" class="related-link">Connecticut</a>
+      <a href="delaware-medicaid-eligibility-calculator.html" class="related-link">Delaware</a>
+      <a href="florida-medicaid-eligibility-calculator.html" class="related-link">Florida</a>
+      <a href="georgia-medicaid-eligibility-calculator.html" class="related-link">Georgia</a>
+      <a href="hawaii-medicaid-eligibility-calculator.html" class="related-link">Hawaii</a>
+      <a href="idaho-medicaid-eligibility-calculator.html" class="related-link">Idaho</a>
+      <a href="illinois-medicaid-eligibility-calculator.html" class="related-link">Illinois</a>
+      <a href="indiana-medicaid-eligibility-calculator.html" class="related-link">Indiana</a>
+      <a href="iowa-medicaid-eligibility-calculator.html" class="related-link">Iowa</a>
+      <a href="kansas-medicaid-eligibility-calculator.html" class="related-link">Kansas</a>
+      <a href="kentucky-medicaid-eligibility-calculator.html" class="related-link">Kentucky</a>
+      <a href="louisiana-medicaid-eligibility-calculator.html" class="related-link">Louisiana</a>
+      <a href="maine-medicaid-eligibility-calculator.html" class="related-link">Maine</a>
+      <a href="maryland-medicaid-eligibility-calculator.html" class="related-link">Maryland</a>
+      <a href="massachusetts-medicaid-eligibility-calculator.html" class="related-link">Massachusetts</a>
+      <a href="michigan-medicaid-eligibility-calculator.html" class="related-link">Michigan</a>
+      <a href="minnesota-medicaid-eligibility-calculator.html" class="related-link">Minnesota</a>
+      <a href="mississippi-medicaid-eligibility-calculator.html" class="related-link">Mississippi</a>
+      <a href="missouri-medicaid-eligibility-calculator.html" class="related-link">Missouri</a>
+      <a href="montana-medicaid-eligibility-calculator.html" class="related-link">Montana</a>
+      <a href="nebraska-medicaid-eligibility-calculator.html" class="related-link">Nebraska</a>
+      <a href="nevada-medicaid-eligibility-calculator.html" class="related-link">Nevada</a>
+      <a href="new-hampshire-medicaid-eligibility-calculator.html" class="related-link">New Hampshire</a>
+      <a href="new-jersey-medicaid-eligibility-calculator.html" class="related-link">New Jersey</a>
+      <a href="new-mexico-medicaid-eligibility-calculator.html" class="related-link">New Mexico</a>
+      <a href="new-york-medicaid-eligibility-calculator.html" class="related-link">New York</a>
+      <a href="north-carolina-medicaid-eligibility-calculator.html" class="related-link">North Carolina</a>
+      <a href="north-dakota-medicaid-eligibility-calculator.html" class="related-link">North Dakota</a>
+      <a href="ohio-medicaid-eligibility-calculator.html" class="related-link">Ohio</a>
+      <a href="oklahoma-medicaid-eligibility-calculator.html" class="related-link">Oklahoma</a>
+      <a href="oregon-medicaid-eligibility-calculator.html" class="related-link">Oregon</a>
+      <a href="pennsylvania-medicaid-eligibility-calculator.html" class="related-link">Pennsylvania</a>
+      <a href="rhode-island-medicaid-eligibility-calculator.html" class="related-link">Rhode Island</a>
+      <a href="south-carolina-medicaid-eligibility-calculator.html" class="related-link">South Carolina</a>
+      <a href="south-dakota-medicaid-eligibility-calculator.html" class="related-link">South Dakota</a>
+      <a href="tennessee-medicaid-eligibility-calculator.html" class="related-link">Tennessee</a>
+      <a href="texas-medicaid-eligibility-calculator.html" class="related-link">Texas</a>
+      <a href="utah-medicaid-eligibility-calculator.html" class="related-link">Utah</a>
+      <a href="vermont-medicaid-eligibility-calculator.html" class="related-link">Vermont</a>
+      <a href="virginia-medicaid-eligibility-calculator.html" class="related-link">Virginia</a>
+      <a href="washington-medicaid-eligibility-calculator.html" class="related-link">Washington</a>
+      <a href="west-virginia-medicaid-eligibility-calculator.html" class="related-link">West Virginia</a>
+      <a href="wisconsin-medicaid-eligibility-calculator.html" class="related-link">Wisconsin</a>
+      <a href="wyoming-medicaid-eligibility-calculator.html" class="related-link">Wyoming</a>
+    </div>
+  </div>
+
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="../index.html">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+    </div>
+    <div>
+      <h5>Popular</h5>
+      <a href="../bmi-calculator.html">BMI Calculator</a>
+      <a href="../calc/mortgage-payment.html">Mortgage</a>
+      <a href="../income-tax-calculator.html">Income Tax</a>
+    </div>
+    <div>
+      <h5>Categories</h5>
+      <a href="../index.html#finance">Financial</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#health">Health</a>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 CalcLeap. For informational purposes only. Not a substitute for professional advice.</p>
+  </div>
+</footer>
+
+<script>
+function filterTable(q) {
+  q = q.toLowerCase();
+  const rows = document.querySelectorAll('#stateTable tbody tr');
+  rows.forEach(r => {
+    r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

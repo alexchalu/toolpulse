@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oklahoma Medicaid Eligibility Calculator — Free OK Medicaid Tool | CalcLeap</title>
+<meta name="description" content="Check your Oklahoma Medicaid eligibility instantly. Calculate income limits for adults, children, pregnant women. OK Medicaid expansion state with 138% FPL adult threshold.">
+<link rel="canonical" href="https://calcleap.com/medicaid/oklahoma-medicaid-eligibility-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Oklahoma Medicaid Eligibility Calculator — CalcLeap">
+<meta property="og:description" content="Check your Oklahoma Medicaid eligibility. Calculate income limits by household size and category.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/medicaid/oklahoma-medicaid-eligibility-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Oklahoma Medicaid Eligibility Calculator",
+  "description": "Calculate Medicaid eligibility in Oklahoma. Income limits for adults, children, and pregnant women.",
+  "url": "https://calcleap.com/medicaid/oklahoma-medicaid-eligibility-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What are the Oklahoma Medicaid income limits for 2026?","acceptedAnswer":{"@type":"Answer","text":"In Oklahoma, Medicaid income limits are 138% FPL for adults (expansion state), 210% FPL for children, and 198% FPL for pregnant women. For a single adult, this means approximately $21,597/year."}},
+  {"@type":"Question","name":"Has Oklahoma expanded Medicaid?","acceptedAnswer":{"@type":"Answer","text":"Yes, Oklahoma has expanded Medicaid under the Affordable Care Act, covering adults up to 138% of the Federal Poverty Level."}},
+  {"@type":"Question","name":"How do I apply for Medicaid in Oklahoma?","acceptedAnswer":{"@type":"Answer","text":"You can apply for Oklahoma Medicaid through your state Medicaid agency, at HealthCare.gov, or by calling 1-800-318-2596. Applications are accepted year-round — there is no open enrollment period for Medicaid."}},
+  {"@type":"Question","name":"What does Oklahoma Medicaid cover?","acceptedAnswer":{"@type":"Answer","text":"Oklahoma Medicaid covers essential health benefits including doctor visits, hospital care, prescription drugs, lab tests, mental health services, preventive care, and maternity care. As an expansion state, Oklahoma also covers adults who previously had no pathway to coverage."}}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
+.stat-row:last-child{border-bottom:none}
+.stat-label{font-size:.85rem;color:var(--text-2)}
+.stat-value{font-size:.95rem;font-weight:700}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
+th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
+th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
+td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
+.faq{border-top:1px solid var(--border);padding:.85rem 0}
+.faq:last-child{border-bottom:none}
+.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
+.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
+.related-link:hover{border-color:var(--accent);color:var(--accent)}
+.ad-slot{margin:1.5rem 0}
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600}
+.stat-card{background:var(--bg);border-radius:var(--r-sm);padding:1rem;text-align:center}
+.stat-card .val{font-size:1.5rem;font-weight:800;color:var(--accent)}
+.stat-card .lbl{font-size:.72rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-top:.2rem}
+.result-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;margin-bottom:.75rem}
+.eligible{border-left:4px solid #34d399}
+.not-eligible{border-left:4px solid #f87171}
+.maybe-eligible{border-left:4px solid #fbbf24}
+.bar{background:var(--bg);border-radius:100px;height:10px;margin:.5rem 0;overflow:hidden}
+.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .page{padding:0 1.25rem}
+  .page-title{font-size:1.75rem}
+  .form-row{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .related-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="../index.html#finance">Finance</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#tax">Tax</a>
+      <a href="../index.html#health">Health</a>
+      <a href="../index.html#converters">Converters</a>
+      <a href="index.html">All States</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Medicaid Eligibility</a><span class="sep">›</span>Oklahoma
+  </div>
+
+  <h1 class="page-title">Oklahoma Medicaid Eligibility Calculator</h1>
+  <p class="page-desc">Check if you qualify for Medicaid in Oklahoma (OK). Enter your household size and income to see eligibility for adults, children, and pregnant women. <span style="background:#34d399;color:#fff;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600">✓ Expanded</span></p>
+
+  <!-- State Stats -->
+  <div class="card">
+    <h2>Oklahoma Medicaid at a Glance</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem">
+      <div class="stat-card"><div class="val">138%</div><div class="lbl">Adult FPL Limit</div></div>
+      <div class="stat-card"><div class="val">210%</div><div class="lbl">Child FPL Limit</div></div>
+      <div class="stat-card"><div class="val">1,100,000</div><div class="lbl">Enrolled</div></div>
+      <div class="stat-card"><div class="val">12.0%</div><div class="lbl">Uninsured Rate</div></div>
+    </div>
+  </div>
+
+  <!-- Calculator -->
+  <div class="card">
+    <h2>Check Your Eligibility</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Household Size</label>
+        <select id="hhSize">
+          <option value="1">1 person</option>
+          <option value="2">2 people</option>
+          <option value="3" selected>3 people</option>
+          <option value="4">4 people</option>
+          <option value="5">5 people</option>
+          <option value="6">6 people</option>
+          <option value="7">7 people</option>
+          <option value="8">8 people</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Annual Household Income ($)</label>
+        <input type="number" id="income" value="30000" min="0" max="500000">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Applicant Category</label>
+        <select id="category">
+          <option value="adult">Adult (19-64)</option>
+          <option value="child">Child (0-18)</option>
+          <option value="pregnant">Pregnant</option>
+          <option value="senior">Senior/Disabled (65+)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Monthly Income ($, optional)</label>
+        <input type="number" id="monthlyIncome" placeholder="Auto-calculated" min="0">
+      </div>
+    </div>
+    <button class="btn" onclick="checkEligibility()">Check Eligibility</button>
+    <div class="result-area" id="result"></div>
+  </div>
+
+  <!-- Ad -->
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  
+
+  <!-- Income Limits Table -->
+  <div class="info-card">
+    <h3>Oklahoma Medicaid Income Limits (2026)</h3>
+    <table>
+      <thead><tr><th>Household Size</th><th>Adult Limit</th><th>Child Limit</th><th>Pregnant Limit</th></tr></thead>
+      <tbody>
+        <tr><td>1 person</td><td>$21,597/yr</td><td>$32,865/yr</td><td>$30,987/yr</td></tr><tr><td>2 people</td><td>$29,187/yr</td><td>$44,415/yr</td><td>$41,877/yr</td></tr><tr><td>3 people</td><td>$36,777/yr</td><td>$55,965/yr</td><td>$52,767/yr</td></tr><tr><td>4 people</td><td>$44,367/yr</td><td>$67,515/yr</td><td>$63,657/yr</td></tr><tr><td>5 people</td><td>$51,957/yr</td><td>$79,065/yr</td><td>$74,547/yr</td></tr><tr><td>6 people</td><td>$59,547/yr</td><td>$90,615/yr</td><td>$85,437/yr</td></tr><tr><td>7 people</td><td>$67,137/yr</td><td>$102,165/yr</td><td>$96,327/yr</td></tr><tr><td>8 people</td><td>$74,727/yr</td><td>$113,715/yr</td><td>$107,217/yr</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- What Medicaid Covers -->
+  <div class="info-card">
+    <h3>What Oklahoma Medicaid Covers</h3>
+    <p style="font-size:.9rem;color:var(--text-2);line-height:1.65;margin-bottom:1rem">
+      Oklahoma Medicaid provides comprehensive health coverage including:
+    </p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;font-size:.875rem">
+      <div style="padding:.5rem;background:var(--bg);border-radius:var(--r-xs)">✓ Doctor & specialist visits</div>
+      <div style="padding:.5rem;background:var(--bg);border-radius:var(--r-xs)">✓ Hospital inpatient & outpatient</div>
+      <div style="padding:.5rem;background:var(--bg);border-radius:var(--r-xs)">✓ Prescription medications</div>
+      <div style="padding:.5rem;background:var(--bg);border-radius:var(--r-xs)">✓ Lab tests & X-rays</div>
+      <div style="padding:.5rem;background:var(--bg);border-radius:var(--r-xs)">✓ Mental health services</div>
+      <div style="padding:.5rem;background:var(--bg);border-radius:var(--r-xs)">✓ Preventive care & screenings</div>
+      <div style="padding:.5rem;background:var(--bg);border-radius:var(--r-xs)">✓ Emergency room visits</div>
+      <div style="padding:.5rem;background:var(--bg);border-radius:var(--r-xs)">✓ Maternity & newborn care</div>
+      <div style="padding:.5rem;background:var(--bg);border-radius:var(--r-xs)">✓ Dental (varies by state)</div>
+      <div style="padding:.5rem;background:var(--bg);border-radius:var(--r-xs)">✓ Vision care (varies by state)</div>
+    </div>
+  </div>
+
+  <!-- Ad -->
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <!-- How to Apply -->
+  <div class="info-card">
+    <h3>How to Apply for Medicaid in Oklahoma</h3>
+    <div style="font-size:.9rem;color:var(--text-2);line-height:1.8">
+      <p><strong>1. Online:</strong> Visit your state Medicaid website or HealthCare.gov to submit an application.</p>
+      <p><strong>2. Phone:</strong> Call 1-800-318-2596 (TTY: 1-855-889-4325) to apply by phone.</p>
+      <p><strong>3. In Person:</strong> Visit your local Oklahoma Department of Social Services or Medicaid office.</p>
+      <p><strong>4. Mail:</strong> Download and mail a paper application from your state Medicaid website.</p>
+      <p style="margin-top:.75rem"><strong>Tip:</strong> You can apply for Medicaid at any time — there is no open enrollment period. Processing typically takes 45 days (90 days for disability-based applications).</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="info-card">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <div class="faq-q">What are the Oklahoma Medicaid income limits for 2026?</div>
+      <div class="faq-a">In Oklahoma, Medicaid income limits are 138% FPL for adults (expansion state), 210% FPL for children, and 198% FPL for pregnant women. For a single adult, this means approximately $21,597/year.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Has Oklahoma expanded Medicaid?</div>
+      <div class="faq-a">Yes, Oklahoma has expanded Medicaid under the Affordable Care Act, covering adults up to 138% of the Federal Poverty Level (FPL). This means more low-income adults qualify for free or low-cost health coverage.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">How do I apply for Medicaid in Oklahoma?</div>
+      <div class="faq-a">You can apply for Oklahoma Medicaid online at HealthCare.gov, by calling 1-800-318-2596, visiting your local Medicaid office, or mailing a paper application. Applications are accepted year-round.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">What is MAGI and how does it affect Medicaid eligibility?</div>
+      <div class="faq-a">Modified Adjusted Gross Income (MAGI) is the income methodology used for most Medicaid eligibility determinations. It includes taxable income, tax-exempt interest, and Social Security benefits. Deductions like student loan interest and IRA contributions are subtracted. A 5% income disregard is applied to the FPL threshold.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Can I have assets and still qualify for Oklahoma Medicaid?</div>
+      <div class="faq-a">For most MAGI-based Medicaid categories (adults, children, pregnant women), there is no asset test — only income matters. However, elderly and disabled applicants may face asset limits, typically $2,000 for individuals or $3,000 for couples, though some states have eliminated asset tests.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">What is the Medicaid coverage gap in non-expansion states?</div>
+      <div class="faq-a">Since Oklahoma has expanded Medicaid, there is no coverage gap. All adults up to 138% FPL are covered.</div>
+    </div>
+  </div>
+
+  <!-- Ad -->
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <!-- Related States -->
+  <div class="info-card">
+    <h3>Medicaid Calculators by State</h3>
+    <div class="related-grid">
+      <a href="alabama-medicaid-eligibility-calculator.html" class="related-link">Alabama</a>
+      <a href="arkansas-medicaid-eligibility-calculator.html" class="related-link">Arkansas</a>
+      <a href="kansas-medicaid-eligibility-calculator.html" class="related-link">Kansas</a>
+      <a href="maryland-medicaid-eligibility-calculator.html" class="related-link">Maryland</a>
+      <a href="michigan-medicaid-eligibility-calculator.html" class="related-link">Michigan</a>
+      <a href="missouri-medicaid-eligibility-calculator.html" class="related-link">Missouri</a>
+      <a href="rhode-island-medicaid-eligibility-calculator.html" class="related-link">Rhode Island</a>
+      <a href="wyoming-medicaid-eligibility-calculator.html" class="related-link">Wyoming</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="../index.html">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+    </div>
+    <div>
+      <h5>Popular</h5>
+      <a href="../bmi-calculator.html">BMI Calculator</a>
+      <a href="../calc/mortgage-payment.html">Mortgage</a>
+      <a href="../income-tax-calculator.html">Income Tax</a>
+      <a href="../calc/compound-interest.html">Compound Interest</a>
+    </div>
+    <div>
+      <h5>Categories</h5>
+      <a href="../index.html#finance">Financial</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#health">Health</a>
+      <a href="../index.html#converters">Converters</a>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 CalcLeap. For informational purposes only. Not a substitute for professional medical or legal advice.</p>
+  </div>
+</footer>
+
+<script>
+const FPL={"fpl_table" if slug != "alaska" else "fpl_alaska"};
+const fplData = {1:15650,2:21150,3:26650,4:32150,5:37650,6:43150,7:48650,8:54150};
+const limits = {adult:138, child:210, pregnant:198, senior:100};
+const expanded = true;
+const stateName = 'Oklahoma';
+
+document.getElementById('monthlyIncome').addEventListener('input', function() {
+  if (this.value) {
+    document.getElementById('income').value = Math.round(parseFloat(this.value) * 12);
+  }
+});
+document.getElementById('income').addEventListener('input', function() {
+  document.getElementById('monthlyIncome').value = '';
+});
+
+function checkEligibility() {
+  const hhSize = parseInt(document.getElementById('hhSize').value);
+  const income = parseFloat(document.getElementById('income').value) || 0;
+  const category = document.getElementById('category').value;
+  const resultDiv = document.getElementById('result');
+  resultDiv.style.display = 'block';
+
+  const baseFPL = fplData[Math.min(hhSize, 8)];
+  const extraFPL = hhSize > 8 ? (hhSize - 8) * 5500 : 0;
+  const fplAmount = baseFPL + extraFPL;
+
+  const fplPct = limits[category] || limits.adult;
+  const incomeLimit = Math.round(fplAmount * fplPct / 100);
+  const incomeLimitWithDisregard = Math.round(fplAmount * (fplPct + 5) / 100);
+
+  const yourFPLPct = Math.round((income / fplAmount) * 100);
+  const monthly = Math.round(income / 12);
+  const monthlyLimit = Math.round(incomeLimit / 12);
+
+  let eligible, statusClass, statusText, statusEmoji;
+  if (income <= incomeLimitWithDisregard) {
+    eligible = true;
+    statusClass = 'eligible';
+    statusText = 'Likely Eligible';
+    statusEmoji = '✅';
+  } else if (income <= incomeLimitWithDisregard * 1.1) {
+    eligible = null;
+    statusClass = 'maybe-eligible';
+    statusText = 'Possibly Eligible';
+    statusEmoji = '⚠️';
+  } else {
+    eligible = false;
+    statusClass = 'not-eligible';
+    statusText = 'Likely Not Eligible';
+    statusEmoji = '❌';
+  }
+
+  const catLabel = {adult:'Adults',child:'Children',pregnant:'Pregnant Women',senior:'Seniors/Disabled'}[category];
+  const barPct = Math.min(100, Math.round((income / incomeLimitWithDisregard) * 100));
+  const barColor = eligible === true ? '#34d399' : eligible === null ? '#fbbf24' : '#f87171';
+
+  let altText = '';
+  if (!eligible && !expanded && category === 'adult') {
+    altText = '<div class="result-box maybe-eligible" style="margin-top:.75rem"><strong>💡 Coverage Gap:</strong> Oklahoma has not expanded Medicaid. You may want to check if you qualify for ACA marketplace subsidies at <a href="https://www.healthcare.gov" target="_blank" style="color:var(--accent)">HealthCare.gov</a>.</div>';
+  } else if (!eligible) {
+    altText = '<div class="result-box maybe-eligible" style="margin-top:.75rem"><strong>💡 Alternative:</strong> You may qualify for subsidized health insurance through the ACA marketplace at <a href="https://www.healthcare.gov" target="_blank" style="color:var(--accent)">HealthCare.gov</a>. Subsidies are available for incomes up to 400% FPL ($' + (fplAmount * 4).toLocaleString() + '/yr).</div>';
+  }
+
+  resultDiv.innerHTML = `
+    <div class="result-box ${statusClass}">
+      <div style="font-size:1.5rem;font-weight:800;margin-bottom:.25rem">${statusEmoji} ${statusText}</div>
+      <div style="font-size:.9rem;color:var(--text-2)">For ${catLabel} in ${stateName} — ${fplPct}% FPL threshold (+ 5% disregard)</div>
+    </div>
+    <div style="margin:1rem 0">
+      <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--text-3);margin-bottom:.25rem">
+        <span>Your income: $\${income.toLocaleString()}/yr ($\${monthly.toLocaleString()}/mo)</span>
+        <span>Limit: $\${incomeLimit.toLocaleString()}/yr ($\${monthlyLimit.toLocaleString()}/mo)</span>
+      </div>
+      <div class="bar"><div class="bar-fill" style="width:${barPct}%;background:${barColor}"></div></div>
+      <div style="font-size:.8rem;color:var(--text-3);margin-top:.25rem">Your income is ${yourFPLPct}% of the Federal Poverty Level</div>
+    </div>
+    <div class="stat-row"><span class="stat-label">Household Size</span><span class="stat-value">${hhSize} ${hhSize === 1 ? 'person' : 'people'}</span></div>
+    <div class="stat-row"><span class="stat-label">Annual Income</span><span class="stat-value">$\${income.toLocaleString()}</span></div>
+    <div class="stat-row"><span class="stat-label">FPL for Household</span><span class="stat-value">$\${fplAmount.toLocaleString()}</span></div>
+    <div class="stat-row"><span class="stat-label">Income as % of FPL</span><span class="stat-value">${yourFPLPct}%</span></div>
+    <div class="stat-row"><span class="stat-label">Category Limit</span><span class="stat-value">${fplPct}% FPL ($\${incomeLimit.toLocaleString()})</span></div>
+    <div class="stat-row"><span class="stat-label">With 5% Disregard</span><span class="stat-value">${fplPct+5}% FPL ($\${incomeLimitWithDisregard.toLocaleString()})</span></div>
+    <div class="stat-row"><span class="stat-label">Expansion State</span><span class="stat-value">${expanded ? 'Yes ✓' : 'No ✗'}</span></div>
+    ${altText}
+  `;
+}
+</script>
+</body>
+</html>
