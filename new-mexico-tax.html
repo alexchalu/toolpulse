@@ -460,7 +460,7 @@ const allStates = [{"name":"Alabama","slug":"alabama","rate":"2-5%"},{"name":"Al
 const current = 'New Mexico';
 const related = allStates.filter(s=>s.name!==current).sort(()=>Math.random()-0.5).slice(0,8);
 document.getElementById('relatedStates').innerHTML = related.map(s=>
-  '<a href="/toolpulse/'+s.slug+'-tax.html">'+s.name+' Tax Calculator<br><small style="color:var(--muted)">Income: '+s.rate+'</small></a>'
+  '<a href="/'+s.slug+'-tax.html">'+s.name+' Tax Calculator<br><small style="color:var(--muted)">Income: '+s.rate+'</small></a>'
 ).join('');
 </script>
 <script>
@@ -528,7 +528,7 @@ const allStates = [{"name":"Alabama","slug":"alabama","rate":"2-5%"},{"name":"Al
 const current = 'New Mexico';
 const related = allStates.filter(s=>s.name!==current).sort(()=>Math.random()-0.5).slice(0,8);
 document.getElementById('relatedStates').innerHTML = related.map(s=>
-  '<a href="/toolpulse/'+s.slug+'-tax.html">'+s.name+' Tax Calculator<br><small style="color:var(--muted)">Income: '+s.rate+'</small></a>'
+  '<a href="/'+s.slug+'-tax.html">'+s.name+' Tax Calculator<br><small style="color:var(--muted)">Income: '+s.rate+'</small></a>'
 ).join('');
 </script>
 
