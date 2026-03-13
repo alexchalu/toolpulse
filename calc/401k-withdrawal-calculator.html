@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free 401k withdrawal calculator. Calculate early withdrawal penalties, taxes, and net amount. Compare traditional vs Roth 401k withdrawals, understand RMD requirements, and plan your retirement distributions.">
-  <meta name="keywords" content="401k withdrawal calculator, early 401k withdrawal, 401k penalty calculator, rmd calculator, retirement withdrawal calculator, 401k distribution calculator, 401k tax calculator">
-  <title>401k Withdrawal Calculator - Early Withdrawal Penalties & Taxes | CalcLeap</title>
+  <meta name="description" content="Free 401k withdrawal calculator. Calculate taxes, penalties, net amount after withdrawal, and plan your retirement income. Includes RMD calculations and early withdrawal penalty estimates.">
+  <meta name="keywords" content="401k withdrawal calculator, 401k early withdrawal, 401k penalty calculator, rmd calculator, required minimum distribution, 401k tax calculator">
+  <title>401(k) Withdrawal Calculator - Taxes & Penalties | CalcLeap</title>
   <link rel="canonical" href="https://calcleap.com/calc/401k-withdrawal-calculator.html">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -115,16 +115,13 @@
       border: 2px solid #d2d2d7;
       border-radius: 10px;
       transition: all 0.2s;
-      background: #f5f5f7;
     }
     .radio-label:hover {
       border-color: #0071e3;
-      background: white;
     }
     .radio-label input[type="radio"] {
       width: 18px;
       height: 18px;
-      cursor: pointer;
     }
     .radio-label input[type="radio"]:checked + span {
       color: #0071e3;
@@ -178,27 +175,23 @@
     }
     .breakdown {
       background: white;
+      color: #1d1d1f;
       padding: 24px;
       border-radius: 12px;
       margin-top: 20px;
-      color: #1d1d1f;
     }
-    .breakdown h4 {
-      font-size: 18px;
-      margin-bottom: 16px;
-    }
-    .breakdown-item {
+    .breakdown-row {
       display: flex;
       justify-content: space-between;
       padding: 12px 0;
       border-bottom: 1px solid #e5e5e7;
     }
-    .breakdown-item:last-child {
+    .breakdown-row:last-child {
       border-bottom: none;
       font-weight: 700;
       font-size: 18px;
-      padding-top: 16px;
       margin-top: 8px;
+      padding-top: 16px;
       border-top: 2px solid #0071e3;
     }
     .warning {
@@ -209,14 +202,6 @@
       margin-top: 16px;
       color: #856404;
     }
-    .success {
-      background: #d4edda;
-      border-left: 4px solid #28a745;
-      padding: 16px;
-      border-radius: 8px;
-      margin-top: 16px;
-      color: #155724;
-    }
     .info {
       background: #d1ecf1;
       border-left: 4px solid #17a2b8;
@@ -224,36 +209,6 @@
       border-radius: 8px;
       margin-top: 16px;
       color: #0c5460;
-    }
-    .bar {
-      background: #e5e5e7;
-      border-radius: 8px;
-      height: 40px;
-      position: relative;
-      overflow: hidden;
-      margin: 12px 0;
-    }
-    .bar-fill {
-      background: linear-gradient(90deg, #ff3b30, #ff9500);
-      height: 100%;
-      position: absolute;
-      left: 0;
-      transition: width 0.4s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 600;
-      font-size: 14px;
-    }
-    .bar-fill.net {
-      background: linear-gradient(90deg, #34c759, #30d158);
-    }
-    .bar-label {
-      font-size: 14px;
-      font-weight: 600;
-      color: #6e6e73;
-      margin-bottom: 8px;
     }
     .section {
       margin: 48px 0;
@@ -362,8 +317,8 @@
   </nav>
 
   <div class="page">
-    <h1 class="page-title">401k Withdrawal Calculator</h1>
-    <p class="subtitle">Calculate taxes, penalties, and net amount for 401k withdrawals</p>
+    <h1 class="page-title">401(k) Withdrawal Calculator</h1>
+    <p class="subtitle">Calculate taxes, penalties, and net amount from your 401(k) withdrawal</p>
 
     <!-- Ad Slot 1 -->
     <ins class="adsbygoogle"
@@ -378,12 +333,44 @@
       <div class="input-grid">
         <div class="input-group">
           <label for="withdrawalAmount">Withdrawal Amount ($)</label>
-          <input type="number" id="withdrawalAmount" value="25000" min="0" step="1000">
+          <input type="number" id="withdrawalAmount" value="50000" min="0" step="1000">
         </div>
         
         <div class="input-group">
           <label for="age">Your Current Age</label>
-          <input type="number" id="age" value="45" min="18" max="100" step="1">
+          <input type="number" id="age" value="62" min="18" max="100" step="1">
+        </div>
+
+        <div class="input-group">
+          <label for="federalTaxRate">Federal Tax Rate (%)</label>
+          <select id="federalTaxRate">
+            <option value="10">10% - $0 to $11,000</option>
+            <option value="12">12% - $11,001 to $44,725</option>
+            <option value="22" selected>22% - $44,726 to $95,375</option>
+            <option value="24">24% - $95,376 to $182,100</option>
+            <option value="32">32% - $182,101 to $231,250</option>
+            <option value="35">35% - $231,251 to $578,125</option>
+            <option value="37">37% - $578,126+</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="stateTaxRate">State Tax Rate (%) - Optional</label>
+          <input type="number" id="stateTaxRate" value="5" min="0" max="15" step="0.1">
+        </div>
+
+        <div class="input-group">
+          <label>Withdrawal Type</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="withdrawalType" value="normal" checked>
+              <span>Normal (Age 59½+)</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="withdrawalType" value="early">
+              <span>Early (Before 59½)</span>
+            </label>
+          </div>
         </div>
 
         <div class="input-group">
@@ -391,39 +378,20 @@
           <div class="radio-group">
             <label class="radio-label">
               <input type="radio" name="accountType" value="traditional" checked>
-              <span>Traditional 401k</span>
+              <span>Traditional 401(k)</span>
             </label>
             <label class="radio-label">
               <input type="radio" name="accountType" value="roth">
-              <span>Roth 401k</span>
+              <span>Roth 401(k)</span>
             </label>
           </div>
         </div>
-
-        <div class="input-group">
-          <label for="filingStatus">Tax Filing Status</label>
-          <select id="filingStatus">
-            <option value="single">Single</option>
-            <option value="married">Married Filing Jointly</option>
-            <option value="head">Head of Household</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="annualIncome">Annual Income (excluding withdrawal) ($)</label>
-          <input type="number" id="annualIncome" value="75000" min="0" step="1000">
-        </div>
-
-        <div class="input-group">
-          <label for="stateTaxRate">State Income Tax Rate (%)</label>
-          <input type="number" id="stateTaxRate" value="5" min="0" max="13.3" step="0.1">
-        </div>
       </div>
 
-      <button class="calc-btn" onclick="calculate()">Calculate Withdrawal Amount</button>
+      <button class="calc-btn" onclick="calculate()">Calculate Withdrawal</button>
 
       <div id="results" class="result-box">
-        <h3 style="margin-bottom: 20px; font-size: 24px;">Your 401k Withdrawal Analysis</h3>
+        <h3 style="margin-bottom: 20px; font-size: 24px;">Your Withdrawal Breakdown</h3>
         
         <div class="result-grid">
           <div class="result-card">
@@ -445,41 +413,30 @@
         </div>
 
         <div class="breakdown">
-          <h4>Breakdown</h4>
-          <div class="breakdown-item">
-            <span>Gross Withdrawal</span>
+          <h4 style="font-size: 18px; margin-bottom: 16px;">Detailed Breakdown</h4>
+          <div class="breakdown-row">
+            <span>Gross Withdrawal Amount</span>
             <span id="breakdownGross">$0</span>
           </div>
-          <div class="breakdown-item">
+          <div class="breakdown-row">
             <span id="penaltyLabel">Early Withdrawal Penalty (10%)</span>
             <span id="penaltyAmount">$0</span>
           </div>
-          <div class="breakdown-item">
-            <span>Federal Income Tax</span>
-            <span id="federalTax">$0</span>
+          <div class="breakdown-row">
+            <span id="federalLabel">Federal Income Tax</span>
+            <span id="federalAmount">$0</span>
           </div>
-          <div class="breakdown-item">
-            <span id="stateTaxLabel">State Income Tax</span>
-            <span id="stateTax">$0</span>
+          <div class="breakdown-row">
+            <span id="stateLabel">State Income Tax</span>
+            <span id="stateAmount">$0</span>
           </div>
-          <div class="breakdown-item">
+          <div class="breakdown-row">
             <span>Net Amount You Receive</span>
             <span id="breakdownNet">$0</span>
           </div>
         </div>
 
-        <div style="margin-top: 24px;">
-          <div class="bar-label">Amount Breakdown</div>
-          <div class="bar">
-            <div class="bar-fill net" id="netBar"></div>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px; color: #6e6e73; margin-top: 8px;">
-            <span id="netPercent">0% Net</span>
-            <span id="deductionPercent">0% Taxes & Penalties</span>
-          </div>
-        </div>
-
-        <div id="recommendation"></div>
+        <div id="warnings"></div>
       </div>
     </div>
 
@@ -493,78 +450,79 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
     <div class="section">
-      <h2>Understanding 401k Withdrawals</h2>
+      <h2>Understanding 401(k) Withdrawals</h2>
       
-      <p>Withdrawing from your 401k before retirement can have significant financial consequences. Understanding the rules, penalties, and tax implications is crucial for making informed decisions about accessing your retirement savings.</p>
+      <p>A 401(k) is a tax-advantaged retirement account offered by employers. When you withdraw money from your 401(k), the tax implications depend on your age, the type of account (Traditional vs. Roth), and the reason for withdrawal. Understanding these rules can help you avoid costly penalties and plan your retirement income strategically.</p>
 
-      <h3>Early Withdrawal Penalties</h3>
-      <p>If you withdraw from your traditional 401k before age 59½, you'll typically face a 10% early withdrawal penalty in addition to regular income taxes. This penalty can significantly reduce the amount you actually receive.</p>
+      <h3>Traditional vs. Roth 401(k) Withdrawals</h3>
       
-      <p><strong>Example:</strong> A $25,000 withdrawal at age 45 might result in:
+      <p><strong>Traditional 401(k):</strong> Contributions are made pre-tax, reducing your taxable income during your working years. However, withdrawals in retirement are taxed as ordinary income at your current tax rate. This means the entire withdrawal amount is subject to federal and state income taxes.</p>
+
+      <p><strong>Roth 401(k):</strong> Contributions are made with after-tax dollars, so you don't get an immediate tax deduction. The advantage comes in retirement: qualified withdrawals are completely tax-free, including all investment gains. To qualify, you must be at least 59½ and have held the account for at least 5 years.</p>
+
+      <h3>Age 59½ Rule & Early Withdrawal Penalties</h3>
+      
+      <p>The IRS allows penalty-free withdrawals from your 401(k) starting at age 59½. If you withdraw before this age, you'll typically face a <strong>10% early withdrawal penalty</strong> on top of regular income taxes. This can significantly reduce the amount you receive.</p>
+
+      <p><strong>Example:</strong> A $50,000 early withdrawal at a 22% federal tax bracket and 5% state tax would result in:</p>
       <ul>
-        <li>$2,500 early withdrawal penalty (10%)</li>
-        <li>$5,500 federal income tax (22% bracket)</li>
-        <li>$1,250 state income tax (5%)</li>
-        <li><strong>Net amount: $15,750</strong> (37% lost to taxes and penalties)</li>
+        <li>Early withdrawal penalty: $5,000 (10%)</li>
+        <li>Federal income tax: $11,000 (22%)</li>
+        <li>State income tax: $2,500 (5%)</li>
+        <li>Total deductions: $18,500</li>
+        <li><strong>Net amount received: $31,500 (only 63% of your withdrawal)</strong></li>
       </ul>
 
       <h3>Exceptions to the Early Withdrawal Penalty</h3>
-      <p>The IRS allows penalty-free early withdrawals (though income taxes still apply) in specific situations:</p>
-      <ul>
-        <li><strong>Age 55 Rule</strong> – If you leave your job at age 55 or older, you can withdraw from that employer's 401k without the 10% penalty</li>
-        <li><strong>Substantially Equal Periodic Payments (SEPP)</strong> – Also known as 72(t) distributions, these require taking calculated amounts for at least 5 years or until age 59½, whichever is longer</li>
-        <li><strong>Disability</strong> – If you become totally and permanently disabled</li>
-        <li><strong>Medical expenses</strong> – For unreimbursed medical expenses exceeding 7.5% of your adjusted gross income</li>
-        <li><strong>Qualified Domestic Relations Order (QDRO)</strong> – For divorce settlements</li>
-        <li><strong>IRS levy</strong> – If the IRS levies your 401k to collect unpaid taxes</li>
-        <li><strong>Military reservist</strong> – Called to active duty for at least 180 days</li>
-        <li><strong>Death</strong> – Beneficiaries can withdraw without penalty</li>
-      </ul>
-
-      <h3>Traditional 401k vs. Roth 401k Withdrawals</h3>
-      <p><strong>Traditional 401k:</strong></p>
-      <ul>
-        <li>Contributions were pre-tax, so all withdrawals are taxed as ordinary income</li>
-        <li>Early withdrawals incur 10% penalty + income tax</li>
-        <li>Required Minimum Distributions (RMDs) start at age 73</li>
-      </ul>
-
-      <p><strong>Roth 401k:</strong></p>
-      <ul>
-        <li>Contributions were after-tax, so you can withdraw contributions anytime tax and penalty-free</li>
-        <li>Earnings withdrawn before age 59½ and before 5-year holding period incur taxes and 10% penalty</li>
-        <li>Qualified distributions (age 59½+ and 5-year rule met) are completely tax-free</li>
-        <li>RMDs required at age 73 (unless rolled to Roth IRA)</li>
-      </ul>
-
-      <h3>401k Loan vs. Hardship Withdrawal</h3>
-      <p><strong>401k Loan:</strong> Many plans allow you to borrow up to 50% of your vested balance (max $50,000). You pay yourself back with interest, avoiding taxes and penalties. However, if you leave your job, the loan typically becomes due immediately or is treated as a distribution.</p>
       
-      <p><strong>Hardship Withdrawal:</strong> For immediate and heavy financial need (medical, home purchase, education, funeral, eviction prevention). Subject to taxes and penalties but doesn't need to be repaid. The IRS has specific documentation requirements.</p>
+      <p>In certain situations, you can avoid the 10% penalty even before age 59½:</p>
+      <ul>
+        <li><strong>Separation from employer at age 55+</strong> – Known as the "Rule of 55," you can take penalty-free withdrawals from your current employer's 401(k) if you leave your job during or after the year you turn 55</li>
+        <li><strong>Substantially Equal Periodic Payments (SEPP)</strong> – Also called 72(t) distributions, this allows you to take calculated annual payments based on your life expectancy</li>
+        <li><strong>Total and permanent disability</strong> – If you become disabled and cannot work</li>
+        <li><strong>Medical expenses exceeding 7.5% of AGI</strong> – Unreimbursed medical expenses that exceed 7.5% of your adjusted gross income</li>
+        <li><strong>Qualified Domestic Relations Order (QDRO)</strong> – Court-ordered distributions due to divorce</li>
+        <li><strong>IRS levy</strong> – If the IRS levies your 401(k) to collect unpaid taxes</li>
+        <li><strong>Military reservist called to active duty</strong> – For at least 180 days</li>
+      </ul>
+
+      <p><strong>Important:</strong> Even with these exceptions, you'll still owe income taxes on traditional 401(k) withdrawals. Only the 10% penalty is waived.</p>
 
       <h3>Required Minimum Distributions (RMDs)</h3>
-      <p>Starting at age 73, you must begin taking RMDs from traditional 401k accounts. The amount is calculated by dividing your account balance by your IRS life expectancy factor. Failure to take RMDs results in a 25% penalty on the amount you should have withdrawn (reduced to 10% if corrected within 2 years).</p>
+      
+      <p>Once you reach age 73 (as of 2023, previously 72), you must begin taking Required Minimum Distributions from your traditional 401(k) each year. The RMD amount is calculated based on your account balance and life expectancy. Failing to take your RMD results in a steep penalty: 25% of the amount you should have withdrawn (reduced to 10% if corrected within 2 years).</p>
 
-      <h3>Tax Strategies for 401k Withdrawals</h3>
+      <p><strong>Roth 401(k) exception:</strong> Starting in 2024, Roth 401(k) accounts are no longer subject to RMDs during the owner's lifetime (previously they were). This makes them more flexible for estate planning.</p>
+
+      <h3>401(k) Withdrawal Strategies for Retirement</h3>
+      
+      <p><strong>1. Tax bracket management:</strong> If you're close to a tax bracket threshold, consider spreading withdrawals across multiple years to stay in a lower bracket. For example, withdrawing $90,000 over 2 years instead of $180,000 in one year could save thousands in taxes.</p>
+
+      <p><strong>2. Roth conversions in low-income years:</strong> If you have a year with little to no income (early retirement before Social Security, sabbatical, job transition), consider converting traditional 401(k) funds to a Roth IRA. You'll pay taxes now at a low rate, then enjoy tax-free growth and withdrawals later.</p>
+
+      <p><strong>3. Coordinate with Social Security:</strong> Delaying Social Security benefits until age 70 increases your monthly payment by 8% per year after full retirement age. Use 401(k) withdrawals to bridge the gap, especially from age 62-70.</p>
+
+      <p><strong>4. Consider a Roth IRA rollover:</strong> You can roll your 401(k) into a Roth IRA (paying taxes on the conversion), which eliminates future RMDs and gives you tax-free withdrawals. This is especially beneficial if you expect to be in a higher tax bracket in the future or want to leave tax-free assets to heirs.</p>
+
+      <p><strong>5. Withdraw from taxable accounts first:</strong> If you have both taxable brokerage accounts and 401(k) accounts, consider withdrawing from taxable accounts first to let your tax-advantaged accounts continue growing tax-deferred or tax-free.</p>
+
+      <h3>401(k) Loans: An Alternative to Withdrawals</h3>
+      
+      <p>Some 401(k) plans allow you to borrow from your account rather than withdrawing. This can be advantageous because:</p>
       <ul>
-        <li><strong>Roth conversion ladder</strong> – Convert traditional 401k to Roth IRA in low-income years to reduce future tax burden</li>
-        <li><strong>Spread withdrawals across years</strong> – Avoid jumping into higher tax brackets by taking smaller amounts over multiple years</li>
-        <li><strong>Qualified Charitable Distributions (QCD)</strong> – After age 70½, donate up to $105,000 directly from your IRA to charity, satisfying RMD without increasing taxable income</li>
-        <li><strong>Delay Social Security</strong> – Use 401k withdrawals first while delaying Social Security to age 70 for maximum benefit</li>
-        <li><strong>Coordinate with other income</strong> – Consider timing withdrawals around other income events like bonuses or capital gains</li>
+        <li>No taxes or penalties (as long as you repay on time)</li>
+        <li>You pay interest to yourself, not a bank</li>
+        <li>Typical limit: lesser of $50,000 or 50% of vested balance</li>
+        <li>Repayment period: usually 5 years (longer for home purchases)</li>
       </ul>
 
-      <h3>Alternatives to Early 401k Withdrawal</h3>
-      <p>Before withdrawing from your 401k, consider these alternatives:</p>
-      <ul>
-        <li><strong>Emergency fund</strong> – Use dedicated savings first</li>
-        <li><strong>401k loan</strong> – Borrow and repay yourself if your plan allows</li>
-        <li><strong>Roth IRA contributions</strong> – Can be withdrawn anytime tax and penalty-free</li>
-        <li><strong>Home equity line of credit</strong> – Often lower interest than credit cards</li>
-        <li><strong>Personal loan</strong> – May be cheaper than losing 30-40% to taxes and penalties</li>
-        <li><strong>Negotiate payment plans</strong> – For medical bills or other debts</li>
-        <li><strong>Side income</strong> – Temporary part-time work or freelancing</li>
-      </ul>
+      <p><strong>Risks:</strong> If you leave your job or are terminated, the loan typically becomes due within 60-90 days. If you can't repay it, the outstanding balance is treated as a taxable distribution (plus 10% penalty if under 59½).</p>
+
+      <h3>State Tax Considerations</h3>
+      
+      <p>Nine states have no income tax, meaning you won't owe state taxes on 401(k) withdrawals: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. If you're planning retirement, relocating to one of these states can significantly increase your after-tax retirement income.</p>
+
+      <p>Some states also exempt retirement income up to certain thresholds or provide credits for retirement income. Check your state's specific rules when planning withdrawals.</p>
     </div>
 
     <!-- Ad Slot 3 -->
@@ -580,43 +538,43 @@
       <h2>Frequently Asked Questions</h2>
 
       <div class="faq-item">
-        <div class="faq-question">How much tax will I pay on a 401k withdrawal?</div>
-        <div class="faq-answer">The tax on a 401k withdrawal depends on your income tax bracket. Withdrawals from traditional 401k plans are taxed as ordinary income at your marginal tax rate (10-37% federal). If you're under 59½, you'll also pay a 10% early withdrawal penalty. State income taxes may apply as well. For example, someone in the 22% federal bracket withdrawing $30,000 at age 50 would pay approximately $9,900 in taxes and penalties (33%), receiving $20,100 net.</div>
+        <div class="faq-question">Can I withdraw from my 401(k) at any age?</div>
+        <div class="faq-answer">Yes, but if you withdraw before age 59½, you'll typically face a 10% early withdrawal penalty plus income taxes on traditional 401(k) withdrawals. There are exceptions for hardship withdrawals, disability, substantial medical expenses, and the Rule of 55 if you separate from your employer at 55 or older. Roth 401(k) contributions can be withdrawn tax and penalty-free anytime, but earnings are subject to the same rules as traditional 401(k) withdrawals.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">Can I withdraw from my 401k without penalty?</div>
-        <div class="faq-answer">Yes, you can withdraw penalty-free (but still taxed) if: you're 59½ or older, you separated from service at age 55+, you have a qualifying disability, you have unreimbursed medical expenses exceeding 7.5% of AGI, or under a qualified domestic relations order (QDRO). You can also take substantially equal periodic payments (SEPP/72t) or if you're a military reservist on active duty. Roth 401k contributions can be withdrawn anytime without penalty or tax.</div>
+        <div class="faq-question">How much tax will I pay on a 401(k) withdrawal?</div>
+        <div class="faq-answer">For traditional 401(k) withdrawals, you'll pay ordinary income tax at your current federal tax bracket (10%-37%) plus any state income tax. If you're under 59½, add an additional 10% penalty. For example, a $50,000 withdrawal at 22% federal and 5% state would cost $13,500 in taxes (27% combined). If you're under 59½, add another $5,000 penalty for a total of $18,500 in deductions. Roth 401(k) qualified withdrawals are tax-free.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">What is the best age to start withdrawing from 401k?</div>
-        <div class="faq-answer">The "best" age depends on your financial situation, but here are the key ages: Age 55 (penalty-free if you left your job), age 59½ (standard penalty-free withdrawals begin), age 62 (earliest Social Security eligibility—coordinate strategies), age 73 (RMDs required—must start withdrawing). Many retirees begin strategic withdrawals between 59½ and 73 to manage tax brackets, convert to Roth, and plan for RMDs. Consult a financial advisor for personalized guidance.</div>
+        <div class="faq-question">What is the Rule of 55 for 401(k) withdrawals?</div>
+        <div class="faq-answer">The Rule of 55 allows you to take penalty-free withdrawals from your current employer's 401(k) if you leave your job (retire, are laid off, or quit) during or after the calendar year you turn 55. This only applies to the 401(k) from the employer you just left—old 401(k)s from previous employers don't qualify. You'll still owe income taxes, but you avoid the 10% early withdrawal penalty. For public safety employees (police, firefighters, EMTs), the age is 50 instead of 55.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">Should I take a 401k loan or hardship withdrawal?</div>
-        <div class="faq-answer">A 401k loan is usually better if your plan offers it. You borrow up to 50% of your balance (max $50,000) and pay yourself back with interest, avoiding taxes and penalties. However, if you leave your job, the loan becomes due immediately. A hardship withdrawal is for immediate financial needs, doesn't need to be repaid, but you'll pay taxes and penalties. Calculate the total cost of each option—a $20,000 hardship withdrawal might cost $7,000+ in taxes and penalties, while a loan lets you keep that money.</div>
+        <div class="faq-question">What are Required Minimum Distributions (RMDs)?</div>
+        <div class="faq-answer">RMDs are mandatory annual withdrawals you must start taking from your traditional 401(k) at age 73 (as of 2023). The amount is calculated by dividing your account balance by a life expectancy factor from IRS tables. For example, at age 73 with a $500,000 balance, your RMD would be approximately $18,868. Failing to take your RMD results in a 25% penalty on the amount you should have withdrawn. Starting in 2024, Roth 401(k) accounts are no longer subject to RMDs during the owner's lifetime.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">How do I calculate my Required Minimum Distribution (RMD)?</div>
-        <div class="faq-answer">RMDs are required starting at age 73. Divide your December 31st account balance from the previous year by your IRS life expectancy factor (from the Uniform Lifetime Table). For example, at age 75 your factor is 24.6. If you have $500,000, your RMD is $500,000 ÷ 24.6 = $20,325. You must withdraw at least this amount by December 31st each year or face a 25% penalty on the shortfall. Our calculator can help you plan for these distributions.</div>
+        <div class="faq-question">Should I roll over my 401(k) to an IRA before withdrawing?</div>
+        <div class="faq-answer">Rolling over to a traditional IRA doesn't change the tax implications—withdrawals are still taxed as ordinary income. However, an IRA offers more investment options and typically lower fees. Rolling to a Roth IRA (Roth conversion) means paying taxes now for tax-free withdrawals later. Consider a rollover if you want more investment flexibility, plan to do a Roth conversion during a low-income year, or want to consolidate multiple retirement accounts. Keep your 401(k) if you're between 55-59½ and might need penalty-free withdrawals under the Rule of 55.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">What happens to my 401k if I leave my job?</div>
-        <div class="faq-answer">You have several options: (1) Leave it with your former employer (if balance is over $7,000), (2) Roll it over to your new employer's 401k, (3) Roll it over to a Traditional or Roth IRA (often the best option for more investment choices), or (4) Cash it out (subject to taxes and penalties—generally not recommended). If you're 55 or older when you leave, keeping it in your employer's plan allows penalty-free withdrawals before age 59½.</div>
+        <div class="faq-question">What's the difference between a 401(k) withdrawal and a 401(k) loan?</div>
+        <div class="faq-answer">A withdrawal permanently removes money from your account and is subject to taxes and potentially penalties. A loan lets you borrow from your 401(k) (typically up to $50,000 or 50% of your balance) and pay it back with interest—without taxes or penalties if repaid on time. However, if you leave your job or fail to repay, the loan becomes a taxable distribution. Loans also mean you miss out on potential investment gains while the money is out of your account. Consider loans only for short-term needs when you're confident you can repay quickly.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">Can I withdraw from my 401k to buy a house?</div>
-        <div class="faq-answer">Yes, but it's complicated. 401k plans don't have a first-time homebuyer exception like IRAs do. You can take a hardship withdrawal for a home purchase, but you'll pay taxes and the 10% penalty if under 59½. A better option is a 401k loan (if offered)—borrow up to $50,000 and pay yourself back. Or consider rolling some funds to an IRA, which allows up to $10,000 penalty-free withdrawal for first-time homebuyers. The tax hit from early 401k withdrawal often makes it one of the most expensive ways to fund a home purchase.</div>
+        <div class="faq-question">Are 401(k) withdrawals considered income for Social Security?</div>
+        <div class="faq-answer">Yes, traditional 401(k) withdrawals count as ordinary income and can affect how much of your Social Security benefits are taxed. Up to 85% of your Social Security benefits may be taxable if your combined income (adjusted gross income + nontaxable interest + half of Social Security benefits) exceeds $34,000 for individuals or $44,000 for married couples. Strategic withdrawal planning can help minimize taxes on Social Security benefits. Roth 401(k) withdrawals don't count as income and won't affect Social Security taxation.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">How is a Roth 401k withdrawal different from Traditional?</div>
-        <div class="faq-answer">Roth 401k withdrawals are tax-free if you're 59½+ and meet the 5-year rule, while Traditional 401k withdrawals are always taxed as ordinary income. You can withdraw Roth contributions anytime without tax or penalty, but earnings withdrawn early are taxed and penalized. Traditional withdrawals under 59½ face taxes plus 10% penalty on the entire amount. Both have RMDs at age 73, but you can avoid Roth RMDs by rolling to a Roth IRA. If you expect higher taxes in retirement, Roth withdrawals can save significantly.</div>
+        <div class="faq-question">Can I avoid the early withdrawal penalty for a home purchase?</div>
+        <div class="faq-answer">Unfortunately, no. The first-time homebuyer exception that applies to IRAs (up to $10,000 penalty-free) does NOT apply to 401(k) plans. If you're under 59½ and withdraw from your 401(k) for a home purchase, you'll face the 10% early withdrawal penalty plus income taxes. Alternatives include: taking a 401(k) loan (if your plan allows), using a Roth IRA for the first-time homebuyer exception, or waiting until 59½ to avoid penalties. Some people also use the Rule of 55 by timing early retirement and home purchase together.</div>
       </div>
     </div>
   </div>
@@ -627,15 +585,15 @@
         <h4>Popular Calculators</h4>
         <a href="/calc/mortgage-calculator.html">Mortgage Calculator</a>
         <a href="/calc/bmi-calculator.html">BMI Calculator</a>
-        <a href="/calc/compound-interest-calculator.html">Compound Interest</a>
-        <a href="/calc/401k-calculator.html">401k Calculator</a>
+        <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+        <a href="/calc/loan-calculator.html">Loan Calculator</a>
       </div>
       <div class="footer-section">
-        <h4>Retirement Tools</h4>
-        <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
-        <a href="/calc/401k-withdrawal-calculator.html">401k Withdrawal</a>
-        <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
-        <a href="/calc/social-security-calculator.html">Social Security</a>
+        <h4>Finance Tools</h4>
+        <a href="/calc/401k-withdrawal-calculator.html">401(k) Withdrawal</a>
+        <a href="/calc/compound-interest-calculator.html">Compound Interest</a>
+        <a href="/calc/investment-calculator.html">Investment Calculator</a>
+        <a href="/calc/salary-calculator.html">Salary Calculator</a>
       </div>
       <div class="footer-section">
         <h4>Resources</h4>
@@ -656,110 +614,77 @@
 
   <script>
     function calculate() {
-      const withdrawalAmount = parseFloat(document.getElementById('withdrawalAmount').value);
+      const withdrawal = parseFloat(document.getElementById('withdrawalAmount').value);
       const age = parseInt(document.getElementById('age').value);
+      const federalRate = parseFloat(document.getElementById('federalTaxRate').value) / 100;
+      const stateRate = parseFloat(document.getElementById('stateTaxRate').value) / 100;
+      const withdrawalType = document.querySelector('input[name="withdrawalType"]:checked').value;
       const accountType = document.querySelector('input[name="accountType"]:checked').value;
-      const filingStatus = document.getElementById('filingStatus').value;
-      const annualIncome = parseFloat(document.getElementById('annualIncome').value);
-      const stateTaxRate = parseFloat(document.getElementById('stateTaxRate').value) / 100;
 
-      // Calculate early withdrawal penalty (10% if under 59.5 and traditional)
       let penalty = 0;
-      if (age < 59.5 && accountType === 'traditional') {
-        penalty = withdrawalAmount * 0.10;
-      }
-
-      // Calculate federal income tax (simplified progressive tax)
-      let totalIncome = annualIncome;
-      if (accountType === 'traditional') {
-        totalIncome += withdrawalAmount; // Traditional adds to taxable income
-      }
-
-      // 2024 tax brackets (simplified)
       let federalTax = 0;
-      if (accountType === 'traditional') {
-        const taxableWithdrawal = withdrawalAmount;
-        
-        if (filingStatus === 'single') {
-          if (totalIncome <= 11600) federalTax = taxableWithdrawal * 0.10;
-          else if (totalIncome <= 47150) federalTax = taxableWithdrawal * 0.12;
-          else if (totalIncome <= 100525) federalTax = taxableWithdrawal * 0.22;
-          else if (totalIncome <= 191950) federalTax = taxableWithdrawal * 0.24;
-          else if (totalIncome <= 243725) federalTax = taxableWithdrawal * 0.32;
-          else if (totalIncome <= 609350) federalTax = taxableWithdrawal * 0.35;
-          else federalTax = taxableWithdrawal * 0.37;
-        } else if (filingStatus === 'married') {
-          if (totalIncome <= 23200) federalTax = taxableWithdrawal * 0.10;
-          else if (totalIncome <= 94300) federalTax = taxableWithdrawal * 0.12;
-          else if (totalIncome <= 201050) federalTax = taxableWithdrawal * 0.22;
-          else if (totalIncome <= 383900) federalTax = taxableWithdrawal * 0.24;
-          else if (totalIncome <= 487450) federalTax = taxableWithdrawal * 0.32;
-          else if (totalIncome <= 731200) federalTax = taxableWithdrawal * 0.35;
-          else federalTax = taxableWithdrawal * 0.37;
-        } else { // head of household
-          if (totalIncome <= 16550) federalTax = taxableWithdrawal * 0.10;
-          else if (totalIncome <= 63100) federalTax = taxableWithdrawal * 0.12;
-          else if (totalIncome <= 100500) federalTax = taxableWithdrawal * 0.22;
-          else if (totalIncome <= 191950) federalTax = taxableWithdrawal * 0.24;
-          else if (totalIncome <= 243700) federalTax = taxableWithdrawal * 0.32;
-          else if (totalIncome <= 609350) federalTax = taxableWithdrawal * 0.35;
-          else federalTax = taxableWithdrawal * 0.37;
+      let stateTax = 0;
+      let warnings = '';
+
+      // Roth 401(k) qualified withdrawal - no taxes or penalties
+      if (accountType === 'roth' && age >= 59.5) {
+        // Roth qualified withdrawal - completely tax free
+        warnings = '<div class="info"><strong>✓ Qualified Roth 401(k) Withdrawal</strong><br>Your withdrawal is completely tax-free and penalty-free since you\'re over 59½ and assuming you\'ve held the account for 5+ years.</div>';
+      } else {
+        // Traditional 401(k) or non-qualified Roth withdrawal
+        if (accountType === 'roth' && age < 59.5) {
+          warnings = '<div class="warning"><strong>⚠ Non-Qualified Roth Withdrawal</strong><br>Withdrawing earnings before age 59½ means you\'ll pay taxes and penalties on the earnings portion. Contributions can be withdrawn tax and penalty-free anytime.</div>';
+        }
+
+        // Calculate early withdrawal penalty
+        if (withdrawalType === 'early' && age < 59.5) {
+          penalty = withdrawal * 0.10;
+          if (!warnings) {
+            warnings = '<div class="warning"><strong>⚠ Early Withdrawal Penalty</strong><br>You\'re under 59½, so you\'ll pay a 10% early withdrawal penalty ($' + penalty.toLocaleString('en-US', {maximumFractionDigits: 0}) + ') unless you qualify for an exception. Consider alternatives like a 401(k) loan or waiting until 59½ if possible.</div>';
+          }
+        } else if (age >= 55 && withdrawalType === 'early') {
+          warnings = '<div class="info"><strong>💡 Rule of 55 May Apply</strong><br>If you\'ve separated from your employer at age 55 or older, you may qualify for penalty-free withdrawals from that employer\'s 401(k). Verify with your plan administrator.</div>';
+        }
+
+        // Calculate federal tax (only for traditional 401k or non-qualified Roth earnings)
+        if (accountType === 'traditional') {
+          federalTax = withdrawal * federalRate;
+          stateTax = withdrawal * stateRate;
+        } else {
+          // For non-qualified Roth, only earnings are taxed (simplified: assume 50% is earnings)
+          const taxableAmount = age < 59.5 ? withdrawal * 0.5 : 0;
+          federalTax = taxableAmount * federalRate;
+          stateTax = taxableAmount * stateRate;
+        }
+
+        // Add RMD info if applicable
+        if (age >= 73 && accountType === 'traditional') {
+          warnings += '<div class="info"><strong>💡 Required Minimum Distributions</strong><br>At age ' + age + ', you must take Required Minimum Distributions annually from your traditional 401(k). Failing to do so results in a 25% penalty on the amount not withdrawn.</div>';
         }
       }
 
-      // Calculate state tax (only on traditional 401k withdrawals)
-      let stateTax = 0;
-      if (accountType === 'traditional') {
-        stateTax = withdrawalAmount * stateTaxRate;
-      }
-
-      // Calculate totals
       const totalDeductions = penalty + federalTax + stateTax;
-      const netAmount = withdrawalAmount - totalDeductions;
-      const effectiveRate = (totalDeductions / withdrawalAmount) * 100;
+      const netAmount = withdrawal - totalDeductions;
+      const effectiveRate = (totalDeductions / withdrawal * 100).toFixed(1);
 
       // Display results
-      document.getElementById('grossAmount').textContent = '$' + withdrawalAmount.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('grossAmount').textContent = '$' + withdrawal.toLocaleString('en-US', {maximumFractionDigits: 0});
       document.getElementById('totalDeductions').textContent = '$' + totalDeductions.toLocaleString('en-US', {maximumFractionDigits: 0});
       document.getElementById('netAmount').textContent = '$' + netAmount.toLocaleString('en-US', {maximumFractionDigits: 0});
-      document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(1) + '%';
+      document.getElementById('effectiveRate').textContent = effectiveRate + '%';
 
       // Breakdown
-      document.getElementById('breakdownGross').textContent = '$' + withdrawalAmount.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('breakdownGross').textContent = '$' + withdrawal.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('penaltyLabel').textContent = penalty > 0 ? 'Early Withdrawal Penalty (10%)' : 'Early Withdrawal Penalty';
       document.getElementById('penaltyAmount').textContent = penalty > 0 ? '-$' + penalty.toLocaleString('en-US', {maximumFractionDigits: 0}) : '$0';
-      document.getElementById('federalTax').textContent = '-$' + federalTax.toLocaleString('en-US', {maximumFractionDigits: 0});
-      document.getElementById('stateTax').textContent = stateTax > 0 ? '-$' + stateTax.toLocaleString('en-US', {maximumFractionDigits: 0}) : '$0';
+      document.getElementById('federalLabel').textContent = 'Federal Income Tax (' + (federalRate * 100).toFixed(0) + '%)';
+      document.getElementById('federalAmount').textContent = federalTax > 0 ? '-$' + federalTax.toLocaleString('en-US', {maximumFractionDigits: 0}) : '$0';
+      document.getElementById('stateLabel').textContent = 'State Income Tax (' + (stateRate * 100).toFixed(1) + '%)';
+      document.getElementById('stateAmount').textContent = stateTax > 0 ? '-$' + stateTax.toLocaleString('en-US', {maximumFractionDigits: 0}) : '$0';
       document.getElementById('breakdownNet').textContent = '$' + netAmount.toLocaleString('en-US', {maximumFractionDigits: 0});
 
-      // Update labels
-      document.getElementById('penaltyLabel').textContent = age < 59.5 ? 'Early Withdrawal Penalty (10%)' : 'Early Withdrawal Penalty (N/A - age 59½+)';
-      document.getElementById('stateTaxLabel').textContent = 'State Income Tax (' + (stateTaxRate * 100).toFixed(1) + '%)';
-
-      // Update bar chart
-      const netPercent = (netAmount / withdrawalAmount) * 100;
-      document.getElementById('netBar').style.width = netPercent + '%';
-      document.getElementById('netBar').textContent = '$' + netAmount.toLocaleString('en-US', {maximumFractionDigits: 0});
-      document.getElementById('netPercent').textContent = netPercent.toFixed(0) + '% Net Amount';
-      document.getElementById('deductionPercent').textContent = effectiveRate.toFixed(0) + '% Taxes & Penalties';
-
-      // Recommendation
-      let recommendation = '';
-      if (accountType === 'roth') {
-        recommendation = `<div class="success"><strong>✓ Roth 401k Advantage:</strong> ${age >= 59.5 ? 'Your qualified Roth withdrawals are completely tax-free!' : 'Contributions can be withdrawn tax and penalty-free. Only earnings would be taxed/penalized if withdrawn before age 59½ and before the 5-year holding period.'}</div>`;
-      } else if (age >= 59.5) {
-        recommendation = `<div class="success"><strong>✓ No Early Withdrawal Penalty:</strong> Since you're ${age} years old, you avoid the 10% early withdrawal penalty. However, you'll still pay ${effectiveRate.toFixed(1)}% in combined federal and state income taxes.</div>`;
-      } else if (effectiveRate >= 35) {
-        recommendation = `<div class="warning"><strong>⚠ High Tax Cost:</strong> You'll lose ${effectiveRate.toFixed(1)}% of your withdrawal to taxes and penalties. Consider alternatives like a 401k loan, Roth IRA contributions (if applicable), or waiting until age 59½. A $${withdrawalAmount.toLocaleString()} withdrawal costs you $${totalDeductions.toLocaleString()} in taxes and penalties.</div>`;
-      } else {
-        recommendation = `<div class="warning"><strong>⚠ Early Withdrawal Penalty Applies:</strong> At age ${age}, you'll pay a 10% early withdrawal penalty plus income taxes (${effectiveRate.toFixed(1)}% total). Only withdraw if you have no other options. Explore 401k loans, hardship withdrawal exceptions, or other funding sources first.</div>`;
-      }
-
-      // Add RMD info if applicable
-      if (age >= 73) {
-        recommendation += `<div class="info"><strong>ℹ️ RMD Requirement:</strong> At age ${age}, you're required to take Required Minimum Distributions annually. Make sure you're meeting your RMD obligations to avoid penalties.</div>`;
-      }
-
-      document.getElementById('recommendation').innerHTML = recommendation;
+      // Warnings
+      document.getElementById('warnings').innerHTML = warnings;
 
       // Show results
       document.getElementById('results').classList.add('show');
@@ -767,15 +692,6 @@
       // Scroll to results
       document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
-
-    // Recalculate when radio buttons change
-    document.querySelectorAll('input[name="accountType"]').forEach(radio => {
-      radio.addEventListener('change', () => {
-        if (document.getElementById('results').classList.contains('show')) {
-          calculate();
-        }
-      });
-    });
   </script>
 </body>
 </html>
