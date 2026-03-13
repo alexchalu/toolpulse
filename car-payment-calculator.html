@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Payment Calculator — Monthly Auto Loan Calculator | CalcLeap</title>
+<meta name="description" content="Calculate your monthly car payment with our free auto loan calculator. Compare loan terms, see total interest, and view your amortization schedule.">
+<link rel="canonical" href="https://calcleap.com/car-payment-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Car Payment Calculator — CalcLeap">
+<meta property="og:description" content="Calculate monthly car payments, total interest, and view amortization schedules. Free auto loan calculator.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/car-payment-calculator.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Car Payment Calculator",
+  "description": "Calculate monthly car payments, total interest, and view amortization schedules for auto loans.",
+  "url": "https://calcleap.com/car-payment-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is a monthly car payment calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monthly car payments are calculated using the loan amount (price minus down payment and trade-in), interest rate, and loan term. The formula accounts for principal and interest to determine a fixed monthly payment over the loan period."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good interest rate for a car loan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As of 2026, good car loan rates range from 4-7% for new cars and 5-9% for used cars, depending on your credit score. Excellent credit (740+) typically qualifies for the best rates. Shop around and compare offers from multiple lenders."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I make a larger down payment on a car?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A larger down payment (20% or more) reduces your loan amount, lowers monthly payments, and may qualify you for better interest rates. It also reduces the risk of being upside-down on your loan if the car depreciates quickly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What loan term is best for a car?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shorter loan terms (36-48 months) mean higher monthly payments but less total interest paid. Longer terms (60-72 months) reduce monthly payments but increase total cost. Choose based on your budget and how long you plan to keep the vehicle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a trade-in reduce my car payment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, your trade-in value directly reduces the loan amount, which lowers your monthly payment. Make sure to research your vehicle's value beforehand and negotiate the trade-in separately from the new car price."
+      }
+    }
+  ]
+}
+</script>
+<style>
+/* === CalcLeap Apple Design System === */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+
+/* === NAV === */
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+/* === LAYOUT === */
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+
+/* === CALCULATOR CARD === */
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+
+/* === RESULTS === */
+.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.payment-big{font-size:3.5rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--accent)}
+.payment-label{font-size:1.1rem;font-weight:600;margin-top:.25rem;color:var(--text-2)}
+
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
+.stat-row:last-child{border-bottom:none}
+.stat-label{font-size:.85rem;color:var(--text-2)}
+.stat-value{font-size:.95rem;font-weight:700}
+
+.chart-container{margin:1.5rem 0;padding:1.25rem;background:var(--white);border-radius:var(--r-sm)}
+.chart-bars{display:flex;height:180px;gap:.5rem;align-items:flex-end;margin-bottom:.75rem}
+.chart-bar{flex:1;border-radius:var(--r-xs) var(--r-xs) 0 0;position:relative;transition:all .3s}
+.chart-bar-label{position:absolute;top:-1.75rem;left:50%;transform:translateX(-50%);font-size:.75rem;font-weight:600;white-space:nowrap}
+.chart-legend{display:flex;gap:1.5rem;justify-content:center;font-size:.8rem}
+.chart-legend-item{display:flex;align-items:center;gap:.4rem}
+.chart-legend-dot{width:10px;height:10px;border-radius:50%}
+
+.schedule-table{max-height:300px;overflow-y:auto;margin-top:1rem;border:1px solid var(--border);border-radius:var(--r-xs)}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);position:sticky;top:0;z-index:1}
+td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+tr:last-child td{border-bottom:none}
+
+/* === AD === */
+.ad-slot{margin:1.5rem 0}
+
+/* === INFO SECTIONS === */
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card p{font-size:.9rem;color:var(--text-2);line-height:1.7;margin-bottom:.85rem}
+.info-card ul{margin-left:1.5rem;color:var(--text-2);font-size:.9rem;line-height:1.8}
+.info-card ul li{margin-bottom:.4rem}
+
+/* FAQ */
+.faq{border-top:1px solid var(--border);padding:.85rem 0}
+.faq:first-child{border-top:none}
+.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
+.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
+
+/* Related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
+.related-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Lead Form */
+.lead-form{background:var(--accent-bg);border:1px solid rgba(0,113,227,.15);border-radius:var(--r);padding:1.75rem;margin:1.5rem 0}
+.lead-form h4{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;color:var(--accent)}
+.lead-form p{font-size:.85rem;color:var(--text-2);margin-bottom:1rem}
+.lead-form input{width:100%;padding:.7rem .85rem;margin-bottom:.6rem;font-size:.9rem;font-family:var(--font);background:var(--white);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.lead-form input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1)}
+.lead-form .btn{width:100%;margin-top:.5rem}
+
+/* === FOOTER === */
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .page{padding:0 1.25rem}
+  .page-title{font-size:1.75rem}
+  .form-row{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .chart-bars{height:140px}
+}
+@media(max-width:480px){
+  .related-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="index.html#finance">Finance</a>
+      <a href="index.html#insurance">Insurance</a>
+      <a href="index.html#tax">Tax</a>
+      <a href="index.html#health">Health</a>
+      <a href="index.html#converters">Converters</a>
+      <a href="index.html#dev">Dev Tools</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span class="sep">›</span><a href="index.html#finance">Finance</a><span class="sep">›</span>Car Payment Calculator
+  </div>
+
+  <h1 class="page-title">Car Payment Calculator</h1>
+  <p class="page-desc">Calculate your monthly car payment, total interest, and view a detailed amortization schedule. Compare loan terms to find the best auto financing option.</p>
+
+  <!-- Calculator -->
+  <div class="card">
+    <h2>Loan Details</h2>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Vehicle Price ($)</label>
+        <input type="number" id="price" min="0" step="100" value="35000">
+      </div>
+      <div class="form-group">
+        <label>Down Payment ($)</label>
+        <input type="number" id="down" min="0" step="100" value="5000">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Trade-In Value ($)</label>
+        <input type="number" id="trade" min="0" step="100" value="0">
+      </div>
+      <div class="form-group">
+        <label>Interest Rate (%)</label>
+        <input type="number" id="rate" min="0" max="30" step="0.01" value="6.5">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Loan Term (months)</label>
+        <select id="term">
+          <option value="24">24 months (2 years)</option>
+          <option value="36">36 months (3 years)</option>
+          <option value="48">48 months (4 years)</option>
+          <option value="60" selected>60 months (5 years)</option>
+          <option value="72">72 months (6 years)</option>
+          <option value="84">84 months (7 years)</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn" onclick="calculatePayment()">Calculate Payment</button>
+
+    <div class="result-area" id="result"></div>
+  </div>
+
+  <!-- Ad -->
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <!-- Lead Capture -->
+  <div class="lead-form">
+    <h4>🚗 Get Pre-Approved Auto Loan Rates</h4>
+    <p>Compare offers from multiple lenders. Check your rate without affecting your credit score.</p>
+    <form action="https://formsubmit.co/alexmathewc@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Auto Loan Rate Request - CalcLeap">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="number" name="loan_amount" placeholder="Desired Loan Amount ($)" required>
+      <button type="submit" class="btn">Get My Rate</button>
+    </form>
+  </div>
+
+  <!-- Educational Content -->
+  <div class="info-card">
+    <h3>Understanding Auto Loan Payments</h3>
+    <p>When financing a vehicle, your monthly payment depends on four key factors: the loan amount (vehicle price minus down payment and trade-in), the annual percentage rate (APR), the loan term, and any additional fees. Most auto loans use simple interest, meaning interest is calculated only on the remaining principal balance.</p>
+    <p>The formula for calculating monthly payments is: <strong>M = P × [r(1+r)^n] / [(1+r)^n - 1]</strong>, where M is the monthly payment, P is the principal loan amount, r is the monthly interest rate (annual rate ÷ 12), and n is the number of months.</p>
+    <p>Early in the loan term, a larger portion of your payment goes toward interest. As you pay down the principal, more of each payment reduces the loan balance. This is why paying extra toward principal early can save substantial interest over the life of the loan.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Tips for Getting Better Auto Loan Rates</h3>
+    <ul>
+      <li><strong>Improve your credit score:</strong> Rates can vary by 3-5% between excellent and fair credit. Pay down existing debt and dispute any errors on your credit report before applying.</li>
+      <li><strong>Make a larger down payment:</strong> Putting down 20% or more reduces your loan-to-value ratio, making you less risky to lenders and often qualifying you for better rates.</li>
+      <li><strong>Choose a shorter loan term:</strong> 36-48 month loans typically have lower interest rates than 60-72 month terms, and you'll pay far less in total interest.</li>
+      <li><strong>Shop around:</strong> Get quotes from banks, credit unions, and online lenders. Credit unions often offer rates 1-2% lower than traditional banks.</li>
+      <li><strong>Consider new vs. used:</strong> New car loans generally have lower rates (0.5-2% less) than used car loans due to lower risk for lenders.</li>
+      <li><strong>Get pre-approved:</strong> Having financing lined up before visiting the dealership gives you negotiating power and prevents dealer markup on rates.</li>
+      <li><strong>Time your purchase:</strong> End of month, quarter, or model year can yield better deals as dealers try to meet sales quotas.</li>
+      <li><strong>Avoid add-ons:</strong> Extended warranties, gap insurance, and other dealer add-ons are often overpriced. You can typically get these cheaper elsewhere.</li>
+    </ul>
+  </div>
+
+  <!-- Ad -->
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <!-- Related Tools -->
+  <div class="info-card">
+    <h3>Related Financial Tools</h3>
+    <div class="related-grid">
+      <a href="calc/mortgage-payment.html" class="related-link">Mortgage Calculator</a>
+      <a href="calc/loan-calculator.html" class="related-link">Loan Calculator</a>
+      <a href="debt-payoff-calculator.html" class="related-link">Debt Payoff Calculator</a>
+      <a href="home-value-estimator.html" class="related-link">Home Value Estimator</a>
+      <a href="calc/compound-interest.html" class="related-link">Compound Interest</a>
+      <a href="income-tax-calculator.html" class="related-link">Income Tax Calculator</a>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="info-card">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <div class="faq-q">How is a monthly car payment calculated?</div>
+      <div class="faq-a">Monthly car payments are calculated using the loan amount (price minus down payment and trade-in), interest rate, and loan term. The formula accounts for principal and interest to determine a fixed monthly payment over the loan period.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">What is a good interest rate for a car loan?</div>
+      <div class="faq-a">As of 2026, good car loan rates range from 4-7% for new cars and 5-9% for used cars, depending on your credit score. Excellent credit (740+) typically qualifies for the best rates. Shop around and compare offers from multiple lenders.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Should I make a larger down payment on a car?</div>
+      <div class="faq-a">A larger down payment (20% or more) reduces your loan amount, lowers monthly payments, and may qualify you for better interest rates. It also reduces the risk of being upside-down on your loan if the car depreciates quickly.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">What loan term is best for a car?</div>
+      <div class="faq-a">Shorter loan terms (36-48 months) mean higher monthly payments but less total interest paid. Longer terms (60-72 months) reduce monthly payments but increase total cost. Choose based on your budget and how long you plan to keep the vehicle.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Does a trade-in reduce my car payment?</div>
+      <div class="faq-a">Yes, your trade-in value directly reduces the loan amount, which lowers your monthly payment. Make sure to research your vehicle's value beforehand and negotiate the trade-in separately from the new car price.</div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="index.html">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+    </div>
+    <div>
+      <h5>Popular</h5>
+      <a href="bmi-calculator.html">BMI Calculator</a>
+      <a href="calc/mortgage-payment.html">Mortgage</a>
+      <a href="income-tax-calculator.html">Income Tax</a>
+      <a href="calc/compound-interest.html">Compound Interest</a>
+    </div>
+    <div>
+      <h5>Categories</h5>
+      <a href="index.html#finance">Financial</a>
+      <a href="index.html#insurance">Insurance</a>
+      <a href="index.html#health">Health</a>
+      <a href="index.html#converters">Converters</a>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog/index.html">Blog</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. For informational purposes only.</p>
+  </div>
+</footer>
+
+<script>
+function calculatePayment() {
+  const price = parseFloat(document.getElementById('price').value) || 0;
+  const down = parseFloat(document.getElementById('down').value) || 0;
+  const trade = parseFloat(document.getElementById('trade').value) || 0;
+  const rate = parseFloat(document.getElementById('rate').value) || 0;
+  const term = parseInt(document.getElementById('term').value) || 60;
+
+  if (price <= 0) return alert('Please enter a valid vehicle price.');
+  
+  const principal = price - down - trade;
+  if (principal <= 0) return alert('Down payment and trade-in exceed vehicle price.');
+
+  const monthlyRate = (rate / 100) / 12;
+  let payment, totalInterest, totalCost;
+
+  if (monthlyRate === 0) {
+    payment = principal / term;
+    totalInterest = 0;
+    totalCost = principal;
+  } else {
+    payment = principal * (monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1);
+    totalCost = payment * term;
+    totalInterest = totalCost - principal;
+  }
+
+  // Generate amortization schedule
+  let balance = principal;
+  let schedule = [];
+  for (let i = 1; i <= term; i++) {
+    const interest = balance * monthlyRate;
+    const principalPmt = payment - interest;
+    balance -= principalPmt;
+    if (balance < 0.01) balance = 0;
+    schedule.push({
+      month: i,
+      payment: payment,
+      principal: principalPmt,
+      interest: interest,
+      balance: balance
+    });
+  }
+
+  // Chart data (principal vs interest)
+  const principalPct = (principal / totalCost) * 100;
+  const interestPct = (totalInterest / totalCost) * 100;
+
+  const el = document.getElementById('result');
+  el.innerHTML = `
+    <div style="text-align:center;margin-bottom:1.5rem">
+      <div class="payment-big">$${payment.toFixed(2)}</div>
+      <div class="payment-label">Monthly Payment</div>
+    </div>
+
+    <div style="margin-bottom:1.5rem">
+      <div class="stat-row"><span class="stat-label">Loan Amount</span><span class="stat-value">$${principal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></div>
+      <div class="stat-row"><span class="stat-label">Total Interest Paid</span><span class="stat-value">$${totalInterest.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></div>
+      <div class="stat-row"><span class="stat-label">Total Cost</span><span class="stat-value">$${totalCost.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></div>
+      <div class="stat-row"><span class="stat-label">Loan Term</span><span class="stat-value">${term} months</span></div>
+    </div>
+
+    <div class="chart-container">
+      <h3 style="font-size:.95rem;font-weight:700;margin-bottom:1rem">Payment Breakdown</h3>
+      <div class="chart-bars">
+        <div class="chart-bar" style="height:${principalPct}%;background:#0071e3">
+          <div class="chart-bar-label" style="color:#0071e3">$${principal.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+        </div>
+        <div class="chart-bar" style="height:${interestPct}%;background:#f87171">
+          <div class="chart-bar-label" style="color:#f87171">$${totalInterest.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+        </div>
+      </div>
+      <div class="chart-legend">
+        <div class="chart-legend-item">
+          <div class="chart-legend-dot" style="background:#0071e3"></div>
+          <span>Principal (${principalPct.toFixed(1)}%)</span>
+        </div>
+        <div class="chart-legend-item">
+          <div class="chart-legend-dot" style="background:#f87171"></div>
+          <span>Interest (${interestPct.toFixed(1)}%)</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem">
+      <h3 style="font-size:.95rem;font-weight:700;margin-bottom:.75rem">Amortization Schedule</h3>
+      <div class="schedule-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Payment</th>
+              <th>Principal</th>
+              <th>Interest</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${schedule.map(row => `
+              <tr>
+                <td>${row.month}</td>
+                <td>$${row.payment.toFixed(2)}</td>
+                <td>$${row.principal.toFixed(2)}</td>
+                <td>$${row.interest.toFixed(2)}</td>
+                <td>$${row.balance.toFixed(2)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+</script>
+</body>
+</html>

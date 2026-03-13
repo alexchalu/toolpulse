@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Value Estimator — Free Property Value Calculator | CalcLeap</title>
+<meta name="description" content="Estimate your home's value instantly. Enter property details and location to get a detailed valuation range based on market data. Free home value calculator.">
+<link rel="canonical" href="https://calcleap.com/home-value-estimator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Home Value Estimator — CalcLeap">
+<meta property="og:description" content="Estimate your property value with our free home value calculator. Compare against state and national averages.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/home-value-estimator.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Home Value Estimator",
+  "description": "Estimate your home's value based on property details and location. Compare against state and national averages.",
+  "url": "https://calcleap.com/home-value-estimator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate are online home value estimates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Online home value estimates typically have an accuracy range of ±5-15%, depending on data availability and market conditions. They're useful for getting a ballpark figure, but a professional appraisal is recommended for refinancing, selling, or legal purposes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What factors affect my home's value?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Key factors include location, square footage, number of bedrooms/bathrooms, lot size, property condition, age, recent renovations, local market trends, school district quality, and comparable sales in your neighborhood."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I check my home's value?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check your home value quarterly or whenever significant changes occur (major renovations, market shifts, or neighborhood developments). Regular monitoring helps you track equity growth and make informed decisions about refinancing or selling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between assessed value and market value?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Assessed value is determined by your local tax assessor for property tax purposes and is often lower than market value. Market value is what buyers are willing to pay in current conditions. Market value is more relevant for selling or refinancing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I increase my home's value?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "High-ROI improvements include kitchen and bathroom remodels, adding curb appeal, upgrading energy efficiency, finishing basements, adding square footage, and maintaining excellent condition. Focus on projects that buyers in your market value most."
+      }
+    }
+  ]
+}
+</script>
+<style>
+/* === CalcLeap Apple Design System === */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+
+/* === NAV === */
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+/* === LAYOUT === */
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+
+/* === CALCULATOR CARD === */
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+
+/* === RESULTS === */
+.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.value-big{font-size:3.5rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--accent)}
+.value-label{font-size:1.1rem;font-weight:600;margin-top:.25rem;color:var(--text-2)}
+.value-range{font-size:.9rem;color:var(--text-3);margin-top:.35rem}
+
+.gauge-container{margin:1.75rem 0;padding:1.25rem;background:var(--white);border-radius:var(--r-sm)}
+.gauge-visual{position:relative;height:120px;margin:1rem 0}
+.gauge-arc{width:200px;height:100px;margin:0 auto;position:relative}
+.gauge-arc svg{display:block}
+.gauge-needle{position:absolute;bottom:0;left:50%;width:3px;height:80px;background:var(--text);transform-origin:bottom center;transition:transform .6s ease;border-radius:2px}
+.gauge-labels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-3);margin-top:.5rem;max-width:200px;margin-left:auto;margin-right:auto}
+
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
+.stat-row:last-child{border-bottom:none}
+.stat-label{font-size:.85rem;color:var(--text-2)}
+.stat-value{font-size:.95rem;font-weight:700}
+
+/* === AD === */
+.ad-slot{margin:1.5rem 0}
+
+/* === INFO SECTIONS === */
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card p{font-size:.9rem;color:var(--text-2);line-height:1.7;margin-bottom:.85rem}
+.info-card ul{margin-left:1.5rem;color:var(--text-2);font-size:.9rem;line-height:1.8}
+.info-card ul li{margin-bottom:.4rem}
+
+/* FAQ */
+.faq{border-top:1px solid var(--border);padding:.85rem 0}
+.faq:first-child{border-top:none}
+.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
+.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
+
+/* Related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
+.related-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Lead Form */
+.lead-form{background:var(--accent-bg);border:1px solid rgba(0,113,227,.15);border-radius:var(--r);padding:1.75rem;margin:1.5rem 0}
+.lead-form h4{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;color:var(--accent)}
+.lead-form p{font-size:.85rem;color:var(--text-2);margin-bottom:1rem}
+.lead-form input,.lead-form textarea{width:100%;padding:.7rem .85rem;margin-bottom:.6rem;font-size:.9rem;font-family:var(--font);background:var(--white);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.lead-form input:focus,.lead-form textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1)}
+.lead-form textarea{resize:vertical;min-height:80px}
+.lead-form .btn{width:100%;margin-top:.5rem}
+
+/* === FOOTER === */
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .page{padding:0 1.25rem}
+  .page-title{font-size:1.75rem}
+  .form-row{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .related-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="index.html#finance">Finance</a>
+      <a href="index.html#insurance">Insurance</a>
+      <a href="index.html#tax">Tax</a>
+      <a href="index.html#health">Health</a>
+      <a href="index.html#converters">Converters</a>
+      <a href="index.html#dev">Dev Tools</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span class="sep">›</span><a href="index.html#finance">Finance</a><span class="sep">›</span>Home Value Estimator
+  </div>
+
+  <h1 class="page-title">Home Value Estimator</h1>
+  <p class="page-desc">Get an instant estimate of your home's value based on property details and location. Compare against state and national averages.</p>
+
+  <!-- Calculator -->
+  <div class="card">
+    <h2>Property Details</h2>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Square Footage</label>
+        <input type="number" id="sqft" min="100" step="50" value="2000">
+      </div>
+      <div class="form-group">
+        <label>Bedrooms</label>
+        <input type="number" id="beds" min="1" max="20" value="3">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Bathrooms</label>
+        <input type="number" id="baths" min="1" max="20" step="0.5" value="2">
+      </div>
+      <div class="form-group">
+        <label>Lot Size (acres)</label>
+        <input type="number" id="lot" min="0" step="0.1" value="0.25">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Year Built</label>
+        <input type="number" id="year" min="1800" max="2026" value="2005">
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <select id="state">
+          <option value="AL|200">Alabama</option>
+          <option value="AK|320">Alaska</option>
+          <option value="AZ|280">Arizona</option>
+          <option value="AR|185">Arkansas</option>
+          <option value="CA|580">California</option>
+          <option value="CO|420">Colorado</option>
+          <option value="CT|310">Connecticut</option>
+          <option value="DE|265">Delaware</option>
+          <option value="FL|295">Florida</option>
+          <option value="GA|245">Georgia</option>
+          <option value="HI|680">Hawaii</option>
+          <option value="ID|265">Idaho</option>
+          <option value="IL|235">Illinois</option>
+          <option value="IN|185">Indiana</option>
+          <option value="IA|175">Iowa</option>
+          <option value="KS|195">Kansas</option>
+          <option value="KY|180">Kentucky</option>
+          <option value="LA|210">Louisiana</option>
+          <option value="ME|280">Maine</option>
+          <option value="MD|345">Maryland</option>
+          <option value="MA|485">Massachusetts</option>
+          <option value="MI|195">Michigan</option>
+          <option value="MN|275">Minnesota</option>
+          <option value="MS|165">Mississippi</option>
+          <option value="MO|190">Missouri</option>
+          <option value="MT|320">Montana</option>
+          <option value="NE|195">Nebraska</option>
+          <option value="NV|315">Nevada</option>
+          <option value="NH|365">New Hampshire</option>
+          <option value="NJ|385">New Jersey</option>
+          <option value="NM|235">New Mexico</option>
+          <option value="NY|365">New York</option>
+          <option value="NC|245">North Carolina</option>
+          <option value="ND|225">North Dakota</option>
+          <option value="OH|185">Ohio</option>
+          <option value="OK|175">Oklahoma</option>
+          <option value="OR|410">Oregon</option>
+          <option value="PA|225">Pennsylvania</option>
+          <option value="RI|385">Rhode Island</option>
+          <option value="SC|230">South Carolina</option>
+          <option value="SD|215">South Dakota</option>
+          <option value="TN|225">Tennessee</option>
+          <option value="TX|235" selected>Texas</option>
+          <option value="UT|360">Utah</option>
+          <option value="VT|320">Vermont</option>
+          <option value="VA|325">Virginia</option>
+          <option value="WA|445">Washington</option>
+          <option value="WV|155">West Virginia</option>
+          <option value="WI|225">Wisconsin</option>
+          <option value="WY|285">Wyoming</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Condition</label>
+        <select id="condition">
+          <option value="0.75">Poor (needs major repairs)</option>
+          <option value="0.9">Fair (needs some work)</option>
+          <option value="1.0" selected>Average (well-maintained)</option>
+          <option value="1.15">Good (recently updated)</option>
+          <option value="1.35">Excellent (fully renovated)</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn" onclick="estimateValue()">Estimate Value</button>
+
+    <div class="result-area" id="result"></div>
+  </div>
+
+  <!-- Ad -->
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <!-- Lead Capture -->
+  <div class="lead-form">
+    <h4>🏡 Get a Professional Home Valuation</h4>
+    <p>Connect with a local real estate expert for a detailed comparative market analysis (CMA) of your property.</p>
+    <form action="https://formsubmit.co/alexmathewc@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Professional Home Valuation Request - CalcLeap">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="address" placeholder="Property Address" required>
+      <textarea name="details" placeholder="Tell us about your property (optional)"></textarea>
+      <button type="submit" class="btn">Request Free Valuation</button>
+    </form>
+  </div>
+
+  <!-- Educational Content -->
+  <div class="info-card">
+    <h3>How Home Values Are Determined</h3>
+    <p>Your home's market value is influenced by a complex interplay of factors, both within your control and external market conditions. Professional appraisers and real estate agents use comparative market analysis (CMA) to evaluate recent sales of similar properties (comparables or "comps") in your neighborhood, adjusting for differences in size, condition, features, and location.</p>
+    <p>The most significant value drivers are location and square footage. Properties in desirable neighborhoods with good schools, low crime rates, and convenient amenities command premium prices. Square footage establishes a baseline value, typically expressed as price per square foot, which varies widely by region—from under $150/sqft in rural areas to over $800/sqft in major metro markets.</p>
+    <p>Property condition and age play crucial roles. Well-maintained homes with modern updates retain value better than neglected properties. Major systems like HVAC, roofing, and plumbing significantly impact valuation, as do cosmetic features like updated kitchens and bathrooms. Lot size, garage space, and additional features (pools, decks, finished basements) add value but vary in importance by market.</p>
+    <p>External factors include local market trends (buyer's vs. seller's market), interest rates (which affect affordability), economic conditions, neighborhood development, and seasonal fluctuations. Understanding these dynamics helps you make informed decisions about buying, selling, or refinancing.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Increasing Your Home's Value</h3>
+    <ul>
+      <li><strong>Kitchen remodel:</strong> Kitchens are the heart of the home. Mid-range remodels (new countertops, cabinets, appliances) typically return 60-80% of costs. Focus on modern, neutral designs that appeal to broad buyer preferences.</li>
+      <li><strong>Bathroom updates:</strong> Updated bathrooms add significant value. Even minor upgrades like new fixtures, vanities, and tile can yield 70% ROI. Master bath renovations offer higher returns than secondary baths.</li>
+      <li><strong>Curb appeal:</strong> First impressions matter. Landscaping, fresh paint, new garage door, and updated entryway can return 100%+ of investment by attracting more buyers and higher offers.</li>
+      <li><strong>Energy efficiency:</strong> New windows, insulation, HVAC systems, and smart thermostats reduce operating costs and appeal to eco-conscious buyers, particularly in high-energy-cost regions.</li>
+      <li><strong>Additional space:</strong> Finishing basements, converting attics, or adding square footage provides some of the highest ROI, especially in space-constrained markets where buyers pay premium for livable area.</li>
+      <li><strong>Flooring upgrades:</strong> Replace worn carpet with hardwood or quality laminate. Modern flooring instantly updates a home's appearance and is expected by today's buyers.</li>
+      <li><strong>Fresh paint:</strong> Interior and exterior paint is one of the cheapest, highest-impact improvements. Stick to neutral colors that let buyers envision their style.</li>
+      <li><strong>Smart home features:</strong> Integrated smart locks, lighting, thermostats, and security systems appeal to tech-savvy buyers and can differentiate your listing.</li>
+    </ul>
+  </div>
+
+  <!-- Ad -->
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <!-- Related Tools -->
+  <div class="info-card">
+    <h3>Related Financial Tools</h3>
+    <div class="related-grid">
+      <a href="calc/mortgage-payment.html" class="related-link">Mortgage Calculator</a>
+      <a href="car-payment-calculator.html" class="related-link">Car Payment Calculator</a>
+      <a href="debt-payoff-calculator.html" class="related-link">Debt Payoff Calculator</a>
+      <a href="calc/refinance-calculator.html" class="related-link">Refinance Calculator</a>
+      <a href="calc/compound-interest.html" class="related-link">Compound Interest</a>
+      <a href="income-tax-calculator.html" class="related-link">Income Tax Calculator</a>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="info-card">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <div class="faq-q">How accurate are online home value estimates?</div>
+      <div class="faq-a">Online home value estimates typically have an accuracy range of ±5-15%, depending on data availability and market conditions. They're useful for getting a ballpark figure, but a professional appraisal is recommended for refinancing, selling, or legal purposes.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">What factors affect my home's value?</div>
+      <div class="faq-a">Key factors include location, square footage, number of bedrooms/bathrooms, lot size, property condition, age, recent renovations, local market trends, school district quality, and comparable sales in your neighborhood.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">How often should I check my home's value?</div>
+      <div class="faq-a">Check your home value quarterly or whenever significant changes occur (major renovations, market shifts, or neighborhood developments). Regular monitoring helps you track equity growth and make informed decisions about refinancing or selling.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">What's the difference between assessed value and market value?</div>
+      <div class="faq-a">Assessed value is determined by your local tax assessor for property tax purposes and is often lower than market value. Market value is what buyers are willing to pay in current conditions. Market value is more relevant for selling or refinancing.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">How can I increase my home's value?</div>
+      <div class="faq-a">High-ROI improvements include kitchen and bathroom remodels, adding curb appeal, upgrading energy efficiency, finishing basements, adding square footage, and maintaining excellent condition. Focus on projects that buyers in your market value most.</div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="index.html">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+    </div>
+    <div>
+      <h5>Popular</h5>
+      <a href="bmi-calculator.html">BMI Calculator</a>
+      <a href="calc/mortgage-payment.html">Mortgage</a>
+      <a href="income-tax-calculator.html">Income Tax</a>
+      <a href="calc/compound-interest.html">Compound Interest</a>
+    </div>
+    <div>
+      <h5>Categories</h5>
+      <a href="index.html#finance">Financial</a>
+      <a href="index.html#insurance">Insurance</a>
+      <a href="index.html#health">Health</a>
+      <a href="index.html#converters">Converters</a>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog/index.html">Blog</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. For informational purposes only.</p>
+  </div>
+</footer>
+
+<script>
+// Median price per sqft by state (2026 estimates)
+const stateData = {
+  national: 250
+};
+
+function estimateValue() {
+  const sqft = parseFloat(document.getElementById('sqft').value) || 0;
+  const beds = parseInt(document.getElementById('beds').value) || 0;
+  const baths = parseFloat(document.getElementById('baths').value) || 0;
+  const lot = parseFloat(document.getElementById('lot').value) || 0;
+  const year = parseInt(document.getElementById('year').value) || 0;
+  const stateVal = document.getElementById('state').value.split('|');
+  const stateName = document.getElementById('state').options[document.getElementById('state').selectedIndex].text;
+  const pricePerSqft = parseFloat(stateVal[1]) || 250;
+  const condition = parseFloat(document.getElementById('condition').value) || 1.0;
+
+  if (sqft <= 0) return alert('Please enter valid square footage.');
+
+  // Base value calculation
+  let baseValue = sqft * pricePerSqft;
+
+  // Adjust for bedrooms (premium for 3-4 beds, discount for extremes)
+  if (beds >= 3 && beds <= 4) baseValue *= 1.05;
+  else if (beds > 5) baseValue *= 0.95;
+  else if (beds < 2) baseValue *= 0.92;
+
+  // Adjust for bathrooms
+  if (baths >= 2.5) baseValue *= 1.08;
+  else if (baths < 1.5) baseValue *= 0.93;
+
+  // Lot size premium (larger lots in most markets add value)
+  if (lot > 0.5) baseValue *= 1.05;
+  if (lot > 1.0) baseValue *= 1.08;
+
+  // Age adjustment
+  const age = 2026 - year;
+  if (age < 5) baseValue *= 1.12; // New construction premium
+  else if (age < 15) baseValue *= 1.05;
+  else if (age > 50) baseValue *= 0.92;
+
+  // Apply condition multiplier
+  baseValue *= condition;
+
+  // Calculate range (±12%)
+  const lowEst = baseValue * 0.88;
+  const highEst = baseValue * 1.12;
+
+  // Compare to national average
+  const nationalAvg = sqft * stateData.national * condition;
+  const vsNational = ((baseValue - nationalAvg) / nationalAvg) * 100;
+  
+  // Gauge angle (-90 to +90 degrees, mapping $100k-$1M range)
+  const gaugeMin = 100000;
+  const gaugeMax = 1000000;
+  const gaugePct = Math.min(1, Math.max(0, (baseValue - gaugeMin) / (gaugeMax - gaugeMin)));
+  const gaugeAngle = -90 + (gaugePct * 180);
+
+  const el = document.getElementById('result');
+  el.innerHTML = `
+    <div style="text-align:center;margin-bottom:1.5rem">
+      <div class="value-big">$${baseValue.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+      <div class="value-label">Estimated Home Value</div>
+      <div class="value-range">Range: $${lowEst.toLocaleString('en-US', {maximumFractionDigits: 0})} – $${highEst.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+    </div>
+
+    <div class="gauge-container">
+      <h3 style="font-size:.95rem;font-weight:700;margin-bottom:1rem;text-align:center">Value Gauge</h3>
+      <div class="gauge-visual">
+        <div class="gauge-arc">
+          <svg viewBox="0 0 200 100">
+            <path d="M 10 100 A 90 90 0 0 1 190 100" fill="none" stroke="#34d399" stroke-width="12" stroke-linecap="round"/>
+            <path d="M 190 100 A 90 90 0 0 1 10 100" fill="none" stroke="#0071e3" stroke-width="12" stroke-linecap="round" stroke-dasharray="282.7" stroke-dashoffset="141.35"/>
+          </svg>
+          <div class="gauge-needle" style="transform:rotate(${gaugeAngle}deg)"></div>
+        </div>
+      </div>
+      <div class="gauge-labels"><span>$100K</span><span>$550K</span><span>$1M+</span></div>
+    </div>
+
+    <div style="margin-top:1.5rem">
+      <div class="stat-row"><span class="stat-label">Low Estimate</span><span class="stat-value">$${lowEst.toLocaleString('en-US', {maximumFractionDigits: 0})}</span></div>
+      <div class="stat-row"><span class="stat-label">Mid Estimate</span><span class="stat-value" style="color:var(--accent)">$${baseValue.toLocaleString('en-US', {maximumFractionDigits: 0})}</span></div>
+      <div class="stat-row"><span class="stat-label">High Estimate</span><span class="stat-value">$${highEst.toLocaleString('en-US', {maximumFractionDigits: 0})}</span></div>
+      <div class="stat-row"><span class="stat-label">Price per Sq Ft</span><span class="stat-value">$${(baseValue/sqft).toFixed(0)}</span></div>
+      <div class="stat-row"><span class="stat-label">State Avg (${stateName})</span><span class="stat-value">$${pricePerSqft}/sqft</span></div>
+      <div class="stat-row"><span class="stat-label">vs National Avg</span><span class="stat-value" style="color:${vsNational >= 0 ? '#34d399' : '#f87171'}">${vsNational >= 0 ? '+' : ''}${vsNational.toFixed(1)}%</span></div>
+    </div>
+  `;
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+</script>
+</body>
+</html>
