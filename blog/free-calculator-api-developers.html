@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Financial Calculator API for Developers — CalcLeap API</title>
+<meta name="description" content="Free calculator API with 8 endpoints: mortgage, compound interest, retirement, insurance, BMI, and more. JSON responses, no API key needed for free tier.">
+<link rel="canonical" href="https://calcleap.com/blog/free-calculator-api-developers.html">
+<meta property="og:title" content="Free Financial Calculator API for Developers">
+<meta property="og:description" content="8 calculator endpoints, JSON responses, free tier. Mortgage, compound interest, retirement, insurance estimator, BMI & more.">
+<meta property="og:url" content="https://calcleap.com/blog/free-calculator-api-developers.html">
+<meta property="og:type" content="article">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.1);height:48px;display:flex;align-items:center;padding:0 20px}
+.nav a{color:#1d1d1f;text-decoration:none;font-weight:600;font-size:18px}
+.page{max-width:780px;margin:0 auto;padding:40px 20px 80px}
+h1{font-size:2.2em;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;line-height:1.15}
+.subtitle{font-size:1.15em;color:#6e6e73;margin-bottom:40px}
+h2{font-size:1.4em;margin:40px 0 15px;font-weight:600}
+h3{font-size:1.1em;margin:25px 0 10px;font-weight:600}
+p{margin-bottom:18px;font-size:1.05em}
+pre{background:#1d1d1f;color:#e5e5e7;padding:20px;border-radius:12px;overflow-x:auto;margin:15px 0 25px;font-size:0.9em;line-height:1.5}
+code{font-family:'SF Mono',Monaco,Consolas,monospace}
+.inline-code{background:#e8e8ed;padding:2px 8px;border-radius:4px;font-size:0.9em}
+.endpoint{background:#fff;border-radius:16px;padding:24px;margin:20px 0;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.endpoint h3{color:#0071e3;margin-top:0}
+.method{display:inline-block;background:#0071e3;color:#fff;padding:2px 10px;border-radius:6px;font-size:0.85em;font-weight:600;margin-right:8px}
+.url{font-family:'SF Mono',Monaco,monospace;color:#1d1d1f;font-size:0.95em}
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid #e8e8ed;font-size:0.95em}
+th{color:#6e6e73;font-weight:500}
+.cta{display:inline-block;background:#0071e3;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:600;margin:15px 8px 15px 0}
+.cta.secondary{background:#e8e8ed;color:#1d1d1f}
+a{color:#0071e3;text-decoration:none}
+.footer{background:#1d1d1f;color:#86868b;padding:40px 20px;text-align:center;font-size:0.85em}
+.footer a{color:#86868b}
+@media(max-width:600px){h1{font-size:1.7em}pre{padding:12px;font-size:0.8em}}
+</style>
+</head>
+<body>
+<nav class="nav"><a href="/">🧮 CalcLeap</a></nav>
+<div class="page">
+
+<h1>Free Financial Calculator API for Developers</h1>
+<p class="subtitle">8 endpoints. JSON responses. No API key required for free tier.</p>
+
+<a href="/api-docs.html" class="cta">API Documentation →</a>
+<a href="https://github.com/alexchalu/calcleap-api" class="cta secondary">GitHub Repo →</a>
+
+<h2>Why Another Calculator API?</h2>
+<p>Most financial calculation APIs either cost $50+/month, require complex OAuth setup, or return XML from 2008. We built the CalcLeap API to be dead simple: make a GET request, get back clean JSON.</p>
+<p>It covers the calculations developers actually need: mortgage payments with amortization schedules, compound interest projections, retirement planning, insurance estimates by state, BMI, and more.</p>
+
+<h2>Quick Example</h2>
+<pre><code>$ curl "https://calcleap.com/api/mortgage?principal=350000&rate=6.5&years=30"
+
+{
+  "calculator": "mortgage",
+  "result": {
+    "monthlyPayment": 2212.24,
+    "totalPaid": 796405.71,
+    "totalInterest": 446405.71,
+    "loanTermMonths": 360,
+    "schedule": [...]
+  }
+}</code></pre>
+
+<h2>Available Endpoints</h2>
+
+<div class="endpoint">
+<h3>Mortgage Calculator</h3>
+<p><span class="method">GET</span> <span class="url">/api/mortgage</span></p>
+<table>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+<tr><td>principal</td><td>number</td><td>Loan amount ($)</td></tr>
+<tr><td>rate</td><td>number</td><td>Annual interest rate (%)</td></tr>
+<tr><td>years</td><td>number</td><td>Loan term in years</td></tr>
+</table>
+<p>Returns: monthly payment, total paid, total interest, 12-month amortization schedule.</p>
+</div>
+
+<div class="endpoint">
+<h3>Compound Interest</h3>
+<p><span class="method">GET</span> <span class="url">/api/compound</span></p>
+<table>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+<tr><td>principal</td><td>number</td><td>Starting amount ($)</td></tr>
+<tr><td>rate</td><td>number</td><td>Annual return (%)</td></tr>
+<tr><td>years</td><td>number</td><td>Investment period</td></tr>
+<tr><td>contribution</td><td>number</td><td>Monthly addition ($)</td></tr>
+</table>
+<p>Returns: future value, total contributed, total interest, year-by-year growth.</p>
+</div>
+
+<div class="endpoint">
+<h3>Insurance Estimator</h3>
+<p><span class="method">GET</span> <span class="url">/api/insurance</span></p>
+<table>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+<tr><td>type</td><td>string</td><td>auto or home</td></tr>
+<tr><td>state</td><td>string</td><td>US state code (NJ, CA, TX...)</td></tr>
+<tr><td>age</td><td>number</td><td>Driver age (auto only)</td></tr>
+<tr><td>coverage</td><td>string</td><td>full or liability</td></tr>
+</table>
+<p>Returns: annual/monthly premium estimate, state average. All 50 states supported.</p>
+</div>
+
+<div class="endpoint">
+<h3>Retirement Planner</h3>
+<p><span class="method">GET</span> <span class="url">/api/retirement</span></p>
+<table>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+<tr><td>currentAge</td><td>number</td><td>Your current age</td></tr>
+<tr><td>retireAge</td><td>number</td><td>Target retirement age</td></tr>
+<tr><td>monthlyContribution</td><td>number</td><td>Monthly savings ($)</td></tr>
+<tr><td>currentSavings</td><td>number</td><td>Existing savings ($)</td></tr>
+<tr><td>annualReturn</td><td>number</td><td>Expected return (%, default 7)</td></tr>
+</table>
+<p>Returns: projected savings, estimated monthly retirement income (4% rule).</p>
+</div>
+
+<div class="endpoint">
+<h3>BMI Calculator</h3>
+<p><span class="method">GET</span> <span class="url">/api/bmi</span></p>
+<table>
+<tr><th>Param</th><th>Type</th><th>Description</th></tr>
+<tr><td>weight</td><td>number</td><td>Weight (lbs or kg)</td></tr>
+<tr><td>height</td><td>number</td><td>Height (inches or cm)</td></tr>
+<tr><td>unit</td><td>string</td><td>imperial or metric</td></tr>
+</table>
+</div>
+
+<div class="endpoint">
+<h3>+ Loan, Tip, Percentage</h3>
+<p>Three more endpoints for general calculations. <a href="/api-docs.html">See full docs →</a></p>
+</div>
+
+<h2>Code Examples</h2>
+
+<h3>JavaScript (fetch)</h3>
+<pre><code>const res = await fetch('https://calcleap.com/api/mortgage?principal=400000&rate=7&years=30');
+const data = await res.json();
+console.log(`Monthly payment: $${data.result.monthlyPayment}`);</code></pre>
+
+<h3>Python (requests)</h3>
+<pre><code>import requests
+r = requests.get('https://calcleap.com/api/compound', params={
+    'principal': 10000, 'rate': 8, 'years': 25, 'contribution': 300
+})
+print(f"Future value: ${r.json()['result']['futureValue']:,.2f}")</code></pre>
+
+<h3>cURL</h3>
+<pre><code>curl "https://calcleap.com/api/insurance?type=auto&state=CA&age=30"</code></pre>
+
+<h2>Pricing</h2>
+<table>
+<tr><th>Plan</th><th>Requests</th><th>Price</th></tr>
+<tr><td><strong>Free</strong></td><td>100/day</td><td>$0</td></tr>
+<tr><td><strong>Pro</strong></td><td>10,000/day</td><td>$9/month</td></tr>
+<tr><td><strong>Enterprise</strong></td><td>Unlimited</td><td>Contact us</td></tr>
+</table>
+
+<h2>Get Started</h2>
+<p>No API key needed for the free tier. Just start making requests.</p>
+<a href="/api-docs.html" class="cta">Read the Docs →</a>
+<a href="https://github.com/alexchalu/calcleap-api" class="cta secondary">Star on GitHub →</a>
+
+</div>
+<div class="footer">
+<p>© 2026 <a href="/">CalcLeap</a> · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</body>
+</html>
