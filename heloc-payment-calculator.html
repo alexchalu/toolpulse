@@ -3,18 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HELOC Payment Calculator - Free Home Equity Tool | CalcLeap</title>
-<meta name="description" content="Calculate Home Equity Line of Credit payments and compare draw vs repayment periods.. Free home equity calculator with instant results.">
+<title>HELOC Payment Calculator - Calculate Home Equity Line of Credit Payments | CalcLeap</title>
+<meta name="description" content="Calculate your HELOC payments with our free home equity line of credit calculator. Compare draw period and repayment period payments, see total interest costs, and understand your monthly obligations.">
 <link rel="canonical" href="https://calcleap.com/heloc-payment-calculator.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
-
+<meta property="og:title" content="HELOC Payment Calculator - Free Home Equity Calculator | CalcLeap">
+<meta property="og:description" content="Calculate your HELOC payments with our free home equity line of credit calculator. Compare draw period vs repayment period payments.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://calcleap.com/heloc-payment-calculator.html">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HELOC Payment Calculator",
+    "description": "Calculate your HELOC payments during draw period and repayment period with our free home equity line of credit calculator.",
+    "url": "https://calcleap.com/heloc-payment-calculator.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How is a HELOC payment calculated?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "HELOC payments are calculated in two phases: During the draw period (typically 10 years), you make interest-only payments on the amount borrowed. During the repayment period (typically 10-20 years), you make principal + interest payments to fully repay the balance."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the draw period vs repayment period?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The draw period is when you can borrow and repay funds flexibly, usually paying only interest. The repayment period begins after the draw period ends, when the line of credit closes and you must pay back both principal and interest on the outstanding balance."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much can I borrow with a HELOC?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most lenders allow you to borrow up to 80-90% of your home's appraised value minus your existing mortgage balance. For example, if your home is worth $400,000 and you owe $200,000, you might qualify for a HELOC of $120,000-$160,000."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is a typical HELOC interest rate?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "HELOC interest rates are typically variable and tied to the prime rate plus a margin (0.5-3%). As of 2026, HELOC rates generally range from 7-10%, but your rate depends on credit score, home equity, and lender terms."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Should I choose a HELOC or home equity loan?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Choose a HELOC if you need flexible access to funds over time (like for ongoing home improvements) and can handle variable rates. Choose a home equity loan if you need a lump sum with a fixed interest rate and predictable monthly payments."
+            }
+        }
+    ]
+}
+</script>
 <style>
-
 /* === CalcLeap Apple Design System === */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -46,7 +106,7 @@ a{color:inherit;text-decoration:none}
 .breadcrumb .sep{margin:0 .35rem;opacity:.4}
 
 .page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:700px}
 
 /* === CALCULATOR CARD === */
 .card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
@@ -58,10 +118,6 @@ a{color:inherit;text-decoration:none}
 .form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
 .form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
 
-.toggle-row{display:flex;gap:.5rem;margin-bottom:1.25rem}
-.toggle-btn{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
 .btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
 
@@ -69,34 +125,35 @@ a{color:inherit;text-decoration:none}
 .result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-.bmi-big{font-size:3.5rem;font-weight:800;letter-spacing:-.04em;line-height:1}
-.bmi-label{font-size:1.1rem;font-weight:600;margin-top:.25rem}
-.bmi-advice{font-size:.875rem;color:var(--text-2);margin-top:.75rem;line-height:1.6}
-
-.gauge{margin:1.5rem 0;position:relative}
-.gauge-bar{display:flex;height:10px;border-radius:100px;overflow:hidden;gap:2px}
-.gauge-seg{height:100%;border-radius:100px}
-.gauge-marker{position:absolute;top:-4px;width:3px;height:18px;background:var(--text);border-radius:2px;transform:translateX(-50%);transition:left .4s ease;box-shadow:0 1px 4px rgba(0,0,0,.3)}
-.gauge-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-3);margin-top:.4rem;padding:0 .1rem}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem}
+.result-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
+.result-box-label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.5rem}
+.result-box-value{font-size:2rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
+.result-box-sub{font-size:.8rem;color:var(--text-2);margin-top:.35rem}
 
 .stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
 .stat-row:last-child{border-bottom:none}
 .stat-label{font-size:.85rem;color:var(--text-2)}
 .stat-value{font-size:.95rem;font-weight:700}
 
+.highlight-box{background:var(--accent-bg);border:1px solid var(--accent);border-radius:var(--r-sm);padding:1rem;margin-top:1rem}
+.highlight-box p{font-size:.875rem;color:var(--text);line-height:1.6}
+
 /* === AD === */
-.ad-slot{margin:1.5rem 0}
+.ad-slot{margin:1.5rem 0;text-align:center}
 
 /* === INFO SECTIONS === */
 .info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
 .info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card p{font-size:.875rem;color:var(--text-2);line-height:1.7;margin-bottom:.85rem}
+.info-card ul{margin-left:1.25rem;margin-top:.75rem}
+.info-card li{font-size:.875rem;color:var(--text-2);line-height:1.7;margin-bottom:.5rem}
 
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem;margin-top:1rem}
 th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
 th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
 th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
 td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
 
 /* FAQ */
 .faq{border-top:1px solid var(--border);padding:.85rem 0}
@@ -125,6 +182,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   .page{padding:0 1.25rem}
   .page-title{font-size:1.75rem}
   .form-row{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr}
   .related-grid{grid-template-columns:1fr 1fr}
   .footer-inner{grid-template-columns:1fr 1fr}
 }
@@ -132,340 +190,417 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   .related-grid{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr}
 }
-
-
-
-/* === COMPREHENSIVE COMPONENT STYLES === */
-
-/* Calc card (used by tax, mortgage, insurance pages) */
-.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-/* Input groups and grids */
-.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group.full{grid-column:1/-1}
-.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-/* Field class (converter pages) */
-.field{margin-bottom:1rem}
-.row{display:flex;gap:.75rem;align-items:center}
-
-/* Radio buttons */
-.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
-.radio-label:hover{border-color:var(--accent);color:var(--accent)}
-.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
-.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
-
-/* Buttons */
-.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
-.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* Result boxes */
-.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
-.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
-
-/* Result grid (tax, insurance calculators) */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-
-/* Result rows */
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none}
-.result-detail{font-size:.85rem;color:var(--text-2)}
-.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
-.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
-.result-item:last-child{border-bottom:none}
-
-/* Stat cards (state tax pages) */
-.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
-.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
-
-/* Section */
-.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-/* Container (fallback for old pages) */
-.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
-
-/* Tool cards (converter index pages) */
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
-.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
-.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
-.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
-.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
-.tool-content{flex:1}
-
-/* Output area (dev tools) */
-.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
-
-/* Converter box */
-.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
-.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
-.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
-.conversion-table{margin-top:1rem}
-
-/* Bar charts */
-.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
-.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
-.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
-
-/* Badge */
-.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Table wrapper */
-.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
-.bracket-table{width:100%;border-collapse:collapse}
-
-/* Rate cards */
-.rate{font-size:.875rem;color:var(--text-2)}
-
-/* Header (old pages fallback) */
-.header{display:none} /* Old header hidden, replaced by .nav */
-
-/* Sub text */
-.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
-
-/* Ad placeholder — HIDE */
-.ad-placeholder{display:none !important}
-
-/* Hero override */
-.hero{padding:.5rem 0 1rem}
-.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
-
-/* FAQ items (old class) */
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-
-/* Toggle/tab buttons */
-.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
-
-/* Color helpers */
-.green{color:#22c55e !important}
-.red{color:#ef4444 !important}
-
-/* Responsive */
-@media(max-width:768px){
-  .result-grid{grid-template-columns:1fr 1fr}
-  .radio-group{flex-direction:column}
-  .tool-grid{grid-template-columns:1fr}
-  .row{flex-direction:column}
-}
-@media(max-width:480px){
-  .result-grid{grid-template-columns:1fr}
-}
-
 </style>
-<meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="index.html#finance">Finance</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#tax">Tax</a>
-      <a href="index.html#health">Health</a>
-      <a href="index.html#converters">Converters</a>
-      <a href="index.html#dev">Dev Tools</a>
-      <a href="about.html">About</a>
-    </div>
-  </div>
+<div class="nav-inner">
+<a href="/" class="logo">Calc<span>Leap</span></a>
+<div class="nav-links">
+<a href="/mortgage-calculator.html">Mortgage</a>
+<a href="/loan-calculator.html">Loan</a>
+<a href="/401k-calculator.html">Retirement</a>
+<a href="/bmi-calculator.html">Health</a>
+</div>
+</div>
 </nav>
 
 <div class="page">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a><span class="sep">›</span><a href="index.html#finance">Finance</a><span class="sep">›</span>HELOC Payment Calculator
-  </div>
 
-  <h1 class="page-title">HELOC Payment Calculator</h1>
-  <p class="page-desc">Calculate Home Equity Line of Credit payments and compare draw vs repayment periods.. Free home equity calculator with instant results.</p>
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+<a href="/">Home</a>
+<span class="sep">›</span>
+<a href="/financial-calculators.html">Financial Calculators</a>
+<span class="sep">›</span>
+<span>HELOC Payment Calculator</span>
+</div>
 
-<div class="header">
-        <div class="container">
-            
-            <p>Calculate Home Equity Line of Credit payments and compare draw vs repayment periods.</p>
-        </div>
-    </div>
+<!-- HERO -->
+<h1 class="page-title">HELOC Payment Calculator</h1>
+<p class="page-desc">Calculate your home equity line of credit payments during both the draw period (interest-only) and repayment period (principal + interest). Compare monthly payments, total interest costs, and plan your home equity borrowing strategy.</p>
 
-    <div class="main container">
-        <div class="ad-placeholder">
-            
-        </div>
+<!-- CALCULATOR -->
+<div class="card">
+<h2>Calculate Your HELOC Payment</h2>
 
-        <div class="calc-box">
-            <h2>Home Equity Calculator</h2>
-            
-        <div class="input-group">
-          <label for="credit-limit">HELOC Credit Limit ($):</label>
-          <input type="number" id="credit-limit"  min="0"   value="100000">
-        </div>
+<div class="form-row">
+<div class="form-group">
+<label>HELOC Credit Limit ($)</label>
+<input type="number" id="helocLimit" value="100000" min="1000" step="1000">
+</div>
+<div class="form-group">
+<label>Amount Borrowed ($)</label>
+<input type="number" id="amountBorrowed" value="75000" min="0" step="1000">
+</div>
+</div>
 
-        <div class="input-group">
-          <label for="amount-drawn">Amount Drawn ($):</label>
-          <input type="number" id="amount-drawn"  min="0"   value="50000">
-        </div>
+<div class="form-row">
+<div class="form-group">
+<label>Interest Rate (%)</label>
+<input type="number" id="interestRate" value="8.5" min="0.1" max="30" step="0.1">
+</div>
+<div class="form-group">
+<label>Draw Period (Years)</label>
+<input type="number" id="drawPeriod" value="10" min="1" max="15" step="1">
+</div>
+</div>
 
-        <div class="input-group">
-          <label for="interest-rate">Interest Rate (%):</label>
-          <input type="number" id="interest-rate"  min="0" max="20" step="0.01" value="7.5">
-        </div>
+<div class="form-row">
+<div class="form-group">
+<label>Repayment Period (Years)</label>
+<input type="number" id="repaymentPeriod" value="15" min="5" max="25" step="1">
+</div>
+<div class="form-group">
+<label>HELOC Type</label>
+<select id="helocType">
+<option value="variable">Variable Rate</option>
+<option value="fixed">Fixed Rate</option>
+</select>
+</div>
+</div>
 
-        <div class="input-group">
-          <label for="draw-period">Draw Period (years):</label>
-          <input type="number" id="draw-period"  min="1" max="20"  value="10">
-        </div>
+<button class="btn" onclick="calculateHELOC()">Calculate HELOC Payment</button>
 
-        <div class="input-group">
-          <label for="repay-period">Repayment Period (years):</label>
-          <input type="number" id="repay-period"  min="1" max="30"  value="20">
-        </div>
-            <button class="calc-btn" onclick="calculate()">Calculate</button>
-            <div class="result-box" id="result"></div>
-        </div>
+<div class="result-area" id="results">
+<div class="result-grid">
+<div class="result-box">
+<div class="result-box-label">Draw Period Payment</div>
+<div class="result-box-value" id="drawPayment">$531</div>
+<div class="result-box-sub">Interest-only monthly payment</div>
+</div>
+<div class="result-box">
+<div class="result-box-label">Repayment Payment</div>
+<div class="result-box-value" id="repaymentPayment">$737</div>
+<div class="result-box-sub">Principal + interest payment</div>
+</div>
+</div>
 
-        <div class="ad-placeholder">
-            
-        </div>
+<div class="stat-row">
+<span class="stat-label">Total Interest During Draw Period</span>
+<span class="stat-value" id="drawInterest">$63,750</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">Total Interest During Repayment</span>
+<span class="stat-value" id="repaymentInterest">$57,660</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">Total Interest Over Life of HELOC</span>
+<span class="stat-value" id="totalInterest">$121,410</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">Total Amount Repaid</span>
+<span class="stat-value" id="totalRepaid">$196,410</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">Payment Jump After Draw Period</span>
+<span class="stat-value" id="paymentJump">+$206 (+39%)</span>
+</div>
 
-        <div class="info-section">
-            <h3>About Home Equity</h3>
-            <p>Use this heloc payment calculator to make informed financial decisions. All calculations are estimates based on the information provided.</p>
-            <h3>More Financial Tools</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://calcleap.com/">HealthCalcs - Health & Wellness</a></li>
-            </ul>
-        </div>
+<div class="highlight-box">
+<p><strong>Important:</strong> Your monthly payment will increase significantly when the draw period ends and the repayment period begins. Plan your budget accordingly to handle the payment jump from <span id="jumpFrom">$531</span> to <span id="jumpTo">$737</span>.</p>
+</div>
+</div>
+</div>
 
-        <div class="ad-placeholder">
-            
-        </div>
-    </div>
+<!-- AD SLOT -->
+<div class="ad-slot">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3112605892426625"
+     data-ad-slot="7890123456"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a></p>
-        </div>
-    </div>
+<!-- CONTENT SECTION 1 -->
+<div class="info-card">
+<h3>What is a HELOC and How Do Payments Work?</h3>
+<p>A Home Equity Line of Credit (HELOC) is a revolving line of credit secured by your home's equity. Unlike a traditional home equity loan that provides a lump sum, a HELOC works more like a credit card with two distinct payment phases:</p>
 
-    <script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let html = '<h3>Results</h3>';
-            
-            
-            
-            
-            const drawn = parseFloat(document.getElementById('amount-drawn').value);
-            const rate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
-            const drawYears = parseFloat(document.getElementById('draw-period').value);
-            const repayYears = parseFloat(document.getElementById('repay-period').value);
-            
-            const drawPayment = drawn * rate;
-            const repayMonths = repayYears * 12;
-            const repayPayment = drawn * (rate * Math.pow(1 + rate, repayMonths)) / (Math.pow(1 + rate, repayMonths) - 1);
-            
-            html += '<div class="result-value">Draw Period: $' + drawPayment.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Repayment Period: $' + repayPayment.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Interest-only for ' + drawYears + ' years, then principal + interest</div>';
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
-<script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let html = '<h3>Results</h3>';
-            
-            
-            
-            
-            const drawn = parseFloat(document.getElementById('amount-drawn').value);
-            const rate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
-            const drawYears = parseFloat(document.getElementById('draw-period').value);
-            const repayYears = parseFloat(document.getElementById('repay-period').value);
-            
-            const drawPayment = drawn * rate;
-            const repayMonths = repayYears * 12;
-            const repayPayment = drawn * (rate * Math.pow(1 + rate, repayMonths)) / (Math.pow(1 + rate, repayMonths) - 1);
-            
-            html += '<div class="result-value">Draw Period: $' + drawPayment.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Repayment Period: $' + repayPayment.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Interest-only for ' + drawYears + ' years, then principal + interest</div>';
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
+<p><strong>Draw Period (Typically 10 Years):</strong> During this phase, you can borrow and repay funds as needed, up to your credit limit. Most HELOCs require only interest-only payments during this time, though you can pay down principal if you choose. This flexibility makes monthly payments lower but doesn't reduce your balance unless you make additional principal payments.</p>
+
+<p><strong>Repayment Period (Typically 10-20 Years):</strong> After the draw period ends, you can no longer borrow funds. Your outstanding balance converts to a traditional loan requiring monthly principal and interest payments until the balance is fully repaid. This causes a significant payment increase that many borrowers don't anticipate.</p>
+
+<p>Understanding this two-phase structure is critical for budgeting. Many homeowners are surprised when their $500 interest-only payment suddenly becomes a $1,200 fully amortizing payment once the draw period ends.</p>
+</div>
+
+<!-- CONTENT SECTION 2 -->
+<div class="info-card">
+<h3>HELOC vs Home Equity Loan: Key Differences</h3>
+
+<table>
+<tr>
+<th>Feature</th>
+<th>HELOC</th>
+<th>Home Equity Loan</th>
+</tr>
+<tr>
+<td>Disbursement</td>
+<td>Draw funds as needed</td>
+<td>Lump sum upfront</td>
+</tr>
+<tr>
+<td>Interest Rate</td>
+<td>Usually variable</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>Payment Structure</td>
+<td>Interest-only, then P&I</td>
+<td>Fixed P&I from start</td>
+</tr>
+<tr>
+<td>Payment Predictability</td>
+<td>Changes during repayment</td>
+<td>Same every month</td>
+</tr>
+<tr>
+<td>Best For</td>
+<td>Ongoing expenses, flexibility</td>
+<td>One-time expenses, stability</td>
+</tr>
+</table>
+
+<p style="margin-top:1rem;">Choose a HELOC if you need flexible access to funds over time, such as for ongoing home renovations or education expenses. Choose a home equity loan if you need a specific amount upfront and prefer predictable fixed payments, such as for debt consolidation or a single large purchase.</p>
+</div>
+
+<!-- CONTENT SECTION 3 -->
+<div class="info-card">
+<h3>How Much Can You Borrow with a HELOC?</h3>
+<p>Lenders typically allow you to borrow up to 80-90% of your home's current appraised value, minus your existing mortgage balance. This is called your combined loan-to-value (CLTV) ratio.</p>
+
+<p><strong>Example Calculation:</strong></p>
+<ul>
+<li>Home value: $400,000</li>
+<li>Existing mortgage balance: $200,000</li>
+<li>Maximum CLTV: 85%</li>
+<li>Calculation: ($400,000 × 0.85) - $200,000 = $140,000 available HELOC</li>
+</ul>
+
+<p>Keep in mind that qualifying for a HELOC requires:</p>
+<ul>
+<li><strong>Good Credit:</strong> Most lenders require a credit score of 620 minimum, with better rates for 700+</li>
+<li><strong>Sufficient Equity:</strong> At least 15-20% equity in your home after the HELOC</li>
+<li><strong>Stable Income:</strong> Debt-to-income ratio typically must be below 43%</li>
+<li><strong>Home Appraisal:</strong> Lender will assess your home's current market value</li>
+</ul>
+</div>
+
+<!-- CONTENT SECTION 4 -->
+<div class="info-card">
+<h3>HELOC Interest Rates and How They're Determined</h3>
+<p>Most HELOCs have variable interest rates tied to the prime rate published by the Federal Reserve. Your actual rate equals the prime rate plus a margin determined by your creditworthiness:</p>
+
+<p><strong>Rate Structure:</strong> Prime Rate + Margin = Your HELOC Rate</p>
+<ul>
+<li><strong>Prime Rate (2026):</strong> Approximately 7.75%</li>
+<li><strong>Typical Margins:</strong> 0.5% to 3% based on credit and equity</li>
+<li><strong>Example:</strong> 7.75% prime + 1.5% margin = 9.25% HELOC rate</li>
+</ul>
+
+<p>Because HELOC rates are variable, your monthly payment can change when the prime rate moves. A 1% rate increase on a $75,000 balance adds about $63 to your monthly interest-only payment. Some lenders offer fixed-rate conversion options where you can lock in a portion of your balance at a fixed rate for a fee.</p>
+
+<p><strong>Rate Caps:</strong> Most HELOCs include periodic and lifetime rate caps that limit how much your rate can increase. Common caps are 2% per adjustment period and 18% lifetime maximum.</p>
+</div>
+
+<!-- CONTENT SECTION 5 -->
+<div class="info-card">
+<h3>Strategic Uses for a HELOC</h3>
+<p>HELOCs work best when used strategically for investments that increase your wealth or necessary expenses with uncertain timing:</p>
+
+<p><strong>Good Uses:</strong></p>
+<ul>
+<li><strong>Home Improvements:</strong> Renovations that increase home value, especially before selling</li>
+<li><strong>Debt Consolidation:</strong> Pay off high-interest credit cards (but only if you'll avoid running up new debt)</li>
+<li><strong>Education Expenses:</strong> College tuition when timing is uncertain and you can deduct interest (consult tax advisor)</li>
+<li><strong>Emergency Reserve:</strong> Keep an unused HELOC as backup for emergencies instead of depleting savings</li>
+<li><strong>Investment Opportunities:</strong> Real estate purchases or business investments (advanced strategy, consult financial advisor)</li>
+</ul>
+
+<p><strong>Uses to Avoid:</strong></p>
+<ul>
+<li>Vacations, luxury purchases, or depreciating assets</li>
+<li>Regular living expenses (signals cash flow problems)</li>
+<li>Risky investments or speculation</li>
+<li>Paying off low-interest student loans (HELOC rates are usually higher)</li>
+</ul>
+
+<p>Remember: A HELOC uses your home as collateral. Defaulting on payments can result in foreclosure, so only borrow what you can comfortably repay.</p>
+</div>
+
+<!-- FAQ SECTION -->
+<div class="info-card">
+<h3>Frequently Asked Questions</h3>
+
+<div class="faq">
+<div class="faq-q">How is a HELOC payment calculated?</div>
+<div class="faq-a">HELOC payments are calculated in two phases: During the draw period (typically 10 years), you make interest-only payments on the amount borrowed. During the repayment period (typically 10-20 years), you make principal + interest payments to fully repay the balance.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">What is the draw period vs repayment period?</div>
+<div class="faq-a">The draw period is when you can borrow and repay funds flexibly, usually paying only interest. The repayment period begins after the draw period ends, when the line of credit closes and you must pay back both principal and interest on the outstanding balance.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">How much can I borrow with a HELOC?</div>
+<div class="faq-a">Most lenders allow you to borrow up to 80-90% of your home's appraised value minus your existing mortgage balance. For example, if your home is worth $400,000 and you owe $200,000, you might qualify for a HELOC of $120,000-$160,000.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">What is a typical HELOC interest rate?</div>
+<div class="faq-a">HELOC interest rates are typically variable and tied to the prime rate plus a margin (0.5-3%). As of 2026, HELOC rates generally range from 7-10%, but your rate depends on credit score, home equity, and lender terms.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Should I choose a HELOC or home equity loan?</div>
+<div class="faq-a">Choose a HELOC if you need flexible access to funds over time (like for ongoing home improvements) and can handle variable rates. Choose a home equity loan if you need a lump sum with a fixed interest rate and predictable monthly payments.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Can I pay off my HELOC early?</div>
+<div class="faq-a">Most HELOCs allow early payoff without prepayment penalties, but check your specific loan agreement. Paying down principal during the draw period reduces your interest costs and lowers your payment during the repayment period.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">What happens if I don't use my full HELOC limit?</div>
+<div class="faq-a">You only pay interest on the amount you actually borrow, not your total credit limit. Many homeowners keep a HELOC open as an emergency fund and pay zero monthly payments (or just a small annual fee) if they don't draw any funds.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Are HELOC interest payments tax deductible?</div>
+<div class="faq-a">HELOC interest may be tax deductible if you use the funds to buy, build, or substantially improve your home. The Tax Cuts and Jobs Act limits this deduction to interest on total home loan debt up to $750,000. Consult a tax professional for your specific situation.</div>
+</div>
+</div>
+
+<!-- RELATED TOOLS -->
+<div class="info-card">
+<h3>Related Calculators</h3>
+<div class="related-grid">
+<a href="/mortgage-calculator.html" class="related-link">Mortgage Calculator</a>
+<a href="/mortgage-refinance-calculator.html" class="related-link">Refinance Calculator</a>
+<a href="/home-equity-loan-calculator.html" class="related-link">Home Equity Loan</a>
+<a href="/home-affordability-calculator.html" class="related-link">Home Affordability</a>
+<a href="/mortgage-payoff-calculator.html" class="related-link">Mortgage Payoff</a>
+<a href="/loan-comparison-calculator.html" class="related-link">Loan Comparison</a>
+</div>
+</div>
 
 </div>
 
+<!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
-    </div>
-    <div>
-      <h5>Popular</h5>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
-    </div>
-    <div>
-      <h5>Categories</h5>
-      <a href="index.html#finance">Financial</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#health">Health</a>
-    </div>
-    <div>
-      <h5>Company</h5>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
+<div class="footer-inner">
+<div>
+<h5>About CalcLeap</h5>
+<p>Free online calculators and tools for finance, health, math, and everyday life. Fast, accurate, and easy to use.</p>
+</div>
+<div>
+<h5>Financial</h5>
+<a href="/mortgage-calculator.html">Mortgage</a>
+<a href="/loan-calculator.html">Loan</a>
+<a href="/retirement-calculator.html">Retirement</a>
+<a href="/savings-calculator.html">Savings</a>
+</div>
+<div>
+<h5>Health</h5>
+<a href="/bmi-calculator.html">BMI</a>
+<a href="/calorie-calculator.html">Calorie</a>
+<a href="/body-fat-calculator.html">Body Fat</a>
+<a href="/tdee-calculator.html">TDEE</a>
+</div>
+<div>
+<h5>Company</h5>
+<a href="/about.html">About</a>
+<a href="/contact.html">Contact</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/terms.html">Terms</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 CalcLeap. All rights reserved.</p>
+</div>
 </footer>
+
+<script>
+function calculateHELOC() {
+    // Get input values
+    const limit = parseFloat(document.getElementById('helocLimit').value) || 0;
+    const borrowed = parseFloat(document.getElementById('amountBorrowed').value) || 0;
+    const annualRate = parseFloat(document.getElementById('interestRate').value) / 100 || 0;
+    const drawYears = parseFloat(document.getElementById('drawPeriod').value) || 0;
+    const repayYears = parseFloat(document.getElementById('repaymentPeriod').value) || 0;
+    
+    // Validate inputs
+    if (borrowed > limit) {
+        alert('Amount borrowed cannot exceed credit limit');
+        return;
+    }
+    
+    if (borrowed === 0 || annualRate === 0 || drawYears === 0 || repayYears === 0) {
+        alert('Please enter valid values for all fields');
+        return;
+    }
+    
+    const monthlyRate = annualRate / 12;
+    
+    // Calculate draw period payment (interest-only)
+    const drawPayment = borrowed * monthlyRate;
+    
+    // Total interest during draw period
+    const drawInterest = drawPayment * drawYears * 12;
+    
+    // Calculate repayment period payment (principal + interest)
+    const repayMonths = repayYears * 12;
+    const repaymentPayment = borrowed * (monthlyRate * Math.pow(1 + monthlyRate, repayMonths)) / 
+                            (Math.pow(1 + monthlyRate, repayMonths) - 1);
+    
+    // Total paid during repayment period
+    const totalRepaymentPaid = repaymentPayment * repayMonths;
+    const repaymentInterest = totalRepaymentPaid - borrowed;
+    
+    // Totals
+    const totalInterest = drawInterest + repaymentInterest;
+    const totalRepaid = borrowed + totalInterest;
+    
+    // Payment jump
+    const paymentJump = repaymentPayment - drawPayment;
+    const paymentJumpPercent = ((repaymentPayment - drawPayment) / drawPayment * 100).toFixed(0);
+    
+    // Display results
+    document.getElementById('drawPayment').textContent = '$' + drawPayment.toFixed(0);
+    document.getElementById('repaymentPayment').textContent = '$' + repaymentPayment.toFixed(0);
+    document.getElementById('drawInterest').textContent = '$' + drawInterest.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById('repaymentInterest').textContent = '$' + repaymentInterest.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById('totalInterest').textContent = '$' + totalInterest.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById('totalRepaid').textContent = '$' + totalRepaid.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById('paymentJump').textContent = '+$' + paymentJump.toFixed(0) + ' (+' + paymentJumpPercent + '%)';
+    
+    // Update highlight box
+    document.getElementById('jumpFrom').textContent = '$' + drawPayment.toFixed(0);
+    document.getElementById('jumpTo').textContent = '$' + repaymentPayment.toFixed(0);
+    
+    // Show results
+    document.getElementById('results').style.display = 'block';
+    
+    // Scroll to results
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Calculate on page load with default values
+window.addEventListener('load', function() {
+    calculateHELOC();
+});
+
+// Recalculate on input change
+document.querySelectorAll('input, select').forEach(input => {
+    input.addEventListener('input', calculateHELOC);
+});
+</script>
 
 </body>
 </html>
