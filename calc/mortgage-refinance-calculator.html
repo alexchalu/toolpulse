@@ -1,556 +1,665 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mortgage Refinance Calculator - Free Real Estate Tool | CalcLeap</title>
-<meta name="description" content="Should you refinance? Compare current vs new mortgage. Free online mortgage refinance calculator with detailed results and explanations.">
-<link rel="canonical" href="https://calcleap.com/calc/mortgage-refinance-calculator.html">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://calcleap.com/calc/mortgage-refinance-calculator.html">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-
-<style>
-
-/* === CalcLeap Apple Design System === */
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --white:#fff;--bg:#f5f5f7;--surface:#fff;
-  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
-  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
-  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
-  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
-  --r:16px;--r-sm:12px;--r-xs:8px;
-  --mw:980px;
-  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
-}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
-a{color:inherit;text-decoration:none}
-
-/* === NAV === */
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
-.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:.15rem}
-.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
-.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
-
-/* === LAYOUT === */
-.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
-
-.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
-.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
-.breadcrumb .sep{margin:0 .35rem;opacity:.4}
-
-.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
-
-/* === CALCULATOR CARD === */
-.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.form-group{display:flex;flex-direction:column;gap:.3rem}
-.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
-.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
-.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-.toggle-row{display:flex;gap:.5rem;margin-bottom:1.25rem}
-.toggle-btn{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
-.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* === RESULTS === */
-.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-.bmi-big{font-size:3.5rem;font-weight:800;letter-spacing:-.04em;line-height:1}
-.bmi-label{font-size:1.1rem;font-weight:600;margin-top:.25rem}
-.bmi-advice{font-size:.875rem;color:var(--text-2);margin-top:.75rem;line-height:1.6}
-
-.gauge{margin:1.5rem 0;position:relative}
-.gauge-bar{display:flex;height:10px;border-radius:100px;overflow:hidden;gap:2px}
-.gauge-seg{height:100%;border-radius:100px}
-.gauge-marker{position:absolute;top:-4px;width:3px;height:18px;background:var(--text);border-radius:2px;transform:translateX(-50%);transition:left .4s ease;box-shadow:0 1px 4px rgba(0,0,0,.3)}
-.gauge-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-3);margin-top:.4rem;padding:0 .1rem}
-
-.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.stat-row:last-child{border-bottom:none}
-.stat-label{font-size:.85rem;color:var(--text-2)}
-.stat-value{font-size:.95rem;font-weight:700}
-
-/* === AD === */
-.ad-slot{margin:1.5rem 0}
-
-/* === INFO SECTIONS === */
-.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
-th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
-th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
-th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
-td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
-
-/* FAQ */
-.faq{border-top:1px solid var(--border);padding:.85rem 0}
-.faq:last-child{border-bottom:none}
-.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
-.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
-
-/* Related */
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
-.related-link:hover{border-color:var(--accent);color:var(--accent)}
-
-/* === FOOTER === */
-.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
-.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
-.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
-.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
-.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
-.footer a:hover{color:var(--text)}
-.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
-.footer-bottom p{font-size:.72rem;color:var(--text-3)}
-
-/* === RESPONSIVE === */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .page{padding:0 1.25rem}
-  .page-title{font-size:1.75rem}
-  .form-row{grid-template-columns:1fr}
-  .related-grid{grid-template-columns:1fr 1fr}
-  .footer-inner{grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){
-  .related-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr}
-}
-
-
-
-/* === COMPREHENSIVE COMPONENT STYLES === */
-
-/* Calc card (used by tax, mortgage, insurance pages) */
-.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-/* Input groups and grids */
-.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group.full{grid-column:1/-1}
-.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-/* Field class (converter pages) */
-.field{margin-bottom:1rem}
-.row{display:flex;gap:.75rem;align-items:center}
-
-/* Radio buttons */
-.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
-.radio-label:hover{border-color:var(--accent);color:var(--accent)}
-.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
-.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
-
-/* Buttons */
-.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
-.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* Result boxes */
-.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
-.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
-
-/* Result grid (tax, insurance calculators) */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-
-/* Result rows */
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none}
-.result-detail{font-size:.85rem;color:var(--text-2)}
-.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
-.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
-.result-item:last-child{border-bottom:none}
-
-/* Stat cards (state tax pages) */
-.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
-.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
-
-/* Section */
-.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-/* Container (fallback for old pages) */
-.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
-
-/* Tool cards (converter index pages) */
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
-.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
-.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
-.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
-.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
-.tool-content{flex:1}
-
-/* Output area (dev tools) */
-.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
-
-/* Converter box */
-.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
-.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
-.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
-.conversion-table{margin-top:1rem}
-
-/* Bar charts */
-.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
-.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
-.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
-
-/* Badge */
-.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Table wrapper */
-.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
-.bracket-table{width:100%;border-collapse:collapse}
-
-/* Rate cards */
-.rate{font-size:.875rem;color:var(--text-2)}
-
-/* Header (old pages fallback) */
-.header{display:none} /* Old header hidden, replaced by .nav */
-
-/* Sub text */
-.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
-
-/* Ad placeholder — HIDE */
-.ad-placeholder{display:none !important}
-
-/* Hero override */
-.hero{padding:.5rem 0 1rem}
-.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
-
-/* FAQ items (old class) */
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-
-/* Toggle/tab buttons */
-.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
-
-/* Color helpers */
-.green{color:#22c55e !important}
-.red{color:#ef4444 !important}
-
-/* Responsive */
-@media(max-width:768px){
-  .result-grid{grid-template-columns:1fr 1fr}
-  .radio-group{flex-direction:column}
-  .tool-grid{grid-template-columns:1fr}
-  .row{flex-direction:column}
-}
-@media(max-width:480px){
-  .result-grid{grid-template-columns:1fr}
-}
-
-</style>
-<meta property="og:image" content="https://calcleap.com/og-default.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free mortgage refinance calculator. Compare current vs new mortgage payments, calculate break-even point, and determine if refinancing saves you money. Includes closing costs analysis.">
+  <meta name="keywords" content="mortgage refinance calculator, refinance calculator, should i refinance, mortgage break-even, refinance savings calculator, refi calculator">
+  <title>Mortgage Refinance Calculator - Should You Refinance? | CalcLeap</title>
+  <link rel="canonical" href="https://calcleap.com/calc/mortgage-refinance-calculator.html">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.6;
+    }
+    .nav {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-content {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0071e3;
+      text-decoration: none;
+    }
+    .nav-links a {
+      color: #1d1d1f;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #0071e3; }
+    .page {
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .page-title {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+      background: linear-gradient(90deg, #0071e3, #00c3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: #6e6e73;
+      margin-bottom: 40px;
+    }
+    .card, .calc-card {
+      background: white;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+    .input-grid {
+      display: grid;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .input-group label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1d1d1f;
+    }
+    .input-group input, .input-group select {
+      padding: 12px 16px;
+      border: 1px solid #d2d2d7;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: all 0.2s;
+      background: #f5f5f7;
+    }
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: #0071e3;
+      background: white;
+    }
+    .calc-btn {
+      background: #0071e3;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .calc-btn:hover {
+      background: #0077ed;
+      transform: translateY(-1px);
+    }
+    .result-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 28px;
+      border-radius: 14px;
+      margin-top: 24px;
+      display: none;
+    }
+    .result-box.show { display: block; }
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .result-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .result-card .lbl {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+    .result-card .val {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .comparison-chart {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .chart-bars {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .bar-wrapper {
+      flex: 1;
+      text-align: center;
+    }
+    .bar {
+      background: #e5e5e7;
+      border-radius: 8px;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      margin: 12px 0;
+    }
+    .bar-fill {
+      background: linear-gradient(180deg, #0071e3, #00c3ff);
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      border-radius: 8px;
+      transition: height 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .bar-fill.new {
+      background: linear-gradient(180deg, #34c759, #30d158);
+    }
+    .bar-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #6e6e73;
+      margin-top: 8px;
+    }
+    .warning {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 16px;
+      color: #856404;
+    }
+    .success {
+      background: #d4edda;
+      border-left: 4px solid #28a745;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 16px;
+      color: #155724;
+    }
+    .section {
+      margin: 48px 0;
+    }
+    .section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .section h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 28px 0 16px;
+      color: #0071e3;
+    }
+    .section p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #1d1d1f;
+      margin-bottom: 16px;
+    }
+    .section ul {
+      margin: 16px 0 16px 24px;
+    }
+    .section li {
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .faq {
+      margin-top: 48px;
+    }
+    .faq-item {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+    .faq-question {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0071e3;
+      margin-bottom: 12px;
+    }
+    .faq-answer {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1d1d1f;
+    }
+    .footer {
+      background: #1d1d1f;
+      color: white;
+      padding: 48px 20px 32px;
+      margin-top: 80px;
+    }
+    .footer-content {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+    }
+    .footer-section h4 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #f5f5f7;
+    }
+    .footer-section a {
+      display: block;
+      color: #a1a1a6;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .footer-section a:hover {
+      color: #0071e3;
+    }
+    .footer-bottom {
+      max-width: 980px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid #424245;
+      text-align: center;
+      font-size: 13px;
+      color: #a1a1a6;
+    }
+    @media (max-width: 768px) {
+      .page-title { font-size: 36px; }
+      .nav-links { display: none; }
+      .chart-bars { flex-direction: column; }
+    }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 </head>
 <body>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="/index.html#finance">Finance</a>
-      <a href="/index.html#insurance">Insurance</a>
-      <a href="/index.html#tax">Tax</a>
-      <a href="/index.html#health">Health</a>
-      <a href="/index.html#converters">Converters</a>
-      <a href="/index.html#dev">Dev Tools</a>
-      <a href="/about.html">About</a>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="logo">CalcLeap</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/calc/">Calculators</a>
+        <a href="/blog/">Blog</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div class="page">
-  <div class="breadcrumb">
-    <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#finance">Finance</a><span class="sep">›</span>Mortgage Refinance Calculator
-  </div>
+  <div class="page">
+    <h1 class="page-title">Mortgage Refinance Calculator</h1>
+    <p class="subtitle">Calculate your potential savings and break-even point when refinancing your mortgage</p>
 
-  <h1 class="page-title">Mortgage Refinance Calculator</h1>
-  <p class="page-desc">Should you refinance? Compare current vs new mortgage. Free online mortgage refinance calculator with detailed results and explanations.</p>
+    <!-- Ad Slot 1 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567890"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<div class="header">
-        <div class="container">
-            
-            <p>Should you refinance? Compare current vs new mortgage</p>
+    <div class="calc-card">
+      <h3>Current Mortgage Details</h3>
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="currentBalance">Remaining Loan Balance ($)</label>
+          <input type="number" id="currentBalance" value="250000" min="0" step="1000">
         </div>
-    </div>
+        <div class="input-group">
+          <label for="currentRate">Current Interest Rate (%)</label>
+          <input type="number" id="currentRate" value="6.5" min="0" max="20" step="0.01">
+        </div>
+        <div class="input-group">
+          <label for="remainingYears">Remaining Loan Term (Years)</label>
+          <input type="number" id="remainingYears" value="25" min="1" max="40" step="1">
+        </div>
+      </div>
 
-    <div class="main container">
-        <!-- Ad Slot 1 -->
-        <div class="ad-placeholder">
-            
+      <h3 style="margin-top: 32px;">New Mortgage Details</h3>
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="newRate">New Interest Rate (%)</label>
+          <input type="number" id="newRate" value="5.5" min="0" max="20" step="0.01">
+        </div>
+        <div class="input-group">
+          <label for="newTerm">New Loan Term (Years)</label>
+          <input type="number" id="newTerm" value="30" min="1" max="40" step="1">
+        </div>
+        <div class="input-group">
+          <label for="closingCosts">Closing Costs ($)</label>
+          <input type="number" id="closingCosts" value="5000" min="0" step="100">
+        </div>
+      </div>
+
+      <button class="calc-btn" onclick="calculate()">Calculate Refinance Savings</button>
+
+      <div id="results" class="result-box">
+        <h3 style="margin-bottom: 20px; font-size: 24px;">Your Refinance Analysis</h3>
+        
+        <div class="result-grid">
+          <div class="result-card">
+            <div class="lbl">Current Monthly Payment</div>
+            <div class="val" id="currentPayment">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">New Monthly Payment</div>
+            <div class="val" id="newPayment">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Monthly Savings</div>
+            <div class="val" id="monthlySavings">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Break-Even Point</div>
+            <div class="val" id="breakEven">0</div>
+          </div>
         </div>
 
-        <div class="calc-box">
-            <h2>Enter Your Information</h2>
-            
-    <div class="input-group">
-      <label for="loan-balance">Current Loan Balance ($)</label>
-      <input type="number" id="loan-balance" placeholder="250000" step="any">
-    </div>
-  
-
-    <div class="input-group">
-      <label for="current-rate">Current Interest Rate (%)</label>
-      <input type="number" id="current-rate" placeholder="6.5" step="any">
-    </div>
-  
-
-    <div class="input-group">
-      <label for="current-term">Remaining Term (years)</label>
-      <input type="number" id="current-term" placeholder="25" step="any">
-    </div>
-  
-
-    <div class="input-group">
-      <label for="new-rate">New Interest Rate (%)</label>
-      <input type="number" id="new-rate" placeholder="5.5" step="any">
-    </div>
-  
-
-    <div class="input-group">
-      <label for="new-term">New Loan Term (years)</label>
-      <input type="number" id="new-term" placeholder="30" step="any">
-    </div>
-  
-
-    <div class="input-group">
-      <label for="closing-costs">Closing Costs ($)</label>
-      <input type="number" id="closing-costs" placeholder="5000" step="any">
-    </div>
-  
-            <button class="btn" onclick="calculate()">Calculate</button>
-            
-            <div class="result-box" id="results">
-                <h3>Results</h3>
-                <div id="result-content"></div>
+        <div class="comparison-chart">
+          <h4 style="font-size: 18px; margin-bottom: 16px; color: #1d1d1f;">Monthly Payment Comparison</h4>
+          <div class="chart-bars">
+            <div class="bar-wrapper">
+              <div class="bar">
+                <div class="bar-fill" id="currentBar"></div>
+              </div>
+              <div class="bar-label">Current Mortgage</div>
+              <div style="font-size: 20px; font-weight: 700; color: #1d1d1f; margin-top: 8px;" id="currentAmount"></div>
             </div>
+            <div class="bar-wrapper">
+              <div class="bar">
+                <div class="bar-fill new" id="newBar"></div>
+              </div>
+              <div class="bar-label">New Mortgage</div>
+              <div style="font-size: 20px; font-weight: 700; color: #34c759; margin-top: 8px;" id="newAmount"></div>
+            </div>
+          </div>
         </div>
 
-        <!-- Ad Slot 2 -->
-        <div class="ad-placeholder">
-            
-        </div>
+        <div id="recommendation"></div>
 
-        <div class="info-section">
-            <h3>About This Calculator</h3>
-            <p>Should you refinance? Compare current vs new mortgage. This free tool helps real estate investors, homeowners, and property buyers make informed financial decisions.</p>
-            
-            <h3>How to Use</h3>
-            <ol style="margin-left: 1.5rem;">
-                <li>Enter your property and financial information in the fields above</li>
-                <li>Click "Calculate" to see detailed results</li>
-                <li>Review the breakdown to understand your real estate metrics</li>
-                <li>Adjust inputs to compare different scenarios</li>
-            </ol>
+        <div style="margin-top: 24px; padding: 20px; background: rgba(255,255,255,0.15); border-radius: 12px;">
+          <h4 style="font-size: 16px; margin-bottom: 12px;">Lifetime Savings Breakdown</h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px;">
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">Current Total Interest</div>
+              <div style="font-size: 20px; font-weight: 700;" id="currentInterest">$0</div>
+            </div>
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">New Total Interest</div>
+              <div style="font-size: 20px; font-weight: 700;" id="newInterest">$0</div>
+            </div>
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">Closing Costs</div>
+              <div style="font-size: 20px; font-weight: 700;" id="closingCostsDisplay">$0</div>
+            </div>
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">Net Lifetime Savings</div>
+              <div style="font-size: 20px; font-weight: 700;" id="netSavings">$0</div>
+            </div>
+          </div>
         </div>
-
-        <!-- Ad Slot 3 -->
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="info-section">
-            <h3>More Tools</h3>
-            <p>Check out our other real estate and financial calculators:</p>
-            <ul>
-                <li><a href="../index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://calcleap.com/">HealthCalcs - Health & Wellness</a></li>
-            </ul>
-        </div>
+      </div>
     </div>
 
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="../index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a> | <a href="https://calcleap.com/">HealthCalcs</a></p>
-            <p style="margin-top: 0.5rem; font-size: 0.75rem;">All calculations are for informational purposes only. Consult a financial advisor for investment decisions.</p>
-        </div>
-    </div>
+    <!-- Ad Slot 2 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567891"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-    <script>
-        function calculate() {
-            // Calculator-specific logic will be implemented based on the calculator type
-            const slug = 'mortgage-refinance-calculator';
-            const results = document.getElementById('results');
-            const content = document.getElementById('result-content');
-            
-            // Get all input values
-            const inputs = {};
-            document.querySelectorAll('input').forEach(input => {
-                inputs[input.id] = parseFloat(input.value) || 0;
-            });
-            
-            let html = '';
-            
-            
-            const loanBalance = inputs['loan-balance'];
-            const currentRate = inputs['current-rate'];
-            const currentTerm = inputs['current-term'];
-            const newRate = inputs['new-rate'];
-            const newTerm = inputs['new-term'];
-            const closingCosts = inputs['closing-costs'];
-            
-            const currentMonthlyRate = (currentRate / 100) / 12;
-            const currentPayments = currentTerm * 12;
-            const currentPayment = loanBalance * (currentMonthlyRate * Math.pow(1 + currentMonthlyRate, currentPayments)) / (Math.pow(1 + currentMonthlyRate, currentPayments) - 1);
-            
-            const newMonthlyRate = (newRate / 100) / 12;
-            const newPayments = newTerm * 12;
-            const newPayment = loanBalance * (newMonthlyRate * Math.pow(1 + newMonthlyRate, newPayments)) / (Math.pow(1 + newMonthlyRate, newPayments) - 1);
-            
-            const monthlySavings = currentPayment - newPayment;
-            const breakEvenMonths = closingCosts / monthlySavings;
-            const totalCurrentCost = currentPayment * currentPayments;
-            const totalNewCost = (newPayment * newPayments) + closingCosts;
-            const lifetimeSavings = totalCurrentCost - totalNewCost;
-            
-            html = `
-                <div class="result-item"><strong>Current Monthly Payment:</strong> <span class="result-value">${formatCurrency(currentPayment)}</span></div>
-                <div class="result-item"><strong>New Monthly Payment:</strong> <span class="result-value">${formatCurrency(newPayment)}</span></div>
-                <div class="result-item"><strong>Monthly Savings:</strong> <span class="result-value" style="color: ${monthlySavings >= 0 ? '#10b981' : '#ef4444'}">${formatCurrency(monthlySavings)}</span></div>
-                <div class="result-item"><strong>Break-Even Point:</strong> <span class="result-value">${breakEvenMonths.toFixed(1)} months</span></div>
-                <div class="result-item"><strong>Lifetime Savings:</strong> <span class="result-value" style="color: ${lifetimeSavings >= 0 ? '#10b981' : '#ef4444'}">${formatCurrency(lifetimeSavings)}</span></div>
-                <div class="result-item" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e0e6ed;">
-                    <p><strong>Recommendation:</strong> ${monthlySavings > 0 && breakEvenMonths < 36 ? 'Refinancing looks favorable. You\'ll break even in ' + breakEvenMonths.toFixed(1) + ' months.' : 'Consider waiting or shopping for better rates. Break-even time is quite long.'}</p>
-                </div>
-            `;
+    <div class="section">
+      <h2>Understanding Mortgage Refinancing</h2>
       
-            
-            content.innerHTML = html;
-            results.classList.add('show');
-        }
-        
-        function formatCurrency(num) {
-            return '$' + num.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        }
-        
-        function formatPercent(num) {
-            return num.toFixed(2) + '%';
-        }
-    </script>
-<script>
-        function calculate() {
-            // Calculator-specific logic will be implemented based on the calculator type
-            const slug = 'mortgage-refinance-calculator';
-            const results = document.getElementById('results');
-            const content = document.getElementById('result-content');
-            
-            // Get all input values
-            const inputs = {};
-            document.querySelectorAll('input').forEach(input => {
-                inputs[input.id] = parseFloat(input.value) || 0;
-            });
-            
-            let html = '';
-            
-            
-            const loanBalance = inputs['loan-balance'];
-            const currentRate = inputs['current-rate'];
-            const currentTerm = inputs['current-term'];
-            const newRate = inputs['new-rate'];
-            const newTerm = inputs['new-term'];
-            const closingCosts = inputs['closing-costs'];
-            
-            const currentMonthlyRate = (currentRate / 100) / 12;
-            const currentPayments = currentTerm * 12;
-            const currentPayment = loanBalance * (currentMonthlyRate * Math.pow(1 + currentMonthlyRate, currentPayments)) / (Math.pow(1 + currentMonthlyRate, currentPayments) - 1);
-            
-            const newMonthlyRate = (newRate / 100) / 12;
-            const newPayments = newTerm * 12;
-            const newPayment = loanBalance * (newMonthlyRate * Math.pow(1 + newMonthlyRate, newPayments)) / (Math.pow(1 + newMonthlyRate, newPayments) - 1);
-            
-            const monthlySavings = currentPayment - newPayment;
-            const breakEvenMonths = closingCosts / monthlySavings;
-            const totalCurrentCost = currentPayment * currentPayments;
-            const totalNewCost = (newPayment * newPayments) + closingCosts;
-            const lifetimeSavings = totalCurrentCost - totalNewCost;
-            
-            html = `
-                <div class="result-item"><strong>Current Monthly Payment:</strong> <span class="result-value">${formatCurrency(currentPayment)}</span></div>
-                <div class="result-item"><strong>New Monthly Payment:</strong> <span class="result-value">${formatCurrency(newPayment)}</span></div>
-                <div class="result-item"><strong>Monthly Savings:</strong> <span class="result-value" style="color: ${monthlySavings >= 0 ? '#10b981' : '#ef4444'}">${formatCurrency(monthlySavings)}</span></div>
-                <div class="result-item"><strong>Break-Even Point:</strong> <span class="result-value">${breakEvenMonths.toFixed(1)} months</span></div>
-                <div class="result-item"><strong>Lifetime Savings:</strong> <span class="result-value" style="color: ${lifetimeSavings >= 0 ? '#10b981' : '#ef4444'}">${formatCurrency(lifetimeSavings)}</span></div>
-                <div class="result-item" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e0e6ed;">
-                    <p><strong>Recommendation:</strong> ${monthlySavings > 0 && breakEvenMonths < 36 ? 'Refinancing looks favorable. You\'ll break even in ' + breakEvenMonths.toFixed(1) + ' months.' : 'Consider waiting or shopping for better rates. Break-even time is quite long.'}</p>
-                </div>
-            `;
+      <p>Mortgage refinancing involves replacing your current home loan with a new one, typically to secure a lower interest rate, reduce monthly payments, or change loan terms. While refinancing can save you thousands of dollars over the life of your loan, it's not always the right choice for everyone.</p>
+
+      <h3>When Should You Refinance Your Mortgage?</h3>
+      <p>Consider refinancing when:</p>
+      <ul>
+        <li><strong>Interest rates drop significantly</strong> – A rule of thumb is that refinancing makes sense when you can reduce your rate by at least 0.5-1 percentage point</li>
+        <li><strong>Your credit score has improved</strong> – Better credit can qualify you for lower rates than when you originally bought your home</li>
+        <li><strong>You want to change loan terms</strong> – Switching from a 30-year to a 15-year mortgage can save substantial interest, though payments will be higher</li>
+        <li><strong>You need to tap home equity</strong> – Cash-out refinancing allows you to borrow against your home's equity for major expenses</li>
+        <li><strong>You want to eliminate PMI</strong> – If your home equity reaches 20%, refinancing can help remove private mortgage insurance</li>
+        <li><strong>You want payment stability</strong> – Converting from an adjustable-rate mortgage (ARM) to a fixed-rate mortgage provides predictable payments</li>
+      </ul>
+
+      <h3>Understanding Break-Even Point</h3>
+      <p>The break-even point is the time it takes for your monthly savings to offset the closing costs of refinancing. If you plan to stay in your home longer than the break-even period, refinancing typically makes financial sense.</p>
       
-            
-            content.innerHTML = html;
-            results.classList.add('show');
-        }
-        
-        function formatCurrency(num) {
-            return '$' + num.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        }
-        
-        function formatPercent(num) {
-            return num.toFixed(2) + '%';
-        }
-    </script>
+      <p><strong>Example:</strong> If closing costs are $5,000 and you save $200 per month, your break-even point is 25 months (just over 2 years). If you plan to stay in your home for 5+ years, you'll save $7,000 after recouping the closing costs.</p>
 
-</div>
+      <h3>Refinancing Costs to Consider</h3>
+      <p>Typical closing costs for refinancing range from 2-5% of your loan amount and may include:</p>
+      <ul>
+        <li>Application fee ($75-$500)</li>
+        <li>Origination fee (0.5-1% of loan amount)</li>
+        <li>Appraisal fee ($300-$700)</li>
+        <li>Title search and insurance ($700-$1,200)</li>
+        <li>Credit report fee ($25-$50)</li>
+        <li>Attorney fees ($500-$1,000 in some states)</li>
+        <li>Recording fees ($50-$250)</li>
+      </ul>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="/index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+      <h3>No-Closing-Cost Refinance: Is It Worth It?</h3>
+      <p>Some lenders offer no-closing-cost refinancing, where they cover the fees in exchange for a slightly higher interest rate. This can make sense if you plan to move or refinance again within a few years, but you'll pay more interest over the long term.</p>
+
+      <h3>Tips for Getting the Best Refinance Rate</h3>
+      <ul>
+        <li><strong>Improve your credit score</strong> – Pay down debt and fix any errors on your credit report before applying</li>
+        <li><strong>Shop multiple lenders</strong> – Get quotes from at least 3-5 lenders to compare rates and fees</li>
+        <li><strong>Consider points</strong> – Buying discount points (paying upfront to lower your rate) can make sense if you're staying long-term</li>
+        <li><strong>Lock your rate</strong> – Once you find a good rate, lock it in to protect against market fluctuations during processing</li>
+        <li><strong>Time it right</strong> – Refinance when rates are low and your home has appreciated in value</li>
+        <li><strong>Maintain low debt-to-income ratio</strong> – Lenders prefer borrowers with DTI ratios below 43%</li>
+      </ul>
+
+      <h3>Alternatives to Traditional Refinancing</h3>
+      <p><strong>Rate-and-term refinance:</strong> Changes your interest rate or loan term without taking cash out. This is the most common type of refinance.</p>
+      
+      <p><strong>Cash-out refinance:</strong> Replaces your current mortgage with a larger loan, giving you access to the difference in cash. Useful for home improvements, debt consolidation, or major expenses.</p>
+      
+      <p><strong>Streamline refinance:</strong> Available for FHA, VA, and USDA loans, this simplified process has less paperwork and may not require an appraisal.</p>
+      
+      <p><strong>Cash-in refinance:</strong> You pay down your loan balance at closing to qualify for a better rate or remove PMI.</p>
     </div>
-    <div>
-      <h5>Popular</h5>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="/calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
-    </div>
-    <div>
-      <h5>Categories</h5>
-      <a href="/index.html#finance">Financial</a>
-      <a href="/index.html#insurance">Insurance</a>
-      <a href="/index.html#health">Health</a>
-    </div>
-    <div>
-      <h5>Company</h5>
-      <a href="/about.html">About</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/contact.html">Contact</a>
+
+    <!-- Ad Slot 3 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567892"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">How much can I save by refinancing my mortgage?</div>
+        <div class="faq-answer">Savings vary based on your loan amount, current rate, new rate, and how long you plan to stay in your home. On a $250,000 mortgage, reducing your rate from 6.5% to 5.5% could save you approximately $150-200 per month, or $54,000-72,000 over 30 years (minus closing costs). Use our calculator above to get personalized savings estimates.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What credit score do I need to refinance?</div>
+        <div class="faq-answer">Most lenders require a minimum credit score of 620 for conventional refinancing, though you'll get the best rates with a score of 740 or higher. FHA streamline refinances may accept scores as low as 580. VA and USDA loans have their own requirements. Check your credit score before applying and work on improving it if needed.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How long does the refinancing process take?</div>
+        <div class="faq-answer">The typical refinancing process takes 30-45 days from application to closing, though it can be faster or slower depending on the lender, loan type, and market conditions. Streamline refinances (FHA, VA, USDA) can sometimes close in as little as 15-30 days. Gather all necessary documents upfront to speed up the process.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I refinance if I have less than 20% equity?</div>
+        <div class="faq-answer">Yes, you can refinance with less than 20% equity, but you may need to pay private mortgage insurance (PMI) on a conventional loan. FHA loans allow refinancing with as little as 3.5% equity. Some lenders offer high loan-to-value (LTV) refinances up to 97% LTV. However, having at least 20% equity gives you access to better rates and eliminates PMI.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Should I refinance to a shorter loan term?</div>
+        <div class="faq-answer">Refinancing to a shorter term (like 15 years instead of 30) can save you tens of thousands in interest, but your monthly payments will be higher. This makes sense if you can afford the higher payment and want to build equity faster. If you're already 10-15 years into a 30-year mortgage, refinancing to a new 30-year term could mean paying interest for longer than originally planned.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What's the difference between refinancing and taking out a home equity loan?</div>
+        <div class="faq-answer">Refinancing replaces your entire mortgage with a new loan (potentially with different terms and rates), while a home equity loan is a second mortgage taken out against your home's equity. Refinancing resets your loan term, while a home equity loan or HELOC keeps your original mortgage intact. Refinancing typically offers lower rates than home equity products because it's a first-lien loan.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Are refinancing closing costs tax deductible?</div>
+        <div class="faq-answer">Most refinancing costs are not immediately tax deductible. However, mortgage interest on your new loan remains deductible (up to $750,000 for loans taken after December 15, 2017, or $1 million for older loans). Discount points paid to lower your rate may be deductible over the life of the loan. Consult a tax professional for advice specific to your situation.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I refinance if I'm self-employed?</div>
+        <div class="faq-answer">Yes, self-employed borrowers can refinance, but you'll need to provide additional documentation. Lenders typically require 2 years of tax returns, profit and loss statements, and bank statements to verify income. Having strong credit, low debt-to-income ratio, and substantial home equity can improve your chances of approval and help you qualify for better rates.</div>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
-</footer>
 
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Popular Calculators</h4>
+        <a href="/calc/mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="/calc/bmi-calculator.html">BMI Calculator</a>
+        <a href="/calc/compound-interest-calculator.html">Compound Interest</a>
+        <a href="/calc/loan-calculator.html">Loan Calculator</a>
+      </div>
+      <div class="footer-section">
+        <h4>Finance Tools</h4>
+        <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+        <a href="/calc/investment-calculator.html">Investment Calculator</a>
+        <a href="/calc/salary-calculator.html">Salary Calculator</a>
+        <a href="/calc/mortgage-refinance-calculator.html">Refinance Calculator</a>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <a href="/blog/">Financial Blog</a>
+        <a href="/calc/">All Calculators</a>
+        <a href="/about.html">About CalcLeap</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+      <div class="footer-section">
+        <h4>CalcLeap</h4>
+        <p style="font-size: 14px; color: #a1a1a6; line-height: 1.6;">Free online calculators and tools for finance, health, conversions, and more. Make smarter decisions with CalcLeap.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 CalcLeap. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function calculate() {
+      // Get current mortgage values
+      const currentBalance = parseFloat(document.getElementById('currentBalance').value);
+      const currentRate = parseFloat(document.getElementById('currentRate').value) / 100 / 12;
+      const remainingMonths = parseInt(document.getElementById('remainingYears').value) * 12;
+      
+      // Get new mortgage values
+      const newRate = parseFloat(document.getElementById('newRate').value) / 100 / 12;
+      const newTerm = parseInt(document.getElementById('newTerm').value) * 12;
+      const closingCosts = parseFloat(document.getElementById('closingCosts').value);
+
+      // Calculate current monthly payment
+      const currentPayment = currentBalance * (currentRate * Math.pow(1 + currentRate, remainingMonths)) / 
+                            (Math.pow(1 + currentRate, remainingMonths) - 1);
+      
+      // Calculate new monthly payment
+      const newPayment = currentBalance * (newRate * Math.pow(1 + newRate, newTerm)) / 
+                        (Math.pow(1 + newRate, newTerm) - 1);
+      
+      // Calculate savings
+      const monthlySavings = currentPayment - newPayment;
+      
+      // Calculate break-even point (months)
+      const breakEvenMonths = closingCosts / monthlySavings;
+      
+      // Calculate total interest
+      const currentTotalInterest = (currentPayment * remainingMonths) - currentBalance;
+      const newTotalInterest = (newPayment * newTerm) - currentBalance;
+      
+      // Calculate net savings
+      const netSavings = currentTotalInterest - newTotalInterest - closingCosts;
+
+      // Display results
+      document.getElementById('currentPayment').textContent = '$' + currentPayment.toFixed(2);
+      document.getElementById('newPayment').textContent = '$' + newPayment.toFixed(2);
+      document.getElementById('monthlySavings').textContent = monthlySavings > 0 ? 
+        '$' + monthlySavings.toFixed(2) : '-$' + Math.abs(monthlySavings).toFixed(2);
+      
+      const breakEvenYears = breakEvenMonths / 12;
+      document.getElementById('breakEven').textContent = breakEvenMonths > 0 ?
+        breakEvenYears.toFixed(1) + ' years' : 'Immediate';
+      
+      document.getElementById('currentInterest').textContent = '$' + currentTotalInterest.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('newInterest').textContent = '$' + newTotalInterest.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('closingCostsDisplay').textContent = '$' + closingCosts.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('netSavings').textContent = netSavings > 0 ?
+        '$' + netSavings.toLocaleString('en-US', {maximumFractionDigits: 0}) :
+        '-$' + Math.abs(netSavings).toLocaleString('en-US', {maximumFractionDigits: 0});
+
+      // Update chart
+      const maxPayment = Math.max(currentPayment, newPayment);
+      document.getElementById('currentBar').style.height = (currentPayment / maxPayment * 100) + '%';
+      document.getElementById('newBar').style.height = (newPayment / maxPayment * 100) + '%';
+      document.getElementById('currentAmount').textContent = '$' + currentPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('newAmount').textContent = '$' + newPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+      // Show recommendation
+      let recommendation = '';
+      if (monthlySavings > 0 && breakEvenYears <= 3) {
+        recommendation = `<div class="success"><strong>✓ Refinancing looks favorable!</strong> You'll save $${monthlySavings.toFixed(2)} per month and break even in ${breakEvenYears.toFixed(1)} years. If you plan to stay in your home for at least ${Math.ceil(breakEvenYears)} years, refinancing could save you $${netSavings.toLocaleString('en-US', {maximumFractionDigits: 0})} over the life of the loan.</div>`;
+      } else if (monthlySavings > 0 && breakEvenYears > 3 && breakEvenYears <= 7) {
+        recommendation = `<div class="warning"><strong>⚠ Consider your timeline.</strong> While you'll save $${monthlySavings.toFixed(2)} per month, it will take ${breakEvenYears.toFixed(1)} years to break even on the $${closingCosts.toLocaleString('en-US')} closing costs. Refinancing makes sense if you plan to stay in your home for ${Math.ceil(breakEvenYears)}+ years.</div>`;
+      } else if (monthlySavings > 0 && breakEvenYears > 7) {
+        recommendation = `<div class="warning"><strong>⚠ Long break-even period.</strong> It will take ${breakEvenYears.toFixed(1)} years to recoup the closing costs. Unless you're planning to stay in your home long-term, the savings may not justify refinancing. Consider negotiating lower closing costs or waiting for rates to drop further.</div>`;
+      } else {
+        recommendation = `<div class="warning"><strong>⚠ Refinancing may not save money.</strong> Your monthly payment would increase by $${Math.abs(monthlySavings).toFixed(2)}. Consider waiting for interest rates to drop further, or explore other refinancing options like changing your loan term or eliminating PMI.</div>`;
+      }
+      
+      document.getElementById('recommendation').innerHTML = recommendation;
+
+      // Show results
+      document.getElementById('results').classList.add('show');
+      
+      // Scroll to results
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
 </body>
 </html>
