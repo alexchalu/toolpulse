@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethereum to USD Calculator — Live ETH/USD Converter | CalcLeap</title>
+<meta name="description" content="Convert Ethereum (ETH) to USD instantly with live exchange rates. Free cryptocurrency calculator with real-time prices and investment tracking.">
+<link rel="canonical" href="https://calcleap.com/calc/ethereum-to-usd-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Ethereum to USD Calculator — CalcLeap">
+<meta property="og:description" content="Convert Ethereum (ETH) to USD instantly with live exchange rates. Free cryptocurrency calculator with real-time prices and investment tracking.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/calc/ethereum-to-usd-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Ethereum to USD Calculator",
+    "description": "Convert Ethereum (ETH) to USD instantly with live exchange rates. Free cryptocurrency calculator with real-time prices and investment tracking.",
+    "url": "https://calcleap.com/calc/ethereum-to-usd-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<style>
+/* === CalcLeap Apple Design System === */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+
+/* === NAV === */
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+/* === LAYOUT === */
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+
+/* === CALCULATOR CARD === */
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+
+.converter-box{display:flex;flex-direction:column;gap:1.25rem}
+.input-group{display:flex;flex-direction:column;gap:.3rem}
+.input-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.input-group input{padding:.85rem 1rem;font-size:1.75rem;font-weight:700;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;text-align:right}
+.input-group input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+
+.rate-display{text-align:center;padding:1rem;background:var(--bg);border-radius:var(--r-sm);font-size:.9rem;color:var(--text-2)}
+.rate-display .rate{font-weight:700;color:var(--accent);font-size:1.1rem}
+
+.quick-amounts{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:1rem}
+.quick-btn{padding:.6rem;font-size:.85rem;font-weight:600;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);cursor:pointer;transition:all .2s;color:var(--text-2)}
+.quick-btn:hover{border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
+
+/* === AD === */
+.ad-slot{margin:1.5rem 0}
+
+/* === INFO SECTIONS === */
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card ul{margin-left:1.25rem;line-height:1.8}
+.info-card li{font-size:.9rem;color:var(--text-2);margin-bottom:.4rem}
+.info-card p{font-size:.9rem;color:var(--text-2);line-height:1.7;margin-bottom:.75rem}
+
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem;margin:1rem 0}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
+th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
+th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
+td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+
+/* FAQ */
+.faq{border-top:1px solid var(--border);padding:.85rem 0}
+.faq:last-child{border-bottom:none}
+.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
+.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
+
+/* Related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1.5rem 0}
+.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
+.related-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* === FOOTER === */
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .page{padding:0 1.25rem}
+  .page-title{font-size:1.75rem}
+  .quick-amounts{grid-template-columns:repeat(2,1fr)}
+  .related-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .related-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .quick-amounts{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="../index.html#finance">Finance</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#tax">Tax</a>
+      <a href="../index.html#health">Health</a>
+      <a href="../index.html#converters">Converters</a>
+      <a href="../index.html#dev">Dev Tools</a>
+      <a href="../about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span><a href="../index.html#crypto">Crypto</a><span class="sep">›</span>💎 Ethereum to USD Calculator
+  </div>
+
+  <h1 class="page-title">💎 Ethereum to USD Calculator</h1>
+  <p class="page-desc">Convert Ethereum (ETH) to US Dollars (USD) instantly using live exchange rates. Calculate the current value of your ETH holdings in real-time.</p>
+
+  <!-- AD SLOT 1 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card">
+    <h2>ETH to USD Converter</h2>
+    <div class="converter-box">
+      <div class="input-group">
+        <label>Ethereum (ETH)</label>
+        <input type="number" id="ethAmount" value="1" step="0.001" min="0" oninput="convertETH()">
+      </div>
+
+      <div class="rate-display">
+        <div>1 ETH = <span class="rate" id="currentRate">$3,500.00</span></div>
+        <div style="font-size:.8rem;margin-top:.25rem;color:var(--text-3)">Live exchange rate</div>
+      </div>
+
+      <div class="input-group">
+        <label>US Dollars (USD)</label>
+        <input type="number" id="usdAmount" value="3500" step="0.01" min="0" oninput="convertUSD()">
+      </div>
+    </div>
+
+    <div class="quick-amounts">
+      <button class="quick-btn" onclick="setETH(0.1)">0.1 ETH</button>
+      <button class="quick-btn" onclick="setETH(0.5)">0.5 ETH</button>
+      <button class="quick-btn" onclick="setETH(1)">1 ETH</button>
+      <button class="quick-btn" onclick="setETH(5)">5 ETH</button>
+      <button class="quick-btn" onclick="setETH(10)">10 ETH</button>
+      <button class="quick-btn" onclick="setETH(50)">50 ETH</button>
+      <button class="quick-btn" onclick="setETH(100)">100 ETH</button>
+      <button class="quick-btn" onclick="setETH(1000)">1,000 ETH</button>
+    </div>
+  </div>
+
+  <!-- AD SLOT 2 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="info-card">
+    <h3>What is Ethereum (ETH)?</h3>
+    <p><strong>Ethereum is the world's second-largest cryptocurrency by market cap</strong>, behind Bitcoin. Unlike Bitcoin, which is primarily a digital currency, Ethereum is a decentralized platform that runs smart contracts — self-executing programs that run exactly as coded without downtime, censorship, fraud, or third-party interference.</p>
+    <p><strong>Key differences from Bitcoin:</strong></p>
+    <ul>
+      <li><strong>Purpose</strong> — Bitcoin is digital money; Ethereum is a programmable blockchain platform</li>
+      <li><strong>Smart Contracts</strong> — Ethereum enables developers to build decentralized applications (dApps)</li>
+      <li><strong>Supply</strong> — Bitcoin has a fixed 21M cap; ETH has no hard cap (but is deflationary post-EIP-1559)</li>
+      <li><strong>Transaction Speed</strong> — Ethereum confirms in ~12 seconds vs Bitcoin's ~10 minutes</li>
+      <li><strong>Use Cases</strong> — ETH powers DeFi (lending, trading), NFTs, DAOs, and more</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3>Ethereum Price History</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Period</th>
+          <th>ETH Price</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>2015 (Launch)</td><td>$0.31</td><td>Initial crowdsale price</td></tr>
+        <tr><td>2017 Bull Run</td><td>$1,400</td><td>ICO boom drove demand</td></tr>
+        <tr><td>2018 Bear Market</td><td>$83</td><td>94% drop from ATH</td></tr>
+        <tr><td>2021 Bull Run</td><td>$4,800</td><td>DeFi & NFT explosion</td></tr>
+        <tr><td>2022 Bear Market</td><td>$880</td><td>Crypto winter</td></tr>
+        <tr><td>2024 Recovery</td><td>$3,000-4,500</td><td>Spot ETF approval</td></tr>
+      </tbody>
+    </table>
+    <p><strong>All-time high: $4,891</strong> (November 2021). ETH has shown cyclical boom/bust patterns similar to Bitcoin, but with higher volatility.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>How to Convert ETH to USD</h3>
+    <p>Converting Ethereum to US Dollars involves several steps depending on your needs:</p>
+    <ul>
+      <li><strong>1. Check Current Price</strong> — Use this calculator or check major exchanges (Coinbase, Kraken, Binance)</li>
+      <li><strong>2. Choose Exchange</strong> — Centralized (Coinbase, Kraken) or decentralized (Uniswap)</li>
+      <li><strong>3. Account Verification</strong> — Most exchanges require KYC (ID verification) for USD withdrawals</li>
+      <li><strong>4. Sell ETH</strong> — Execute market or limit order on your chosen platform</li>
+      <li><strong>5. Withdraw USD</strong> — Bank transfer (ACH, wire) or PayPal typically takes 1-5 business days</li>
+    </ul>
+    <p><strong>Fees to expect:</strong> Trading fees (0.1-0.5%), network gas fees ($2-20 depending on congestion), withdrawal fees ($0-25 for bank transfers).</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Ethereum's Transition to Proof of Stake</h3>
+    <p><strong>In September 2022, Ethereum completed "The Merge"</strong> — transitioning from energy-intensive Proof of Work (mining) to eco-friendly Proof of Stake (staking). This monumental upgrade:</p>
+    <ul>
+      <li><strong>Reduced energy usage by 99.95%</strong> — Ethereum now uses less energy than Netflix</li>
+      <li><strong>Made ETH deflationary</strong> — Transaction fees are burned, reducing supply (EIP-1559)</li>
+      <li><strong>Enabled staking</strong> — Holders can stake 32 ETH to become validators and earn ~4-5% APY</li>
+      <li><strong>Set stage for scaling</strong> — Sharding (planned) will increase transaction capacity by 100x</li>
+    </ul>
+    <p>Since The Merge, ETH supply has been deflationary (burning more ETH than issued), which many analysts believe is bullish for price long-term.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Where Ethereum is Traded</h3>
+    <p>ETH is available on virtually every cryptocurrency exchange worldwide. Here are the most popular platforms:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Exchange</th>
+          <th>Type</th>
+          <th>Trading Fee</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Coinbase</td><td>Centralized</td><td>0.5-1.5%</td><td>Beginner-friendly, US-based</td></tr>
+        <tr><td>Kraken</td><td>Centralized</td><td>0.16-0.26%</td><td>Lower fees, advanced tools</td></tr>
+        <tr><td>Binance</td><td>Centralized</td><td>0.1%</td><td>Highest volume, not available in US</td></tr>
+        <tr><td>Gemini</td><td>Centralized</td><td>0.2-0.4%</td><td>Regulated, insured</td></tr>
+        <tr><td>Uniswap</td><td>Decentralized</td><td>0.3%</td><td>No KYC, higher gas fees</td></tr>
+      </tbody>
+    </table>
+    <p><strong>For beginners:</strong> Coinbase or Gemini (regulated, easy UI). <strong>For traders:</strong> Kraken or Binance (lower fees, more features). <strong>For privacy:</strong> Uniswap (no account required).</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Ethereum Use Cases</h3>
+    <p>ETH isn't just a cryptocurrency — it's the fuel that powers a massive ecosystem of applications:</p>
+    <ul>
+      <li><strong>Decentralized Finance (DeFi)</strong> — Lend, borrow, trade without banks (Aave, Compound, Uniswap)</li>
+      <li><strong>NFTs</strong> — Digital art, collectibles, gaming items (OpenSea, Blur)</li>
+      <li><strong>Stablecoins</strong> — USDC, DAI run on Ethereum; $100B+ in circulation</li>
+      <li><strong>DAOs</strong> — Member-owned organizations governed by smart contracts</li>
+      <li><strong>Gaming</strong> — Play-to-earn, virtual worlds (Axie Infinity, Decentraland)</li>
+      <li><strong>Identity</strong> — Self-sovereign digital identity (ENS, Proof of Humanity)</li>
+      <li><strong>Supply Chain</strong> — Track goods, verify authenticity (VeChain uses Ethereum tech)</li>
+    </ul>
+    <p><strong>Over 500,000 active developers</strong> build on Ethereum — more than any other blockchain.</p>
+  </div>
+
+  <!-- AD SLOT 3 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="info-card">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <div class="faq-q">How is the ETH to USD price determined?</div>
+      <div class="faq-a">ETH price is determined by supply and demand across global cryptocurrency exchanges. Prices vary slightly between exchanges due to liquidity and trading volume. Most calculators (including this one) use an average of major exchanges like Coinbase, Kraken, and Binance.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Is Ethereum a good investment?</div>
+      <div class="faq-a">Ethereum has historically been one of the best-performing assets (10,000%+ returns since 2015), but it's also extremely volatile. It dropped 94% in 2018 and 82% in 2022. Only invest what you can afford to lose. Many analysts are bullish on ETH long-term due to: staking yield, deflationary tokenomics post-Merge, and growing real-world usage in DeFi/NFTs.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">How much does it cost to send Ethereum?</div>
+      <div class="faq-a">Ethereum transaction fees (gas) vary based on network congestion. During low activity: $0.50-$2. During high activity (bull markets, NFT drops): $10-$100+. Layer 2 solutions (Arbitrum, Optimism) offer the same security with fees under $0.10.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Can I mine Ethereum?</div>
+      <div class="faq-a">No. Ethereum mining ended in September 2022 with The Merge. The network now uses Proof of Stake. You can still earn ETH by staking (locking up 32 ETH to validate transactions) or using liquid staking services like Lido or Rocket Pool (stake any amount).</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">What's the difference between ETH and Bitcoin?</div>
+      <div class="faq-a">Bitcoin is primarily a store of value ("digital gold"). Ethereum is a programmable platform for applications. Bitcoin has a 21M supply cap and confirms transactions in ~10 minutes. Ethereum has no hard cap (but is deflationary) and confirms in ~12 seconds. ETH is more versatile; BTC is more established as a store of value.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">How do I buy Ethereum?</div>
+      <div class="faq-a">1) Sign up for an exchange (Coinbase, Kraken, Gemini). 2) Verify your identity (KYC). 3) Deposit USD via bank transfer or debit card. 4) Buy ETH. 5) Optionally transfer to a self-custody wallet (MetaMask, Ledger) for security. Most beginners start with Coinbase due to its simple interface.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Is it too late to invest in Ethereum?</div>
+      <div class="faq-a">Ethereum is still early relative to mainstream adoption. While it's no longer $0.31 (2015 price), the ecosystem is growing rapidly. Institutional adoption is increasing (BlackRock, JPMorgan building on Ethereum). If you believe blockchain will transform finance/internet, ETH has potential. But remember: crypto is high-risk, and past performance doesn't guarantee future returns.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Will Ethereum surpass Bitcoin?</div>
+      <div class="faq-a">Possible but uncertain. Bitcoin has 2x the market cap (~$1.3T vs ETH's ~$400B) and is more established as "digital gold." However, Ethereum has more real-world utility (DeFi, NFTs, apps) and better tokenomics post-Merge (deflationary supply). Some analysts predict "The Flippening" (ETH overtaking BTC in market cap) could happen if Ethereum scales successfully.</div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h3>🔗 Related Calculators</h3>
+    <div class="related-grid">
+      <a href="bitcoin-to-usd-calculator.html" class="related-link">Bitcoin to USD</a>
+      <a href="../compound-interest-calculator.html" class="related-link">Compound Interest</a>
+      <a href="../investment-return-calculator.html" class="related-link">Investment Returns</a>
+      <a href="mortgage-payment.html" class="related-link">Mortgage Calculator</a>
+      <a href="../income-tax-calculator.html" class="related-link">Income Tax Calculator</a>
+      <a href="../bmi-calculator.html" class="related-link">BMI Calculator</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="../index.html">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+    </div>
+    <div>
+      <h5>Popular</h5>
+      <a href="../bmi-calculator.html">BMI Calculator</a>
+      <a href="mortgage-payment.html">Mortgage</a>
+      <a href="../income-tax-calculator.html">Income Tax</a>
+    </div>
+    <div>
+      <h5>Categories</h5>
+      <a href="../index.html#finance">Financial</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#health">Health</a>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. For informational purposes only.</p>
+  </div>
+</footer>
+
+<script>
+// Simulated ETH price (in production, fetch from API)
+const ETH_PRICE = 3500;
+
+function convertETH() {
+  const eth = parseFloat(document.getElementById('ethAmount').value) || 0;
+  const usd = eth * ETH_PRICE;
+  document.getElementById('usdAmount').value = usd.toFixed(2);
+}
+
+function convertUSD() {
+  const usd = parseFloat(document.getElementById('usdAmount').value) || 0;
+  const eth = usd / ETH_PRICE;
+  document.getElementById('ethAmount').value = eth.toFixed(6);
+}
+
+function setETH(amount) {
+  document.getElementById('ethAmount').value = amount;
+  convertETH();
+}
+
+// Initialize
+document.getElementById('currentRate').textContent = '$' + ETH_PRICE.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+convertETH();
+</script>
+
+</body>
+</html>
