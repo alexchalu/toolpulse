@@ -251,7 +251,8 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div></nav>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a><a href="/contact.html">Contact</a></div></div></nav>
 <div class="page" id="main-content" role="main">
   <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/disability-insurance/">Disability Insurance</a><span class="sep">›</span>Arizona</div>
   <h1 class="page-title">Arizona Disability Insurance Calculator</h1>
@@ -331,7 +332,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
       <button class="lw-btn-back" onclick="lwBack_arizonadisabilityinsurancecalculator(3)">← Back</button>
       <div class="lw-trust">
         <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>By clicking, you agree to be contacted by licensed agents. No obligation. Unsubscribe anytime.</span>
+        <span>By submitting this form, you provide express written consent to be contacted by licensed insurance agents at the phone number and email provided, including via automated calls/texts. This is not a condition of purchase. You may revoke consent anytime. <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="/terms.html" style="color:inherit;text-decoration:underline">Terms</a></span>
       </div>
     </div>
     <!-- SUCCESS -->
@@ -487,6 +488,7 @@ function lwSelOpt(el){
   </div>
 </div>
 
+<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides rough estimates for educational purposes only. Actual insurance premiums vary significantly based on your specific circumstances, claims history, coverage options, and insurer. These estimates are not quotes and do not guarantee any rate or coverage. Always obtain official quotes from licensed insurance agents or carriers. CalcLeap is not an insurance company, broker, or agent and does not sell, solicit, or negotiate insurance.</div>
 <footer class="footer" role="contentinfo"><div class="footer-inner"><div><h4>Tools</h4><a href="/">All Calculators</a><a href="/disability-insurance/">Disability Insurance</a><a href="/calc/bmi-calculator.html">BMI Calculator</a><a href="/calc/compound-interest.html">Compound Interest</a></div><div><h4>Insurance</h4><a href="/calc/car-insurance-estimator.html">Car Insurance</a><a href="/life-insurance-calculator.html">Life Insurance</a><a href="/health-insurance/index.html">Health Insurance</a><a href="/long-term-care-insurance-calculator.html">Long-Term Care</a></div><div><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy Policy</a><a href="/contact.html">Contact</a></div><div><h4>Legal</h4><p style="font-size:.78rem;color:var(--text-3);line-height:1.5">This calculator provides estimates only. Actual disability insurance costs and benefits vary. Consult a licensed insurance agent for personalized advice.</p></div></div><div class="footer-bottom">© 2026 CalcLeap. All rights reserved.</div></footer>
 
 <script>
@@ -547,5 +549,13 @@ function calculate(){
 }
 window.onload=calculate;
 </script>
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
 </body>
 </html>

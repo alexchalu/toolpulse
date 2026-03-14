@@ -159,8 +159,10 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </div>
 </div>
 
+<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This tool provides estimates for informational and educational purposes only. Results may not reflect actual values and should be verified independently. CalcLeap makes no warranties regarding the accuracy or completeness of any calculations. Use at your own discretion.</div>
 <footer class="footer" role="contentinfo"><div class="footer-inner">
-<div class="footer-col"><h4>CalcLeap</h4><a href="/">Home</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a></div>
+<div class="footer-col"><h4>CalcLeap</h4><a href="/">Home</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a></div>
 <div class="footer-col"><h4>Popular</h4><a href="/calc/retirement-calculator.html">Retirement</a><a href="/calc/mortgage-payment.html">Mortgage</a><a href="/calc/compound-interest.html">Compound Interest</a></div>
 <div class="footer-col"><h4>By State</h4><a href="/social-security/">Social Security</a><a href="/disability-insurance/">Disability Insurance</a><a href="/workers-comp/">Workers' Comp</a><a href="/529/">529 Plans</a></div>
 <div class="footer-col"><h4>Resources</h4><a href="/blog/">Blog</a><a href="/sitemap.xml">Sitemap</a><a href="https://www.ssa.gov" target="_blank">SSA.gov</a></div>
@@ -170,5 +172,13 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 function filterTable(){const q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('#tbody tr').forEach(r=>{r.style.display=r.textContent.toLowerCase().includes(q)?'':'none'})}
 function sortTable(n){const t=document.getElementById('stateTable');const rows=Array.from(t.querySelectorAll('tbody tr'));const dir=t.dataset.sortDir==(n+'a')?'d':'a';t.dataset.sortDir=n+dir;rows.sort((a,b)=>{let va=a.cells[n].textContent.replace(/[^\d.-]/g,'');let vb=b.cells[n].textContent.replace(/[^\d.-]/g,'');if(n===0||n===4){va=a.cells[n].textContent;vb=b.cells[n].textContent;return dir==='a'?va.localeCompare(vb):vb.localeCompare(va)}return dir==='a'?(+va)-(+vb):(+vb)-(+va)});const tbody=t.querySelector('tbody');rows.forEach(r=>tbody.appendChild(r))}
 </script>
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
 </body>
 </html>

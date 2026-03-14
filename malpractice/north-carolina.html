@@ -221,7 +221,8 @@
         <div class="disclaimer">⚠️ <strong>Legal Disclaimer:</strong> This calculator provides rough estimates for educational purposes only. It is NOT legal advice. Medical malpractice cases are complex and fact-specific. Actual settlements depend on many factors including evidence quality, expert testimony, jury composition, and insurance policy limits. Always consult a licensed North Carolina medical malpractice attorney for case evaluation.</div>
     </div>
 
-    <footer class="footer" role="contentinfo">
+    <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This tool provides estimates for informational and educational purposes only. Results may not reflect actual values and should be verified independently. CalcLeap makes no warranties regarding the accuracy or completeness of any calculations. Use at your own discretion.</div>
+<footer class="footer" role="contentinfo">
         <div class="footer-grid">
             <div><h4>Calculators</h4><a href="https://calcleap.com/">Home</a><br><a href="https://calcleap.com/malpractice/">Malpractice</a><br><a href="https://calcleap.com/accident/">Accident</a></div>
             <div><h4>Insurance</h4><a href="https://calcleap.com/auto-insurance/">Auto</a><br><a href="https://calcleap.com/home-insurance/">Home</a><br><a href="https://calcleap.com/life-insurance/">Life</a></div>
@@ -315,5 +316,13 @@
         document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
     }
     </script>
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
 </body>
 </html>
