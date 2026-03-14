@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Comparison Calculator | Cost of Living Adjusted | CalcLeap</title>
+    <meta name="description" content="Compare salaries across cities and states with cost of living adjustments. Find out how far your salary goes in different locations. Free salary comparison calculator.">
+    <link rel="canonical" href="https://calcleap.com/calc/salary-comparison-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .city-input-group {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .city-input-group h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .comparison-result {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .result-highlight {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .breakdown-card {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .breakdown-card h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        @media (max-width: 768px) {
+            .breakdown {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Salary Comparison Calculator",
+        "description": "Compare salaries across cities and states with cost of living adjustments",
+        "url": "https://calcleap.com/calc/salary-comparison-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "How does cost of living adjustment work for salary comparison?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cost of living adjustment multiplies your salary by the ratio of living costs between two cities. If City B has a 120 cost index and City A has 100, a $50,000 salary in City A equals $60,000 in City B to maintain the same purchasing power."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Which cities have the highest cost of living in the US?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "San Francisco, New York City, San Jose, Boston, and Seattle typically have the highest cost of living indexes in the United States, often 150-200+ compared to the national average of 100."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Should I accept a lower salary in a lower cost of living area?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It depends on the adjusted value. Use this calculator to compare the real purchasing power. A $70,000 salary in Austin (index ~100) can equal a $105,000 salary in San Francisco (index ~150) in terms of actual living standards."
+            }
+        }, {
+            "@type": "Question",
+            "name": "What factors are included in cost of living index?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cost of living indexes typically include housing, transportation, food, healthcare, utilities, and other goods and services. Housing usually has the largest impact on differences between cities."
+            }
+        }]
+    }
+    </script>
+</head>
+<body>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="../index.html#calculators">Calculators</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Salary Comparison</li>
+        </ol>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>💼 Salary Comparison Calculator</h1>
+            <p class="subtitle">Compare salaries across cities with cost of living adjustments</p>
+        </header>
+
+        <div class="calculator-card">
+            <div class="city-input-group">
+                <h3>📍 Current Location</h3>
+                <div class="input-group">
+                    <label for="city1">City/State</label>
+                    <select id="city1" class="select-input">
+                        <option value="100">National Average</option>
+                        <option value="180">San Francisco, CA</option>
+                        <option value="172">New York City, NY</option>
+                        <option value="165">San Jose, CA</option>
+                        <option value="148">Boston, MA</option>
+                        <option value="145">Seattle, WA</option>
+                        <option value="142">Washington, DC</option>
+                        <option value="138">Los Angeles, CA</option>
+                        <option value="135">Oakland, CA</option>
+                        <option value="128">San Diego, CA</option>
+                        <option value="125">Portland, OR</option>
+                        <option value="122">Miami, FL</option>
+                        <option value="118">Denver, CO</option>
+                        <option value="115">Chicago, IL</option>
+                        <option value="110">Philadelphia, PA</option>
+                        <option value="108">Austin, TX</option>
+                        <option value="105">Atlanta, GA</option>
+                        <option value="102">Phoenix, AZ</option>
+                        <option value="100">Dallas, TX</option>
+                        <option value="98">Houston, TX</option>
+                        <option value="95">Charlotte, NC</option>
+                        <option value="92">Nashville, TN</option>
+                        <option value="90">Tampa, FL</option>
+                        <option value="88">Las Vegas, NV</option>
+                        <option value="85">Columbus, OH</option>
+                        <option value="83">Indianapolis, IN</option>
+                        <option value="80">San Antonio, TX</option>
+                        <option value="78">Kansas City, MO</option>
+                        <option value="75">Cleveland, OH</option>
+                        <option value="72">Detroit, MI</option>
+                        <option value="70">Memphis, TN</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="currentSalary">Current/Offered Salary ($)</label>
+                    <input type="number" id="currentSalary" placeholder="75000" value="75000" min="0" step="1000">
+                </div>
+            </div>
+
+            <div class="city-input-group">
+                <h3>🎯 Comparison Location</h3>
+                <div class="input-group">
+                    <label for="city2">City/State</label>
+                    <select id="city2" class="select-input">
+                        <option value="100">National Average</option>
+                        <option value="180">San Francisco, CA</option>
+                        <option value="172">New York City, NY</option>
+                        <option value="165">San Jose, CA</option>
+                        <option value="148">Boston, MA</option>
+                        <option value="145">Seattle, WA</option>
+                        <option value="142">Washington, DC</option>
+                        <option value="138">Los Angeles, CA</option>
+                        <option value="135">Oakland, CA</option>
+                        <option value="128">San Diego, CA</option>
+                        <option value="125">Portland, OR</option>
+                        <option value="122">Miami, FL</option>
+                        <option value="118">Denver, CO</option>
+                        <option value="115" selected>Chicago, IL</option>
+                        <option value="110">Philadelphia, PA</option>
+                        <option value="108">Austin, TX</option>
+                        <option value="105">Atlanta, GA</option>
+                        <option value="102">Phoenix, AZ</option>
+                        <option value="100">Dallas, TX</option>
+                        <option value="98">Houston, TX</option>
+                        <option value="95">Charlotte, NC</option>
+                        <option value="92">Nashville, TN</option>
+                        <option value="90">Tampa, FL</option>
+                        <option value="88">Las Vegas, NV</option>
+                        <option value="85">Columbus, OH</option>
+                        <option value="83">Indianapolis, IN</option>
+                        <option value="80">San Antonio, TX</option>
+                        <option value="78">Kansas City, MO</option>
+                        <option value="75">Cleveland, OH</option>
+                        <option value="72">Detroit, MI</option>
+                        <option value="70">Memphis, TN</option>
+                    </select>
+                </div>
+            </div>
+
+            <button onclick="calculateComparison()" class="calculate-btn">Compare Salaries</button>
+
+            <div id="result" style="display: none;"></div>
+        </div>
+
+        <div class="content-section">
+            <h2>Understanding Salary Comparison and Cost of Living</h2>
+            <p>When considering a job offer in a different city or evaluating relocation opportunities, raw salary numbers don't tell the complete story. A $100,000 salary in San Francisco provides vastly different purchasing power than the same amount in Indianapolis. Our salary comparison calculator helps you make informed decisions by adjusting salaries based on real cost of living differences.</p>
+
+            <h3>How Cost of Living Adjustment Works</h3>
+            <p>Cost of living indexes measure the relative expense of maintaining a certain standard of living across different geographic areas. The calculation is straightforward:</p>
+            <p><strong>Equivalent Salary = Current Salary × (Target City Index ÷ Current City Index)</strong></p>
+            <p>For example, if you earn $80,000 in Austin (index 108) and consider moving to Seattle (index 145), the equivalent salary would be: $80,000 × (145 ÷ 108) = $107,407. This means you'd need about $107,000 in Seattle to maintain the same lifestyle you have on $80,000 in Austin.</p>
+
+            <h3>What Drives Cost of Living Differences?</h3>
+            <p><strong>Housing:</strong> The single largest factor in cost of living variance. Cities like San Francisco and New York have median rents 3-4 times higher than mid-tier cities. A one-bedroom apartment that costs $900 in Memphis might run $3,500 in Manhattan.</p>
+            <p><strong>Transportation:</strong> Includes vehicle costs, gas prices, insurance, and public transit. Cities with robust public transportation may have lower car-related expenses but higher transit pass costs. Commute distances also vary significantly.</p>
+            <p><strong>Food and Groceries:</strong> Restaurant meals and grocery prices can vary 20-40% between cities. Urban areas generally have higher food costs, though competition may create pockets of affordability.</p>
+            <p><strong>Healthcare:</strong> Medical services, insurance premiums, and prescription costs vary by region and local market competition.</p>
+            <p><strong>Utilities and Services:</strong> Energy costs depend on climate and local rates. Internet, phone, and other services may have regional pricing differences.</p>
+            <p><strong>Taxes:</strong> State and local income taxes, sales taxes, and property taxes can significantly impact take-home pay and overall expenses. States like Texas and Florida have no income tax, while California and New York have progressive tax rates exceeding 10% for high earners.</p>
+
+            <h3>Strategic Considerations for Salary Negotiations</h3>
+            <p><strong>Remote Work Leverage:</strong> If negotiating a remote position, research whether the company adjusts salaries based on employee location. Some pay based on company headquarters location, others adjust to local markets. Use this calculator to determine fair compensation regardless of approach.</p>
+            <p><strong>Total Compensation:</strong> Consider benefits beyond base salary—health insurance quality, 401(k) matching, stock options, bonuses, and perks. A company offering excellent benefits might justify a lower base salary in your comparison.</p>
+            <p><strong>Career Growth:</strong> Higher cost of living cities often (but not always) offer more advanced career opportunities, networking, and faster salary growth trajectories. Factor in 3-5 year career projections, not just current offers.</p>
+            <p><strong>Quality of Life:</strong> Cost of living doesn't capture everything. Consider commute times, weather, cultural amenities, proximity to family, and personal preferences. A lower adjusted salary might still be worth it for better overall quality of life.</p>
+
+            <h3>Using the Calculator for Real Decisions</h3>
+            <p><strong>Job Offer Evaluation:</strong> When you receive an offer from a company in a different city, input your current salary and locations to see if the offer represents a genuine increase or decrease in purchasing power.</p>
+            <p><strong>Relocation Planning:</strong> If you're moving for personal reasons, calculate the salary you'd need to target in your job search to maintain your current standard of living.</p>
+            <p><strong>Career Comparison:</strong> When choosing between multiple offers in different cities, normalize all salaries to a single location to make apples-to-apples comparisons.</p>
+            <p><strong>Raise Negotiations:</strong> If your company relocates or you transfer to a different office, use cost of living data to negotiate appropriate salary adjustments.</p>
+
+            <h3>Limitations and Additional Research</h3>
+            <p>While cost of living indexes provide valuable guidance, they represent averages. Your personal expenses may vary significantly based on lifestyle choices:</p>
+            <ul>
+                <li>Housing costs vary dramatically by neighborhood within cities</li>
+                <li>Family size affects expenses differently (childcare, schools, housing needs)</li>
+                <li>Personal spending habits (dining out, entertainment, travel)</li>
+                <li>Debt obligations (student loans, mortgage, car payments)</li>
+            </ul>
+            <p>Use this calculator as a starting point, then dive deeper into specific housing costs, tax calculators, and personal budget planning for your situation.</p>
+
+            <h3>Frequently Asked Questions</h3>
+            
+            <h4>How accurate are cost of living indexes?</h4>
+            <p>Cost of living indexes are based on aggregated data and represent averages. They're generally accurate for broad comparisons but can't capture individual circumstances. Use them as guidelines, not absolute rules.</p>
+
+            <h4>Should I always choose the higher adjusted salary?</h4>
+            <p>Not necessarily. Career opportunities, industry concentration, network effects, and personal preferences all matter. Sometimes accepting a lower adjusted salary in a career hub city pays off long-term through better advancement opportunities.</p>
+
+            <h4>How often do cost of living indexes change?</h4>
+            <p>Indexes are typically updated quarterly or annually. Housing markets can shift faster than composite indexes reflect, especially during boom or bust periods. Check recent data when making major decisions.</p>
+
+            <h4>What about international salary comparisons?</h4>
+            <p>International comparisons add layers of complexity including exchange rates, tax systems, healthcare models, and cultural differences in living standards. This calculator focuses on US cities; international moves require specialized research.</p>
+
+            <h4>Can I negotiate based on cost of living data?</h4>
+            <p>Absolutely. When presented with objective data showing that an offer doesn't match your current purchasing power, many employers are willing to negotiate, especially if they value your skills and experience.</p>
+        </div>
+
+        <div class="cta-section">
+            <h3>📬 Need More Financial Calculators?</h3>
+            <p>Explore our collection of free financial tools:</p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
+                <a href="mortgage-calculator.html" class="cta-button">Mortgage Calculator</a>
+                <a href="401k-calculator.html" class="cta-button">401(k) Calculator</a>
+                <a href="tax-calculator.html" class="cta-button">Tax Calculator</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 CalcLeap. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        function calculateComparison() {
+            const city1Index = parseFloat(document.getElementById('city1').value);
+            const city2Index = parseFloat(document.getElementById('city2').value);
+            const currentSalary = parseFloat(document.getElementById('currentSalary').value);
+
+            const city1Text = document.getElementById('city1').options[document.getElementById('city1').selectedIndex].text;
+            const city2Text = document.getElementById('city2').options[document.getElementById('city2').selectedIndex].text;
+
+            if (!currentSalary || currentSalary <= 0) {
+                alert('Please enter a valid salary amount');
+                return;
+            }
+
+            // Calculate equivalent salary
+            const equivalentSalary = currentSalary * (city2Index / city1Index);
+            const difference = equivalentSalary - currentSalary;
+            const percentDiff = ((equivalentSalary - currentSalary) / currentSalary * 100);
+
+            // Calculate purchasing power comparison
+            const purchasingPowerRatio = city1Index / city2Index;
+
+            // Monthly breakdown
+            const currentMonthly = currentSalary / 12;
+            const equivalentMonthly = equivalentSalary / 12;
+
+            let message = '';
+            if (equivalentSalary > currentSalary) {
+                message = `You would need <strong>$${Math.abs(difference).toLocaleString('en-US', {maximumFractionDigits: 0})}</strong> more (${percentDiff.toFixed(1)}% increase) in ${city2Text} to maintain the same standard of living.`;
+            } else if (equivalentSalary < currentSalary) {
+                message = `You would need <strong>$${Math.abs(difference).toLocaleString('en-US', {maximumFractionDigits: 0})}</strong> less (${Math.abs(percentDiff).toFixed(1)}% decrease) in ${city2Text} to maintain the same standard of living.`;
+            } else {
+                message = `Both locations have the same cost of living. No salary adjustment needed.`;
+            }
+
+            const resultHTML = `
+                <div class="comparison-result">
+                    <h3 style="margin-top: 0;">Salary Comparison Results</h3>
+                    <p style="font-size: 1.1em;">${message}</p>
+                    <div class="result-highlight">$${equivalentSalary.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                    <p>Equivalent salary in ${city2Text}</p>
+
+                    <div class="breakdown">
+                        <div class="breakdown-card">
+                            <h4>📍 ${city1Text}</h4>
+                            <div class="stat-row">
+                                <span>Cost of Living Index:</span>
+                                <strong>${city1Index}</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>Annual Salary:</span>
+                                <strong>$${currentSalary.toLocaleString('en-US', {maximumFractionDigits: 0})}</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>Monthly Income:</span>
+                                <strong>$${currentMonthly.toLocaleString('en-US', {maximumFractionDigits: 0})}</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>Relative Purchasing Power:</span>
+                                <strong>1.00x</strong>
+                            </div>
+                        </div>
+
+                        <div class="breakdown-card">
+                            <h4>🎯 ${city2Text}</h4>
+                            <div class="stat-row">
+                                <span>Cost of Living Index:</span>
+                                <strong>${city2Index}</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>Equivalent Salary:</span>
+                                <strong>$${equivalentSalary.toLocaleString('en-US', {maximumFractionDigits: 0})}</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>Monthly Income Needed:</span>
+                                <strong>$${equivalentMonthly.toLocaleString('en-US', {maximumFractionDigits: 0})}</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>Cost Difference:</span>
+                                <strong>${city2Index > city1Index ? '+' : ''}${percentDiff.toFixed(1)}%</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                        <h4 style="margin-top: 0;">💡 Key Insight</h4>
+                        <p style="margin-bottom: 0;">
+                            ${city1Index > city2Index 
+                                ? `Moving from ${city1Text} to ${city2Text} means your dollar goes further. A salary of $${currentSalary.toLocaleString()} in ${city1Text} has the same buying power as $${equivalentSalary.toLocaleString('en-US', {maximumFractionDigits: 0})} in ${city2Text}.`
+                                : city1Index < city2Index
+                                ? `${city2Text} is more expensive than ${city1Text}. You'll need to earn $${equivalentSalary.toLocaleString('en-US', {maximumFractionDigits: 0})} in ${city2Text} to maintain the same lifestyle as $${currentSalary.toLocaleString()} provides in ${city1Text}.`
+                                : `Both cities have similar costs of living. Your purchasing power remains roughly the same.`
+                            }
+                        </p>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('result').innerHTML = resultHTML;
+            document.getElementById('result').style.display = 'block';
+        }
+
+        // Auto-calculate on page load
+        window.addEventListener('load', calculateComparison);
+
+        // Auto-calculate on input change
+        document.getElementById('city1').addEventListener('change', calculateComparison);
+        document.getElementById('city2').addEventListener('change', calculateComparison);
+        document.getElementById('currentSalary').addEventListener('input', calculateComparison);
+    </script>
+</body>
+</html>
