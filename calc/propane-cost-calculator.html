@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free propane cost calculator. Calculate monthly and annual propane costs for heating, cooking, water heater, and appliances. Compare tank sizes and find savings.">
+  <meta name="keywords" content="propane cost calculator, propane price calculator, propane tank cost, propane heating cost, lpg calculator, propane usage calculator">
+  <title>Propane Cost Calculator - Estimate Monthly & Annual Propane Costs | CalcLeap</title>
+  <link rel="canonical" href="https://calcleap.com/calc/propane-cost-calculator.html">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.6;
+    }
+    .nav {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-content {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0071e3;
+      text-decoration: none;
+    }
+    .nav-links a {
+      color: #1d1d1f;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #0071e3; }
+    .page {
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .page-title {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+      background: linear-gradient(90deg, #0071e3, #00c3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: #6e6e73;
+      margin-bottom: 40px;
+    }
+    .card, .calc-card {
+      background: white;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .input-group label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1d1d1f;
+    }
+    .input-group input, .input-group select {
+      padding: 12px 16px;
+      border: 1px solid #d2d2d7;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: all 0.2s;
+      background: #f5f5f7;
+    }
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: #0071e3;
+      background: white;
+    }
+    .calc-btn {
+      background: #0071e3;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .calc-btn:hover {
+      background: #0077ed;
+      transform: translateY(-1px);
+    }
+    .result-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 28px;
+      border-radius: 14px;
+      margin-top: 24px;
+      display: none;
+    }
+    .result-box.show { display: block; }
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .result-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .result-card .lbl {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+    .result-card .val {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .breakdown {
+      background: white;
+      color: #1d1d1f;
+      padding: 24px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e5e7;
+    }
+    .breakdown-row:last-child {
+      border-bottom: none;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .section {
+      margin: 48px 0;
+    }
+    .section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .section h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 28px 0 16px;
+      color: #0071e3;
+    }
+    .section p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #1d1d1f;
+      margin-bottom: 16px;
+    }
+    .section ul {
+      margin: 16px 0 16px 24px;
+    }
+    .section li {
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .faq {
+      margin-top: 48px;
+    }
+    .faq-item {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+    .faq-question {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0071e3;
+      margin-bottom: 12px;
+    }
+    .faq-answer {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1d1d1f;
+    }
+    .footer {
+      background: #1d1d1f;
+      color: white;
+      padding: 48px 20px 32px;
+      margin-top: 80px;
+    }
+    .footer-content {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+    }
+    .footer-section h4 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #f5f5f7;
+    }
+    .footer-section a {
+      display: block;
+      color: #a1a1a6;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .footer-section a:hover {
+      color: #0071e3;
+    }
+    .footer-bottom {
+      max-width: 980px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid #424245;
+      text-align: center;
+      font-size: 13px;
+      color: #a1a1a6;
+    }
+    @media (max-width: 768px) {
+      .page-title { font-size: 36px; }
+      .nav-links { display: none; }
+    }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="logo">CalcLeap</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/calc/">Calculators</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page">
+    <h1 class="page-title">Propane Cost Calculator</h1>
+    <p class="subtitle">Calculate your monthly and annual propane costs for heating, cooking, and appliances</p>
+
+    <!-- Ad Slot 1 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567890"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="calc-card">
+      <h2>Propane Usage Calculator</h2>
+      
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="pricePerGallon">Propane Price ($/gallon)</label>
+          <input type="number" id="pricePerGallon" value="2.75" min="0" max="10" step="0.05">
+        </div>
+        
+        <div class="input-group">
+          <label for="tankSize">Tank Size (gallons)</label>
+          <select id="tankSize">
+            <option value="100">100 gallon (portable)</option>
+            <option value="250">250 gallon (residential)</option>
+            <option value="500" selected>500 gallon (standard home)</option>
+            <option value="1000">1,000 gallon (large home)</option>
+          </select>
+        </div>
+        
+        <div class="input-group">
+          <label for="homeSize">Home Size (sq ft)</label>
+          <input type="number" id="homeSize" value="2000" min="0" max="10000" step="100">
+        </div>
+      </div>
+
+      <h3 style="margin-top: 24px; margin-bottom: 16px;">Appliance Usage</h3>
+      
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="heating">Heating (months/year)</label>
+          <input type="number" id="heating" value="6" min="0" max="12" step="1">
+        </div>
+        
+        <div class="input-group">
+          <label for="waterHeater">Water Heater</label>
+          <select id="waterHeater">
+            <option value="0">None</option>
+            <option value="200" selected>Standard (40-50 gal)</option>
+            <option value="300">Large (75+ gal)</option>
+            <option value="150">Tankless</option>
+          </select>
+        </div>
+        
+        <div class="input-group">
+          <label for="cooking">Cooking Range/Stove</label>
+          <select id="cooking">
+            <option value="0">None</option>
+            <option value="30" selected>Regular use</option>
+            <option value="50">Heavy use</option>
+          </select>
+        </div>
+        
+        <div class="input-group">
+          <label for="dryer">Clothes Dryer</label>
+          <select id="dryer">
+            <option value="0">None</option>
+            <option value="20" selected>Regular use</option>
+            <option value="35">Heavy use</option>
+          </select>
+        </div>
+        
+        <div class="input-group">
+          <label for="fireplace">Fireplace/Space Heater</label>
+          <select id="fireplace">
+            <option value="0" selected>None</option>
+            <option value="40">Occasional</option>
+            <option value="80">Regular use</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="calc-btn" onclick="calculate()">Calculate Propane Costs</button>
+
+      <div id="results" class="result-box">
+        <h3 style="margin-bottom: 20px; font-size: 24px;">Your Propane Cost Estimate</h3>
+        
+        <div class="result-grid">
+          <div class="result-card">
+            <div class="lbl">Monthly Cost</div>
+            <div class="val" id="monthlyCost">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Annual Cost</div>
+            <div class="val" id="annualCost">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Gallons/Year</div>
+            <div class="val" id="annualGallons">0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Tank Refills/Year</div>
+            <div class="val" id="refills">0</div>
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <h4 style="font-size: 18px; margin-bottom: 16px;">Cost Breakdown by Appliance</h4>
+          <div class="breakdown-row">
+            <span>Home Heating</span>
+            <span id="heatingCost">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Water Heater</span>
+            <span id="waterHeaterCost">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Cooking</span>
+            <span id="cookingCost">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Dryer</span>
+            <span id="dryerCost">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Fireplace/Space Heater</span>
+            <span id="fireplaceCost">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Total Annual Cost</span>
+            <span id="totalCost">$0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Slot 2 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567891"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="section">
+      <h2>Understanding Propane Costs</h2>
+      
+      <p>Propane (also called LPG or liquefied petroleum gas) is a versatile fuel used for heating homes, water heating, cooking, and powering appliances. Understanding your propane usage and costs can help you budget effectively and find opportunities to save money on energy bills.</p>
+
+      <h3>Average Propane Usage by Appliance</h3>
+      
+      <p><strong>Home Heating:</strong> The largest propane expense for most households. A typical 2,000 sq ft home uses 800-1,200 gallons per year for heating, depending on climate, insulation quality, and thermostat settings. In colder climates, usage can exceed 1,500 gallons annually.</p>
+
+      <p><strong>Water Heater:</strong> A standard propane water heater (40-50 gallon tank) uses approximately 200-300 gallons per year. Tankless water heaters are more efficient but have higher upfront costs. Larger families or homes with multiple bathrooms may use 400+ gallons annually.</p>
+
+      <p><strong>Cooking:</strong> Propane stoves and ranges use 20-50 gallons per year depending on household size and cooking frequency. Professional-style ranges with multiple burners and large ovens consume more propane than standard models.</p>
+
+      <p><strong>Clothes Dryer:</strong> A propane dryer typically uses 15-25 gallons per year for regular use. Heavy use (large families, frequent laundry) can increase consumption to 30-40 gallons annually.</p>
+
+      <p><strong>Fireplace/Space Heater:</strong> Decorative fireplaces may use 40-80 gallons per year if used occasionally. Space heaters used as primary heat sources in specific rooms can consume 100-200 gallons per season.</p>
+
+      <h3>Propane Tank Sizes and Costs</h3>
+      
+      <p><strong>100-gallon tanks:</strong> Portable tanks suitable for single appliances (outdoor heaters, grills, small cabins). Typically hold 80 gallons when "full" (tanks are filled to 80% capacity for safety). Refill costs: $200-300.</p>
+
+      <p><strong>250-gallon tanks:</strong> Small residential tanks for homes with 1-2 propane appliances. Common for homes using propane only for cooking and hot water. Refill costs: $550-850.</p>
+
+      <p><strong>500-gallon tanks:</strong> Standard residential size for homes with multiple propane appliances or moderate heating needs. Holds 400 gallons at 80% fill. Refill costs: $1,100-1,700.</p>
+
+      <p><strong>1,000-gallon tanks:</strong> Large residential or small commercial tanks for homes with high propane consumption (whole-house heating, multiple appliances). Holds 800 gallons at 80% fill. Refill costs: $2,200-3,400.</p>
+
+      <h3>Factors Affecting Propane Costs</h3>
+      
+      <ul>
+        <li><strong>Seasonal pricing:</strong> Propane prices typically peak in winter (high demand for heating) and drop in summer. Buying in late spring or summer can save $0.50-1.00 per gallon</li>
+        <li><strong>Delivery method:</strong> Will-call delivery (you monitor and request fills) is usually cheaper than automatic delivery. Pre-buy or locked-in prices protect against winter price spikes</li>
+        <li><strong>Location:</strong> Rural areas often have higher delivery costs due to transportation. Proximity to propane terminals affects pricing—coastal areas near import terminals may have lower prices</li>
+        <li><strong>Purchase quantity:</strong> Larger fills (500+ gallons) typically cost less per gallon than small top-offs. Some suppliers offer volume discounts</li>
+        <li><strong>Competition:</strong> Areas with multiple propane suppliers have more competitive pricing. Shopping around can save $0.30-0.60 per gallon</li>
+        <li><strong>Contract terms:</strong> Renting vs. owning your tank affects long-term costs. Tank ownership eliminates monthly rental fees ($50-100/year) but requires maintenance responsibility</li>
+      </ul>
+
+      <h3>How to Reduce Propane Costs</h3>
+      
+      <p><strong>1. Improve home insulation:</strong> Proper attic insulation (R-38 to R-60), sealed air leaks, and quality windows can reduce heating propane usage by 20-40%. This is the single most effective way to cut propane bills.</p>
+
+      <p><strong>2. Lower thermostat settings:</strong> Reducing your thermostat by 3-5°F can cut heating costs by 10-15%. Use programmable thermostats to automatically lower temperatures when sleeping or away from home.</p>
+
+      <p><strong>3. Maintain heating equipment:</strong> Annual furnace tune-ups improve efficiency by 5-10%. Clean or replace filters monthly during heating season. Dirty filters force your system to work harder and burn more propane.</p>
+
+      <p><strong>4. Upgrade to high-efficiency appliances:</strong> Modern high-efficiency propane furnaces (95%+ AFUE) use 30-40% less propane than older models (60-70% AFUE). Water heaters with ENERGY STAR certification can save 50+ gallons per year.</p>
+
+      <p><strong>5. Use zone heating:</strong> Close vents in unused rooms and use space heaters only in occupied areas. This can reduce heating costs by 15-25% compared to heating the entire home.</p>
+
+      <p><strong>6. Monitor tank levels:</strong> Check your tank gauge weekly during winter. Running out of propane requires emergency delivery at premium rates ($4-6/gallon vs. $2-3 normally) plus service call fees ($75-150).</p>
+
+      <p><strong>7. Buy propane in summer:</strong> Pre-season contracts (May-August) typically offer $0.50-1.00/gallon discounts compared to winter prices. Locking in prices protects against winter spikes.</p>
+
+      <p><strong>8. Compare suppliers annually:</strong> Get quotes from at least 3 propane companies each year. Switching suppliers can save $200-500 annually. Watch for new customer discounts and promotions.</p>
+    </div>
+
+    <!-- Ad Slot 3 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567892"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">How much does propane cost per gallon?</div>
+        <div class="faq-answer">Propane prices vary by region, season, and supplier but typically range from $2.00 to $4.00 per gallon for residential delivery. Prices are lowest in summer ($2.00-2.75/gallon) and highest in winter ($2.75-4.00/gallon). Rural areas often pay $0.30-0.60 more per gallon due to delivery costs. Emergency fills can cost $4-6/gallon. Shopping around and buying in bulk can save 15-30%.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How long does a 500-gallon propane tank last?</div>
+        <div class="faq-answer">A 500-gallon tank (holding 400 gallons at 80% capacity) lasts 3-12 months depending on usage. For heating only during 6 winter months, it may last 4-6 months. For cooking and hot water only, it can last 18+ months. A home using propane for all needs (heating, cooking, hot water, dryer) typically needs 2-3 fills per year in moderate climates, 3-4 fills in cold climates.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is it cheaper to rent or buy a propane tank?</div>
+        <div class="faq-answer">Buying your tank costs $800-3,000 upfront but eliminates $50-100/year rental fees and gives you freedom to shop suppliers. Renting requires no upfront cost but locks you to one supplier. If you plan to stay in your home 10+ years, buying typically saves $500-1,500 over time. Tank ownership also adds $200-400 in resale value when selling your home.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How can I tell how much propane is in my tank?</div>
+        <div class="faq-answer">Most tanks have a gauge on top showing percentage fill (e.g., 40%). For underground or older tanks without gauges, pour warm water down the tank side—the metal will be cooler where propane is present. Monitor weekly in winter to avoid running out. Order refills when you reach 25-30% to ensure consistent supply and avoid emergency delivery charges.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What uses the most propane in a home?</div>
+        <div class="faq-answer">Home heating is by far the largest propane user, accounting for 70-85% of annual consumption. A typical 2,000 sq ft home uses 800-1,200 gallons per year for heating. Water heaters are second (200-300 gal/year), followed by cooking (20-50 gal/year), dryers (15-25 gal/year), and fireplaces (40-80 gal/year if used regularly). Improving insulation and upgrading to high-efficiency furnaces (95%+ AFUE) are the best ways to reduce total propane consumption.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">When is the best time to buy propane?</div>
+        <div class="faq-answer">Late spring through summer (May-August) offers the lowest propane prices, typically $0.50-1.00/gallon cheaper than winter. Many suppliers offer pre-season contracts with locked-in prices. Buying in bulk (500+ gallons) saves $0.10-0.30/gallon vs. small top-offs. Avoid winter emergency fills ($4-6/gallon). Monitor your tank in fall and fill when prices drop but before heating season begins.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How much propane does a furnace use per hour?</div>
+        <div class="faq-answer">A typical residential propane furnace (80,000-100,000 BTU) uses 0.8-1.2 gallons per hour when actively heating. However, furnaces don't run continuously—they cycle on and off. On average, a furnace runs 8-12 hours per day during cold weather, using 6-15 gallons per day or 180-450 gallons per month during peak winter. High-efficiency furnaces (95%+ AFUE) use 20-30% less propane than older models.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I use propane for whole-house heating?</div>
+        <div class="faq-answer">Yes, propane is an excellent whole-house heating fuel, especially in areas without natural gas access. Modern high-efficiency propane furnaces (95%+ AFUE) provide reliable, cost-effective heating. Annual costs vary widely: $1,500-3,000 for moderate climates, $2,500-4,500 for cold climates. Propane heating is typically 20-40% cheaper than electric resistance heat and comparable to heating oil.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Popular Calculators</h4>
+        <a href="/calc/mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="/calc/bmi-calculator.html">BMI Calculator</a>
+        <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+        <a href="/calc/loan-calculator.html">Loan Calculator</a>
+      </div>
+      <div class="footer-section">
+        <h4>Energy Calculators</h4>
+        <a href="/calc/electricity-cost-calculator.html">Electricity Cost</a>
+        <a href="/calc/propane-cost-calculator.html">Propane Cost</a>
+        <a href="/calc/solar-panel-roi-calculator.html">Solar ROI</a>
+        <a href="/natural-gas-cost-calculator.html">Natural Gas Cost</a>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <a href="/blog/">Financial Blog</a>
+        <a href="/calc/">All Calculators</a>
+        <a href="/about.html">About CalcLeap</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+      <div class="footer-section">
+        <h4>CalcLeap</h4>
+        <p style="font-size: 14px; color: #a1a1a6; line-height: 1.6;">Free online calculators and tools for finance, health, conversions, and more. Make smarter decisions with CalcLeap.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 CalcLeap. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function calculate() {
+      const price = parseFloat(document.getElementById('pricePerGallon').value);
+      const tankSize = parseInt(document.getElementById('tankSize').value);
+      const homeSize = parseInt(document.getElementById('homeSize').value);
+      const heatingMonths = parseInt(document.getElementById('heating').value);
+      const waterHeater = parseInt(document.getElementById('waterHeater').value);
+      const cooking = parseInt(document.getElementById('cooking').value);
+      const dryer = parseInt(document.getElementById('dryer').value);
+      const fireplace = parseInt(document.getElementById('fireplace').value);
+
+      // Calculate heating usage (gallons/year)
+      // Estimate: 0.5-0.6 gallons per sq ft per year for moderate climates
+      const heatingGallons = (homeSize * 0.5 * (heatingMonths / 12));
+      
+      // Total gallons per year
+      const totalGallons = heatingGallons + waterHeater + cooking + dryer + fireplace;
+      
+      // Costs
+      const heatingCostAnnual = heatingGallons * price;
+      const waterHeaterCostAnnual = waterHeater * price;
+      const cookingCostAnnual = cooking * price;
+      const dryerCostAnnual = dryer * price;
+      const fireplaceCostAnnual = fireplace * price;
+      const totalCostAnnual = totalGallons * price;
+      const monthlyCost = totalCostAnnual / 12;
+      
+      // Tank refills (80% capacity rule)
+      const usableCapacity = tankSize * 0.8;
+      const refills = Math.ceil(totalGallons / usableCapacity);
+
+      // Display results
+      document.getElementById('monthlyCost').textContent = '$' + monthlyCost.toFixed(0);
+      document.getElementById('annualCost').textContent = '$' + totalCostAnnual.toFixed(0);
+      document.getElementById('annualGallons').textContent = totalGallons.toFixed(0);
+      document.getElementById('refills').textContent = refills;
+
+      // Breakdown
+      document.getElementById('heatingCost').textContent = '$' + heatingCostAnnual.toFixed(0);
+      document.getElementById('waterHeaterCost').textContent = '$' + waterHeaterCostAnnual.toFixed(0);
+      document.getElementById('cookingCost').textContent = '$' + cookingCostAnnual.toFixed(0);
+      document.getElementById('dryerCost').textContent = '$' + dryerCostAnnual.toFixed(0);
+      document.getElementById('fireplaceCost').textContent = '$' + fireplaceCostAnnual.toFixed(0);
+      document.getElementById('totalCost').textContent = '$' + totalCostAnnual.toFixed(0);
+
+      // Show results
+      document.getElementById('results').classList.add('show');
+      
+      // Scroll to results
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html>
