@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar vs Electricity Cost Comparison Calculator | CalcLeap</title>
+<meta name="description" content="Compare the costs of solar panels vs grid electricity over time. Calculate breakeven point, lifetime savings, and see if solar makes financial sense for your home.">
+<link rel="canonical" href="https://calcleap.com/calc/solar-vs-electricity-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Solar vs Electricity Cost Comparison Calculator — CalcLeap">
+<meta property="og:description" content="Compare the costs of solar panels vs grid electricity over time. Calculate breakeven point, lifetime savings, and see if solar makes financial sense for your home.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/calc/solar-vs-electricity-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Solar vs Electricity Cost Comparison Calculator",
+    "description": "Compare the costs of solar panels vs grid electricity over time. Calculate breakeven point, lifetime savings, and see if solar makes financial sense for your home.",
+    "url": "https://calcleap.com/calc/solar-vs-electricity-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<style>
+/* === CalcLeap Apple Design System === */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+
+/* === NAV === */
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+/* === LAYOUT === */
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+
+/* === CALCULATOR CARD === */
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+
+/* === RESULTS === */
+.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.highlight-box{background:linear-gradient(135deg,#22c55e 0%,#16a34a 100%);color:#fff;border-radius:var(--r-sm);padding:1.5rem;text-align:center;margin-bottom:1.5rem}
+.highlight-box .big{font-size:2.5rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.25rem}
+.highlight-box .label{font-size:.9rem;opacity:.9}
+
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-bottom:1.25rem}
+.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
+.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
+.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
+.result-card .value.green{color:#22c55e}
+.result-card .value.red{color:#ef4444}
+
+.comparison-chart{margin:1.5rem 0}
+.year-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.6rem}
+.year-label{font-size:.85rem;font-weight:600;color:var(--text-2);min-width:60px}
+.bar-container{flex:1;display:flex;gap:.5rem}
+.bar-segment{height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:600;color:#fff;transition:all .3s}
+.bar-solar{background:#22c55e}
+.bar-grid{background:#0071e3}
+
+/* === AD === */
+.ad-slot{margin:1.5rem 0}
+
+/* === INFO SECTIONS === */
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card ul{margin-left:1.25rem;line-height:1.8}
+.info-card li{font-size:.9rem;color:var(--text-2);margin-bottom:.4rem}
+.info-card p{font-size:.9rem;color:var(--text-2);line-height:1.7;margin-bottom:.75rem}
+
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem;margin:1rem 0}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
+th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
+th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
+td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+
+/* FAQ */
+.faq{border-top:1px solid var(--border);padding:.85rem 0}
+.faq:last-child{border-bottom:none}
+.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
+.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
+
+/* Related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1.5rem 0}
+.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
+.related-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* === FOOTER === */
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .page{padding:0 1.25rem}
+  .page-title{font-size:1.75rem}
+  .form-row{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .related-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="../index.html#finance">Finance</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#tax">Tax</a>
+      <a href="../index.html#health">Health</a>
+      <a href="../index.html#converters">Converters</a>
+      <a href="../index.html#dev">Dev Tools</a>
+      <a href="../about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span><a href="../index.html#energy">Energy</a><span class="sep">›</span>☀️ Solar vs Electricity Calculator
+  </div>
+
+  <h1 class="page-title">☀️ Solar vs Electricity Cost Comparison</h1>
+  <p class="page-desc">Compare the lifetime costs of solar panels versus grid electricity. Calculate your breakeven point, total savings, and see if solar makes financial sense for your home.</p>
+
+  <!-- AD SLOT 1 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card">
+    <h2>Compare Solar vs Grid Electricity</h2>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label>Monthly Electricity Bill ($)</label>
+        <input type="number" id="monthlyBill" value="150" step="10" min="0">
+      </div>
+      <div class="form-group">
+        <label>Current Rate ($/kWh)</label>
+        <input type="number" id="electricityRate" value="0.14" step="0.01" min="0">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Solar System Size (kW)</label>
+        <input type="number" id="systemSize" value="6" step="0.5" min="1" max="20">
+      </div>
+      <div class="form-group">
+        <label>Solar Cost per Watt ($)</label>
+        <input type="number" id="costPerWatt" value="2.75" step="0.05" min="0">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Federal Tax Credit (%)</label>
+        <input type="number" id="taxCredit" value="30" step="1" min="0" max="100">
+      </div>
+      <div class="form-group">
+        <label>Annual Rate Increase (%)</label>
+        <input type="number" id="rateIncrease" value="3" step="0.5" min="0" max="10">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>State</label>
+        <select id="state">
+          <option value="average">National Average</option>
+          <option value="ca">California (High Sun)</option>
+          <option value="az">Arizona (High Sun)</option>
+          <option value="fl">Florida (High Sun)</option>
+          <option value="tx">Texas (Good Sun)</option>
+          <option value="ny">New York (Moderate Sun)</option>
+          <option value="wa">Washington (Lower Sun)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Analysis Period (years)</label>
+        <select id="years">
+          <option value="10">10 years</option>
+          <option value="15">15 years</option>
+          <option value="20">20 years</option>
+          <option value="25" selected>25 years</option>
+          <option value="30">30 years</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn" onclick="calculate()">Compare Costs</button>
+
+    <div class="result-area" id="results">
+      <div class="highlight-box">
+        <div class="big" id="totalSavings">$0</div>
+        <div class="label">Total Lifetime Savings</div>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-card">
+          <div class="label">Solar System Cost</div>
+          <div class="value" id="systemCost">$0</div>
+        </div>
+        <div class="result-card">
+          <div class="label">After Tax Credit</div>
+          <div class="value green" id="afterCredit">$0</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Breakeven Point</div>
+          <div class="value" id="breakeven">0 yrs</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Grid Cost (25yr)</div>
+          <div class="value red" id="gridCost">$0</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:1rem;margin:1.5rem 0 .75rem">Cost Comparison Over Time</h3>
+      <div class="comparison-chart" id="chart"></div>
+    </div>
+  </div>
+
+  <!-- AD SLOT 2 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="info-card">
+    <h3>Understanding Solar vs Grid Electricity Costs</h3>
+    <p><strong>Solar panels are a long-term investment.</strong> While the upfront cost is significant ($15,000-$25,000 for a typical home system), solar panels generate free electricity for 25-30 years, while grid rates continue to rise.</p>
+    <p><strong>Key factors that determine if solar is worth it:</strong></p>
+    <ul>
+      <li><strong>Your electricity rate</strong> — Higher rates = faster payback (California $0.30/kWh vs Texas $0.12/kWh)</li>
+      <li><strong>Sunlight hours</strong> — Arizona gets 2,800 hrs/year vs Seattle gets 1,600 hrs/year</li>
+      <li><strong>Incentives</strong> — 30% federal tax credit + state/local rebates can reduce costs by 40-50%</li>
+      <li><strong>Rate escalation</strong> — Grid rates have increased 2-4% annually for the past decade</li>
+      <li><strong>System size</strong> — Must match your usage; oversizing wastes money, undersizing leaves grid bills</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3>Average Solar System Costs (2026)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>System Size</th>
+          <th>Covers Usage</th>
+          <th>Gross Cost</th>
+          <th>After 30% Tax Credit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>4 kW</td><td>~500 kWh/month</td><td>$11,000</td><td>$7,700</td></tr>
+        <tr><td>6 kW</td><td>~750 kWh/month</td><td>$16,500</td><td>$11,550</td></tr>
+        <tr><td>8 kW</td><td>~1,000 kWh/month</td><td>$22,000</td><td>$15,400</td></tr>
+        <tr><td>10 kW</td><td>~1,250 kWh/month</td><td>$27,500</td><td>$19,250</td></tr>
+      </tbody>
+    </table>
+    <p><strong>National average: $2.50-$3.00 per watt</strong> before incentives. Premium installers charge $3.00-$3.50/watt. DIY kits start at $1.50/watt but require expertise and may void warranties.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Breakeven Timeline by State</h3>
+    <p>Solar payback periods vary dramatically by state due to electricity rates, sunlight hours, and local incentives:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Avg. Rate ($/kWh)</th>
+          <th>Sun Score</th>
+          <th>Typical Payback</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>California</td><td>$0.28</td><td>Excellent</td><td>5-7 years</td></tr>
+        <tr><td>Hawaii</td><td>$0.38</td><td>Excellent</td><td>4-6 years</td></tr>
+        <tr><td>Massachusetts</td><td>$0.24</td><td>Good</td><td>6-8 years</td></tr>
+        <tr><td>Arizona</td><td>$0.13</td><td>Excellent</td><td>7-9 years</td></tr>
+        <tr><td>Texas</td><td>$0.12</td><td>Very Good</td><td>8-11 years</td></tr>
+        <tr><td>Florida</td><td>$0.13</td><td>Excellent</td><td>8-10 years</td></tr>
+        <tr><td>New York</td><td>$0.21</td><td>Good</td><td>7-9 years</td></tr>
+        <tr><td>Washington</td><td>$0.11</td><td>Fair</td><td>12-16 years</td></tr>
+      </tbody>
+    </table>
+    <p><strong>States with high electricity rates and/or excellent sun exposure</strong> see the fastest payback periods. Even in moderate-sun states like New York, solar can pay for itself in under 10 years due to high electricity costs.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Federal and State Incentives</h3>
+    <ul>
+      <li><strong>Federal Solar Tax Credit (ITC)</strong> — 30% of system cost, no cap (available through 2032)</li>
+      <li><strong>California SGIP</strong> — Battery storage rebates up to $250/kWh (~$3,000 for 12 kWh battery)</li>
+      <li><strong>New York State Credit</strong> — 25% state credit ($5,000 cap) stacks with federal credit</li>
+      <li><strong>Massachusetts SMART</strong> — Monthly credits for excess solar generation ($0.25-$0.35/kWh)</li>
+      <li><strong>Net Metering</strong> — Available in 43 states; get retail rate credit for excess power sent to grid</li>
+      <li><strong>Property Tax Exemption</strong> — 39 states exempt solar installations from property tax increases</li>
+      <li><strong>Sales Tax Exemption</strong> — 25 states exempt solar equipment from sales tax</li>
+    </ul>
+    <p>Combined federal and state incentives can reduce your out-of-pocket cost by 40-60% in states like New York, Massachusetts, and California.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Solar Panel Lifespan and Degradation</h3>
+    <p><strong>Modern solar panels last 25-30 years</strong> and come with 25-year production warranties. However, output degrades slightly over time:</p>
+    <ul>
+      <li><strong>Year 1:</strong> 100% output (sometimes 98-99% after initial burn-in)</li>
+      <li><strong>Years 2-25:</strong> ~0.5% annual degradation (typical for Tier 1 panels)</li>
+      <li><strong>Year 25:</strong> ~85% of original output</li>
+      <li><strong>Year 30+:</strong> Panels still produce 75-80% output; inverter may need replacement</li>
+    </ul>
+    <p><strong>Inverters typically last 10-15 years</strong> and cost $1,500-$3,000 to replace. Factor this into lifetime costs. Microinverters (one per panel) last longer (20-25 years) but cost more upfront.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>When Solar Doesn't Make Sense</h3>
+    <p>Solar isn't always the best choice. Skip solar if:</p>
+    <ul>
+      <li><strong>Your electricity rate is very low</strong> (< $0.10/kWh) — payback takes 15-20+ years</li>
+      <li><strong>Your roof is heavily shaded</strong> — trees block 30%+ of sunlight during peak hours</li>
+      <li><strong>Your roof needs replacement soon</strong> — replace roof first; removing/reinstalling panels costs $2,000-$5,000</li>
+      <li><strong>You're moving in < 5 years</strong> — won't recoup upfront cost; solar adds ~$15,000 to home value but buyers may not value it fully</li>
+      <li><strong>Your home is small/energy-efficient</strong> — $40-60/month electric bills make solar ROI weak</li>
+      <li><strong>You rent</strong> — can't install without landlord permission; better to use community solar programs</li>
+    </ul>
+  </div>
+
+  <!-- AD SLOT 3 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="info-card">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <div class="faq-q">Is solar worth it in 2026?</div>
+      <div class="faq-a">Yes, for most homeowners with $100+ monthly electric bills and decent sun exposure. The 30% federal tax credit (through 2032) and falling panel costs make solar more affordable than ever. Average payback is 7-10 years, after which you get free electricity for 15-20+ more years.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">How much does solar actually save per month?</div>
+      <div class="faq-a">Depends on system size and usage. A 6 kW system in a sunny state produces ~750-900 kWh/month. At $0.14/kWh, that's $105-125/month savings. After accounting for loan/lease payments, net savings in early years may be $20-50/month, rising to $125+/month once the system is paid off.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Should I buy or lease solar panels?</div>
+      <div class="faq-a">Buy if possible. Ownership gives you the 30% tax credit, increases home value, and maximizes savings. Leases/PPAs offer $0 down but you lose the tax credit, savings are smaller, and selling your home becomes complicated (buyer must assume lease or you pay buyout).</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">What happens to my electric bill with solar?</div>
+      <div class="faq-a">It drops dramatically but rarely to $0. Most states have $10-25/month grid connection fees. If your system doesn't cover 100% of usage, you pay for the shortfall. With net metering, excess daytime production offsets nighttime grid usage, minimizing costs.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Do solar panels work on cloudy days?</div>
+      <div class="faq-a">Yes, but at reduced output (10-25% of full capacity). Solar panels generate electricity from diffuse light, not just direct sunlight. Cloudy climates like Seattle still produce 40-60% of what sunny Arizona produces annually.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">How long do solar panels really last?</div>
+      <div class="faq-a">25-30 years minimum. Tier 1 panels have 25-year warranties guaranteeing 85% output at year 25. Many panels continue producing at 70-80% efficiency for 35-40 years. The inverter typically needs replacement once at 10-15 years ($1,500-$3,000).</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">What size solar system do I need?</div>
+      <div class="faq-a">Divide your annual kWh usage by your area's sun hours. Example: 10,000 kWh/year in a location with 1,400 sun hours = 7.1 kW system. Check your electric bill for usage, or use ~1 kW per 125 kWh/month as a rough estimate.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Can I go completely off-grid with solar?</div>
+      <div class="faq-a">Technically yes, but it's expensive. You need oversized panels + large battery bank ($15,000-$30,000 for 20-40 kWh). Most homeowners stay grid-connected (net metering) — grid acts as a "free battery," storing excess daytime production as credits for nighttime use.</div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h3>🔗 Related Calculators</h3>
+    <div class="related-grid">
+      <a href="solar-panel-roi-calculator.html" class="related-link">Solar ROI Calculator</a>
+      <a href="electricity-cost-calculator.html" class="related-link">Electricity Cost Calculator</a>
+      <a href="natural-gas-cost-calculator.html" class="related-link">Natural Gas Cost</a>
+      <a href="propane-cost-calculator.html" class="related-link">Propane Cost Calculator</a>
+      <a href="mortgage-payment.html" class="related-link">Mortgage Calculator</a>
+      <a href="../income-tax-calculator.html" class="related-link">Income Tax Calculator</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="../index.html">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+    </div>
+    <div>
+      <h5>Popular</h5>
+      <a href="../bmi-calculator.html">BMI Calculator</a>
+      <a href="mortgage-payment.html">Mortgage</a>
+      <a href="../income-tax-calculator.html">Income Tax</a>
+    </div>
+    <div>
+      <h5>Categories</h5>
+      <a href="../index.html#finance">Financial</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#health">Health</a>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. For informational purposes only.</p>
+  </div>
+</footer>
+
+<script>
+function calculate() {
+  const monthlyBill = parseFloat(document.getElementById('monthlyBill').value) || 150;
+  const rate = parseFloat(document.getElementById('electricityRate').value) || 0.14;
+  const systemSize = parseFloat(document.getElementById('systemSize').value) || 6;
+  const costPerWatt = parseFloat(document.getElementById('costPerWatt').value) || 2.75;
+  const taxCredit = parseFloat(document.getElementById('taxCredit').value) || 30;
+  const rateIncrease = parseFloat(document.getElementById('rateIncrease').value) || 3;
+  const state = document.getElementById('state').value;
+  const years = parseInt(document.getElementById('years').value) || 25;
+
+  // Sun hours per year by state (affects production)
+  const sunHours = {
+    'average': 1600,
+    'ca': 2400,
+    'az': 2800,
+    'fl': 2400,
+    'tx': 2200,
+    'ny': 1600,
+    'wa': 1400
+  };
+
+  const annualKWh = systemSize * (sunHours[state] || 1600);
+  const solarCost = systemSize * 1000 * costPerWatt;
+  const afterCreditCost = solarCost * (1 - taxCredit / 100);
+  
+  // Calculate grid costs with escalation
+  let totalGridCost = 0;
+  let currentRate = rate;
+  for (let year = 1; year <= years; year++) {
+    totalGridCost += monthlyBill * 12 * (currentRate / rate);
+    currentRate *= (1 + rateIncrease / 100);
+  }
+
+  // Solar costs (system + maintenance)
+  const maintenanceCost = years * 50; // ~$50/year avg
+  const inverterReplacement = years >= 12 ? 2500 : 0;
+  const totalSolarCost = afterCreditCost + maintenanceCost + inverterReplacement;
+
+  const savings = totalGridCost - totalSolarCost;
+
+  // Find breakeven year
+  let breakevenYear = 0;
+  let cumulativeGrid = 0;
+  currentRate = rate;
+  for (let year = 1; year <= years; year++) {
+    cumulativeGrid += monthlyBill * 12 * (currentRate / rate);
+    if (cumulativeGrid >= afterCreditCost && breakevenYear === 0) {
+      breakevenYear = year;
+    }
+    currentRate *= (1 + rateIncrease / 100);
+  }
+
+  // Update results
+  document.getElementById('totalSavings').textContent = savings > 0 ? 
+    '+$' + savings.toLocaleString(undefined, {maximumFractionDigits: 0}) : 
+    '-$' + Math.abs(savings).toLocaleString(undefined, {maximumFractionDigits: 0});
+  
+  document.getElementById('systemCost').textContent = '$' + solarCost.toLocaleString(undefined, {maximumFractionDigits: 0});
+  document.getElementById('afterCredit').textContent = '$' + afterCreditCost.toLocaleString(undefined, {maximumFractionDigits: 0});
+  document.getElementById('breakeven').textContent = breakevenYear > 0 ? breakevenYear + ' yrs' : 'Never';
+  document.getElementById('gridCost').textContent = '$' + totalGridCost.toLocaleString(undefined, {maximumFractionDigits: 0});
+
+  // Build comparison chart (5-year intervals)
+  const chartHTML = [];
+  const intervals = [5, 10, 15, 20, 25].filter(y => y <= years);
+  
+  intervals.forEach(year => {
+    let gridTotal = 0;
+    let currentRate2 = rate;
+    for (let y = 1; y <= year; y++) {
+      gridTotal += monthlyBill * 12 * (currentRate2 / rate);
+      currentRate2 *= (1 + rateIncrease / 100);
+    }
+    
+    const solarTotal = afterCreditCost + (year * 50) + (year >= 12 ? 2500 : 0);
+    
+    const maxCost = Math.max(gridTotal, solarTotal);
+    const gridWidth = (gridTotal / maxCost * 100).toFixed(1);
+    const solarWidth = (solarTotal / maxCost * 100).toFixed(1);
+    
+    chartHTML.push(`
+      <div class="year-row">
+        <div class="year-label">Year ${year}</div>
+        <div class="bar-container">
+          <div class="bar-segment bar-grid" style="width:${gridWidth}%">Grid: $${gridTotal.toLocaleString(undefined, {maximumFractionDigits: 0})}</div>
+        </div>
+      </div>
+      <div class="year-row">
+        <div class="year-label"></div>
+        <div class="bar-container">
+          <div class="bar-segment bar-solar" style="width:${solarWidth}%">Solar: $${solarTotal.toLocaleString(undefined, {maximumFractionDigits: 0})}</div>
+        </div>
+      </div>
+    `);
+  });
+
+  document.getElementById('chart').innerHTML = chartHTML.join('');
+  document.getElementById('results').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
