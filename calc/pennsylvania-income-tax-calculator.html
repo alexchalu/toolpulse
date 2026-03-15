@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pennsylvania Income Tax Calculator 2026 — Free Tool | CalcLeap</title>
+<meta name="description" content="Calculate your Pennsylvania state income tax with our free 2026 calculator. Includes all tax brackets, standard deductions, and credits. See your exact PA tax liability.">
+<link rel="canonical" href="https://calcleap.com/calc/pennsylvania-income-tax-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Pennsylvania Income Tax Calculator 2026 — CalcLeap">
+<meta property="og:description" content="Calculate your Pennsylvania state income tax with our free 2026 calculator. Includes all tax brackets, standard deductions, and credits.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/calc/pennsylvania-income-tax-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Pennsylvania Income Tax Calculator",
+    "description": "Calculate your Pennsylvania state income tax with our free 2026 calculator. Includes all tax brackets, standard deductions, and credits.",
+    "url": "https://calcleap.com/calc/pennsylvania-income-tax-calculator.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<style>
+/* === CalcLeap Apple Design System === */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+
+/* === NAV === */
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+/* === LAYOUT === */
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+
+/* === PALCULATOR PARD === */
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+
+/* === RESULTS === */
+.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1.25rem}
+.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
+.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
+.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
+.result-card .value.red{color:#ef4444}
+.result-card .value.green{color:#22c55e}
+
+.bracket-breakdown{margin-top:1.5rem}
+.bracket-item{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
+.bracket-item:last-child{border-bottom:none}
+.bracket-info{font-size:.9rem;color:var(--text-2)}
+.bracket-tax{font-size:.95rem;font-weight:700}
+
+/* === AD === */
+.ad-slot{margin:1.5rem 0}
+
+/* === INFO SECTIONS === */
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card ul{margin-left:1.25rem;line-height:1.8}
+.info-card li{font-size:.9rem;color:var(--text-2);margin-bottom:.4rem}
+.info-card p{font-size:.9rem;color:var(--text-2);line-height:1.7;margin-bottom:.75rem}
+
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem;margin:1rem 0}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
+th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
+th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
+td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+
+/* FAQ */
+.faq{border-top:1px solid var(--border);padding:.85rem 0}
+.faq:last-child{border-bottom:none}
+.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
+.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
+
+/* Related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1.5rem 0}
+.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
+.related-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* === FOOTER === */
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .page{padding:0 1.25rem}
+  .page-title{font-size:1.75rem}
+  .form-row{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .related-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="../index.html#finance">Finance</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#tax">Tax</a>
+      <a href="../index.html#health">Health</a>
+      <a href="../index.html#converters">Converters</a>
+      <a href="../index.html#dev">Dev Tools</a>
+      <a href="../about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page" id="main-content" role="main">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span><a href="../index.html#tax">Tax</a><span class="sep">›</span>📊 Pennsylvania Income Tax Calculator
+  </div>
+
+  <h1 class="page-title">📊 Pennsylvania Income Tax Calculator 2026</h1>
+  <p class="page-desc">Calculate your Pennsylvania state income tax with our free calculator. Accurate 2026 tax brackets, standard deductions, and credits. See your exact PA tax liability.</p>
+
+  <!-- AD SLOT 1 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card">
+    <h2>Calculate Your Pennsylvania Income Tax</h2>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="filingStatus">Filing Status</label>
+        <select id="filingStatus" aria-label="Filing Status">
+          <option value="single">Single</option>
+          <option value="married">Married Filing Jointly</option>
+          <option value="married-separate">Married Filing Separately</option>
+          <option value="head">Head of Household</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="income">Annual Income ($)</label>
+        <input type="number" id="income" value="75000" step="1000" min="0" aria-label="Income">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="deduction">Standard Deduction</label>
+        <input type="number" id="deduction" value="5363" step="100" min="0" aria-label="Deduction">
+      </div>
+      <div class="form-group">
+        <label for="dependents">Dependents</label>
+        <input type="number" id="dependents" value="0" step="1" min="0" max="10" aria-label="Dependents">
+      </div>
+    </div>
+
+    <button class="btn" onclick="calculate()">Calculate PA Tax</button>
+
+    <div class="result-area" id="results">
+      <div class="result-grid">
+        <div class="result-card">
+          <div class="label">PA State Tax Owed</div>
+          <div class="value red" id="totalTax">$0</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Effective Tax Rate</div>
+          <div class="value" id="effectiveRate">0%</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Taxable Income</div>
+          <div class="value" id="taxableIncome">$0</div>
+        </div>
+      </div>
+
+      <div class="bracket-breakdown" id="breakdown">
+        <h3 style="font-size:1rem;margin-bottom:.75rem">Tax Bracket Breakdown</h3>
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- AD SLOT 2 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="info-card">
+    <h3>2026 Pennsylvania Tax Brackets</h3>
+    <p><strong>Pennsylvania has one of the highest state income tax rates in the nation</strong>, with a top marginal rate of <strong>3.07%</strong> for high earners. The state uses a progressive tax system with 10 tax brackets.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Taxable Income (Single)</th>
+          <th>Tax Rate</th>
+          <th>Tax Owed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>$0 - $10,412</td><td>1.0%</td><td>Up to $104</td></tr>
+        <tr><td>$10,413 - $24,684</td><td>2.0%</td><td>$104 + 2% of excess</td></tr>
+        <tr><td>$24,685 - $38,959</td><td>4.0%</td><td>$389 + 4% of excess</td></tr>
+        <tr><td>$38,960 - $54,081</td><td>6.0%</td><td>$960 + 6% of excess</td></tr>
+        <tr><td>$54,082 - $68,350</td><td>8.0%</td><td>$1,867 + 8% of excess</td></tr>
+        <tr><td>$68,351 - $349,137</td><td>9.3%</td><td>$3,009 + 9.3% of excess</td></tr>
+        <tr><td>$349,138 - $418,961</td><td>10.3%</td><td>$29,122 + 10.3% of excess</td></tr>
+        <tr><td>$418,962 - $698,271</td><td>11.3%</td><td>$36,313 + 11.3% of excess</td></tr>
+        <tr><td>$698,272 - $1,000,000</td><td>12.3%</td><td>$67,855 + 12.3% of excess</td></tr>
+        <tr><td>$1,000,001+</td><td>3.07%</td><td>$104,968 + 3.07% of excess</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Married Filing Jointly brackets are exactly double the Single brackets</strong> (e.g., first bracket is $0-$20,824 @ 1%).</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Pennsylvania Standard Deduction (2026)</h3>
+    <ul>
+      <li><strong>Single / Married Filing Separately:</strong> $5,363</li>
+      <li><strong>Married Filing Jointly:</strong> $10,726</li>
+      <li><strong>Head of Household:</strong> $10,726</li>
+    </ul>
+    <p>Pennsylvania does NOT allow federal itemized deductions — you must use the state standard deduction. However, you can claim <strong>additional deductions for dependents, mortgage interest, and charitable contributions</strong> on Schedule PA.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>How Pennsylvania Income Tax Works</h3>
+    <p><strong>Pennsylvania uses a progressive tax system</strong> where your income is taxed at different rates as it climbs through the brackets. Only the income in each bracket is taxed at that bracket's rate.</p>
+    <p><strong>Example: $75,000 income (Single filer)</strong></p>
+    <ul>
+      <li>Gross income: $75,000</li>
+      <li>Standard deduction: -$5,363</li>
+      <li>Taxable income: $69,637</li>
+      <li>Tax calculation:
+        <ul style="margin-top:.5rem">
+          <li>First $10,412 @ 1% = $104</li>
+          <li>Next $14,272 @ 2% = $285</li>
+          <li>Next $14,275 @ 4% = $571</li>
+          <li>Next $15,122 @ 6% = $907</li>
+          <li>Next $14,269 @ 8% = $1,142</li>
+          <li>Remaining $1,287 @ 9.3% = $120</li>
+          <li><strong>Total PA tax: $3,129</strong></li>
+        </ul>
+      </li>
+      <li><strong>Effective rate: 4.17%</strong> (even though top bracket is 9.3%)</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3>Pennsylvania vs Federal Income Tax</h3>
+    <p><strong>You pay BOTH federal and Pennsylvania state income tax</strong> on your earnings. Here's how they compare:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Income Level</th>
+          <th>Federal Tax</th>
+          <th>PA State Tax</th>
+          <th>Combined</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>$50,000 (Single)</td><td>~$4,200 (8.4%)</td><td>~$1,700 (3.4%)</td><td>~11.8%</td></tr>
+        <tr><td>$100,000 (Single)</td><td>~$14,000 (14%)</td><td>~$5,900 (5.9%)</td><td>~19.9%</td></tr>
+        <tr><td>$200,000 (Single)</td><td>~$38,000 (19%)</td><td>~$15,400 (7.7%)</td><td>~26.7%</td></tr>
+        <tr><td>$500,000 (Single)</td><td>~$140,000 (28%)</td><td>~$43,000 (8.6%)</td><td>~36.6%</td></tr>
+        <tr><td>$1,000,000 (Single)</td><td>~$330,000 (33%)</td><td>~$105,000 (10.5%)</td><td>~43.5%</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Pennsylvania's top earners pay some of the highest combined tax rates in the U.S.</strong> — up to 50%+ when including federal, state, and payroll taxes.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Pennsylvania Tax Credits</h3>
+    <p>Pennsylvania offers several tax credits that can reduce your tax liability:</p>
+    <ul>
+      <li><strong>Earned Income Tax Credit (PA EITC)</strong> — Up to $3,417 for low-income workers with children</li>
+      <li><strong>Young Child Tax Credit (YCTC)</strong> — $1,117 per child under 6 (income limits apply)</li>
+      <li><strong>Renters' Credit</strong> — $60 (single) or $120 (married) if you rent and meet income limits ($51,983 single, $103,966 married)</li>
+      <li><strong>Senior Head of Household Credit</strong> — $1,358 for seniors 65+ who are head of household</li>
+      <li><strong>Dependent Parent Credit</strong> — $593 for supporting a parent aged 65+ living with you</li>
+      <li><strong>Child Adoption Costs Credit</strong> — Up to $2,500 per child for qualified adoption expenses</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3>Pennsylvania Tax Filing Deadlines</h3>
+    <ul>
+      <li><strong>Tax Day:</strong> April 15, 2026 (state deadline matches federal)</li>
+      <li><strong>Extension Deadline:</strong> October 15, 2026 (automatic 6-month extension available)</li>
+      <li><strong>Q1 Estimated Tax:</strong> April 15, 2026</li>
+      <li><strong>Q2 Estimated Tax:</strong> June 15, 2026</li>
+      <li><strong>Q3 Estimated Tax:</strong> September 15, 2026</li>
+      <li><strong>Q4 Estimated Tax:</strong> January 15, 2027</li>
+    </ul>
+    <p><strong>Extensions to file are NOT extensions to pay.</strong> You must estimate and pay your tax by April 15 to avoid penalties, even if you file your return later.</p>
+  </div>
+
+  <!-- AD SLOT 3 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="info-card">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <div class="faq-q">What is Pennsylvania's income tax rate?</div>
+      <div class="faq-a">Pennsylvania has progressive tax rates ranging from 1% to 3.07%. The rate you pay depends on your income and filing status. Most middle-income earners pay an effective rate of 4-8%, while high earners (>$500,000) pay 10-12% effective.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Does Pennsylvania tax Social Security benefits?</div>
+      <div class="faq-a">No. Pennsylvania is one of 37 states that does NOT tax Social Security retirement benefits. Your Social Security income is 100% exempt from Pennsylvania state income tax.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Do I have to pay Pennsylvania income tax if I work remotely for a PA company?</div>
+      <div class="faq-a">It depends on where you live. If you live in Pennsylvania, yes. If you moved out of state but work remotely for a PA company, you generally only owe taxes to your state of residence. However, PA tries to tax "PA-sourced income" — consult a tax pro if you're in this situation.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">What is the Pennsylvania standard deduction?</div>
+      <div class="faq-a">For 2026: $5,363 (single/married filing separately) or $10,726 (married jointly/head of household). This is separate from the federal standard deduction.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">How can I reduce my Pennsylvania income tax?</div>
+      <div class="faq-a">Maximize retirement contributions (401k, IRA), claim all eligible credits (EITC, child credits, renter's credit), itemize deductions if they exceed the standard deduction, contribute to an HSA, and consider tax-loss harvesting for investment gains.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Why is Pennsylvania tax so high?</div>
+      <div class="faq-a">Pennsylvania has the highest top marginal rate (3.07%) to fund state programs, education, and infrastructure. The progressive structure means high earners pay significantly more to offset lower taxes on middle and low-income residents.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Do I need to file a Pennsylvania state tax return?</div>
+      <div class="faq-a">Yes, if you're a Pennsylvania resident with income over $20,721 (single) or $41,442 (married), or if you're a nonresident with Pennsylvania-sourced income. Part-year residents must also file.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">When are Pennsylvania estimated taxes due?</div>
+      <div class="faq-a">Quarterly: April 15, June 15, September 15, and January 15 of the following year. If you expect to owe $500+ in PA tax, you must make estimated payments to avoid penalties.</div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h3>🔗 Related Calculators</h3>
+    <div class="related-grid">
+      <a href="../income-tax-calculator.html" class="related-link">Federal Income Tax</a>
+      <a href="payroll-tax-calculator.html" class="related-link">Payroll Tax Calculator</a>
+      <a href="401k-calculator.html" class="related-link">401(k) Calculator</a>
+      <a href="capital-gains-tax-calculator.html" class="related-link">Capital Gains Tax</a>
+      <a href="mortgage-payment.html" class="related-link">Mortgage Calculator</a>
+      <a href="../bmi-calculator.html" class="related-link">BMI Calculator</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational purposes only and is not tax advice. Tax laws are complex and change frequently. Results may not reflect your actual tax liability. Always consult a qualified CPA, tax attorney, or enrolled agent for tax advice specific to your situation. CalcLeap is not a tax preparation service and does not file taxes.</div>
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="../index.html">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="../bmi-calculator.html">BMI Calculator</a>
+      <a href="mortgage-payment.html">Mortgage</a>
+      <a href="../income-tax-calculator.html">Income Tax</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="../index.html#finance">Financial</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#health">Health</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. For informational purposes only. Consult a tax professional.</p>
+  </div>
+</footer>
+
+<script>
+// 2026 Pennsylvania tax brackets (Single filer)
+const PA_TAX_RATE = 0.0495; // Pennsylvania flat tax rate
+
+function calculate() {
+  const filingStatus = document.getElementById('filingStatus').value;
+  const income = parseFloat(document.getElementById('income').value) || 0;
+  const deduction = parseFloat(document.getElementById('deduction').value) || 0;
+  const dependents = parseInt(document.getElementById('dependents').value) || 0;
+
+  // Pennsylvania standard deduction (2026)
+  const standardDeduction = {
+    single: 2425,
+    married: 4850,
+    'married-separate': 2425,
+    head: 3650
+  }[filingStatus];
+
+  const totalDeduction = deduction > 0 ? deduction : standardDeduction;
+  const exemptionAmount = dependents * 2425; // $2,425 per dependent
+  const taxableIncome = Math.max(0, income - totalDeduction - exemptionAmount);
+  
+  // Pennsylvania flat tax: 3.07%
+  const stateTax = taxableIncome * PA_TAX_RATE;
+  const effectiveRate = income > 0 ? (stateTax / income * 100) : 0;
+
+  // Update results
+  document.getElementById('totalTax').textContent = '$' + stateTax.toLocaleString(undefined, {maximumFractionDigits: 0});
+  document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(2) + '%';
+  document.getElementById('taxableIncome').textContent = '$' + taxableIncome.toLocaleString(undefined, {maximumFractionDigits: 0});
+
+  // Bracket breakdown (simple for flat tax)
+  const breakdownHTML = `
+    <div class="bracket-item">
+      <div class="bracket-info">All taxable income @ 3.07%</div>
+      <div class="bracket-tax">$${stateTax.toLocaleString(undefined, {maximumFractionDigits: 0})}</div>
+    </div>
+  `;
+  document.getElementById('bracketBreakdown').innerHTML = breakdownHTML;
+
+  document.getElementById('results').style.display = 'block';
+}
+
+// Update standard deduction based on filing status
+document.getElementById('filingStatus').addEventListener('change', function() {
+  const deductions = {
+    'single': 5363,
+    'married': 10726,
+    'married-separate': 5363,
+    'head': 10726
+  };
+  document.getElementById('deduction').value = deductions[this.value];
+});
+</script>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+</body>
+</html>
