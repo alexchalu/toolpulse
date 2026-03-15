@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texas Property Tax Calculator 2026 | Calculate Your Annual Property Taxes</title>
+    <meta name="description" content="Free Texas property tax calculator. Estimate your annual property taxes based on appraised value and local tax rates. Covers all Texas counties including Harris, Dallas, Travis, and more.">
+    <meta name="keywords" content="texas property tax, property tax calculator, texas tax rate, property tax estimate, home tax calculator">
+    <link rel="canonical" href="https://calcleap.com/calc/texas-property-tax-calculator.html">
+    <meta property="og:title" content="Texas Property Tax Calculator 2026">
+    <meta property="og:description" content="Calculate your Texas property taxes instantly. Free tool for homeowners and property buyers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/calc/texas-property-tax-calculator.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 12px 30px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .calculator-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        .result {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 25px;
+            display: none;
+        }
+        .result.show {
+            display: block;
+        }
+        .result-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        .result-label {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        .breakdown {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .breakdown-row:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .info-section {
+            margin: 40px 0;
+        }
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .info-section h3 {
+            color: #764ba2;
+            margin: 25px 0 10px 0;
+            font-size: 1.3em;
+        }
+        .info-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        .info-section ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        .info-section li {
+            margin-bottom: 8px;
+        }
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .county-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .county-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+        .county-item strong {
+            color: #667eea;
+        }
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .content {
+                padding: 30px 20px;
+            }
+            header {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "What is the average property tax rate in Texas?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The average property tax rate in Texas is approximately 1.60-1.80% of the home's appraised value, which is among the highest in the United States. However, rates vary significantly by county, ranging from about 0.5% to over 2.5%."
+            }
+        }, {
+            "@type": "Question",
+            "name": "How do I calculate my Texas property taxes?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To calculate Texas property taxes: multiply your home's appraised value by the local tax rate (as a decimal). For example, a $300,000 home with a 2.0% tax rate would pay $6,000 annually ($300,000 × 0.02 = $6,000). Remember to account for homestead exemptions which can reduce your taxable value."
+            }
+        }, {
+            "@type": "Question",
+            "name": "What is the Texas homestead exemption?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Texas homestead exemption reduces the taxable value of your primary residence. School districts must offer a minimum $100,000 exemption (increased from $40,000 in 2023). Counties, cities, and other taxing units may offer additional exemptions. Homeowners over 65 and disabled homeowners qualify for additional exemptions."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Which Texas counties have the highest property taxes?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Counties with the highest property tax rates include Fort Bend County (2.47%), Brazoria County (2.44%), Galveston County (2.38%), and Williamson County (2.23%). Major metro counties like Harris, Dallas, and Travis typically range from 2.0-2.2%."
+            }
+        }, {
+            "@type": "Question",
+            "name": "When are Texas property taxes due?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Texas property taxes are typically due January 31st of each year. However, if you haven't received your tax bill by January 10th, the deadline extends to February 1st. Many counties offer payment plans and penalties apply for late payments."
+            }
+        }]
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏠 Texas Property Tax Calculator</h1>
+            <p class="subtitle">Calculate your annual property taxes for any Texas county</p>
+        </header>
+
+        <nav class="breadcrumb">
+            <a href="https://calcleap.com">Home</a> › <a href="https://calcleap.com/calc/">Calculators</a> › Texas Property Tax Calculator
+        </nav>
+
+        <div class="content">
+            <div class="calculator-box">
+                <div class="input-group">
+                    <label for="appraisedValue">Home Appraised Value ($)</label>
+                    <input type="number" id="appraisedValue" placeholder="350000" value="350000" min="0" step="1000">
+                </div>
+
+                <div class="input-group">
+                    <label for="county">County (or select Custom Rate)</label>
+                    <select id="county">
+                        <option value="">-- Select County --</option>
+                        <option value="2.14">Harris County (Houston) - 2.14%</option>
+                        <option value="2.03">Dallas County - 2.03%</option>
+                        <option value="2.00">Travis County (Austin) - 2.00%</option>
+                        <option value="1.99">Bexar County (San Antonio) - 1.99%</option>
+                        <option value="2.07">Tarrant County (Fort Worth) - 2.07%</option>
+                        <option value="1.95">Collin County - 1.95%</option>
+                        <option value="1.92">Denton County - 1.92%</option>
+                        <option value="2.47">Fort Bend County - 2.47%</option>
+                        <option value="2.23">Williamson County - 2.23%</option>
+                        <option value="2.08">El Paso County - 2.08%</option>
+                        <option value="2.44">Brazoria County - 2.44%</option>
+                        <option value="2.38">Galveston County - 2.38%</option>
+                        <option value="2.16">Montgomery County - 2.16%</option>
+                        <option value="1.87">Hidalgo County - 1.87%</option>
+                        <option value="1.85">Lubbock County - 1.85%</option>
+                        <option value="custom">Custom Rate</option>
+                    </select>
+                </div>
+
+                <div class="input-group" id="customRateGroup" style="display: none;">
+                    <label for="customRate">Custom Tax Rate (%)</label>
+                    <input type="number" id="customRate" placeholder="2.0" step="0.01" min="0" max="10">
+                </div>
+
+                <div class="input-group">
+                    <label for="homesteadExemption">Homestead Exemption ($)</label>
+                    <input type="number" id="homesteadExemption" placeholder="100000" value="100000" min="0" step="1000">
+                    <small style="color: #666; display: block; margin-top: 5px;">School district minimum is $100,000. Additional exemptions may apply.</small>
+                </div>
+
+                <button class="btn" onclick="calculate()">Calculate Property Tax</button>
+
+                <div class="result" id="result">
+                    <div class="result-label">Annual Property Tax</div>
+                    <div class="result-value" id="annualTax">$0</div>
+                    <div class="breakdown">
+                        <div class="breakdown-row">
+                            <span>Appraised Value:</span>
+                            <span id="breakdownAppraised">$0</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Homestead Exemption:</span>
+                            <span id="breakdownExemption">-$0</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Taxable Value:</span>
+                            <span id="breakdownTaxable">$0</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Tax Rate:</span>
+                            <span id="breakdownRate">0%</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Annual Tax:</span>
+                            <span id="breakdownAnnual">$0</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; opacity: 0.9;">
+                        <strong>Monthly (escrow):</strong> <span id="monthlyTax">$0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>Understanding Texas Property Taxes</h2>
+                <p>Texas has no state income tax, which means property taxes are a major source of revenue for local governments, schools, and special districts. As a result, Texas has some of the highest property tax rates in the United States, with homeowners paying an average of 1.60-1.80% of their home's value annually.</p>
+
+                <div class="highlight-box">
+                    <strong>Key Fact:</strong> Texas property taxes are used to fund local schools, county services, city services, community colleges, hospital districts, and other special districts. Your total tax bill is the sum of rates from all applicable taxing units.
+                </div>
+
+                <h3>How Texas Property Taxes Work</h3>
+                <p>Property taxes in Texas are calculated using three main factors:</p>
+                <ul>
+                    <li><strong>Appraised Value:</strong> The estimated market value of your property as determined by the county appraisal district. This is reassessed annually.</li>
+                    <li><strong>Tax Rate:</strong> The combined rate from all taxing units (school district, county, city, special districts). Expressed per $100 of property value or as a percentage.</li>
+                    <li><strong>Exemptions:</strong> Reductions in taxable value, such as the homestead exemption, over-65 exemption, or disability exemption.</li>
+                </ul>
+
+                <p>The basic formula is: <strong>Annual Tax = (Appraised Value - Exemptions) × Tax Rate</strong></p>
+
+                <h3>Texas Homestead Exemption</h3>
+                <p>If you own a home in Texas and use it as your primary residence, you qualify for a homestead exemption. As of 2023, the school district exemption increased to a minimum of $100,000 (up from $40,000), providing significant tax savings for homeowners.</p>
+
+                <p>Additional exemptions include:</p>
+                <ul>
+                    <li><strong>Over-65 Exemption:</strong> Additional $10,000 exemption for homeowners 65 or older, plus a tax ceiling (freeze)</li>
+                    <li><strong>Disabled Person Exemption:</strong> $10,000 exemption plus tax ceiling for disabled homeowners</li>
+                    <li><strong>Disabled Veteran Exemptions:</strong> Partial or total exemptions based on disability rating</li>
+                    <li><strong>Surviving Spouse:</strong> May continue receiving deceased spouse's exemptions</li>
+                </ul>
+
+                <h3>Property Tax Rates by Major Texas Counties</h3>
+                <div class="county-grid">
+                    <div class="county-item">
+                        <strong>Fort Bend</strong><br>2.47%
+                    </div>
+                    <div class="county-item">
+                        <strong>Brazoria</strong><br>2.44%
+                    </div>
+                    <div class="county-item">
+                        <strong>Galveston</strong><br>2.38%
+                    </div>
+                    <div class="county-item">
+                        <strong>Williamson</strong><br>2.23%
+                    </div>
+                    <div class="county-item">
+                        <strong>Montgomery</strong><br>2.16%
+                    </div>
+                    <div class="county-item">
+                        <strong>Harris</strong><br>2.14%
+                    </div>
+                    <div class="county-item">
+                        <strong>El Paso</strong><br>2.08%
+                    </div>
+                    <div class="county-item">
+                        <strong>Tarrant</strong><br>2.07%
+                    </div>
+                    <div class="county-item">
+                        <strong>Dallas</strong><br>2.03%
+                    </div>
+                    <div class="county-item">
+                        <strong>Travis</strong><br>2.00%
+                    </div>
+                    <div class="county-item">
+                        <strong>Bexar</strong><br>1.99%
+                    </div>
+                    <div class="county-item">
+                        <strong>Collin</strong><br>1.95%
+                    </div>
+                </div>
+
+                <h3>Important Dates for Texas Property Taxes</h3>
+                <ul>
+                    <li><strong>January 1:</strong> Tax lien date - property is appraised as of this date</li>
+                    <li><strong>April 15-May 15:</strong> Appraisal districts mail notices of appraised value</li>
+                    <li><strong>May 15 (or later):</strong> Deadline to file homestead exemption for current year</li>
+                    <li><strong>May 15-31:</strong> Deadline to protest your appraisal (or 30 days after notice received)</li>
+                    <li><strong>October:</strong> Tax bills are typically mailed</li>
+                    <li><strong>January 31:</strong> Property taxes are due</li>
+                </ul>
+
+                <h3>How to Lower Your Texas Property Taxes</h3>
+                <ul>
+                    <li><strong>File for all exemptions:</strong> Homestead, over-65, disabled veteran, etc.</li>
+                    <li><strong>Protest your appraisal:</strong> If your appraised value is too high compared to recent sales of similar homes, file a protest with your county appraisal district</li>
+                    <li><strong>Monitor your appraisal notice:</strong> Review it carefully each year and compare to actual market values</li>
+                    <li><strong>Homestead cap:</strong> Once you have a homestead exemption, increases to your appraised value are capped at 10% per year</li>
+                    <li><strong>Age 65 tax ceiling:</strong> Your school taxes freeze at age 65 and won't increase even if property values rise</li>
+                </ul>
+
+                <h3>Protesting Your Appraisal</h3>
+                <p>If you believe your property's appraised value is too high, you can file a protest with your county's Appraisal Review Board (ARB). To prepare:</p>
+                <ul>
+                    <li>Gather recent sales data for comparable homes in your area</li>
+                    <li>Document any issues with your property (needed repairs, outdated features)</li>
+                    <li>Review the appraisal district's data for errors</li>
+                    <li>File your protest by the deadline (typically May 15 or 30 days after receiving your notice)</li>
+                    <li>Attend your hearing prepared with evidence</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>Tip:</strong> Many Texas homeowners successfully reduce their property taxes by protesting their appraisals. Even a 5-10% reduction in appraised value can save hundreds of dollars annually.
+                </div>
+
+                <h3>Paying Your Property Taxes</h3>
+                <p>Texas property taxes can be paid:</p>
+                <ul>
+                    <li><strong>In full:</strong> By January 31st with no penalty</li>
+                    <li><strong>Through escrow:</strong> Most mortgage lenders collect 1/12 of annual taxes monthly and pay on your behalf</li>
+                    <li><strong>Installment plans:</strong> Some counties offer quarterly payment plans</li>
+                    <li><strong>Online, by mail, or in person:</strong> Check your county tax office website for options</li>
+                </ul>
+
+                <p>Late payments incur penalties and interest (typically 6-7% penalty plus 1% interest per month), so it's important to pay on time.</p>
+
+                <h3>Frequently Asked Questions</h3>
+                
+                <h3>What is the average property tax in Texas?</h3>
+                <p>The average effective property tax rate in Texas is approximately 1.60-1.80% of the home's appraised value. For a $300,000 home, this translates to $4,800-$5,400 per year before exemptions. After a $100,000 homestead exemption, the same home would pay $3,200-$3,600 annually.</p>
+
+                <h3>Does Texas have property tax for seniors?</h3>
+                <p>Yes, Texas offers special property tax benefits for seniors (age 65+). Homeowners receive an additional $10,000 exemption, and school district taxes are frozen at the amount paid when you turn 65. This tax ceiling remains even if property values increase, though other taxing units may still increase rates.</p>
+
+                <h3>Can you deduct Texas property taxes?</h3>
+                <p>Yes, Texas property taxes are deductible on your federal income tax return if you itemize deductions. However, the SALT (State and Local Tax) deduction is capped at $10,000 combined for property taxes and state income taxes. Since Texas has no state income tax, you can deduct up to $10,000 in property taxes.</p>
+
+                <h3>Why are Texas property taxes so high?</h3>
+                <p>Texas relies heavily on property taxes because it has no state income tax. Property taxes fund local schools, county services, cities, community colleges, and special districts. School districts alone typically account for 50-60% of your total property tax bill.</p>
+
+                <h3>How often are properties reassessed in Texas?</h3>
+                <p>Texas properties are reassessed annually by county appraisal districts. However, if you have a homestead exemption, annual increases are capped at 10% of the appraised value, providing some protection against rapidly rising valuations.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 <a href="https://calcleap.com">CalcLeap</a> | Free Financial Calculators</p>
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">Texas Property Tax Calculator - Estimate your annual property taxes</p>
+        </footer>
+    </div>
+
+    <script>
+        const countySelect = document.getElementById('county');
+        const customRateGroup = document.getElementById('customRateGroup');
+        const customRateInput = document.getElementById('customRate');
+
+        countySelect.addEventListener('change', function() {
+            if (this.value === 'custom') {
+                customRateGroup.style.display = 'block';
+            } else {
+                customRateGroup.style.display = 'none';
+            }
+        });
+
+        function calculate() {
+            const appraisedValue = parseFloat(document.getElementById('appraisedValue').value) || 0;
+            const homesteadExemption = parseFloat(document.getElementById('homesteadExemption').value) || 0;
+            let taxRate = parseFloat(countySelect.value) || 0;
+
+            if (countySelect.value === 'custom') {
+                taxRate = parseFloat(customRateInput.value) || 0;
+            }
+
+            if (appraisedValue <= 0) {
+                alert('Please enter a valid appraised value');
+                return;
+            }
+
+            if (taxRate <= 0) {
+                alert('Please select a county or enter a custom tax rate');
+                return;
+            }
+
+            const taxableValue = Math.max(0, appraisedValue - homesteadExemption);
+            const annualTax = taxableValue * (taxRate / 100);
+            const monthlyTax = annualTax / 12;
+
+            // Display results
+            document.getElementById('annualTax').textContent = '$' + annualTax.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            document.getElementById('monthlyTax').textContent = '$' + monthlyTax.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            
+            // Breakdown
+            document.getElementById('breakdownAppraised').textContent = '$' + appraisedValue.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            document.getElementById('breakdownExemption').textContent = '-$' + homesteadExemption.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            document.getElementById('breakdownTaxable').textContent = '$' + taxableValue.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            document.getElementById('breakdownRate').textContent = taxRate.toFixed(2) + '%';
+            document.getElementById('breakdownAnnual').textContent = '$' + annualTax.toLocaleString('en-US', { maximumFractionDigits: 0 });
+
+            document.getElementById('result').classList.add('show');
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Allow Enter key to calculate
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                calculate();
+            }
+        });
+    </script>
+</body>
+</html>
