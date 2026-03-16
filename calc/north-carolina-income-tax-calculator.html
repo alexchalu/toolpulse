@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>North Carolina Income Tax Calculator 2026 - Free NC State Tax Estimator | CalcLeap</title>
-    <meta name="description" content="Calculate your North Carolina state income tax for 2026. Free calculator with flat 4.75% tax rate, standard deductions, and filing status options. Instant results.">
+    <meta name="description" content="Calculate your North Carolina state income tax for 2026. Free calculator with flat 4.75% tax rate, standard deduction, and filing status options. Instant results.">
     <link rel="canonical" href="https://calcleap.com/calc/north-carolina-income-tax-calculator.html">
     <meta property="og:title" content="North Carolina Income Tax Calculator 2026 - CalcLeap">
-    <meta property="og:description" content="Free North Carolina income tax calculator. Estimate your NC state tax with flat 4.75% rate and accurate 2026 deductions.">
+    <meta property="og:description" content="Free North Carolina income tax calculator. Estimate your NC state tax with the flat 4.75% rate and 2026 deductions.">
     <meta property="og:url" content="https://calcleap.com/calc/north-carolina-income-tax-calculator.html">
     <style>
         * {
@@ -195,30 +195,22 @@
             color: #1d1d1f;
         }
         
-        .tax-comparison {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
             margin: 20px 0;
         }
         
-        .comparison-card {
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #d2d2d7;
+        }
+        
+        .comparison-table th {
             background: #f5f5f7;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-        }
-        
-        .state-name {
-            font-size: 14px;
-            color: #6e6e73;
-            margin-bottom: 8px;
-        }
-        
-        .state-rate {
-            font-size: 24px;
             font-weight: 600;
-            color: #1d1d1f;
         }
         
         .faq-item {
@@ -328,6 +320,14 @@
             color: #6e6e73;
             font-size: 14px;
         }
+
+        .highlight-box {
+            background: #e8f4fd;
+            border-left: 4px solid #0071e3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -339,7 +339,7 @@
                 "name": "What is the North Carolina state income tax rate for 2026?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "North Carolina has a flat income tax rate of 4.75% for all taxpayers, regardless of income level or filing status. This applies to all taxable income after deductions."
+                    "text": "North Carolina has a flat income tax rate of 4.75% for 2026. This applies to all taxable income regardless of filing status or income level. Unlike graduated tax systems, everyone pays the same percentage on their taxable income after deductions."
                 }
             },
             {
@@ -347,7 +347,7 @@
                 "name": "Does North Carolina have a standard deduction?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. For 2026, the North Carolina standard deduction is $12,750 for single filers, $25,500 for married filing jointly, $19,125 for head of household, and $12,750 for married filing separately."
+                    "text": "Yes. For 2026, the North Carolina standard deduction is $12,750 for single filers and $25,500 for married filing jointly. This is separate from the federal standard deduction and reduces your state taxable income before applying the 4.75% tax rate."
                 }
             },
             {
@@ -355,15 +355,15 @@
                 "name": "Does North Carolina tax Social Security benefits?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No, North Carolina does not tax Social Security retirement benefits. The state also exempts military retirement pay and offers a partial exemption for other retirement income up to certain limits."
+                    "text": "No, North Carolina does not tax Social Security retirement benefits. Additionally, the state offers a $35,000 deduction for other retirement income (pensions, IRAs, 401(k)s) for taxpayers born before 1955, making it relatively tax-friendly for retirees."
                 }
             },
             {
                 "@type": "Question",
-                "name": "How does North Carolina's tax rate compare to other states?",
+                "name": "How does North Carolina's tax rate compare to neighboring states?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "North Carolina's 4.75% flat rate is competitive compared to neighboring states. It's lower than South Carolina (up to 6.5%), Virginia (up to 5.75%), and Georgia (up to 5.75%), but higher than Tennessee and Florida (0%). The flat structure makes it predictable regardless of income level."
+                    "text": "North Carolina's 4.75% flat rate is competitive with surrounding states. Virginia has graduated rates up to 5.75%, South Carolina ranges from 0-6.5%, Georgia goes up to 5.75%, and Tennessee has no income tax. NC's flat rate provides simplicity and is lower than the top rates in VA, SC, and GA."
                 }
             }
         ]
@@ -414,7 +414,7 @@
         </div>
 
         <h1 class="page-title">North Carolina Income Tax Calculator</h1>
-        <p class="subtitle">Calculate your 2026 North Carolina state income tax with flat 4.75% rate and accurate deductions</p>
+        <p class="subtitle">Calculate your 2026 North Carolina state income tax with the flat 4.75% rate</p>
 
         <div class="card">
             <h2>Calculate Your North Carolina State Tax</h2>
@@ -433,6 +433,12 @@
                 </select>
             </div>
             
+            <div class="form-group">
+                <label for="federalDeductions">Federal Itemized Deductions (optional)</label>
+                <input type="number" id="federalDeductions" min="0" value="0" placeholder="0">
+                <small style="color: #6e6e73; display: block; margin-top: 4px;">NC allows deductions tied to federal AGI adjustments</small>
+            </div>
+            
             <button class="btn" onclick="calculateTax()">Calculate Tax</button>
             
             <div id="results" style="display: none;">
@@ -442,14 +448,6 @@
                 </div>
                 
                 <div class="result-grid">
-                    <div class="result-item">
-                        <div class="result-item-label">Gross Income</div>
-                        <div class="result-item-value" id="grossIncome">$0</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-item-label">Standard Deduction</div>
-                        <div class="result-item-value" id="deduction">$0</div>
-                    </div>
                     <div class="result-item">
                         <div class="result-item-label">Taxable Income</div>
                         <div class="result-item-value" id="taxableIncome">$0</div>
@@ -484,54 +482,59 @@
         </div>
 
         <div class="info-card">
-            <h2>Understanding North Carolina's Flat Tax System</h2>
-            <p>North Carolina simplified its tax code in recent years by adopting a <strong>flat income tax rate of 4.75%</strong>. Unlike progressive tax systems used by many states, everyone in North Carolina pays the same percentage on their taxable income, regardless of how much they earn.</p>
+            <h2>Understanding North Carolina's Flat Income Tax</h2>
+            <p>North Carolina simplified its tax system in recent years by adopting a <strong>flat income tax rate of 4.75%</strong> for all taxpayers. This means whether you earn $30,000 or $300,000, you pay the same percentage on your taxable income after deductions.</p>
             
-            <h3>How North Carolina Tax Works</h3>
-            <p>The calculation is straightforward:</p>
-            <ol style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                <li><strong>Start with your gross income</strong> (wages, salary, investment income, etc.)</li>
-                <li><strong>Subtract the standard deduction</strong> based on your filing status</li>
-                <li><strong>Multiply by 4.75%</strong> to get your state tax liability</li>
-            </ol>
-            
-            <h3>2026 North Carolina Standard Deductions</h3>
-            <div class="tax-comparison">
-                <div class="comparison-card">
-                    <div class="state-name">Single Filer</div>
-                    <div class="state-rate">$12,750</div>
-                </div>
-                <div class="comparison-card">
-                    <div class="state-name">Married Filing Jointly</div>
-                    <div class="state-rate">$25,500</div>
-                </div>
-                <div class="comparison-card">
-                    <div class="state-name">Head of Household</div>
-                    <div class="state-rate">$19,125</div>
-                </div>
-                <div class="comparison-card">
-                    <div class="state-name">Married Filing Separately</div>
-                    <div class="state-rate">$12,750</div>
-                </div>
+            <div class="highlight-box">
+                <strong>Key Advantage:</strong> The flat tax makes NC extremely predictable and simple. No complex bracket calculations — just apply 4.75% to your taxable income.
             </div>
             
-            <h3>Example Calculation</h3>
-            <p style="margin-top: 16px;">Let's say you're single and earn $75,000 per year:</p>
-            <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                <li><strong>Gross Income:</strong> $75,000</li>
-                <li><strong>Standard Deduction:</strong> $12,750</li>
-                <li><strong>Taxable Income:</strong> $75,000 - $12,750 = $62,250</li>
-                <li><strong>State Tax:</strong> $62,250 × 4.75% = <strong>$2,957</strong></li>
-                <li><strong>Effective Rate:</strong> $2,957 ÷ $75,000 = 3.94%</li>
-            </ul>
+            <h3>2026 North Carolina Standard Deductions</h3>
+            <p>Before applying the 4.75% rate, you reduce your gross income by the standard deduction:</p>
             
-            <h3>Key Features of NC Tax System</h3>
-            <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                <li><strong>Predictable:</strong> The flat 4.75% rate means your marginal and effective rates are the same once you exceed the standard deduction.</li>
-                <li><strong>No Social Security Tax:</strong> North Carolina does not tax Social Security retirement benefits.</li>
-                <li><strong>Military Retirement Exempt:</strong> All military retirement pay is exempt from NC state tax.</li>
-                <li><strong>Partial Retirement Exemption:</strong> Taxpayers can exclude up to $35,000 of retirement income (pensions, IRAs, 401(k)s) if they're 65+ or totally disabled.</li>
-                <li><strong>Separate from Federal:</strong> North Carolina tax is in addition to federal income tax. You'll owe both to the IRS and NC Department of Revenue.</li>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Filing Status</th>
+                        <th>2026 Standard Deduction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Single</td>
+                        <td>$12,750</td>
+                    </tr>
+                    <tr>
+                        <td>Married Filing Jointly</td>
+                        <td>$25,500</td>
+                    </tr>
+                    <tr>
+                        <td>Married Filing Separately</td>
+                        <td>$12,750</td>
+                    </tr>
+                    <tr>
+                        <td>Head of Household</td>
+                        <td>$19,125</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>How the Calculation Works</h3>
+            <p><strong>Example:</strong> Single filer earning $75,000</p>
+            <ol style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
+                <li>Gross Income: $75,000</li>
+                <li>Standard Deduction: -$12,750</li>
+                <li>Taxable Income: $62,250</li>
+                <li>NC Tax (4.75% × $62,250): <strong>$2,956.88</strong></li>
+                <li>Effective Rate: 3.94% of gross income</li>
+            </ol>
+            
+            <h3>North Carolina vs. Federal Taxes</h3>
+            <p>It's important to understand that North Carolina state tax is <em>in addition to</em> federal income tax. Here's how they compare:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>Federal Tax:</strong> Graduated brackets from 10% to 37%, standard deduction $14,600/$29,200 (2026)</li>
+                <li><strong>NC State Tax:</strong> Flat 4.75%, standard deduction $12,750/$25,500</li>
+                <li><strong>Combined Burden:</strong> For middle-income earners, total tax is typically 16-25% (federal + state)</li>
             </ul>
         </div>
 
@@ -549,88 +552,90 @@
         </div>
 
         <div class="info-card">
-            <h2>North Carolina vs. Neighboring States</h2>
-            <p>How does North Carolina's 4.75% flat tax compare to surrounding states?</p>
+            <h2>North Carolina Tax: National Comparison</h2>
+            <p>How does North Carolina's 4.75% flat tax stack up against other states?</p>
             
-            <div class="tax-comparison">
-                <div class="comparison-card">
-                    <div class="state-name">North Carolina</div>
-                    <div class="state-rate">4.75%</div>
-                </div>
-                <div class="comparison-card">
-                    <div class="state-name">Virginia</div>
-                    <div class="state-rate">2% - 5.75%</div>
-                </div>
-                <div class="comparison-card">
-                    <div class="state-name">South Carolina</div>
-                    <div class="state-rate">0% - 6.5%</div>
-                </div>
-                <div class="comparison-card">
-                    <div class="state-name">Georgia</div>
-                    <div class="state-rate">1% - 5.75%</div>
-                </div>
-                <div class="comparison-card">
-                    <div class="state-name">Tennessee</div>
-                    <div class="state-rate">0%</div>
-                </div>
-            </div>
+            <h3>Neighboring States</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>State</th>
+                        <th>Tax Structure</th>
+                        <th>Top Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>North Carolina</strong></td>
+                        <td>Flat</td>
+                        <td><strong>4.75%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Virginia</td>
+                        <td>Graduated (2-5.75%)</td>
+                        <td>5.75%</td>
+                    </tr>
+                    <tr>
+                        <td>South Carolina</td>
+                        <td>Graduated (0-6.5%)</td>
+                        <td>6.5%</td>
+                    </tr>
+                    <tr>
+                        <td>Georgia</td>
+                        <td>Graduated (1-5.75%)</td>
+                        <td>5.75%</td>
+                    </tr>
+                    <tr>
+                        <td>Tennessee</td>
+                        <td>No income tax</td>
+                        <td>0%</td>
+                    </tr>
+                </tbody>
+            </table>
             
-            <h3>Why NC's Flat Tax Is Competitive</h3>
-            <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                <li><strong>Lower than SC:</strong> South Carolina's top rate is 6.5% (kicks in at $16,040+), making NC more attractive for middle and high earners.</li>
-                <li><strong>Comparable to VA/GA:</strong> Virginia and Georgia have progressive systems with top rates of 5.75%, only slightly higher than NC. But NC's flat structure is simpler.</li>
-                <li><strong>Higher than TN:</strong> Tennessee has no income tax at all, making it the lowest-tax option in the region (though TN has higher sales and property taxes).</li>
-                <li><strong>Simplicity advantage:</strong> No bracket calculations, no phaseouts, no surprises. Everyone knows exactly what they'll pay.</li>
+            <p style="margin-top: 16px;"><strong>Key Insight:</strong> North Carolina offers a competitive middle ground. It's lower than South Carolina's top rate and simpler than Virginia and Georgia's graduated systems, while still funding state services unlike Tennessee's zero-tax approach.</p>
+            
+            <h3>National Context</h3>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>No-Tax States (9):</strong> FL, TX, WA, NV, TN, SD, WY, AK, NH — 0% income tax</li>
+                <li><strong>Flat-Tax States (13):</strong> NC ranks in the middle at 4.75% — lower than IL (4.95%) and MA (5%), higher than PA (3.07%)</li>
+                <li><strong>High-Tax States:</strong> CA (13.3%), NY (10.9%), NJ (10.75%) — NC is dramatically lower</li>
             </ul>
             
-            <h3>Moving to North Carolina? Tax Considerations</h3>
-            <p>Many people relocate to North Carolina from high-tax states like New York, New Jersey, or California. Here's what to know:</p>
-            <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                <li><strong>Residency Rules:</strong> You're a North Carolina resident if you're domiciled in the state or maintain a home and spend more than 183 days/year there.</li>
-                <li><strong>Part-Year Returns:</strong> If you move mid-year, you'll file part-year returns for both states, allocating income by time and location.</li>
-                <li><strong>Remote Work:</strong> If you work remotely for an out-of-state employer while living in NC, you owe North Carolina tax on that income.</li>
-                <li><strong>Tax Savings Example:</strong> Someone earning $150,000 pays about $7,125 in NC state tax (4.75%). In California, they'd pay ~$9,500 (6.3% bracket). That's $2,375/year in savings, or $198/month.</li>
+            <h3>Why People Move to North Carolina</h3>
+            <p>North Carolina has seen significant population growth from high-tax states. The tax advantage breaks down like this:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>From California (13.3% top rate):</strong> Save 8.55% on taxable income over $100k</li>
+                <li><strong>From New York (10.9% top rate):</strong> Save 6.15% on taxable income</li>
+                <li><strong>From New Jersey (10.75% top rate):</strong> Save 6% on taxable income</li>
+                <li><strong>Example:</strong> A $200k earner moving from CA saves ~$15,000-17,000/year in state taxes</li>
             </ul>
         </div>
 
         <div class="info-card">
-            <h2>Tax Planning Strategies for North Carolina Residents</h2>
+            <h2>Retirement Income in North Carolina</h2>
+            <p>North Carolina offers significant tax advantages for retirees:</p>
             
-            <h3>1. Maximize Your Standard Deduction</h3>
-            <p>North Carolina's standard deduction ($12,750 single, $25,500 married) is generous. Make sure you're claiming the right filing status. For example, if you qualify as head of household instead of single, you get a $19,125 deduction instead of $12,750 — that saves you about $300 in state tax.</p>
+            <h3>Social Security Benefits</h3>
+            <p><strong>Fully Exempt.</strong> North Carolina does not tax Social Security retirement benefits. For a couple receiving $40,000/year in Social Security, that's $1,900/year saved compared to states that tax it.</p>
             
-            <h3>2. Leverage Retirement Contributions</h3>
-            <p>Contributions to traditional 401(k)s and IRAs reduce your NC taxable income dollar-for-dollar. At the 4.75% rate:</p>
-            <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                <li><strong>Max 401(k) ($23,000):</strong> Saves $1,093 in NC state tax</li>
-                <li><strong>Max IRA ($7,000):</strong> Saves $333 in NC state tax</li>
-                <li><strong>Combined ($30,000):</strong> Saves $1,425 in NC state tax + federal savings</li>
+            <h3>Bailey Retirement Deduction</h3>
+            <p>For taxpayers born before January 2, 1955, North Carolina offers the Bailey deduction:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>Up to $35,000</strong> of retirement income (pensions, IRA distributions, 401(k) withdrawals) can be deducted</li>
+                <li>Applies per person — married couples can deduct up to $70,000 combined</li>
+                <li>Phased out over time for younger retirees</li>
             </ul>
             
-            <h3>3. Take Advantage of Retirement Exemptions (Age 65+)</h3>
-            <p>If you're 65 or older (or totally disabled), you can exclude up to $35,000 of retirement income from NC tax. This includes:</p>
-            <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                <li>401(k) and IRA distributions</li>
-                <li>Pension payments (except military, which is already fully exempt)</li>
-                <li>Annuity income</li>
-            </ul>
-            <p style="margin-top: 12px;">At the 4.75% rate, a $35,000 exemption saves $1,663 per year in state tax. For a married couple both 65+, that's up to $3,326/year in savings.</p>
+            <div class="highlight-box">
+                <strong>Example:</strong> Retired couple (both 70+) with $50k Social Security + $60k pension income:<br>
+                • Social Security: $50k (fully exempt)<br>
+                • Pension: $60k - $35k Bailey deduction × 2 = $0 taxable<br>
+                • <strong>Total NC tax: $0</strong>
+            </div>
             
-            <h3>4. Understand Bailey Settlement Benefits</h3>
-            <p>North Carolina's "Bailey Settlement" provides additional deductions for certain taxpayers. If you receive retirement benefits from a government pension (federal, state, local, or military), you may qualify for:</p>
-            <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                <li>The standard $35,000 retirement income exclusion (if 65+), OR</li>
-                <li>An additional deduction (up to $4,000) under the Bailey formula</li>
-            </ul>
-            <p style="margin-top: 12px;">You can't double-dip, but you can choose whichever saves you more. Consult a tax professional to optimize this.</p>
-            
-            <h3>5. Consider Timing of Income and Deductions</h3>
-            <p>With a flat tax rate, timing matters less in NC than in progressive-tax states. However, you can still benefit from:</p>
-            <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                <li><strong>Deferring bonuses:</strong> If you expect a big bonus, deferring it to the next year can delay the tax bill.</li>
-                <li><strong>Accelerating deductions:</strong> Making extra 401(k) contributions or charitable donations before year-end reduces this year's taxable income.</li>
-                <li><strong>Roth conversions:</strong> If you're in a low-income year (e.g., between jobs), consider converting traditional IRA funds to Roth. You'll pay 4.75% NC tax now, but future withdrawals are tax-free.</li>
-            </ul>
+            <h3>Military Retirement Pay</h3>
+            <p>North Carolina fully exempts military retirement pay (including National Guard and Reserve pensions). This is in addition to the standard deduction, making NC highly attractive for military retirees.</p>
         </div>
 
         <!-- AdSense Slot 3 -->
@@ -647,41 +652,69 @@
         </div>
 
         <div class="info-card">
+            <h2>Tax Planning Strategies for North Carolina Residents</h2>
+            
+            <h3>1. Maximize Pre-Tax Retirement Contributions</h3>
+            <p>Contributions to traditional 401(k)s, 403(b)s, and IRAs reduce both federal <em>and</em> North Carolina taxable income. At the 4.75% state rate:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li>Max 401(k) contribution ($23,000 in 2026): saves $1,092.50 in NC tax</li>
+                <li>Max IRA contribution ($7,000 in 2026): saves $332.50 in NC tax</li>
+            </ul>
+            
+            <h3>2. Consider Roth Conversions in Low-Income Years</h3>
+            <p>If you have a year with lower income (job transition, sabbatical, partial retirement), converting traditional IRA funds to Roth can make sense. You'll pay the 4.75% NC rate now, but future withdrawals are tax-free forever.</p>
+            
+            <h3>3. Time Capital Gains Strategically</h3>
+            <p>North Carolina taxes long-term capital gains at the same 4.75% rate (unlike federal graduated rates). If you're selling investments, consider:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li>Spreading sales across tax years to stay in lower federal brackets</li>
+                <li>Harvesting losses to offset gains (reduces both federal and NC tax)</li>
+                <li>Gifting appreciated assets to lower-income family members (they pay less NC tax on gains)</li>
+            </ul>
+            
+            <h3>4. Take Advantage of HSA Contributions</h3>
+            <p>Health Savings Account (HSA) contributions are deductible for both federal and NC state taxes. For 2026, you can contribute up to $4,150 (individual) or $8,300 (family), saving 4.75% in NC tax plus federal savings.</p>
+            
+            <h3>5. Plan Residency Carefully When Moving</h3>
+            <p>If you're moving to/from North Carolina mid-year, you'll file a part-year return. Key rules:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li>You're a NC resident if you maintain a permanent home here (even if working elsewhere)</li>
+                <li>Income is allocated by time and location (e.g., 6 months in NC = 50% of income taxed)</li>
+                <li>Strategic timing: Move to NC early in the year to maximize low-tax residency time</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
             <h2>Frequently Asked Questions</h2>
             
             <div class="faq-item">
                 <div class="faq-question">What is the North Carolina state income tax rate for 2026?</div>
-                <div class="faq-answer">North Carolina has a flat income tax rate of 4.75% for all taxpayers, regardless of income level or filing status. This applies to all taxable income after deductions.</div>
+                <div class="faq-answer">North Carolina has a flat income tax rate of 4.75% for 2026. This applies to all taxable income regardless of filing status or income level. Unlike graduated tax systems, everyone pays the same percentage on their taxable income after deductions.</div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">Does North Carolina have a standard deduction?</div>
-                <div class="faq-answer">Yes. For 2026, the North Carolina standard deduction is $12,750 for single filers, $25,500 for married filing jointly, $19,125 for head of household, and $12,750 for married filing separately.</div>
+                <div class="faq-answer">Yes. For 2026, the North Carolina standard deduction is $12,750 for single filers and $25,500 for married filing jointly. This is separate from the federal standard deduction and reduces your state taxable income before applying the 4.75% tax rate.</div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">Does North Carolina tax Social Security benefits?</div>
-                <div class="faq-answer">No, North Carolina does not tax Social Security retirement benefits. The state also exempts military retirement pay and offers a partial exemption for other retirement income up to certain limits.</div>
+                <div class="faq-answer">No, North Carolina does not tax Social Security retirement benefits. Additionally, the state offers a $35,000 deduction for other retirement income (pensions, IRAs, 401(k)s) for taxpayers born before 1955, making it relatively tax-friendly for retirees.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">How does North Carolina's tax rate compare to other states?</div>
-                <div class="faq-answer">North Carolina's 4.75% flat rate is competitive compared to neighboring states. It's lower than South Carolina (up to 6.5%), Virginia (up to 5.75%), and Georgia (up to 5.75%), but higher than Tennessee and Florida (0%). The flat structure makes it predictable regardless of income level.</div>
+                <div class="faq-question">How does North Carolina's tax rate compare to neighboring states?</div>
+                <div class="faq-answer">North Carolina's 4.75% flat rate is competitive with surrounding states. Virginia has graduated rates up to 5.75%, South Carolina ranges from 0-6.5%, Georgia goes up to 5.75%, and Tennessee has no income tax. NC's flat rate provides simplicity and is lower than the top rates in VA, SC, and GA.</div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">When are North Carolina state tax returns due?</div>
-                <div class="faq-answer">North Carolina state tax returns are due on April 15th, the same deadline as federal returns. If you file a federal extension, you automatically get an extension to October 15th for your NC return. However, any tax owed must still be paid by April 15th to avoid penalties and interest.</div>
+                <div class="faq-answer">North Carolina state tax returns are due on April 15th, the same as federal returns. If you file a federal extension to October 15th, your NC return is automatically extended as well. However, any tax owed must still be paid by April 15th to avoid penalties and interest.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">Can I deduct my federal income tax on my NC return?</div>
-                <div class="faq-answer">No, North Carolina does not allow a deduction for federal income taxes paid. However, NC does follow many federal rules for itemized deductions (mortgage interest, charitable contributions, etc.) if you choose to itemize instead of taking the standard deduction.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Is North Carolina a good state for retirees tax-wise?</div>
-                <div class="faq-answer">Yes, North Carolina is relatively retiree-friendly. Social Security is tax-free, military pensions are fully exempt, and taxpayers 65+ can exclude up to $35,000 of other retirement income. The flat 4.75% rate also provides predictability for retirement planning. However, property taxes and sales taxes should also be considered when evaluating overall tax burden.</div>
+                <div class="faq-question">Does North Carolina tax capital gains?</div>
+                <div class="faq-answer">Yes, North Carolina taxes capital gains (both short-term and long-term) as ordinary income at the flat 4.75% rate. Unlike federal taxes which have preferential rates for long-term gains, NC treats all income the same.</div>
             </div>
         </div>
 
@@ -708,13 +741,13 @@
                     <h4>Georgia Income Tax Calculator</h4>
                     <p>Calculate GA state tax (1%-5.75%)</p>
                 </a>
+                <a href="https://calcleap.com/calc/virginia-income-tax-calculator.html" class="tool-card">
+                    <h4>Virginia Income Tax Calculator</h4>
+                    <p>Calculate VA state tax (2%-5.75%)</p>
+                </a>
                 <a href="https://calcleap.com/calc/california-income-tax-calculator.html" class="tool-card">
                     <h4>California Income Tax Calculator</h4>
                     <p>Calculate CA state tax (1%-13.3%)</p>
-                </a>
-                <a href="https://calcleap.com/calc/new-york-income-tax-calculator.html" class="tool-card">
-                    <h4>New York Income Tax Calculator</h4>
-                    <p>Calculate NY state tax (4%-10.9%)</p>
                 </a>
                 <a href="https://calcleap.com/calc/mortgage-calculator.html" class="tool-card">
                     <h4>Mortgage Calculator</h4>
@@ -762,20 +795,22 @@
         function calculateTax() {
             const income = parseFloat(document.getElementById('income').value) || 0;
             const filingStatus = document.getElementById('filingStatus').value;
+            const federalDeductions = parseFloat(document.getElementById('federalDeductions').value) || 0;
             
             // NC standard deductions (2026)
-            const deductions = {
+            const standardDeductions = {
                 'single': 12750,
                 'married': 25500,
                 'married_separate': 12750,
                 'hoh': 19125
             };
             
-            const standardDeduction = deductions[filingStatus];
-            const taxableIncome = Math.max(0, income - standardDeduction);
+            const standardDeduction = standardDeductions[filingStatus] || 12750;
+            const taxableIncome = Math.max(0, income - standardDeduction - federalDeductions);
             
-            // NC flat tax rate: 4.75%
-            const tax = taxableIncome * 0.0475;
+            // NC flat tax: 4.75%
+            const NC_TAX_RATE = 0.0475;
+            const tax = taxableIncome * NC_TAX_RATE;
             
             const effectiveRate = income > 0 ? (tax / income * 100) : 0;
             const afterTaxIncome = income - tax;
@@ -783,8 +818,6 @@
             
             // Display results
             document.getElementById('totalTax').textContent = '$' + tax.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            document.getElementById('grossIncome').textContent = '$' + income.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            document.getElementById('deduction').textContent = '$' + standardDeduction.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             document.getElementById('taxableIncome').textContent = '$' + taxableIncome.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(2) + '%';
             document.getElementById('afterTax').textContent = '$' + afterTaxIncome.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
