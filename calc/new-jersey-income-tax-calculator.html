@@ -199,12 +199,11 @@
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            font-size: 14px;
         }
         
         .tax-bracket-table th,
         .tax-bracket-table td {
-            padding: 10px;
+            padding: 12px;
             text-align: left;
             border-bottom: 1px solid #d2d2d7;
         }
@@ -332,7 +331,7 @@
                 "name": "What is the New Jersey state income tax rate for 2026?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "New Jersey uses a progressive income tax system with six brackets ranging from 1.4% to 10.75%. The top rate of 10.75% applies to income over $1 million for married couples and $500,000 for single filers, making it one of the highest state tax rates in the country."
+                    "text": "New Jersey uses a progressive income tax system with seven brackets ranging from 1.4% to 10.75%. The top rate of 10.75% applies to income over $1 million for married filers and $500,000 for single filers, making it one of the highest state tax rates in the nation."
                 }
             },
             {
@@ -340,7 +339,7 @@
                 "name": "Does New Jersey tax Social Security benefits?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No, New Jersey does not tax Social Security retirement benefits. Additionally, NJ offers a pension exclusion of up to $100,000 for taxpayers age 62+ with income under $150,000, making it relatively tax-friendly for retirees despite high rates on working income."
+                    "text": "No, New Jersey does not tax Social Security retirement benefits. Additionally, retirement income (pensions, 401(k)s, IRAs) is fully exempt for taxpayers with total income under $100,000 (single) or $150,000 (married)."
                 }
             },
             {
@@ -348,15 +347,15 @@
                 "name": "Does New Jersey have a standard deduction?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No, New Jersey does not offer a standard deduction like most states. Instead, the state allows certain exemptions and deductions for dependents, property taxes (up to $15,000), and other specific items. This means you must itemize or use NJ-specific deductions."
+                    "text": "No, New Jersey does not have a standard deduction. Instead, the state offers personal exemptions and dependent exemptions that reduce your taxable income. For 2026, the personal exemption is $1,000 per person, with additional exemptions based on income and age."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Is New Jersey a high-tax state?",
+                "name": "What are the property tax deductions in New Jersey?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, New Jersey has one of the highest state income tax burdens in the US. The top rate of 10.75% is second only to California (13.3%) and Hawaii (11%). Combined with high property taxes (highest in the nation), NJ is consistently ranked as one of the most heavily taxed states."
+                    "text": "New Jersey offers a property tax deduction (up to $15,000) or credit (up to $50) depending on income. The deduction is available for homeowners and tenants. Given NJ's high property taxes (averaging $9,000-$10,000/year), this can provide significant relief."
                 }
             }
         ]
@@ -426,6 +425,11 @@
                 </select>
             </div>
             
+            <div class="form-group">
+                <label for="dependents">Number of Dependents</label>
+                <input type="number" id="dependents" min="0" value="0" placeholder="0">
+            </div>
+            
             <button class="btn" onclick="calculateTax()">Calculate Tax</button>
             
             <div id="results" style="display: none;">
@@ -470,96 +474,81 @@
 
         <div class="info-card">
             <h2>Understanding New Jersey Income Tax</h2>
-            <p>New Jersey operates a <strong>progressive income tax system</strong> with six tax brackets ranging from 1.4% to 10.75%. The state has one of the highest top marginal rates in the nation, second only to California and Hawaii. Combined with the nation's highest property taxes, New Jersey is consistently ranked as one of the most heavily taxed states in America.</p>
+            <p>New Jersey operates one of the most <strong>progressive income tax systems</strong> in the United States, with seven brackets ranging from 1.4% to 10.75%. The state's high top rate is designed to tax wealthy earners heavily while keeping rates relatively low for middle-income residents.</p>
             
-            <h3>New Jersey Tax Brackets for 2026 (Married Filing Jointly)</h3>
+            <h3>New Jersey Tax Brackets for 2026</h3>
+            <p>NJ uses different bracket thresholds for single filers versus married couples:</p>
+            
             <table class="tax-bracket-table">
                 <thead>
                     <tr>
-                        <th>Taxable Income Range</th>
+                        <th>Income Range (Single)</th>
+                        <th>Income Range (Married)</th>
                         <th>Tax Rate</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>$0 - $20,000</td>
-                        <td>1.4%</td>
-                    </tr>
-                    <tr>
-                        <td>$20,001 - $50,000</td>
-                        <td>1.75%</td>
-                    </tr>
-                    <tr>
-                        <td>$50,001 - $70,000</td>
-                        <td>3.5%</td>
-                    </tr>
-                    <tr>
-                        <td>$70,001 - $80,000</td>
-                        <td>5.525%</td>
-                    </tr>
-                    <tr>
-                        <td>$80,001 - $500,000</td>
-                        <td>6.37%</td>
-                    </tr>
-                    <tr>
-                        <td>$500,001 - $1,000,000</td>
-                        <td>8.97%</td>
-                    </tr>
-                    <tr>
-                        <td>Over $1,000,000</td>
-                        <td>10.75%</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h3>Tax Brackets for Single Filers</h3>
-            <table class="tax-bracket-table">
-                <thead>
-                    <tr>
-                        <th>Taxable Income Range</th>
-                        <th>Tax Rate</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
                         <td>$0 - $20,000</td>
                         <td>1.4%</td>
                     </tr>
                     <tr>
                         <td>$20,001 - $35,000</td>
+                        <td>$20,001 - $50,000</td>
                         <td>1.75%</td>
                     </tr>
                     <tr>
                         <td>$35,001 - $40,000</td>
+                        <td>$50,001 - $70,000</td>
                         <td>3.5%</td>
                     </tr>
                     <tr>
                         <td>$40,001 - $75,000</td>
+                        <td>$70,001 - $80,000</td>
                         <td>5.525%</td>
                     </tr>
                     <tr>
                         <td>$75,001 - $500,000</td>
+                        <td>$80,001 - $150,000</td>
                         <td>6.37%</td>
                     </tr>
                     <tr>
                         <td>$500,001 - $1,000,000</td>
+                        <td>$150,001 - $500,000</td>
                         <td>8.97%</td>
                     </tr>
                     <tr>
+                        <td>Over $1,000,000</td>
+                        <td>$500,001 - $1,000,000</td>
+                        <td>10.75%</td>
+                    </tr>
+                    <tr>
+                        <td>—</td>
                         <td>Over $1,000,000</td>
                         <td>10.75%</td>
                     </tr>
                 </tbody>
             </table>
             
+            <h3>Personal Exemptions (No Standard Deduction)</h3>
+            <p>New Jersey doesn't have a standard deduction. Instead, you claim personal exemptions:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>Personal Exemption:</strong> $1,000 per person (taxpayer + spouse)</li>
+                <li><strong>Dependent Exemption:</strong> $1,500 per qualifying dependent</li>
+                <li><strong>Age 65+ or Blind:</strong> Additional $1,000 exemption per person</li>
+                <li><strong>Veteran/Disabled:</strong> Additional exemption (up to $6,000)</li>
+            </ul>
+            <p style="margin-top: 12px;">Example: Married couple (both under 65) with two children = $2,000 (personal) + $3,000 (dependents) = $5,000 in exemptions.</p>
+            
             <h3>Key Features of New Jersey Tax System</h3>
             <ul style="margin-left: 20px; margin-top: 12px;">
-                <li><strong>No Standard Deduction:</strong> Unlike most states, NJ doesn't offer a standard deduction. You must itemize or use NJ-specific deductions.</li>
-                <li><strong>High Top Rate:</strong> The 10.75% rate is the second-highest in the US (after California's 13.3%).</li>
-                <li><strong>Millionaire's Tax:</strong> The top two brackets (8.97% and 10.75%) only affect high earners ($500k+).</li>
-                <li><strong>No Social Security Tax:</strong> Social Security benefits are fully exempt from state tax.</li>
-                <li><strong>Pension Exclusion:</strong> Up to $100,000 of pension/retirement income can be excluded for taxpayers age 62+ with income under $150,000.</li>
-                <li><strong>Property Tax Deduction:</strong> You can deduct up to $15,000 of property taxes paid (NJ property taxes are the highest in the nation, averaging $9,284/year).</li>
+                <li><strong>10.75% Top Rate:</strong> One of the highest in the nation (tied with NY's top rate, higher than CA's effective rate for most earners).</li>
+                <li><strong>No Social Security Tax:</strong> Social Security benefits are 100% exempt from NJ tax.</li>
+                <li><strong>Retirement Income Exclusion:</strong> Pensions, 401(k)s, and IRAs are fully exempt if income is under $100k (single) or $150k (married).</li>
+                <li><strong>Property Tax Deduction:</strong> Up to $15,000 deduction for property taxes paid (important given NJ's nation-leading property tax rates).</li>
+                <li><strong>Earned Income Tax Credit:</strong> 40% of the federal EITC (can be refundable).</li>
+                <li><strong>Child and Dependent Care Credit:</strong> Available for working parents.</li>
             </ul>
         </div>
 
@@ -577,8 +566,8 @@
         </div>
 
         <div class="info-card">
-            <h2>New Jersey vs. Neighboring States: Tax Comparison</h2>
-            <p>How does New Jersey's income tax compare to surrounding states?</p>
+            <h2>New Jersey vs. Neighboring States</h2>
+            <p>How does NJ's income tax compare to its neighbors?</p>
             
             <table class="tax-bracket-table">
                 <thead>
@@ -586,84 +575,94 @@
                         <th>State</th>
                         <th>Tax Structure</th>
                         <th>Top Rate</th>
-                        <th>Property Tax (avg)</th>
+                        <th>$100k Earner Pays</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><strong>New Jersey</strong></td>
-                        <td>Progressive (6 brackets)</td>
+                        <td>Progressive (7 brackets)</td>
                         <td>10.75%</td>
-                        <td>$9,284 (highest in US)</td>
+                        <td>~$3,900</td>
                     </tr>
                     <tr>
                         <td>New York</td>
                         <td>Progressive (8 brackets)</td>
                         <td>10.9%</td>
-                        <td>$4,300</td>
+                        <td>~$5,000 (state only)</td>
                     </tr>
                     <tr>
                         <td>Pennsylvania</td>
-                        <td>Flat tax</td>
+                        <td>Flat</td>
                         <td>3.07%</td>
-                        <td>$3,100</td>
+                        <td>~$3,070</td>
                     </tr>
                     <tr>
                         <td>Delaware</td>
                         <td>Progressive (7 brackets)</td>
                         <td>6.6%</td>
-                        <td>$1,700</td>
-                    </tr>
-                    <tr>
-                        <td>Connecticut</td>
-                        <td>Progressive (7 brackets)</td>
-                        <td>6.99%</td>
-                        <td>$6,700</td>
+                        <td>~$4,400</td>
                     </tr>
                 </tbody>
             </table>
             
-            <p style="margin-top: 16px;"><strong>Takeaway:</strong> New Jersey has both high income taxes AND the nation's highest property taxes. A $150,000 earner in NJ pays about $7,300 in state income tax plus $9,000+ in property tax = $16,300 total. The same earner in Pennsylvania pays $4,600 (income) + $3,100 (property) = $7,700 — a savings of $8,600/year by living across the border.</p>
-            
-            <h3>NYC Commuters: The NJ Tax Trap</h3>
-            <p>Many people live in New Jersey and commute to New York City for work. Here's how taxation works:</p>
+            <h3>NYC Commuter Considerations</h3>
+            <p>If you live in NJ and work in NYC, you face unique tax situations:</p>
             <ul style="margin-left: 20px; margin-top: 12px;">
-                <li><strong>You pay NJ tax on all income</strong> as a resident, regardless of where you work</li>
-                <li><strong>You also pay NYC/NY tax</strong> if you work in NYC (NY withholds from your paycheck)</li>
-                <li><strong>You get a credit</strong> on your NJ return for taxes paid to NY/NYC, but it doesn't always fully offset</li>
-                <li><strong>Result:</strong> NJ residents working in NYC often pay more total tax than NY residents due to high NJ rates + property taxes</li>
+                <li><strong>NJ Resident Credit:</strong> You get a credit for taxes paid to NY, so you don't pay double tax on the same income.</li>
+                <li><strong>Effective Rate:</strong> You generally pay the higher of the two states' rates. Since NJ and NY have similar top rates, you'll pay close to the full amount to one or both.</li>
+                <li><strong>NYC Tax:</strong> If you work in NYC, you may also owe NYC local tax (3.078%-3.876%) if you're a NYC resident, but not if you're a NJ resident working in NYC.</li>
+                <li><strong>Property Tax Trade-Off:</strong> Many NYC workers move to NJ for lower housing costs but face NJ's high property taxes ($9k-$15k/year average).</li>
             </ul>
             
-            <p style="margin-top: 12px;"><strong>Example:</strong> A $200,000 earner living in Bergen County, NJ and working in Manhattan pays:</p>
-            <ul style="margin-left: 20px; margin-top: 8px;">
-                <li>NY state tax: ~$11,000</li>
-                <li>NYC tax: ~$8,000</li>
-                <li>NJ tax: ~$9,200 (after credit for NY taxes paid)</li>
-                <li>NJ property tax: ~$15,000 (Bergen County average)</li>
-                <li><strong>Total tax burden: ~$43,200 (21.6% of income)</strong></li>
+            <h3>Moving to New Jersey? What to Know</h3>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>Residency Rules:</strong> You're a NJ resident if you maintain a permanent home in NJ or spend 183+ days in the state.</li>
+                <li><strong>Part-Year Filing:</strong> If you move mid-year, file part-year returns for both states, allocating income by days of residency.</li>
+                <li><strong>Retiree Appeal:</strong> NJ is attractive for retirees with income under $100k/$150k (full pension exemption + no Social Security tax).</li>
+                <li><strong>High Earner Exodus:</strong> The 10.75% top rate drives some high earners to FL (0%) or PA (3.07% flat).</li>
             </ul>
         </div>
 
         <div class="info-card">
             <h2>Tax Planning Strategies for New Jersey Residents</h2>
             
-            <h3>1. Max Out Retirement Contributions</h3>
-            <p>Traditional 401(k) and IRA contributions reduce your NJ taxable income. At the 6.37% marginal rate (most middle-income earners), a $23,000 401(k) contribution saves $1,465 in state tax. At the 10.75% top bracket, it saves $2,472.</p>
+            <h3>1. Maximize Retirement Contributions</h3>
+            <p>Traditional 401(k) and IRA contributions reduce your NJ taxable income. For 2026:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>401(k):</strong> Up to $23,000 ($30,000 if age 50+)</li>
+                <li><strong>IRA:</strong> Up to $7,000 ($8,000 if age 50+)</li>
+            </ul>
+            <p style="margin-top: 12px;">At NJ's 6.37% rate (most middle-income earners), a $23,000 401(k) contribution saves ~$1,465 in state tax, plus federal savings.</p>
             
-            <h3>2. Claim the Property Tax Deduction</h3>
-            <p>You can deduct up to $15,000 of property taxes paid on your NJ return. Since NJ property taxes average $9,284 (and exceed $20,000 in many wealthy towns), this deduction is valuable. At 6.37%, deducting $15,000 saves $955 in state tax.</p>
+            <h3>2. Claim All Eligible Exemptions</h3>
+            <p>Don't miss exemptions:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li>$1,500 per dependent (children, elderly parents)</li>
+                <li>Additional $1,000 if you or your spouse is 65+</li>
+                <li>Additional $1,000 if blind</li>
+                <li>Veteran exemptions if you served</li>
+            </ul>
             
-            <h3>3. Retirees: Claim the Pension Exclusion</h3>
-            <p>If you're 62+ with income under $150,000, you can exclude up to $100,000 of pension, 401(k), and IRA income. This is in addition to the Social Security exemption. A couple both 62+ could potentially exclude $200,000 of retirement income from state tax.</p>
+            <h3>3. Take the Property Tax Deduction</h3>
+            <p>NJ property taxes average $9,000-$10,000/year (highest in the nation). You can deduct up to $15,000 of property taxes on your NJ return. At a 6.37% marginal rate, a $10,000 deduction saves $637.</p>
             
-            <h3>4. Consider Relocating After Retirement</h3>
-            <p>Many NJ retirees move to Florida (0% income tax, lower property tax) or Pennsylvania (3.07% flat rate, much lower property tax). Moving from NJ to FL can save a high-income retiree $10,000-$20,000/year in taxes.</p>
+            <h3>4. Retirement Income Exclusion (If Eligible)</h3>
+            <p>If your total income is under $100,000 (single) or $150,000 (married), ALL your retirement income (pensions, 401(k) withdrawals, IRA distributions) is excluded from NJ tax. This is huge — a retiree with $80,000 in pension income pays $0 NJ tax.</p>
             
-            <h3>5. Strategic Timing for Bonuses/Capital Gains</h3>
-            <p>If you're near the $500,000 (single) or $1 million (married) threshold, consider deferring bonuses or capital gains to avoid the 8.97% or 10.75% top brackets. Conversely, if you expect higher income next year, accelerate income into the current year.</p>
+            <h3>5. College Savings (NJ 529 Plan)</h3>
+            <p>New Jersey does NOT offer a state tax deduction for 529 contributions (unlike most states). However, the account grows tax-free and withdrawals for qualified education expenses are tax-free at both federal and state levels.</p>
             
-            <h3>6. College Savings: NJBEST 529 Plan</h3>
-            <p>New Jersey offers a 529 plan (NJBEST) but does NOT provide a state tax deduction for contributions (unlike most states). However, withdrawals for qualified education expenses are tax-free at both federal and state levels.</p>
+            <h3>6. Timing Capital Gains</h3>
+            <p>NJ taxes long-term capital gains as ordinary income (no preferential rate like the federal 15%-20%). If you're in the 10.75% bracket and selling stock, consider:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li>Deferring sales to a year with lower income</li>
+                <li>Harvesting losses to offset gains</li>
+                <li>Donating appreciated stock to charity (deduction + avoid tax)</li>
+            </ul>
+            
+            <h3>7. Consider Relocating (High Earners)</h3>
+            <p>If you're earning $500k+ and paying 10.75% NJ tax, moving to a no-tax state like FL, TX, or NV saves tens of thousands per year. Example: $1M earner saves ~$107,500/year by moving to Florida. But factor in property taxes, cost of living, and quality of life.</p>
         </div>
 
         <!-- AdSense Slot 3 -->
@@ -684,27 +683,32 @@
             
             <div class="faq-item">
                 <div class="faq-question">What is the New Jersey state income tax rate for 2026?</div>
-                <div class="faq-answer">New Jersey uses a progressive income tax system with six brackets ranging from 1.4% to 10.75%. The top rate of 10.75% applies to income over $1 million for married couples and $500,000 for single filers, making it one of the highest state tax rates in the country.</div>
+                <div class="faq-answer">New Jersey uses a progressive income tax system with seven brackets ranging from 1.4% to 10.75%. The top rate of 10.75% applies to income over $1 million for married filers and $500,000 for single filers, making it one of the highest state tax rates in the nation.</div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">Does New Jersey tax Social Security benefits?</div>
-                <div class="faq-answer">No, New Jersey does not tax Social Security retirement benefits. Additionally, NJ offers a pension exclusion of up to $100,000 for taxpayers age 62+ with income under $150,000, making it relatively tax-friendly for retirees despite high rates on working income.</div>
+                <div class="faq-answer">No, New Jersey does not tax Social Security retirement benefits. Additionally, retirement income (pensions, 401(k)s, IRAs) is fully exempt for taxpayers with total income under $100,000 (single) or $150,000 (married).</div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">Does New Jersey have a standard deduction?</div>
-                <div class="faq-answer">No, New Jersey does not offer a standard deduction like most states. Instead, the state allows certain exemptions and deductions for dependents, property taxes (up to $15,000), and other specific items. This means you must itemize or use NJ-specific deductions.</div>
+                <div class="faq-answer">No, New Jersey does not have a standard deduction. Instead, the state offers personal exemptions and dependent exemptions that reduce your taxable income. For 2026, the personal exemption is $1,000 per person, with additional exemptions based on income and age.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">Is New Jersey a high-tax state?</div>
-                <div class="faq-answer">Yes, New Jersey has one of the highest state income tax burdens in the US. The top rate of 10.75% is second only to California (13.3%) and Hawaii (11%). Combined with high property taxes (highest in the nation), NJ is consistently ranked as one of the most heavily taxed states.</div>
+                <div class="faq-question">What are the property tax deductions in New Jersey?</div>
+                <div class="faq-answer">New Jersey offers a property tax deduction (up to $15,000) or credit (up to $50) depending on income. The deduction is available for homeowners and tenants. Given NJ's high property taxes (averaging $9,000-$10,000/year), this can provide significant relief.</div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">When are New Jersey state tax returns due?</div>
-                <div class="faq-answer">New Jersey state tax returns are due on April 15th, the same deadline as federal returns. If you file a federal extension to October 15th, New Jersey automatically grants you an extension to the same date. However, any tax owed must still be paid by April 15th to avoid penalties.</div>
+                <div class="faq-answer">New Jersey state tax returns are due on April 15th, the same deadline as federal returns. If you file a federal extension to October 15th, New Jersey automatically grants you an extension as well.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How does NJ tax compare to NY for NYC commuters?</div>
+                <div class="faq-answer">NJ residents working in NYC pay tax to both states but receive a credit from NJ for taxes paid to NY, avoiding double taxation. You effectively pay the higher of the two states' rates. NJ's top rate (10.75%) is nearly identical to NY's (10.9%), so the difference is minimal. However, NJ residents don't pay NYC's local tax (3%-4%).</div>
             </div>
         </div>
 
@@ -719,25 +723,25 @@
                     <h4>New York Tax Calculator</h4>
                     <p>Calculate NY state tax (4%-10.9%)</p>
                 </a>
+                <a href="https://calcleap.com/calc/pennsylvania-income-tax-calculator.html" class="tool-card">
+                    <h4>Pennsylvania Tax Calculator</h4>
+                    <p>Calculate PA flat tax (3.07%)</p>
+                </a>
                 <a href="https://calcleap.com/calc/paycheck-calculator.html" class="tool-card">
                     <h4>Paycheck Calculator</h4>
                     <p>Estimate take-home pay after taxes</p>
                 </a>
                 <a href="https://calcleap.com/calc/401k-calculator.html" class="tool-card">
                     <h4>401(k) Calculator</h4>
-                    <p>Plan retirement savings with tax benefits</p>
+                    <p>Plan your retirement savings</p>
+                </a>
+                <a href="https://calcleap.com/calc/salary-comparison-calculator.html" class="tool-card">
+                    <h4>Salary Comparison Tool</h4>
+                    <p>Compare salaries across states/cities</p>
                 </a>
                 <a href="https://calcleap.com/calc/virginia-income-tax-calculator.html" class="tool-card">
                     <h4>Virginia Tax Calculator</h4>
                     <p>Calculate VA state tax (2%-5.75%)</p>
-                </a>
-                <a href="https://calcleap.com/calc/pennsylvania-income-tax-calculator.html" class="tool-card">
-                    <h4>Pennsylvania Tax Calculator</h4>
-                    <p>Calculate PA flat tax (3.07%)</p>
-                </a>
-                <a href="https://calcleap.com/calc/salary-comparison-calculator.html" class="tool-card">
-                    <h4>Salary Comparison Tool</h4>
-                    <p>Compare cost of living across cities</p>
                 </a>
                 <a href="https://calcleap.com/calc/mortgage-calculator.html" class="tool-card">
                     <h4>Mortgage Calculator</h4>
@@ -785,42 +789,55 @@
         function calculateTax() {
             const income = parseFloat(document.getElementById('income').value) || 0;
             const filingStatus = document.getElementById('filingStatus').value;
+            const dependents = parseInt(document.getElementById('dependents').value) || 0;
             
-            let tax = 0;
-            const taxableIncome = income; // NJ has no standard deduction in this simplified calc
+            // NJ personal exemptions (2026)
+            let personalExemption = 1000; // Single
+            if (filingStatus === 'married') {
+                personalExemption = 2000; // Both spouses
+            }
+            
+            const dependentExemption = dependents * 1500;
+            const totalExemptions = personalExemption + dependentExemption;
+            const taxableIncome = Math.max(0, income - totalExemptions);
             
             // NJ tax brackets (2026)
-            if (filingStatus === 'married' || filingStatus === 'hoh') {
-                // Married/HOH brackets
+            let tax = 0;
+            const isSingle = (filingStatus === 'single' || filingStatus === 'married_separate' || filingStatus === 'hoh');
+            
+            if (isSingle) {
+                // Single filer brackets
                 if (taxableIncome > 1000000) {
-                    tax = 73350 + (taxableIncome - 1000000) * 0.1075;
+                    tax = 97662.50 + (taxableIncome - 1000000) * 0.1075;
                 } else if (taxableIncome > 500000) {
-                    tax = 28485 + (taxableIncome - 500000) * 0.0897;
-                } else if (taxableIncome > 80000) {
-                    tax = 1654 + (taxableIncome - 80000) * 0.0637;
-                } else if (taxableIncome > 70000) {
-                    tax = 1101.5 + (taxableIncome - 70000) * 0.05525;
-                } else if (taxableIncome > 50000) {
-                    tax = 401.5 + (taxableIncome - 50000) * 0.035;
+                    tax = 52837.50 + (taxableIncome - 500000) * 0.0897;
+                } else if (taxableIncome > 75000) {
+                    tax = 25924.75 + (taxableIncome - 75000) * 0.0637;
+                } else if (taxableIncome > 40000) {
+                    tax = 24124.75 + (taxableIncome - 40000) * 0.05525;
+                } else if (taxableIncome > 35000) {
+                    tax = 23949.75 + (taxableIncome - 35000) * 0.035;
                 } else if (taxableIncome > 20000) {
-                    tax = 280 + (taxableIncome - 20000) * 0.0175;
+                    tax = 23687.25 + (taxableIncome - 20000) * 0.0175;
                 } else {
                     tax = taxableIncome * 0.014;
                 }
             } else {
-                // Single/Married Separate brackets
+                // Married filing jointly brackets
                 if (taxableIncome > 1000000) {
-                    tax = 73350 + (taxableIncome - 1000000) * 0.1075;
+                    tax = 97662.50 + (taxableIncome - 1000000) * 0.1075;
                 } else if (taxableIncome > 500000) {
-                    tax = 28485 + (taxableIncome - 500000) * 0.0897;
-                } else if (taxableIncome > 75000) {
-                    tax = 2175.625 + (taxableIncome - 75000) * 0.0637;
-                } else if (taxableIncome > 40000) {
-                    tax = 242.5 + (taxableIncome - 40000) * 0.05525;
-                } else if (taxableIncome > 35000) {
-                    tax = 67.5 + (taxableIncome - 35000) * 0.035;
+                    tax = 52837.50 + (taxableIncome - 500000) * 0.0897;
+                } else if (taxableIncome > 150000) {
+                    tax = 30542.50 + (taxableIncome - 150000) * 0.0897;
+                } else if (taxableIncome > 80000) {
+                    tax = 26082.50 + (taxableIncome - 80000) * 0.0637;
+                } else if (taxableIncome > 70000) {
+                    tax = 25530.00 + (taxableIncome - 70000) * 0.05525;
+                } else if (taxableIncome > 50000) {
+                    tax = 24830.00 + (taxableIncome - 50000) * 0.035;
                 } else if (taxableIncome > 20000) {
-                    tax = 280 + (taxableIncome - 20000) * 0.0175;
+                    tax = 24305.00 + (taxableIncome - 20000) * 0.0175;
                 } else {
                     tax = taxableIncome * 0.014;
                 }
