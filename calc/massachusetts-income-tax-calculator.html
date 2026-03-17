@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massachusetts Income Tax Calculator 2026 - Free MA State Tax Estimator | CalcLeap</title>
+    <meta name="description" content="Calculate your Massachusetts state income tax for 2026. Free calculator with flat 5% tax rate, deductions, and exemptions. Instant results for MA taxpayers.">
+    <link rel="canonical" href="https://calcleap.com/calc/massachusetts-income-tax-calculator.html">
+    <meta property="og:title" content="Massachusetts Income Tax Calculator 2026 - CalcLeap">
+    <meta property="og:description" content="Free Massachusetts income tax calculator. Estimate your MA state tax with flat 5% rate and accurate deductions.">
+    <meta property="og:url" content="https://calcleap.com/calc/massachusetts-income-tax-calculator.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+        
+        .nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-content {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #0071e3;
+            text-decoration: none;
+        }
+        
+        .nav-links a {
+            margin-left: 24px;
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: #0071e3;
+        }
+        
+        .page {
+            max-width: 980px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .page-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 21px;
+            color: #6e6e73;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 18px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 24px 0 16px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #1d1d1f;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d2d2d7;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #0071e3;
+        }
+        
+        .btn {
+            background: #0071e3;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        
+        .btn:hover {
+            background: #0077ed;
+        }
+        
+        .result-box {
+            background: linear-gradient(135deg, #0071e3 0%, #0077ed 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 24px;
+        }
+        
+        .result-label {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .result-value {
+            font-size: 48px;
+            font-weight: 700;
+        }
+        
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        
+        .result-item {
+            background: #f5f5f7;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .result-item-label {
+            font-size: 14px;
+            color: #6e6e73;
+            margin-bottom: 8px;
+        }
+        
+        .result-item-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        
+        .tax-bracket-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .tax-bracket-table th,
+        .tax-bracket-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #d2d2d7;
+        }
+        
+        .tax-bracket-table th {
+            background: #f5f5f7;
+            font-weight: 600;
+        }
+        
+        .faq-item {
+            margin-bottom: 24px;
+        }
+        
+        .faq-question {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0071e3;
+        }
+        
+        .faq-answer {
+            color: #1d1d1f;
+            line-height: 1.7;
+        }
+        
+        .breadcrumb {
+            font-size: 14px;
+            color: #6e6e73;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        .breadcrumb a {
+            color: #0071e3;
+            text-decoration: none;
+        }
+        
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        
+        .tool-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #1d1d1f;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #d2d2d7;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0071e3;
+        }
+        
+        .tool-card p {
+            font-size: 14px;
+            color: #6e6e73;
+        }
+        
+        footer {
+            background: #f5f5f7;
+            padding: 48px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #d2d2d7;
+        }
+        
+        .footer-content {
+            max-width: 980px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+        }
+        
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #6e6e73;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .footer-section a:hover {
+            color: #0071e3;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid #d2d2d7;
+            color: #6e6e73;
+            font-size: 14px;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the Massachusetts state income tax rate for 2026?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Massachusetts has a flat income tax rate of 5% on all taxable income. This applies to wages, salaries, self-employment income, and most other forms of ordinary income. Short-term capital gains are taxed at 12%, while long-term capital gains are taxed at 5%."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Massachusetts tax Social Security benefits?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, Massachusetts does not tax Social Security retirement benefits. This makes it relatively tax-friendly for retirees receiving Social Security income."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What exemptions are available in Massachusetts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Massachusetts allows personal exemptions of $4,400 for single filers and $8,800 for married filing jointly (2026 amounts). There is also a dependent exemption of $1,000 per qualifying dependent. Additionally, taxpayers over 65 can claim an additional $700 exemption."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How are capital gains taxed in Massachusetts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Massachusetts has a unique two-tier capital gains system: short-term capital gains (assets held one year or less) are taxed at 12%, while long-term capital gains (held more than one year) are taxed at 5%, the same as ordinary income."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://calcleap.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Calculators",
+                "item": "https://calcleap.com/#calculators"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Massachusetts Income Tax Calculator",
+                "item": "https://calcleap.com/calc/massachusetts-income-tax-calculator.html"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="https://calcleap.com/" class="logo">CalcLeap</a>
+            <div class="nav-links">
+                <a href="https://calcleap.com/#calculators">Calculators</a>
+                <a href="https://calcleap.com/about.html">About</a>
+                <a href="https://calcleap.com/contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page">
+        <div class="breadcrumb">
+            <a href="https://calcleap.com/">Home</a> &gt; <a href="https://calcleap.com/#calculators">Calculators</a> &gt; Massachusetts Income Tax Calculator
+        </div>
+
+        <h1 class="page-title">Massachusetts Income Tax Calculator</h1>
+        <p class="subtitle">Calculate your 2026 Massachusetts state income tax with flat 5% rate and exemptions</p>
+
+        <div class="card">
+            <h2>Calculate Your Massachusetts State Tax</h2>
+            <div class="form-group">
+                <label for="income">Annual Taxable Income</label>
+                <input type="number" id="income" placeholder="Enter your annual income" value="75000">
+            </div>
+            
+            <div class="form-group">
+                <label for="filingStatus">Filing Status</label>
+                <select id="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="married">Married Filing Jointly</option>
+                    <option value="married_separate">Married Filing Separately</option>
+                    <option value="hoh">Head of Household</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="dependents">Number of Dependents</label>
+                <input type="number" id="dependents" min="0" value="0" placeholder="0">
+            </div>
+            
+            <div class="form-group">
+                <label for="age65">Age 65 or Older?</label>
+                <select id="age65">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+            
+            <button class="btn" onclick="calculateTax()">Calculate Tax</button>
+            
+            <div id="results" style="display: none;">
+                <div class="result-box">
+                    <div class="result-label">Estimated Massachusetts State Tax</div>
+                    <div class="result-value" id="totalTax">$0</div>
+                </div>
+                
+                <div class="result-grid">
+                    <div class="result-item">
+                        <div class="result-item-label">Taxable Income</div>
+                        <div class="result-item-value" id="taxableIncome">$0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-item-label">Effective Tax Rate</div>
+                        <div class="result-item-value" id="effectiveRate">0%</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-item-label">After-Tax Income</div>
+                        <div class="result-item-value" id="afterTax">$0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-item-label">Monthly Take-Home</div>
+                        <div class="result-item-value" id="monthly">$0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AdSense Slot 1 -->
+        <div style="text-align: center; margin: 32px 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3112605892426625"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="info-card">
+            <h2>Understanding Massachusetts Income Tax</h2>
+            <p>Massachusetts operates a <strong>flat income tax system</strong> with a rate of 5% on most types of income. This makes tax calculation straightforward — unlike progressive-tax states with multiple brackets, everyone in Massachusetts pays the same percentage regardless of income level.</p>
+            
+            <h3>The Flat 5% Tax Rate</h3>
+            <p>Massachusetts taxes the following types of income at 5%:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li>Wages and salaries</li>
+                <li>Self-employment income</li>
+                <li>Interest and dividends</li>
+                <li>Rental income</li>
+                <li>Long-term capital gains (assets held >1 year)</li>
+                <li>Pension and retirement income (except Social Security)</li>
+            </ul>
+            
+            <h3>Special Capital Gains Rate</h3>
+            <p>Unlike most states, Massachusetts has a separate tax rate for <strong>short-term capital gains</strong> (assets held one year or less): <strong>12%</strong>. This higher rate applies to profits from stocks, real estate, and other investments sold within a year of purchase.</p>
+            
+            <h3>Personal Exemptions (2026)</h3>
+            <p>Massachusetts uses exemptions to reduce your taxable income:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>Single:</strong> $4,400</li>
+                <li><strong>Married Filing Jointly:</strong> $8,800</li>
+                <li><strong>Head of Household:</strong> $6,800</li>
+                <li><strong>Per Dependent:</strong> $1,000</li>
+                <li><strong>Age 65+ (additional):</strong> $700</li>
+                <li><strong>Blind (additional):</strong> $2,200</li>
+            </ul>
+            <p style="margin-top: 12px;">Example: A married couple with 2 children would claim $8,800 (married) + $2,000 (2 dependents) = $10,800 in exemptions.</p>
+            
+            <h3>What's NOT Taxed in Massachusetts</h3>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>Social Security benefits:</strong> 100% exempt</li>
+                <li><strong>Railroad retirement benefits:</strong> 100% exempt</li>
+                <li><strong>U.S. government bond interest:</strong> Exempt from state tax</li>
+                <li><strong>State/municipal bond interest:</strong> Exempt if from MA bonds</li>
+            </ul>
+            
+            <h3>Key Features of Massachusetts Tax System</h3>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>Simplicity:</strong> Flat 5% rate means easy calculation and predictability</li>
+                <li><strong>No local taxes:</strong> Unlike states like Ohio or Maryland, MA cities/towns don't levy income taxes</li>
+                <li><strong>No standard deduction:</strong> MA uses exemptions instead</li>
+                <li><strong>High earner advantage:</strong> 5% flat is much lower than CA (13.3%), NY (10.9%), or NJ (10.75%) top rates</li>
+                <li><strong>Short-term trading penalty:</strong> 12% capital gains rate discourages day trading</li>
+            </ul>
+        </div>
+
+        <!-- AdSense Slot 2 -->
+        <div style="text-align: center; margin: 32px 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3112605892426625"
+                 data-ad-slot="2345678901"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="info-card">
+            <h2>Massachusetts vs. Other States: Tax Comparison</h2>
+            
+            <h3>New England Region</h3>
+            <table class="tax-bracket-table">
+                <thead>
+                    <tr>
+                        <th>State</th>
+                        <th>Tax Structure</th>
+                        <th>Rate(s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Massachusetts</strong></td>
+                        <td>Flat</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr>
+                        <td>Connecticut</td>
+                        <td>Progressive (7 brackets)</td>
+                        <td>3% to 6.99%</td>
+                    </tr>
+                    <tr>
+                        <td>Rhode Island</td>
+                        <td>Progressive (3 brackets)</td>
+                        <td>3.75% to 5.99%</td>
+                    </tr>
+                    <tr>
+                        <td>Vermont</td>
+                        <td>Progressive (4 brackets)</td>
+                        <td>3.35% to 8.75%</td>
+                    </tr>
+                    <tr>
+                        <td>Maine</td>
+                        <td>Progressive (3 brackets)</td>
+                        <td>5.8% to 7.15%</td>
+                    </tr>
+                    <tr>
+                        <td>New Hampshire</td>
+                        <td>No income tax</td>
+                        <td>0%</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p style="margin-top: 16px;"><strong>Key Insight:</strong> Massachusetts' 5% flat rate is competitive in the region. High earners pay less than in CT, VT, or ME. Middle-income earners pay slightly more than in NH (0%) but benefit from better public services and infrastructure.</p>
+            
+            <h3>Why High Earners Like Massachusetts</h3>
+            <p>For six-figure earners, Massachusetts offers significant tax savings compared to other high-cost states:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>vs. California:</strong> A $500k earner in MA pays ~$25k state tax (5%). In CA: ~$44k (13.3% top bracket). Savings: $19k/year.</li>
+                <li><strong>vs. New York:</strong> Same $500k earner in NY pays ~$36k (10.9% top bracket + NYC tax if applicable). MA saves $11k-14k/year.</li>
+                <li><strong>vs. New Jersey:</strong> NJ charges 10.75% on high earners. MA saves ~$29k/year on $500k income.</li>
+            </ul>
+            <p style="margin-top: 12px;">This is why Boston attracts so many tech workers, biotech executives, and finance professionals — the flat 5% rate is a major competitive advantage for high earners.</p>
+            
+            <h3>Moving to Massachusetts? Tax Considerations</h3>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>Residency:</strong> You're a MA resident if you live in the state for 183+ days or maintain a permanent home here.</li>
+                <li><strong>Part-year filing:</strong> If you move mid-year, file part-year returns for both states, allocating income by time.</li>
+                <li><strong>Remote work:</strong> If you work remotely for an out-of-state employer while living in MA, you owe MA tax on that income.</li>
+                <li><strong>Property tax trade-off:</strong> MA income tax is moderate, but property taxes in Greater Boston can be high (effective rate ~1.2%).</li>
+                <li><strong>Capital gains planning:</strong> Hold investments >1 year to get 5% rate instead of 12%.</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h2>Tax Planning Strategies for Massachusetts Residents</h2>
+            
+            <h3>1. Maximize Retirement Contributions</h3>
+            <p>Traditional 401(k) and IRA contributions reduce your MA taxable income. For 2026:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>401(k):</strong> Up to $23,000 ($30,000 if age 50+)</li>
+                <li><strong>IRA:</strong> Up to $7,000 ($8,000 if age 50+)</li>
+            </ul>
+            <p style="margin-top: 12px;">At MA's 5% rate, a $23,000 401(k) contribution saves $1,150 in state tax (plus ~$5,060 federal at 22% = $6,210 total).</p>
+            
+            <h3>2. Hold Investments for Long-Term Gains</h3>
+            <p>Massachusetts' 12% short-term capital gains rate is punitive. If you're trading stocks or crypto, hold assets for more than one year to get the 5% long-term rate. The difference on a $50,000 gain: $6,000 (12%) vs. $2,500 (5%) = $3,500 savings.</p>
+            
+            <h3>3. Claim All Eligible Exemptions</h3>
+            <p>Don't leave money on the table:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li>Claim $1,000 per dependent (children, elderly parents living with you)</li>
+                <li>If 65+, add the $700 age exemption</li>
+                <li>If blind, claim the $2,200 blindness exemption</li>
+            </ul>
+            
+            <h3>4. Deduct Charitable Contributions</h3>
+            <p>Massachusetts allows you to deduct charitable contributions on your state return if you itemize federally. At 5%, a $10,000 donation saves $500 in state tax (plus federal savings).</p>
+            
+            <h3>5. Use a 529 Plan for College Savings</h3>
+            <p>While Massachusetts doesn't offer a state tax deduction for 529 contributions (unlike many states), the investment grows tax-free and withdrawals for qualified education expenses are exempt from both federal and state tax. Consider the MA U.Fund College Investing Plan.</p>
+            
+            <h3>6. Consider Roth Conversions in Moderate-Income Years</h3>
+            <p>If you have a year with lower income (career transition, sabbatical), convert traditional IRA funds to Roth. You'll pay 5% MA tax now, but future Roth withdrawals are completely tax-free. This is especially valuable if you expect higher income (and potentially higher tax rates) in the future.</p>
+            
+            <h3>7. Rental Property Deductions</h3>
+            <p>If you own rental property in MA, you can deduct:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li>Mortgage interest</li>
+                <li>Property taxes</li>
+                <li>Repairs and maintenance</li>
+                <li>Depreciation</li>
+                <li>Management fees</li>
+            </ul>
+            <p style="margin-top: 12px;">These deductions reduce your MA taxable income at the 5% rate.</p>
+        </div>
+
+        <!-- AdSense Slot 3 -->
+        <div style="text-align: center; margin: 32px 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3112605892426625"
+                 data-ad-slot="3456789012"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="info-card">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is the Massachusetts state income tax rate for 2026?</div>
+                <div class="faq-answer">Massachusetts has a flat income tax rate of 5% on all taxable income. This applies to wages, salaries, self-employment income, and most other forms of ordinary income. Short-term capital gains are taxed at 12%, while long-term capital gains are taxed at 5%.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Does Massachusetts tax Social Security benefits?</div>
+                <div class="faq-answer">No, Massachusetts does not tax Social Security retirement benefits. This makes it relatively tax-friendly for retirees receiving Social Security income.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What exemptions are available in Massachusetts?</div>
+                <div class="faq-answer">Massachusetts allows personal exemptions of $4,400 for single filers and $8,800 for married filing jointly (2026 amounts). There is also a dependent exemption of $1,000 per qualifying dependent. Additionally, taxpayers over 65 can claim an additional $700 exemption.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How are capital gains taxed in Massachusetts?</div>
+                <div class="faq-answer">Massachusetts has a unique two-tier capital gains system: short-term capital gains (assets held one year or less) are taxed at 12%, while long-term capital gains (held more than one year) are taxed at 5%, the same as ordinary income.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">When are Massachusetts state tax returns due?</div>
+                <div class="faq-answer">Massachusetts state tax returns are due on April 15th, the same deadline as federal returns. If you file a federal extension to October 15th, Massachusetts automatically grants you an extension to the same date.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is Massachusetts a high-tax or low-tax state?</div>
+                <div class="faq-answer">Massachusetts has a moderate tax burden. The 5% flat rate is lower than high-tax states like California (13.3%), New York (10.9%), and New Jersey (10.75%), but higher than no-tax states like Florida, Texas, and New Hampshire. For high earners, it's very competitive.</div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h2>Related Tax & Finance Tools</h2>
+            <div class="related-tools">
+                <a href="https://calcleap.com/calc/federal-income-tax-calculator.html" class="tool-card">
+                    <h4>Federal Income Tax Calculator</h4>
+                    <p>Calculate your 2026 federal tax liability</p>
+                </a>
+                <a href="https://calcleap.com/calc/paycheck-calculator.html" class="tool-card">
+                    <h4>Paycheck Calculator</h4>
+                    <p>Estimate your take-home pay after taxes</p>
+                </a>
+                <a href="https://calcleap.com/calc/401k-calculator.html" class="tool-card">
+                    <h4>401(k) Calculator</h4>
+                    <p>Plan your retirement savings</p>
+                </a>
+                <a href="https://calcleap.com/calc/new-york-income-tax-calculator.html" class="tool-card">
+                    <h4>New York Tax Calculator</h4>
+                    <p>Calculate NY state tax (4%-10.9%)</p>
+                </a>
+                <a href="https://calcleap.com/calc/california-income-tax-calculator.html" class="tool-card">
+                    <h4>California Tax Calculator</h4>
+                    <p>Calculate CA state tax (1%-13.3%)</p>
+                </a>
+                <a href="https://calcleap.com/calc/new-jersey-income-tax-calculator.html" class="tool-card">
+                    <h4>New Jersey Tax Calculator</h4>
+                    <p>Calculate NJ state tax (1.4%-10.75%)</p>
+                </a>
+                <a href="https://calcleap.com/calc/north-carolina-income-tax-calculator.html" class="tool-card">
+                    <h4>North Carolina Tax Calculator</h4>
+                    <p>Calculate NC state tax (flat 4.75%)</p>
+                </a>
+                <a href="https://calcleap.com/calc/mortgage-calculator.html" class="tool-card">
+                    <h4>Mortgage Calculator</h4>
+                    <p>Calculate monthly mortgage payments</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Popular Calculators</h4>
+                <ul>
+                    <li><a href="https://calcleap.com/calc/bmi-calculator.html">BMI Calculator</a></li>
+                    <li><a href="https://calcleap.com/calc/mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="https://calcleap.com/calc/calorie-calculator.html">Calorie Calculator</a></li>
+                    <li><a href="https://calcleap.com/calc/salary-calculator.html">Salary Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="https://calcleap.com/#finance">Finance</a></li>
+                    <li><a href="https://calcleap.com/#health">Health</a></li>
+                    <li><a href="https://calcleap.com/#conversion">Conversion</a></li>
+                    <li><a href="https://calcleap.com/#business">Business</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="https://calcleap.com/about.html">About Us</a></li>
+                    <li><a href="https://calcleap.com/privacy.html">Privacy Policy</a></li>
+                    <li><a href="https://calcleap.com/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 CalcLeap. All rights reserved. | Last updated: March 2026
+        </div>
+    </footer>
+
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const filingStatus = document.getElementById('filingStatus').value;
+            const dependents = parseInt(document.getElementById('dependents').value) || 0;
+            const age65 = document.getElementById('age65').value === 'yes';
+            
+            // Massachusetts personal exemptions (2026)
+            let personalExemption = 0;
+            if (filingStatus === 'single' || filingStatus === 'married_separate') {
+                personalExemption = 4400;
+            } else if (filingStatus === 'married') {
+                personalExemption = 8800;
+            } else if (filingStatus === 'hoh') {
+                personalExemption = 6800;
+            }
+            
+            // Dependent and age exemptions
+            const dependentExemption = dependents * 1000;
+            const age65Exemption = age65 ? 700 : 0;
+            
+            const totalExemptions = personalExemption + dependentExemption + age65Exemption;
+            const taxableIncome = Math.max(0, income - totalExemptions);
+            
+            // Massachusetts flat tax: 5%
+            const tax = taxableIncome * 0.05;
+            
+            const effectiveRate = income > 0 ? (tax / income * 100) : 0;
+            const afterTaxIncome = income - tax;
+            const monthlyTakeHome = afterTaxIncome / 12;
+            
+            // Display results
+            document.getElementById('totalTax').textContent = '$' + tax.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('taxableIncome').textContent = '$' + taxableIncome.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(2) + '%';
+            document.getElementById('afterTax').textContent = '$' + afterTaxIncome.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('monthly').textContent = '$' + monthlyTakeHome.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Auto-calculate on load
+        window.addEventListener('load', () => {
+            if (document.getElementById('income').value) {
+                calculateTax();
+            }
+        });
+    </script>
+</body>
+</html>
