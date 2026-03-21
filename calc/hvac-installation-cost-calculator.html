@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Installation Cost Calculator — Estimate Central AC & Heating System Replacement | CalcLeap</title>
+    <meta name="description" content="Free HVAC installation cost calculator. Estimate central air conditioner, furnace, and heat pump replacement costs with labor, ductwork, and permits. Get accurate pricing for your home.">
+    <meta name="keywords" content="hvac installation cost calculator, central air cost, furnace replacement cost, heat pump installation cost, hvac system cost, air conditioning installation cost">
+    <link rel="canonical" href="https://calcleap.com/calc/hvac-installation-cost-calculator.html">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #333; line-height: 1.6; padding: 20px; min-height: 100vh;}
+        .container {max-width: 900px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden;}
+        .header {background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 30px; text-align: center;}
+        .header h1 {font-size: 2.5em; margin-bottom: 10px; font-weight: 700;}
+        .header p {font-size: 1.15em; opacity: 0.95;}
+        .content {padding: 40px 30px;}
+        .calc-section {background: #f8f9fa; padding: 30px; border-radius: 12px; margin-bottom: 30px; border: 2px solid #e9ecef;}
+        .form-group {margin-bottom: 25px;}
+        label {display: block; margin-bottom: 8px; font-weight: 600; color: #495057; font-size: 0.95em;}
+        input[type="number"], select {width: 100%; padding: 12px 15px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1em; transition: all 0.3s;}
+        input[type="number"]:focus, select:focus {outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);}
+        .input-group {display: grid; grid-template-columns: 1fr 1fr; gap: 20px;}
+        .checkbox-group {display: flex; align-items: center; gap: 10px; margin-bottom: 15px;}
+        .checkbox-group input[type="checkbox"] {width: 20px; height: 20px; cursor: pointer;}
+        .checkbox-group label {margin: 0; cursor: pointer; font-weight: 500;}
+        .btn {background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 15px 40px; font-size: 1.1em; font-weight: 600; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px; transition: transform 0.2s, box-shadow 0.2s;}
+        .btn:hover {transform: translateY(-2px); box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);}
+        .results {background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; margin-top: 30px; display: none;}
+        .results.show {display: block;}
+        .result-item {display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.2); font-size: 1.05em;}
+        .result-item:last-child {border-bottom: none; font-size: 1.3em; font-weight: 700; margin-top: 10px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.3);}
+        .result-label {font-weight: 500;}
+        .result-value {font-weight: 700; font-size: 1.1em;}
+        .info-section {margin-top: 40px; padding-top: 30px; border-top: 3px solid #e9ecef;}
+        .info-section h2 {color: #667eea; margin-bottom: 20px; font-size: 1.8em;}
+        .info-section h3 {color: #495057; margin-top: 25px; margin-bottom: 15px; font-size: 1.3em;}
+        .info-section p, .info-section li {margin-bottom: 12px; color: #666; line-height: 1.8;}
+        .info-section ul, .info-section ol {margin-left: 20px; margin-bottom: 20px;}
+        table {width: 100%; border-collapse: collapse; margin: 20px 0; background: white;}
+        table th, table td {padding: 12px 15px; text-align: left; border: 1px solid #dee2e6;}
+        table th {background: #667eea; color: white; font-weight: 600;}
+        table tr:nth-child(even) {background: #f8f9fa;}
+        .tip {background: #e7f3ff; border-left: 4px solid #2196F3; padding: 15px 20px; margin: 20px 0; border-radius: 4px;}
+        .tip strong {color: #1976D2;}
+        .warning {background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px 20px; margin: 20px 0; border-radius: 4px;}
+        .warning strong {color: #856404;}
+        @media (max-width: 768px) {
+            .header h1 {font-size: 1.8em;}
+            .header p {font-size: 1em;}
+            .content {padding: 25px 20px;}
+            .calc-section {padding: 20px;}
+            .input-group {grid-template-columns: 1fr;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💨 HVAC Installation Cost Calculator</h1>
+            <p>Estimate your central AC, furnace, or heat pump replacement cost with labor, ductwork, and permits</p>
+        </div>
+
+        <div class="content">
+            <div class="calc-section">
+                <h2 style="margin-bottom: 25px; color: #667eea;">System Details</h2>
+                
+                <div class="form-group">
+                    <label for="systemType">System Type</label>
+                    <select id="systemType">
+                        <option value="central-ac">Central Air Conditioner Only</option>
+                        <option value="furnace">Furnace Only</option>
+                        <option value="heat-pump">Heat Pump (Heating + Cooling)</option>
+                        <option value="ac-furnace">Central AC + Furnace</option>
+                        <option value="package">Package Unit (All-in-One)</option>
+                        <option value="mini-split">Ductless Mini-Split</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <div class="form-group">
+                        <label for="squareFeet">Home Size (sq ft)</label>
+                        <input type="number" id="squareFeet" value="2000" min="500" max="10000" step="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="seer">SEER Rating</label>
+                        <select id="seer">
+                            <option value="14">14 SEER (Standard)</option>
+                            <option value="16" selected>16 SEER (Good)</option>
+                            <option value="18">18 SEER (High Efficiency)</option>
+                            <option value="20">20+ SEER (Premium)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="installComplexity">Installation Complexity</label>
+                    <select id="installComplexity">
+                        <option value="simple">Simple (Easy access, no modifications)</option>
+                        <option value="standard" selected>Standard (Typical install)</option>
+                        <option value="moderate">Moderate (Some modifications needed)</option>
+                        <option value="complex">Complex (Major modifications, difficult access)</option>
+                    </select>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ductworkNeeded">
+                    <label for="ductworkNeeded">Need new ductwork or major duct repairs</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="thermostat">
+                    <label for="thermostat">Include smart thermostat ($200-$500)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="airPurifier">
+                    <label for="airPurifier">Add whole-home air purifier ($800-$2,000)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="humidifier">
+                    <label for="humidifier">Add whole-home humidifier ($400-$1,200)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="zoning">
+                    <label for="zoning">Add zoning system ($1,500-$3,500)</label>
+                </div>
+
+                <button class="btn" onclick="calculate()">Calculate HVAC Installation Cost</button>
+            </div>
+
+            <div class="results" id="results">
+                <h2 style="margin-bottom: 20px;">💰 Your HVAC Installation Cost Estimate</h2>
+                <div class="result-item">
+                    <span class="result-label">System Tonnage Required:</span>
+                    <span class="result-value" id="tonnage"></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Equipment Cost:</span>
+                    <span class="result-value" id="equipmentCost"></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Labor & Installation:</span>
+                    <span class="result-value" id="laborCost"></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Ductwork (if needed):</span>
+                    <span class="result-value" id="ductworkCost"></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Additional Items:</span>
+                    <span class="result-value" id="additionalCost"></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Permits & Disposal:</span>
+                    <span class="result-value" id="permitsCost"></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">💵 TOTAL PROJECT COST:</span>
+                    <span class="result-value" id="totalCost"></span>
+                </div>
+                <p style="margin-top: 20px; opacity: 0.9; font-size: 0.95em; font-style: italic;">
+                    Cost range accounts for equipment quality, regional pricing, and installation complexity. Get 3+ quotes from licensed contractors.
+                </p>
+            </div>
+
+            <div class="info-section">
+                <h2>📊 HVAC System Comparison</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>System Type</th>
+                            <th>Best For</th>
+                            <th>Cost Range</th>
+                            <th>Lifespan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Central AC Only</strong></td>
+                            <td>Cooling-only needs, have gas furnace</td>
+                            <td>$3,500 – $7,500</td>
+                            <td>12-15 years</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Furnace Only</strong></td>
+                            <td>Heating-only, have existing AC</td>
+                            <td>$2,500 – $6,000</td>
+                            <td>15-20 years</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Heat Pump</strong></td>
+                            <td>Moderate climates, all-electric homes</td>
+                            <td>$5,000 – $12,000</td>
+                            <td>12-15 years</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AC + Furnace</strong></td>
+                            <td>Complete system replacement</td>
+                            <td>$6,000 – $13,000</td>
+                            <td>Varies by component</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Package Unit</strong></td>
+                            <td>Small spaces, rooftop installs</td>
+                            <td>$4,000 – $9,000</td>
+                            <td>10-15 years</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mini-Split</strong></td>
+                            <td>No ducts, zoned cooling/heating</td>
+                            <td>$3,000 – $10,000</td>
+                            <td>15-20 years</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>💡 What Affects HVAC Installation Cost?</h2>
+                
+                <h3>1. System Size & Tonnage</h3>
+                <p><strong>Rule of thumb:</strong> 1 ton of cooling per 400-600 sq ft (depending on climate, insulation, and ceiling height).</p>
+                <ul>
+                    <li><strong>Undersized system:</strong> Runs constantly, high bills, poor comfort</li>
+                    <li><strong>Oversized system:</strong> Short-cycles, humidity issues, wears out faster</li>
+                    <li><strong>Get a Manual J load calculation</strong> from contractor (industry standard sizing method)</li>
+                </ul>
+
+                <h3>2. Efficiency Rating (SEER/AFUE)</h3>
+                <ul>
+                    <li><strong>14 SEER:</strong> Minimum legal rating (as of 2023), budget option</li>
+                    <li><strong>16 SEER:</strong> Sweet spot — better efficiency without huge upfront cost</li>
+                    <li><strong>18-20+ SEER:</strong> Premium systems, 20-40% energy savings, longer payback</li>
+                    <li><strong>Gas furnaces:</strong> 80% AFUE (standard) vs 95%+ AFUE (high-efficiency condensing)</li>
+                </ul>
+
+                <h3>3. Brand & Quality</h3>
+                <ul>
+                    <li><strong>Budget brands:</strong> Goodman, Amana, Rheem — reliable, lower cost</li>
+                    <li><strong>Mid-tier brands:</strong> Trane, Carrier, Lennox — proven performance</li>
+                    <li><strong>Premium brands:</strong> Mitsubishi, Daikin — quieter, more features, longer warranties</li>
+                    <li><strong>Warranty matters:</strong> 10-year parts standard, labor warranties vary by contractor</li>
+                </ul>
+
+                <h3>4. Ductwork Condition</h3>
+                <ul>
+                    <li><strong>Good existing ducts:</strong> No extra cost</li>
+                    <li><strong>Minor repairs/sealing:</strong> $500 – $1,500</li>
+                    <li><strong>Full duct replacement:</strong> $3,000 – $8,000+ (homes with no ducts, asbestos, or severe damage)</li>
+                    <li><strong>Duct sealing saves 20-30%</strong> on energy bills — highly recommended</li>
+                </ul>
+
+                <h3>5. Installation Complexity</h3>
+                <p>What makes an install more expensive:</p>
+                <ul>
+                    <li>Difficult attic/crawlspace access (tight spaces, insulation removal)</li>
+                    <li>Electrical panel upgrades (older homes with 100A service may need 200A)</li>
+                    <li>Gas line modifications (moving furnace location, upsizing line)</li>
+                    <li>Structural modifications (condensate drain routing, outdoor pad placement)</li>
+                    <li>Multi-story homes (more ductwork, harder refrigerant line runs)</li>
+                </ul>
+
+                <h2>🏡 When to Replace Your HVAC System</h2>
+                <div class="tip">
+                    <strong>💡 Age Rule:</strong> If your system is 12-15+ years old AND needs a repair costing >$1,000, replacement usually makes more financial sense than repair.
+                </div>
+                
+                <h3>Replace Now If You See:</h3>
+                <ol>
+                    <li><strong>Frequent breakdowns</strong> — Multiple repairs per year</li>
+                    <li><strong>Rising energy bills</strong> — 20%+ increase year-over-year with same usage</li>
+                    <li><strong>Uneven temperatures</strong> — Some rooms too hot/cold (may be ductwork or failing equipment)</li>
+                    <li><strong>R-22 refrigerant</strong> — Banned in 2020, extremely expensive to recharge</li>
+                    <li><strong>Short-cycling</strong> — System turns on/off every few minutes (major component failure)</li>
+                    <li><strong>Strange noises</strong> — Grinding, squealing, banging (compressor/blower motor failure)</li>
+                    <li><strong>High humidity indoors</strong> — AC not dehumidifying properly</li>
+                    <li><strong>Visible corrosion or rust</strong> — Especially around refrigerant lines or heat exchanger</li>
+                </ol>
+
+                <h2>💰 How to Save Money on HVAC Installation</h2>
+                
+                <h3>1. Timing Matters</h3>
+                <ul>
+                    <li><strong>Best time to buy:</strong> Fall/spring (off-season) — contractors offer 10-20% discounts</li>
+                    <li><strong>Worst time to buy:</strong> Summer heatwaves or winter cold snaps (emergency pricing, limited availability)</li>
+                    <li><strong>Plan ahead</strong> — replace before failure to avoid emergency rates</li>
+                </ul>
+
+                <h3>2. Get Multiple Quotes</h3>
+                <ul>
+                    <li><strong>Get 3-5 quotes</strong> from licensed, insured contractors</li>
+                    <li><strong>Compare apples-to-apples:</strong> Same SEER rating, same tonnage, same warranty</li>
+                    <li><strong>Beware lowball bids:</strong> May use cheap equipment, skip load calculations, or have hidden fees</li>
+                    <li><strong>Check references:</strong> Read Google/Yelp reviews, ask for past customer contacts</li>
+                </ul>
+
+                <h3>3. Look for Rebates & Tax Credits</h3>
+                <ul>
+                    <li><strong>Federal tax credits:</strong> Up to $2,000 for high-efficiency heat pumps (2024-2032 Inflation Reduction Act)</li>
+                    <li><strong>Utility rebates:</strong> $500 – $2,000 for upgrading to ENERGY STAR systems (check DSIRE database)</li>
+                    <li><strong>State incentives:</strong> Some states offer additional rebates or low-interest loans</li>
+                    <li><strong>Apply BEFORE installation</strong> — some rebates require pre-approval</li>
+                </ul>
+
+                <h3>4. Don't Oversize or Over-Upgrade</h3>
+                <ul>
+                    <li><strong>Right-size matters:</strong> Manual J load calculation saves money and improves comfort</li>
+                    <li><strong>16-18 SEER sweet spot:</strong> 20+ SEER has long payback unless you live in extreme climate</li>
+                    <li><strong>Skip unnecessary add-ons</strong> unless solving a specific problem (UV lights, ionizers, etc.)</li>
+                </ul>
+
+                <h3>5. Maintain Your New System</h3>
+                <ul>
+                    <li><strong>Annual maintenance:</strong> $100-$200/year prevents 95% of breakdowns</li>
+                    <li><strong>Change filters monthly</strong> (or every 3 months for pleated filters)</li>
+                    <li><strong>Keep outdoor unit clear</strong> — 2 ft clearance, clean coils annually</li>
+                    <li><strong>Programmable thermostat:</strong> Save 10-15% by not heating/cooling empty house</li>
+                </ul>
+
+                <h2>🔧 What's Included in Professional Installation?</h2>
+                <p>A full HVAC installation should include:</p>
+                <ul>
+                    <li><strong>Manual J load calculation</strong> (proper sizing)</li>
+                    <li><strong>Removal and disposal</strong> of old equipment</li>
+                    <li><strong>New refrigerant lines</strong> (if needed)</li>
+                    <li><strong>Condensate drain installation</strong> (AC systems)</li>
+                    <li><strong>Electrical connections</strong> and safety disconnect</li>
+                    <li><strong>Thermostat wiring</strong> (or new thermostat)</li>
+                    <li><strong>Outdoor pad or platform</strong> for condenser unit</li>
+                    <li><strong>System startup and testing</strong></li>
+                    <li><strong>Permit acquisition</strong> ($100-$300, usually included in quote)</li>
+                    <li><strong>Final inspection</strong> (city/county code compliance)</li>
+                    <li><strong>Warranty registration</strong></li>
+                    <li><strong>Owner walkthrough</strong> (how to use, maintain system)</li>
+                </ul>
+
+                <div class="warning">
+                    <strong>⚠️ Red Flags to Avoid:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>No Manual J load calculation (guessing system size)</li>
+                        <li>Cash-only deals or "discount for no permit"</li>
+                        <li>Pressure tactics ("deal expires today")</li>
+                        <li>No written warranty or contract</li>
+                        <li>Not licensed/insured (ask for proof)</li>
+                        <li>Won't provide references</li>
+                    </ul>
+                </div>
+
+                <h2>❓ HVAC Installation FAQs</h2>
+                
+                <h3>How long does HVAC installation take?</h3>
+                <p><strong>Typical timeline:</strong></p>
+                <ul>
+                    <li><strong>AC or furnace only:</strong> 4-8 hours (1 day)</li>
+                    <li><strong>Full system replacement (AC + furnace):</strong> 8-16 hours (1-2 days)</li>
+                    <li><strong>With ductwork:</strong> 2-5 days (depending on extent)</li>
+                    <li><strong>Complex installs:</strong> Up to 1 week (electrical upgrades, major modifications)</li>
+                </ul>
+
+                <h3>Can I install HVAC myself to save money?</h3>
+                <p><strong>Not recommended.</strong> HVAC installation requires:</p>
+                <ul>
+                    <li>EPA 608 certification (handling refrigerants)</li>
+                    <li>Specialized tools (vacuum pump, manifold gauges, torches)</li>
+                    <li>Electrical and gas line knowledge</li>
+                    <li>Building permits and inspections</li>
+                    <li>Warranty often VOID without licensed installer</li>
+                </ul>
+                <p><strong>DIY risks:</strong> Refrigerant leaks, electrical fires, carbon monoxide hazards, failed inspections, voided warranties.</p>
+
+                <h3>What size HVAC system do I need?</h3>
+                <p><strong>Quick estimate:</strong> 1 ton per 400-600 sq ft (climate-dependent).</p>
+                <ul>
+                    <li><strong>1,000 sq ft home:</strong> 2-2.5 tons</li>
+                    <li><strong>1,500 sq ft home:</strong> 2.5-3 tons</li>
+                    <li><strong>2,000 sq ft home:</strong> 3-4 tons</li>
+                    <li><strong>2,500 sq ft home:</strong> 4-5 tons</li>
+                    <li><strong>3,000+ sq ft home:</strong> 5+ tons (or dual systems)</li>
+                </ul>
+                <p><strong>But always get Manual J calculation</strong> — factors in insulation, windows, climate, ceiling height, sun exposure.</p>
+
+                <h3>Is financing available for HVAC installation?</h3>
+                <p><strong>Yes, most contractors offer financing:</strong></p>
+                <ul>
+                    <li><strong>Manufacturer financing:</strong> 0% APR for 12-60 months (with approved credit)</li>
+                    <li><strong>Third-party loans:</strong> Synchrony, GreenSky, Hearth (approval in minutes)</li>
+                    <li><strong>Home equity loan/HELOC:</strong> Lower rates, tax-deductible interest</li>
+                    <li><strong>Credit cards:</strong> 0% intro APR cards if you can pay off quickly</li>
+                    <li><strong>PACE programs:</strong> Property Assessed Clean Energy loans (repaid via property taxes)</li>
+                </ul>
+
+                <h3>Should I get a maintenance contract?</h3>
+                <p><strong>Yes, highly recommended.</strong> Annual maintenance:</p>
+                <ul>
+                    <li>Extends equipment life by 5-10 years</li>
+                    <li>Prevents 95% of breakdowns</li>
+                    <li>Saves 15-20% on energy costs (clean coils, proper refrigerant charge)</li>
+                    <li>Maintains warranty validity (some require proof of maintenance)</li>
+                    <li><strong>Cost:</strong> $150-$300/year (often discounted with installation)</li>
+                </ul>
+
+                <h2>🔗 Related Calculators</h2>
+                <ul>
+                    <li><a href="electricity-cost-calculator.html">Electricity Cost Calculator</a> — Estimate monthly HVAC operating costs</li>
+                    <li><a href="water-heater-cost-calculator.html">Water Heater Cost Calculator</a> — Estimate replacement and operating costs</li>
+                    <li><a href="roof-replacement-cost-calculator.html">Roof Replacement Cost Calculator</a> — Plan your roofing project budget</li>
+                    <li><a href="solar-panel-roi-calculator.html">Solar Panel ROI Calculator</a> — Calculate solar payback with HVAC load</li>
+                </ul>
+
+                <div class="tip" style="margin-top: 30px;">
+                    <strong>💡 Pro Tip:</strong> Replace your HVAC system BEFORE it fails completely. Off-season shopping (fall/spring) + time to get multiple quotes = 15-25% savings compared to emergency replacement during a heatwave.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const systemType = document.getElementById('systemType').value;
+            const sqft = parseFloat(document.getElementById('squareFeet').value);
+            const seer = parseFloat(document.getElementById('seer').value);
+            const complexity = document.getElementById('installComplexity').value;
+            const ductworkNeeded = document.getElementById('ductworkNeeded').checked;
+            const thermostat = document.getElementById('thermostat').checked;
+            const airPurifier = document.getElementById('airPurifier').checked;
+            const humidifier = document.getElementById('humidifier').checked;
+            const zoning = document.getElementById('zoning').checked;
+
+            // Calculate tonnage (1 ton per 500 sqft average)
+            let tonnage = sqft / 500;
+            tonnage = Math.max(1.5, Math.min(5, Math.round(tonnage * 2) / 2)); // Round to nearest 0.5 ton
+
+            // Base equipment costs by system type
+            let equipmentCostPerTon = 0;
+            let systemMultiplier = 1;
+            
+            switch(systemType) {
+                case 'central-ac':
+                    equipmentCostPerTon = 1200;
+                    systemMultiplier = 1;
+                    break;
+                case 'furnace':
+                    equipmentCostPerTon = 1000;
+                    systemMultiplier = 1;
+                    break;
+                case 'heat-pump':
+                    equipmentCostPerTon = 1500;
+                    systemMultiplier = 1;
+                    break;
+                case 'ac-furnace':
+                    equipmentCostPerTon = 2000;
+                    systemMultiplier = 1;
+                    break;
+                case 'package':
+                    equipmentCostPerTon = 1400;
+                    systemMultiplier = 1;
+                    break;
+                case 'mini-split':
+                    equipmentCostPerTon = 1300;
+                    systemMultiplier = 0.9;
+                    break;
+            }
+
+            // SEER rating adjustment
+            let seerMultiplier = 1;
+            if (seer === 14) seerMultiplier = 0.85;
+            else if (seer === 16) seerMultiplier = 1;
+            else if (seer === 18) seerMultiplier = 1.25;
+            else if (seer === 20) seerMultiplier = 1.5;
+
+            let equipmentCost = tonnage * equipmentCostPerTon * seerMultiplier * systemMultiplier;
+
+            // Labor costs (varies by complexity)
+            let laborMultiplier = 1;
+            if (complexity === 'simple') laborMultiplier = 0.8;
+            else if (complexity === 'standard') laborMultiplier = 1;
+            else if (complexity === 'moderate') laborMultiplier = 1.3;
+            else if (complexity === 'complex') laborMultiplier = 1.7;
+
+            let laborCost = equipmentCost * 0.5 * laborMultiplier; // Labor typically 50% of equipment
+
+            // Ductwork costs
+            let ductworkCost = 0;
+            if (ductworkNeeded && systemType !== 'mini-split') {
+                ductworkCost = sqft * 3; // ~$3/sqft for ductwork
+            }
+
+            // Additional items
+            let additionalCost = 0;
+            if (thermostat) additionalCost += 350;
+            if (airPurifier) additionalCost += 1400;
+            if (humidifier) additionalCost += 800;
+            if (zoning) additionalCost += 2500;
+
+            // Permits and disposal
+            let permitsCost = 300 + (tonnage * 50); // Base permit + disposal
+
+            // Total cost
+            let totalCost = equipmentCost + laborCost + ductworkCost + additionalCost + permitsCost;
+
+            // Cost range (±15%)
+            let lowCost = totalCost * 0.85;
+            let highCost = totalCost * 1.15;
+
+            // Display results
+            document.getElementById('tonnage').textContent = tonnage.toFixed(1) + ' tons';
+            document.getElementById('equipmentCost').textContent = '$' + equipmentCost.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('laborCost').textContent = '$' + laborCost.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('ductworkCost').textContent = ductworkNeeded ? '$' + ductworkCost.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '$0';
+            document.getElementById('additionalCost').textContent = '$' + additionalCost.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('permitsCost').textContent = '$' + permitsCost.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('totalCost').textContent = '$' + lowCost.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' – $' + highCost.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+            document.getElementById('results').classList.add('show');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
