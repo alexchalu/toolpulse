@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Heater Cost Calculator - Operating & Replacement Costs | CalcLeap</title>
+    <meta name="description" content="Calculate monthly water heater operating costs and total replacement expenses. Compare tank vs tankless water heaters by size, fuel type, and efficiency ratings.">
+    <meta name="keywords" content="water heater cost calculator, tankless water heater cost, electric water heater cost, gas water heater calculator, water heater replacement cost">
+    <link rel="canonical" href="https://calcleap.com/calc/water-heater-cost-calculator.html">
+    <meta property="og:title" content="Water Heater Cost Calculator - Operating & Replacement | CalcLeap">
+    <meta property="og:description" content="Calculate monthly water heater operating costs and total replacement expenses. Compare tank vs tankless by size, fuel, and efficiency.">
+    <meta property="og:url" content="https://calcleap.com/calc/water-heater-cost-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://calcleap.com/og-default.png">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .calc-mode {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .mode-btn {
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+        .mode-btn:hover {
+            border-color: #3b82f6;
+        }
+        .mode-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        .calc-section {
+            display: none;
+        }
+        .calc-section.active {
+            display: block;
+        }
+        .comparison-table {
+            margin: 24px 0;
+            overflow-x: auto;
+        }
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .comparison-table th {
+            background: #f9fafb;
+            font-weight: 600;
+        }
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 4px;
+        }
+        .info-box h4 {
+            margin: 0 0 8px 0;
+            color: #1e40af;
+        }
+        .savings-highlight {
+            background: #dcfce7;
+            border-left: 4px solid #16a34a;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CalcLeap</a></h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../api-docs.html">API</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> &raquo;
+            <a href="../index.html#utilities">Utilities</a> &raquo;
+            Water Heater Cost Calculator
+        </div>
+
+        <h2>Water Heater Cost Calculator</h2>
+        <p class="subtitle">Calculate monthly operating costs and total replacement expenses for water heaters. Compare electric vs gas, tank vs tankless.</p>
+
+        <div class="calc-mode">
+            <button class="mode-btn active" onclick="switchMode('operating')">Operating Cost</button>
+            <button class="mode-btn" onclick="switchMode('replacement')">Replacement Cost</button>
+        </div>
+
+        <!-- Operating Cost Calculator -->
+        <div id="operating-section" class="calc-section active">
+            <div class="calculator-card">
+                <h3>Monthly Operating Cost</h3>
+                
+                <div class="form-group">
+                    <label for="heaterType">Water Heater Type</label>
+                    <select id="heaterType" onchange="updateTypeFields()">
+                        <option value="tankElectric">Tank - Electric</option>
+                        <option value="tankGas">Tank - Natural Gas</option>
+                        <option value="tankPropane">Tank - Propane</option>
+                        <option value="tanklessElectric">Tankless - Electric</option>
+                        <option value="tanklessGas">Tankless - Natural Gas</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tankSize">Tank Size (gallons)</label>
+                    <select id="tankSize">
+                        <option value="30">30 gallons (1-2 people)</option>
+                        <option value="40">40 gallons (2-3 people)</option>
+                        <option value="50" selected>50 gallons (3-4 people)</option>
+                        <option value="60">60 gallons (4-5 people)</option>
+                        <option value="75">75 gallons (5-6 people)</option>
+                        <option value="80">80 gallons (6+ people)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dailyUsage">Daily Hot Water Usage (gallons)</label>
+                    <input type="number" id="dailyUsage" value="64" min="10" max="200">
+                    <small>Average household: 50-80 gallons/day</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="inletTemp">Inlet Water Temperature (°F)</label>
+                    <input type="number" id="inletTemp" value="55" min="40" max="70">
+                    <small>Cold water temperature varies by region (45-60°F typical)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="targetTemp">Target Temperature (°F)</label>
+                    <input type="number" id="targetTemp" value="120" min="100" max="140">
+                    <small>Recommended: 120°F for safety and efficiency</small>
+                </div>
+
+                <div class="form-group" id="electricRateGroup">
+                    <label for="electricRate">Electricity Rate ($/kWh)</label>
+                    <input type="number" id="electricRate" value="0.14" min="0.05" max="0.50" step="0.01">
+                    <small>US average: $0.14/kWh</small>
+                </div>
+
+                <div class="form-group" id="gasRateGroup" style="display:none;">
+                    <label for="gasRate">Natural Gas Rate ($/therm)</label>
+                    <input type="number" id="gasRate" value="1.20" min="0.50" max="3.00" step="0.10">
+                    <small>US average: $1.20/therm</small>
+                </div>
+
+                <div class="form-group" id="propaneRateGroup" style="display:none;">
+                    <label for="propaneRate">Propane Rate ($/gallon)</label>
+                    <input type="number" id="propaneRate" value="2.80" min="1.50" max="5.00" step="0.10">
+                    <small>US average: $2.80/gallon</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="efficiency">Energy Factor (Efficiency)</label>
+                    <input type="number" id="efficiency" value="0.90" min="0.50" max="1.00" step="0.01">
+                    <small>Electric tank: 0.90-0.95, Gas tank: 0.60-0.70, Tankless: 0.80-0.99</small>
+                </div>
+
+                <button class="btn-primary" onclick="calculateOperating()">Calculate Operating Cost</button>
+
+                <div id="operatingResult" class="result-section" style="display:none;">
+                    <h4>Operating Cost Results</h4>
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <span class="result-label">Energy per Month:</span>
+                            <span class="result-value" id="energyMonth"></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Monthly Cost:</span>
+                            <span class="result-value" id="monthlyCost"></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Annual Cost:</span>
+                            <span class="result-value" id="annualCost"></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Daily Cost:</span>
+                            <span class="result-value" id="dailyCost"></span>
+                        </div>
+                    </div>
+                    <div id="savingsSection" class="savings-highlight" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Replacement Cost Calculator -->
+        <div id="replacement-section" class="calc-section">
+            <div class="calculator-card">
+                <h3>Total Replacement Cost</h3>
+                
+                <div class="form-group">
+                    <label for="replacementType">Water Heater Type</label>
+                    <select id="replacementType">
+                        <option value="tankElectric">Tank - Electric (40-50 gal)</option>
+                        <option value="tankGas">Tank - Natural Gas (40-50 gal)</option>
+                        <option value="tanklessElectric">Tankless - Electric (whole house)</option>
+                        <option value="tanklessGas">Tankless - Natural Gas (whole house)</option>
+                        <option value="heatPump">Heat Pump Water Heater</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="unitCost">Unit Cost ($)</label>
+                    <input type="number" id="unitCost" value="800" min="300" max="5000" step="50">
+                    <small>Tank electric: $400-$1,200 | Gas: $600-$1,500 | Tankless: $1,000-$3,000</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="installCost">Installation Cost ($)</label>
+                    <input type="number" id="installCost" value="500" min="200" max="3000" step="50">
+                    <small>Standard: $300-$800 | Complex: $1,000-$2,500</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="permitFee">Permit & Inspection Fees ($)</label>
+                    <input type="number" id="permitFee" value="100" min="0" max="500" step="25">
+                    <small>Typical range: $50-$200</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="disposal">Old Unit Disposal ($)</label>
+                    <input type="number" id="disposal" value="50" min="0" max="200" step="10">
+                    <small>Usually $25-$75</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="additionalWork">Additional Work (plumbing, electrical, venting) ($)</label>
+                    <input type="number" id="additionalWork" value="200" min="0" max="2000" step="50">
+                    <small>Upgrades, code compliance, pipe relocation</small>
+                </div>
+
+                <button class="btn-primary" onclick="calculateReplacement()">Calculate Total Cost</button>
+
+                <div id="replacementResult" class="result-section" style="display:none;">
+                    <h4>Total Replacement Cost</h4>
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <span class="result-label">Water Heater Unit:</span>
+                            <span class="result-value" id="unitDisplay"></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Installation Labor:</span>
+                            <span class="result-value" id="laborDisplay"></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Permits & Fees:</span>
+                            <span class="result-value" id="permitDisplay"></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Disposal & Extras:</span>
+                            <span class="result-value" id="extrasDisplay"></span>
+                        </div>
+                        <div class="result-item highlight">
+                            <span class="result-label">Total Project Cost:</span>
+                            <span class="result-value" id="totalCost"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h4>💡 Water Heater Cost Insights</h4>
+            <ul>
+                <li><strong>Tank vs Tankless:</strong> Tankless costs 2-3x more upfront but saves 24-34% annually on energy</li>
+                <li><strong>Gas vs Electric:</strong> Gas is usually cheaper to operate but more expensive to install</li>
+                <li><strong>Heat Pump:</strong> Most efficient (2-3x more than standard electric) but highest upfront cost</li>
+                <li><strong>Lifespan:</strong> Tank: 8-12 years | Tankless: 15-20 years | Heat Pump: 10-15 years</li>
+                <li><strong>Energy Factor:</strong> Higher EF = lower operating costs. Look for ENERGY STAR certified models</li>
+                <li><strong>Sizing:</strong> 40-50 gal for 2-4 people. Tankless rated by flow rate (GPM)</li>
+            </ul>
+        </div>
+
+        <div class="comparison-table">
+            <h3>Water Heater Type Comparison</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Unit Cost</th>
+                        <th>Install Cost</th>
+                        <th>Annual Cost</th>
+                        <th>Lifespan</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tank Electric</td>
+                        <td>$400-$1,200</td>
+                        <td>$300-$600</td>
+                        <td>$400-$600</td>
+                        <td>8-12 years</td>
+                        <td>Budget, simple install</td>
+                    </tr>
+                    <tr>
+                        <td>Tank Gas</td>
+                        <td>$600-$1,500</td>
+                        <td>$500-$1,000</td>
+                        <td>$250-$400</td>
+                        <td>8-12 years</td>
+                        <td>Lower operating cost</td>
+                    </tr>
+                    <tr>
+                        <td>Tankless Electric</td>
+                        <td>$500-$1,500</td>
+                        <td>$800-$1,500</td>
+                        <td>$250-$400</td>
+                        <td>15-20 years</td>
+                        <td>Space savings, efficiency</td>
+                    </tr>
+                    <tr>
+                        <td>Tankless Gas</td>
+                        <td>$1,000-$3,000</td>
+                        <td>$1,000-$2,500</td>
+                        <td>$200-$300</td>
+                        <td>15-20 years</td>
+                        <td>High demand, low cost/yr</td>
+                    </tr>
+                    <tr>
+                        <td>Heat Pump</td>
+                        <td>$1,200-$2,500</td>
+                        <td>$600-$1,200</td>
+                        <td>$200-$300</td>
+                        <td>10-15 years</td>
+                        <td>Maximum efficiency</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-section">
+            <h3>How to Use This Water Heater Cost Calculator</h3>
+            <p>This calculator helps you estimate both operating costs and replacement costs for residential water heaters.</p>
+            
+            <h4>Operating Cost Mode</h4>
+            <ol>
+                <li>Select your water heater type (tank or tankless, fuel source)</li>
+                <li>Enter your tank size or daily hot water usage</li>
+                <li>Input your local utility rates (electricity, gas, or propane)</li>
+                <li>Adjust inlet temperature based on your region</li>
+                <li>Set target temperature (120°F recommended for safety)</li>
+                <li>Enter energy factor (found on appliance label or manual)</li>
+            </ol>
+            
+            <h4>Replacement Cost Mode</h4>
+            <ol>
+                <li>Choose the type of water heater you're installing</li>
+                <li>Enter unit cost (from retailer or contractor quote)</li>
+                <li>Add installation labor cost</li>
+                <li>Include permits, inspection fees, and disposal costs</li>
+                <li>Account for additional work (plumbing, electrical, venting upgrades)</li>
+            </ol>
+            
+            <h4>Energy Calculation Formula</h4>
+            <p>The calculator uses industry-standard thermal energy formulas:</p>
+            <ul>
+                <li>Energy (BTU) = Gallons × 8.33 × Temperature Rise × 365 days</li>
+                <li>kWh = BTU × 0.000293 ÷ Energy Factor</li>
+                <li>Therms = BTU × 0.00001 ÷ Energy Factor</li>
+                <li>Monthly cost = (Energy per year ÷ 12) × Unit rate</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>Factors That Affect Water Heater Costs</h3>
+            
+            <h4>Operating Costs</h4>
+            <ul>
+                <li><strong>Fuel Type:</strong> Natural gas is typically cheaper than electricity in most US regions</li>
+                <li><strong>Efficiency Rating:</strong> Higher energy factor = lower operating costs</li>
+                <li><strong>Usage Patterns:</strong> Households with high hot water demand pay more</li>
+                <li><strong>Inlet Temperature:</strong> Colder climates require more energy to heat water</li>
+                <li><strong>Thermostat Setting:</strong> Each 10°F increase adds ~3-5% to energy costs</li>
+                <li><strong>Tank Size:</strong> Larger tanks have more standby heat loss</li>
+            </ul>
+            
+            <h4>Replacement Costs</h4>
+            <ul>
+                <li><strong>Type of Heater:</strong> Tankless and heat pump units cost 2-4x more than standard tanks</li>
+                <li><strong>Fuel Conversion:</strong> Switching from electric to gas (or vice versa) adds $500-$2,000</li>
+                <li><strong>Venting:</strong> Gas/propane heaters need proper venting ($300-$1,000)</li>
+                <li><strong>Electrical Upgrades:</strong> Tankless electric may require panel upgrade ($500-$2,000)</li>
+                <li><strong>Location:</strong> Installation in tight spaces or attics costs more</li>
+                <li><strong>Code Compliance:</strong> Expansion tanks, pressure valves, seismic straps add $100-$400</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>Water Heater Selection Guide</h3>
+            
+            <h4>Choose Tank Electric If:</h4>
+            <ul>
+                <li>You have a limited budget ($700-$1,800 total)</li>
+                <li>Gas line is not available</li>
+                <li>Simple replacement with no upgrades needed</li>
+                <li>Moderate hot water usage (2-4 people)</li>
+            </ul>
+            
+            <h4>Choose Tank Gas If:</h4>
+            <ul>
+                <li>Gas line is already available</li>
+                <li>You want lower operating costs</li>
+                <li>High hot water demand (4+ people)</li>
+                <li>Willing to invest $1,100-$2,500 total</li>
+            </ul>
+            
+            <h4>Choose Tankless Electric If:</h4>
+            <ul>
+                <li>Space is limited (wall-mounted)</li>
+                <li>Moderate demand with efficiency focus</li>
+                <li>Budget allows $1,300-$3,000 total</li>
+                <li>Existing electrical panel can handle load</li>
+            </ul>
+            
+            <h4>Choose Tankless Gas If:</h4>
+            <ul>
+                <li>High hot water demand, never want to run out</li>
+                <li>Long-term savings priority (15+ year lifespan)</li>
+                <li>Budget allows $2,000-$5,500 total</li>
+                <li>Proper venting can be installed</li>
+            </ul>
+            
+            <h4>Choose Heat Pump If:</h4>
+            <ul>
+                <li>Maximum efficiency is priority (2-3x more efficient)</li>
+                <li>Temperate climate (heat pumps work poorly in very cold spaces)</li>
+                <li>Budget allows $1,800-$3,700 total</li>
+                <li>Eligible for utility rebates ($300-$1,000 in many areas)</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>Money-Saving Tips</h3>
+            <ul>
+                <li><strong>Lower Thermostat:</strong> Set to 120°F instead of 140°F (saves 6-10% annually)</li>
+                <li><strong>Insulate Tank:</strong> Add insulation blanket to older tanks ($20-30, saves $20-45/year)</li>
+                <li><strong>Insulate Pipes:</strong> Reduce heat loss in first 3-6 feet ($10-20, saves $5-15/year)</li>
+                <li><strong>Fix Leaks:</strong> A dripping faucet wastes gallons daily</li>
+                <li><strong>Low-Flow Fixtures:</strong> Reduce hot water demand by 25-60%</li>
+                <li><strong>Timer:</strong> On electric tanks, use timer to heat during off-peak hours (saves 5-12%)</li>
+                <li><strong>Drain Tank:</strong> Flush sediment annually to maintain efficiency</li>
+                <li><strong>Rebates:</strong> Check ENERGY STAR, utility company, and federal tax credits (up to $2,000)</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>When to Replace Your Water Heater</h3>
+            <ul>
+                <li><strong>Age:</strong> 8-12 years for tanks, 15-20 for tankless (check serial number for manufacture date)</li>
+                <li><strong>Rusty Water:</strong> Red/brown hot water indicates tank corrosion</li>
+                <li><strong>Leaking:</strong> Water pooling around base (replace immediately)</li>
+                <li><strong>Strange Noises:</strong> Rumbling, popping = sediment buildup (may extend life with flush)</li>
+                <li><strong>Insufficient Hot Water:</strong> Can't meet demand even after flushing</li>
+                <li><strong>Rising Energy Bills:</strong> Decreasing efficiency over time</li>
+                <li><strong>Repair Costs:</strong> If repair > 50% of replacement cost, replace instead</li>
+            </ul>
+        </div>
+
+        <div class="related-calcs">
+            <h3>Related Calculators</h3>
+            <div class="calc-grid">
+                <a href="../electricity-cost-calculator.html" class="calc-card">
+                    <h4>Electricity Cost</h4>
+                    <p>Calculate appliance energy costs</p>
+                </a>
+                <a href="../natural-gas-cost-calculator.html" class="calc-card">
+                    <h4>Natural Gas Cost</h4>
+                    <p>Monthly gas usage calculator</p>
+                </a>
+                <a href="../propane-cost-calculator.html" class="calc-card">
+                    <h4>Propane Cost</h4>
+                    <p>Estimate propane expenses</p>
+                </a>
+                <a href="../air-conditioning-cost-calculator.html" class="calc-card">
+                    <h4>AC Cost</h4>
+                    <p>HVAC operating costs</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+            <p>
+                <a href="../about.html">About</a> |
+                <a href="../privacy.html">Privacy</a> |
+                <a href="../terms.html">Terms</a> |
+                <a href="../contact.html">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script>
+        function switchMode(mode) {
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.calc-section').forEach(sec => sec.classList.remove('active'));
+            
+            if (mode === 'operating') {
+                document.querySelector('.mode-btn:first-child').classList.add('active');
+                document.getElementById('operating-section').classList.add('active');
+            } else {
+                document.querySelector('.mode-btn:last-child').classList.add('active');
+                document.getElementById('replacement-section').classList.add('active');
+            }
+        }
+
+        function updateTypeFields() {
+            const type = document.getElementById('heaterType').value;
+            const electricGroup = document.getElementById('electricRateGroup');
+            const gasGroup = document.getElementById('gasRateGroup');
+            const propaneGroup = document.getElementById('propaneRateGroup');
+            
+            electricGroup.style.display = 'none';
+            gasGroup.style.display = 'none';
+            propaneGroup.style.display = 'none';
+            
+            if (type.includes('Electric')) {
+                electricGroup.style.display = 'block';
+            } else if (type.includes('Gas')) {
+                gasGroup.style.display = 'block';
+            } else if (type.includes('Propane')) {
+                propaneGroup.style.display = 'block';
+            }
+            
+            // Set default efficiency
+            let defaultEF = 0.90;
+            if (type === 'tankGas') defaultEF = 0.62;
+            else if (type === 'tankPropane') defaultEF = 0.62;
+            else if (type.includes('tankless')) defaultEF = 0.95;
+            document.getElementById('efficiency').value = defaultEF;
+        }
+
+        function calculateOperating() {
+            const type = document.getElementById('heaterType').value;
+            const dailyUsage = parseFloat(document.getElementById('dailyUsage').value);
+            const inletTemp = parseFloat(document.getElementById('inletTemp').value);
+            const targetTemp = parseFloat(document.getElementById('targetTemp').value);
+            const efficiency = parseFloat(document.getElementById('efficiency').value);
+            
+            const tempRise = targetTemp - inletTemp;
+            const annualGallons = dailyUsage * 365;
+            
+            // BTU needed per year
+            const btuPerYear = annualGallons * 8.33 * tempRise;
+            
+            let monthlyCost = 0;
+            let energyUnit = '';
+            let energyAmount = 0;
+            
+            if (type.includes('Electric')) {
+                const rate = parseFloat(document.getElementById('electricRate').value);
+                const kwhPerYear = (btuPerYear * 0.000293) / efficiency;
+                energyAmount = (kwhPerYear / 12).toFixed(1);
+                energyUnit = 'kWh';
+                monthlyCost = (kwhPerYear / 12) * rate;
+            } else if (type.includes('Gas')) {
+                const rate = parseFloat(document.getElementById('gasRate').value);
+                const thermsPerYear = (btuPerYear * 0.00001) / efficiency;
+                energyAmount = (thermsPerYear / 12).toFixed(1);
+                energyUnit = 'therms';
+                monthlyCost = (thermsPerYear / 12) * rate;
+            } else if (type.includes('Propane')) {
+                const rate = parseFloat(document.getElementById('propaneRate').value);
+                const gallonsPerYear = (btuPerYear / 91600) / efficiency;
+                energyAmount = (gallonsPerYear / 12).toFixed(1);
+                energyUnit = 'gallons';
+                monthlyCost = (gallonsPerYear / 12) * rate;
+            }
+            
+            document.getElementById('energyMonth').textContent = energyAmount + ' ' + energyUnit;
+            document.getElementById('monthlyCost').textContent = '$' + monthlyCost.toFixed(2);
+            document.getElementById('annualCost').textContent = '$' + (monthlyCost * 12).toFixed(2);
+            document.getElementById('dailyCost').textContent = '$' + (monthlyCost / 30).toFixed(2);
+            
+            document.getElementById('operatingResult').style.display = 'block';
+            
+            // Show savings tip if using inefficient tank
+            const savingsSection = document.getElementById('savingsSection');
+            if (type.includes('tank') && efficiency < 0.70) {
+                const potentialSavings = monthlyCost * 0.30; // 30% savings
+                savingsSection.innerHTML = `
+                    <h4>💰 Potential Savings</h4>
+                    <p>Upgrading to a high-efficiency tankless or heat pump water heater could save you approximately <strong>$${potentialSavings.toFixed(2)}/month</strong> ($${(potentialSavings * 12).toFixed(0)}/year).</p>
+                `;
+                savingsSection.style.display = 'block';
+            } else {
+                savingsSection.style.display = 'none';
+            }
+        }
+
+        function calculateReplacement() {
+            const unitCost = parseFloat(document.getElementById('unitCost').value);
+            const installCost = parseFloat(document.getElementById('installCost').value);
+            const permitFee = parseFloat(document.getElementById('permitFee').value);
+            const disposal = parseFloat(document.getElementById('disposal').value);
+            const additionalWork = parseFloat(document.getElementById('additionalWork').value);
+            
+            const total = unitCost + installCost + permitFee + disposal + additionalWork;
+            
+            document.getElementById('unitDisplay').textContent = '$' + unitCost.toFixed(2);
+            document.getElementById('laborDisplay').textContent = '$' + installCost.toFixed(2);
+            document.getElementById('permitDisplay').textContent = '$' + permitFee.toFixed(2);
+            document.getElementById('extrasDisplay').textContent = '$' + (disposal + additionalWork).toFixed(2);
+            document.getElementById('totalCost').textContent = '$' + total.toFixed(2);
+            
+            document.getElementById('replacementResult').style.display = 'block';
+        }
+
+        // Initialize
+        updateTypeFields();
+    </script>
+</body>
+</html>
