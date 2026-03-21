@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Remodel Cost Calculator - Estimate Your Kitchen Renovation Budget 2026 | CalcLeap</title>
+    <meta name="description" content="Free kitchen remodel cost calculator. Estimate cabinets, countertops, flooring, appliances, and labor costs for your kitchen renovation. Compare budget vs luxury options. Get accurate pricing for 2026.">
+    <meta name="keywords" content="kitchen remodel cost, kitchen renovation calculator, cabinet cost, countertop cost, kitchen remodel estimate, kitchen renovation budget, kitchen upgrade cost">
+    <link rel="canonical" href="https://calcleap.com/calc/kitchen-remodel-cost-calculator.html">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #1a202c; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; font-weight: 700; }
+        .header p { font-size: 1.1em; opacity: 0.95; }
+        .content { padding: 40px 30px; }
+        .calc-section { background: #f7fafc; border-radius: 12px; padding: 30px; margin-bottom: 30px; border: 2px solid #e2e8f0; }
+        .input-group { margin-bottom: 25px; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 8px; color: #2d3748; font-size: 1.05em; }
+        .input-group input, .input-group select { width: 100%; padding: 12px; border: 2px solid #cbd5e0; border-radius: 8px; font-size: 16px; transition: all 0.3s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.1); }
+        .checkbox-group { display: flex; align-items: center; margin-bottom: 15px; }
+        .checkbox-group input[type="checkbox"] { width: 20px; height: 20px; margin-right: 10px; cursor: pointer; }
+        .checkbox-group label { cursor: pointer; font-size: 1.05em; }
+        .btn { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 16px 40px; font-size: 1.1em; font-weight: 600; border-radius: 8px; cursor: pointer; width: 100%; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(102,126,234,0.3); }
+        .results { background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); color: white; padding: 30px; border-radius: 12px; margin-top: 30px; display: none; }
+        .results h2 { font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+        .result-item { background: rgba(255,255,255,0.15); padding: 15px; border-radius: 8px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+        .result-item strong { font-size: 1.1em; }
+        .result-item .value { font-size: 1.3em; font-weight: 700; }
+        .total { background: rgba(255,255,255,0.25); padding: 20px; border-radius: 8px; margin-top: 15px; font-size: 1.4em; font-weight: 700; text-align: center; }
+        .info-section { margin-top: 40px; line-height: 1.8; }
+        .info-section h2 { color: #2d3748; font-size: 1.8em; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 3px solid #667eea; }
+        .info-section h3 { color: #4a5568; font-size: 1.4em; margin: 25px 0 12px 0; }
+        .info-section ul, .info-section ol { margin-left: 25px; margin-bottom: 15px; }
+        .info-section li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: #667eea; color: white; font-weight: 600; }
+        tr:hover { background: #f7fafc; }
+        .highlight { background: #fef5e7; border-left: 4px solid #f39c12; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .related-calcs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
+        .related-calc-card { background: #f7fafc; padding: 20px; border-radius: 8px; text-align: center; text-decoration: none; color: #2d3748; border: 2px solid #e2e8f0; transition: all 0.3s; }
+        .related-calc-card:hover { border-color: #667eea; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .content { padding: 25px 20px; }
+            .calc-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 Kitchen Remodel Cost Calculator</h1>
+            <p>Estimate your kitchen renovation budget with detailed breakdowns</p>
+        </div>
+
+        <div class="content">
+            <div class="calc-section">
+                <h2 style="margin-bottom: 25px; color: #2d3748;">Kitchen Details</h2>
+                
+                <div class="input-group">
+                    <label for="kitchenSize">Kitchen Size (sq ft):</label>
+                    <input type="number" id="kitchenSize" value="150" min="50" max="800">
+                </div>
+
+                <div class="input-group">
+                    <label for="remodelLevel">Remodel Level:</label>
+                    <select id="remodelLevel">
+                        <option value="minor">Minor Remodel (cosmetic updates)</option>
+                        <option value="moderate" selected>Moderate Remodel (new cabinets/counters/appliances)</option>
+                        <option value="major">Major Remodel (complete gut, new layout)</option>
+                        <option value="luxury">Luxury Remodel (high-end everything)</option>
+                    </select>
+                </div>
+
+                <h3 style="margin: 25px 0 15px 0; color: #2d3748;">Cabinets</h3>
+                
+                <div class="input-group">
+                    <label for="cabinetType">Cabinet Type:</label>
+                    <select id="cabinetType">
+                        <option value="stock">Stock Cabinets (budget-friendly)</option>
+                        <option value="semi" selected>Semi-Custom Cabinets</option>
+                        <option value="custom">Custom Cabinets (high-end)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="cabinetLinearFeet">Linear Feet of Cabinets:</label>
+                    <input type="number" id="cabinetLinearFeet" value="25" min="10" max="60">
+                </div>
+
+                <h3 style="margin: 25px 0 15px 0; color: #2d3748;">Countertops</h3>
+                
+                <div class="input-group">
+                    <label for="countertopMaterial">Countertop Material:</label>
+                    <select id="countertopMaterial">
+                        <option value="laminate">Laminate ($25-$50/sq ft)</option>
+                        <option value="tile">Tile ($30-$60/sq ft)</option>
+                        <option value="solid">Solid Surface ($50-$90/sq ft)</option>
+                        <option value="quartz" selected>Quartz ($60-$120/sq ft)</option>
+                        <option value="granite">Granite ($60-$150/sq ft)</option>
+                        <option value="marble">Marble ($75-$200/sq ft)</option>
+                        <option value="quartzite">Quartzite ($80-$200/sq ft)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="countertopSqFt">Countertop Area (sq ft):</label>
+                    <input type="number" id="countertopSqFt" value="50" min="15" max="150">
+                </div>
+
+                <h3 style="margin: 25px 0 15px 0; color: #2d3748;">Flooring</h3>
+                
+                <div class="input-group">
+                    <label for="flooringMaterial">Flooring Material:</label>
+                    <select id="flooringMaterial">
+                        <option value="vinyl">Vinyl ($3-$7/sq ft)</option>
+                        <option value="laminate">Laminate ($5-$10/sq ft)</option>
+                        <option value="tile" selected>Tile ($8-$20/sq ft)</option>
+                        <option value="hardwood">Hardwood ($10-$25/sq ft)</option>
+                        <option value="luxury">Luxury Vinyl Plank ($8-$15/sq ft)</option>
+                    </select>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="replaceFlooring" checked>
+                    <label for="replaceFlooring">Replace Flooring</label>
+                </div>
+
+                <h3 style="margin: 25px 0 15px 0; color: #2d3748;">Appliances</h3>
+                
+                <div class="input-group">
+                    <label for="applianceLevel">Appliance Level:</label>
+                    <select id="applianceLevel">
+                        <option value="budget">Budget ($1,500-$3,000 total)</option>
+                        <option value="mid" selected>Mid-Range ($3,000-$6,000 total)</option>
+                        <option value="high">High-End ($6,000-$12,000 total)</option>
+                        <option value="luxury">Luxury/Professional ($12,000-$25,000+ total)</option>
+                    </select>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="newAppliances" checked>
+                    <label for="newAppliances">New Appliances (fridge, stove, dishwasher, microwave)</label>
+                </div>
+
+                <h3 style="margin: 25px 0 15px 0; color: #2d3748;">Additional Work</h3>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="newSink">
+                    <label for="newSink">New Sink & Faucet ($300-$1,500)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="backsplash" checked>
+                    <label for="backsplash">Backsplash ($800-$3,000)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="lighting" checked>
+                    <label for="lighting">New Lighting Fixtures ($500-$3,000)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="plumbing">
+                    <label for="plumbing">Plumbing Reconfiguration ($1,500-$5,000)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="electrical">
+                    <label for="electrical">Electrical Upgrades ($1,000-$4,000)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="painting" checked>
+                    <label for="painting">Painting ($500-$2,000)</label>
+                </div>
+
+                <button class="btn" onclick="calculate()">Calculate Remodel Cost</button>
+            </div>
+
+            <div class="results" id="results">
+                <h2>💰 Your Kitchen Remodel Cost Estimate</h2>
+                <div id="breakdown"></div>
+                <div class="total" id="total"></div>
+            </div>
+
+            <div class="info-section">
+                <h2>Understanding Kitchen Remodel Costs</h2>
+                <p>Kitchen remodeling is one of the most popular and value-adding home improvement projects. Understanding the costs involved helps you budget effectively and make informed decisions about where to invest your money. This calculator provides a comprehensive breakdown of all major components of a kitchen renovation.</p>
+
+                <h3>Average Kitchen Remodel Costs by Level (2026)</h3>
+                <table>
+                    <tr>
+                        <th>Remodel Level</th>
+                        <th>Cost Range</th>
+                        <th>What's Included</th>
+                        <th>ROI</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Minor Remodel</strong></td>
+                        <td>$10,000-$20,000</td>
+                        <td>Cosmetic updates: paint, hardware, fixtures, minor appliance upgrades</td>
+                        <td>85-90%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Moderate Remodel</strong></td>
+                        <td>$25,000-$50,000</td>
+                        <td>New cabinets, countertops, appliances, flooring, backsplash</td>
+                        <td>75-80%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Major Remodel</strong></td>
+                        <td>$50,000-$80,000</td>
+                        <td>Complete gut, new layout, structural changes, high-quality materials</td>
+                        <td>65-75%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Luxury Remodel</strong></td>
+                        <td>$80,000-$150,000+</td>
+                        <td>Premium materials, custom cabinetry, pro appliances, designer finishes</td>
+                        <td>55-65%</td>
+                    </tr>
+                </table>
+
+                <h3>Cost Breakdown by Component</h3>
+                <p>Understanding where your money goes helps prioritize spending:</p>
+                <ul>
+                    <li><strong>Cabinets (30-40% of budget):</strong> Largest expense. Stock cabinets ($75-$150/linear ft), semi-custom ($150-$300/linear ft), custom ($300-$1,000+/linear ft)</li>
+                    <li><strong>Labor & Installation (20-35% of budget):</strong> Professional installation ensures quality and saves time. Kitchen contractors charge $50-$150/hour depending on location</li>
+                    <li><strong>Countertops (10-15% of budget):</strong> Material choices dramatically affect cost. Laminate starts at $25/sq ft, while marble can exceed $200/sq ft</li>
+                    <li><strong>Appliances (10-20% of budget):</strong> Budget packages start at $1,500, while luxury professional-grade suites can exceed $25,000</li>
+                    <li><strong>Flooring (5-10% of budget):</strong> Vinyl is most affordable, hardwood and tile add beauty and value</li>
+                    <li><strong>Other (15-20% of budget):</strong> Backsplash, lighting, plumbing, electrical, painting, permits</li>
+                </ul>
+
+                <h3>Cabinet Material Comparison</h3>
+                <table>
+                    <tr>
+                        <th>Cabinet Type</th>
+                        <th>Cost/Linear Ft</th>
+                        <th>Lead Time</th>
+                        <th>Best For</th>
+                    </tr>
+                    <tr>
+                        <td>Stock Cabinets</td>
+                        <td>$75-$150</td>
+                        <td>Immediate</td>
+                        <td>Budget-conscious, quick remodels, rental properties</td>
+                    </tr>
+                    <tr>
+                        <td>Semi-Custom</td>
+                        <td>$150-$300</td>
+                        <td>4-8 weeks</td>
+                        <td>Most homeowners, balance of quality and price</td>
+                    </tr>
+                    <tr>
+                        <td>Custom Cabinets</td>
+                        <td>$300-$1,000+</td>
+                        <td>8-16 weeks</td>
+                        <td>High-end homes, unique layouts, specific design vision</td>
+                    </tr>
+                    <tr>
+                        <td>Refacing</td>
+                        <td>$100-$200</td>
+                        <td>1-2 weeks</td>
+                        <td>Boxes in good shape, budget constraints, quick update</td>
+                    </tr>
+                </table>
+
+                <h3>Countertop Material Guide</h3>
+                <ul>
+                    <li><strong>Laminate ($25-$50/sq ft):</strong> Budget-friendly, many colors, moderate durability, can scratch/chip</li>
+                    <li><strong>Tile ($30-$60/sq ft):</strong> Heat-resistant, customizable, grout requires maintenance</li>
+                    <li><strong>Solid Surface ($50-$90/sq ft):</strong> Non-porous, seamless, repairable, limited heat resistance</li>
+                    <li><strong>Quartz ($60-$120/sq ft):</strong> Engineered stone, low maintenance, consistent patterns, heat-sensitive</li>
+                    <li><strong>Granite ($60-$150/sq ft):</strong> Natural stone, unique patterns, requires sealing, very durable</li>
+                    <li><strong>Marble ($75-$200/sq ft):</strong> Luxurious look, softer stone, prone to staining/etching, requires maintenance</li>
+                    <li><strong>Quartzite ($80-$200/sq ft):</strong> Natural stone, harder than granite, marble-like appearance, needs sealing</li>
+                </ul>
+
+                <h3>When to Hire Professionals vs DIY</h3>
+                <p><strong>Definitely Hire Professionals For:</strong></p>
+                <ul>
+                    <li>Electrical work (code compliance, safety)</li>
+                    <li>Plumbing reconfiguration (permits, inspections)</li>
+                    <li>Cabinet installation (precision, warranties)</li>
+                    <li>Countertop fabrication & installation (specialized tools, one-shot job)</li>
+                    <li>Structural changes (load-bearing walls, permits)</li>
+                    <li>Gas line work (safety, permits)</li>
+                </ul>
+
+                <p><strong>Consider DIY For (if skilled):</strong></p>
+                <ul>
+                    <li>Demolition (save 20-30% on labor)</li>
+                    <li>Painting (easiest DIY task)</li>
+                    <li>Backsplash installation (tile work is learnable)</li>
+                    <li>Hardware replacement (cabinet pulls, faucets)</li>
+                    <li>Flooring installation (laminate, vinyl planks are DIY-friendly)</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>💡 Pro Tip:</strong> The 5-3-1 Rule — Spend 5 minutes researching materials, 3 hours getting quotes from contractors, and 1 day making final decisions. Rushed decisions lead to regret; over-planning delays projects.
+                </div>
+
+                <h3>Hidden Costs to Budget For</h3>
+                <ul>
+                    <li><strong>Structural Issues ($2,000-$10,000+):</strong> Rotted subfloor, plumbing leaks, electrical problems discovered during demo</li>
+                    <li><strong>Permits & Inspections ($500-$2,000):</strong> Required for electrical, plumbing, structural work</li>
+                    <li><strong>Temporary Kitchen ($200-$500):</strong> Microwave, hot plate, mini-fridge while kitchen is unusable</li>
+                    <li><strong>Dining Out ($500-$1,500):</strong> Expect to eat out more during 4-8 week renovation</li>
+                    <li><strong>Change Orders ($1,000-$5,000):</strong> Unexpected issues, design changes mid-project</li>
+                    <li><strong>Appliance Delivery/Install ($200-$800):</strong> Many appliances charge extra for delivery, haul-away, installation</li>
+                    <li><strong>Waste Removal ($300-$800):</strong> Dumpster rental for demo debris</li>
+                </ul>
+
+                <h3>Cost-Saving Strategies</h3>
+                <ol>
+                    <li><strong>Keep existing layout:</strong> Moving plumbing/gas lines adds $3,000-$10,000. Work with existing locations.</li>
+                    <li><strong>Cabinet refacing instead of replacement:</strong> Save 30-50% if boxes are in good condition. Replace only doors/drawer fronts.</li>
+                    <li><strong>Mix material tiers:</strong> Splurge on countertops (high visibility), save on flooring under island, toe kick areas.</li>
+                    <li><strong>Stock cabinets with custom look:</strong> Use stock boxes with upgraded hardware, crown molding, paint.</li>
+                    <li><strong>Shop sales & clearance:</strong> Appliances go on sale 3-4 times/year. Floor models save 20-40%.</li>
+                    <li><strong>Do your own demo:</strong> Save $1,000-$3,000 in labor. Rent a dumpster, remove old cabinets/counters yourself.</li>
+                    <li><strong>Timing matters:</strong> Winter (Nov-Feb) is slowest for contractors. Negotiate better rates during slow season.</li>
+                    <li><strong>Bundle projects:</strong> Doing multiple rooms? Get a package deal from contractors.</li>
+                    <li><strong>Skip trendy:</strong> Neutral colors and timeless designs age better, avoid expensive redos in 5 years.</li>
+                </ol>
+
+                <h3>Financing Your Kitchen Remodel</h3>
+                <ul>
+                    <li><strong>Cash:</strong> Best option, no interest, no debt. Consider using HYSA earnings or short-term CD to time the project.</li>
+                    <li><strong>Home Equity Loan/HELOC:</strong> Low interest (6-9% in 2026), tax-deductible in some cases, large borrowing capacity.</li>
+                    <li><strong>Personal Loan:</strong> No collateral required, rates 8-18%, faster approval, lower limits ($50k typical max).</li>
+                    <li><strong>Credit Cards:</strong> 0% intro APR cards (12-18 months) can work for smaller projects if you can pay off in promo period.</li>
+                    <li><strong>Contractor Financing:</strong> Often available, rates vary widely, read terms carefully (some have high rates after promo ends).</li>
+                    <li><strong>FHA 203(k) Loan:</strong> Roll renovation into mortgage when buying a fixer-upper. Lower rates than personal loans.</li>
+                </ul>
+
+                <h3>Return on Investment (ROI) by Project Type</h3>
+                <p>National averages for kitchen remodel ROI (cost recouped at home sale):</p>
+                <ul>
+                    <li><strong>Minor Remodel:</strong> 85-90% ROI — Best bang for buck, especially in lower-priced neighborhoods</li>
+                    <li><strong>Moderate Remodel:</strong> 75-80% ROI — Sweet spot for most homeowners, modern look without luxury price</li>
+                    <li><strong>Major Remodel:</strong> 65-75% ROI — Worthwhile if you'll enjoy it for 5+ years, not just for resale</li>
+                    <li><strong>Luxury Remodel:</strong> 55-65% ROI — For high-end homes, personal enjoyment, not investment strategy</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>⚠️ Important:</strong> ROI varies dramatically by location. In hot markets (Bay Area, NYC, Seattle), even luxury remodels can return 70-80%. In slower markets, even minor remodels may return only 60-70%. Check local comps before over-improving for your neighborhood.
+                </div>
+
+                <h3>Red Flags When Hiring Contractors</h3>
+                <ul>
+                    <li>❌ Requires large upfront payment (>30%)</li>
+                    <li>❌ No written contract or vague scope of work</li>
+                    <li>❌ Not licensed/insured (ask for proof, verify online)</li>
+                    <li>❌ Can't provide references or portfolio</li>
+                    <li>❌ Pressures you to decide immediately</li>
+                    <li>❌ Significantly lower bid than others (may cut corners or underbid then add change orders)</li>
+                    <li>❌ No warranty on workmanship (1 year minimum is standard)</li>
+                    <li>❌ Won't pull permits (you're liable, insurance won't cover)</li>
+                </ul>
+
+                <h3>Green Flags for Quality Contractors</h3>
+                <ul>
+                    <li>✅ Licensed, bonded, insured (verify online)</li>
+                    <li>✅ Detailed written contract with scope, timeline, payment schedule</li>
+                    <li>✅ References from recent projects (call them!)</li>
+                    <li>✅ Portfolio of completed work (similar style/budget to yours)</li>
+                    <li>✅ Realistic timeline (2-3 months for full remodel is typical)</li>
+                    <li>✅ Transparent about material costs (provides itemized quotes)</li>
+                    <li>✅ Offers warranty on workmanship (1-2 years standard)</li>
+                    <li>✅ Pulls permits and schedules inspections</li>
+                    <li>✅ Communicates proactively about delays, issues, changes</li>
+                </ul>
+
+                <h3>Frequently Asked Questions</h3>
+                <p><strong>Q: How long does a kitchen remodel take?</strong><br>
+                A: Minor remodels: 3-4 weeks. Moderate remodels: 6-8 weeks. Major remodels: 8-12 weeks. Custom cabinetry can add 4-8 weeks to timeline. Delays are common, so budget extra time.</p>
+
+                <p><strong>Q: Should I remodel before selling or leave it to the buyer?</strong><br>
+                A: Depends. If your kitchen is dated (1990s or earlier) or in poor condition, a moderate remodel will help the home sell faster and for more money. If it's functional and reasonably modern (2010+), you're better off pricing lower and letting the buyer customize. Luxury remodels rarely pay for themselves at sale.</p>
+
+                <p><strong>Q: Can I live in my house during a kitchen remodel?</strong><br>
+                A: Yes, but it's challenging. Expect 4-8 weeks without a functional kitchen. Set up a temporary kitchen (microwave, hot plate, cooler, paper plates) in dining room or garage. Eat out more. Have a sense of humor about the dust and noise. Some people prefer to stay with family or rent an Airbnb for major remodels.</p>
+
+                <p><strong>Q: What's the best flooring for kitchens?</strong><br>
+                A: Depends on priorities. Tile (porcelain or ceramic) is most durable and water-resistant, great for high-traffic. Luxury vinyl plank (LVP) looks like hardwood but is waterproof and affordable. Hardwood is beautiful but requires maintenance and can be damaged by water. Avoid solid hardwood near sinks/dishwashers.</p>
+
+                <p><strong>Q: Should I match countertops and backsplash?</strong><br>
+                A: Not necessarily. Many designers recommend coordinating but not matching. For example, white quartz counters with a colorful or patterned tile backsplash creates visual interest. Matching can look monolithic. Use the backsplash to add personality and color.</p>
+
+                <h2>Related Calculators</h2>
+                <div class="related-calcs">
+                    <a href="/calc/bathroom-remodel-cost-calculator.html" class="related-calc-card">
+                        <strong>🛁 Bathroom Remodel Cost</strong>
+                        <p>Calculate bathroom renovation costs</p>
+                    </a>
+                    <a href="/calc/home-improvement-loan-calculator.html" class="related-calc-card">
+                        <strong>💳 Home Improvement Loan</strong>
+                        <p>Compare financing options</p>
+                    </a>
+                    <a href="/calc/flooring-cost-calculator.html" class="related-calc-card">
+                        <strong>🏠 Flooring Cost Calculator</strong>
+                        <p>Estimate flooring project costs</p>
+                    </a>
+                    <a href="/calc/paint-calculator.html" class="related-calc-card">
+                        <strong>🎨 Paint Calculator</strong>
+                        <p>Calculate paint needed & cost</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const kitchenSize = parseFloat(document.getElementById('kitchenSize').value) || 150;
+            const remodelLevel = document.getElementById('remodelLevel').value;
+            const cabinetType = document.getElementById('cabinetType').value;
+            const cabinetLinearFeet = parseFloat(document.getElementById('cabinetLinearFeet').value) || 25;
+            const countertopMaterial = document.getElementById('countertopMaterial').value;
+            const countertopSqFt = parseFloat(document.getElementById('countertopSqFt').value) || 50;
+            const flooringMaterial = document.getElementById('flooringMaterial').value;
+            const replaceFlooring = document.getElementById('replaceFlooring').checked;
+            const applianceLevel = document.getElementById('applianceLevel').value;
+            const newAppliances = document.getElementById('newAppliances').checked;
+            const newSink = document.getElementById('newSink').checked;
+            const backsplash = document.getElementById('backsplash').checked;
+            const lighting = document.getElementById('lighting').checked;
+            const plumbing = document.getElementById('plumbing').checked;
+            const electrical = document.getElementById('electrical').checked;
+            const painting = document.getElementById('painting').checked;
+
+            let breakdown = '';
+            let totalCost = 0;
+
+            // Cabinets
+            let cabinetCostPerFt = 0;
+            switch(cabinetType) {
+                case 'stock': cabinetCostPerFt = 110; break;
+                case 'semi': cabinetCostPerFt = 225; break;
+                case 'custom': cabinetCostPerFt = 600; break;
+            }
+            const cabinetCost = cabinetLinearFeet * cabinetCostPerFt;
+            breakdown += `<div class="result-item"><strong>Cabinets (${cabinetLinearFeet} linear ft @ $${cabinetCostPerFt}/ft)</strong><span class="value">$${cabinetCost.toLocaleString()}</span></div>`;
+            totalCost += cabinetCost;
+
+            // Countertops
+            let countertopCostPerSqFt = 0;
+            switch(countertopMaterial) {
+                case 'laminate': countertopCostPerSqFt = 37; break;
+                case 'tile': countertopCostPerSqFt = 45; break;
+                case 'solid': countertopCostPerSqFt = 70; break;
+                case 'quartz': countertopCostPerSqFt = 90; break;
+                case 'granite': countertopCostPerSqFt = 105; break;
+                case 'marble': countertopCostPerSqFt = 135; break;
+                case 'quartzite': countertopCostPerSqFt = 140; break;
+            }
+            const countertopCost = countertopSqFt * countertopCostPerSqFt;
+            breakdown += `<div class="result-item"><strong>Countertops (${countertopSqFt} sq ft @ $${countertopCostPerSqFt}/sq ft)</strong><span class="value">$${countertopCost.toLocaleString()}</span></div>`;
+            totalCost += countertopCost;
+
+            // Flooring
+            if (replaceFlooring) {
+                let flooringCostPerSqFt = 0;
+                switch(flooringMaterial) {
+                    case 'vinyl': flooringCostPerSqFt = 5; break;
+                    case 'laminate': flooringCostPerSqFt = 7.5; break;
+                    case 'tile': flooringCostPerSqFt = 14; break;
+                    case 'hardwood': flooringCostPerSqFt = 17.5; break;
+                    case 'luxury': flooringCostPerSqFt = 11.5; break;
+                }
+                const flooringCost = kitchenSize * flooringCostPerSqFt;
+                breakdown += `<div class="result-item"><strong>Flooring (${kitchenSize} sq ft @ $${flooringCostPerSqFt}/sq ft)</strong><span class="value">$${flooringCost.toLocaleString()}</span></div>`;
+                totalCost += flooringCost;
+            }
+
+            // Appliances
+            if (newAppliances) {
+                let applianceCost = 0;
+                switch(applianceLevel) {
+                    case 'budget': applianceCost = 2250; break;
+                    case 'mid': applianceCost = 4500; break;
+                    case 'high': applianceCost = 9000; break;
+                    case 'luxury': applianceCost = 18500; break;
+                }
+                breakdown += `<div class="result-item"><strong>Appliances (package)</strong><span class="value">$${applianceCost.toLocaleString()}</span></div>`;
+                totalCost += applianceCost;
+            }
+
+            // Additional items
+            if (newSink) {
+                const sinkCost = 900;
+                breakdown += `<div class="result-item"><strong>Sink & Faucet</strong><span class="value">$${sinkCost.toLocaleString()}</span></div>`;
+                totalCost += sinkCost;
+            }
+
+            if (backsplash) {
+                const backsplashCost = Math.round(countertopSqFt * 0.6 * 45); // ~60% of counter length, $45/sq ft avg
+                breakdown += `<div class="result-item"><strong>Backsplash</strong><span class="value">$${backsplashCost.toLocaleString()}</span></div>`;
+                totalCost += backsplashCost;
+            }
+
+            if (lighting) {
+                const lightingCost = 1750;
+                breakdown += `<div class="result-item"><strong>Lighting Fixtures</strong><span class="value">$${lightingCost.toLocaleString()}</span></div>`;
+                totalCost += lightingCost;
+            }
+
+            if (plumbing) {
+                const plumbingCost = 3250;
+                breakdown += `<div class="result-item"><strong>Plumbing Reconfiguration</strong><span class="value">$${plumbingCost.toLocaleString()}</span></div>`;
+                totalCost += plumbingCost;
+            }
+
+            if (electrical) {
+                const electricalCost = 2500;
+                breakdown += `<div class="result-item"><strong>Electrical Upgrades</strong><span class="value">$${electricalCost.toLocaleString()}</span></div>`;
+                totalCost += electricalCost;
+            }
+
+            if (painting) {
+                const paintingCost = Math.round(kitchenSize * 8);
+                breakdown += `<div class="result-item"><strong>Painting</strong><span class="value">$${paintingCost.toLocaleString()}</span></div>`;
+                totalCost += paintingCost;
+            }
+
+            // Labor multiplier based on remodel level
+            let laborMultiplier = 0;
+            switch(remodelLevel) {
+                case 'minor': laborMultiplier = 0.25; break;
+                case 'moderate': laborMultiplier = 0.35; break;
+                case 'major': laborMultiplier = 0.45; break;
+                case 'luxury': laborMultiplier = 0.50; break;
+            }
+
+            const laborCost = Math.round(totalCost * laborMultiplier);
+            breakdown += `<div class="result-item"><strong>Labor & Installation</strong><span class="value">$${laborCost.toLocaleString()}</span></div>`;
+            totalCost += laborCost;
+
+            // Permits & contingency
+            const permitsCost = Math.round(totalCost * 0.05);
+            breakdown += `<div class="result-item"><strong>Permits & Contingency (5%)</strong><span class="value">$${permitsCost.toLocaleString()}</span></div>`;
+            totalCost += permitsCost;
+
+            // Cost range
+            const lowRange = Math.round(totalCost * 0.90);
+            const highRange = Math.round(totalCost * 1.10);
+
+            document.getElementById('breakdown').innerHTML = breakdown;
+            document.getElementById('total').innerHTML = `Total Project Cost: $${lowRange.toLocaleString()} - $${highRange.toLocaleString()}<br><small style="font-size: 0.7em; opacity: 0.9;">(±10% range accounts for regional pricing and material quality variations)</small>`;
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
