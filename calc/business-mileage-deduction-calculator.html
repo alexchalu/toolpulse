@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Mileage Deduction Calculator 2026 - IRS Standard Mileage Rate</title>
+    <meta name="description" content="Calculate your business mileage tax deduction using the IRS standard mileage rate. Track deductible miles, estimate tax savings, and maximize your write-offs.">
+    <link rel="stylesheet" href="../gold.css">
+    <link rel="canonical" href="https://calcleap.com/calc/business-mileage-deduction-calculator.html">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">CalcLeap</a>
+        </div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../tools.html">All Calculators</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">Business Mileage Deduction Calculator</h1>
+        <p class="subtitle">Calculate your business mileage tax deduction using the IRS standard mileage rate for 2026. Maximize your write-offs and estimate tax savings.</p>
+
+        <div class="calculator-section">
+            <div class="input-group">
+                <label for="businessMiles">Business Miles Driven:</label>
+                <input type="number" id="businessMiles" value="10000" min="0" step="100">
+            </div>
+
+            <div class="input-group">
+                <label for="mileageRate">IRS Standard Mileage Rate ($/mile):</label>
+                <input type="number" id="mileageRate" value="0.67" min="0" max="5" step="0.01">
+                <small>2026 IRS standard rate: $0.67/mile</small>
+            </div>
+
+            <div class="input-group">
+                <label for="taxBracket">Your Tax Bracket (%):</label>
+                <input type="number" id="taxBracket" value="24" min="0" max="100" step="1">
+                <small>Federal income tax bracket</small>
+            </div>
+
+            <div class="input-group">
+                <label for="selfEmploymentTax">Self-Employment Tax Rate (%):</label>
+                <input type="number" id="selfEmploymentTax" value="15.3" min="0" max="20" step="0.1">
+                <small>Default 15.3% for self-employed individuals</small>
+            </div>
+
+            <button onclick="calculate()">Calculate Deduction</button>
+
+            <div id="results"></div>
+        </div>
+
+        <div class="content-section">
+            <h2>What Is the Business Mileage Deduction?</h2>
+            <p>The business mileage deduction allows self-employed individuals, business owners, and employees to deduct vehicle expenses related to business use. Instead of tracking every gas receipt and maintenance cost, the IRS allows you to use a <strong>standard mileage rate</strong> that covers all vehicle-related expenses in one simple per-mile amount.</p>
+            
+            <p>For 2026, the IRS standard mileage rate is <strong>$0.67 per mile</strong> for business use of a vehicle. This rate is adjusted annually to account for changes in fuel costs, vehicle depreciation, insurance, and maintenance expenses.</p>
+
+            <h3>What Qualifies as Business Mileage?</h3>
+            <p>Business mileage includes driving for business purposes such as:</p>
+            <ul>
+                <li><strong>Client meetings:</strong> Driving to meet with customers, clients, or business partners</li>
+                <li><strong>Business errands:</strong> Bank deposits, post office trips, supply pickups</li>
+                <li><strong>Between work locations:</strong> Traveling between job sites or offices</li>
+                <li><strong>Temporary work sites:</strong> Driving to locations outside your regular workplace</li>
+                <li><strong>Business events:</strong> Conferences, seminars, training sessions</li>
+                <li><strong>Delivery/service calls:</strong> Driving to deliver products or provide services</li>
+            </ul>
+
+            <h3>What Does NOT Qualify?</h3>
+            <p>The following types of driving are NOT deductible as business mileage:</p>
+            <ul>
+                <li><strong>Commuting:</strong> Regular trips from home to your primary workplace</li>
+                <li><strong>Personal errands:</strong> Grocery shopping, personal appointments, leisure driving</li>
+                <li><strong>Moving expenses:</strong> Relocating to a new home (unless active military)</li>
+                <li><strong>Carpooling:</strong> Driving coworkers to work</li>
+            </ul>
+
+            <h2>How to Track Business Mileage</h2>
+            <p>To claim the business mileage deduction, you must keep accurate records of your business driving. The IRS requires documentation including:</p>
+            
+            <div class="highlight-box">
+                <h4>Required Mileage Log Information:</h4>
+                <ul>
+                    <li>Date of each trip</li>
+                    <li>Starting location and destination</li>
+                    <li>Business purpose of the trip</li>
+                    <li>Odometer reading at start and end (or total miles driven)</li>
+                    <li>Total business miles for the year</li>
+                </ul>
+            </div>
+
+            <h3>Best Ways to Track Mileage</h3>
+            <ul>
+                <li><strong>Mobile apps:</strong> MileIQ, Everlance, Stride automatically track trips using GPS</li>
+                <li><strong>Spreadsheet:</strong> Manual log with date, destination, miles, and purpose</li>
+                <li><strong>Paper mileage log:</strong> Traditional logbook kept in your vehicle</li>
+                <li><strong>Accounting software:</strong> QuickBooks Self-Employed, FreshBooks with mileage tracking</li>
+            </ul>
+
+            <h2>Standard Mileage Rate vs. Actual Expenses</h2>
+            <p>The IRS gives you two options for deducting vehicle expenses:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>How It Works</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Standard Mileage Rate</strong></td>
+                        <td>Multiply business miles by IRS rate ($0.67/mile for 2026)</td>
+                        <td>Simpler record-keeping, newer/fuel-efficient vehicles</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Actual Expenses</strong></td>
+                        <td>Track all vehicle costs (gas, maintenance, insurance, depreciation) × business use %</td>
+                        <td>Expensive vehicles, high maintenance costs, older cars</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Note:</strong> If you use the standard mileage rate in the first year you use a vehicle for business, you can switch to actual expenses in later years. However, if you use actual expenses first, you're locked into that method for the life of that vehicle.</p>
+
+            <h2>IRS Standard Mileage Rates by Year</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tax Year</th>
+                        <th>Business Rate (per mile)</th>
+                        <th>Medical/Moving Rate</th>
+                        <th>Charitable Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2026</td>
+                        <td>$0.67</td>
+                        <td>$0.21</td>
+                        <td>$0.14</td>
+                    </tr>
+                    <tr>
+                        <td>2025</td>
+                        <td>$0.70</td>
+                        <td>$0.21</td>
+                        <td>$0.14</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td>$0.67</td>
+                        <td>$0.21</td>
+                        <td>$0.14</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>$0.655</td>
+                        <td>$0.22</td>
+                        <td>$0.14</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>$0.625 (Jan-Jun)<br>$0.655 (Jul-Dec)</td>
+                        <td>$0.18 (Jan-Jun)<br>$0.22 (Jul-Dec)</td>
+                        <td>$0.14</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Tax Savings from Business Mileage</h2>
+            <p>The business mileage deduction reduces your taxable income, which in turn reduces your tax liability. The actual tax savings depend on your tax bracket and employment status.</p>
+
+            <h3>Example Tax Savings Calculation</h3>
+            <div class="example-box">
+                <p><strong>Scenario:</strong> Self-employed consultant drives 15,000 business miles per year</p>
+                <ul>
+                    <li>Business miles: 15,000</li>
+                    <li>Standard mileage rate: $0.67/mile</li>
+                    <li>Mileage deduction: 15,000 × $0.67 = <strong>$10,050</strong></li>
+                    <li>Tax bracket: 24% federal</li>
+                    <li>Self-employment tax: 15.3%</li>
+                    <li><strong>Total tax savings: $10,050 × (24% + 15.3%) = $3,950</strong></li>
+                </ul>
+            </div>
+
+            <h2>Who Can Deduct Business Mileage?</h2>
+            <p>The business mileage deduction is available to:</p>
+            <ul>
+                <li><strong>Self-employed individuals:</strong> Freelancers, consultants, contractors (Schedule C)</li>
+                <li><strong>Small business owners:</strong> Sole proprietors, LLC members, S-corp owners</li>
+                <li><strong>Gig workers:</strong> Uber/Lyft drivers, DoorDash, Instacart shoppers</li>
+                <li><strong>Armed forces reservists:</strong> Traveling more than 100 miles from home</li>
+                <li><strong>Qualifying performing artists:</strong> Meeting specific IRS requirements</li>
+                <li><strong>Fee-basis state/local government officials</strong></li>
+            </ul>
+
+            <p><strong>Important:</strong> As of 2018, W-2 employees can NO LONGER deduct unreimbursed employee expenses (including mileage) due to the Tax Cuts and Jobs Act. This deduction is suspended through 2025. If you're a W-2 employee, ask your employer about mileage reimbursement programs instead.</p>
+
+            <h2>How to Claim the Mileage Deduction</h2>
+            <p>The form you use depends on your business structure:</p>
+            <ul>
+                <li><strong>Self-employed/sole proprietor:</strong> Schedule C (Form 1040), Line 9 "Car and truck expenses"</li>
+                <li><strong>Partnership:</strong> Form 1065, Schedule K-1</li>
+                <li><strong>S Corporation:</strong> Form 1120-S</li>
+                <li><strong>Farmers:</strong> Schedule F (Form 1040)</li>
+            </ul>
+
+            <h2>Common Mistakes to Avoid</h2>
+            <ul>
+                <li><strong>Not keeping records:</strong> The IRS can disallow your entire deduction without proper documentation</li>
+                <li><strong>Rounding up miles:</strong> Use actual odometer readings, not estimates</li>
+                <li><strong>Deducting commuting:</strong> Home to regular workplace is never deductible</li>
+                <li><strong>Using the wrong rate:</strong> Make sure you're using the current year's IRS rate</li>
+                <li><strong>Mixing methods:</strong> You can't use standard mileage for some trips and actual expenses for others in the same tax year</li>
+                <li><strong>Forgetting the home office exception:</strong> If you have a qualified home office, trips FROM home to business locations ARE deductible</li>
+            </ul>
+
+            <h2>Maximizing Your Mileage Deduction</h2>
+            <p>Strategies to increase your legitimate business mileage deduction:</p>
+            <ul>
+                <li><strong>Establish a home office:</strong> Makes trips from home to clients/job sites fully deductible</li>
+                <li><strong>Combine errands:</strong> Plan efficient routes to maximize business miles</li>
+                <li><strong>Track every trip:</strong> Use automatic tracking apps so you never miss a deductible mile</li>
+                <li><strong>Document purpose:</strong> Take photos, save meeting confirmations, keep receipts as supporting evidence</li>
+                <li><strong>Start tracking January 1:</strong> Don't wait until tax time to begin logging miles</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+            
+            <h3>Can I deduct mileage if I work from home?</h3>
+            <p>Yes! If you have a qualified home office, trips from your home to business locations (clients, suppliers, meetings) are fully deductible. Your commute becomes $0 because your primary workplace IS your home.</p>
+
+            <h3>What if I use my car for both business and personal use?</h3>
+            <p>You can only deduct the business portion. Track total miles driven and business miles separately. Only the business percentage is deductible.</p>
+
+            <h3>Can I deduct mileage for a leased vehicle?</h3>
+            <p>Yes. The standard mileage rate includes depreciation, so it works for both owned and leased vehicles.</p>
+
+            <h3>What if I forgot to track mileage during the year?</h3>
+            <p>You can reconstruct your mileage log using calendars, receipts, emails, and bank statements. The IRS accepts reasonable reconstructions, but contemporaneous records are always better.</p>
+
+            <h3>Can I claim mileage for multiple vehicles?</h3>
+            <p>Yes. If you use multiple vehicles for business, track mileage separately for each and claim the deduction for both.</p>
+
+            <h2>Additional Resources</h2>
+            <ul>
+                <li><a href="https://www.irs.gov/tax-professionals/standard-mileage-rates" target="_blank">IRS Standard Mileage Rates</a></li>
+                <li><a href="https://www.irs.gov/pub/irs-pdf/p463.pdf" target="_blank">IRS Publication 463: Travel, Gift, and Car Expenses</a></li>
+                <li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/claiming-car-and-truck-expenses" target="_blank">IRS Guide: Claiming Car and Truck Expenses</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CalcLeap. All rights reserved. | <a href="../privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        function calculate() {
+            const businessMiles = parseFloat(document.getElementById('businessMiles').value) || 0;
+            const mileageRate = parseFloat(document.getElementById('mileageRate').value) || 0.67;
+            const taxBracket = parseFloat(document.getElementById('taxBracket').value) || 24;
+            const selfEmploymentTax = parseFloat(document.getElementById('selfEmploymentTax').value) || 15.3;
+
+            // Calculate deduction
+            const totalDeduction = businessMiles * mileageRate;
+            
+            // Calculate tax savings
+            const federalSavings = totalDeduction * (taxBracket / 100);
+            const seTaxSavings = totalDeduction * (selfEmploymentTax / 100);
+            const totalSavings = federalSavings + seTaxSavings;
+
+            // Per mile savings
+            const savingsPerMile = totalSavings / businessMiles;
+
+            // Results display
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `
+                <h3>Your Business Mileage Deduction</h3>
+                <div class="result-item">
+                    <span class="result-label">Total Business Miles:</span>
+                    <span class="result-value">${businessMiles.toLocaleString()} miles</span>
+                </div>
+                <div class="result-item highlight">
+                    <span class="result-label">Total Deduction:</span>
+                    <span class="result-value">$${totalDeduction.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Federal Tax Savings (${taxBracket}%):</span>
+                    <span class="result-value">$${federalSavings.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Self-Employment Tax Savings (${selfEmploymentTax}%):</span>
+                    <span class="result-value">$${seTaxSavings.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                </div>
+                <div class="result-item highlight">
+                    <span class="result-label">Total Tax Savings:</span>
+                    <span class="result-value">$${totalSavings.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Savings Per Mile:</span>
+                    <span class="result-value">$${savingsPerMile.toFixed(4)}</span>
+                </div>
+                <div class="recommendation">
+                    <h4>Summary:</h4>
+                    <p>By driving <strong>${businessMiles.toLocaleString()} business miles</strong> and claiming the standard mileage rate of <strong>$${mileageRate}/mile</strong>, you can deduct <strong>$${totalDeduction.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong> from your taxable income.</p>
+                    <p>This deduction saves you approximately <strong>$${totalSavings.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong> in combined federal and self-employment taxes.</p>
+                    <p><strong>Pro tip:</strong> ${
+                        businessMiles < 5000 
+                            ? 'Consider combining business errands and establishing a home office to increase deductible miles.'
+                            : businessMiles >= 15000
+                                ? 'High mileage! Make sure you\'re using a mileage tracking app to capture every deductible mile.'
+                                : 'You\'re maximizing a solid mileage deduction. Keep detailed records to support your claim.'
+                    }</p>
+                </div>
+            `;
+            resultsDiv.style.display = 'block';
+        }
+
+        // Run calculation on load
+        window.addEventListener('load', calculate);
+        
+        // Recalculate on any input change
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', calculate);
+        });
+    </script>
+</body>
+</html>
