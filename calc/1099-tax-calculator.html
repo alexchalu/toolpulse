@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free 1099 tax calculator. Estimate taxes owed on 1099 income including self-employment tax, federal income tax, and state tax. Calculate quarterly tax payments for freelancers and independent contractors.">
+    <meta name="keywords" content="1099 tax calculator, 1099 income tax, freelance tax calculator, independent contractor tax, self employment tax, 1099-MISC tax, 1099-NEC tax calculator">
+    <title>1099 Tax Calculator - Freelance & Independent Contractor Tax Estimator | CalcLeap</title>
+    <link rel="canonical" href="https://calcleap.com/calc/1099-tax-calculator.html">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "1099 Tax Calculator",
+        "description": "Calculate taxes owed on 1099 income including self-employment tax and federal income tax.",
+        "url": "https://calcleap.com/calc/1099-tax-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 0.95em;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .results {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            color: white;
+        }
+        
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .result-row:last-child {
+            border-bottom: none;
+            font-size: 1.3em;
+            font-weight: 700;
+            padding-top: 20px;
+            margin-top: 10px;
+            border-top: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .result-label {
+            font-weight: 500;
+        }
+        
+        .result-value {
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        .tips {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        
+        .tips h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .content-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .content-section h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .content-section p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .content-section li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .calculator-card, .content-section {
+                padding: 25px;
+            }
+            
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💼 1099 Tax Calculator</h1>
+            <p class="subtitle">Estimate Taxes on Freelance & 1099 Income</p>
+        </header>
+
+        <div class="calculator-card">
+            <div class="input-group">
+                <label for="income">Total 1099 Income (Gross)</label>
+                <input type="number" id="income" placeholder="50000" value="50000">
+            </div>
+
+            <div class="input-group">
+                <label for="expenses">Business Expenses (Deductible)</label>
+                <input type="number" id="expenses" placeholder="10000" value="10000">
+            </div>
+
+            <div class="input-group">
+                <label for="filingStatus">Filing Status</label>
+                <select id="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="married">Married Filing Jointly</option>
+                    <option value="head">Head of Household</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="deductions">Additional Deductions (Standard Deduction Auto-Applied)</label>
+                <input type="number" id="deductions" placeholder="0" value="0">
+            </div>
+
+            <div class="input-group">
+                <label for="stateRate">State Income Tax Rate (%)</label>
+                <input type="number" id="stateRate" step="0.1" placeholder="5.0" value="5.0">
+            </div>
+
+            <div class="input-group">
+                <label for="withheld">Federal Tax Already Withheld (W-2 or Other)</label>
+                <input type="number" id="withheld" placeholder="0" value="0">
+            </div>
+
+            <div class="results">
+                <div class="result-row">
+                    <span class="result-label">Net Self-Employment Income:</span>
+                    <span class="result-value" id="netIncome">$40,000</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Self-Employment Tax (15.3%):</span>
+                    <span class="result-value" id="seTax">$5,652</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Federal Income Tax:</span>
+                    <span class="result-value" id="fedTax">$2,445</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">State Income Tax:</span>
+                    <span class="result-value" id="stateTax">$1,826</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Total Tax Liability:</span>
+                    <span class="result-value" id="totalTax">$9,923</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Effective Tax Rate:</span>
+                    <span class="result-value" id="effectiveRate">24.8%</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">📊 Tax Due After Withholding:</span>
+                    <span class="result-value" id="taxDue">$9,923</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">💰 Quarterly Payment (if paid quarterly):</span>
+                    <span class="result-value" id="quarterly">$2,481</span>
+                </div>
+            </div>
+
+            <div class="tips" id="tips">
+                <h3>💡 Tax Savings Tips</h3>
+                <p id="tipsContent">Calculate your taxes to see personalized recommendations.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Understanding 1099 Taxes</h2>
+            <p>If you received a <strong>1099-NEC</strong> (nonemployee compensation) or <strong>1099-MISC</strong> form, you're considered self-employed by the IRS. Unlike W-2 employees, <strong>taxes aren't automatically withheld</strong> from your pay — you're responsible for calculating and paying them yourself.</p>
+
+            <h3>What Taxes Do 1099 Workers Pay?</h3>
+            <p>As a 1099 contractor, you pay <strong>two main types of taxes</strong>:</p>
+            
+            <ol>
+                <li><strong>Self-Employment Tax (15.3%)</strong> — Covers Social Security (12.4%) and Medicare (2.9%). This replaces the FICA taxes that W-2 employers withhold.</li>
+                <li><strong>Federal Income Tax</strong> — Based on your taxable income and filing status, using 2026 tax brackets.</li>
+                <li><strong>State Income Tax</strong> — Varies by state (0% in Texas, Florida, etc. up to 13.3% in California).</li>
+            </ol>
+
+            <div class="highlight-box">
+                <strong>Key Difference:</strong> W-2 employees split the 15.3% FICA tax with their employer (7.65% each). As a 1099 worker, you pay the full 15.3% — but you can deduct half of it (7.65%) from your taxable income.
+            </div>
+
+            <h3>2026 Self-Employment Tax Calculation</h3>
+            <p>Self-employment tax is calculated on <strong>92.35% of your net self-employment income</strong> (gross income minus business expenses).</p>
+            
+            <table>
+                <tr>
+                    <th>Income Component</th>
+                    <th>Tax Rate</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>Social Security</td>
+                    <td>12.4%</td>
+                    <td>On first $176,100 (2026 limit)</td>
+                </tr>
+                <tr>
+                    <td>Medicare</td>
+                    <td>2.9%</td>
+                    <td>No income limit</td>
+                </tr>
+                <tr>
+                    <td>Additional Medicare</td>
+                    <td>0.9%</td>
+                    <td>On income over $200K (single) / $250K (married)</td>
+                </tr>
+                <tr>
+                    <td><strong>Total SE Tax</strong></td>
+                    <td><strong>15.3%</strong></td>
+                    <td>Applied to 92.35% of net income</td>
+                </tr>
+            </table>
+
+            <h3>2026 Federal Income Tax Brackets</h3>
+            <p>After deducting the standard deduction and half of self-employment tax, your remaining income is taxed at these rates:</p>
+
+            <table>
+                <tr>
+                    <th>Tax Rate</th>
+                    <th>Single</th>
+                    <th>Married Filing Jointly</th>
+                    <th>Head of Household</th>
+                </tr>
+                <tr>
+                    <td>10%</td>
+                    <td>$0 - $11,900</td>
+                    <td>$0 - $23,800</td>
+                    <td>$0 - $17,000</td>
+                </tr>
+                <tr>
+                    <td>12%</td>
+                    <td>$11,901 - $48,475</td>
+                    <td>$23,801 - $96,950</td>
+                    <td>$17,001 - $64,850</td>
+                </tr>
+                <tr>
+                    <td>22%</td>
+                    <td>$48,476 - $103,350</td>
+                    <td>$96,951 - $206,700</td>
+                    <td>$64,851 - $103,350</td>
+                </tr>
+                <tr>
+                    <td>24%</td>
+                    <td>$103,351 - $197,300</td>
+                    <td>$206,701 - $394,600</td>
+                    <td>$103,351 - $197,300</td>
+                </tr>
+                <tr>
+                    <td>32%</td>
+                    <td>$197,301 - $250,525</td>
+                    <td>$394,601 - $501,050</td>
+                    <td>$197,301 - $250,500</td>
+                </tr>
+                <tr>
+                    <td>35%</td>
+                    <td>$250,526 - $626,350</td>
+                    <td>$501,051 - $751,600</td>
+                    <td>$250,501 - $626,350</td>
+                </tr>
+                <tr>
+                    <td>37%</td>
+                    <td>$626,351+</td>
+                    <td>$751,601+</td>
+                    <td>$626,351+</td>
+                </tr>
+            </table>
+
+            <h3>Standard Deduction (2026)</h3>
+            <ul>
+                <li><strong>Single:</strong> $15,000</li>
+                <li><strong>Married Filing Jointly:</strong> $30,000</li>
+                <li><strong>Head of Household:</strong> $22,500</li>
+            </ul>
+
+            <h3>Common 1099 Deductions</h3>
+            <p>As a self-employed individual, you can deduct <strong>ordinary and necessary business expenses</strong> to reduce your taxable income:</p>
+
+            <ul>
+                <li><strong>Home office deduction</strong> — If you use part of your home exclusively for business</li>
+                <li><strong>Business mileage</strong> — $0.67/mile for 2026 (standard rate)</li>
+                <li><strong>Health insurance premiums</strong> — 100% deductible for self-employed</li>
+                <li><strong>Retirement contributions</strong> — Solo 401(k), SEP-IRA (up to $69,000 for 2026)</li>
+                <li><strong>Internet and phone</strong> — Business use percentage</li>
+                <li><strong>Software and subscriptions</strong> — Tools you need to run your business</li>
+                <li><strong>Professional development</strong> — Courses, books, conferences</li>
+                <li><strong>Equipment and supplies</strong> — Computer, desk, office supplies</li>
+                <li><strong>Contract labor</strong> — Payments to freelancers/contractors</li>
+                <li><strong>Marketing and advertising</strong> — Website, ads, business cards</li>
+            </ul>
+
+            <h3>Quarterly Estimated Tax Payments</h3>
+            <p>If you expect to owe <strong>$1,000 or more</strong> in taxes, the IRS requires you to make <strong>quarterly estimated tax payments</strong>.</p>
+
+            <table>
+                <tr>
+                    <th>Quarter</th>
+                    <th>Income Period</th>
+                    <th>Due Date</th>
+                </tr>
+                <tr>
+                    <td>Q1</td>
+                    <td>Jan 1 - Mar 31</td>
+                    <td>April 15, 2026</td>
+                </tr>
+                <tr>
+                    <td>Q2</td>
+                    <td>Apr 1 - May 31</td>
+                    <td>June 15, 2026</td>
+                </tr>
+                <tr>
+                    <td>Q3</td>
+                    <td>Jun 1 - Aug 31</td>
+                    <td>September 15, 2026</td>
+                </tr>
+                <tr>
+                    <td>Q4</td>
+                    <td>Sep 1 - Dec 31</td>
+                    <td>January 15, 2027</td>
+                </tr>
+            </table>
+
+            <div class="highlight-box">
+                <strong>Safe Harbor Rule:</strong> Pay at least 90% of your current year's tax or 100% of last year's tax (110% if AGI > $150K) to avoid penalties.
+            </div>
+
+            <h3>State Tax Considerations</h3>
+            <p>State income tax varies widely:</p>
+            <ul>
+                <li><strong>No state income tax:</strong> Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, Wyoming</li>
+                <li><strong>Low rates (1-4%):</strong> North Dakota, Pennsylvania, Indiana, Arizona</li>
+                <li><strong>High rates (8-13%):</strong> California, New York, New Jersey, Hawaii, Oregon</li>
+            </ul>
+
+            <h3>How to File 1099 Taxes</h3>
+            <ol>
+                <li><strong>Track income</strong> — Save all 1099-NEC and 1099-MISC forms</li>
+                <li><strong>Calculate expenses</strong> — Keep receipts for deductible business expenses</li>
+                <li><strong>File Schedule C</strong> — Report income/expenses (Form 1040 Schedule C)</li>
+                <li><strong>Pay self-employment tax</strong> — Schedule SE calculates the 15.3% tax</li>
+                <li><strong>File Form 1040</strong> — Your main tax return with all schedules attached</li>
+            </ol>
+
+            <h3>Common Mistakes to Avoid</h3>
+            <ul>
+                <li><strong>Not making quarterly payments</strong> — Results in penalties and interest</li>
+                <li><strong>Missing deductions</strong> — Track all business expenses throughout the year</li>
+                <li><strong>Forgetting SE tax deduction</strong> — You can deduct half of SE tax from taxable income</li>
+                <li><strong>Not separating business and personal</strong> — Use separate accounts/cards for clean records</li>
+                <li><strong>Missing deadlines</strong> — Late quarterly payments incur penalties</li>
+                <li><strong>Not saving for taxes</strong> — Set aside 25-30% of each payment for taxes</li>
+            </ul>
+
+            <h3>Tax Software and Professional Help</h3>
+            <p>Most self-employed individuals use tax software like <strong>TurboTax Self-Employed</strong>, <strong>H&R Block Premium</strong>, or <strong>TaxAct Self-Employed</strong> to file. For complex situations (multiple income streams, significant expenses, state variations), consider hiring a CPA who specializes in self-employment taxes.</p>
+
+            <h3>Frequently Asked Questions</h3>
+            
+            <h3>Do I pay taxes on the full 1099 amount?</h3>
+            <p>No. You pay taxes on your <strong>net profit</strong> (gross income minus deductible business expenses). For example, if you earned $50,000 and had $10,000 in expenses, you pay taxes on $40,000.</p>
+
+            <h3>What's the difference between 1099-NEC and 1099-MISC?</h3>
+            <p>Starting in 2020, <strong>1099-NEC</strong> reports nonemployee compensation (what most freelancers receive). <strong>1099-MISC</strong> reports other types of payments like rent, prizes, or medical payments.</p>
+
+            <h3>How much should I set aside for taxes?</h3>
+            <p>A safe rule: <strong>25-30% of gross income</strong>. Higher earners should save 30-35%. This covers federal income tax (10-37%), self-employment tax (15.3%), and state tax (0-13%).</p>
+
+            <h3>Can I deduct my home office?</h3>
+            <p>Yes, if you use a portion of your home <strong>exclusively and regularly</strong> for business. You can use the simplified method ($5/square foot, up to 300 sq ft) or actual expense method (percentage of rent, utilities, insurance).</p>
+
+            <h3>What if I can't pay my tax bill?</h3>
+            <p>File your return on time even if you can't pay. Then set up an IRS payment plan (installment agreement) online at IRS.gov. Interest and penalties apply but are lower than not filing.</p>
+
+            <h3>IRS Resources</h3>
+            <ul>
+                <li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center" target="_blank">Self-Employed Tax Center</a></li>
+                <li><a href="https://www.irs.gov/forms-pubs/about-form-1040-schedule-c" target="_blank">Schedule C Instructions</a></li>
+                <li><a href="https://www.irs.gov/forms-pubs/about-schedule-se-form-1040" target="_blank">Schedule SE (Self-Employment Tax)</a></li>
+                <li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/estimated-taxes" target="_blank">Estimated Taxes Guide</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 2026 Tax Brackets
+        const taxBrackets = {
+            single: [
+                { limit: 11900, rate: 0.10 },
+                { limit: 48475, rate: 0.12 },
+                { limit: 103350, rate: 0.22 },
+                { limit: 197300, rate: 0.24 },
+                { limit: 250525, rate: 0.32 },
+                { limit: 626350, rate: 0.35 },
+                { limit: Infinity, rate: 0.37 }
+            ],
+            married: [
+                { limit: 23800, rate: 0.10 },
+                { limit: 96950, rate: 0.12 },
+                { limit: 206700, rate: 0.22 },
+                { limit: 394600, rate: 0.24 },
+                { limit: 501050, rate: 0.32 },
+                { limit: 751600, rate: 0.35 },
+                { limit: Infinity, rate: 0.37 }
+            ],
+            head: [
+                { limit: 17000, rate: 0.10 },
+                { limit: 64850, rate: 0.12 },
+                { limit: 103350, rate: 0.22 },
+                { limit: 197300, rate: 0.24 },
+                { limit: 250500, rate: 0.32 },
+                { limit: 626350, rate: 0.35 },
+                { limit: Infinity, rate: 0.37 }
+            ]
+        };
+
+        const standardDeduction = {
+            single: 15000,
+            married: 30000,
+            head: 22500
+        };
+
+        function calculateTax(taxableIncome, filingStatus) {
+            const brackets = taxBrackets[filingStatus];
+            let tax = 0;
+            let prevLimit = 0;
+
+            for (let bracket of brackets) {
+                if (taxableIncome <= prevLimit) break;
+                const taxableInBracket = Math.min(taxableIncome, bracket.limit) - prevLimit;
+                tax += taxableInBracket * bracket.rate;
+                prevLimit = bracket.limit;
+            }
+
+            return tax;
+        }
+
+        function calculate() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const expenses = parseFloat(document.getElementById('expenses').value) || 0;
+            const filingStatus = document.getElementById('filingStatus').value;
+            const additionalDeductions = parseFloat(document.getElementById('deductions').value) || 0;
+            const stateRate = parseFloat(document.getElementById('stateRate').value) || 0;
+            const withheld = parseFloat(document.getElementById('withheld').value) || 0;
+
+            // Net self-employment income
+            const netIncome = Math.max(0, income - expenses);
+
+            // Self-employment tax (15.3% on 92.35% of net income)
+            const seTaxBase = netIncome * 0.9235;
+            let seTax = seTaxBase * 0.153;
+            
+            // Additional Medicare tax for high earners
+            const medicareThreshold = filingStatus === 'married' ? 250000 : 200000;
+            if (seTaxBase > medicareThreshold) {
+                seTax += (seTaxBase - medicareThreshold) * 0.009;
+            }
+
+            // Deductible portion of SE tax
+            const seDeduction = seTax / 2;
+
+            // Adjusted gross income
+            const agi = netIncome - seDeduction;
+
+            // Taxable income
+            const stdDeduction = standardDeduction[filingStatus];
+            const taxableIncome = Math.max(0, agi - stdDeduction - additionalDeductions);
+
+            // Federal income tax
+            const fedTax = calculateTax(taxableIncome, filingStatus);
+
+            // State income tax (on net income)
+            const stateTax = netIncome * (stateRate / 100);
+
+            // Total tax
+            const totalTax = seTax + fedTax + stateTax;
+            
+            // Tax due
+            const taxDue = Math.max(0, totalTax - withheld);
+            
+            // Effective rate
+            const effectiveRate = netIncome > 0 ? (totalTax / netIncome * 100) : 0;
+            
+            // Quarterly payment
+            const quarterly = taxDue / 4;
+
+            // Display results
+            document.getElementById('netIncome').textContent = '$' + netIncome.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('seTax').textContent = '$' + seTax.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('fedTax').textContent = '$' + fedTax.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('stateTax').textContent = '$' + stateTax.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('totalTax').textContent = '$' + totalTax.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(1) + '%';
+            document.getElementById('taxDue').textContent = '$' + taxDue.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('quarterly').textContent = '$' + quarterly.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+
+            // Generate tips
+            let tips = '';
+            
+            if (expenses < netIncome * 0.15) {
+                tips += '💡 You may be missing deductible expenses. Common deductions: home office, mileage, health insurance, software, professional development.\n\n';
+            }
+            
+            if (netIncome > 60000 && additionalDeductions === 0) {
+                tips += '💰 Consider maxing out retirement contributions (Solo 401k, SEP-IRA) to reduce taxable income.\n\n';
+            }
+            
+            if (taxDue > 1000) {
+                tips += '📅 Make quarterly estimated tax payments to avoid penalties. Due dates: Apr 15, Jun 15, Sep 15, Jan 15.\n\n';
+            }
+            
+            if (effectiveRate > 30) {
+                tips += '📊 Your effective tax rate is high. Consult a CPA to explore tax reduction strategies.\n\n';
+            }
+            
+            if (stateRate === 0) {
+                tips += '🏠 No state income tax entered. If your state has income tax, add it for a complete estimate.\n\n';
+            }
+
+            if (tips === '') {
+                tips = '✅ Your tax calculation looks good. Remember to file Schedule C and Schedule SE with your Form 1040.';
+            }
+
+            document.getElementById('tipsContent').innerHTML = tips.trim().replace(/\n/g, '<br>');
+        }
+
+        // Auto-calculate on input change
+        document.getElementById('income').addEventListener('input', calculate);
+        document.getElementById('expenses').addEventListener('input', calculate);
+        document.getElementById('filingStatus').addEventListener('change', calculate);
+        document.getElementById('deductions').addEventListener('input', calculate);
+        document.getElementById('stateRate').addEventListener('input', calculate);
+        document.getElementById('withheld').addEventListener('input', calculate);
+
+        // Initial calculation
+        calculate();
+    </script>
+</body>
+</html>
