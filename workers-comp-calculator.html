@@ -1,509 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workers Compensation Calculator - Free Workers Compensation Estimator | CalcLeap</title>
-<meta name="description" content="Estimate workers comp insurance costs for your business.. Free workers compensation calculator with instant estimates.">
-<link rel="canonical" href="https://calcleap.com/workers-comp-calculator.html">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://calcleap.com/workers-comp-calculator.html">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-
-<style>
-
-/* === CalcLeap Apple Design System === */
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --white:#fff;--bg:#f5f5f7;--surface:#fff;
-  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
-  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
-  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
-  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
-  --r:16px;--r-sm:12px;--r-xs:8px;
-  --mw:980px;
-  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
-}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
-a{color:inherit;text-decoration:none}
-
-/* === NAV === */
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
-.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:.15rem}
-.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
-.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
-
-/* === LAYOUT === */
-.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
-
-.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
-.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
-.breadcrumb .sep{margin:0 .35rem;opacity:.4}
-
-.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
-
-/* === CALCULATOR CARD === */
-.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.form-group{display:flex;flex-direction:column;gap:.3rem}
-.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
-.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
-.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-.toggle-row{display:flex;gap:.5rem;margin-bottom:1.25rem}
-.toggle-btn{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
-.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* === RESULTS === */
-.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-.bmi-big{font-size:3.5rem;font-weight:800;letter-spacing:-.04em;line-height:1}
-.bmi-label{font-size:1.1rem;font-weight:600;margin-top:.25rem}
-.bmi-advice{font-size:.875rem;color:var(--text-2);margin-top:.75rem;line-height:1.6}
-
-.gauge{margin:1.5rem 0;position:relative}
-.gauge-bar{display:flex;height:10px;border-radius:100px;overflow:hidden;gap:2px}
-.gauge-seg{height:100%;border-radius:100px}
-.gauge-marker{position:absolute;top:-4px;width:3px;height:18px;background:var(--text);border-radius:2px;transform:translateX(-50%);transition:left .4s ease;box-shadow:0 1px 4px rgba(0,0,0,.3)}
-.gauge-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-3);margin-top:.4rem;padding:0 .1rem}
-
-.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.stat-row:last-child{border-bottom:none}
-.stat-label{font-size:.85rem;color:var(--text-2)}
-.stat-value{font-size:.95rem;font-weight:700}
-
-/* === AD === */
-.ad-slot{margin:1.5rem 0}
-
-/* === INFO SECTIONS === */
-.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
-th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
-th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
-th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
-td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
-
-/* FAQ */
-.faq{border-top:1px solid var(--border);padding:.85rem 0}
-.faq:last-child{border-bottom:none}
-.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
-.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
-
-/* Related */
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
-.related-link:hover{border-color:var(--accent);color:var(--accent)}
-
-/* === FOOTER === */
-.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
-.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
-.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
-.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
-.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
-.footer a:hover{color:var(--text)}
-.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
-.footer-bottom p{font-size:.72rem;color:var(--text-3)}
-
-/* === RESPONSIVE === */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .page{padding:0 1.25rem}
-  .page-title{font-size:1.75rem}
-  .form-row{grid-template-columns:1fr}
-  .related-grid{grid-template-columns:1fr 1fr}
-  .footer-inner{grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){
-  .related-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr}
-}
-
-
-
-/* === COMPREHENSIVE COMPONENT STYLES === */
-
-/* Calc card (used by tax, mortgage, insurance pages) */
-.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-/* Input groups and grids */
-.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group.full{grid-column:1/-1}
-.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-/* Field class (converter pages) */
-.field{margin-bottom:1rem}
-.row{display:flex;gap:.75rem;align-items:center}
-
-/* Radio buttons */
-.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
-.radio-label:hover{border-color:var(--accent);color:var(--accent)}
-.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
-.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
-
-/* Buttons */
-.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
-.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* Result boxes */
-.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
-.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
-
-/* Result grid (tax, insurance calculators) */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-
-/* Result rows */
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none}
-.result-detail{font-size:.85rem;color:var(--text-2)}
-.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
-.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
-.result-item:last-child{border-bottom:none}
-
-/* Stat cards (state tax pages) */
-.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
-.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
-
-/* Section */
-.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-/* Container (fallback for old pages) */
-.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
-
-/* Tool cards (converter index pages) */
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
-.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
-.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
-.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
-.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
-.tool-content{flex:1}
-
-/* Output area (dev tools) */
-.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
-
-/* Converter box */
-.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
-.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
-.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
-.conversion-table{margin-top:1rem}
-
-/* Bar charts */
-.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
-.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
-.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
-
-/* Badge */
-.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Table wrapper */
-.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
-.bracket-table{width:100%;border-collapse:collapse}
-
-/* Rate cards */
-.rate{font-size:.875rem;color:var(--text-2)}
-
-/* Header (old pages fallback) */
-.header{display:none} /* Old header hidden, replaced by .nav */
-
-/* Sub text */
-.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
-
-/* Ad placeholder — HIDE */
-.ad-placeholder{display:none !important}
-
-/* Hero override */
-.hero{padding:.5rem 0 1rem}
-.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
-
-/* FAQ items (old class) */
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-
-/* Toggle/tab buttons */
-.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
-
-/* Color helpers */
-.green{color:#22c55e !important}
-.red{color:#ef4444 !important}
-
-/* Responsive */
-@media(max-width:768px){
-  .result-grid{grid-template-columns:1fr 1fr}
-  .radio-group{flex-direction:column}
-  .tool-grid{grid-template-columns:1fr}
-  .row{flex-direction:column}
-}
-@media(max-width:480px){
-  .result-grid{grid-template-columns:1fr}
-}
-
-</style>
-<meta property="og:image" content="https://calcleap.com/og-default.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workers Compensation Insurance Calculator | Calculate Your WC Premium</title>
+    <meta name="description" content="Calculate workers comp insurance costs by industry, payroll, and classification code. Get accurate premium estimates for your business with our free workers compensation calculator.">
+    <link rel="canonical" href="https://calcleap.com/workers-comp-calculator.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🧮%3C/text%3E%3C/svg%3E">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6; 
+            color: #333; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 { 
+            color: #667eea; 
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .calc-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .btn-calculate {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        .results {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            display: none;
+        }
+        .results.show { display: block; }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .result-item:last-child { border-bottom: none; }
+        .result-label { font-weight: 500; }
+        .result-value { font-weight: 700; font-size: 1.3em; }
+        .info-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .info-section h3 {
+            color: #764ba2;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+        .info-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .info-section li {
+            margin-bottom: 8px;
+        }
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .industry-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .industry-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .rate-display {
+            font-size: 0.9em;
+            color: #666;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #666;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2em; }
+            .calc-section { padding: 20px; }
+        }
+    </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+    <div class="container">
+        <h1>⚕️ Workers Compensation Insurance Calculator</h1>
+        <p class="subtitle">Calculate your estimated workers comp premium by industry classification and payroll</p>
 
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="index.html#finance">Finance</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#tax">Tax</a>
-      <a href="index.html#health">Health</a>
-      <a href="index.html#converters">Converters</a>
-      <a href="index.html#dev">Dev Tools</a>
-      <a href="about.html">About</a>
-    </div>
-  </div>
-</nav>
+        <div class="calc-section">
+            <div class="form-group">
+                <label for="industry">Industry / Business Type:</label>
+                <select id="industry">
+                    <option value="">Select your industry...</option>
+                    <option value="8810">Office & Clerical (8810) - $0.19</option>
+                    <option value="8742">Sales - Outside (8742) - $0.96</option>
+                    <option value="8380">Store - Retail (8380) - $1.52</option>
+                    <option value="9402">Restaurant - Fast Food (9402) - $2.04</option>
+                    <option value="5183">Plumbing (5183) - $5.93</option>
+                    <option value="5190">Electrical Work (5190) - $4.45</option>
+                    <option value="5403">Carpentry (5403) - $8.69</option>
+                    <option value="5506">Roofing (5506) - $13.47</option>
+                    <option value="5022">Masonry (5022) - $9.11</option>
+                    <option value="3724">Trucking - Local (3724) - $5.21</option>
+                    <option value="7380">Landscaping (7380) - $3.82</option>
+                    <option value="8017">Healthcare - Office Staff (8017) - $1.68</option>
+                    <option value="8832">IT & Software Development (8832) - $0.41</option>
+                    <option value="8810">Accounting Services (8810) - $0.19</option>
+                    <option value="9519">Manufacturing - Light (9519) - $3.64</option>
+                    <option value="3632">Warehouse (3632) - $4.15</option>
+                    <option value="8742">Real Estate Agency (8742) - $0.96</option>
+                    <option value="8868">Consulting Services (8868) - $0.44</option>
+                    <option value="7855">Janitorial Services (7855) - $3.26</option>
+                    <option value="8810">Legal Services (8810) - $0.19</option>
+                </select>
+            </div>
 
-<div class="page" id="main-content" role="main">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a><span class="sep">›</span><a href="index.html#tools">Tools</a><span class="sep">›</span>Workers Compensation Calculator
-  </div>
+            <div class="form-group">
+                <label for="payroll">Annual Payroll ($):</label>
+                <input type="number" id="payroll" placeholder="500000" value="500000" min="0" step="1000">
+            </div>
 
-  <h1 class="page-title">Workers Compensation Calculator</h1>
-  <p class="page-desc">Estimate workers comp insurance costs for your business.. Free workers compensation calculator with instant estimates.</p>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <select id="state">
+                    <option value="1.00">National Average (1.00x)</option>
+                    <option value="2.23">California (2.23x)</option>
+                    <option value="0.57">North Dakota (0.57x)</option>
+                    <option value="1.62">New York (1.62x)</option>
+                    <option value="1.48">Florida (1.48x)</option>
+                    <option value="1.31">Texas (1.31x)</option>
+                    <option value="1.89">Illinois (1.89x)</option>
+                    <option value="1.15">Pennsylvania (1.15x)</option>
+                    <option value="1.06">Ohio (1.06x)</option>
+                    <option value="1.42">Georgia (1.42x)</option>
+                    <option value="0.96">Michigan (0.96x)</option>
+                    <option value="1.37">North Carolina (1.37x)</option>
+                    <option value="1.24">New Jersey (1.24x)</option>
+                    <option value="0.91">Virginia (0.91x)</option>
+                    <option value="1.18">Washington (1.18x)</option>
+                    <option value="0.76">Arizona (0.76x)</option>
+                    <option value="1.33">Massachusetts (1.33x)</option>
+                    <option value="0.83">Tennessee (0.83x)</option>
+                    <option value="0.79">Indiana (0.79x)</option>
+                    <option value="1.54">Missouri (1.54x)</option>
+                    <option value="0.88">Wisconsin (0.88x)</option>
+                </select>
+            </div>
 
-<div class="header">
-        <div class="container">
-            
-            <p>Estimate workers comp insurance costs for your business.</p>
+            <div class="form-group">
+                <label for="claims">Claims History:</label>
+                <select id="claims">
+                    <option value="0.70">Excellent (No claims 5+ years) - 0.70x</option>
+                    <option value="0.85">Good (1-2 minor claims) - 0.85x</option>
+                    <option value="1.00">Average (Standard risk) - 1.00x</option>
+                    <option value="1.25">Fair (3-4 claims) - 1.25x</option>
+                    <option value="1.50">Poor (5+ claims or major injury) - 1.50x</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="safety">Safety Program:</label>
+                <select id="safety">
+                    <option value="0.95">Formal safety program with training - 0.95x</option>
+                    <option value="1.00">No formal program - 1.00x</option>
+                </select>
+            </div>
+
+            <button class="btn-calculate" onclick="calculate()">Calculate Premium</button>
         </div>
-    </div>
 
-    <div class="main container">
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="calc-box">
-            <h2>Workers Compensation Estimator</h2>
-            
-        <div class="input-group">
-          <label for="industry">Industry:</label>
-          <select id="industry" aria-label="Industry">
-            <option value="Office/Clerical">Office/Clerical</option>
-<option value="Retail">Retail</option>
-<option value="Restaurant">Restaurant</option>
-<option value="Construction">Construction</option>
-<option value="Manufacturing">Manufacturing</option>
-<option value="Healthcare">Healthcare</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="payroll">Annual Payroll ($):</label>
-          <input type="number" id="payroll"  min="0"   value="500000" aria-label="Payroll">
-        </div>
-
-        <div class="input-group">
-          <label for="employees">Number of Employees:</label>
-          <input type="number" id="employees"  min="1" max="1000"  value="10" aria-label="Employees">
-        </div>
-
-        <div class="input-group">
-          <label for="claims-history">Claims History:</label>
-          <select id="claims-history" aria-label="Claims History">
-            <option value="None">None</option>
-<option value="1-2 claims">1-2 claims</option>
-<option value="3+ claims">3+ claims</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="state">State:</label>
-          <select id="state" aria-label="State">
-            <option value="California">California</option>
-<option value="Texas">Texas</option>
-<option value="Florida">Florida</option>
-<option value="New York">New York</option>
-<option value="Other">Other</option>
-          </select>
-        </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
-            <div class="result-box" id="result"></div>
-        </div>
-
-        <div class="ad-placeholder">
-            
+        <div class="results" id="results">
+            <div class="result-item">
+                <span class="result-label">Base Rate (per $100 payroll):</span>
+                <span class="result-value" id="baseRate">-</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">State-Adjusted Rate:</span>
+                <span class="result-value" id="stateRate">-</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Final Rate (after modifiers):</span>
+                <span class="result-value" id="finalRate">-</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Estimated Annual Premium:</span>
+                <span class="result-value" id="annualPremium">-</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Monthly Cost:</span>
+                <span class="result-value" id="monthlyCost">-</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Cost per $1,000 Payroll:</span>
+                <span class="result-value" id="costPer1000">-</span>
+            </div>
         </div>
 
         <div class="info-section">
-            <h3>About Workers Compensation</h3>
-            <p>Use this calculator to estimate your workers compensation costs. Actual premiums will vary by insurer.</p>
-            <h3>More Insurance & Financial Tools</h3>
+            <h2>Understanding Workers Compensation Insurance</h2>
+            <p>Workers compensation insurance (workers comp or WC) is a type of business insurance that provides benefits to employees who suffer work-related injuries or illnesses. It's required by law in most states for businesses with employees.</p>
+
+            <h3>How Workers Comp Premiums Are Calculated</h3>
+            <p>Workers compensation insurance costs are determined by several factors:</p>
             <ul>
-                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://calcleap.com/">HealthCalcs - Health & Wellness</a></li>
+                <li><strong>Classification Code:</strong> Every job is assigned a 4-digit class code by the National Council on Compensation Insurance (NCCI). Higher-risk jobs have higher rates.</li>
+                <li><strong>Payroll:</strong> Premiums are calculated per $100 of payroll. Higher payroll = higher premium.</li>
+                <li><strong>State:</strong> Each state has different regulations and average claim costs, significantly affecting rates.</li>
+                <li><strong>Claims History:</strong> Your experience modification rate (EMR or Mod) is based on past claims. Clean record = lower rates.</li>
+                <li><strong>Safety Programs:</strong> Formal safety training and workplace safety programs can reduce premiums.</li>
+            </ul>
+
+            <h3>Industry Classification Codes (Class Codes)</h3>
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <strong>Office & Clerical (8810)</strong>
+                    <span class="rate-display">$0.19 per $100 payroll</span>
+                    <p>Lowest risk: desk work, admin</p>
+                </div>
+                <div class="industry-card">
+                    <strong>IT & Software (8832)</strong>
+                    <span class="rate-display">$0.41 per $100 payroll</span>
+                    <p>Very low risk: programming, design</p>
+                </div>
+                <div class="industry-card">
+                    <strong>Retail Store (8380)</strong>
+                    <span class="rate-display">$1.52 per $100 payroll</span>
+                    <p>Low-moderate risk: customer service</p>
+                </div>
+                <div class="industry-card">
+                    <strong>Restaurant (9402)</strong>
+                    <span class="rate-display">$2.04 per $100 payroll</span>
+                    <p>Moderate risk: kitchen, service</p>
+                </div>
+                <div class="industry-card">
+                    <strong>Electrical Work (5190)</strong>
+                    <span class="rate-display">$4.45 per $100 payroll</span>
+                    <p>High risk: electrical hazards</p>
+                </div>
+                <div class="industry-card">
+                    <strong>Plumbing (5183)</strong>
+                    <span class="rate-display">$5.93 per $100 payroll</span>
+                    <p>High risk: physical labor</p>
+                </div>
+                <div class="industry-card">
+                    <strong>Carpentry (5403)</strong>
+                    <span class="rate-display">$8.69 per $100 payroll</span>
+                    <p>Very high risk: tools, heights</p>
+                </div>
+                <div class="industry-card">
+                    <strong>Roofing (5506)</strong>
+                    <span class="rate-display">$13.47 per $100 payroll</span>
+                    <p>Highest risk: falls, heights</p>
+                </div>
+            </div>
+
+            <h3>What Workers Comp Covers</h3>
+            <ul>
+                <li><strong>Medical Expenses:</strong> Doctor visits, hospital stays, surgery, medication, rehabilitation</li>
+                <li><strong>Lost Wages:</strong> Partial wage replacement while employee recovers (typically 66% of average wage)</li>
+                <li><strong>Disability Benefits:</strong> Permanent or temporary disability payments</li>
+                <li><strong>Death Benefits:</strong> Funeral expenses and survivor benefits for fatal workplace accidents</li>
+                <li><strong>Legal Protection:</strong> Protects employer from most employee lawsuits related to workplace injuries</li>
+            </ul>
+
+            <h3>Ways to Lower Your Workers Comp Costs</h3>
+            <ul>
+                <li><strong>Implement Safety Programs:</strong> Formal training, safety equipment, and workplace hazard reduction can earn discounts up to 15%</li>
+                <li><strong>Accurate Job Classification:</strong> Ensure employees are properly classified. Don't pay construction rates for office workers</li>
+                <li><strong>Return-to-Work Programs:</strong> Help injured employees return to light duty quickly to reduce claim costs</li>
+                <li><strong>Shop Around:</strong> Get quotes from multiple carriers. Rates can vary significantly</li>
+                <li><strong>Pay-As-You-Go:</strong> Some providers offer monthly payments based on actual payroll instead of estimates</li>
+                <li><strong>Bundle Policies:</strong> Combine with general liability or other business insurance for multi-policy discounts</li>
+                <li><strong>Claims Management:</strong> Actively manage and dispute fraudulent or inflated claims</li>
+            </ul>
+
+            <h3>State Requirements</h3>
+            <p>Workers compensation insurance is mandatory in most states once you hire employees. Requirements vary:</p>
+            <ul>
+                <li><strong>Most States:</strong> Required as soon as you hire your first employee</li>
+                <li><strong>Some States:</strong> Required after 3-5 employees</li>
+                <li><strong>Texas:</strong> Optional (only state where it's not required, but highly recommended)</li>
+                <li><strong>Sole Proprietors/Partners:</strong> Usually exempt but can buy coverage for themselves</li>
+                <li><strong>1099 Contractors:</strong> Generally not covered by your policy (they need their own)</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Penalties for Not Having Workers Comp:</strong><br>
+                Operating without required workers comp insurance can result in fines of $1,000-$100,000+, criminal charges, and civil lawsuits. You could be personally liable for 100% of an injured employee's medical and disability costs.
+            </div>
+
+            <h3>Experience Modification Rate (EMR/Mod)</h3>
+            <p>Your Mod is a multiplier based on your claims history compared to similar businesses:</p>
+            <ul>
+                <li><strong>1.00:</strong> Average risk (baseline)</li>
+                <li><strong>0.70-0.99:</strong> Better than average (fewer/smaller claims) = lower premiums</li>
+                <li><strong>1.01-2.00:</strong> Worse than average (more/larger claims) = higher premiums</li>
+            </ul>
+            <p>A single large claim can raise your Mod for 3-5 years, significantly increasing costs. This is why workplace safety is critical.</p>
+
+            <h3>Sample Premium Scenarios</h3>
+            <ul>
+                <li><strong>Small Accounting Firm:</strong> 5 office employees, $300k payroll, Class 8810 → ~$570/year</li>
+                <li><strong>Web Design Agency:</strong> 10 staff, $750k payroll, Class 8832 → ~$3,075/year</li>
+                <li><strong>Plumbing Company:</strong> 8 plumbers, $500k payroll, Class 5183 → ~$29,650/year</li>
+                <li><strong>Roofing Contractor:</strong> 12 roofers, $600k payroll, Class 5506 → ~$80,820/year</li>
+            </ul>
+
+            <h3>Tips for Small Business Owners</h3>
+            <ul>
+                <li>Get quotes 60-90 days before your policy renewal to compare rates</li>
+                <li>Review your payroll classifications annually - misclassification costs you money</li>
+                <li>Document all safety training and programs - it helps during rate audits</li>
+                <li>Consider a PEO (Professional Employer Organization) if you're under 50 employees - they can often get better group rates</li>
+                <li>Report claims promptly but investigate thoroughly - fraudulent claims hurt your Mod</li>
+                <li>Use a pay-as-you-go plan to avoid large annual premiums and year-end audits</li>
             </ul>
         </div>
 
-        <div class="ad-placeholder">
-            
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a></p>
-        </div>
+        <footer>
+            <p><a href="https://calcleap.com">← Back to CalcLeap</a> | <a href="https://calcleap.com/insurance-calculators.html">More Insurance Calculators</a></p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Free financial calculators and tools. No signup required.</p>
+        </footer>
     </div>
 
     <script>
         function calculate() {
-            const resultBox = document.getElementById('result');
-            let monthly = 0;
-            let html = '<h3>Estimated Premium</h3>';
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            const industrySelect = document.getElementById('industry');
             const payroll = parseFloat(document.getElementById('payroll').value);
-            const industry = document.getElementById('industry').value;
-            const employees = parseInt(document.getElementById('employees').value);
-            
-            let rate = 0.01;
-            if (industry === 'Construction') rate = 0.08;
-            else if (industry === 'Manufacturing') rate = 0.05;
-            else if (industry === 'Restaurant') rate = 0.03;
-            else if (industry === 'Healthcare') rate = 0.04;
-            
-            const annual = payroll * rate;
-            monthly = annual / 12;
-            
-            html += '<div class="result-value">$' + annual.toFixed(2) + '/year</div>';
-            html += '<div class="result-detail">Monthly: $' + monthly.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Rate per $100 payroll: $' + (rate * 100).toFixed(2) + '</div>';
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
+            const stateMultiplier = parseFloat(document.getElementById('state').value);
+            const claimsMultiplier = parseFloat(document.getElementById('claims').value);
+            const safetyMultiplier = parseFloat(document.getElementById('safety').value);
+
+            if (!industrySelect.value || !payroll || payroll <= 0) {
+                alert('Please select an industry and enter a valid payroll amount');
+                return;
+            }
+
+            // Extract base rate from selected option text
+            const selectedText = industrySelect.options[industrySelect.selectedIndex].text;
+            const rateMatch = selectedText.match(/\$(\d+\.?\d*)/);
+            const baseRate = parseFloat(rateMatch[1]);
+
+            // Calculate adjusted rates
+            const stateAdjustedRate = baseRate * stateMultiplier;
+            const finalRate = stateAdjustedRate * claimsMultiplier * safetyMultiplier;
+
+            // Calculate premium
+            const annualPremium = (payroll / 100) * finalRate;
+            const monthlyCost = annualPremium / 12;
+            const costPer1000 = (annualPremium / payroll) * 1000;
+
+            // Display results
+            document.getElementById('baseRate').textContent = `$${baseRate.toFixed(2)}`;
+            document.getElementById('stateRate').textContent = `$${stateAdjustedRate.toFixed(2)}`;
+            document.getElementById('finalRate').textContent = `$${finalRate.toFixed(2)}`;
+            document.getElementById('annualPremium').textContent = `$${annualPremium.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('monthlyCost').textContent = `$${monthlyCost.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('costPer1000').textContent = `$${costPer1000.toFixed(2)}`;
+
+            document.getElementById('results').classList.add('show');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
+
+        // Auto-calculate on load if default values present
+        window.addEventListener('load', () => {
+            const industry = document.getElementById('industry');
+            if (industry.value) calculate();
+        });
     </script>
-<script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let monthly = 0;
-            let html = '<h3>Estimated Premium</h3>';
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            const payroll = parseFloat(document.getElementById('payroll').value);
-            const industry = document.getElementById('industry').value;
-            const employees = parseInt(document.getElementById('employees').value);
-            
-            let rate = 0.01;
-            if (industry === 'Construction') rate = 0.08;
-            else if (industry === 'Manufacturing') rate = 0.05;
-            else if (industry === 'Restaurant') rate = 0.03;
-            else if (industry === 'Healthcare') rate = 0.04;
-            
-            const annual = payroll * rate;
-            monthly = annual / 12;
-            
-            html += '<div class="result-value">$' + annual.toFixed(2) + '/year</div>';
-            html += '<div class="result-detail">Monthly: $' + monthly.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Rate per $100 payroll: $' + (rate * 100).toFixed(2) + '</div>';
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
-
-</div>
-
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This tool provides estimates for informational and educational purposes only. Results may not reflect actual values and should be verified independently. CalcLeap makes no warranties regarding the accuracy or completeness of any calculations. Use at your own discretion.</div>
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
-    </div>
-    <div>
-      <h4>Popular</h4>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
-    </div>
-    <div>
-      <h4>Categories</h4>
-      <a href="index.html#finance">Financial</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#health">Health</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
-</footer>
-
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
-<div style="display:flex;gap:.5rem;flex-shrink:0">
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
-</div>
-</div>
-<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
 </body>
 </html>
