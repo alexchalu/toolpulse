@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debt Avalanche Calculator - Fastest Way to Pay Off Debt | CalcLeap</title>
+    <meta name="description" content="Free debt avalanche calculator. Compare debt payoff strategies, calculate interest savings, and create a customized debt elimination plan using the avalanche method.">
+    <meta name="keywords" content="debt avalanche calculator, debt payoff calculator, debt elimination strategy, pay off debt fast, interest savings calculator, debt snowball vs avalanche">
+    <link rel="canonical" href="https://alexchalu.github.io/calcleap/debt-avalanche-calculator.html">
+    <meta property="og:title" content="Debt Avalanche Calculator - Fastest Way to Pay Off Debt">
+    <meta property="og:description" content="Free debt avalanche calculator. Compare payoff strategies and calculate interest savings.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexchalu.github.io/calcleap/debt-avalanche-calculator.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .debt-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .debt-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        .btn-danger {
+            background: #dc3545;
+        }
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        .result {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        .result h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        .payoff-schedule {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .payoff-schedule h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .debt-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            gap: 10px;
+        }
+        .debt-row.header {
+            font-weight: bold;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .comparison {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .comparison h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .method-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .method-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .savings-highlight {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #28a745;
+        }
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .info-box h3 {
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+            .method-comparison {
+                grid-template-columns: 1fr;
+            }
+            .debt-row {
+                grid-template-columns: 1fr;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💳 Debt Avalanche Calculator</h1>
+        <p class="subtitle">Calculate the fastest and cheapest way to eliminate your debt using the avalanche method</p>
+
+        <div class="info-box">
+            <h3>What is the Debt Avalanche Method?</h3>
+            <p>The debt avalanche method prioritizes paying off debts with the highest interest rates first while making minimum payments on others. This mathematically optimal strategy saves the most money on interest and gets you debt-free faster.</p>
+        </div>
+
+        <div class="debt-container">
+            <h2 style="margin-bottom: 15px;">Your Debts</h2>
+            <div id="debts"></div>
+            <button onclick="addDebt()">+ Add Another Debt</button>
+        </div>
+
+        <div class="input-group">
+            <label>Extra Monthly Payment (beyond minimums)</label>
+            <input type="number" id="extraPayment" value="200" min="0" step="50">
+        </div>
+
+        <div class="button-group">
+            <button onclick="calculate()">Calculate Payoff Plan</button>
+            <button class="btn-secondary" onclick="reset()">Reset</button>
+        </div>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        let debtCount = 0;
+
+        function addDebt() {
+            debtCount++;
+            const debtsDiv = document.getElementById('debts');
+            const debtItem = document.createElement('div');
+            debtItem.className = 'debt-item';
+            debtItem.id = `debt-${debtCount}`;
+            debtItem.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="margin: 0;">Debt #${debtCount}</h3>
+                    <button class="btn-danger" onclick="removeDebt(${debtCount})" style="padding: 5px 15px;">Remove</button>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div>
+                        <label>Debt Name</label>
+                        <input type="text" id="name-${debtCount}" value="Debt ${debtCount}" placeholder="Credit Card, Loan, etc.">
+                    </div>
+                    <div>
+                        <label>Balance ($)</label>
+                        <input type="number" id="balance-${debtCount}" value="5000" min="0" step="100">
+                    </div>
+                    <div>
+                        <label>Interest Rate (%)</label>
+                        <input type="number" id="rate-${debtCount}" value="18" min="0" max="100" step="0.1">
+                    </div>
+                    <div>
+                        <label>Minimum Payment ($)</label>
+                        <input type="number" id="payment-${debtCount}" value="100" min="0" step="10">
+                    </div>
+                </div>
+            `;
+            debtsDiv.appendChild(debtItem);
+        }
+
+        function removeDebt(id) {
+            const element = document.getElementById(`debt-${id}`);
+            if (element) {
+                element.remove();
+            }
+        }
+
+        function getDebts() {
+            const debts = [];
+            for (let i = 1; i <= debtCount; i++) {
+                const element = document.getElementById(`debt-${i}`);
+                if (!element) continue;
+
+                const name = document.getElementById(`name-${i}`).value;
+                const balance = parseFloat(document.getElementById(`balance-${i}`).value) || 0;
+                const rate = parseFloat(document.getElementById(`rate-${i}`).value) || 0;
+                const payment = parseFloat(document.getElementById(`payment-${i}`).value) || 0;
+
+                if (balance > 0) {
+                    debts.push({ name, balance, rate, payment, id: i });
+                }
+            }
+            return debts;
+        }
+
+        function calculateAvalanche(debts, extraPayment) {
+            // Sort by interest rate (highest first) - AVALANCHE METHOD
+            const sorted = [...debts].sort((a, b) => b.rate - a.rate);
+            let totalPayments = 0;
+            let totalInterest = 0;
+            let months = 0;
+            const schedule = [];
+            const remaining = sorted.map(d => ({ ...d, remaining: d.balance }));
+
+            while (remaining.some(d => d.remaining > 0) && months < 600) {
+                months++;
+                let monthlyExtra = extraPayment;
+
+                for (let debt of remaining) {
+                    if (debt.remaining <= 0) continue;
+
+                    const monthlyRate = debt.rate / 100 / 12;
+                    const interest = debt.remaining * monthlyRate;
+                    let payment = debt.payment;
+
+                    // Apply extra payment to highest interest debt
+                    if (debt === remaining.find(d => d.remaining > 0) && monthlyExtra > 0) {
+                        payment += monthlyExtra;
+                        monthlyExtra = 0;
+                    }
+
+                    payment = Math.min(payment, debt.remaining + interest);
+                    const principal = payment - interest;
+                    
+                    totalPayments += payment;
+                    totalInterest += interest;
+                    debt.remaining -= principal;
+                    
+                    if (debt.remaining < 0.01) debt.remaining = 0;
+                }
+            }
+
+            return { months, totalPayments, totalInterest, schedule: remaining };
+        }
+
+        function calculateSnowball(debts, extraPayment) {
+            // Sort by balance (smallest first) - SNOWBALL METHOD
+            const sorted = [...debts].sort((a, b) => a.balance - b.balance);
+            let totalPayments = 0;
+            let totalInterest = 0;
+            let months = 0;
+            const remaining = sorted.map(d => ({ ...d, remaining: d.balance }));
+
+            while (remaining.some(d => d.remaining > 0) && months < 600) {
+                months++;
+                let monthlyExtra = extraPayment;
+
+                for (let debt of remaining) {
+                    if (debt.remaining <= 0) continue;
+
+                    const monthlyRate = debt.rate / 100 / 12;
+                    const interest = debt.remaining * monthlyRate;
+                    let payment = debt.payment;
+
+                    // Apply extra payment to smallest balance debt
+                    if (debt === remaining.find(d => d.remaining > 0) && monthlyExtra > 0) {
+                        payment += monthlyExtra;
+                        monthlyExtra = 0;
+                    }
+
+                    payment = Math.min(payment, debt.remaining + interest);
+                    const principal = payment - interest;
+                    
+                    totalPayments += payment;
+                    totalInterest += interest;
+                    debt.remaining -= principal;
+                    
+                    if (debt.remaining < 0.01) debt.remaining = 0;
+                }
+            }
+
+            return { months, totalPayments, totalInterest };
+        }
+
+        function calculate() {
+            const debts = getDebts();
+            const extraPayment = parseFloat(document.getElementById('extraPayment').value) || 0;
+
+            if (debts.length === 0) {
+                alert('Please add at least one debt');
+                return;
+            }
+
+            const totalMinimum = debts.reduce((sum, d) => sum + d.payment, 0);
+            const totalBalance = debts.reduce((sum, d) => sum + d.balance, 0);
+
+            const avalanche = calculateAvalanche(debts, extraPayment);
+            const snowball = calculateSnowball(debts, extraPayment);
+            const savings = snowball.totalInterest - avalanche.totalInterest;
+            const monthsSaved = snowball.months - avalanche.months;
+
+            let html = `
+                <div class="result">
+                    <h2>📊 Debt Avalanche Results</h2>
+                    
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">Total Debt</div>
+                            <div class="stat-value">$${totalBalance.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Payoff Time</div>
+                            <div class="stat-value">${avalanche.months} months</div>
+                            <div class="stat-label" style="margin-top: 5px;">${(avalanche.months / 12).toFixed(1)} years</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Total Interest Paid</div>
+                            <div class="stat-value">$${avalanche.totalInterest.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Total Amount Paid</div>
+                            <div class="stat-value">$${avalanche.totalPayments.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                        </div>
+                    </div>
+
+                    <div class="comparison">
+                        <h3>💰 Avalanche vs Snowball Comparison</h3>
+                        <div class="method-comparison">
+                            <div class="method-card">
+                                <h4 style="color: #28a745; margin-bottom: 10px;">✓ Debt Avalanche (Recommended)</h4>
+                                <p><strong>Strategy:</strong> Pay highest interest first</p>
+                                <p><strong>Time:</strong> ${avalanche.months} months (${(avalanche.months / 12).toFixed(1)} years)</p>
+                                <p><strong>Total Interest:</strong> $${avalanche.totalInterest.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                                <p><strong>Total Paid:</strong> $${avalanche.totalPayments.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                            </div>
+                            <div class="method-card">
+                                <h4 style="color: #6c757d; margin-bottom: 10px;">Debt Snowball</h4>
+                                <p><strong>Strategy:</strong> Pay smallest balance first</p>
+                                <p><strong>Time:</strong> ${snowball.months} months (${(snowball.months / 12).toFixed(1)} years)</p>
+                                <p><strong>Total Interest:</strong> $${snowball.totalInterest.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                                <p><strong>Total Paid:</strong> $${snowball.totalPayments.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                            </div>
+                        </div>
+                        ${savings > 0 ? `
+                        <div class="savings-highlight">
+                            <strong>💵 Avalanche Method Saves You:</strong><br>
+                            $${savings.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} in interest<br>
+                            ${monthsSaved} months (${(monthsSaved / 12).toFixed(1)} years) faster payoff
+                        </div>
+                        ` : ''}
+                    </div>
+
+                    <div class="payoff-schedule">
+                        <h3>📋 Debt Avalanche Payoff Order</h3>
+                        <div class="debt-row header">
+                            <div>Debt Name</div>
+                            <div>Balance</div>
+                            <div>Rate</div>
+                            <div>Min Payment</div>
+                            <div>Priority</div>
+                        </div>
+                        ${[...debts].sort((a, b) => b.rate - a.rate).map((debt, i) => `
+                        <div class="debt-row">
+                            <div><strong>${debt.name}</strong></div>
+                            <div>$${debt.balance.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                            <div>${debt.rate}%</div>
+                            <div>$${debt.payment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                            <div><strong style="color: ${i === 0 ? '#28a745' : '#6c757d'};">${i === 0 ? 'FOCUS HERE' : `#${i + 1}`}</strong></div>
+                        </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="info-box" style="background: white; margin-top: 20px;">
+                        <h3>📌 Your Action Plan</h3>
+                        <ol style="margin-left: 20px; line-height: 2;">
+                            <li>Make minimum payments on all debts: <strong>$${totalMinimum.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}/month</strong></li>
+                            <li>Put all extra money ($${extraPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}/month) toward: <strong>${[...debts].sort((a, b) => b.rate - a.rate)[0].name}</strong></li>
+                            <li>Once that's paid off, roll that payment to the next highest interest debt</li>
+                            <li>Repeat until debt-free in <strong>${avalanche.months} months</strong></li>
+                        </ol>
+                        <p style="margin-top: 15px;"><strong>Total monthly budget needed:</strong> $${(totalMinimum + extraPayment).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('results').innerHTML = html;
+        }
+
+        function reset() {
+            document.getElementById('debts').innerHTML = '';
+            debtCount = 0;
+            document.getElementById('extraPayment').value = '200';
+            document.getElementById('results').innerHTML = '';
+            addDebt();
+            addDebt();
+            addDebt();
+        }
+
+        // Initialize with 3 sample debts
+        window.onload = function() {
+            addDebt();
+            addDebt();
+            addDebt();
+        };
+    </script>
+</body>
+</html>
