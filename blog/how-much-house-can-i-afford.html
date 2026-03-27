@@ -1,418 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How Much House Can I Afford? 2026 Calculator & Guide</title>
-<meta name="description" content="Calculate how much house you can afford based on your income, debt, and down payment. Use the 28/36 rule and get pre-approved with confidence.">
-<link rel="canonical" href="https://calcleap.com/blog/how-much-house-can-i-afford.html">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://calcleap.com/blog/how-much-house-can-i-afford.html">
-<meta property="og:title" content="How Much House Can I Afford? 2026 Calculator & Guide">
-<meta property="og:description" content="Calculate how much house you can afford based on your income, debt, and down payment. Use the 28/36 rule and get pre-approved with confidence.">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-
-<style>
-
-/* === CalcLeap Apple Design System === */
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --white:#fff;--bg:#f5f5f7;--surface:#fff;
-  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
-  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
-  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
-  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
-  --r:16px;--r-sm:12px;--r-xs:8px;
-  --mw:980px;
-  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
-}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
-a{color:inherit;text-decoration:none}
-
-/* === NAV === */
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
-.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:.15rem}
-.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
-.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
-
-/* === LAYOUT === */
-.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
-
-.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
-.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
-.breadcrumb .sep{margin:0 .35rem;opacity:.4}
-
-.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
-
-/* === CALCULATOR CARD === */
-.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.form-group{display:flex;flex-direction:column;gap:.3rem}
-.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
-.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
-.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-.toggle-row{display:flex;gap:.5rem;margin-bottom:1.25rem}
-.toggle-btn{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
-.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* === RESULTS === */
-.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-.bmi-big{font-size:3.5rem;font-weight:800;letter-spacing:-.04em;line-height:1}
-.bmi-label{font-size:1.1rem;font-weight:600;margin-top:.25rem}
-.bmi-advice{font-size:.875rem;color:var(--text-2);margin-top:.75rem;line-height:1.6}
-
-.gauge{margin:1.5rem 0;position:relative}
-.gauge-bar{display:flex;height:10px;border-radius:100px;overflow:hidden;gap:2px}
-.gauge-seg{height:100%;border-radius:100px}
-.gauge-marker{position:absolute;top:-4px;width:3px;height:18px;background:var(--text);border-radius:2px;transform:translateX(-50%);transition:left .4s ease;box-shadow:0 1px 4px rgba(0,0,0,.3)}
-.gauge-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-3);margin-top:.4rem;padding:0 .1rem}
-
-.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.stat-row:last-child{border-bottom:none}
-.stat-label{font-size:.85rem;color:var(--text-2)}
-.stat-value{font-size:.95rem;font-weight:700}
-
-/* === AD === */
-.ad-slot{margin:1.5rem 0}
-
-/* === INFO SECTIONS === */
-.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
-th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
-th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
-th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
-td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
-
-/* FAQ */
-.faq{border-top:1px solid var(--border);padding:.85rem 0}
-.faq:last-child{border-bottom:none}
-.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
-.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
-
-/* Related */
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
-.related-link:hover{border-color:var(--accent);color:var(--accent)}
-
-/* === FOOTER === */
-.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
-.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
-.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
-.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
-.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
-.footer a:hover{color:var(--text)}
-.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
-.footer-bottom p{font-size:.72rem;color:var(--text-3)}
-
-/* === RESPONSIVE === */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .page{padding:0 1.25rem}
-  .page-title{font-size:1.75rem}
-  .form-row{grid-template-columns:1fr}
-  .related-grid{grid-template-columns:1fr 1fr}
-  .footer-inner{grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){
-  .related-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr}
-}
-
-
-
-/* === COMPREHENSIVE COMPONENT STYLES === */
-
-/* Calc card (used by tax, mortgage, insurance pages) */
-.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-/* Input groups and grids */
-.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group.full{grid-column:1/-1}
-.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-/* Field class (converter pages) */
-.field{margin-bottom:1rem}
-.row{display:flex;gap:.75rem;align-items:center}
-
-/* Radio buttons */
-.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
-.radio-label:hover{border-color:var(--accent);color:var(--accent)}
-.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
-.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
-
-/* Buttons */
-.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
-.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* Result boxes */
-.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
-.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
-
-/* Result grid (tax, insurance calculators) */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-
-/* Result rows */
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none}
-.result-detail{font-size:.85rem;color:var(--text-2)}
-.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
-.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
-.result-item:last-child{border-bottom:none}
-
-/* Stat cards (state tax pages) */
-.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
-.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
-
-/* Section */
-.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-/* Container (fallback for old pages) */
-.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
-
-/* Tool cards (converter index pages) */
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
-.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
-.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
-.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
-.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
-.tool-content{flex:1}
-
-/* Output area (dev tools) */
-.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
-
-/* Converter box */
-.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
-.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
-.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
-.conversion-table{margin-top:1rem}
-
-/* Bar charts */
-.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
-.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
-.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
-
-/* Badge */
-.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Table wrapper */
-.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
-.bracket-table{width:100%;border-collapse:collapse}
-
-/* Rate cards */
-.rate{font-size:.875rem;color:var(--text-2)}
-
-/* Header (old pages fallback) */
-.header{display:none} /* Old header hidden, replaced by .nav */
-
-/* Sub text */
-.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
-
-/* Ad placeholder — HIDE */
-.ad-placeholder{display:none !important}
-
-/* Hero override */
-.hero{padding:.5rem 0 1rem}
-.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
-
-/* FAQ items (old class) */
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-
-/* Toggle/tab buttons */
-.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
-
-/* Color helpers */
-.green{color:#22c55e !important}
-.red{color:#ef4444 !important}
-
-/* Responsive */
-@media(max-width:768px){
-  .result-grid{grid-template-columns:1fr 1fr}
-  .radio-group{flex-direction:column}
-  .tool-grid{grid-template-columns:1fr}
-  .row{flex-direction:column}
-}
-@media(max-width:480px){
-  .result-grid{grid-template-columns:1fr}
-}
-
-</style>
-<meta property="og:image" content="https://calcleap.com/og-default.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Much House Can I Afford? 2026 Calculator & Guide | CalcLeap</title>
+    <meta name="description" content="Calculate how much house you can afford based on your income, debt, and down payment. Use the 28/36 rule and get pre-approved with confidence.">
+    <link rel="canonical" href="https://calcleap.com/blog/how-much-house-can-i-afford.html">
+    <link rel="stylesheet" href="../gold.css">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How Much House Can I Afford? 2026 Calculator & Guide">
+    <meta property="og:description" content="Calculate how much house you can afford. Use the 28/36 rule, free calculator, and expert tips.">
+    <meta property="og:url" content="https://calcleap.com/blog/how-much-house-can-i-afford.html">
+    <style>
+        .blog-content { max-width: 720px; margin: 0 auto; }
+        .blog-hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: var(--r); padding: 3rem 2.5rem; margin: 2rem 0; color: white; text-align: center; }
+        .blog-hero h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -.04em; line-height: 1.15; margin-bottom: 1rem; color: white; }
+        .blog-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+        .blog-meta { display: flex; gap: 1.5rem; justify-content: center; margin-top: 1.25rem; font-size: 0.85rem; opacity: 0.8; }
+        .blog-content h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -.03em; margin: 2.5rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+        .blog-content h2:first-of-type { border-top: none; padding-top: 0; }
+        .blog-content h3 { font-size: 1.15rem; font-weight: 700; margin: 1.75rem 0 0.75rem; }
+        .blog-content p { font-size: 1rem; line-height: 1.8; color: var(--text-2); margin-bottom: 1.25rem; }
+        .blog-content ul, .blog-content ol { margin: 1rem 0 1.5rem 1.5rem; }
+        .blog-content li { font-size: 1rem; line-height: 1.8; color: var(--text-2); margin-bottom: 0.5rem; }
+        .highlight-box { background: var(--accent-bg); border-left: 4px solid var(--accent); border-radius: 0 var(--r-xs) var(--r-xs) 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+        .highlight-box p { margin-bottom: 0; color: var(--text); }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .stat-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 1.5rem; text-align: center; }
+        .stat-box .number { font-size: 2rem; font-weight: 800; color: var(--accent); letter-spacing: -.03em; }
+        .stat-box .label { font-size: 0.8rem; color: var(--text-3); text-transform: uppercase; letter-spacing: .04em; margin-top: 0.25rem; }
+        .example-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: var(--r-sm); overflow: hidden; }
+        .example-table th { background: var(--accent); color: white; padding: 0.75rem 1rem; text-align: left; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
+        .example-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+        .example-table tr:last-child td { border-bottom: none; }
+        .example-table tr:nth-child(even) { background: var(--bg); }
+        .cta-box { background: linear-gradient(135deg, #0071e3 0%, #00a1ff 100%); border-radius: var(--r); padding: 2rem 2.5rem; text-align: center; margin: 2rem 0; color: white; }
+        .cta-box h3 { color: white; font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 1.25rem; }
+        .cta-box a { display: inline-block; background: white; color: var(--accent); padding: 0.75rem 2rem; border-radius: var(--r-sm); font-weight: 700; text-decoration: none; transition: all 0.2s; }
+        .cta-box a:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .checklist { list-style: none; margin-left: 0; padding-left: 0; }
+        .checklist li { padding: 0.5rem 0 0.5rem 2rem; position: relative; }
+        .checklist li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 700; font-size: 1.1rem; }
+        .warning-box { background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 0 var(--r-xs) var(--r-xs) 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+        .warning-box p { color: #92400e; margin-bottom: 0; }
+        img.blog-img { width: 100%; border-radius: var(--r-sm); margin: 1.5rem 0; border: 1px solid var(--border); }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="/index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="/index.html#finance">Finance</a>
-      <a href="/index.html#insurance">Insurance</a>
-      <a href="/index.html#tax">Tax</a>
-      <a href="/index.html#health">Health</a>
-      <a href="/index.html#converters">Converters</a>
-      <a href="/index.html#dev">Dev Tools</a>
-      <a href="/about.html">About</a>
-    </div>
-  </div>
-</nav>
-
-<div class="page" id="main-content" role="main">
-  <div class="breadcrumb">
-    <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#tools">Tools</a><span class="sep">›</span>How Much House Can I Afford? 2026 Calculator & Guide
-  </div>
-
-  <h1 class="page-title">How Much House Can I Afford? 2026 Calculator & Guide</h1>
-  <p class="page-desc">Calculate how much house you can afford based on your income, debt, and down payment. Use the 28/36 rule and get pre-approved with confidence.</p>
-
-<article>
-        <a href="/blog/" class="back-link">← Back to Blog</a>
-        
-        
-        <div class="ad-container">
-            
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">Calc<span>Leap</span></a>
+            <div class="nav-links">
+                <a href="../index.html#calculators">Calculators</a>
+                <a href="index.html">Blog</a>
+                <a href="../about.html">About</a>
+            </div>
         </div>
+    </nav>
 
-        
-      <h2>The 28/36 Rule for Home Affordability</h2>
-      <p>Lenders use the <strong>28/36 rule</strong> to determine how much house you can afford:</p>
-      <ul>
-        <li><strong>28%</strong> - Your monthly housing costs (mortgage, taxes, insurance) should not exceed 28% of gross monthly income</li>
-        <li><strong>36%</strong> - Your total debt payments (housing + car loans + credit cards + student loans) should not exceed 36% of gross income</li>
-      </ul>
+    <div class="page">
+        <div class="blog-content">
+            <div class="blog-hero">
+                <h1>How Much House Can I Afford?</h1>
+                <p>The complete 2026 guide to calculating your home buying budget — with free calculator, the 28/36 rule, and expert tips.</p>
+                <div class="blog-meta">
+                    <span>📅 Updated March 2026</span>
+                    <span>⏱ 8 min read</span>
+                    <span>💰 Finance</span>
+                </div>
+            </div>
 
-      <h2>Quick Affordability Calculator</h2>
-      <p>Here's a simple formula: <strong>Annual income × 3 = Maximum home price</strong></p>
-      <p>Examples:</p>
-      <ul>
-        <li>$75,000 income → $225,000 max home price</li>
-        <li>$100,000 income → $300,000 max home price</li>
-        <li>$150,000 income → $450,000 max home price</li>
-      </ul>
-      <p>This assumes a 20% down payment and moderate debt. Use our <a href="../calc/mortgage-payment.html">mortgage calculator</a> for exact numbers.</p>
+            <div class="highlight-box">
+                <p><strong>Quick answer:</strong> Most lenders recommend spending no more than <strong>28% of your gross monthly income</strong> on housing costs. For a $75,000 salary, that's about a $225,000 home with 20% down.</p>
+            </div>
 
-      <h2>Factors That Affect Affordability</h2>
-      <h3>1. Down Payment</h3>
-      <p>Larger down payments mean smaller monthly payments and better interest rates. Aim for 20% to avoid PMI.</p>
-      
-      <h3>2. Interest Rate</h3>
-      <p>A 1% difference in rate can change your monthly payment by hundreds of dollars. Even small rate differences matter on large loans.</p>
-      
-      <h3>3. Existing Debt</h3>
-      <p>Car loans, student loans, and credit card debt reduce how much house you can afford. Pay down debt before buying.</p>
-      
-      <h3>4. Property Taxes & Insurance</h3>
-      <p>These vary by location. High-tax states like NJ and IL can add $500-1000/month to housing costs.</p>
+            <h2>The 28/36 Rule Explained</h2>
+            <p>The 28/36 rule is the gold standard lenders use to determine how much house you can afford. It's simple but powerful:</p>
 
-      <h2>Hidden Costs of Homeownership</h2>
-      <p>Don't forget these expenses when budgeting:</p>
-      <ul>
-        <li><strong>Maintenance:</strong> Budget 1-2% of home value annually ($3,000-6,000/year on a $300k home)</li>
-        <li><strong>Utilities:</strong> Electric, gas, water, trash ($200-400/month)</li>
-        <li><strong>HOA fees:</strong> $50-500/month depending on location</li>
-        <li><strong>Closing costs:</strong> 2-5% of purchase price upfront</li>
-      </ul>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="number">28%</div>
+                    <div class="label">Max Housing Costs</div>
+                    <p style="font-size: 0.8rem; color: var(--text-3); margin-top: 0.5rem; margin-bottom: 0;">Mortgage + taxes + insurance ÷ gross income</p>
+                </div>
+                <div class="stat-box">
+                    <div class="number">36%</div>
+                    <div class="label">Max Total Debt</div>
+                    <p style="font-size: 0.8rem; color: var(--text-3); margin-top: 0.5rem; margin-bottom: 0;">Housing + car + student loans + credit cards</p>
+                </div>
+            </div>
 
-      <h2>Get Pre-Approved First</h2>
-      <p>Before house hunting, get pre-approved by a lender. This shows sellers you're serious and helps you avoid falling in love with a house you can't afford.</p>
+            <p>If your gross monthly income is $6,250 (i.e., $75,000/year), your maximum monthly housing cost should be <strong>$1,750</strong> (28% × $6,250). And your total monthly debt payments shouldn't exceed <strong>$2,250</strong> (36% × $6,250).</p>
 
-      <p>Use our <a href="../calc/mortgage-payment.html">mortgage calculator</a> to estimate your payment, then get pre-approved for that amount.</p>
-    
+            <h2>Quick Affordability Calculator</h2>
+            <p>Here's the simplest formula: <strong>Annual income × 3 = Maximum home price</strong> (with 20% down and moderate debt).</p>
 
-        <div class="ad-container">
-            
-        </div>
+            <table class="example-table">
+                <thead>
+                    <tr>
+                        <th>Annual Income</th>
+                        <th>Max Home Price</th>
+                        <th>Monthly Payment*</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>$50,000</td><td>$150,000</td><td>~$960</td></tr>
+                    <tr><td>$75,000</td><td>$225,000</td><td>~$1,440</td></tr>
+                    <tr><td>$100,000</td><td>$300,000</td><td>~$1,920</td></tr>
+                    <tr><td>$150,000</td><td>$450,000</td><td>~$2,880</td></tr>
+                    <tr><td>$200,000</td><td>$600,000</td><td>~$3,840</td></tr>
+                </tbody>
+            </table>
+            <p style="font-size: 0.8rem; color: var(--text-3);">*Estimated at 6.5% rate, 30-year fixed, 20% down. Does not include taxes/insurance.</p>
 
-        <div class="related-tools">
-            <h3>🔧 Free Tools</h3>
-            <p>Check out our collection of free calculators and tools:</p>
-            <ul>
-                <li><a href="/">All Tools</a> - 50+ free calculators</li>
-                <li><a href="/blog/">Blog</a> - Helpful guides and tutorials</li>
+            <div class="cta-box">
+                <h3>🏠 Calculate Your Exact Number</h3>
+                <p>Get a precise estimate with our free mortgage calculator — includes taxes, insurance, and PMI.</p>
+                <a href="../mortgage-calculator.html">Try the Mortgage Calculator →</a>
+            </div>
+
+            <h2>5 Factors That Affect Affordability</h2>
+
+            <h3>1. Down Payment</h3>
+            <p>A larger down payment means a smaller loan, lower monthly payments, and better interest rates. <strong>Aim for 20%</strong> to avoid Private Mortgage Insurance (PMI), which adds $100-300/month to your costs.</p>
+
+            <div class="highlight-box">
+                <p><strong>💡 Pro tip:</strong> Even if you can't hit 20%, some programs allow as low as 3% down (conventional) or 0% down (VA/USDA loans). Just factor in PMI costs.</p>
+            </div>
+
+            <h3>2. Interest Rate</h3>
+            <p>A 1% rate difference on a $300,000 mortgage changes your monthly payment by about <strong>$180/month</strong> — that's $64,800 over 30 years. Even small rate improvements matter enormously.</p>
+
+            <h3>3. Existing Debt</h3>
+            <p>Car loans, student loans, and credit card debt reduce how much house you can afford. Lenders look at your <strong>debt-to-income ratio (DTI)</strong>. Pay down high-interest debt before house hunting.</p>
+
+            <h3>4. Property Taxes & Insurance</h3>
+            <p>These vary dramatically by location. High-tax states like New Jersey and Illinois can add <strong>$500-1,000/month</strong> to your housing costs. Always factor in local property tax rates.</p>
+
+            <h3>5. Credit Score</h3>
+            <p>Higher credit scores = lower interest rates = more house for your money. A score above 740 gets you the best rates. Below 620, you may struggle to qualify at all.</p>
+
+            <h2>Hidden Costs Most Buyers Forget</h2>
+
+            <div class="warning-box">
+                <p><strong>⚠️ Warning:</strong> The purchase price is just the beginning. Budget an extra 1-4% of home value per year for these costs.</p>
+            </div>
+
+            <ul class="checklist">
+                <li><strong>Maintenance:</strong> Budget 1-2% of home value annually ($3,000-6,000 on a $300K home)</li>
+                <li><strong>Utilities:</strong> Electric, gas, water, internet, trash ($200-400/month)</li>
+                <li><strong>HOA fees:</strong> $50-500/month depending on community</li>
+                <li><strong>Closing costs:</strong> 2-5% of purchase price upfront ($6,000-15,000 on $300K)</li>
+                <li><strong>Home inspection:</strong> $300-500 (non-negotiable — always get one)</li>
+                <li><strong>Moving costs:</strong> $1,000-5,000 depending on distance</li>
             </ul>
+
+            <h2>Get Pre-Approved Before You Shop</h2>
+            <p>Before house hunting, get pre-approved by a lender. This tells you exactly what you can borrow and shows sellers you're serious. Here's the process:</p>
+
+            <ol>
+                <li>Gather documents: pay stubs, tax returns, bank statements, ID</li>
+                <li>Apply with 2-3 lenders to compare rates (this counts as one credit inquiry within 14-45 days)</li>
+                <li>Receive your pre-approval letter with your maximum loan amount</li>
+                <li>Shop within your budget — ideally 10-15% below your max</li>
+            </ol>
+
+            <div class="highlight-box">
+                <p><strong>💡 Smart strategy:</strong> Just because you're approved for $400,000 doesn't mean you should spend $400,000. Buy below your max to keep financial flexibility for emergencies and lifestyle.</p>
+            </div>
+
+            <div class="cta-box">
+                <h3>🔢 Ready to Run the Numbers?</h3>
+                <p>Use our free calculators to plan your home purchase with confidence.</p>
+                <a href="../mortgage-calculator.html">Mortgage Calculator →</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>How much income do I need to buy a $300,000 house?</h3>
+            <p>Using the 28/36 rule, you'd need a gross annual income of about <strong>$75,000-$85,000</strong> (assuming 20% down, 6.5% rate, and moderate property taxes). Use our calculator for exact numbers.</p>
+
+            <h3>Can I buy a house with $0 down?</h3>
+            <p>Yes — VA loans (for veterans) and USDA loans (for rural areas) offer 0% down. FHA loans allow 3.5% down. However, lower down payments mean higher monthly costs due to PMI.</p>
+
+            <h3>How much should I save before buying?</h3>
+            <p>Ideally, save enough for: 20% down payment + 3-5% closing costs + 3-6 months emergency fund. On a $300K home, that's roughly $75,000-$90,000 total.</p>
+
+            <p style="margin-top: 2rem;"><a href="index.html" style="color: var(--accent);">← Back to Blog</a></p>
         </div>
+    </div>
 
-        <div class="ad-container">
-            
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Popular Calculators</h4>
+                <a href="../mortgage-calculator.html">Mortgage Calculator</a>
+                <a href="../bmi-calculator.html">BMI Calculator</a>
+            </div>
+            <div>
+                <h4>Finance Tools</h4>
+                <a href="../calc/retirement-calculator.html">Retirement</a>
+                <a href="../calc/car-loan-calculator.html">Auto Loan</a>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <a href="../about.html">About</a>
+                <a href="../privacy.html">Privacy</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+            <div>
+                <h4>Resources</h4>
+                <a href="../api-docs.html">API</a>
+                <a href="index.html">Blog</a>
+            </div>
         </div>
-
-        <a href="/blog/" class="back-link">← Back to Blog</a>
-    </article>
-
-</div>
-
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="/index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
-    </div>
-    <div>
-      <h4>Popular</h4>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
-    </div>
-    <div>
-      <h4>Categories</h4>
-      <a href="/index.html#finance">Financial</a>
-      <a href="/index.html#insurance">Insurance</a>
-      <a href="/index.html#health">Health</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="/about.html">About</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
-</footer>
-
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
-<div style="display:flex;gap:.5rem;flex-shrink:0">
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
-</div>
-</div>
-<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+        <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+    </footer>
 </body>
 </html>
