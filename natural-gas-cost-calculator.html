@@ -3,402 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Calculate your natural gas costs with our free calculator. Compare therms vs CCF, estimate monthly bills, and find ways to save on heating and gas expenses.">
-    <meta name="keywords" content="natural gas calculator, gas bill calculator, natural gas cost, CCF to therms, heating cost calculator, gas usage calculator">
-    <meta property="og:title" content="Natural Gas Cost Calculator - Estimate Your Gas Bill">
-    <meta property="og:description" content="Calculate natural gas costs by usage, compare therms vs CCF pricing, and estimate monthly heating expenses.">
+    <title>Natural Gas Cost Calculator - Estimate Your Monthly Gas Bill | CalcLeap</title>
+    <meta name="description" content="Calculate natural gas costs based on usage, therms, rate, and appliance consumption. Estimate monthly bills for heating, water heaters, stoves, and dryers with accurate pricing.">
+    <meta name="keywords" content="natural gas calculator, gas bill estimator, therms calculator, natural gas cost, heating cost calculator, gas appliance cost, utility bill calculator">
+    <meta property="og:title" content="Natural Gas Cost Calculator - Estimate Your Monthly Gas Bill">
+    <meta property="og:description" content="Calculate natural gas costs based on usage, therms, rate, and appliance consumption. Free, accurate, and easy to use.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://calcleap.com/natural-gas-cost-calculator.html">
-    <title>Natural Gas Cost Calculator - Estimate Your Gas Bill | CalcLeap</title>
-    <link rel="canonical" href="https://calcleap.com/natural-gas-cost-calculator.html">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        h1 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            text-align: center;
-        }
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1.1em;
-        }
-        .calculator {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-        .input-group {
-            margin-bottom: 25px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: 600;
-        }
-        input, select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        input:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        .unit-toggle {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .unit-toggle label {
-            flex: 1;
-            margin: 0;
-        }
-        .unit-toggle input[type="radio"] {
-            width: auto;
-            margin-right: 5px;
-        }
-        button {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-        .results {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
-            display: none;
-        }
-        .results.show {
-            display: block;
-        }
-        .result-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-        .result-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .result-label {
-            font-size: 0.9em;
-            opacity: 0.9;
-            margin-bottom: 5px;
-        }
-        .result-value {
-            font-size: 2em;
-            font-weight: 700;
-        }
-        .info-section {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 30px;
-        }
-        .info-section h2 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-        .info-section p, .info-section ul {
-            margin-bottom: 15px;
-            color: #555;
-        }
-        .info-section ul {
-            padding-left: 20px;
-        }
-        .info-section li {
-            margin-bottom: 10px;
-        }
-        .tip-box {
-            background: #e7f3ff;
-            border-left: 4px solid #667eea;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        .tip-box strong {
-            color: #667eea;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #eee;
-            color: #666;
-        }
-        .footer a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            .result-value {
-                font-size: 1.5em;
-            }
-        }
-    </style>
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/natural-gas-cost-calculator.html">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6238804157120157"
+     crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Natural Gas Cost Calculator",
+      "description": "Calculate natural gas costs based on usage, therms, rate, and appliance consumption.",
+      "url": "https://alexchalu.github.io/toolpulse/natural-gas-cost-calculator.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <h1 class="page-title">⛽ Natural Gas Cost Calculator</h1>
-        <p class="subtitle">Calculate your natural gas expenses and compare pricing options</p>
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="index.html">CalcLeap</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#calculators">Calculators</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <div class="calculator">
-            <div class="input-group">
-                <label>Billing Unit</label>
-                <div class="unit-toggle">
-                    <label>
-                        <input type="radio" name="unit" value="therms" checked onchange="updateUnitLabel()">
-                        Therms
-                    </label>
-                    <label>
-                        <input type="radio" name="unit" value="ccf" onchange="updateUnitLabel()">
-                        CCF (100 cubic feet)
-                    </label>
-                    <label>
-                        <input type="radio" name="unit" value="mcf" onchange="updateUnitLabel()">
-                        MCF (1,000 cubic feet)
-                    </label>
+    <main>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> » <a href="index.html#utilities">Utilities</a> » Natural Gas Cost Calculator
+        </div>
+
+        <h1>⛽ Natural Gas Cost Calculator</h1>
+        <p class="subtitle">Estimate your monthly natural gas bill based on usage, therms, rate, and appliance consumption.</p>
+
+        <div class="calculator-container">
+            <div class="mode-switcher">
+                <button class="mode-btn active" data-mode="simple">Simple Mode</button>
+                <button class="mode-btn" data-mode="advanced">Advanced Mode</button>
+            </div>
+
+            <div id="simple-mode" class="calc-mode">
+                <div class="input-group">
+                    <label for="therms">Monthly Natural Gas Usage (Therms):</label>
+                    <input type="number" id="therms" min="0" step="0.1" value="50" placeholder="Enter therms (avg: 40-60/month)">
+                    <small>1 therm = 100,000 BTU. Check your gas bill for monthly usage.</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="rate">Natural Gas Rate ($/Therm):</label>
+                    <input type="number" id="rate" min="0" step="0.01" value="1.25" placeholder="Enter rate per therm">
+                    <small>US average: $1.00-$1.50/therm. Check your utility provider for exact rate.</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="fixedCharge">Monthly Fixed/Service Charge ($):</label>
+                    <input type="number" id="fixedCharge" min="0" step="0.01" value="15.00" placeholder="Enter fixed monthly charge">
+                    <small>Typical range: $10-$25/month. Check your gas bill.</small>
+                </div>
+
+                <button class="calculate-btn" onclick="calculateSimple()">Calculate Cost</button>
+
+                <div id="simple-result" class="result" style="display: none;">
+                    <h2>💰 Estimated Monthly Cost</h2>
+                    <div class="result-breakdown">
+                        <p><strong>Usage Cost:</strong> $<span id="usageCost">0.00</span></p>
+                        <p><strong>Fixed Charge:</strong> $<span id="fixedDisplay">0.00</span></p>
+                        <p class="total"><strong>Total Monthly Bill:</strong> $<span id="totalSimple">0.00</span></p>
+                    </div>
+                    <div class="result-tip">
+                        <p><strong>Annual Cost:</strong> $<span id="annualSimple">0.00</span></p>
+                    </div>
                 </div>
             </div>
 
-            <div class="input-group">
-                <label for="usage" id="usageLabel">Monthly Usage (Therms)</label>
-                <input type="number" id="usage" value="50" min="0" step="0.1">
-            </div>
+            <div id="advanced-mode" class="calc-mode" style="display: none;">
+                <h3>Appliance-Based Calculation</h3>
+                <p>Estimate gas usage by appliance type and hours of operation.</p>
 
-            <div class="input-group">
-                <label for="rate" id="rateLabel">Cost per Therm ($)</label>
-                <input type="number" id="rate" value="1.20" min="0" step="0.01">
-            </div>
+                <div class="appliance-section">
+                    <h4>🔥 Furnace / Heating</h4>
+                    <div class="input-group">
+                        <label for="furnaceBtu">Furnace BTU/Hour:</label>
+                        <input type="number" id="furnaceBtu" min="0" step="1000" value="80000" placeholder="Typical: 60,000-120,000 BTU/hr">
+                    </div>
+                    <div class="input-group">
+                        <label for="furnaceHours">Hours per Month:</label>
+                        <input type="number" id="furnaceHours" min="0" step="1" value="150" placeholder="Winter: 100-300 hrs, Summer: 0">
+                    </div>
+                    <div class="input-group">
+                        <label for="furnaceEfficiency">Efficiency (AFUE %):</label>
+                        <input type="number" id="furnaceEfficiency" min="50" max="98" step="1" value="90" placeholder="Modern: 90-95%, Older: 70-80%">
+                    </div>
+                </div>
 
-            <div class="input-group">
-                <label for="deliveryCharge">Monthly Delivery/Service Charge ($)</label>
-                <input type="number" id="deliveryCharge" value="15" min="0" step="0.01">
-            </div>
+                <div class="appliance-section">
+                    <h4>💧 Water Heater</h4>
+                    <div class="input-group">
+                        <label for="waterBtu">Water Heater BTU/Hour:</label>
+                        <input type="number" id="waterBtu" min="0" step="1000" value="40000" placeholder="Typical: 30,000-50,000 BTU/hr">
+                    </div>
+                    <div class="input-group">
+                        <label for="waterHours">Hours per Month:</label>
+                        <input type="number" id="waterHours" min="0" step="1" value="60" placeholder="Typical: 40-80 hrs/month">
+                    </div>
+                    <div class="input-group">
+                        <label for="waterEfficiency">Efficiency (%):</label>
+                        <input type="number" id="waterEfficiency" min="50" max="95" step="1" value="80" placeholder="Tank: 60-80%, Tankless: 85-95%">
+                    </div>
+                </div>
 
-            <div class="input-group">
-                <label for="taxes">Taxes & Fees (%)</label>
-                <input type="number" id="taxes" value="8" min="0" max="100" step="0.1">
-            </div>
+                <div class="appliance-section">
+                    <h4>🍳 Stove / Range</h4>
+                    <div class="input-group">
+                        <label for="stoveBtu">Stove BTU/Hour:</label>
+                        <input type="number" id="stoveBtu" min="0" step="1000" value="18000" placeholder="Typical: 15,000-25,000 BTU/hr">
+                    </div>
+                    <div class="input-group">
+                        <label for="stoveHours">Hours per Month:</label>
+                        <input type="number" id="stoveHours" min="0" step="0.5" value="20" placeholder="Typical: 10-30 hrs/month">
+                    </div>
+                </div>
 
-            <button onclick="calculateGasCost()">Calculate Natural Gas Cost</button>
+                <div class="appliance-section">
+                    <h4>👕 Dryer</h4>
+                    <div class="input-group">
+                        <label for="dryerBtu">Dryer BTU/Hour:</label>
+                        <input type="number" id="dryerBtu" min="0" step="1000" value="20000" placeholder="Typical: 18,000-25,000 BTU/hr">
+                    </div>
+                    <div class="input-group">
+                        <label for="dryerHours">Hours per Month:</label>
+                        <input type="number" id="dryerHours" min="0" step="0.5" value="15" placeholder="Typical: 10-20 hrs/month">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="rateAdv">Natural Gas Rate ($/Therm):</label>
+                    <input type="number" id="rateAdv" min="0" step="0.01" value="1.25" placeholder="Enter rate per therm">
+                </div>
+
+                <div class="input-group">
+                    <label for="fixedChargeAdv">Monthly Fixed Charge ($):</label>
+                    <input type="number" id="fixedChargeAdv" min="0" step="0.01" value="15.00">
+                </div>
+
+                <button class="calculate-btn" onclick="calculateAdvanced()">Calculate Total Cost</button>
+
+                <div id="advanced-result" class="result" style="display: none;">
+                    <h2>💰 Detailed Cost Breakdown</h2>
+                    <div class="result-breakdown">
+                        <p><strong>Furnace:</strong> <span id="furnaceUsage">0.0</span> therms × $<span id="furnaceRate">0.00</span> = $<span id="furnaceCost">0.00</span></p>
+                        <p><strong>Water Heater:</strong> <span id="waterUsage">0.0</span> therms × $<span id="waterRate">0.00</span> = $<span id="waterCost">0.00</span></p>
+                        <p><strong>Stove:</strong> <span id="stoveUsage">0.0</span> therms × $<span id="stoveRate">0.00</span> = $<span id="stoveCost">0.00</span></p>
+                        <p><strong>Dryer:</strong> <span id="dryerUsage">0.0</span> therms × $<span id="dryerRate">0.00</span> = $<span id="dryerCost">0.00</span></p>
+                        <p><strong>Total Usage:</strong> <span id="totalUsage">0.0</span> therms</p>
+                        <p><strong>Usage Cost:</strong> $<span id="usageCostAdv">0.00</span></p>
+                        <p><strong>Fixed Charge:</strong> $<span id="fixedDisplayAdv">0.00</span></p>
+                        <p class="total"><strong>Total Monthly Bill:</strong> $<span id="totalAdvanced">0.00</span></p>
+                    </div>
+                    <div class="result-tip">
+                        <p><strong>Annual Cost:</strong> $<span id="annualAdvanced">0.00</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="results" id="results">
-            <div class="result-item">
-                <div class="result-label">Total Monthly Cost</div>
-                <div class="result-value" id="totalCost">$0.00</div>
-            </div>
-            <div class="result-item">
-                <div class="result-label">Supply Charges</div>
-                <div class="result-value" id="supplyCost">$0.00</div>
-            </div>
-            <div class="result-item">
-                <div class="result-label">Delivery & Service</div>
-                <div class="result-value" id="deliveryCost">$0.00</div>
-            </div>
-            <div class="result-item">
-                <div class="result-label">Taxes & Fees</div>
-                <div class="result-value" id="taxCost">$0.00</div>
-            </div>
-            <div class="result-item">
-                <div class="result-label">Annual Estimated Cost</div>
-                <div class="result-value" id="annualCost">$0.00</div>
-            </div>
+        <!-- Ad unit 1 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-6238804157120157"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
 
-        <div class="info-section">
-            <h2>Understanding Natural Gas Billing</h2>
-            <p>Natural gas bills can be confusing with different units and charges. Here's what you need to know:</p>
+        <section class="content-section">
+            <h2>How to Use the Natural Gas Cost Calculator</h2>
             
-            <h3 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">Common Billing Units</h3>
-            <ul>
-                <li><strong>Therm:</strong> The most common unit. 1 therm = 100,000 BTU of energy. Average US rate: $0.80-$1.50 per therm.</li>
-                <li><strong>CCF (100 Cubic Feet):</strong> Used by some utilities. 1 CCF ≈ 1.03 therms.</li>
-                <li><strong>MCF (1,000 Cubic Feet):</strong> Less common. 1 MCF = 10 CCF ≈ 10.3 therms.</li>
-            </ul>
+            <h3>Simple Mode</h3>
+            <ol>
+                <li>Enter your monthly natural gas usage in <strong>therms</strong> (find this on your gas bill)</li>
+                <li>Input your gas rate per therm (check your utility provider's website or bill)</li>
+                <li>Add the monthly fixed service charge (usually $10-$25)</li>
+                <li>Click "Calculate Cost" to see your estimated bill</li>
+            </ol>
 
-            <h3 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">Understanding Your Bill</h3>
-            <ul>
-                <li><strong>Supply Charge:</strong> The actual cost of natural gas (commodity cost). This fluctuates with market prices.</li>
-                <li><strong>Delivery/Distribution:</strong> Fixed charges for maintaining pipes and infrastructure, typically $10-$25/month.</li>
-                <li><strong>Taxes & Fees:</strong> State/local taxes, environmental fees, and franchise fees, usually 5-15% of total.</li>
-            </ul>
+            <h3>Advanced Mode (Appliance-Based)</h3>
+            <ol>
+                <li>Select appliances you have: furnace, water heater, stove, dryer</li>
+                <li>Enter BTU/hour rating for each appliance (find on appliance label or manual)</li>
+                <li>Estimate hours of operation per month</li>
+                <li>Adjust efficiency ratings based on appliance age and type</li>
+                <li>Enter your gas rate and fixed charge</li>
+                <li>Click "Calculate Total Cost" to see breakdown by appliance</li>
+            </ol>
+        </section>
 
-            <div class="tip-box">
-                <strong>💡 Average Usage:</strong> A typical US home uses 50-100 therms/month in winter for heating and 10-20 therms/month in summer for hot water and cooking.
-            </div>
-
-            <h3 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">Ways to Reduce Your Natural Gas Bill</h3>
-            <ul>
-                <li><strong>Upgrade Your Furnace:</strong> Modern high-efficiency furnaces (95%+ AFUE) can cut heating costs by 30-50%.</li>
-                <li><strong>Seal Air Leaks:</strong> Weatherstripping and caulking can reduce heating needs by 10-20%.</li>
-                <li><strong>Install a Programmable Thermostat:</strong> Save 10-15% by lowering temps when sleeping or away.</li>
-                <li><strong>Lower Water Heater Temperature:</strong> Set to 120°F instead of 140°F to save 6-10% on water heating.</li>
-                <li><strong>Insulate Your Home:</strong> Attic insulation (R-38 to R-60) pays back investment in 2-5 years through energy savings.</li>
-                <li><strong>Service Your HVAC System:</strong> Annual maintenance keeps furnace efficiency high and prevents costly repairs.</li>
-            </ul>
-
-            <h3 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">Regional Price Differences</h3>
-            <ul>
-                <li><strong>Lowest Rates:</strong> Louisiana, Oklahoma, Arkansas ($0.60-$0.90/therm) - near gas production centers.</li>
-                <li><strong>Moderate Rates:</strong> Texas, Midwest states ($0.90-$1.20/therm) - good infrastructure.</li>
-                <li><strong>Highest Rates:</strong> Hawaii, Alaska, Northeast ($1.50-$2.50/therm) - remote or supply-constrained.</li>
-            </ul>
-
-            <div class="tip-box">
-                <strong>⚠️ Winter Spikes:</strong> Natural gas prices typically spike in winter (Dec-Feb) due to increased heating demand. Budget billing programs from your utility can smooth out seasonal variations.
-            </div>
-
-            <h3 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">When to Switch Suppliers</h3>
-            <p>In deregulated markets (OH, PA, IL, NY, etc.), you can choose your gas supplier. Consider switching if:</p>
-            <ul>
-                <li>Your current rate is >15% above market average</li>
-                <li>A competitor offers a fixed-rate contract during low-price periods</li>
-                <li>You can lock in rates before winter heating season</li>
-            </ul>
-            <p><strong>Warning:</strong> Read the fine print! Some suppliers have early termination fees or variable rates that spike after promotional periods.</p>
+        <!-- Ad unit 2 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-6238804157120157"
+                 data-ad-slot="1234567891"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
 
-        <div class="footer">
-            <p><a href="/">← Back to CalcLeap</a> | <a href="/about.html">About</a></p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Free financial calculators and tools to help you make smarter decisions.</p>
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>What is a therm?</h3>
+                <p>A therm is a unit of heat energy equal to 100,000 British Thermal Units (BTU). Natural gas is typically billed in therms. 1 therm = 100 cubic feet (CCF) of natural gas = approximately 1,000 cubic feet (MCF) ÷ 10.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How much natural gas does the average home use?</h3>
+                <p>The average US home uses 40-60 therms per month in mild weather and 80-150 therms per month in winter (depending on climate and heating needs). Homes without gas heating use 10-30 therms/month for water heating, cooking, and drying.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How much does natural gas cost per therm?</h3>
+                <p>Natural gas prices vary by region and season. As of 2025, the US average is $1.00-$1.50 per therm. Prices tend to be lower in Texas, Oklahoma, and Louisiana ($0.80-$1.20) and higher in California, New York, and Hawaii ($1.30-$2.00+).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How can I reduce my natural gas bill?</h3>
+                <p><strong>Top tips:</strong></p>
+                <ul>
+                    <li>Lower thermostat by 2-3°F in winter (saves 5-10% on heating)</li>
+                    <li>Install a programmable thermostat to reduce heating when away</li>
+                    <li>Insulate attic, walls, and seal air leaks (windows, doors, ducts)</li>
+                    <li>Replace old furnace with high-efficiency model (90%+ AFUE)</li>
+                    <li>Lower water heater temperature to 120°F</li>
+                    <li>Upgrade to tankless water heater (85-95% efficiency vs. 60-80% for tanks)</li>
+                    <li>Use lids on pots when cooking to reduce heat loss</li>
+                    <li>Clean furnace filters monthly and schedule annual tune-ups</li>
+                </ul>
+            </div>
+
+            <div class="faq-item">
+                <h3>What appliances use the most natural gas?</h3>
+                <p><strong>Natural gas consumption by appliance:</strong></p>
+                <ul>
+                    <li><strong>Furnace (heating):</strong> 60-80% of total gas usage (winter)</li>
+                    <li><strong>Water heater:</strong> 15-25% of total gas usage</li>
+                    <li><strong>Dryer:</strong> 3-5% of total gas usage</li>
+                    <li><strong>Stove/range:</strong> 2-4% of total gas usage</li>
+                    <li><strong>Fireplace:</strong> 1-3% of total gas usage</li>
+                </ul>
+            </div>
+
+            <div class="faq-item">
+                <h3>What is AFUE and why does it matter?</h3>
+                <p>AFUE (Annual Fuel Utilization Efficiency) measures how efficiently a furnace converts gas into heat. A 90% AFUE furnace converts 90% of gas into heat, with 10% lost through exhaust. Modern furnaces have 90-98% AFUE, while older models (pre-1990) may be 60-75%. Upgrading from 70% to 95% AFUE can save 25-35% on heating costs.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Should I switch from natural gas to electric?</h3>
+                <p><strong>Natural gas is typically cheaper than electric</strong> for heating and water heating. However, consider:</p>
+                <ul>
+                    <li><strong>Cost:</strong> Natural gas heating costs 30-50% less than electric resistance heating in most US regions</li>
+                    <li><strong>Heat pumps:</strong> Electric heat pumps can be cost-competitive with gas in mild climates (especially with tax credits)</li>
+                    <li><strong>Environmental impact:</strong> Natural gas produces CO2, while electricity can be renewable (depending on grid mix)</li>
+                    <li><strong>Safety:</strong> No combustion byproducts with electric, but gas is generally safe with proper maintenance</li>
+                    <li><strong>Reliability:</strong> Gas furnaces work during power outages (with battery-backup ignition)</li>
+                </ul>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I find my natural gas rate?</h3>
+                <p>Check your monthly gas bill for the "rate per therm" or "commodity charge." You can also find rates on your utility provider's website. Note: Total cost = (therms × rate) + fixed charge + delivery/distribution fees + taxes.</p>
+            </div>
+        </section>
+
+        <!-- Ad unit 3 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-6238804157120157"
+                 data-ad-slot="1234567892"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
-    </div>
+
+        <section class="content-section">
+            <h2>Understanding Your Natural Gas Bill</h2>
+            <p>Natural gas bills typically include several components:</p>
+            <ul>
+                <li><strong>Commodity charge:</strong> Cost per therm of gas used (variable)</li>
+                <li><strong>Delivery/distribution charge:</strong> Cost to transport gas to your home (usually per therm)</li>
+                <li><strong>Fixed service charge:</strong> Monthly customer charge ($10-$25, regardless of usage)</li>
+                <li><strong>Taxes and fees:</strong> State/local taxes, pipeline safety fees, etc.</li>
+            </ul>
+            <p>This calculator focuses on the commodity charge + fixed service charge. Your actual bill may be 10-20% higher after delivery fees and taxes.</p>
+
+            <h3>Seasonal Variation</h3>
+            <p>Natural gas usage varies dramatically by season:</p>
+            <ul>
+                <li><strong>Winter (Dec-Feb):</strong> 80-150 therms/month (heating dominates)</li>
+                <li><strong>Spring/Fall (Mar-May, Sep-Nov):</strong> 30-60 therms/month (moderate heating)</li>
+                <li><strong>Summer (Jun-Aug):</strong> 10-30 therms/month (water heating, cooking, drying only)</li>
+            </ul>
+            <p>Cold-climate states (Minnesota, Wisconsin, Maine) can use 200+ therms/month in harsh winters. Mild-climate states (California, Arizona, Florida) may use 15-40 therms/month year-round.</p>
+
+            <h3>Natural Gas vs. Propane</h3>
+            <p>Natural gas is piped to your home, while propane is stored in tanks. Key differences:</p>
+            <ul>
+                <li><strong>Cost:</strong> Natural gas is typically 30-50% cheaper than propane per BTU</li>
+                <li><strong>Availability:</strong> Natural gas requires pipeline access (not available in rural areas)</li>
+                <li><strong>Energy content:</strong> Propane has 2.5× more BTU per gallon than natural gas per therm, but costs more</li>
+                <li><strong>Storage:</strong> Propane requires tank rental/purchase and periodic refills</li>
+            </ul>
+
+            <h3>Energy Efficiency Upgrades</h3>
+            <p>Upgrading to high-efficiency appliances can significantly reduce gas usage:</p>
+            <ul>
+                <li><strong>Furnace:</strong> Replace 70% AFUE with 95% AFUE → save 25-35% on heating</li>
+                <li><strong>Water heater:</strong> Switch from tank (60-80% efficient) to tankless (85-95% efficient) → save 15-30%</li>
+                <li><strong>Thermostat:</strong> Install programmable/smart thermostat → save 10-15% on heating/cooling</li>
+                <li><strong>Insulation:</strong> Add attic insulation (R-38 to R-60) → reduce heating needs by 10-20%</li>
+            </ul>
+            <p>Many utilities offer rebates for efficiency upgrades. Check your provider's website for available incentives.</p>
+        </section>
+
+        <section class="related-tools">
+            <h2>Related Calculators</h2>
+            <div class="tool-grid">
+                <a href="electricity-cost-calculator.html" class="tool-card">
+                    <h3>⚡ Electricity Cost Calculator</h3>
+                    <p>Calculate electric bill costs</p>
+                </a>
+                <a href="solar-panel-roi-calculator.html" class="tool-card">
+                    <h3>☀️ Solar Panel ROI Calculator</h3>
+                    <p>Estimate solar savings and payback</p>
+                </a>
+                <a href="mortgage-calculator.html" class="tool-card">
+                    <h3>🏠 Mortgage Calculator</h3>
+                    <p>Calculate monthly home payments</p>
+                </a>
+                <a href="budget-calculator.html" class="tool-card">
+                    <h3>💰 Budget Calculator</h3>
+                    <p>Track monthly income and expenses</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 CalcLeap. Professional calculators for everyday life.</p>
+            <p><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="privacy.html">Privacy</a></p>
+        </div>
+    </footer>
 
     <script>
-        function updateUnitLabel() {
-            const unit = document.querySelector('input[name="unit"]:checked').value;
-            const usageLabel = document.getElementById('usageLabel');
-            const rateLabel = document.getElementById('rateLabel');
-            
-            if (unit === 'therms') {
-                usageLabel.textContent = 'Monthly Usage (Therms)';
-                rateLabel.textContent = 'Cost per Therm ($)';
-            } else if (unit === 'ccf') {
-                usageLabel.textContent = 'Monthly Usage (CCF)';
-                rateLabel.textContent = 'Cost per CCF ($)';
-            } else {
-                usageLabel.textContent = 'Monthly Usage (MCF)';
-                rateLabel.textContent = 'Cost per MCF ($)';
-            }
-        }
+        // Mode switcher
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const mode = this.dataset.mode;
+                document.getElementById('simple-mode').style.display = mode === 'simple' ? 'block' : 'none';
+                document.getElementById('advanced-mode').style.display = mode === 'advanced' ? 'block' : 'none';
+            });
+        });
 
-        function calculateGasCost() {
-            const unit = document.querySelector('input[name="unit"]:checked').value;
-            let usage = parseFloat(document.getElementById('usage').value);
+        function calculateSimple() {
+            const therms = parseFloat(document.getElementById('therms').value);
             const rate = parseFloat(document.getElementById('rate').value);
-            const deliveryCharge = parseFloat(document.getElementById('deliveryCharge').value);
-            const taxRate = parseFloat(document.getElementById('taxes').value) / 100;
+            const fixedCharge = parseFloat(document.getElementById('fixedCharge').value);
 
-            // Convert to therms for consistent calculation
-            let therms = usage;
-            if (unit === 'ccf') {
-                therms = usage * 1.03;
-            } else if (unit === 'mcf') {
-                therms = usage * 10.3;
+            if (isNaN(therms) || therms < 0 || isNaN(rate) || rate < 0 || isNaN(fixedCharge) || fixedCharge < 0) {
+                alert('Please enter valid positive numbers for all fields.');
+                return;
             }
 
-            // Calculate costs
-            const supplyCost = usage * rate;
-            const subtotal = supplyCost + deliveryCharge;
-            const taxCost = subtotal * taxRate;
-            const totalCost = subtotal + taxCost;
-            const annualCost = totalCost * 12;
+            const usageCost = therms * rate;
+            const total = usageCost + fixedCharge;
+            const annual = total * 12;
 
-            // Display results
-            document.getElementById('totalCost').textContent = '$' + totalCost.toFixed(2);
-            document.getElementById('supplyCost').textContent = '$' + supplyCost.toFixed(2);
-            document.getElementById('deliveryCost').textContent = '$' + deliveryCharge.toFixed(2);
-            document.getElementById('taxCost').textContent = '$' + taxCost.toFixed(2);
-            document.getElementById('annualCost').textContent = '$' + annualCost.toFixed(2);
+            document.getElementById('usageCost').textContent = usageCost.toFixed(2);
+            document.getElementById('fixedDisplay').textContent = fixedCharge.toFixed(2);
+            document.getElementById('totalSimple').textContent = total.toFixed(2);
+            document.getElementById('annualSimple').textContent = annual.toFixed(2);
 
-            document.getElementById('results').classList.add('show');
+            document.getElementById('simple-result').style.display = 'block';
         }
 
-        // Calculate on page load
-        calculateGasCost();
+        function calculateAdvanced() {
+            const rate = parseFloat(document.getElementById('rateAdv').value);
+            const fixedCharge = parseFloat(document.getElementById('fixedChargeAdv').value);
+
+            // Furnace
+            const furnaceBtu = parseFloat(document.getElementById('furnaceBtu').value) || 0;
+            const furnaceHours = parseFloat(document.getElementById('furnaceHours').value) || 0;
+            const furnaceEff = parseFloat(document.getElementById('furnaceEfficiency').value) || 90;
+            const furnaceTherms = (furnaceBtu * furnaceHours) / 100000 / (furnaceEff / 100);
+
+            // Water heater
+            const waterBtu = parseFloat(document.getElementById('waterBtu').value) || 0;
+            const waterHours = parseFloat(document.getElementById('waterHours').value) || 0;
+            const waterEff = parseFloat(document.getElementById('waterEfficiency').value) || 80;
+            const waterTherms = (waterBtu * waterHours) / 100000 / (waterEff / 100);
+
+            // Stove (100% efficiency assumed)
+            const stoveBtu = parseFloat(document.getElementById('stoveBtu').value) || 0;
+            const stoveHours = parseFloat(document.getElementById('stoveHours').value) || 0;
+            const stoveTherms = (stoveBtu * stoveHours) / 100000;
+
+            // Dryer (100% efficiency assumed)
+            const dryerBtu = parseFloat(document.getElementById('dryerBtu').value) || 0;
+            const dryerHours = parseFloat(document.getElementById('dryerHours').value) || 0;
+            const dryerTherms = (dryerBtu * dryerHours) / 100000;
+
+            const totalUsage = furnaceTherms + waterTherms + stoveTherms + dryerTherms;
+            const usageCost = totalUsage * rate;
+            const total = usageCost + fixedCharge;
+            const annual = total * 12;
+
+            document.getElementById('furnaceUsage').textContent = furnaceTherms.toFixed(1);
+            document.getElementById('furnaceRate').textContent = rate.toFixed(2);
+            document.getElementById('furnaceCost').textContent = (furnaceTherms * rate).toFixed(2);
+
+            document.getElementById('waterUsage').textContent = waterTherms.toFixed(1);
+            document.getElementById('waterRate').textContent = rate.toFixed(2);
+            document.getElementById('waterCost').textContent = (waterTherms * rate).toFixed(2);
+
+            document.getElementById('stoveUsage').textContent = stoveTherms.toFixed(1);
+            document.getElementById('stoveRate').textContent = rate.toFixed(2);
+            document.getElementById('stoveCost').textContent = (stoveTherms * rate).toFixed(2);
+
+            document.getElementById('dryerUsage').textContent = dryerTherms.toFixed(1);
+            document.getElementById('dryerRate').textContent = rate.toFixed(2);
+            document.getElementById('dryerCost').textContent = (dryerTherms * rate).toFixed(2);
+
+            document.getElementById('totalUsage').textContent = totalUsage.toFixed(1);
+            document.getElementById('usageCostAdv').textContent = usageCost.toFixed(2);
+            document.getElementById('fixedDisplayAdv').textContent = fixedCharge.toFixed(2);
+            document.getElementById('totalAdvanced').textContent = total.toFixed(2);
+            document.getElementById('annualAdvanced').textContent = annual.toFixed(2);
+
+            document.getElementById('advanced-result').style.display = 'block';
+        }
     </script>
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
-    </div>
-    <div>
-      <h4>Popular</h4>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
-      <a href="calc/compound-interest.html">Compound Interest</a>
-    </div>
-    <div>
-      <h4>Categories</h4>
-      <a href="index.html#finance">Financial</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#health">Health</a>
-      <a href="index.html#converters">Converters</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
-      <a href="blog/index.html">Blog</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
-</footer>
 </body>
 </html>
