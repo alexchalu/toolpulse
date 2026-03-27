@@ -1,334 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Injury Settlement Calculator - Free Personal Injury Tool | CalcLeap</title>
-    <meta name="description" content="Estimate potential personal injury claim value. Free online calculator with instant results.">
-    <link rel="canonical" href="https://calcleap.com/personal-injury-settlement-calculator.html">
-<meta property="og:title" content="Personal Injury Settlement Calculator - Free Personal Injury Tool">
-<meta property="og:description" content="Estimate potential personal injury claim value. Free online calculator with instant results.">
-<meta property="og:url" content="https://calcleap.com/personal-injury-settlement-calculator.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Injury Settlement Calculator — Free Online Calculator | CalcLeap</title>
+<meta name="description" content="Estimate personal injury settlement value based on medical costs, lost wages, pain and suffering. Free injury claim calculator with multiplier method.">
+<link rel="canonical" href="https://calcleap.com/personal-injury-settlement-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Personal Injury Settlement Calculator — CalcLeap">
+<meta property="og:description" content="Estimate personal injury settlement value based on medical costs, lost wages, pain and suffering. Free injury claim calculator with multiplier method.">
 <meta property="og:type" content="website">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
-        .header { background: white; border-bottom: 1px solid #e5e5e7; padding: 1rem 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); background: rgba(255,255,255,0.8); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        .header h1 { font-size: 2rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem; }
-        .header p { color: #6e6e73; font-size: 1.1rem; }
-        .main { padding: 3rem 0; }
-        .calc-box { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
-        .calc-box h2 { font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem; color: #1d1d1f; }
-        .input-group { margin-bottom: 1.5rem; }
-        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: #1d1d1f; font-size: 1rem; }
-        .input-group input, .input-group select { width: 100%; padding: 0.875rem 1rem; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 1rem; transition: all 0.2s; background: white; }
-        .input-group input:focus, .input-group select:focus { outline: none; border-color: #0071e3; box-shadow: 0 0 0 4px rgba(0,113,227,0.1); }
-        .calc-btn { background: #0071e3; color: white; border: none; padding: 1rem 2rem; font-size: 1.125rem; font-weight: 500; border-radius: 12px; cursor: pointer; width: 100%; transition: background 0.2s; }
-        .calc-btn:hover { background: #0077ed; }
-        .result-box { background: linear-gradient(135deg, #f5f9ff 0%, #e8f4ff 100%); border: 1px solid #0071e3; padding: 2rem; border-radius: 18px; margin-top: 1.5rem; display: none; }
-        .result-box h3 { color: #0071e3; margin-bottom: 1.25rem; font-size: 1.5rem; font-weight: 600; }
-        .result-value { font-size: 2.5rem; font-weight: 700; color: #0071e3; margin: 0.75rem 0; }
-        .result-detail { margin: 0.75rem 0; color: #1d1d1f; font-size: 1.05rem; }
-        .result-detail strong { font-weight: 600; }
-        .chart-container { margin: 1.5rem 0; }
-        .bar-chart { display: flex; gap: 0.5rem; align-items: flex-end; height: 200px; }
-        .bar { flex: 1; background: linear-gradient(to top, #0071e3, #00a1ff); border-radius: 8px 8px 0 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0.5rem; color: white; font-weight: 600; transition: transform 0.3s; }
-        .bar:hover { transform: translateY(-5px); }
-        .bar-label { margin-top: 0.5rem; font-size: 0.9rem; color: #6e6e73; text-align: center; }
-        .info-section { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
-        .info-section h3 { color: #1d1d1f; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600; }
-        .info-section p { margin-bottom: 1rem; color: #1d1d1f; line-height: 1.7; }
-        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-        .info-section li { margin-bottom: 0.5rem; color: #1d1d1f; }
-        .disclaimer { background: #fff4e6; border-left: 4px solid #ff9500; padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
-        .disclaimer p { margin: 0; color: #1d1d1f; font-size: 0.95rem; }
-        .footer { background: #f5f5f7; padding: 2rem 0; text-align: center; border-top: 1px solid #e5e5e7; margin-top: 4rem; }
-        .footer a { color: #0071e3; text-decoration: none; }
-        @media (max-width: 768px) { .header h1 { font-size: 1.75rem; } .calc-box, .info-section { padding: 1.5rem; } }
-    
-
-/* === COMPREHENSIVE COMPONENT STYLES === */
-
-/* Calc card (used by tax, mortgage, insurance pages) */
-.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-/* Input groups and grids */
-.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group.full{grid-column:1/-1}
-.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-/* Field class (converter pages) */
-.field{margin-bottom:1rem}
-.row{display:flex;gap:.75rem;align-items:center}
-
-/* Radio buttons */
-.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
-.radio-label:hover{border-color:var(--accent);color:var(--accent)}
-.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
-.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
-
-/* Buttons */
-.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
-.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* Result boxes */
-.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
-.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
-
-/* Result grid (tax, insurance calculators) */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-
-/* Result rows */
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none}
-.result-detail{font-size:.85rem;color:var(--text-2)}
-.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
-.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
-.result-item:last-child{border-bottom:none}
-
-/* Stat cards (state tax pages) */
-.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
-.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
-
-/* Section */
-.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-/* Container (fallback for old pages) */
-.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
-
-/* Tool cards (converter index pages) */
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
-.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
-.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
-.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
-.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
-.tool-content{flex:1}
-
-/* Output area (dev tools) */
-.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
-
-/* Converter box */
-.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
-.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
-.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
-.conversion-table{margin-top:1rem}
-
-/* Bar charts */
-.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
-.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
-.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
-
-/* Badge */
-.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Table wrapper */
-.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
-.bracket-table{width:100%;border-collapse:collapse}
-
-/* Rate cards */
-.rate{font-size:.875rem;color:var(--text-2)}
-
-/* Header (old pages fallback) */
-.header{display:none} /* Old header hidden, replaced by .nav */
-
-/* Sub text */
-.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
-
-/* Ad placeholder — HIDE */
-.ad-placeholder{display:none !important}
-
-/* Hero override */
-.hero{padding:.5rem 0 1rem}
-.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
-
-/* FAQ items (old class) */
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-
-/* Toggle/tab buttons */
-.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
-
-/* Color helpers */
-.green{color:#22c55e !important}
-.red{color:#ef4444 !important}
-
-/* Responsive */
+<meta property="og:url" content="https://calcleap.com/personal-injury-settlement-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Personal Injury Settlement Calculator",
+    "description": "Estimate personal injury settlement value based on medical costs, lost wages, pain and suffering. Free injury claim calculator with multiplier method.",
+    "url": "https://calcleap.com/personal-injury-settlement-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.result-big{font-size:3rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--accent)}
+.result-label{font-size:1rem;font-weight:600;margin-top:.5rem;color:var(--text-2)}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
+.stat-row:last-child{border-bottom:none}
+.stat-label{font-size:.85rem;color:var(--text-2)}
+.stat-value{font-size:.95rem;font-weight:700}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;margin-bottom:1.5rem}
+.info-card h2{font-size:1.5rem;font-weight:700;margin-bottom:1rem}
+.info-card h3{font-size:1.15rem;font-weight:600;margin:1.5rem 0 .75rem;color:var(--text)}
+.info-card p{color:var(--text-2);line-height:1.7;margin-bottom:1rem}
+.info-card ul,.info-card ol{margin-left:1.5rem;margin-bottom:1rem;color:var(--text-2);line-height:1.7}
+.info-card li{margin-bottom:.5rem}
+.faq{margin-top:1rem;border-top:1px solid var(--border);padding-top:1rem}
+.faq dt{font-weight:600;margin-top:1.25rem;margin-bottom:.5rem;color:var(--text)}
+.faq dd{color:var(--text-2);line-height:1.7;margin-bottom:1rem}
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 0}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:2rem}
+.footer h4{font-size:.85rem;font-weight:600;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em}
+.footer ul{list-style:none}
+.footer li{margin-bottom:.5rem}
+.footer a{font-size:.85rem;color:var(--text-3);transition:color .2s}
+.footer a:hover{color:var(--accent)}
+.footer-bottom{text-align:center;font-size:.8rem;color:var(--text-3);padding-top:1.5rem;border-top:1px solid var(--border)}
+.ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;background:var(--bg);border:1px solid var(--border);border-radius:var(--r)}
 @media(max-width:768px){
-  .result-grid{grid-template-columns:1fr 1fr}
-  .radio-group{flex-direction:column}
-  .tool-grid{grid-template-columns:1fr}
-  .row{flex-direction:column}
+.nav-links{display:none}
+.form-row{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+.page-title{font-size:1.75rem}
 }
-@media(max-width:480px){
-  .result-grid{grid-template-columns:1fr}
-}
-
 </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="index.html#finance">Finance</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#tax">Tax</a>
-      <a href="index.html#health">Health</a>
-      <a href="index.html#converters">Converters</a>
-      <a href="index.html#dev">Dev Tools</a>
-      <a href="about.html">About</a>
-    </div>
-  </div>
+
+<nav class="nav">
+<div class="nav-inner">
+<a href="index.html" class="logo">Calc<span>Leap</span></a>
+<div class="nav-links">
+<a href="index.html#finance">Finance</a>
+<a href="index.html#insurance">Insurance</a>
+<a href="index.html#health">Health</a>
+<a href="index.html#converters">Converters</a>
+<a href="about.html">About</a>
+</div>
+</div>
 </nav>
 
-    <div class="header">
-        <div class="container">
-            <h1 class="page-title">Personal Injury Settlement Calculator</h1>
-            <p>Estimate potential personal injury claim value</p>
-        </div>
-    </div>
+<main class="page">
 
-    <div class="main container">
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div class="breadcrumb">
+<a href="index.html">Home</a><span class="sep">/</span><span>Personal Injury Settlement Calculator</span>
+</div>
 
-        <div class="calc-box">
-            <h2>Personal Injury Estimator</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your information below for an estimated calculation. This is for informational purposes only.</p>
-            <div class="input-group">
-                <label for="income">Annual Income ($):</label>
-                <input type="number" id="income" min="0" value="75000" aria-label="Income">
-            </div>
-            <div class="input-group">
-                <label for="duration">Duration (months):</label>
-                <select id="duration" aria-label="Duration">
-                    <option value="12">12 months</option>
-                    <option value="24">24 months</option>
-                    <option value="36" selected>36 months</option>
-                    <option value="48">48 months</option>
-                    <option value="60">60 months</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="factor">Multiplier (%):</label>
-                <input type="number" id="factor" min="0" max="100" value="25" step="1" aria-label="Factor">
-                <small style="color: #6e6e73;">Percentage of income used in calculation</small>
-            </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Estimate</button>
-            <div class="result-box" id="result">
-                <h3>Estimated Results</h3>
-            </div>
-        </div>
+<h1 class="page-title">Personal Injury Settlement Calculator</h1>
+<p class="page-desc">Estimate your personal injury claim value based on medical expenses, lost income, and pain & suffering using the multiplier method.</p>
 
-        <div class="disclaimer">
-            <p><strong>Legal Disclaimer:</strong> This calculator provides estimates for informational purposes only. Actual personal injury amounts vary based on many factors including state laws, specific circumstances, and court decisions. Consult with a licensed attorney for advice on your specific situation.</p>
-        </div>
+<div class="card">
+<h2>Injury Details</h2>
 
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div class="form-group">
+<label>Injury Type</label>
+<select id="injuryType">
+<option value="soft">Soft tissue injury (Minor)</option>
+<option value="moderate">Moderate injury (Broken bone, whiplash)</option>
+<option value="serious">Serious injury (Surgery, permanent damage)</option>
+<option value="catastrophic">Catastrophic (Disability, brain/spine injury)</option>
+</select>
+</div>
 
-        <div class="info-section">
-            <h3>About Personal Injury Settlement Calculator</h3>
-            <p>Estimate potential personal injury claim value. This calculator uses common formulas and guidelines, but actual amounts can vary significantly based on:</p>
-            <ul>
-                <li>State-specific laws and guidelines</li>
-                <li>Individual circumstances and factors</li>
-                <li>Court discretion and case specifics</li>
-                <li>Additional income sources or assets</li>
-            </ul>
-            <h3>When to Consult an Attorney</h3>
-            <p>It's recommended to consult with a licensed attorney if you're involved in any personal injury matter. An attorney can:</p>
-            <ul>
-                <li>Provide advice specific to your situation</li>
-                <li>Explain state-specific laws and requirements</li>
-                <li>Represent you in negotiations or court</li>
-                <li>Ensure your rights are protected</li>
-            </ul>
-            <h3>More Calculators</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Calculators</a></li>
-                <li><a href="about.html">About CalcLeap</a></li>
-            </ul>
-        </div>
-
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online calculators and tools.</p>
-            <p><a href="index.html">Home</a> • <a href="about.html">About</a> • <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a> • <a href="contact.html">Contact</a></p>
-        </div>
-    </div>
-
-    <script>
-        function calculate() {
-            const income = parseFloat(document.getElementById('income').value) || 0;
-            const duration = parseInt(document.getElementById('duration').value) || 36;
-            const factor = parseFloat(document.getElementById('factor').value) / 100 || 0.25;
-            
-            const monthlyIncome = income / 12;
-            const monthlyAmount = monthlyIncome * factor;
-            const totalAmount = monthlyAmount * duration;
-            
-            let html = '<h3>Estimated Calculation</h3>';
-            html += '<div class="result-value">$' + monthlyAmount.toFixed(2).toLocaleString() + '/month</div>';
-            html += '<div class="result-detail"><strong>Total over ' + duration + ' months:</strong> $' + totalAmount.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Based on annual income:</strong> $' + income.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Monthly income:</strong> $' + monthlyIncome.toFixed(2).toLocaleString() + '</div>';
-            
-            // Add visual bar chart
-            html += '<div class="chart-container">';
-            html += '<div class="bar-chart">';
-            const barHeight1 = (monthlyIncome / monthlyIncome) * 100;
-            const barHeight2 = (monthlyAmount / monthlyIncome) * 100;
-            html += '<div class="bar" style="height:' + barHeight1 + '%"><small>$' + monthlyIncome.toFixed(0).toLocaleString() + '</small></div>';
-            html += '<div class="bar" style="height:' + barHeight2 + '%"><small>$' + monthlyAmount.toFixed(0).toLocaleString() + '</small></div>';
-            html += '</div>';
-            html += '<div style="display:flex; gap:0.5rem;">';
-            html += '<div style="flex:1;" class="bar-label">Monthly Income</div>';
-            html += '<div style="flex:1;" class="bar-label">Estimated Payment</div>';
-            html += '</div>';
-            html += '</div>';
-            
-            html += '<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #6e6e73;"><em>This is an estimate only. Actual amounts may differ based on state laws, specific circumstances, and court decisions. Always consult with a licensed attorney.</em></p>';
-            
-            document.getElementById('result').innerHTML = html;
-            document.getElementById('result').style.display = 'block';
-        }
-    </script>
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This tool provides estimates for informational and educational purposes only. Results may not reflect actual values and should be verified independently. CalcLeap makes no warranties regarding the accuracy or completeness of any calculations. Use at your own discretion.</div>
-<footer class="footer" role="contentinfo"><div class="footer-inner"><div class="footer-grid"><div><h4>CalcLeap</h4><p style="font-size:.8rem;color:var(--text-3);line-height:1.5">Free calculators and tools for everyone.</p></div><div><h4>Popular</h4><a href="/bmi-calculator.html">BMI Calculator</a><a href="/calc/mortgage-payment.html">Mortgage Calculator</a><a href="/income-tax-calculator.html">Tax Calculator</a></div><div><h4>Categories</h4><a href="/index.html#finance">Finance</a><a href="/index.html#health">Health</a><a href="/index.html#insurance">Insurance</a></div><div><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div><p style="text-align:center;font-size:.75rem;color:var(--text-3);margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border)">© 2026 CalcLeap. All rights reserved.</p></div></footer>
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
-<div style="display:flex;gap:.5rem;flex-shrink:0">
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+<div class="form-row">
+<div class="form-group">
+<label>Medical Expenses ($)</label>
+<input type="number" id="medicalExpenses" placeholder="25000" value="25000">
+</div>
+<div class="form-group">
+<label>Lost Wages ($)</label>
+<input type="number" id="lostWages" placeholder="8000" value="8000">
 </div>
 </div>
-<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+
+<div class="form-row">
+<div class="form-group">
+<label>Property Damage ($)</label>
+<input type="number" id="propertyDamage" placeholder="5000" value="0">
+</div>
+<div class="form-group">
+<label>Future Medical Costs ($)</label>
+<input type="number" id="futureMedical" placeholder="0" value="0">
+</div>
+</div>
+
+<div class="form-group">
+<label>Fault Percentage (Your fault %)</label>
+<input type="number" id="faultPercent" placeholder="0" value="0" min="0" max="100">
+</div>
+
+<button class="btn" onclick="calculate()">Calculate Settlement Range</button>
+
+<div class="result-area" id="results">
+<div class="result-big" id="settlementRange">$50,000 - $165,000</div>
+<div class="result-label">Estimated Settlement Range</div>
+
+<div style="margin-top:1.5rem">
+<div class="stat-row">
+<span class="stat-label">Economic Damages</span>
+<span class="stat-value" id="economicDamages">$33,000</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">Pain & Suffering (Multiplier)</span>
+<span class="stat-value" id="multiplier">3x - 5x</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">Low Estimate</span>
+<span class="stat-value" id="lowEst">$50,000</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">High Estimate</span>
+<span class="stat-value" id="highEst">$165,000</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">After Fault Reduction</span>
+<span class="stat-value" id="afterFault">$50,000 - $165,000</span>
+</div>
+</div>
+
+<p style="margin-top:1.5rem;font-size:.875rem;color:var(--text-3);line-height:1.6">
+This is a rough estimate using the multiplier method. Actual settlements depend on liability, jurisdiction, insurance limits, legal representation, and case-specific factors. Consult a personal injury attorney for an accurate valuation.
+</p>
+</div>
+
+</div>
+
+<div class="ad-slot">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="info-card">
+<h2>How Personal Injury Settlements Are Calculated</h2>
+
+<p>Personal injury settlements are typically calculated using two main components: <strong>economic damages</strong> (quantifiable losses) and <strong>non-economic damages</strong> (pain and suffering). The multiplier method is the most common approach used by insurance companies and attorneys.</p>
+
+<h3>Economic Damages (Special Damages)</h3>
+<p>These are out-of-pocket expenses with clear dollar values:</p>
+<ul>
+<li><strong>Medical expenses:</strong> Emergency room, hospital stays, surgery, physical therapy, prescriptions, medical equipment</li>
+<li><strong>Lost wages:</strong> Income lost due to time off work, including future earning capacity if permanently disabled</li>
+<li><strong>Property damage:</strong> Vehicle repairs, personal property replacement</li>
+<li><strong>Future medical costs:</strong> Ongoing treatment, rehabilitation, long-term care</li>
+</ul>
+
+<h3>Non-Economic Damages (General Damages)</h3>
+<p>Pain and suffering is calculated using a multiplier (typically 1.5x to 5x) applied to economic damages:</p>
+<ul>
+<li><strong>1.5x - 2x:</strong> Minor soft tissue injuries, full recovery expected</li>
+<li><strong>3x - 4x:</strong> Moderate injuries with lingering effects (broken bones, whiplash)</li>
+<li><strong>4x - 5x:</strong> Serious injuries requiring surgery or causing permanent impairment</li>
+<li><strong>5x+:</strong> Catastrophic injuries (brain injury, paralysis, disfigurement)</li>
+</ul>
+
+<h3>Factors That Increase Settlement Value</h3>
+<ul>
+<li><strong>Clear liability:</strong> Other party is 100% at fault with strong evidence</li>
+<li><strong>Severe injuries:</strong> Permanent disability, scarring, or long-term impairment</li>
+<li><strong>High medical costs:</strong> Extensive treatment increases base damages</li>
+<li><strong>Lost earning capacity:</strong> Inability to return to previous work</li>
+<li><strong>Strong legal representation:</strong> Experienced attorneys negotiate higher settlements</li>
+<li><strong>Insurance policy limits:</strong> Higher limits allow larger settlements</li>
+</ul>
+
+<h3>Factors That Decrease Settlement Value</h3>
+<ul>
+<li><strong>Shared fault:</strong> Your contribution to the accident (comparative negligence)</li>
+<li><strong>Pre-existing conditions:</strong> Prior injuries to the same body part</li>
+<li><strong>Gaps in treatment:</strong> Delays or inconsistent medical care</li>
+<li><strong>Minor injuries:</strong> Full recovery with minimal treatment</li>
+<li><strong>Low policy limits:</strong> Defendant's insurance coverage cap</li>
+</ul>
+
+<h3>Typical Settlement Timeline</h3>
+<ol>
+<li><strong>Immediate:</strong> Document the accident, seek medical attention, file police report</li>
+<li><strong>Days 1-30:</strong> Notify insurance companies, gather evidence, preserve records</li>
+<li><strong>Months 1-6:</strong> Complete medical treatment, reach maximum medical improvement (MMI)</li>
+<li><strong>Months 6-12:</strong> Attorney sends demand letter, negotiations begin</li>
+<li><strong>Months 12-24:</strong> Settlement reached or lawsuit filed if no agreement</li>
+</ol>
+
+<p><strong>Important:</strong> Never accept the first settlement offer. Insurance companies typically offer 25-50% of fair value initially. Most cases settle for 2-3x the initial offer after negotiation.</p>
+
+</div>
+
+<div class="ad-slot">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567891" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="info-card">
+<dl class="faq">
+<dt>How long does it take to settle a personal injury claim?</dt>
+<dd>Most personal injury claims settle within 6-18 months. Simple cases with clear liability and minor injuries may settle in 3-6 months, while complex cases involving serious injuries or disputed liability can take 2-3 years. Cases that go to trial can take even longer.</dd>
+
+<dt>Should I accept the first settlement offer?</dt>
+<dd>No. Insurance companies typically offer 25-50% of what they expect to eventually pay. The first offer is designed to quickly close the claim for as little as possible. Always consult a personal injury attorney before accepting any settlement offer.</dd>
+
+<dt>Do I need a lawyer for a personal injury claim?</dt>
+<dd>For minor injuries with clear fault and low medical bills (<$5,000), you may handle it yourself. For moderate to serious injuries, hiring an attorney typically increases your settlement by 3-4x even after legal fees (usually 33-40%). Attorneys negotiate higher settlements and handle insurance tactics.</dd>
+
+<dt>What is the average personal injury settlement amount?</dt>
+<dd>The average settlement varies widely: $3,000-$75,000 for most cases, with severe injury cases reaching $100,000-$500,000+. Catastrophic injury cases (brain injury, paralysis) can settle for $1M+. Your specific case depends on injury severity, economic losses, liability, and insurance limits.</dd>
+
+<dt>How much will I actually receive after a settlement?</dt>
+<dd>Your net proceeds depend on legal fees (33-40% if you have an attorney), medical liens (unpaid medical bills), and case costs (expert witnesses, court fees). On average, clients receive 50-70% of the gross settlement. Your attorney should provide a detailed breakdown before you accept any offer.</dd>
+
+<dt>Can I reopen a settlement if my condition worsens?</dt>
+<dd>No. Once you sign a settlement agreement and release, you cannot reopen the claim even if your condition worsens or new injuries emerge. This is why it's critical to reach maximum medical improvement (MMI) and account for future medical costs before settling.</dd>
+</dl>
+</div>
+
+<div class="ad-slot">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567892" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<p style="font-size:.8rem;color:var(--text-3);line-height:1.6;margin:2rem 0">
+⚠️ <strong>Disclaimer:</strong> This calculator provides rough estimates for educational purposes only. Actual settlement values vary significantly based on jurisdiction, case facts, liability, insurance policy limits, and legal representation. This is not legal advice. Results do not constitute a guarantee of any settlement amount. Always consult a qualified personal injury attorney for an accurate case evaluation. CalcLeap is not a law firm and does not provide legal services.
+</p>
+
+</main>
+
+<footer class="footer">
+<div class="page">
+<div class="footer-grid">
+<div>
+<h4>Popular</h4>
+<ul>
+<li><a href="bmi-calculator.html">BMI Calculator</a></li>
+<li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+<li><a href="income-tax-calculator.html">Income Tax Calculator</a></li>
+</ul>
+</div>
+<div>
+<h4>Categories</h4>
+<ul>
+<li><a href="index.html#finance">Financial</a></li>
+<li><a href="index.html#insurance">Insurance</a></li>
+<li><a href="index.html#health">Health</a></li>
+<li><a href="index.html#converters">Converters</a></li>
+</ul>
+</div>
+<div>
+<h4>Company</h4>
+<ul>
+<li><a href="about.html">About</a></li>
+<li><a href="privacy.html">Privacy</a></li>
+<li><a href="terms.html">Terms</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4>CalcLeap</h4>
+<p style="font-size:.85rem;color:var(--text-3);line-height:1.6">Fast, beautiful, private calculators. Free forever.</p>
+</div>
+</div>
+<div class="footer-bottom">
+© 2026 CalcLeap. For informational purposes only.
+</div>
+</div>
+</footer>
+
+<script>
+function calculate() {
+  const medicalExpenses = parseFloat(document.getElementById('medicalExpenses').value) || 0;
+  const lostWages = parseFloat(document.getElementById('lostWages').value) || 0;
+  const propertyDamage = parseFloat(document.getElementById('propertyDamage').value) || 0;
+  const futureMedical = parseFloat(document.getElementById('futureMedical').value) || 0;
+  const faultPercent = parseFloat(document.getElementById('faultPercent').value) || 0;
+  const injuryType = document.getElementById('injuryType').value;
+
+  // Economic damages
+  const economicDamages = medicalExpenses + lostWages + propertyDamage + futureMedical;
+
+  // Pain & suffering multiplier based on injury severity
+  let lowMultiplier, highMultiplier;
+  switch(injuryType) {
+    case 'soft':
+      lowMultiplier = 1.5;
+      highMultiplier = 2;
+      break;
+    case 'moderate':
+      lowMultiplier = 3;
+      highMultiplier = 4;
+      break;
+    case 'serious':
+      lowMultiplier = 4;
+      highMultiplier = 5;
+      break;
+    case 'catastrophic':
+      lowMultiplier = 5;
+      highMultiplier = 7;
+      break;
+    default:
+      lowMultiplier = 3;
+      highMultiplier = 5;
+  }
+
+  // Calculate settlement range
+  let lowEstimate = economicDamages * lowMultiplier;
+  let highEstimate = economicDamages * highMultiplier;
+
+  // Adjust for fault (comparative negligence)
+  const faultReduction = 1 - (faultPercent / 100);
+  const lowAfterFault = lowEstimate * faultReduction;
+  const highAfterFault = highEstimate * faultReduction;
+
+  // Display results
+  document.getElementById('economicDamages').textContent = '$' + economicDamages.toLocaleString();
+  document.getElementById('multiplier').textContent = lowMultiplier + 'x - ' + highMultiplier + 'x';
+  document.getElementById('lowEst').textContent = '$' + Math.round(lowEstimate).toLocaleString();
+  document.getElementById('highEst').textContent = '$' + Math.round(highEstimate).toLocaleString();
+  document.getElementById('settlementRange').textContent = '$' + Math.round(lowAfterFault).toLocaleString() + ' - $' + Math.round(highAfterFault).toLocaleString();
+  document.getElementById('afterFault').textContent = '$' + Math.round(lowAfterFault).toLocaleString() + ' - $' + Math.round(highAfterFault).toLocaleString();
+
+  document.getElementById('results').style.display = 'block';
+}
+</script>
+
 </body>
 </html>

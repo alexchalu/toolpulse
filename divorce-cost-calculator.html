@@ -1,319 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divorce Cost Calculator - Free Divorce Tool | CalcLeap</title>
-    <meta name="description" content="Estimate total divorce costs including attorney fees, court costs, and settlement expenses.. Free online calculator with instant cost estimates.">
-    <link rel="canonical" href="https://calcleap.com/divorce-cost-calculator.html">
-<meta property="og:title" content="Divorce Cost Calculator - Free Divorce Tool">
-<meta property="og:description" content="Estimate total divorce costs including attorney fees, court costs, and settlement expenses.. Free online calculator with instant cost estimates.">
-<meta property="og:url" content="https://calcleap.com/divorce-cost-calculator.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divorce Cost Calculator — Free Online Calculator | CalcLeap</title>
+<meta name="description" content="Estimate divorce costs including attorney fees, court costs, and mediation. Free divorce expense calculator for contested and uncontested divorces.">
+<link rel="canonical" href="https://calcleap.com/divorce-cost-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Divorce Cost Calculator — CalcLeap">
+<meta property="og:description" content="Estimate divorce costs including attorney fees, court costs, and mediation. Free divorce expense calculator for contested and uncontested divorces.">
 <meta property="og:type" content="website">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
-        .header { background: white; border-bottom: 1px solid #e5e5e7; padding: 1rem 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); background: rgba(255,255,255,0.8); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        .header h1 { font-size: 2rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem; }
-        .header p { color: #6e6e73; font-size: 1.1rem; }
-        .main { padding: 3rem 0; }
-        .calc-box { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
-        .calc-box h2 { font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem; color: #1d1d1f; }
-        .input-group { margin-bottom: 1.5rem; }
-        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: #1d1d1f; font-size: 1rem; }
-        .input-group input, .input-group select { width: 100%; padding: 0.875rem 1rem; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 1rem; transition: all 0.2s; background: white; }
-        .input-group input:focus, .input-group select:focus { outline: none; border-color: #0071e3; box-shadow: 0 0 0 4px rgba(0,113,227,0.1); }
-        .input-group small { color: #6e6e73; font-size: 0.9rem; }
-        .calc-btn { background: #0071e3; color: white; border: none; padding: 1rem 2rem; font-size: 1.125rem; font-weight: 500; border-radius: 12px; cursor: pointer; width: 100%; transition: background 0.2s; }
-        .calc-btn:hover { background: #0077ed; }
-        .result-box { background: linear-gradient(135deg, #f5f9ff 0%, #e8f4ff 100%); border: 1px solid #0071e3; padding: 2rem; border-radius: 18px; margin-top: 1.5rem; display: none; }
-        .result-box h3 { color: #0071e3; margin-bottom: 1.25rem; font-size: 1.5rem; font-weight: 600; }
-        .result-value { font-size: 2.5rem; font-weight: 700; color: #0071e3; margin: 0.75rem 0; }
-        .result-detail { margin: 0.75rem 0; color: #1d1d1f; font-size: 1.05rem; }
-        .result-detail strong { font-weight: 600; }
-        .disclaimer { background: #fff4e6; border-left: 4px solid #ff9500; padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
-        .disclaimer p { margin: 0; color: #1d1d1f; font-size: 0.95rem; }
-        .info-section { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
-        .info-section h3 { color: #1d1d1f; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600; }
-        .info-section p { margin-bottom: 1rem; color: #1d1d1f; line-height: 1.7; }
-        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-        .info-section li { margin-bottom: 0.5rem; color: #1d1d1f; }
-        .footer { background: #f5f5f7; padding: 2rem 0; text-align: center; border-top: 1px solid #e5e5e7; margin-top: 4rem; }
-        .footer a { color: #0071e3; text-decoration: none; }
-        @media (max-width: 768px) { .header h1 { font-size: 1.75rem; } .calc-box, .info-section { padding: 1.5rem; } }
-    
-
-/* === COMPREHENSIVE COMPONENT STYLES === */
-
-/* Calc card (used by tax, mortgage, insurance pages) */
-.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-/* Input groups and grids */
-.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group.full{grid-column:1/-1}
-.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-/* Field class (converter pages) */
-.field{margin-bottom:1rem}
-.row{display:flex;gap:.75rem;align-items:center}
-
-/* Radio buttons */
-.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
-.radio-label:hover{border-color:var(--accent);color:var(--accent)}
-.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
-.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
-
-/* Buttons */
-.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
-.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* Result boxes */
-.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
-.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
-
-/* Result grid (tax, insurance calculators) */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-
-/* Result rows */
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none}
-.result-detail{font-size:.85rem;color:var(--text-2)}
-.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
-.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
-.result-item:last-child{border-bottom:none}
-
-/* Stat cards (state tax pages) */
-.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
-.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
-
-/* Section */
-.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-/* Container (fallback for old pages) */
-.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
-
-/* Tool cards (converter index pages) */
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
-.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
-.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
-.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
-.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
-.tool-content{flex:1}
-
-/* Output area (dev tools) */
-.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
-
-/* Converter box */
-.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
-.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
-.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
-.conversion-table{margin-top:1rem}
-
-/* Bar charts */
-.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
-.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
-.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
-
-/* Badge */
-.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Table wrapper */
-.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
-.bracket-table{width:100%;border-collapse:collapse}
-
-/* Rate cards */
-.rate{font-size:.875rem;color:var(--text-2)}
-
-/* Header (old pages fallback) */
-.header{display:none} /* Old header hidden, replaced by .nav */
-
-/* Sub text */
-.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
-
-/* Ad placeholder — HIDE */
-.ad-placeholder{display:none !important}
-
-/* Hero override */
-.hero{padding:.5rem 0 1rem}
-.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
-
-/* FAQ items (old class) */
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-
-/* Toggle/tab buttons */
-.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
-
-/* Color helpers */
-.green{color:#22c55e !important}
-.red{color:#ef4444 !important}
-
-/* Responsive */
+<meta property="og:url" content="https://calcleap.com/divorce-cost-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Divorce Cost Calculator",
+    "description": "Estimate divorce costs including attorney fees, court costs, and mediation. Free divorce expense calculator for contested and uncontested divorces.",
+    "url": "https://calcleap.com/divorce-cost-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.checkbox-group{display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem}
+.checkbox-group input[type="checkbox"]{width:18px;height:18px;cursor:pointer}
+.checkbox-group label{font-size:.9rem;font-weight:400;text-transform:none;letter-spacing:0;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.result-big{font-size:3rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--accent)}
+.result-label{font-size:1rem;font-weight:600;margin-top:.5rem;color:var(--text-2)}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
+.stat-row:last-child{border-bottom:none}
+.stat-label{font-size:.85rem;color:var(--text-2)}
+.stat-value{font-size:.95rem;font-weight:700}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;margin-bottom:1.5rem}
+.info-card h2{font-size:1.5rem;font-weight:700;margin-bottom:1rem}
+.info-card h3{font-size:1.15rem;font-weight:600;margin:1.5rem 0 .75rem;color:var(--text)}
+.info-card p{color:var(--text-2);line-height:1.7;margin-bottom:1rem}
+.info-card ul,.info-card ol{margin-left:1.5rem;margin-bottom:1rem;color:var(--text-2);line-height:1.7}
+.info-card li{margin-bottom:.5rem}
+.faq{margin-top:1rem;border-top:1px solid var(--border);padding-top:1rem}
+.faq dt{font-weight:600;margin-top:1.25rem;margin-bottom:.5rem;color:var(--text)}
+.faq dd{color:var(--text-2);line-height:1.7;margin-bottom:1rem}
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 0}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:2rem}
+.footer h4{font-size:.85rem;font-weight:600;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em}
+.footer ul{list-style:none}
+.footer li{margin-bottom:.5rem}
+.footer a{font-size:.85rem;color:var(--text-3);transition:color .2s}
+.footer a:hover{color:var(--accent)}
+.footer-bottom{text-align:center;font-size:.8rem;color:var(--text-3);padding-top:1.5rem;border-top:1px solid var(--border)}
+.ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;background:var(--bg);border:1px solid var(--border);border-radius:var(--r)}
 @media(max-width:768px){
-  .result-grid{grid-template-columns:1fr 1fr}
-  .radio-group{flex-direction:column}
-  .tool-grid{grid-template-columns:1fr}
-  .row{flex-direction:column}
+.nav-links{display:none}
+.form-row{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+.page-title{font-size:1.75rem}
 }
-@media(max-width:480px){
-  .result-grid{grid-template-columns:1fr}
-}
-
 </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="index.html#finance">Finance</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#tax">Tax</a>
-      <a href="index.html#health">Health</a>
-      <a href="index.html#converters">Converters</a>
-      <a href="index.html#dev">Dev Tools</a>
-      <a href="about.html">About</a>
-    </div>
-  </div>
+
+<nav class="nav">
+<div class="nav-inner">
+<a href="index.html" class="logo">Calc<span>Leap</span></a>
+<div class="nav-links">
+<a href="index.html#finance">Finance</a>
+<a href="index.html#insurance">Insurance</a>
+<a href="index.html#health">Health</a>
+<a href="index.html#converters">Converters</a>
+<a href="about.html">About</a>
+</div>
+</div>
 </nav>
 
-    <div class="header">
-        <div class="container">
-            <h1 class="page-title">Divorce Cost Calculator</h1>
-            <p>Estimate total divorce costs including attorney fees, court costs, and settlement expenses.</p>
-        </div>
-    </div>
+<main class="page">
 
-    <div class="main container">
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div class="breadcrumb">
+<a href="index.html">Home</a><span class="sep">/</span><span>Divorce Cost Calculator</span>
+</div>
 
-        <div class="calc-box">
-            <h2>Calculate Divorce Costs</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your information below for cost estimates.</p>
-            <div class="input-group">
-                <label for="complexity">Case Complexity:</label>
-                <select id="complexity" aria-label="Complexity">
-                    <option value="simple">Simple/Uncontested</option>
-                    <option value="moderate" selected>Moderate Complexity</option>
-                    <option value="complex">Complex/Contested</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="hours">Estimated Attorney Hours:</label>
-                <input type="number" id="hours" min="0" value="20" step="1" aria-label="Hours">
-                <small>Simple: 10-20hrs, Moderate: 20-50hrs, Complex: 50-200hrs</small>
-            </div>
-            <div class="input-group">
-                <label for="rate">Attorney Hourly Rate ($):</label>
-                <input type="number" id="rate" min="0" value="300" step="25" aria-label="Rate">
-                <small>Typical range: $200-500/hour depending on location</small>
-            </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Costs</button>
-            <div class="result-box" id="result">
-                <h3>Results</h3>
-            </div>
-        </div>
+<h1 class="page-title">Divorce Cost Calculator</h1>
+<p class="page-desc">Estimate the total cost of divorce including attorney fees, court filing fees, mediation, and additional expenses.</p>
 
-        <div class="disclaimer">
-            <p><strong>Legal Disclaimer:</strong> This calculator provides estimates for informational purposes only. Actual costs vary significantly based on location, attorney rates, case complexity, and specific circumstances. Consult with a licensed family law attorney for accurate cost estimates and legal advice.</p>
-        </div>
+<div class="card">
+<h2>Divorce Details</h2>
 
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div class="form-group">
+<label>Divorce Type</label>
+<select id="divorceType">
+<option value="uncontested">Uncontested (Both agree on everything)</option>
+<option value="mediated">Mediated (Some disagreements, mediation needed)</option>
+<option value="contested">Contested (Major disagreements, likely trial)</option>
+<option value="highConflict">High-Conflict (Extensive litigation, custody battle)</option>
+</select>
+</div>
 
-        <div class="info-section">
-            <h3>About Divorce Cost Calculator</h3>
-            <p>Estimate total divorce costs including attorney fees, court costs, and settlement expenses.</p>
-            <h3>Understanding Divorce Costs</h3>
-            <p>Costs can vary widely based on:</p>
-            <ul>
-                <li>Geographic location and local attorney rates</li>
-                <li>Case complexity and level of dispute</li>
-                <li>Court fees and filing costs</li>
-                <li>Expert witness fees (if needed)</li>
-                <li>Whether the case settles or goes to trial</li>
-            </ul>
-            <h3>Ways to Reduce Costs</h3>
-            <ul>
-                <li>Consider mediation before litigation</li>
-                <li>Organize documents and information in advance</li>
-                <li>Communicate efficiently with your attorney</li>
-                <li>Explore unbundled legal services for simpler cases</li>
-            </ul>
-            <h3>More Family Law Calculators</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Calculators</a></li>
-                <li><a href="about.html">About CalcLeap</a></li>
-            </ul>
-        </div>
-
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online calculators and tools.</p>
-            <p><a href="index.html">Home</a> • <a href="about.html">About</a> • <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a> • <a href="contact.html">Contact</a></p>
-        </div>
-    </div>
-
-    <script>
-        function calculate() {
-            const complexity = document.getElementById('complexity').value;
-            const hours = parseFloat(document.getElementById('hours').value) || 20;
-            const rate = parseFloat(document.getElementById('rate').value) || 300;
-            
-            const attorneyFees = hours * rate;
-            const courtFees = complexity === 'simple' ? 500 : complexity === 'moderate' ? 1500 : 3000;
-            const otherCosts = complexity === 'simple' ? 500 : complexity === 'moderate' ? 2000 : 5000;
-            const totalCost = attorneyFees + courtFees + otherCosts;
-            
-            let html = '<h3>Estimated Costs</h3>';
-            html += '<div class="result-value">$' + totalCost.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Attorney Fees:</strong> $' + attorneyFees.toLocaleString() + ' (' + hours + ' hours × $' + rate + '/hr)</div>';
-            html += '<div class="result-detail"><strong>Court Fees:</strong> $' + courtFees.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Other Costs:</strong> $' + otherCosts.toLocaleString() + ' (filing, documents, etc.)</div>';
-            html += '<div class="result-detail"><strong>Case Complexity:</strong> ' + complexity.charAt(0).toUpperCase() + complexity.slice(1) + '</div>';
-            
-            html += '<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #6e6e73;"><em>This is a rough estimate. Actual costs depend on many factors including location, specific circumstances, and whether the case settles or goes to trial. Always consult with a licensed attorney for accurate cost projections.</em></p>';
-            
-            document.getElementById('result').innerHTML = html;
-            document.getElementById('result').style.display = 'block';
-        }
-    </script>
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This tool provides estimates for informational and educational purposes only. Results may not reflect actual values and should be verified independently. CalcLeap makes no warranties regarding the accuracy or completeness of any calculations. Use at your own discretion.</div>
-<footer class="footer" role="contentinfo"><div class="footer-inner"><div class="footer-grid"><div><h4>CalcLeap</h4><p style="font-size:.8rem;color:var(--text-3);line-height:1.5">Free calculators and tools for everyone.</p></div><div><h4>Popular</h4><a href="/bmi-calculator.html">BMI Calculator</a><a href="/calc/mortgage-payment.html">Mortgage Calculator</a><a href="/income-tax-calculator.html">Tax Calculator</a></div><div><h4>Categories</h4><a href="/index.html#finance">Finance</a><a href="/index.html#health">Health</a><a href="/index.html#insurance">Insurance</a></div><div><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div><p style="text-align:center;font-size:.75rem;color:var(--text-3);margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border)">© 2026 CalcLeap. All rights reserved.</p></div></footer>
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
-<div style="display:flex;gap:.5rem;flex-shrink:0">
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+<div class="form-group" style="margin-top:1rem;margin-bottom:1rem">
+<label>Complicating Factors</label>
+<div class="checkbox-group">
+<input type="checkbox" id="childCustody">
+<label for="childCustody">Child custody dispute</label>
+</div>
+<div class="checkbox-group">
+<input type="checkbox" id="assetDivision">
+<label for="assetDivision">Complex asset division (business, real estate, investments)</label>
+</div>
+<div class="checkbox-group">
+<input type="checkbox" id="alimony">
+<label for="alimony">Alimony/spousal support dispute</label>
+</div>
+<div class="checkbox-group">
+<input type="checkbox" id="hiddenAssets">
+<label for="hiddenAssets">Hidden assets investigation</label>
 </div>
 </div>
-<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+
+<div class="form-row">
+<div class="form-group">
+<label>Attorney Hourly Rate ($)</label>
+<input type="number" id="attorneyRate" placeholder="300" value="300">
+</div>
+<div class="form-group">
+<label>Estimated Duration (Months)</label>
+<input type="number" id="duration" placeholder="12" value="12">
+</div>
+</div>
+
+<button class="btn" onclick="calculate()">Calculate Divorce Cost</button>
+
+<div class="result-area" id="results">
+<div class="result-big" id="totalCost">$15,000 - $30,000</div>
+<div class="result-label">Estimated Total Divorce Cost</div>
+
+<div style="margin-top:1.5rem">
+<div class="stat-row">
+<span class="stat-label">Attorney Fees</span>
+<span class="stat-value" id="attorneyFees">$18,000</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">Court Filing Fees</span>
+<span class="stat-value" id="courtFees">$400</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">Mediation Costs</span>
+<span class="stat-value" id="mediationCosts">$0</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">Expert Witness Fees</span>
+<span class="stat-value" id="expertFees">$0</span>
+</div>
+<div class="stat-row">
+<span class="stat-label">Additional Costs</span>
+<span class="stat-value" id="additionalCosts">$500</span>
+</div>
+</div>
+
+<p style="margin-top:1.5rem;font-size:.875rem;color:var(--text-3);line-height:1.6">
+This is a rough estimate. Actual divorce costs vary widely based on complexity, cooperation level, attorney experience, and jurisdiction. Uncontested divorces can cost as little as $500-3,000, while high-conflict divorces can exceed $100,000.
+</p>
+</div>
+
+</div>
+
+<div class="ad-slot">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="info-card">
+<h2>How Much Does Divorce Really Cost?</h2>
+
+<p>The cost of divorce in the United States ranges from $500 for an uncontested DIY divorce to over $100,000 for a high-conflict case involving extensive litigation. The national average is $7,000-$15,000 per person, meaning couples spend $14,000-$30,000 total.</p>
+
+<h3>Cost Breakdown by Divorce Type</h3>
+
+<p><strong>Uncontested Divorce ($500 - $3,000):</strong></p>
+<ul>
+<li>Both parties agree on all terms (custody, assets, support)</li>
+<li>Minimal attorney involvement (document review only)</li>
+<li>Online divorce services: $150-500 + $200-400 court filing fees</li>
+<li>With attorney: $1,000-3,000 flat fee</li>
+<li>Timeline: 1-3 months</li>
+</ul>
+
+<p><strong>Mediated Divorce ($3,000 - $10,000 per person):</strong></p>
+<ul>
+<li>Some disagreements, but willing to negotiate</li>
+<li>Mediator facilitates agreement: $150-400/hour, 5-15 hours typical</li>
+<li>Limited attorney involvement (consult + document review)</li>
+<li>Total: $5,000-15,000 combined</li>
+<li>Timeline: 3-6 months</li>
+</ul>
+
+<p><strong>Contested Divorce ($15,000 - $50,000 per person):</strong></p>
+<ul>
+<li>Major disagreements on custody, assets, or support</li>
+<li>Full attorney representation: 40-100 billable hours</li>
+<li>Discovery process, depositions, court hearings</li>
+<li>May settle before trial</li>
+<li>Timeline: 6-18 months</li>
+</ul>
+
+<p><strong>High-Conflict Divorce ($50,000 - $150,000+ per person):</strong></p>
+<ul>
+<li>Custody battles, hidden assets, business valuations</li>
+<li>Full trial with multiple hearings</li>
+<li>Expert witnesses (forensic accountants, child psychologists, appraisers)</li>
+<li>200+ billable hours per attorney</li>
+<li>Timeline: 1-3 years</li>
+</ul>
+
+<h3>Major Cost Factors</h3>
+
+<p><strong>Attorney Fees (Biggest Expense):</strong></p>
+<ul>
+<li>Average hourly rate: $200-500/hour (varies by location and experience)</li>
+<li>Retainer: $2,500-10,000 upfront</li>
+<li>Uncontested: 5-15 hours ($1,000-7,500)</li>
+<li>Contested: 40-100 hours ($15,000-50,000)</li>
+<li>Trial: 100-300 hours ($50,000-150,000+)</li>
+</ul>
+
+<p><strong>Court Filing Fees:</strong></p>
+<ul>
+<li>Initial petition: $200-400 (varies by state/county)</li>
+<li>Service of process: $50-150</li>
+<li>Motion fees: $50-200 per motion</li>
+<li>Trial fees: $100-500</li>
+</ul>
+
+<p><strong>Mediation:</strong></p>
+<ul>
+<li>Mediator rate: $150-400/hour</li>
+<li>Typical sessions: 5-15 hours over 2-4 months</li>
+<li>Total mediation cost: $1,500-6,000 (split between parties)</li>
+</ul>
+
+<p><strong>Expert Witnesses (if needed):</strong></p>
+<ul>
+<li>Forensic accountant: $5,000-15,000</li>
+<li>Business valuation expert: $5,000-25,000</li>
+<li>Real estate appraiser: $500-2,000</li>
+<li>Child psychologist (custody evaluation): $3,000-10,000</li>
+<li>Vocational expert (earning capacity): $2,000-8,000</li>
+</ul>
+
+<p><strong>Additional Costs:</strong></p>
+<ul>
+<li>Document preparation: $500-1,500</li>
+<li>Process server: $50-150</li>
+<li>Court reporter (depositions): $500-2,000</li>
+<li>Credit reports, background checks: $100-500</li>
+<li>Parenting classes (if required): $50-300</li>
+</ul>
+
+<h3>Ways to Reduce Divorce Costs</h3>
+
+<ol>
+<li><strong>Choose uncontested divorce if possible:</strong> Agreement saves 70-90% on costs</li>
+<li><strong>Use mediation instead of litigation:</strong> Mediated divorces cost 40-60% less than contested</li>
+<li><strong>Be organized:</strong> Gather financial documents yourself rather than paying attorneys $300/hr to do it</li>
+<li><strong>Communicate efficiently:</strong> Email instead of phone calls, batch questions to minimize billable time</li>
+<li><strong>Consider limited-scope representation:</strong> Hire attorney for specific tasks only (document review, court appearances)</li>
+<li><strong>Avoid dragging it out:</strong> Every additional month adds $2,000-5,000 in attorney fees</li>
+<li><strong>Stay off social media:</strong> Inflammatory posts = more conflict = higher costs</li>
+</ol>
+
+</div>
+
+<div class="ad-slot">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567891" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="info-card">
+<dl class="faq">
+<dt>Can I get a divorce without a lawyer?</dt>
+<dd>Yes, if your divorce is uncontested (no disagreements on custody, assets, or support) and you don't have complex finances. Many states offer DIY divorce kits or online services for $150-500. However, even simple divorces benefit from attorney review ($500-1,500) to ensure documents are correct and your rights are protected.</dd>
+
+<dt>How do divorce attorneys charge?</dt>
+<dd>Most divorce attorneys charge hourly ($200-500/hour depending on location and experience) and require a retainer (typically $2,500-10,000 upfront). Some offer flat fees for uncontested divorces ($1,500-3,500). Expect to pay for all time spent on your case: calls, emails, document review, court appearances, and research.</dd>
+
+<dt>What if I can't afford a divorce attorney?</dt>
+<dd>Options include: (1) Legal aid organizations for low-income individuals, (2) Pro bono programs through local bar associations, (3) Limited-scope representation (hire attorney for specific tasks only), (4) Payment plans with attorneys, (5) Use mediation instead of litigation, or (6) DIY divorce if uncontested. Some courts also have self-help centers.</dd>
+
+<dt>Who pays for the divorce costs?</dt>
+<dd>Typically each party pays their own attorney fees. However, in cases of significant income disparity, the higher-earning spouse may be ordered to pay some or all of the other spouse's attorney fees. Court filing fees are usually split or paid by the filing party. This varies by state and judge.</dd>
+
+<dt>Does it cost more to file first?</dt>
+<dd>Filing first costs slightly more initially (filing fees vs response fees), but it doesn't significantly impact total divorce cost. The filing party (petitioner) may have strategic advantages in some jurisdictions, but the cost difference is usually only $50-200.</dd>
+
+<dt>How long does a divorce take?</dt>
+<dd>Timeline varies by complexity and cooperation: Uncontested (1-3 months), Mediated (3-6 months), Contested (6-18 months), High-conflict with trial (1-3 years). Most states have mandatory waiting periods (30-180 days) from filing to finalization. Delays add costs: each additional month typically adds $2,000-5,000 in attorney fees.</dd>
+</dl>
+</div>
+
+<div class="ad-slot">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567892" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<p style="font-size:.8rem;color:var(--text-3);line-height:1.6;margin:2rem 0">
+⚠️ <strong>Disclaimer:</strong> This calculator provides rough estimates for educational purposes only. Actual divorce costs vary significantly based on jurisdiction, case complexity, cooperation level, and attorney rates. This is not legal advice. Results do not constitute a fee quote or guarantee. Always consult a licensed family law attorney in your state for accurate cost estimates and legal guidance. CalcLeap is not a law firm and does not provide legal services.
+</p>
+
+</main>
+
+<footer class="footer">
+<div class="page">
+<div class="footer-grid">
+<div>
+<h4>Popular</h4>
+<ul>
+<li><a href="bmi-calculator.html">BMI Calculator</a></li>
+<li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+<li><a href="income-tax-calculator.html">Income Tax Calculator</a></li>
+</ul>
+</div>
+<div>
+<h4>Categories</h4>
+<ul>
+<li><a href="index.html#finance">Financial</a></li>
+<li><a href="index.html#insurance">Insurance</a></li>
+<li><a href="index.html#health">Health</a></li>
+<li><a href="index.html#converters">Converters</a></li>
+</ul>
+</div>
+<div>
+<h4>Company</h4>
+<ul>
+<li><a href="about.html">About</a></li>
+<li><a href="privacy.html">Privacy</a></li>
+<li><a href="terms.html">Terms</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4>CalcLeap</h4>
+<p style="font-size:.85rem;color:var(--text-3);line-height:1.6">Fast, beautiful, private calculators. Free forever.</p>
+</div>
+</div>
+<div class="footer-bottom">
+© 2026 CalcLeap. For informational purposes only.
+</div>
+</div>
+</footer>
+
+<script>
+function calculate() {
+  const divorceType = document.getElementById('divorceType').value;
+  const attorneyRate = parseFloat(document.getElementById('attorneyRate').value) || 300;
+  const duration = parseFloat(document.getElementById('duration').value) || 12;
+  
+  const childCustody = document.getElementById('childCustody').checked;
+  const assetDivision = document.getElementById('assetDivision').checked;
+  const alimony = document.getElementById('alimony').checked;
+  const hiddenAssets = document.getElementById('hiddenAssets').checked;
+
+  let baseHours, courtFees, mediation, expertFees, additionalCosts;
+
+  // Base estimates by divorce type
+  switch(divorceType) {
+    case 'uncontested':
+      baseHours = 8;
+      courtFees = 300;
+      mediation = 0;
+      expertFees = 0;
+      additionalCosts = 500;
+      break;
+    case 'mediated':
+      baseHours = 25;
+      courtFees = 350;
+      mediation = 3000;
+      expertFees = 0;
+      additionalCosts = 1000;
+      break;
+    case 'contested':
+      baseHours = 70;
+      courtFees = 500;
+      mediation = 0;
+      expertFees = 5000;
+      additionalCosts = 2000;
+      break;
+    case 'highConflict':
+      baseHours = 150;
+      courtFees = 800;
+      mediation = 0;
+      expertFees = 15000;
+      additionalCosts = 5000;
+      break;
+    default:
+      baseHours = 70;
+      courtFees = 500;
+      mediation = 0;
+      expertFees = 5000;
+      additionalCosts = 2000;
+  }
+
+  // Add complexity hours
+  if (childCustody) baseHours += 30;
+  if (assetDivision) baseHours += 25;
+  if (alimony) baseHours += 20;
+  if (hiddenAssets) {
+    baseHours += 40;
+    expertFees += 10000;
+  }
+
+  // Scale by duration
+  const durationMultiplier = Math.max(0.5, Math.min(2, duration / 12));
+  baseHours = Math.round(baseHours * durationMultiplier);
+
+  // Calculate totals
+  const attorneyFees = baseHours * attorneyRate;
+  const totalCost = attorneyFees + courtFees + mediation + expertFees + additionalCosts;
+  
+  // Create range (±20%)
+  const lowEst = Math.round(totalCost * 0.8);
+  const highEst = Math.round(totalCost * 1.2);
+
+  // Display results
+  document.getElementById('attorneyFees').textContent = '$' + Math.round(attorneyFees).toLocaleString();
+  document.getElementById('courtFees').textContent = '$' + courtFees.toLocaleString();
+  document.getElementById('mediationCosts').textContent = '$' + mediation.toLocaleString();
+  document.getElementById('expertFees').textContent = '$' + expertFees.toLocaleString();
+  document.getElementById('additionalCosts').textContent = '$' + additionalCosts.toLocaleString();
+  document.getElementById('totalCost').textContent = '$' + lowEst.toLocaleString() + ' - $' + highEst.toLocaleString();
+
+  document.getElementById('results').style.display = 'block';
+}
+</script>
+
 </body>
 </html>
