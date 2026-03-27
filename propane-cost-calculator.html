@@ -3,603 +3,661 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propane Cost Calculator - Calculate Heating & Tank Fill Costs | CalcLeap</title>
-    <meta name="description" content="Free propane cost calculator. Estimate propane heating costs, tank refill expenses, and compare propane vs natural gas. Calculate gallons needed and total costs.">
-    <meta name="keywords" content="propane cost calculator, propane calculator, propane heating cost, propane tank cost, propane vs natural gas, propane price calculator">
+    <title>Propane Cost Calculator - Calculate Propane Tank & Usage Costs | CalcLeap</title>
+    <meta name="description" content="Free propane cost calculator. Estimate propane tank refill costs, monthly usage, and annual heating expenses. Compare propane vs natural gas savings.">
     <link rel="canonical" href="https://calcleap.com/propane-cost-calculator.html">
+    <meta property="og:title" content="Propane Cost Calculator - Tank Refill & Usage Estimator">
+    <meta property="og:description" content="Calculate propane tank costs, monthly usage, and annual heating expenses. Free propane calculator with BTU conversion and efficiency ratings.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/propane-cost-calculator.html">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Propane Cost Calculator",
+      "description": "Calculate propane tank refill costs, monthly usage, and annual heating expenses with efficiency ratings",
+      "url": "https://calcleap.com/propane-cost-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .mode-switcher {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+        .mode-btn {
+            padding: 10px 20px;
+            border: 2px solid #007bff;
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        h1 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            text-align: center;
-        }
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1.1em;
-        }
-        .calc-section {
-            background: #f8f9ff;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-        .form-group {
-            margin-bottom: 25px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #444;
-        }
-        input[type="number"], select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        input[type="number"]:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        .radio-group {
-            display: flex;
-            gap: 20px;
-            margin-top: 10px;
-        }
-        .radio-group label {
-            display: flex;
-            align-items: center;
-            font-weight: 500;
+            color: #007bff;
+            border-radius: 5px;
             cursor: pointer;
-        }
-        .radio-group input[type="radio"] {
-            margin-right: 8px;
-            width: auto;
-        }
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
             font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s;
         }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-        .results {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
+        .mode-btn.active {
+            background: #007bff;
             color: white;
+        }
+        .mode-content {
             display: none;
         }
-        .results h2 {
-            margin-bottom: 20px;
-            font-size: 1.8em;
+        .mode-content.active {
+            display: block;
         }
-        .result-item {
-            background: rgba(255,255,255,0.2);
+        .appliance-group {
+            background: #f8f9fa;
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 15px;
-            backdrop-filter: blur(10px);
+        }
+        .appliance-group h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .result-breakdown {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
         }
         .result-label {
-            font-size: 0.9em;
-            opacity: 0.9;
-            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
         }
         .result-value {
-            font-size: 1.8em;
             font-weight: 700;
+            color: #007bff;
+            font-size: 1.1em;
         }
-        .info-section {
-            margin-top: 40px;
-            padding: 30px;
-            background: #f8f9ff;
-            border-radius: 15px;
-        }
-        .info-section h2 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-        .info-section h3 {
-            color: #764ba2;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-        .info-section ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        .info-section li {
-            margin-bottom: 8px;
-        }
-        .tip {
-            background: #fff9e6;
+        .info-box {
+            background: #fff3cd;
             border-left: 4px solid #ffc107;
             padding: 15px;
             margin: 20px 0;
-            border-radius: 5px;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        .comparison-table th {
-            background: #667eea;
-            color: white;
-        }
-        .comparison-table tr:hover {
-            background: #f5f5f5;
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            .radio-group {
-                flex-direction: column;
-                gap: 10px;
-            }
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="page-title">🔥 Propane Cost Calculator</h1>
-        <p class="subtitle">Calculate propane heating costs, tank refills, and compare energy expenses</p>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CalcLeap</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#calculators">Calculators</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <div class="calc-section">
-            <div class="form-group">
-                <label>Calculation Type:</label>
-                <div class="radio-group">
-                    <label>
-                        <input type="radio" name="calcType" value="heating" checked onchange="toggleCalcType()">
-                        Heating Cost
-                    </label>
-                    <label>
-                        <input type="radio" name="calcType" value="tank" onchange="toggleCalcType()">
-                        Tank Refill Cost
-                    </label>
+    <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Propane Cost Calculator</span>
+    </nav>
+
+    <main class="container">
+        <div class="page-title">
+            <h1>⛽ Propane Cost Calculator</h1>
+            <p>Calculate propane tank refill costs, monthly usage, and annual heating expenses</p>
+        </div>
+
+        <div class="calculator-container">
+            <div class="mode-switcher">
+                <button class="mode-btn active" onclick="switchMode('simple')">Simple Mode</button>
+                <button class="mode-btn" onclick="switchMode('advanced')">Advanced Mode</button>
+                <button class="mode-btn" onclick="switchMode('tank')">Tank Refill</button>
+            </div>
+
+            <!-- Simple Mode -->
+            <div id="simple-mode" class="mode-content active">
+                <div class="input-group">
+                    <label for="simple-gallons">Propane Usage (gallons/month)</label>
+                    <input type="number" id="simple-gallons" value="50" min="0" step="0.1">
+                </div>
+
+                <div class="input-group">
+                    <label for="simple-price">Propane Price ($/gallon)</label>
+                    <input type="number" id="simple-price" value="2.50" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label for="simple-fixed">Fixed Monthly Fee ($)</label>
+                    <input type="number" id="simple-fixed" value="15" min="0" step="0.01">
                 </div>
             </div>
 
-            <div id="heatingInputs">
-                <div class="form-group">
-                    <label for="homeSize">Home Size (sq ft):</label>
-                    <input type="number" id="homeSize" value="2000" min="100" max="10000" step="100">
+            <!-- Advanced Mode -->
+            <div id="advanced-mode" class="mode-content">
+                <div class="appliance-group">
+                    <h4>🔥 Furnace / Heating</h4>
+                    <div class="input-group">
+                        <label for="furnace-btu">BTU/hour Rating</label>
+                        <input type="number" id="furnace-btu" value="80000" min="0" step="1000">
+                    </div>
+                    <div class="input-group">
+                        <label for="furnace-hours">Hours per Day</label>
+                        <input type="number" id="furnace-hours" value="8" min="0" max="24" step="0.5">
+                    </div>
+                    <div class="input-group">
+                        <label for="furnace-efficiency">AFUE Efficiency (%)</label>
+                        <input type="number" id="furnace-efficiency" value="85" min="60" max="98" step="1">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="heatingDays">Heating Days per Year:</label>
-                    <input type="number" id="heatingDays" value="180" min="30" max="365" step="1">
+                <div class="appliance-group">
+                    <h4>💧 Water Heater</h4>
+                    <div class="input-group">
+                        <label for="water-btu">BTU/hour Rating</label>
+                        <input type="number" id="water-btu" value="40000" min="0" step="1000">
+                    </div>
+                    <div class="input-group">
+                        <label for="water-hours">Hours per Day</label>
+                        <input type="number" id="water-hours" value="3" min="0" max="24" step="0.5">
+                    </div>
+                    <div class="input-group">
+                        <label for="water-efficiency">Energy Factor (%)</label>
+                        <input type="number" id="water-efficiency" value="65" min="55" max="95" step="1">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="efficiency">Furnace Efficiency (%):</label>
-                    <input type="number" id="efficiency" value="90" min="60" max="98" step="1">
+                <div class="appliance-group">
+                    <h4>🍳 Cooking (Stove/Oven)</h4>
+                    <div class="input-group">
+                        <label for="stove-btu">BTU/hour Rating</label>
+                        <input type="number" id="stove-btu" value="25000" min="0" step="1000">
+                    </div>
+                    <div class="input-group">
+                        <label for="stove-hours">Hours per Day</label>
+                        <input type="number" id="stove-hours" value="1.5" min="0" max="24" step="0.25">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="climate">Climate Zone:</label>
-                    <select id="climate">
-                        <option value="mild">Mild (South, Coastal)</option>
-                        <option value="moderate" selected>Moderate (Mid-Atlantic, Pacific NW)</option>
-                        <option value="cold">Cold (Northeast, Midwest)</option>
-                        <option value="extreme">Extreme Cold (Northern States, Mountains)</option>
+                <div class="appliance-group">
+                    <h4>👔 Dryer</h4>
+                    <div class="input-group">
+                        <label for="dryer-btu">BTU/hour Rating</label>
+                        <input type="number" id="dryer-btu" value="20000" min="0" step="1000">
+                    </div>
+                    <div class="input-group">
+                        <label for="dryer-hours">Hours per Week</label>
+                        <input type="number" id="dryer-hours" value="5" min="0" max="168" step="0.5">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="adv-price">Propane Price ($/gallon)</label>
+                    <input type="number" id="adv-price" value="2.50" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label for="adv-fixed">Fixed Monthly Fee ($)</label>
+                    <input type="number" id="adv-fixed" value="15" min="0" step="0.01">
+                </div>
+            </div>
+
+            <!-- Tank Refill Mode -->
+            <div id="tank-mode" class="mode-content">
+                <div class="input-group">
+                    <label for="tank-size">Tank Size (gallons)</label>
+                    <select id="tank-size">
+                        <option value="20">20 gal (BBQ cylinder)</option>
+                        <option value="100">100 gal (small residential)</option>
+                        <option value="250">250 gal (medium residential)</option>
+                        <option value="500" selected>500 gal (large residential)</option>
+                        <option value="1000">1000 gal (very large/commercial)</option>
                     </select>
                 </div>
-            </div>
 
-            <div id="tankInputs" style="display:none;">
-                <div class="form-group">
-                    <label for="tankSize">Tank Size (gallons):</label>
-                    <select id="tankSize">
-                        <option value="20">20 gallon (BBQ cylinder)</option>
-                        <option value="100">100 gallon (portable tank)</option>
-                        <option value="250">250 gallon (small home)</option>
-                        <option value="500" selected>500 gallon (standard home)</option>
-                        <option value="1000">1000 gallon (large home)</option>
-                    </select>
+                <div class="input-group">
+                    <label for="tank-current">Current Tank Level (%)</label>
+                    <input type="number" id="tank-current" value="20" min="0" max="100" step="1">
                 </div>
 
-                <div class="form-group">
-                    <label for="currentLevel">Current Tank Level (%):</label>
-                    <input type="number" id="currentLevel" value="20" min="0" max="80" step="5">
+                <div class="input-group">
+                    <label for="tank-fill">Fill to Level (%)</label>
+                    <input type="number" id="tank-fill" value="80" min="0" max="100" step="1">
                 </div>
 
-                <div class="form-group">
-                    <label for="fillTo">Fill To (%):</label>
-                    <input type="number" id="fillTo" value="80" min="20" max="80" step="5">
+                <div class="input-group">
+                    <label for="tank-price">Propane Price ($/gallon)</label>
+                    <input type="number" id="tank-price" value="2.50" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label for="delivery-fee">Delivery Fee ($)</label>
+                    <input type="number" id="delivery-fee" value="25" min="0" step="1">
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="propanePrice">Propane Price ($ per gallon):</label>
-                <input type="number" id="propanePrice" value="2.75" min="0.5" max="10" step="0.05">
-            </div>
+            <button class="calculate-btn" onclick="calculatePropane()">Calculate Propane Costs</button>
 
-            <button class="btn" onclick="calculatePropane()">Calculate Costs</button>
+            <div id="result" class="result"></div>
         </div>
 
-        <div class="results" id="results">
-            <h2>Your Propane Costs</h2>
-            <div id="resultsContent"></div>
+        <!-- AdSense Unit 1 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4381914478807323"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
 
-        <div class="info-section">
-            <h2>Understanding Propane Costs</h2>
+        <section class="info-section">
+            <h2>How to Use the Propane Cost Calculator</h2>
             
-            <h3>Typical Propane Usage</h3>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Appliance</th>
-                        <th>Typical Usage</th>
-                        <th>Annual Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Home Heating (2000 sq ft)</td>
-                        <td>600-1,000 gallons/year</td>
-                        <td>$1,650 - $2,750</td>
-                    </tr>
-                    <tr>
-                        <td>Water Heater (family of 4)</td>
-                        <td>200-300 gallons/year</td>
-                        <td>$550 - $825</td>
-                    </tr>
-                    <tr>
-                        <td>Cooking Range</td>
-                        <td>35-60 gallons/year</td>
-                        <td>$96 - $165</td>
-                    </tr>
-                    <tr>
-                        <td>Clothes Dryer</td>
-                        <td>20-30 gallons/year</td>
-                        <td>$55 - $83</td>
-                    </tr>
-                    <tr>
-                        <td>Fireplace (occasional use)</td>
-                        <td>50-100 gallons/year</td>
-                        <td>$138 - $275</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Propane Tank Sizes & Uses</h3>
-            <ul>
-                <li><strong>20 lb (4.7 gallon):</strong> BBQ grills, portable heaters, camping</li>
-                <li><strong>100 gallon:</strong> Portable tanks for temporary heating, construction sites</li>
-                <li><strong>250 gallon:</strong> Small homes, supplemental heating, cabins</li>
-                <li><strong>500 gallon:</strong> Standard residential tank (most common)</li>
-                <li><strong>1,000 gallon:</strong> Large homes, whole-house heating + appliances</li>
-            </ul>
-
-            <div class="tip">
-                <strong>Safety Note:</strong> Propane tanks are typically filled to only 80% capacity to allow for expansion. A 500-gallon tank holds a maximum of 400 gallons of usable propane.
+            <div class="info-box">
+                <strong>💡 Quick Tip:</strong> Most residential propane tanks are filled to 80% capacity for safety. A 500-gallon tank holds ~400 usable gallons.
             </div>
 
-            <h3>Ways to Save on Propane</h3>
+            <h3>Simple Mode</h3>
+            <p>Perfect for quick estimates if you know your monthly propane usage:</p>
             <ul>
-                <li><strong>Pre-buy programs:</strong> Lock in prices before winter (often $0.20-0.50/gal savings)</li>
-                <li><strong>Budget plans:</strong> Spread annual costs over 12 months with fixed payments</li>
-                <li><strong>Tank ownership:</strong> Own your tank vs. leasing (saves $50-150/year in fees)</li>
-                <li><strong>Shop multiple suppliers:</strong> Prices vary widely—compare at least 3 local vendors</li>
-                <li><strong>Buy in summer:</strong> Propane is typically 10-20% cheaper in warm months</li>
-                <li><strong>Upgrade efficiency:</strong> High-efficiency furnaces (95%+) use 15-25% less propane</li>
-                <li><strong>Improve insulation:</strong> Better insulation can cut heating costs by 20-30%</li>
+                <li><strong>Propane Usage:</strong> Enter gallons used per month (check past bills)</li>
+                <li><strong>Propane Price:</strong> Current price per gallon (varies by region, season, and provider)</li>
+                <li><strong>Fixed Fee:</strong> Monthly tank rental or service fee (typically $10-25/month)</li>
             </ul>
 
-            <h3>Propane vs Natural Gas vs Oil</h3>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Factor</th>
-                        <th>Propane</th>
-                        <th>Natural Gas</th>
-                        <th>Heating Oil</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Typical Cost per Therm</td>
-                        <td>$3.00 - $3.60</td>
-                        <td>$1.00 - $1.50</td>
-                        <td>$2.50 - $3.50</td>
-                    </tr>
-                    <tr>
-                        <td>Availability</td>
-                        <td>Everywhere (delivered)</td>
-                        <td>Requires pipeline</td>
-                        <td>Everywhere (delivered)</td>
-                    </tr>
-                    <tr>
-                        <td>Storage</td>
-                        <td>On-site tank required</td>
-                        <td>No storage needed</td>
-                        <td>On-site tank required</td>
-                    </tr>
-                    <tr>
-                        <td>Efficiency</td>
-                        <td>91,500 BTU/gal</td>
-                        <td>100,000 BTU/therm</td>
-                        <td>138,500 BTU/gal</td>
-                    </tr>
-                    <tr>
-                        <td>Cleanliness</td>
-                        <td>Very clean burning</td>
-                        <td>Cleanest</td>
-                        <td>Less clean (soot)</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Regional Price Variations</h3>
-            <p>Propane prices vary significantly by region and season:</p>
+            <h3>Advanced Mode</h3>
+            <p>Calculate usage based on individual appliances:</p>
             <ul>
-                <li><strong>Midwest:</strong> $2.25 - $3.00/gal (closer to refineries, high demand in winter)</li>
-                <li><strong>Northeast:</strong> $2.75 - $3.75/gal (higher transport costs, cold climate)</li>
-                <li><strong>South:</strong> $2.00 - $2.75/gal (lower demand, easier logistics)</li>
-                <li><strong>West Coast:</strong> $2.50 - $3.50/gal (varied by state regulations)</li>
-                <li><strong>Rural areas:</strong> Add $0.20-0.50/gal for delivery to remote locations</li>
+                <li><strong>Furnace:</strong> Primary heating appliance. AFUE (Annual Fuel Utilization Efficiency) measures how much fuel converts to heat (80-98%). Higher AFUE = lower costs.</li>
+                <li><strong>Water Heater:</strong> Tankless heaters are more efficient (80-95%) than tank models (60-70%).</li>
+                <li><strong>Cooking:</strong> Stoves and ovens. BTU ratings typically 15,000-40,000.</li>
+                <li><strong>Dryer:</strong> Less critical; many homes use electric dryers.</li>
             </ul>
 
-            <h3>When to Order Propane</h3>
+            <h3>Tank Refill Mode</h3>
+            <p>Calculate exact refill costs for your propane tank:</p>
             <ul>
-                <li><strong>Don't wait until empty:</strong> Order when tank reaches 20-30% to avoid emergency fees</li>
-                <li><strong>Emergency delivery:</strong> Can cost $50-150 extra in surcharges</li>
-                <li><strong>Winter spikes:</strong> Prices can jump 30-50% during cold snaps or supply shortages</li>
-                <li><strong>Monitor usage:</strong> 2000 sq ft home typically uses 50-100 gallons/month in winter</li>
+                <li><strong>Tank Size:</strong> Common sizes: 100, 250, 500, 1000 gallons</li>
+                <li><strong>Current Level:</strong> Gauge reading (many providers refill at 20-30%)</li>
+                <li><strong>Fill Level:</strong> Maximum 80% for safety (propane expands with heat)</li>
+                <li><strong>Delivery Fee:</strong> Varies by provider and distance ($15-50 typical)</li>
             </ul>
+        </section>
 
-            <div class="tip">
-                <strong>Budget Tip:</strong> Average household propane costs run $1,500-3,500 per year depending on climate and usage. Budget $200-400/month during winter months if heating with propane.
-            </div>
-
-            <h3>Propane Safety & Maintenance</h3>
-            <ul>
-                <li>Install propane detectors near appliances (propane is heavier than air, sinks to floor)</li>
-                <li>Inspect tanks annually for rust, dents, or leaks</li>
-                <li>Keep tank area clear of debris and vegetation</li>
-                <li>Never store propane tanks indoors or in enclosed spaces</li>
-                <li>Service furnaces annually to maintain efficiency and safety</li>
-                <li>Know where your shut-off valve is located</li>
-            </ul>
-
-            <h3>Frequently Asked Questions</h3>
-            
-            <h4>How long does a tank of propane last?</h4>
-            <p>A 500-gallon tank (400 usable gallons) typically lasts 4-6 months for whole-house heating in moderate climates, or 2-3 months in cold climates. For water heater only, it can last 18-24 months.</p>
-
-            <h4>Should I own or lease my propane tank?</h4>
-            <p>Owning eliminates annual lease fees ($50-150/year) and gives you freedom to switch suppliers. However, you're responsible for maintenance. Leasing often includes free maintenance but locks you to one supplier.</p>
-
-            <h4>Can I switch propane suppliers?</h4>
-            <p>Yes, if you own your tank. Leased tanks belong to the supplier—you'd need to buy your own tank or lease from the new supplier. Always compare total costs including tank rental fees.</p>
-
-            <h4>What is the 80% rule for propane tanks?</h4>
-            <p>Propane expands when heated, so tanks must have room for expansion. By law, tanks can only be filled to 80% of total capacity. A 500-gallon tank holds a maximum of 400 gallons.</p>
-
-            <h4>Is propane more expensive than natural gas?</h4>
-            <p>Yes, typically 2-3x more expensive per BTU. However, propane is available anywhere (doesn't require pipeline infrastructure), making it the best option for rural homes without natural gas access.</p>
-
-            <h4>How can I tell how much propane is left in my tank?</h4>
-            <p>Most tanks have a gauge showing percentage full. You can also pour warm water down the side—the tank will be cool below the propane level. For accuracy, suppliers can measure during delivery.</p>
-
-            <h4>What affects my propane usage?</h4>
-            <p>Home size, insulation quality, furnace efficiency, thermostat settings, climate zone, number of propane appliances, and weather severity all impact consumption. A poorly insulated home can use 50% more propane.</p>
+        <!-- AdSense Unit 2 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4381914478807323"
+                 data-ad-slot="1234567891"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
-    </div>
+
+        <section class="faq-section">
+            <h2>Propane Cost Calculator FAQs</h2>
+            
+            <div class="faq-item">
+                <h3>How much does propane cost per gallon?</h3>
+                <p>Propane prices vary significantly by region, season, and market conditions. As of 2026, residential propane typically costs <strong>$2.00-$4.00 per gallon</strong>. Prices are highest in winter due to increased heating demand. Rural areas often pay more due to delivery distance. Buying in bulk (500+ gallons) usually gets better rates. Check with local suppliers for current pricing.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How long does a 500-gallon propane tank last?</h3>
+                <p>A 500-gallon tank (holding ~400 usable gallons at 80% capacity) lasts <strong>6-12 months</strong> for typical residential use. Factors affecting duration:</p>
+                <ul>
+                    <li><strong>Climate:</strong> Cold winters = higher heating usage (100-150 gal/month)</li>
+                    <li><strong>Home size:</strong> Larger homes use more for heating</li>
+                    <li><strong>Appliances:</strong> Homes using propane for heating + water + cooking + dryer use more</li>
+                    <li><strong>Efficiency:</strong> New high-efficiency furnaces (95% AFUE) use 15-20% less than older models (70-80% AFUE)</li>
+                </ul>
+                <p>Summer usage (water heater + cooking only): 20-40 gallons/month. Winter usage (add heating): 100-200 gallons/month.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is propane cheaper than natural gas?</h3>
+                <p>Per BTU, <strong>natural gas is typically 2-3x cheaper</strong> than propane. However, propane is often the only option in rural areas without natural gas pipelines. Cost comparison:</p>
+                <ul>
+                    <li><strong>Propane:</strong> $2.50/gal = ~$27 per million BTU (91,500 BTU/gallon)</li>
+                    <li><strong>Natural Gas:</strong> $1.20/therm = ~$12 per million BTU (100,000 BTU/therm)</li>
+                </ul>
+                <p>However, propane burns hotter (2,500°F vs 3,600°F), and propane furnaces can be more efficient. If natural gas is available, it's usually cheaper for heating. Propane makes sense for rural homes, backup heating, or outdoor appliances (grills, pool heaters).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What is AFUE and why does it matter?</h3>
+                <p><strong>AFUE (Annual Fuel Utilization Efficiency)</strong> measures what percentage of fuel becomes usable heat. A 90% AFUE furnace converts 90% of propane to heat; 10% escapes through the exhaust.</p>
+                <ul>
+                    <li><strong>Older furnaces:</strong> 60-70% AFUE (waste 30-40% of fuel)</li>
+                    <li><strong>Mid-efficiency:</strong> 80-85% AFUE (most common)</li>
+                    <li><strong>High-efficiency:</strong> 90-98% AFUE (condensing furnaces)</li>
+                </ul>
+                <p>Upgrading from 70% to 95% AFUE saves ~25% on heating costs. On a $2,000/year heating bill, that's $500/year savings.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Why can't I fill my propane tank to 100%?</h3>
+                <p>Propane tanks are filled to <strong>80% capacity maximum</strong> for safety. Unlike water, propane expands significantly with temperature (17x expansion from liquid to gas). The 20% empty space allows for thermal expansion on hot days. Overfilling can cause pressure relief valves to vent propane or, in extreme cases, tank rupture. This is a federal safety regulation (NFPA 58).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>When should I refill my propane tank?</h3>
+                <p>Most providers recommend refilling at <strong>20-30% capacity</strong>. Running too low risks:</p>
+                <ul>
+                    <li><strong>Sediment issues:</strong> Residue at tank bottom can clog regulators</li>
+                    <li><strong>Emergency fees:</strong> Some providers charge extra for emergency deliveries</li>
+                    <li><strong>Weather delays:</strong> Winter storms can delay deliveries</li>
+                    <li><strong>Price volatility:</strong> Refilling regularly (not waiting until empty) helps avoid emergency purchases during price spikes</li>
+                </ul>
+                <p>Consider automatic delivery contracts for predictable pricing and never running out.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How can I reduce my propane costs?</h3>
+                <p>Strategies to lower propane usage and costs:</p>
+                <ul>
+                    <li><strong>Upgrade furnace:</strong> 95% AFUE furnace saves 15-25% vs older models</li>
+                    <li><strong>Insulation:</strong> Attic, walls, and basement insulation reduce heating needs by 20-30%</li>
+                    <li><strong>Programmable thermostat:</strong> Lower temperature when asleep/away (10% savings per 10°F reduction)</li>
+                    <li><strong>Water heater blanket:</strong> Insulate water heater to reduce standby heat loss</li>
+                    <li><strong>Tankless water heater:</strong> 80-95% efficient vs 60-70% for tank models</li>
+                    <li><strong>Buy in summer:</strong> Propane prices drop 20-40% in warm months</li>
+                    <li><strong>Lock in rates:</strong> Pre-buy or fixed-price contracts avoid winter spikes</li>
+                    <li><strong>Shop around:</strong> Get quotes from multiple suppliers (prices vary 10-30%)</li>
+                </ul>
+            </div>
+
+            <div class="faq-item">
+                <h3>What is the energy content of propane?</h3>
+                <p>One gallon of propane contains <strong>91,500 BTU</strong> of energy. For comparison:</p>
+                <ul>
+                    <li><strong>1 gallon propane</strong> = 91,500 BTU</li>
+                    <li><strong>1 therm natural gas</strong> = 100,000 BTU (≈1.09 gallons propane)</li>
+                    <li><strong>1 kWh electricity</strong> = 3,412 BTU (≈27 gallons propane = 1,000 kWh)</li>
+                </ul>
+                <p>This is why propane is efficient for heating: high energy density per gallon.</p>
+            </div>
+        </section>
+
+        <!-- AdSense Unit 3 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4381914478807323"
+                 data-ad-slot="1234567892"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <section class="related-calculators">
+            <h2>Related Calculators</h2>
+            <div class="calculator-grid">
+                <a href="natural-gas-cost-calculator.html" class="calculator-card">
+                    <h3>⛽ Natural Gas Cost</h3>
+                    <p>Compare natural gas vs propane heating costs</p>
+                </a>
+                <a href="electricity-cost-calculator.html" class="calculator-card">
+                    <h3>⚡ Electricity Cost</h3>
+                    <p>Calculate monthly electricity bills</p>
+                </a>
+                <a href="solar-panel-roi-calculator.html" class="calculator-card">
+                    <h3>☀️ Solar Panel ROI</h3>
+                    <p>Estimate solar installation savings</p>
+                </a>
+                <a href="home-insurance-calculator.html" class="calculator-card">
+                    <h3>🏠 Home Insurance</h3>
+                    <p>Estimate homeowners insurance costs</p>
+                </a>
+                <a href="mortgage-calculator.html" class="calculator-card">
+                    <h3>🏠 Mortgage</h3>
+                    <p>Calculate monthly mortgage payments</p>
+                </a>
+                <a href="budget-calculator.html" class="calculator-card">
+                    <h3>💰 Budget</h3>
+                    <p>Plan and track monthly expenses</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>CalcLeap</h4>
+                <p>Free online calculators for finance, health, math, and more.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Popular Tools</h4>
+                <ul>
+                    <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+                    <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                    <li><a href="salary-calculator.html">Salary Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="index.html#calculators">All Calculators</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        function toggleCalcType() {
-            const calcType = document.querySelector('input[name="calcType"]:checked').value;
-            const heatingInputs = document.getElementById('heatingInputs');
-            const tankInputs = document.getElementById('tankInputs');
+        let currentMode = 'simple';
+
+        function switchMode(mode) {
+            currentMode = mode;
             
-            if (calcType === 'heating') {
-                heatingInputs.style.display = 'block';
-                tankInputs.style.display = 'none';
-            } else {
-                heatingInputs.style.display = 'none';
-                tankInputs.style.display = 'block';
-            }
+            // Update buttons
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Update content
+            document.querySelectorAll('.mode-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(`${mode}-mode`).classList.add('active');
+            
+            // Clear results
+            document.getElementById('result').innerHTML = '';
         }
 
         function calculatePropane() {
-            const calcType = document.querySelector('input[name="calcType"]:checked').value;
-            const propanePrice = parseFloat(document.getElementById('propanePrice').value);
-            let html = '';
-
-            if (calcType === 'heating') {
-                const homeSize = parseFloat(document.getElementById('homeSize').value);
-                const heatingDays = parseFloat(document.getElementById('heatingDays').value);
-                const efficiency = parseFloat(document.getElementById('efficiency').value) / 100;
-                const climate = document.getElementById('climate').value;
-
-                // BTU per sq ft per heating day based on climate
-                const btuFactors = {
-                    'mild': 15,      // 15 BTU/sq ft/day
-                    'moderate': 25,  // 25 BTU/sq ft/day
-                    'cold': 35,      // 35 BTU/sq ft/day
-                    'extreme': 50    // 50 BTU/sq ft/day
-                };
-
-                const btuPerDay = homeSize * btuFactors[climate];
-                const totalBTU = btuPerDay * heatingDays;
-                
-                // 1 gallon of propane = 91,500 BTU
-                const theoreticalGallons = totalBTU / 91500;
-                const actualGallons = theoreticalGallons / efficiency;
-
-                const annualCost = actualGallons * propanePrice;
-                const monthlyCost = annualCost / 12;
-                const winterMonthlyCost = (actualGallons * propanePrice) / (heatingDays / 30);
-
-                html = `
-                    <div class="result-item">
-                        <div class="result-label">Annual Propane Usage</div>
-                        <div class="result-value">${actualGallons.toFixed(0)} gallons</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">Total Annual Cost</div>
-                        <div class="result-value">$${annualCost.toFixed(2)}</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">Average Monthly Cost</div>
-                        <div class="result-value">$${monthlyCost.toFixed(2)}</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">Winter Month Cost (peak usage)</div>
-                        <div class="result-value">$${winterMonthlyCost.toFixed(2)}</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">Cost per Square Foot</div>
-                        <div class="result-value">$${(annualCost / homeSize).toFixed(2)}/sq ft/year</div>
-                    </div>
-                `;
-
-                // Comparison with natural gas if available
-                const naturalGasEquivalent = totalBTU / 100000; // 1 therm = 100,000 BTU
-                const naturalGasCost = naturalGasEquivalent * 1.25; // ~$1.25/therm average
-                const savings = annualCost - naturalGasCost;
-
-                if (savings > 0) {
-                    html += `
-                        <div class="result-item">
-                            <div class="result-label">vs Natural Gas (if available)</div>
-                            <div class="result-value">$${savings.toFixed(2)} more/year</div>
-                        </div>
-                    `;
-                }
-
+            const resultDiv = document.getElementById('result');
+            
+            if (currentMode === 'simple') {
+                calculateSimple(resultDiv);
+            } else if (currentMode === 'advanced') {
+                calculateAdvanced(resultDiv);
             } else {
-                // Tank refill calculation
-                const tankSize = parseFloat(document.getElementById('tankSize').value);
-                const currentLevel = parseFloat(document.getElementById('currentLevel').value) / 100;
-                const fillTo = parseFloat(document.getElementById('fillTo').value) / 100;
-
-                const currentGallons = tankSize * currentLevel;
-                const targetGallons = tankSize * fillTo;
-                const gallonsNeeded = targetGallons - currentGallons;
-                const fillCost = gallonsNeeded * propanePrice;
-
-                // Estimate how long it will last (assuming heating usage)
-                const avgDailyUsage = tankSize === 20 ? 0.5 : tankSize / 120; // rough estimate
-                const daysUntilRefill = gallonsNeeded / avgDailyUsage;
-
-                html = `
-                    <div class="result-item">
-                        <div class="result-label">Gallons Needed</div>
-                        <div class="result-value">${gallonsNeeded.toFixed(1)} gallons</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">Fill Cost</div>
-                        <div class="result-value">$${fillCost.toFixed(2)}</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">Current Level</div>
-                        <div class="result-value">${currentGallons.toFixed(1)} gal (${(currentLevel*100).toFixed(0)}%)</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">After Fill Level</div>
-                        <div class="result-value">${targetGallons.toFixed(1)} gal (${(fillTo*100).toFixed(0)}%)</div>
-                    </div>
-                `;
-
-                if (tankSize >= 250) {
-                    html += `
-                        <div class="result-item">
-                            <div class="result-label">Estimated Duration (heating use)</div>
-                            <div class="result-value">~${Math.floor(daysUntilRefill / 30)} months</div>
-                        </div>
-                    `;
-                }
+                calculateTank(resultDiv);
             }
+        }
 
-            document.getElementById('resultsContent').innerHTML = html;
-            document.getElementById('results').style.display = 'block';
-            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        function calculateSimple(resultDiv) {
+            const gallons = parseFloat(document.getElementById('simple-gallons').value) || 0;
+            const price = parseFloat(document.getElementById('simple-price').value) || 0;
+            const fixed = parseFloat(document.getElementById('simple-fixed').value) || 0;
+
+            const propaneCost = gallons * price;
+            const monthlyTotal = propaneCost + fixed;
+            const annualTotal = monthlyTotal * 12;
+
+            resultDiv.innerHTML = `
+                <div class="result-breakdown">
+                    <h3>💰 Monthly Cost Breakdown</h3>
+                    <div class="result-item">
+                        <span class="result-label">Propane Usage:</span>
+                        <span class="result-value">${gallons.toFixed(1)} gallons</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Propane Cost:</span>
+                        <span class="result-value">$${propaneCost.toFixed(2)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Fixed Fee:</span>
+                        <span class="result-value">$${fixed.toFixed(2)}</span>
+                    </div>
+                    <div class="result-item" style="background: #007bff; color: white; font-size: 1.2em;">
+                        <span class="result-label" style="color: white;">Monthly Total:</span>
+                        <span class="result-value" style="color: white;">$${monthlyTotal.toFixed(2)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Annual Cost:</span>
+                        <span class="result-value">$${annualTotal.toFixed(2)}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function calculateAdvanced(resultDiv) {
+            const price = parseFloat(document.getElementById('adv-price').value) || 0;
+            const fixed = parseFloat(document.getElementById('adv-fixed').value) || 0;
+
+            // Furnace calculation
+            const furnaceBTU = parseFloat(document.getElementById('furnace-btu').value) || 0;
+            const furnaceHours = parseFloat(document.getElementById('furnace-hours').value) || 0;
+            const furnaceEff = parseFloat(document.getElementById('furnace-efficiency').value) / 100 || 0.85;
+            const furnaceGallons = (furnaceBTU * furnaceHours * 30) / 91500 / furnaceEff;
+
+            // Water heater calculation
+            const waterBTU = parseFloat(document.getElementById('water-btu').value) || 0;
+            const waterHours = parseFloat(document.getElementById('water-hours').value) || 0;
+            const waterEff = parseFloat(document.getElementById('water-efficiency').value) / 100 || 0.65;
+            const waterGallons = (waterBTU * waterHours * 30) / 91500 / waterEff;
+
+            // Stove calculation
+            const stoveBTU = parseFloat(document.getElementById('stove-btu').value) || 0;
+            const stoveHours = parseFloat(document.getElementById('stove-hours').value) || 0;
+            const stoveGallons = (stoveBTU * stoveHours * 30) / 91500; // 100% efficiency for cooking
+
+            // Dryer calculation
+            const dryerBTU = parseFloat(document.getElementById('dryer-btu').value) || 0;
+            const dryerHours = parseFloat(document.getElementById('dryer-hours').value) || 0;
+            const dryerGallons = (dryerBTU * dryerHours * 4.33) / 91500; // Weekly to monthly
+
+            const totalGallons = furnaceGallons + waterGallons + stoveGallons + dryerGallons;
+            const propaneCost = totalGallons * price;
+            const monthlyTotal = propaneCost + fixed;
+            const annualTotal = monthlyTotal * 12;
+
+            resultDiv.innerHTML = `
+                <div class="result-breakdown">
+                    <h3>💰 Monthly Cost Breakdown</h3>
+                    <div class="result-item">
+                        <span class="result-label">🔥 Furnace Usage:</span>
+                        <span class="result-value">${furnaceGallons.toFixed(1)} gal ($${(furnaceGallons * price).toFixed(2)})</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">💧 Water Heater Usage:</span>
+                        <span class="result-value">${waterGallons.toFixed(1)} gal ($${(waterGallons * price).toFixed(2)})</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">🍳 Cooking Usage:</span>
+                        <span class="result-value">${stoveGallons.toFixed(1)} gal ($${(stoveGallons * price).toFixed(2)})</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">👔 Dryer Usage:</span>
+                        <span class="result-value">${dryerGallons.toFixed(1)} gal ($${(dryerGallons * price).toFixed(2)})</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Propane Usage:</span>
+                        <span class="result-value">${totalGallons.toFixed(1)} gallons</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Propane Cost:</span>
+                        <span class="result-value">$${propaneCost.toFixed(2)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Fixed Fee:</span>
+                        <span class="result-value">$${fixed.toFixed(2)}</span>
+                    </div>
+                    <div class="result-item" style="background: #007bff; color: white; font-size: 1.2em;">
+                        <span class="result-label" style="color: white;">Monthly Total:</span>
+                        <span class="result-value" style="color: white;">$${monthlyTotal.toFixed(2)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Annual Cost:</span>
+                        <span class="result-value">$${annualTotal.toFixed(2)}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function calculateTank(resultDiv) {
+            const tankSize = parseFloat(document.getElementById('tank-size').value) || 0;
+            const current = parseFloat(document.getElementById('tank-current').value) / 100 || 0;
+            const fill = parseFloat(document.getElementById('tank-fill').value) / 100 || 0;
+            const price = parseFloat(document.getElementById('tank-price').value) || 0;
+            const delivery = parseFloat(document.getElementById('delivery-fee').value) || 0;
+
+            const currentGallons = tankSize * current;
+            const fillGallons = tankSize * fill;
+            const neededGallons = fillGallons - currentGallons;
+            const propaneCost = neededGallons * price;
+            const totalCost = propaneCost + delivery;
+            const pricePerGallon = totalCost / neededGallons;
+
+            resultDiv.innerHTML = `
+                <div class="result-breakdown">
+                    <h3>⛽ Tank Refill Cost</h3>
+                    <div class="result-item">
+                        <span class="result-label">Tank Size:</span>
+                        <span class="result-value">${tankSize} gallons</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Current Level:</span>
+                        <span class="result-value">${currentGallons.toFixed(1)} gal (${(current * 100).toFixed(0)}%)</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Fill Level:</span>
+                        <span class="result-value">${fillGallons.toFixed(1)} gal (${(fill * 100).toFixed(0)}%)</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Gallons Needed:</span>
+                        <span class="result-value">${neededGallons.toFixed(1)} gallons</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Propane Cost:</span>
+                        <span class="result-value">$${propaneCost.toFixed(2)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Delivery Fee:</span>
+                        <span class="result-value">$${delivery.toFixed(2)}</span>
+                    </div>
+                    <div class="result-item" style="background: #007bff; color: white; font-size: 1.2em;">
+                        <span class="result-label" style="color: white;">Total Refill Cost:</span>
+                        <span class="result-value" style="color: white;">$${totalCost.toFixed(2)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Effective Price/Gallon:</span>
+                        <span class="result-value">$${pricePerGallon.toFixed(2)}/gal</span>
+                    </div>
+                </div>
+            `;
         }
     </script>
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
-    </div>
-    <div>
-      <h4>Popular</h4>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
-      <a href="calc/compound-interest.html">Compound Interest</a>
-    </div>
-    <div>
-      <h4>Categories</h4>
-      <a href="index.html#finance">Financial</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#health">Health</a>
-      <a href="index.html#converters">Converters</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
-      <a href="blog/index.html">Blog</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
-</footer>
 </body>
 </html>
