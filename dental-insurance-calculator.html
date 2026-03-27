@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free dental insurance cost calculator. Estimate monthly premiums, annual costs, and potential savings based on your coverage needs, family size, and dental health.">
+    <meta name="keywords" content="dental insurance calculator, dental insurance cost, dental premium estimator, dental coverage calculator, dentist insurance, family dental insurance">
+    <title>Dental Insurance Calculator - Estimate Coverage Costs | CalcLeap</title>
+    <link rel="canonical" href="https://calcleap.com/dental-insurance-calculator.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3940454368769005"
+     crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Dental Insurance Calculator",
+        "description": "Calculate estimated dental insurance premiums and potential savings based on coverage type and family size.",
+        "applicationCategory": "FinanceApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background: #f5f7fa; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem 1rem; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        header p { font-size: 1.1rem; opacity: 0.95; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        .calc-wrapper { background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 2rem; margin-bottom: 2rem; }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .input-section, .result-section { padding: 1rem; }
+        .result-section { background: #f8f9fa; border-radius: 8px; border-left: 4px solid #667eea; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: #555; }
+        input, select { width: 100%; padding: 0.75rem; border: 2px solid #e1e8ed; border-radius: 6px; font-size: 1rem; transition: all 0.3s; }
+        input:focus, select:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.1); }
+        .result-box { background: white; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; }
+        .result-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #e1e8ed; }
+        .result-item:last-child { border-bottom: none; }
+        .result-label { color: #666; font-weight: 500; }
+        .result-value { font-weight: 700; color: #667eea; font-size: 1.1rem; }
+        .result-highlight { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; text-align: center; }
+        .result-highlight h3 { font-size: 1.2rem; margin-bottom: 0.5rem; opacity: 0.95; }
+        .result-highlight .amount { font-size: 2.5rem; font-weight: 700; }
+        .coverage-breakdown { margin-top: 1rem; }
+        .coverage-item { background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-bottom: 0.75rem; border-left: 3px solid #667eea; }
+        .coverage-item h4 { color: #667eea; margin-bottom: 0.25rem; font-size: 1rem; }
+        .coverage-item p { color: #666; font-size: 0.9rem; }
+        .content-section { background: white; border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .content-section h2 { color: #667eea; margin-bottom: 1rem; font-size: 1.75rem; }
+        .content-section h3 { color: #555; margin: 1.5rem 0 1rem; font-size: 1.3rem; }
+        .content-section p { margin-bottom: 1rem; color: #555; line-height: 1.8; }
+        .content-section ul, .content-section ol { margin: 1rem 0 1rem 2rem; color: #555; line-height: 1.8; }
+        .content-section li { margin-bottom: 0.5rem; }
+        .faq { margin-top: 1rem; }
+        .faq-item { margin-bottom: 1.5rem; }
+        .faq-question { font-weight: 600; color: #667eea; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .faq-answer { color: #666; line-height: 1.7; }
+        .tip-box { background: #e3f2fd; border-left: 4px solid #2196f3; padding: 1rem; border-radius: 4px; margin: 1rem 0; }
+        .tip-box strong { color: #1976d2; }
+        footer { background: #2c3e50; color: white; text-align: center; padding: 2rem 1rem; margin-top: 3rem; }
+        footer a { color: #667eea; text-decoration: none; }
+        @media (max-width: 768px) {
+            .calc-grid { grid-template-columns: 1fr; gap: 1rem; }
+            header h1 { font-size: 1.5rem; }
+            .result-highlight .amount { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>💎 Dental Insurance Calculator</h1>
+        <p>Estimate your dental insurance costs and potential savings</p>
+    </header>
+
+    <div class="container">
+        <div class="calc-wrapper">
+            <div class="calc-grid">
+                <div class="input-section">
+                    <h2 style="color: #667eea; margin-bottom: 1.5rem;">Coverage Details</h2>
+                    
+                    <div class="form-group">
+                        <label for="coverageType">Coverage Type</label>
+                        <select id="coverageType">
+                            <option value="basic">Basic (Preventive Only)</option>
+                            <option value="standard" selected>Standard (Preventive + Basic)</option>
+                            <option value="comprehensive">Comprehensive (Full Coverage)</option>
+                            <option value="premium">Premium (All Services + Orthodontics)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="familySize">Family Size</label>
+                        <select id="familySize">
+                            <option value="1" selected>Individual</option>
+                            <option value="2">Couple</option>
+                            <option value="3">Family (3 members)</option>
+                            <option value="4">Family (4 members)</option>
+                            <option value="5">Family (5+ members)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Primary Insured Age</label>
+                        <input type="number" id="age" min="18" max="80" value="35">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <select id="state">
+                            <option value="low">Low Cost (e.g., ID, MT, WY)</option>
+                            <option value="medium" selected>Average Cost (National Average)</option>
+                            <option value="high">High Cost (e.g., NY, CA, HI)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dentalHealth">Current Dental Health</label>
+                        <select id="dentalHealth">
+                            <option value="excellent">Excellent (Regular checkups, no issues)</option>
+                            <option value="good" selected>Good (Occasional work needed)</option>
+                            <option value="fair">Fair (Some existing issues)</option>
+                            <option value="poor">Poor (Multiple issues, major work needed)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="annualDentalSpend">Estimated Annual Dental Expenses (without insurance)</label>
+                        <input type="number" id="annualDentalSpend" min="0" step="50" value="800" placeholder="$800">
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <h2 style="color: #667eea; margin-bottom: 1rem;">Cost Estimate</h2>
+                    
+                    <div class="result-highlight">
+                        <h3>Estimated Monthly Premium</h3>
+                        <div class="amount" id="monthlyPremium">$0</div>
+                    </div>
+
+                    <div class="result-box">
+                        <div class="result-item">
+                            <span class="result-label">Annual Premium</span>
+                            <span class="result-value" id="annualPremium">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Annual Maximum Coverage</span>
+                            <span class="result-value" id="maxCoverage">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Annual Deductible</span>
+                            <span class="result-value" id="deductible">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Estimated Annual Savings</span>
+                            <span class="result-value" id="annualSavings">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="coverage-breakdown">
+                        <h3 style="color: #555; margin-bottom: 1rem; font-size: 1.1rem;">Coverage Details</h3>
+                        <div class="coverage-item" id="preventiveCoverage">
+                            <h4>Preventive Care</h4>
+                            <p>Cleanings, exams, X-rays</p>
+                        </div>
+                        <div class="coverage-item" id="basicCoverage">
+                            <h4>Basic Procedures</h4>
+                            <p>Fillings, extractions, root canals</p>
+                        </div>
+                        <div class="coverage-item" id="majorCoverage">
+                            <h4>Major Procedures</h4>
+                            <p>Crowns, bridges, dentures</p>
+                        </div>
+                        <div class="coverage-item" id="orthodonticCoverage" style="display: none;">
+                            <h4>Orthodontics</h4>
+                            <p>Braces, aligners</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Understanding Dental Insurance Costs</h2>
+            <p>Dental insurance helps cover the cost of routine and emergency dental care, from cleanings and fillings to crowns and root canals. Understanding how much dental insurance costs and what it covers can help you choose the right plan for your needs and budget.</p>
+
+            <h3>Average Dental Insurance Costs</h3>
+            <p>According to the National Association of Dental Plans (NADP), the average cost of dental insurance varies by coverage level:</p>
+            <ul>
+                <li><strong>Individual Coverage:</strong> $15-$50 per month ($180-$600 annually)</li>
+                <li><strong>Couple Coverage:</strong> $30-$100 per month ($360-$1,200 annually)</li>
+                <li><strong>Family Coverage:</strong> $50-$150 per month ($600-$1,800 annually)</li>
+            </ul>
+
+            <h3>Factors That Affect Dental Insurance Premiums</h3>
+            <p>Several factors influence how much you'll pay for dental insurance:</p>
+            <ol>
+                <li><strong>Coverage Level:</strong> Basic plans cover preventive care only, while comprehensive plans cover preventive, basic, and major procedures. Premium plans include orthodontics.</li>
+                <li><strong>Family Size:</strong> More covered members mean higher premiums, but per-person costs typically decrease.</li>
+                <li><strong>Geographic Location:</strong> Dental care costs vary significantly by state and region. Urban areas and high-cost states like California, New York, and Hawaii have higher premiums.</li>
+                <li><strong>Age:</strong> Older adults may face slightly higher premiums due to increased likelihood of dental issues.</li>
+                <li><strong>Employer vs. Individual Plans:</strong> Employer-sponsored plans are typically 30-50% cheaper due to group rates and employer contributions.</li>
+                <li><strong>Annual Maximum:</strong> Plans with higher annual maximums (e.g., $2,000-$3,000) cost more than those with lower caps ($1,000-$1,500).</li>
+            </ol>
+
+            <h3>What Does Dental Insurance Cover?</h3>
+            <p>Most dental insurance plans divide coverage into three categories, each with different coinsurance levels:</p>
+
+            <div class="coverage-item">
+                <h4>Preventive Care (100% Coverage)</h4>
+                <p>Routine cleanings (2 per year), oral exams, X-rays, fluoride treatments, and sealants are typically covered at 100% with no deductible.</p>
+            </div>
+
+            <div class="coverage-item">
+                <h4>Basic Procedures (70-80% Coverage)</h4>
+                <p>Fillings, simple extractions, periodontal maintenance, and emergency care are covered at 70-80% after meeting your deductible.</p>
+            </div>
+
+            <div class="coverage-item">
+                <h4>Major Procedures (50% Coverage)</h4>
+                <p>Crowns, bridges, dentures, root canals, and implants are covered at 50% after meeting your deductible, subject to annual maximums.</p>
+            </div>
+
+            <div class="coverage-item">
+                <h4>Orthodontics (50% Coverage, Optional)</h4>
+                <p>Braces, Invisalign, and other orthodontic treatments are covered at 50% up to a lifetime maximum (typically $1,000-$2,000), available on premium plans.</p>
+            </div>
+
+            <h3>Key Dental Insurance Terms</h3>
+            <ul>
+                <li><strong>Premium:</strong> The amount you pay monthly or annually for coverage.</li>
+                <li><strong>Deductible:</strong> The amount you pay out-of-pocket before insurance kicks in (typically $25-$100 per person).</li>
+                <li><strong>Annual Maximum:</strong> The maximum amount your plan will pay per year (typically $1,000-$3,000).</li>
+                <li><strong>Coinsurance:</strong> The percentage you pay after the deductible (e.g., 20% for basic procedures).</li>
+                <li><strong>Waiting Period:</strong> Time you must wait before certain services are covered (0-12 months for major procedures).</li>
+                <li><strong>Network:</strong> PPO plans offer lower costs for in-network dentists; HMO plans require in-network providers.</li>
+            </ul>
+
+            <h3>Is Dental Insurance Worth It?</h3>
+            <p>Whether dental insurance is worth the cost depends on your situation:</p>
+
+            <div class="tip-box">
+                <strong>Dental Insurance Makes Sense If:</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>You need regular dental work beyond cleanings (fillings, crowns, root canals)</li>
+                    <li>Your employer offers it with significant premium contributions</li>
+                    <li>You have children who may need orthodontics</li>
+                    <li>You want predictable costs for dental care</li>
+                    <li>You're planning major dental work in the near future</li>
+                </ul>
+            </div>
+
+            <div class="tip-box" style="background: #fff3e0; border-left-color: #ff9800;">
+                <strong>Consider Alternatives If:</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>You have excellent dental health and only need cleanings (may cost less out-of-pocket)</li>
+                    <li>The annual maximum is too low to cover your expected expenses</li>
+                    <li>Waiting periods delay coverage for needed procedures</li>
+                    <li>You can negotiate cash discounts with your dentist (often 20-30% off)</li>
+                    <li>A dental discount plan (not insurance) meets your needs at lower cost ($80-$200/year)</li>
+                </ul>
+            </div>
+
+            <h3>How to Save on Dental Insurance</h3>
+            <ol>
+                <li><strong>Maximize Preventive Care:</strong> Use your 2 free cleanings per year to catch problems early when they're cheaper to fix.</li>
+                <li><strong>Stay In-Network:</strong> PPO plans offer significant discounts (30-50%) for in-network providers.</li>
+                <li><strong>Employer Plans:</strong> Employer-sponsored plans are almost always cheaper than individual plans.</li>
+                <li><strong>Compare Plans:</strong> Shop around during open enrollment or use healthcare.gov for ACA marketplace plans.</li>
+                <li><strong>Consider FSA/HSA:</strong> Use pre-tax dollars from flexible spending or health savings accounts to pay premiums and out-of-pocket costs.</li>
+                <li><strong>Bundle Coverage:</strong> Some insurers offer discounts when you bundle dental with health or vision insurance.</li>
+                <li><strong>Negotiate Payment Plans:</strong> Many dentists offer interest-free payment plans for major procedures, reducing upfront costs.</li>
+            </ol>
+
+            <h3>Employer vs. Individual Dental Insurance</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                <thead>
+                    <tr style="background: #f8f9fa;">
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Factor</th>
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Employer Plan</th>
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #dee2e6;">Individual Plan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Cost</td>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">$10-$30/month (employer pays 50-70%)</td>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">$20-$60/month (you pay 100%)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Annual Maximum</td>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">$1,500-$2,500</td>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">$1,000-$2,000</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Waiting Periods</td>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Often waived</td>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">3-12 months for major work</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Network Size</td>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Large national networks</td>
+                        <td style="padding: 0.75rem; border: 1px solid #dee2e6;">Varies by plan</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question">How much is dental insurance per month?</div>
+                    <div class="faq-answer">On average, individual dental insurance costs $15-$50 per month, couples pay $30-$100, and families pay $50-$150. Employer-sponsored plans are typically 30-50% cheaper due to group rates and employer contributions.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Does dental insurance cover braces?</div>
+                    <div class="faq-answer">Orthodontic coverage (braces, Invisalign) is only included in premium dental plans and typically covers 50% of costs up to a lifetime maximum of $1,000-$2,000. Most basic and standard plans do not include orthodontics.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What is a dental insurance annual maximum?</div>
+                    <div class="faq-answer">The annual maximum is the most your dental plan will pay for covered services in a calendar year, typically $1,000-$3,000. After you reach this limit, you pay 100% of additional costs out-of-pocket until the next year.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do I need dental insurance if I have good teeth?</div>
+                    <div class="faq-answer">If you only need routine cleanings and exams (typically $200-$400/year out-of-pocket), dental insurance may not be cost-effective unless your employer subsidizes most of the premium. However, insurance provides protection against unexpected major dental work.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What's the difference between PPO and HMO dental plans?</div>
+                    <div class="faq-answer">PPO plans let you visit any dentist (with discounts for in-network providers) and don't require referrals. HMO plans require you to choose a primary dentist and stay in-network, but typically have lower premiums and no deductibles.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How long do I have to wait for major dental work to be covered?</div>
+                    <div class="faq-answer">Most individual dental plans have waiting periods of 6-12 months for major procedures (crowns, bridges, dentures). Preventive care is usually covered immediately, and basic procedures may have a 3-6 month wait. Employer plans often waive waiting periods.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I use dental insurance right away?</div>
+                    <div class="faq-answer">Preventive care (cleanings, exams) is typically covered immediately with no waiting period. However, basic procedures may have a 3-6 month wait, and major work often requires 6-12 months. Check your plan's specific waiting periods before enrolling.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is dental insurance tax deductible?</div>
+                    <div class="faq-answer">If you're self-employed, you may deduct dental insurance premiums as a business expense. For W-2 employees, premiums are only deductible if your total medical expenses exceed 7.5% of your adjusted gross income. HSA and FSA contributions for dental care are pre-tax.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 CalcLeap. All rights reserved. | <a href="https://calcleap.com">More Calculators</a></p>
+    </footer>
+
+    <script>
+        function calculateDentalInsurance() {
+            const coverageType = document.getElementById('coverageType').value;
+            const familySize = parseInt(document.getElementById('familySize').value);
+            const age = parseInt(document.getElementById('age').value);
+            const state = document.getElementById('state').value;
+            const dentalHealth = document.getElementById('dentalHealth').value;
+            const annualDentalSpend = parseFloat(document.getElementById('annualDentalSpend').value) || 0;
+
+            // Base monthly premiums by coverage type (individual)
+            const basePremiums = {
+                basic: 20,
+                standard: 35,
+                comprehensive: 55,
+                premium: 75
+            };
+
+            // Family multipliers (economies of scale)
+            const familyMultipliers = {
+                1: 1.0,
+                2: 1.85,
+                3: 2.5,
+                4: 3.0,
+                5: 3.4
+            };
+
+            // State cost adjustments
+            const stateMultipliers = {
+                low: 0.85,
+                medium: 1.0,
+                high: 1.25
+            };
+
+            // Age adjustments (minimal impact on dental vs health)
+            let ageMultiplier = 1.0;
+            if (age > 55) ageMultiplier = 1.15;
+            else if (age > 45) ageMultiplier = 1.08;
+
+            // Calculate monthly premium
+            let monthlyPremium = basePremiums[coverageType] * familyMultipliers[familySize] * stateMultipliers[state] * ageMultiplier;
+            monthlyPremium = Math.round(monthlyPremium);
+            const annualPremium = monthlyPremium * 12;
+
+            // Annual maximums and deductibles by plan
+            const planDetails = {
+                basic: { max: 750, deductible: 25, preventive: 100, basic: 0, major: 0, ortho: 0 },
+                standard: { max: 1500, deductible: 50, preventive: 100, basic: 80, major: 0, ortho: 0 },
+                comprehensive: { max: 2000, deductible: 50, preventive: 100, basic: 80, major: 50, ortho: 0 },
+                premium: { max: 3000, deductible: 50, preventive: 100, basic: 80, major: 50, ortho: 50 }
+            };
+
+            const details = planDetails[coverageType];
+            const maxCoverage = details.max * familySize;
+            const deductible = details.deductible * familySize;
+
+            // Estimate savings based on dental health and coverage
+            let estimatedCoverage = 0;
+            if (annualDentalSpend > 0) {
+                // Rough estimate: coverage pays for percentage based on plan
+                const coverageRate = {
+                    basic: 0.60,      // Mostly preventive
+                    standard: 0.70,   // Preventive + some basic
+                    comprehensive: 0.75, // Good coverage
+                    premium: 0.80     // Best coverage
+                };
+                estimatedCoverage = Math.min(annualDentalSpend * coverageRate[coverageType], maxCoverage);
+            }
+
+            const annualSavings = Math.round(estimatedCoverage - annualPremium);
+
+            // Update display
+            document.getElementById('monthlyPremium').textContent = '$' + monthlyPremium;
+            document.getElementById('annualPremium').textContent = '$' + annualPremium.toLocaleString();
+            document.getElementById('maxCoverage').textContent = '$' + maxCoverage.toLocaleString();
+            document.getElementById('deductible').textContent = '$' + deductible;
+            
+            const savingsElement = document.getElementById('annualSavings');
+            if (annualSavings > 0) {
+                savingsElement.textContent = '+$' + annualSavings.toLocaleString();
+                savingsElement.style.color = '#28a745';
+            } else {
+                savingsElement.textContent = '-$' + Math.abs(annualSavings).toLocaleString();
+                savingsElement.style.color = '#dc3545';
+            }
+
+            // Update coverage details
+            document.getElementById('preventiveCoverage').innerHTML = `
+                <h4>Preventive Care</h4>
+                <p>Cleanings, exams, X-rays: ${details.preventive}% covered</p>
+            `;
+
+            document.getElementById('basicCoverage').innerHTML = `
+                <h4>Basic Procedures</h4>
+                <p>Fillings, extractions: ${details.basic}% covered</p>
+            `;
+
+            document.getElementById('majorCoverage').innerHTML = `
+                <h4>Major Procedures</h4>
+                <p>Crowns, bridges, dentures: ${details.major}% covered</p>
+            `;
+
+            const orthodonticCoverage = document.getElementById('orthodonticCoverage');
+            if (coverageType === 'premium') {
+                orthodonticCoverage.style.display = 'block';
+                orthodonticCoverage.innerHTML = `
+                    <h4>Orthodontics</h4>
+                    <p>Braces, aligners: ${details.ortho}% covered (lifetime max $1,500)</p>
+                `;
+            } else {
+                orthodonticCoverage.style.display = 'none';
+            }
+        }
+
+        // Add event listeners
+        document.getElementById('coverageType').addEventListener('change', calculateDentalInsurance);
+        document.getElementById('familySize').addEventListener('change', calculateDentalInsurance);
+        document.getElementById('age').addEventListener('input', calculateDentalInsurance);
+        document.getElementById('state').addEventListener('change', calculateDentalInsurance);
+        document.getElementById('dentalHealth').addEventListener('change', calculateDentalInsurance);
+        document.getElementById('annualDentalSpend').addEventListener('input', calculateDentalInsurance);
+
+        // Initial calculation
+        calculateDentalInsurance();
+    </script>
+</body>
+</html>
