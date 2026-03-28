@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Cost Calculator - Compare Drug Prices & Insurance Coverage 2026 | CalcLeap</title>
+    <meta name="description" content="Calculate prescription medication costs with and without insurance. Compare copays, deductibles, and out-of-pocket expenses. Find the most affordable option for your medications.">
+    <meta name="keywords" content="prescription cost calculator, medication cost, drug prices, insurance copay calculator, prescription savings, pharmacy comparison, medication affordability">
+    <link rel="canonical" href="https://calcleap.com/prescription-cost-calculator.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Prescription Cost Calculator - Compare Drug Prices & Insurance Coverage">
+    <meta property="og:description" content="Calculate prescription medication costs with and without insurance. Compare copays, deductibles, and savings options.">
+    <meta property="og:url" content="https://calcleap.com/prescription-cost-calculator.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Prescription Cost Calculator",
+      "description": "Calculate prescription medication costs with and without insurance coverage",
+      "url": "https://calcleap.com/prescription-cost-calculator.html",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .input-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 8px;
+            display: none;
+        }
+        .result h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        .cost-breakdown {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cost-item:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        .savings-tip {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .comparison-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+        .comparison-card.best {
+            border-color: #4caf50;
+            background: #f1f8f4;
+        }
+        .comparison-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .faq {
+            margin-top: 40px;
+        }
+        .faq h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item h3 {
+            color: #555;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .faq-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+        .content-section {
+            margin-top: 40px;
+        }
+        .content-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .content-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .content-section ul {
+            margin-left: 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← All Tools</a>
+        
+        <h1>💊 Prescription Cost Calculator</h1>
+        <p class="subtitle">Calculate and compare prescription medication costs with insurance, discounts, and cash prices</p>
+        
+        <div class="input-group">
+            <label for="medName">Medication Name</label>
+            <input type="text" id="medName" placeholder="e.g., Metformin, Lisinopril, Atorvastatin">
+        </div>
+        
+        <div class="input-group">
+            <label for="retailPrice">Retail Cash Price (without insurance)</label>
+            <input type="number" id="retailPrice" placeholder="100" step="0.01">
+        </div>
+        
+        <div class="input-group">
+            <label for="quantity">Quantity (pills/units per fill)</label>
+            <input type="number" id="quantity" value="30" min="1">
+        </div>
+        
+        <div class="input-group">
+            <label for="refillsPerYear">Refills per Year</label>
+            <input type="number" id="refillsPerYear" value="12" min="1" max="24">
+        </div>
+        
+        <div class="input-group">
+            <label for="insuranceType">Insurance Coverage</label>
+            <select id="insuranceType">
+                <option value="none">No Insurance (Cash Price)</option>
+                <option value="copay">Insurance with Copay</option>
+                <option value="coinsurance">Insurance with Coinsurance</option>
+                <option value="deductible">Insurance (Deductible Not Met)</option>
+            </select>
+        </div>
+        
+        <div class="input-group" id="copayGroup" style="display: none;">
+            <label for="copay">Copay Amount ($)</label>
+            <input type="number" id="copay" placeholder="10" step="0.01">
+        </div>
+        
+        <div class="input-group" id="coinsuranceGroup" style="display: none;">
+            <label for="coinsurance">Coinsurance Percentage (%)</label>
+            <input type="number" id="coinsurance" placeholder="20" min="0" max="100">
+        </div>
+        
+        <div class="input-group">
+            <label for="discountCard">Discount Card/Coupon Available?</label>
+            <select id="discountCard">
+                <option value="no">No Discount</option>
+                <option value="goodrx">GoodRx (avg 40% off)</option>
+                <option value="manufacturer">Manufacturer Coupon (avg 50% off)</option>
+                <option value="custom">Custom Discount</option>
+            </select>
+        </div>
+        
+        <div class="input-group" id="customDiscountGroup" style="display: none;">
+            <label for="customDiscount">Custom Discount Percentage (%)</label>
+            <input type="number" id="customDiscount" placeholder="25" min="0" max="100">
+        </div>
+        
+        <button class="btn" onclick="calculatePrescriptionCost()">Calculate Prescription Costs</button>
+        
+        <div id="result" class="result"></div>
+        
+        <div class="content-section">
+            <h2>How to Use This Prescription Cost Calculator</h2>
+            <p>This calculator helps you estimate the true cost of your medications across different payment scenarios:</p>
+            <ul>
+                <li><strong>Cash/Retail Price:</strong> Enter the medication's full price without insurance (ask your pharmacist or check GoodRx)</li>
+                <li><strong>Insurance Coverage:</strong> Select your plan type (copay, coinsurance, or pre-deductible)</li>
+                <li><strong>Discount Programs:</strong> Include savings from GoodRx, manufacturer coupons, or pharmacy discount cards</li>
+                <li><strong>Annual Cost:</strong> See total yearly expenses based on refill frequency</li>
+                <li><strong>Comparison:</strong> Compare insurance vs. cash vs. discount card pricing side-by-side</li>
+            </ul>
+            <p>Use this tool before filling prescriptions to find the most affordable option. Sometimes paying cash with a discount card is cheaper than using insurance!</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>Understanding Prescription Drug Costs</h2>
+            <p><strong>Key terms that affect your medication expenses:</strong></p>
+            <ul>
+                <li><strong>Copay:</strong> A fixed amount you pay per prescription (e.g., $10 for generics, $50 for brand drugs)</li>
+                <li><strong>Coinsurance:</strong> A percentage of the drug cost you pay after meeting your deductible (e.g., 20% of $100 = $20)</li>
+                <li><strong>Deductible:</strong> Amount you pay out-of-pocket before insurance starts covering prescriptions</li>
+                <li><strong>Formulary:</strong> Your insurance's list of covered medications (tier 1 = lowest cost, tier 3-4 = highest)</li>
+                <li><strong>Prior Authorization:</strong> Insurance requirement for approval before covering certain expensive drugs</li>
+                <li><strong>Step Therapy:</strong> Requirement to try cheaper alternatives before insurance covers costly medications</li>
+            </ul>
+        </div>
+        
+        <div class="content-section">
+            <h2>Ways to Save on Prescription Medications</h2>
+            <p><strong>Proven strategies to reduce your pharmacy bills:</strong></p>
+            <ul>
+                <li><strong>Ask for generics:</strong> Generic drugs are 80-85% cheaper than brand names and FDA-equivalent</li>
+                <li><strong>Use discount cards:</strong> GoodRx, RxSaver, and SingleCare can cut costs 40-80% even without insurance</li>
+                <li><strong>Compare pharmacies:</strong> Prices vary wildly — Costco, Walmart, and Sam's Club often have the lowest cash prices</li>
+                <li><strong>Buy 90-day supplies:</strong> Mail-order or 90-day fills reduce per-pill costs and copays</li>
+                <li><strong>Check manufacturer coupons:</strong> Many brand-name drugs offer savings cards (e.g., $0-25 copay programs)</li>
+                <li><strong>Split higher-dose pills:</strong> Ask your doctor if you can get a higher dose and split pills (e.g., 20mg tabs cut in half = 10mg)</li>
+                <li><strong>Patient assistance programs:</strong> Free or low-cost meds for those who qualify based on income</li>
+                <li><strong>Ask about cash prices:</strong> Sometimes paying without insurance is cheaper than your copay or deductible</li>
+            </ul>
+        </div>
+        
+        <div class="faq">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>Why are prescription drug prices so high in the US?</h3>
+                <p>The US lacks government price controls on medications, allowing pharmaceutical companies to set prices based on market demand. Other factors include patent protections (20 years for brand drugs), pharmacy benefit manager (PBM) negotiations, and high research/development costs. Americans pay 2-3x more than other developed countries for the same medications.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can I use GoodRx if I have insurance?</h3>
+                <p>Yes, but you can't use both simultaneously. Compare the GoodRx price to your insurance copay — whichever is lower is what you should use. For many generic drugs, GoodRx beats insurance copays, especially if you haven't met your deductible or if the drug is in a high tier on your formulary.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What's the difference between copay and coinsurance?</h3>
+                <p>A <strong>copay</strong> is a fixed dollar amount you pay (e.g., $15 per prescription), regardless of the drug's actual cost. <strong>Coinsurance</strong> is a percentage of the drug's cost (e.g., 20% of a $200 medication = $40). Copays are more predictable; coinsurance can vary significantly based on the medication's price.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>How can I find the cash price of my medication?</h3>
+                <p>Call your pharmacy and ask for the "cash price" or "retail price" without insurance. You can also check GoodRx, RxSaver, or your pharmacy's website. Prices vary dramatically between pharmacies — a drug that costs $150 at CVS might be $40 at Costco or Walmart.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Will using a discount card affect my insurance deductible?</h3>
+                <p>No — when you use a discount card instead of insurance, those purchases don't count toward your deductible or out-of-pocket maximum. However, this might be worth it if the discount card saves you significant money. Once you're close to meeting your deductible, switch back to insurance so costs count toward your annual limit.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Are generic medications as effective as brand-name drugs?</h3>
+                <p>Yes. The FDA requires generic drugs to have the same active ingredients, strength, dosage form, and route of administration as brand-name versions. Generics must prove they work the same way in the body (bioequivalence). Inactive ingredients (fillers, colors) may differ, but therapeutic effects are equivalent.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What are manufacturer copay cards and how do I get them?</h3>
+                <p>Pharmaceutical companies offer copay assistance cards for brand-name drugs to reduce out-of-pocket costs (often to $0-50). Visit the drug manufacturer's website or ask your doctor for a card. These typically have income limits and don't work with government insurance (Medicare/Medicaid). Cards may cover copays for 12 months or until you hit a dollar limit (e.g., $12,000/year).</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can I import cheaper medications from Canada or other countries?</h3>
+                <p>Technically illegal under FDA rules, but enforcement is inconsistent for personal-use quantities (typically up to 90-day supply). Some states (Florida, Colorado) have launched official importation programs. Risks include counterfeit drugs, lack of FDA oversight, and customs seizures. Always verify pharmacy legitimacy through CIPA (Canadian International Pharmacy Association) or VIPPS (Verified Internet Pharmacy Practice Sites) certification.</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: center;">
+            <p style="color: #666; margin-bottom: 15px;">Need help finding affordable medications?</p>
+            <p style="color: #666; font-size: 0.9em;">Resources: <a href="https://www.goodrx.com" target="_blank" style="color: #667eea;">GoodRx</a> | <a href="https://www.needymeds.org" target="_blank" style="color: #667eea;">NeedyMeds</a> | <a href="https://www.medicare.gov/drug-coverage-part-d" target="_blank" style="color: #667eea;">Medicare Part D</a></p>
+        </div>
+        
+        <div style="margin-top: 30px; text-align: center; color: #999; font-size: 0.9em;">
+            <p>⚠️ Disclaimer: This calculator provides cost estimates for informational purposes only. Actual prescription prices vary by pharmacy, insurance plan, and location. Always verify costs with your pharmacy before filling prescriptions. This tool does not provide medical advice — consult your doctor or pharmacist for medication decisions.</p>
+        </div>
+    </div>
+    
+    <script>
+        const insuranceTypeSelect = document.getElementById('insuranceType');
+        const copayGroup = document.getElementById('copayGroup');
+        const coinsuranceGroup = document.getElementById('coinsuranceGroup');
+        const discountCardSelect = document.getElementById('discountCard');
+        const customDiscountGroup = document.getElementById('customDiscountGroup');
+        
+        insuranceTypeSelect.addEventListener('change', function() {
+            copayGroup.style.display = this.value === 'copay' ? 'block' : 'none';
+            coinsuranceGroup.style.display = this.value === 'coinsurance' ? 'block' : 'none';
+        });
+        
+        discountCardSelect.addEventListener('change', function() {
+            customDiscountGroup.style.display = this.value === 'custom' ? 'block' : 'none';
+        });
+        
+        function calculatePrescriptionCost() {
+            const medName = document.getElementById('medName').value || 'Your Medication';
+            const retailPrice = parseFloat(document.getElementById('retailPrice').value) || 0;
+            const quantity = parseInt(document.getElementById('quantity').value) || 30;
+            const refillsPerYear = parseInt(document.getElementById('refillsPerYear').value) || 12;
+            const insuranceType = document.getElementById('insuranceType').value;
+            const copay = parseFloat(document.getElementById('copay').value) || 0;
+            const coinsurance = parseFloat(document.getElementById('coinsurance').value) || 0;
+            const discountCard = document.getElementById('discountCard').value;
+            const customDiscount = parseFloat(document.getElementById('customDiscount').value) || 0;
+            
+            if (retailPrice <= 0) {
+                alert('Please enter the retail cash price of your medication.');
+                return;
+            }
+            
+            // Calculate costs per fill
+            let insuranceCost = 0;
+            let insuranceLabel = '';
+            
+            switch(insuranceType) {
+                case 'none':
+                    insuranceCost = retailPrice;
+                    insuranceLabel = 'Cash Price (No Insurance)';
+                    break;
+                case 'copay':
+                    insuranceCost = copay > 0 ? copay : retailPrice * 0.1;
+                    insuranceLabel = `Insurance Copay`;
+                    break;
+                case 'coinsurance':
+                    insuranceCost = retailPrice * (coinsurance / 100);
+                    insuranceLabel = `Insurance Coinsurance (${coinsurance}%)`;
+                    break;
+                case 'deductible':
+                    insuranceCost = retailPrice;
+                    insuranceLabel = 'Insurance (Deductible Not Met)';
+                    break;
+            }
+            
+            // Calculate discount card price
+            let discountPercent = 0;
+            let discountLabel = '';
+            
+            switch(discountCard) {
+                case 'goodrx':
+                    discountPercent = 40;
+                    discountLabel = 'GoodRx Discount Card';
+                    break;
+                case 'manufacturer':
+                    discountPercent = 50;
+                    discountLabel = 'Manufacturer Coupon';
+                    break;
+                case 'custom':
+                    discountPercent = customDiscount;
+                    discountLabel = 'Custom Discount Card';
+                    break;
+                default:
+                    discountPercent = 0;
+                    discountLabel = 'No Discount';
+            }
+            
+            const discountPrice = discountPercent > 0 ? retailPrice * (1 - discountPercent / 100) : retailPrice;
+            
+            // Annual costs
+            const annualInsurance = insuranceCost * refillsPerYear;
+            const annualCash = retailPrice * refillsPerYear;
+            const annualDiscount = discountPrice * refillsPerYear;
+            
+            // Find best option
+            const options = [
+                { name: 'Insurance', cost: annualInsurance },
+                { name: 'Cash Price', cost: annualCash },
+                { name: 'Discount Card', cost: annualDiscount }
+            ];
+            options.sort((a, b) => a.cost - b.cost);
+            const bestOption = options[0];
+            const savings = options[2].cost - bestOption.cost;
+            
+            let resultHTML = `
+                <h2>💊 Prescription Cost Breakdown: ${medName}</h2>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card ${bestOption.name === 'Cash Price' ? 'best' : ''}">
+                        <h3>💵 Cash Price</h3>
+                        <div class="cost-item">
+                            <span>Per Fill (${quantity} units):</span>
+                            <strong>$${retailPrice.toFixed(2)}</strong>
+                        </div>
+                        <div class="cost-item">
+                            <span>Annual Cost (${refillsPerYear} refills):</span>
+                            <strong>$${annualCash.toFixed(2)}</strong>
+                        </div>
+                        ${bestOption.name === 'Cash Price' ? '<p style="color: #4caf50; margin-top: 10px; font-weight: 600;">✓ Best Option</p>' : ''}
+                    </div>
+                    
+                    <div class="comparison-card ${bestOption.name === 'Insurance' ? 'best' : ''}">
+                        <h3>🏥 ${insuranceLabel}</h3>
+                        <div class="cost-item">
+                            <span>Per Fill:</span>
+                            <strong>$${insuranceCost.toFixed(2)}</strong>
+                        </div>
+                        <div class="cost-item">
+                            <span>Annual Cost (${refillsPerYear} refills):</span>
+                            <strong>$${annualInsurance.toFixed(2)}</strong>
+                        </div>
+                        ${bestOption.name === 'Insurance' ? '<p style="color: #4caf50; margin-top: 10px; font-weight: 600;">✓ Best Option</p>' : ''}
+                    </div>
+                    
+                    ${discountPercent > 0 ? `
+                    <div class="comparison-card ${bestOption.name === 'Discount Card' ? 'best' : ''}">
+                        <h3>🎫 ${discountLabel}</h3>
+                        <div class="cost-item">
+                            <span>Discount:</span>
+                            <strong>${discountPercent}% off</strong>
+                        </div>
+                        <div class="cost-item">
+                            <span>Per Fill:</span>
+                            <strong>$${discountPrice.toFixed(2)}</strong>
+                        </div>
+                        <div class="cost-item">
+                            <span>Annual Cost (${refillsPerYear} refills):</span>
+                            <strong>$${annualDiscount.toFixed(2)}</strong>
+                        </div>
+                        ${bestOption.name === 'Discount Card' ? '<p style="color: #4caf50; margin-top: 10px; font-weight: 600;">✓ Best Option</p>' : ''}
+                    </div>
+                    ` : ''}
+                </div>
+                
+                <div class="savings-tip">
+                    <strong>💡 Savings Opportunity:</strong> By choosing the ${bestOption.name} option, you could save up to <strong>$${savings.toFixed(2)} per year</strong> compared to the most expensive option.
+                    ${bestOption.name === 'Discount Card' ? '<br><br>Pro tip: Ask your pharmacy if they accept GoodRx or other discount cards BEFORE filling your prescription. You can\'t combine insurance and discount cards, but you can choose whichever is cheaper each time.' : ''}
+                    ${bestOption.name === 'Cash Price' && insuranceType !== 'none' ? '<br><br>Surprising finding: Paying cash is cheaper than using your insurance! This often happens with generic drugs when your copay is high or you haven\'t met your deductible.' : ''}
+                </div>
+            `;
+            
+            document.getElementById('result').innerHTML = resultHTML;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
