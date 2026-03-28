@@ -321,7 +321,92 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
         <p style="color:var(--text-muted);margin-bottom:2rem">Calculate monthly mortgage payments, total interest, and amortization. Free home loan calculator.</p>
         
-        <div class="tool-content" id="toolContent"></div>
+        <div class="card" style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+            <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Calculate Your Mortgage Payment</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem">
+                <div class="input-group">
+                    <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Home Price ($)</label>
+                    <input type="number" id="homePrice" value="350000" min="0" step="5000" onchange="calcMortgage()" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                </div>
+                <div class="input-group">
+                    <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Down Payment ($)</label>
+                    <input type="number" id="downPayment" value="70000" min="0" step="1000" onchange="calcMortgage()" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                </div>
+                <div class="input-group">
+                    <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Interest Rate (%)</label>
+                    <input type="number" id="rate" value="6.5" min="0" max="20" step="0.125" onchange="calcMortgage()" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                </div>
+                <div class="input-group">
+                    <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Loan Term (years)</label>
+                    <select id="term" onchange="calcMortgage()" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                        <option value="30" selected>30 years</option>
+                        <option value="20">20 years</option>
+                        <option value="15">15 years</option>
+                        <option value="10">10 years</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Property Tax (%/year)</label>
+                    <input type="number" id="propTax" value="1.1" min="0" max="5" step="0.1" onchange="calcMortgage()" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                </div>
+                <div class="input-group">
+                    <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Home Insurance ($/year)</label>
+                    <input type="number" id="insurance" value="1500" min="0" step="100" onchange="calcMortgage()" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                </div>
+            </div>
+            <button onclick="calcMortgage()" style="display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;background:#0071e3;color:#fff;border:none;border-radius:12px;cursor:pointer;margin-top:.5rem">Calculate Payment</button>
+            
+            <div id="mortResults" style="display:none;margin-top:1.5rem">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem">
+                    <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                        <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem">Monthly Payment</div>
+                        <div id="monthlyPay" style="font-size:2rem;font-weight:800;color:#0071e3;letter-spacing:-.03em"></div>
+                    </div>
+                    <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                        <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem">Total Paid</div>
+                        <div id="totalPaid" style="font-size:1.5rem;font-weight:700;letter-spacing:-.02em"></div>
+                    </div>
+                    <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                        <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem">Total Interest</div>
+                        <div id="totalInt" style="font-size:1.5rem;font-weight:700;color:#e74c3c;letter-spacing:-.02em"></div>
+                    </div>
+                </div>
+                <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;margin-top:.75rem">
+                    <h4 style="font-size:.85rem;margin-bottom:.75rem">Payment Breakdown</h4>
+                    <div id="breakdown" style="font-size:.9rem;color:#424245;line-height:1.8"></div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+        function calcMortgage(){
+            const price=parseFloat(document.getElementById('homePrice').value);
+            const down=parseFloat(document.getElementById('downPayment').value);
+            const r=parseFloat(document.getElementById('rate').value)/100/12;
+            const n=parseInt(document.getElementById('term').value)*12;
+            const propTax=parseFloat(document.getElementById('propTax').value)/100;
+            const ins=parseFloat(document.getElementById('insurance').value);
+            const loan=price-down;
+            const pi=loan*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+            const tax=price*propTax/12;
+            const insM=ins/12;
+            let pmi=0;
+            if(down/price<0.2)pmi=loan*0.005/12;
+            const total=pi+tax+insM+pmi;
+            const totalPaid=total*n;
+            const totalInt=pi*n-loan;
+            const f=v=>'$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+            document.getElementById('monthlyPay').textContent=f(total);
+            document.getElementById('totalPaid').textContent=f(totalPaid);
+            document.getElementById('totalInt').textContent=f(totalInt);
+            let bd=`Principal & Interest: ${f(pi)}/mo<br>Property Tax: ${f(tax)}/mo<br>Insurance: ${f(insM)}/mo`;
+            if(pmi>0)bd+=`<br>PMI: ${f(pmi)}/mo <span style="color:#86868b">(until 20% equity)</span>`;
+            bd+=`<br><br>Loan Amount: ${f(loan)}<br>Down Payment: ${(down/price*100).toFixed(1)}%`;
+            document.getElementById('breakdown').innerHTML=bd;
+            document.getElementById('mortResults').style.display='block';
+        }
+        calcMortgage();
+        </script>
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">
