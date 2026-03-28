@@ -3,56 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workers Compensation Insurance Calculator | Calculate Your WC Premium</title>
-    <meta name="description" content="Calculate workers comp insurance costs by industry, payroll, and classification code. Get accurate premium estimates for your business with our free workers compensation calculator.">
+    <title>Workers' Compensation Calculator - Calculate Your Work Injury Benefits | CalcLeap</title>
+    <meta name="description" content="Free workers' compensation calculator. Estimate your work injury benefits, disability payments, and settlement value based on your injury type, wages, and state. Instant results.">
+    <meta name="keywords" content="workers compensation calculator, work injury benefits, disability payments, workers comp settlement, wage replacement, temporary disability, permanent disability, medical benefits">
     <link rel="canonical" href="https://calcleap.com/workers-comp-calculator.html">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🧮%3C/text%3E%3C/svg%3E">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Workers' Compensation Calculator - Calculate Your Work Injury Benefits">
+    <meta property="og:description" content="Estimate your workers' compensation benefits including disability payments and settlement value. Free instant calculation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/workers-comp-calculator.html">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Workers' Compensation Benefits Calculator",
+      "description": "Calculate workers' compensation benefits including temporary disability, permanent disability, and estimated settlement value based on injury type and wages.",
+      "url": "https://calcleap.com/workers-comp-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6; 
-            color: #333; 
+            line-height: 1.6;
+            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        .container { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            background: white; 
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
-        h1 { 
-            color: #667eea; 
+        
+        h1 {
+            color: #667eea;
             margin-bottom: 10px;
             font-size: 2.5em;
-            text-align: center;
         }
+        
         .subtitle {
-            text-align: center;
             color: #666;
             margin-bottom: 30px;
             font-size: 1.1em;
         }
-        .calc-section {
-            background: #f8f9fa;
+        
+        .calculator-section {
+            background: #f8f9ff;
             padding: 30px;
             border-radius: 15px;
             margin-bottom: 30px;
         }
-        .form-group {
+        
+        .input-group {
             margin-bottom: 25px;
         }
+        
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 600;
             color: #555;
+            font-weight: 600;
         }
-        input, select {
+        
+        input[type="number"],
+        select {
             width: 100%;
             padding: 12px;
             border: 2px solid #e0e0e0;
@@ -60,11 +96,53 @@
             font-size: 16px;
             transition: border-color 0.3s;
         }
-        input:focus, select:focus {
+        
+        input[type="number"]:focus,
+        select:focus {
             outline: none;
             border-color: #667eea;
         }
-        .btn-calculate {
+        
+        .injury-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .injury-card {
+            padding: 20px;
+            background: white;
+            border: 3px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .injury-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .injury-card.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        
+        .injury-card h3 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .injury-card p {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .calculate-btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
@@ -73,418 +151,753 @@
             border-radius: 10px;
             cursor: pointer;
             width: 100%;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+            transition: transform 0.2s;
         }
-        .btn-calculate:hover {
+        
+        .calculate-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
         }
+        
         .results {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: none;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
             padding: 30px;
             border-radius: 15px;
             margin-top: 30px;
-            display: none;
         }
-        .results.show { display: block; }
-        .result-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-        .result-item:last-child { border-bottom: none; }
-        .result-label { font-weight: 500; }
-        .result-value { font-weight: 700; font-size: 1.3em; }
-        .info-section {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
-        }
-        .info-section h2 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-        .info-section h3 {
-            color: #764ba2;
-            margin: 20px 0 10px 0;
-            font-size: 1.3em;
-        }
-        .info-section ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        .info-section li {
-            margin-bottom: 8px;
-        }
-        .industry-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .industry-card {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-        .industry-card strong {
-            color: #667eea;
+        
+        .results.show {
             display: block;
-            margin-bottom: 5px;
+            animation: slideIn 0.5s ease-out;
         }
-        .rate-display {
-            font-size: 0.9em;
-            color: #666;
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            color: #666;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
+        
+        .result-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
-        footer a {
-            color: #667eea;
-            text-decoration: none;
+        
+        .result-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
         }
-        footer a:hover {
-            text-decoration: underline;
+        
+        .result-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 10px 0;
         }
-        .warning-box {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
+        
+        .result-description {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
             padding: 15px;
             margin: 20px 0;
             border-radius: 5px;
         }
+        
+        .content-section {
+            margin-top: 50px;
+        }
+        
+        .content-section h2 {
+            color: #667eea;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .content-section h3 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .content-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .content-section li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .faq-item {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .faq-item h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .lead-form {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+        
+        .lead-form h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .lead-form input,
+        .lead-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .lead-form button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
         @media (max-width: 768px) {
-            .container { padding: 20px; }
-            h1 { font-size: 2em; }
-            .calc-section { padding: 20px; }
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .injury-type-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="page-title">⚕️ Workers Compensation Insurance Calculator</h1>
-        <p class="subtitle">Calculate your estimated workers comp premium by industry classification and payroll</p>
-
-        <div class="calc-section">
-            <div class="form-group">
-                <label for="industry">Industry / Business Type:</label>
-                <select id="industry">
-                    <option value="">Select your industry...</option>
-                    <option value="8810">Office & Clerical (8810) - $0.19</option>
-                    <option value="8742">Sales - Outside (8742) - $0.96</option>
-                    <option value="8380">Store - Retail (8380) - $1.52</option>
-                    <option value="9402">Restaurant - Fast Food (9402) - $2.04</option>
-                    <option value="5183">Plumbing (5183) - $5.93</option>
-                    <option value="5190">Electrical Work (5190) - $4.45</option>
-                    <option value="5403">Carpentry (5403) - $8.69</option>
-                    <option value="5506">Roofing (5506) - $13.47</option>
-                    <option value="5022">Masonry (5022) - $9.11</option>
-                    <option value="3724">Trucking - Local (3724) - $5.21</option>
-                    <option value="7380">Landscaping (7380) - $3.82</option>
-                    <option value="8017">Healthcare - Office Staff (8017) - $1.68</option>
-                    <option value="8832">IT & Software Development (8832) - $0.41</option>
-                    <option value="8810">Accounting Services (8810) - $0.19</option>
-                    <option value="9519">Manufacturing - Light (9519) - $3.64</option>
-                    <option value="3632">Warehouse (3632) - $4.15</option>
-                    <option value="8742">Real Estate Agency (8742) - $0.96</option>
-                    <option value="8868">Consulting Services (8868) - $0.44</option>
-                    <option value="7855">Janitorial Services (7855) - $3.26</option>
-                    <option value="8810">Legal Services (8810) - $0.19</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="payroll">Annual Payroll ($):</label>
-                <input type="number" id="payroll" placeholder="500000" value="500000" min="0" step="1000">
-            </div>
-
-            <div class="form-group">
-                <label for="state">State:</label>
-                <select id="state">
-                    <option value="1.00">National Average (1.00x)</option>
-                    <option value="2.23">California (2.23x)</option>
-                    <option value="0.57">North Dakota (0.57x)</option>
-                    <option value="1.62">New York (1.62x)</option>
-                    <option value="1.48">Florida (1.48x)</option>
-                    <option value="1.31">Texas (1.31x)</option>
-                    <option value="1.89">Illinois (1.89x)</option>
-                    <option value="1.15">Pennsylvania (1.15x)</option>
-                    <option value="1.06">Ohio (1.06x)</option>
-                    <option value="1.42">Georgia (1.42x)</option>
-                    <option value="0.96">Michigan (0.96x)</option>
-                    <option value="1.37">North Carolina (1.37x)</option>
-                    <option value="1.24">New Jersey (1.24x)</option>
-                    <option value="0.91">Virginia (0.91x)</option>
-                    <option value="1.18">Washington (1.18x)</option>
-                    <option value="0.76">Arizona (0.76x)</option>
-                    <option value="1.33">Massachusetts (1.33x)</option>
-                    <option value="0.83">Tennessee (0.83x)</option>
-                    <option value="0.79">Indiana (0.79x)</option>
-                    <option value="1.54">Missouri (1.54x)</option>
-                    <option value="0.88">Wisconsin (0.88x)</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="claims">Claims History:</label>
-                <select id="claims">
-                    <option value="0.70">Excellent (No claims 5+ years) - 0.70x</option>
-                    <option value="0.85">Good (1-2 minor claims) - 0.85x</option>
-                    <option value="1.00">Average (Standard risk) - 1.00x</option>
-                    <option value="1.25">Fair (3-4 claims) - 1.25x</option>
-                    <option value="1.50">Poor (5+ claims or major injury) - 1.50x</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="safety">Safety Program:</label>
-                <select id="safety">
-                    <option value="0.95">Formal safety program with training - 0.95x</option>
-                    <option value="1.00">No formal program - 1.00x</option>
-                </select>
-            </div>
-
-            <button class="btn-calculate" onclick="calculate()">Calculate Premium</button>
-        </div>
-
-        <div class="results" id="results">
-            <div class="result-item">
-                <span class="result-label">Base Rate (per $100 payroll):</span>
-                <span class="result-value" id="baseRate">-</span>
-            </div>
-            <div class="result-item">
-                <span class="result-label">State-Adjusted Rate:</span>
-                <span class="result-value" id="stateRate">-</span>
-            </div>
-            <div class="result-item">
-                <span class="result-label">Final Rate (after modifiers):</span>
-                <span class="result-value" id="finalRate">-</span>
-            </div>
-            <div class="result-item">
-                <span class="result-label">Estimated Annual Premium:</span>
-                <span class="result-value" id="annualPremium">-</span>
-            </div>
-            <div class="result-item">
-                <span class="result-label">Monthly Cost:</span>
-                <span class="result-value" id="monthlyCost">-</span>
-            </div>
-            <div class="result-item">
-                <span class="result-label">Cost per $1,000 Payroll:</span>
-                <span class="result-value" id="costPer1000">-</span>
-            </div>
-        </div>
-
-        <div class="info-section">
-            <h2>Understanding Workers Compensation Insurance</h2>
-            <p>Workers compensation insurance (workers comp or WC) is a type of business insurance that provides benefits to employees who suffer work-related injuries or illnesses. It's required by law in most states for businesses with employees.</p>
-
-            <h3>How Workers Comp Premiums Are Calculated</h3>
-            <p>Workers compensation insurance costs are determined by several factors:</p>
-            <ul>
-                <li><strong>Classification Code:</strong> Every job is assigned a 4-digit class code by the National Council on Compensation Insurance (NCCI). Higher-risk jobs have higher rates.</li>
-                <li><strong>Payroll:</strong> Premiums are calculated per $100 of payroll. Higher payroll = higher premium.</li>
-                <li><strong>State:</strong> Each state has different regulations and average claim costs, significantly affecting rates.</li>
-                <li><strong>Claims History:</strong> Your experience modification rate (EMR or Mod) is based on past claims. Clean record = lower rates.</li>
-                <li><strong>Safety Programs:</strong> Formal safety training and workplace safety programs can reduce premiums.</li>
-            </ul>
-
-            <h3>Industry Classification Codes (Class Codes)</h3>
-            <div class="industry-grid">
-                <div class="industry-card">
-                    <strong>Office & Clerical (8810)</strong>
-                    <span class="rate-display">$0.19 per $100 payroll</span>
-                    <p>Lowest risk: desk work, admin</p>
-                </div>
-                <div class="industry-card">
-                    <strong>IT & Software (8832)</strong>
-                    <span class="rate-display">$0.41 per $100 payroll</span>
-                    <p>Very low risk: programming, design</p>
-                </div>
-                <div class="industry-card">
-                    <strong>Retail Store (8380)</strong>
-                    <span class="rate-display">$1.52 per $100 payroll</span>
-                    <p>Low-moderate risk: customer service</p>
-                </div>
-                <div class="industry-card">
-                    <strong>Restaurant (9402)</strong>
-                    <span class="rate-display">$2.04 per $100 payroll</span>
-                    <p>Moderate risk: kitchen, service</p>
-                </div>
-                <div class="industry-card">
-                    <strong>Electrical Work (5190)</strong>
-                    <span class="rate-display">$4.45 per $100 payroll</span>
-                    <p>High risk: electrical hazards</p>
-                </div>
-                <div class="industry-card">
-                    <strong>Plumbing (5183)</strong>
-                    <span class="rate-display">$5.93 per $100 payroll</span>
-                    <p>High risk: physical labor</p>
-                </div>
-                <div class="industry-card">
-                    <strong>Carpentry (5403)</strong>
-                    <span class="rate-display">$8.69 per $100 payroll</span>
-                    <p>Very high risk: tools, heights</p>
-                </div>
-                <div class="industry-card">
-                    <strong>Roofing (5506)</strong>
-                    <span class="rate-display">$13.47 per $100 payroll</span>
-                    <p>Highest risk: falls, heights</p>
-                </div>
-            </div>
-
-            <h3>What Workers Comp Covers</h3>
-            <ul>
-                <li><strong>Medical Expenses:</strong> Doctor visits, hospital stays, surgery, medication, rehabilitation</li>
-                <li><strong>Lost Wages:</strong> Partial wage replacement while employee recovers (typically 66% of average wage)</li>
-                <li><strong>Disability Benefits:</strong> Permanent or temporary disability payments</li>
-                <li><strong>Death Benefits:</strong> Funeral expenses and survivor benefits for fatal workplace accidents</li>
-                <li><strong>Legal Protection:</strong> Protects employer from most employee lawsuits related to workplace injuries</li>
-            </ul>
-
-            <h3>Ways to Lower Your Workers Comp Costs</h3>
-            <ul>
-                <li><strong>Implement Safety Programs:</strong> Formal training, safety equipment, and workplace hazard reduction can earn discounts up to 15%</li>
-                <li><strong>Accurate Job Classification:</strong> Ensure employees are properly classified. Don't pay construction rates for office workers</li>
-                <li><strong>Return-to-Work Programs:</strong> Help injured employees return to light duty quickly to reduce claim costs</li>
-                <li><strong>Shop Around:</strong> Get quotes from multiple carriers. Rates can vary significantly</li>
-                <li><strong>Pay-As-You-Go:</strong> Some providers offer monthly payments based on actual payroll instead of estimates</li>
-                <li><strong>Bundle Policies:</strong> Combine with general liability or other business insurance for multi-policy discounts</li>
-                <li><strong>Claims Management:</strong> Actively manage and dispute fraudulent or inflated claims</li>
-            </ul>
-
-            <h3>State Requirements</h3>
-            <p>Workers compensation insurance is mandatory in most states once you hire employees. Requirements vary:</p>
-            <ul>
-                <li><strong>Most States:</strong> Required as soon as you hire your first employee</li>
-                <li><strong>Some States:</strong> Required after 3-5 employees</li>
-                <li><strong>Texas:</strong> Optional (only state where it's not required, but highly recommended)</li>
-                <li><strong>Sole Proprietors/Partners:</strong> Usually exempt but can buy coverage for themselves</li>
-                <li><strong>1099 Contractors:</strong> Generally not covered by your policy (they need their own)</li>
-            </ul>
-
-            <div class="warning-box">
-                <strong>⚠️ Penalties for Not Having Workers Comp:</strong><br>
-                Operating without required workers comp insurance can result in fines of $1,000-$100,000+, criminal charges, and civil lawsuits. You could be personally liable for 100% of an injured employee's medical and disability costs.
-            </div>
-
-            <h3>Experience Modification Rate (EMR/Mod)</h3>
-            <p>Your Mod is a multiplier based on your claims history compared to similar businesses:</p>
-            <ul>
-                <li><strong>1.00:</strong> Average risk (baseline)</li>
-                <li><strong>0.70-0.99:</strong> Better than average (fewer/smaller claims) = lower premiums</li>
-                <li><strong>1.01-2.00:</strong> Worse than average (more/larger claims) = higher premiums</li>
-            </ul>
-            <p>A single large claim can raise your Mod for 3-5 years, significantly increasing costs. This is why workplace safety is critical.</p>
-
-            <h3>Sample Premium Scenarios</h3>
-            <ul>
-                <li><strong>Small Accounting Firm:</strong> 5 office employees, $300k payroll, Class 8810 → ~$570/year</li>
-                <li><strong>Web Design Agency:</strong> 10 staff, $750k payroll, Class 8832 → ~$3,075/year</li>
-                <li><strong>Plumbing Company:</strong> 8 plumbers, $500k payroll, Class 5183 → ~$29,650/year</li>
-                <li><strong>Roofing Contractor:</strong> 12 roofers, $600k payroll, Class 5506 → ~$80,820/year</li>
-            </ul>
-
-            <h3>Tips for Small Business Owners</h3>
-            <ul>
-                <li>Get quotes 60-90 days before your policy renewal to compare rates</li>
-                <li>Review your payroll classifications annually - misclassification costs you money</li>
-                <li>Document all safety training and programs - it helps during rate audits</li>
-                <li>Consider a PEO (Professional Employer Organization) if you're under 50 employees - they can often get better group rates</li>
-                <li>Report claims promptly but investigate thoroughly - fraudulent claims hurt your Mod</li>
-                <li>Use a pay-as-you-go plan to avoid large annual premiums and year-end audits</li>
-            </ul>
-        </div>
-
+        <h1>⚕️ Workers' Compensation Calculator</h1>
+        <p class="subtitle">Estimate your work injury benefits, disability payments, and settlement value</p>
         
+        <div class="calculator-section">
+            <div class="input-group">
+                <label for="avgWeeklyWage">Average Weekly Wage (before injury)</label>
+                <input type="number" id="avgWeeklyWage" placeholder="e.g., 1200" min="0" step="0.01">
+                <small style="color: #666;">Include overtime and bonuses averaged over the past year</small>
+            </div>
+            
+            <div class="input-group">
+                <label for="state">Your State</label>
+                <select id="state">
+                    <option value="0.667">Alabama, Alaska, Arizona, Arkansas, California (standard)</option>
+                    <option value="0.60">Colorado, Connecticut, Delaware</option>
+                    <option value="0.70">Florida, Georgia, Hawaii</option>
+                    <option value="0.667">Illinois, Indiana, Iowa, Kansas</option>
+                    <option value="0.70">Kentucky, Louisiana, Maine</option>
+                    <option value="0.667">Maryland, Massachusetts, Michigan, Minnesota</option>
+                    <option value="0.667">Mississippi, Missouri, Montana, Nebraska</option>
+                    <option value="0.667">Nevada, New Hampshire, New Jersey, New Mexico</option>
+                    <option value="0.667">New York, North Carolina, North Dakota, Ohio</option>
+                    <option value="0.667">Oklahoma, Oregon, Pennsylvania, Rhode Island</option>
+                    <option value="0.667">South Carolina, South Dakota, Tennessee, Texas</option>
+                    <option value="0.667">Utah, Vermont, Virginia, Washington</option>
+                    <option value="0.667">West Virginia, Wisconsin, Wyoming</option>
+                </select>
+                <small style="color: #666;">Most states pay 2/3 (66.7%) of your average weekly wage</small>
+            </div>
+            
+            <div class="input-group">
+                <label>Injury Type & Severity</label>
+                <div class="injury-type-grid">
+                    <div class="injury-card" data-type="minor" data-weeks="12" data-ppi="0">
+                        <h3>🩹 Minor</h3>
+                        <p>Strain, sprain</p>
+                        <p><strong>~12 weeks</strong></p>
+                    </div>
+                    <div class="injury-card" data-type="moderate" data-weeks="26" data-ppi="5">
+                        <h3>🦴 Moderate</h3>
+                        <p>Fracture, herniation</p>
+                        <p><strong>~26 weeks</strong></p>
+                    </div>
+                    <div class="injury-card" data-type="severe" data-weeks="52" data-ppi="15">
+                        <h3>🏥 Severe</h3>
+                        <p>Surgery needed</p>
+                        <p><strong>~52 weeks</strong></p>
+                    </div>
+                    <div class="injury-card" data-type="catastrophic" data-weeks="104" data-ppi="50">
+                        <h3>⚠️ Catastrophic</h3>
+                        <p>Amputation, paralysis</p>
+                        <p><strong>Permanent</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="weeksOffWork">Estimated Weeks Off Work</label>
+                <input type="number" id="weeksOffWork" placeholder="e.g., 26" min="0" step="1">
+                <small style="color: #666;">Time unable to work at all (temporary total disability)</small>
+            </div>
+            
+            <div class="input-group">
+                <label for="ppiRating">Permanent Partial Impairment Rating (%)</label>
+                <input type="number" id="ppiRating" placeholder="e.g., 10" min="0" max="100" step="0.5">
+                <small style="color: #666;">Assigned by doctor after Maximum Medical Improvement (MMI)</small>
+            </div>
+            
+            <div class="input-group">
+                <label for="medicalCosts">Estimated Medical Costs</label>
+                <input type="number" id="medicalCosts" placeholder="e.g., 50000" min="0" step="100">
+                <small style="color: #666;">Past and future treatment, therapy, surgeries</small>
+            </div>
+            
+            <button class="calculate-btn" onclick="calculateWorkersComp()">Calculate My Benefits</button>
+        </div>
+        
+        <div class="results" id="results">
+            <h2>Your Estimated Workers' Compensation Benefits</h2>
+            
+            <div class="result-item">
+                <h3>Weekly Benefit Rate</h3>
+                <div class="result-value" id="weeklyBenefit">$0</div>
+                <p class="result-description">Your weekly disability payment (typically 2/3 of average wage)</p>
+            </div>
+            
+            <div class="result-item">
+                <h3>Temporary Disability Benefits</h3>
+                <div class="result-value" id="tempDisability">$0</div>
+                <p class="result-description">Total payments while unable to work (<span id="weeksOff">0</span> weeks)</p>
+            </div>
+            
+            <div class="result-item">
+                <h3>Permanent Partial Disability Benefits</h3>
+                <div class="result-value" id="permDisability">$0</div>
+                <p class="result-description">Lump sum or ongoing payments for permanent impairment (<span id="ppiPercent">0</span>% rating)</p>
+            </div>
+            
+            <div class="result-item">
+                <h3>Medical Benefits</h3>
+                <div class="result-value" id="medicalBenefits">$0</div>
+                <p class="result-description">Employer pays all reasonable medical treatment (no limit in most states)</p>
+            </div>
+            
+            <div class="result-item">
+                <h3>Estimated Total Settlement Range</h3>
+                <div class="result-value" id="settlementRange">$0 - $0</div>
+                <p class="result-description">Potential lump-sum settlement value (includes all benefits + future costs)</p>
+            </div>
+            
+            <div class="info-box">
+                <strong>⚖️ Important:</strong> This is an estimate only. Actual benefits depend on your state's laws, your employer's insurance carrier, medical evidence, and negotiations. Consult a workers' compensation attorney for a case evaluation.
+            </div>
+        </div>
+        
+        <div class="lead-form">
+            <h2>📞 Get a Free Case Review</h2>
+            <p>Unsure if your benefits are fair? A workers' comp attorney can review your case at no cost.</p>
+            <input type="text" placeholder="Your Name" id="leadName">
+            <input type="email" placeholder="Your Email" id="leadEmail">
+            <input type="tel" placeholder="Your Phone" id="leadPhone">
+            <textarea placeholder="Brief description of your work injury..." rows="4" id="leadMessage"></textarea>
+            <button onclick="submitLead()">Request Free Consultation</button>
+        </div>
+        
+        <!-- Content Section -->
+        <div class="content-section">
+            <h2>Understanding Workers' Compensation Benefits</h2>
+            
+            <p>Workers' compensation is a no-fault insurance system that provides medical care and wage replacement to employees injured on the job. Unlike personal injury lawsuits, you don't need to prove your employer was negligent—you're entitled to benefits regardless of fault (in most cases).</p>
+            
+            <p>This calculator helps you estimate the financial value of your workers' comp claim based on your wages, injury severity, and state laws. Use it to understand what benefits you may be entitled to and whether you're receiving fair compensation.</p>
+            
+            <h2>Types of Workers' Compensation Benefits</h2>
+            
+            <h3>1. Medical Benefits</h3>
+            <p>Your employer's workers' compensation insurance must pay for all medically necessary treatment related to your work injury. This includes:</p>
+            <ul>
+                <li><strong>Doctor visits and specialists:</strong> Initial treatment, follow-ups, referrals</li>
+                <li><strong>Surgery and hospitalization:</strong> All procedures needed to treat your injury</li>
+                <li><strong>Physical therapy and rehabilitation:</strong> To regain function and mobility</li>
+                <li><strong>Prescription medications:</strong> Pain management, antibiotics, etc.</li>
+                <li><strong>Medical equipment:</strong> Crutches, wheelchairs, prosthetics</li>
+                <li><strong>Mileage reimbursement:</strong> Travel to and from medical appointments</li>
+            </ul>
+            <p>In most states, medical benefits have no dollar limit—your employer must pay for all reasonable and necessary care for as long as you need it.</p>
+            
+            <h3>2. Temporary Disability Benefits</h3>
+            <p>If your injury prevents you from working while you recover, you're entitled to temporary disability payments:</p>
+            <ul>
+                <li><strong>Temporary Total Disability (TTD):</strong> You cannot work at all during recovery</li>
+                <li><strong>Temporary Partial Disability (TPD):</strong> You can return to light-duty work at reduced wages</li>
+            </ul>
+            <p><strong>How much you get:</strong> Most states pay approximately 2/3 (66.7%) of your average weekly wage (AWW). Some states pay as little as 60% or as much as 70-75%. There's usually a state maximum weekly benefit (e.g., $1,000-$2,000 per week).</p>
+            <p><strong>How long you get it:</strong> Until you reach Maximum Medical Improvement (MMI)—the point where your condition has stabilized and is not expected to improve with further treatment.</p>
+            
+            <h3>3. Permanent Disability Benefits</h3>
+            <p>If your injury causes lasting impairment that affects your ability to work or quality of life, you may receive permanent disability benefits:</p>
+            <ul>
+                <li><strong>Permanent Partial Disability (PPD):</strong> You have a permanent impairment but can still work (e.g., 10% loss of function in your arm)</li>
+                <li><strong>Permanent Total Disability (PTD):</strong> You are permanently unable to work in any capacity (e.g., paralysis, blindness)</li>
+            </ul>
+            <p><strong>How impairment is rated:</strong> After you reach MMI, a doctor assigns a Permanent Partial Impairment (PPI) rating—usually 0-100%—based on the American Medical Association's Guides to the Evaluation of Permanent Impairment.</p>
+            <p><strong>How benefits are calculated:</strong> Each state has a schedule that assigns a certain number of weeks (or a multiplier) for each body part and impairment percentage. For example:</p>
+            <ul>
+                <li>10% impairment to the back = 30 weeks of PPD benefits at 2/3 weekly wage</li>
+                <li>50% impairment to a leg = 125 weeks of PPD benefits</li>
+                <li>Loss of a hand = 244 weeks (in some states)</li>
+            </ul>
+            
+            <h3>4. Vocational Rehabilitation Benefits</h3>
+            <p>If your injury prevents you from returning to your previous job, you may be entitled to vocational rehabilitation services:</p>
+            <ul>
+                <li>Job retraining and education programs</li>
+                <li>Resume writing and job search assistance</li>
+                <li>Job placement services</li>
+            </ul>
+            
+            <h3>5. Death Benefits</h3>
+            <p>If a work injury results in death, the worker's dependents (spouse, children) may receive:</p>
+            <ul>
+                <li>Ongoing death benefits (typically 2/3 of the deceased's average weekly wage)</li>
+                <li>Burial expenses (usually $5,000-$15,000)</li>
+            </ul>
+            
+            <h2>How Workers' Compensation Benefits Are Calculated</h2>
+            
+            <h3>Step 1: Determine Your Average Weekly Wage (AWW)</h3>
+            <p>Your AWW is the basis for all wage replacement benefits. It's calculated by averaging your earnings over a specific period (usually 13 or 52 weeks before the injury). Include:</p>
+            <ul>
+                <li>Regular wages or salary</li>
+                <li>Overtime pay</li>
+                <li>Bonuses and commissions</li>
+                <li>Tips (in some states)</li>
+            </ul>
+            <p><strong>Example:</strong> If you earned $62,400 in the year before your injury, your AWW is $62,400 ÷ 52 = $1,200.</p>
+            
+            <h3>Step 2: Calculate Your Weekly Benefit Rate</h3>
+            <p>Most states pay 2/3 (66.67%) of your AWW, subject to a state maximum. Some states use different percentages:</p>
+            <ul>
+                <li><strong>Colorado, Connecticut, Delaware:</strong> 60%</li>
+                <li><strong>Florida, Georgia, Hawaii:</strong> 70%</li>
+                <li><strong>Most other states:</strong> 66.67%</li>
+            </ul>
+            <p><strong>Example:</strong> $1,200 AWW × 0.6667 = $800 per week (if below your state's maximum)</p>
+            
+            <h3>Step 3: Calculate Temporary Disability Benefits</h3>
+            <p>Multiply your weekly benefit rate by the number of weeks you're unable to work:</p>
+            <p><strong>Example:</strong> $800/week × 26 weeks off work = $20,800 in temporary disability benefits</p>
+            
+            <h3>Step 4: Calculate Permanent Partial Disability Benefits</h3>
+            <p>This varies widely by state. Some states use a schedule (number of weeks for each body part), while others use a wage loss model. A simplified formula:</p>
+            <p><strong>PPD = (Weekly Benefit Rate) × (Scheduled Weeks for Body Part) × (Impairment %)</strong></p>
+            <p><strong>Example:</strong> 10% impairment to the back, scheduled at 300 weeks:</p>
+            <p>$800/week × 300 weeks × 0.10 = $24,000</p>
+            
+            <h3>Step 5: Add Medical Costs</h3>
+            <p>All past and future medical expenses are covered. For settlement purposes, an attorney and medical expert will estimate your lifetime medical costs.</p>
+            
+            <h3>Step 6: Calculate Settlement Range</h3>
+            <p>A lump-sum settlement typically includes:</p>
+            <ul>
+                <li>Temporary disability benefits</li>
+                <li>Permanent partial disability benefits</li>
+                <li>Future medical costs (discounted to present value)</li>
+                <li>Vocational rehabilitation costs</li>
+            </ul>
+            <p>Insurance companies often offer 70-85% of the calculated value to settle early. If you go to trial, you may receive 100% or more.</p>
+            
+            <h2>Factors That Affect Your Workers' Comp Settlement</h2>
+            
+            <h3>1. Severity of Your Injury</h3>
+            <p>More severe injuries (e.g., spinal cord injuries, amputations, traumatic brain injuries) result in higher impairment ratings and larger settlements. Catastrophic injuries can result in millions of dollars in lifetime benefits.</p>
+            
+            <h3>2. Your Pre-Injury Wages</h3>
+            <p>Higher earners receive higher weekly benefit rates (up to the state maximum). If you were earning $2,000/week vs. $500/week, your benefits could be 4x higher.</p>
+            
+            <h3>3. Your State's Laws</h3>
+            <p>Workers' comp laws vary dramatically by state:</p>
+            <ul>
+                <li><strong>Generosity:</strong> Some states pay 70% of AWW, others 60%</li>
+                <li><strong>Maximums:</strong> State maximum weekly benefits range from $600 to $2,500+</li>
+                <li><strong>Schedules:</strong> The number of weeks assigned to each body part varies (e.g., loss of a hand = 100 weeks in one state, 244 in another)</li>
+                <li><strong>Medical benefits:</strong> Some states limit certain treatments or require pre-authorization</li>
+            </ul>
+            
+            <h3>4. Your Impairment Rating</h3>
+            <p>A higher PPI rating = higher benefits. A 20% impairment is worth twice as much as 10%. Ratings are assigned by doctors using AMA guidelines, but there's room for interpretation—getting a second opinion from an independent medical examiner can make a significant difference.</p>
+            
+            <h3>5. Your Ability to Return to Work</h3>
+            <p>If you can return to your previous job (even with restrictions), your settlement may be lower. If you cannot work at all (permanent total disability), you may receive lifetime benefits—potentially worth $500,000-$2,000,000+ depending on your age and wages.</p>
+            
+            <h3>6. Pre-Existing Conditions</h3>
+            <p>If you had a pre-existing injury or condition (e.g., degenerative disc disease), the insurance company may argue your work injury didn't cause all of your impairment. This is called "apportionment"—they try to allocate only a percentage of your condition to the work injury. An experienced attorney can fight this.</p>
+            
+            <h3>7. Liability Disputes</h3>
+            <p>While workers' comp is "no-fault," there are exceptions:</p>
+            <ul>
+                <li><strong>Intoxication:</strong> If you were drunk or high at work, benefits may be denied</li>
+                <li><strong>Horseplay:</strong> Injuries from clowning around may not be covered</li>
+                <li><strong>Off-duty:</strong> Injuries outside work hours (unless work-related travel) may be denied</li>
+                <li><strong>Self-inflicted:</strong> Intentional injuries are not covered</li>
+            </ul>
+            <p>If liability is disputed, you may need a hearing or trial to prove your claim.</p>
+            
+            <h3>8. Attorney Representation</h3>
+            <p>Studies show that injured workers with attorneys receive settlements 30-60% higher than those without representation. Attorneys can:</p>
+            <ul>
+                <li>Ensure you receive the correct impairment rating</li>
+                <li>Challenge insurance company tactics (denials, delays, low offers)</li>
+                <li>Negotiate higher settlements</li>
+                <li>Handle hearings and appeals</li>
+            </ul>
+            <p>Most workers' comp attorneys work on contingency (15-25% of your settlement) and only get paid if you win.</p>
+            
+            <h2>Common Types of Work Injuries and Settlements</h2>
+            
+            <h3>Back and Spine Injuries</h3>
+            <p><strong>Examples:</strong> Herniated disc, bulging disc, spinal stenosis, compression fracture, spinal cord injury</p>
+            <p><strong>Common causes:</strong> Lifting heavy objects, falls, repetitive motion, vehicle accidents</p>
+            <p><strong>Typical settlements:</strong> $20,000-$150,000 (herniated disc), $500,000-$2,000,000+ (spinal cord injury)</p>
+            <p><strong>Key factors:</strong> Whether surgery is needed, degree of nerve damage, ability to return to physical work</p>
+            
+            <h3>Shoulder Injuries</h3>
+            <p><strong>Examples:</strong> Rotator cuff tear, labral tear, dislocation, frozen shoulder</p>
+            <p><strong>Common causes:</strong> Lifting, reaching overhead, falls, repetitive motion</p>
+            <p><strong>Typical settlements:</strong> $15,000-$80,000</p>
+            <p><strong>Key factors:</strong> Whether surgery is needed, range of motion loss, dominant arm vs. non-dominant</p>
+            
+            <h3>Knee Injuries</h3>
+            <p><strong>Examples:</strong> Torn meniscus, torn ACL/MCL, fractured patella, knee replacement</p>
+            <p><strong>Common causes:</strong> Falls, kneeling, climbing, twisting motions</p>
+            <p><strong>Typical settlements:</strong> $20,000-$100,000</p>
+            <p><strong>Key factors:</strong> Need for surgery or knee replacement, ability to stand/walk for long periods</p>
+            
+            <h3>Hand and Wrist Injuries</h3>
+            <p><strong>Examples:</strong> Carpal tunnel syndrome, fractured wrist, severed fingers, crush injuries</p>
+            <p><strong>Common causes:</strong> Repetitive typing/tool use, machinery accidents, falls</p>
+            <p><strong>Typical settlements:</strong> $10,000-$50,000 (carpal tunnel), $50,000-$200,000+ (amputation)</p>
+            <p><strong>Key factors:</strong> Loss of dexterity, amputation, dominant hand vs. non-dominant</p>
+            
+            <h3>Head and Brain Injuries</h3>
+            <p><strong>Examples:</strong> Concussion, traumatic brain injury (TBI), skull fracture</p>
+            <p><strong>Common causes:</strong> Falls, falling objects, vehicle accidents, workplace violence</p>
+            <p><strong>Typical settlements:</strong> $50,000-$500,000+ (depending on severity)</p>
+            <p><strong>Key factors:</strong> Cognitive impairment, memory loss, personality changes, ability to work</p>
+            
+            <h3>Burn Injuries</h3>
+            <p><strong>Examples:</strong> 1st/2nd/3rd degree burns, chemical burns, electrical burns</p>
+            <p><strong>Common causes:</strong> Explosions, hot liquids, steam, electrical equipment, chemical exposure</p>
+            <p><strong>Typical settlements:</strong> $30,000-$300,000+ (depending on degree and extent)</p>
+            <p><strong>Key factors:</strong> Percentage of body surface area burned, scarring, need for skin grafts</p>
+            
+            <h3>Amputations</h3>
+            <p><strong>Examples:</strong> Loss of finger(s), hand, arm, foot, leg</p>
+            <p><strong>Common causes:</strong> Machinery accidents, power tool accidents, crush injuries</p>
+            <p><strong>Typical settlements:</strong> $100,000-$500,000+ (depending on body part)</p>
+            <p><strong>Key factors:</strong> Which body part, prosthetic needs, vocational impact</p>
+            
+            <h3>Occupational Diseases</h3>
+            <p><strong>Examples:</strong> Mesothelioma (asbestos exposure), hearing loss, chronic obstructive pulmonary disease (COPD), repetitive strain injuries</p>
+            <p><strong>Common causes:</strong> Long-term exposure to hazardous substances, loud noise, repetitive motions</p>
+            <p><strong>Typical settlements:</strong> $20,000-$500,000+ (depending on disease severity)</p>
+            <p><strong>Key factors:</strong> Proving the exposure occurred at work, degree of impairment</p>
+            
+            <h2>The Workers' Compensation Claims Process</h2>
+            
+            <h3>Step 1: Report Your Injury Immediately</h3>
+            <p>Most states require you to report your work injury to your employer within a certain timeframe (typically 30-90 days). Failure to report on time can result in denial of benefits.</p>
+            <p><strong>What to do:</strong></p>
+            <ul>
+                <li>Notify your supervisor or HR in writing (email or written note)</li>
+                <li>Keep a copy for your records</li>
+                <li>Include: date, time, location, how the injury occurred, witnesses</li>
+            </ul>
+            
+            <h3>Step 2: Seek Medical Treatment</h3>
+            <p>Get medical care immediately. In some states, you may be required to see a doctor chosen by your employer. In others, you can choose your own doctor.</p>
+            <p><strong>Important:</strong> Tell the doctor your injury is work-related so it's documented in your medical records.</p>
+            
+            <h3>Step 3: Your Employer Files a Claim</h3>
+            <p>Your employer is required to file a First Report of Injury with their workers' comp insurance carrier and the state workers' comp board within a certain timeframe (usually 7-30 days).</p>
+            <p>If your employer refuses to file, you can file a claim yourself directly with the state board.</p>
+            
+            <h3>Step 4: The Insurance Company Investigates</h3>
+            <p>The insurance carrier will investigate your claim:</p>
+            <ul>
+                <li>Review your medical records</li>
+                <li>Interview witnesses</li>
+                <li>Potentially conduct surveillance (if they suspect fraud)</li>
+                <li>Send you to an Independent Medical Examination (IME) with their doctor</li>
+            </ul>
+            <p>They will then either accept or deny your claim.</p>
+            
+            <h3>Step 5: Receive Benefits (If Accepted)</h3>
+            <p>If accepted, you'll start receiving:</p>
+            <ul>
+                <li>Medical care authorization and payment</li>
+                <li>Weekly disability checks (usually starting 7-14 days after your injury)</li>
+            </ul>
+            
+            <h3>Step 6: Reach Maximum Medical Improvement (MMI)</h3>
+            <p>Once your condition has stabilized and further treatment won't improve it, your doctor will declare you've reached MMI. At this point:</p>
+            <ul>
+                <li>You'll receive a permanent impairment rating</li>
+                <li>Temporary disability benefits will stop</li>
+                <li>You may be eligible for permanent disability benefits</li>
+                <li>You may return to work (full duty or light duty)</li>
+            </ul>
+            
+            <h3>Step 7: Negotiate a Settlement or Go to Trial</h3>
+            <p>At MMI, you have two options:</p>
+            <ul>
+                <li><strong>Settle:</strong> Accept a lump-sum payment in exchange for closing your claim</li>
+                <li><strong>Trial:</strong> Go to a hearing before a workers' comp judge who will decide your benefits</li>
+            </ul>
+            <p>Most cases settle, as it provides certainty and avoids the risk of a trial. However, if the insurance company's offer is too low, a trial may result in a higher award.</p>
+            
+            <h2>Should You Hire a Workers' Compensation Attorney?</h2>
+            
+            <h3>You Probably Need an Attorney If:</h3>
+            <ul>
+                <li><strong>Your claim is denied:</strong> Insurance companies deny claims aggressively. An attorney can appeal and fight the denial.</li>
+                <li><strong>Your injury is severe:</strong> Catastrophic injuries (e.g., paralysis, amputation, TBI) involve complex medical evidence and high stakes. Don't go it alone.</li>
+                <li><strong>You have a pre-existing condition:</strong> The insurance company will try to blame your symptoms on a prior injury. An attorney can prove your work injury made it worse.</li>
+                <li><strong>Your employer retaliates:</strong> If you're fired, demoted, or harassed for filing a claim, you may have a retaliation lawsuit (separate from workers' comp).</li>
+                <li><strong>You're offered a settlement:</strong> Insurance companies often make low-ball offers. An attorney can evaluate if it's fair and negotiate higher.</li>
+                <li><strong>You can't return to your previous job:</strong> If you need vocational retraining or permanent restrictions, an attorney can ensure you receive proper benefits.</li>
+                <li><strong>You're sent to an IME:</strong> Independent Medical Exams are rarely "independent"—the doctor is hired by the insurance company. An attorney can challenge biased IME reports.</li>
+            </ul>
+            
+            <h3>You Might Not Need an Attorney If:</h3>
+            <ul>
+                <li>Your injury is minor (e.g., a sprain that heals in a few weeks)</li>
+                <li>Your employer accepts the claim immediately</li>
+                <li>You return to work quickly with no permanent impairment</li>
+                <li>Your medical bills and lost wages are fully covered</li>
+            </ul>
+            
+            <h3>How Much Do Workers' Comp Attorneys Cost?</h3>
+            <p>Workers' comp attorneys work on a contingency fee basis—they only get paid if you win. Typical fees are:</p>
+            <ul>
+                <li><strong>15-25%</strong> of your settlement or award (varies by state)</li>
+                <li>Some states cap fees (e.g., 20% maximum)</li>
+                <li>No upfront costs—the fee comes out of your settlement</li>
+            </ul>
+            <p><strong>Example:</strong> If you settle for $100,000 and your attorney charges 20%, they receive $20,000 and you receive $80,000.</p>
+            <p>However, studies show that having an attorney increases settlements by 30-60%, so you often walk away with more money even after paying the fee.</p>
+            
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>Can I be fired for filing a workers' comp claim?</h3>
+                <p><strong>No.</strong> It's illegal in all states to retaliate against an employee for filing a workers' comp claim. If you're fired, demoted, or harassed after filing, you may have a separate retaliation lawsuit against your employer (which can result in damages beyond workers' comp).</p>
+                <p>However, your employer CAN fire you for legitimate reasons unrelated to your claim (e.g., poor performance, layoffs). Consult an attorney if you suspect retaliation.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can I sue my employer for a work injury?</h3>
+                <p><strong>Generally, no.</strong> Workers' comp is a "no-fault" system—in exchange for guaranteed benefits, you give up the right to sue your employer for negligence. This is called the "exclusive remedy" rule.</p>
+                <p><strong>Exceptions:</strong> You may be able to sue if:</p>
+                <ul>
+                    <li>Your employer intentionally caused your injury</li>
+                    <li>Your employer doesn't carry workers' comp insurance (illegal in most states)</li>
+                    <li>A third party (not your employer) caused your injury (e.g., a defective machine manufacturer)—you can sue them while also collecting workers' comp</li>
+                </ul>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can I get workers' comp if I was partially at fault?</h3>
+                <p><strong>Yes.</strong> Workers' comp is a no-fault system—you can receive benefits even if the injury was partly your fault (e.g., you weren't wearing safety gear, you made a mistake). The only exception is if your injury resulted from intoxication, horseplay, or intentional self-harm.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>How long does a workers' comp case take?</h3>
+                <p>It varies widely:</p>
+                <ul>
+                    <li><strong>Simple cases:</strong> 3-6 months (if the claim is accepted and you recover quickly)</li>
+                    <li><strong>Disputed cases:</strong> 1-2 years (if the insurance company denies the claim or disputes your impairment rating, you may need a hearing or trial)</li>
+                    <li><strong>Complex cases:</strong> 2-5 years (catastrophic injuries with ongoing medical treatment and appeals)</li>
+                </ul>
+                <p>You'll start receiving benefits much sooner (usually within 2-4 weeks if accepted), but reaching a final settlement can take much longer.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can I see my own doctor?</h3>
+                <p>It depends on your state:</p>
+                <ul>
+                    <li><strong>Some states:</strong> You can choose any doctor</li>
+                    <li><strong>Some states:</strong> Your employer chooses the first doctor, but you can switch later or request a second opinion</li>
+                    <li><strong>Some states:</strong> Your employer provides a panel of doctors and you choose from the list</li>
+                </ul>
+                <p>Check your state's rules or consult an attorney. Seeing an unauthorized doctor may result in denial of medical benefits.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What if my employer doesn't have workers' comp insurance?</h3>
+                <p>Workers' comp insurance is required by law in almost all states (Texas is the only exception). If your employer doesn't carry it:</p>
+                <ul>
+                    <li>You may file a claim with your state's uninsured employers fund (if available)</li>
+                    <li>You may be able to sue your employer for negligence (since the exclusive remedy rule doesn't apply)</li>
+                    <li>Your employer may face fines and penalties</li>
+                </ul>
+                <p>Consult an attorney immediately if your employer doesn't have coverage.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Do I pay taxes on workers' comp benefits?</h3>
+                <p><strong>No.</strong> Workers' comp benefits (wage replacement and settlements) are not taxable income under federal or state law. You do not report them on your tax return.</p>
+                <p>However, if you also receive Social Security Disability (SSDI) benefits, your workers' comp payments may reduce your SSDI amount to avoid "double-dipping."</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can I get workers' comp if I work from home?</h3>
+                <p><strong>Yes.</strong> If you're injured while performing work duties at home (e.g., tripping over a cable during a video call, repetitive strain injury from typing), you may be covered. However, injuries during non-work activities (e.g., making lunch, walking the dog) are typically not covered.</p>
+                <p>The key question is: Were you performing job duties at the time of injury? Document the circumstances carefully.</p>
+            </div>
+            
+            <h2>Next Steps</h2>
+            
+            <p>If you've been injured at work, here's what to do:</p>
+            <ol>
+                <li><strong>Use this calculator</strong> to estimate your benefits</li>
+                <li><strong>Report your injury</strong> to your employer immediately (in writing)</li>
+                <li><strong>Seek medical care</strong> and document that it's work-related</li>
+                <li><strong>Keep records</strong> of all medical bills, wage statements, and communications</li>
+                <li><strong>Consult an attorney</strong> if your claim is denied, your injury is severe, or you're offered a settlement</li>
+            </ol>
+            
+            <p>Workers' compensation is complex, and insurance companies have teams of lawyers working to minimize payouts. Don't leave money on the table—get informed, know your rights, and seek legal help when needed.</p>
+            
+            <div class="info-box">
+                <strong>Disclaimer:</strong> This calculator provides estimates only and is not a substitute for legal advice. Workers' compensation laws vary by state, and individual circumstances can significantly affect benefit amounts. Consult a licensed workers' compensation attorney in your state for a case evaluation. Past results do not guarantee future outcomes.
+            </div>
+        </div>
     </div>
-
+    
     <script>
-        function calculate() {
-            const industrySelect = document.getElementById('industry');
-            const payroll = parseFloat(document.getElementById('payroll').value);
-            const stateMultiplier = parseFloat(document.getElementById('state').value);
-            const claimsMultiplier = parseFloat(document.getElementById('claims').value);
-            const safetyMultiplier = parseFloat(document.getElementById('safety').value);
-
-            if (!industrySelect.value || !payroll || payroll <= 0) {
-                alert('Please select an industry and enter a valid payroll amount');
+        let selectedInjuryType = null;
+        
+        // Handle injury card selection
+        document.querySelectorAll('.injury-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove selection from all cards
+                document.querySelectorAll('.injury-card').forEach(c => c.classList.remove('selected'));
+                
+                // Select this card
+                this.classList.add('selected');
+                selectedInjuryType = this.dataset.type;
+                
+                // Pre-fill weeks and PPI based on selection
+                document.getElementById('weeksOffWork').value = this.dataset.weeks;
+                document.getElementById('ppiRating').value = this.dataset.ppi;
+            });
+        });
+        
+        function calculateWorkersComp() {
+            const aww = parseFloat(document.getElementById('avgWeeklyWage').value) || 0;
+            const stateRate = parseFloat(document.getElementById('state').value) || 0.667;
+            const weeksOff = parseFloat(document.getElementById('weeksOffWork').value) || 0;
+            const ppiRating = parseFloat(document.getElementById('ppiRating').value) || 0;
+            const medicalCosts = parseFloat(document.getElementById('medicalCosts').value) || 0;
+            
+            if (aww === 0) {
+                alert('Please enter your average weekly wage');
                 return;
             }
-
-            // Extract base rate from selected option text
-            const selectedText = industrySelect.options[industrySelect.selectedIndex].text;
-            const rateMatch = selectedText.match(/\$(\d+\.?\d*)/);
-            const baseRate = parseFloat(rateMatch[1]);
-
-            // Calculate adjusted rates
-            const stateAdjustedRate = baseRate * stateMultiplier;
-            const finalRate = stateAdjustedRate * claimsMultiplier * safetyMultiplier;
-
-            // Calculate premium
-            const annualPremium = (payroll / 100) * finalRate;
-            const monthlyCost = annualPremium / 12;
-            const costPer1000 = (annualPremium / payroll) * 1000;
-
+            
+            // Calculate weekly benefit rate (2/3 of AWW in most states)
+            const weeklyBenefit = aww * stateRate;
+            
+            // Calculate temporary disability benefits
+            const tempDisability = weeklyBenefit * weeksOff;
+            
+            // Calculate permanent partial disability benefits
+            // Simplified: assume 300 weeks for body injury schedule (varies by state and body part)
+            // PPD = weekly benefit × scheduled weeks × impairment %
+            let ppdWeeks = 300; // Average schedule for body injury
+            if (selectedInjuryType === 'catastrophic') {
+                ppdWeeks = 500; // Higher for catastrophic injuries
+            }
+            const permDisability = weeklyBenefit * ppdWeeks * (ppiRating / 100);
+            
+            // Estimate settlement range
+            // Low end: 70% of (temp + perm + medical)
+            // High end: 100% of (temp + perm + medical + future medical estimate)
+            const baseSettlement = tempDisability + permDisability + medicalCosts;
+            const futureMedicalEstimate = medicalCosts * 0.5; // Estimate 50% more for future care
+            const settlementLow = baseSettlement * 0.70;
+            const settlementHigh = (baseSettlement + futureMedicalEstimate) * 1.0;
+            
             // Display results
-            document.getElementById('baseRate').textContent = `$${baseRate.toFixed(2)}`;
-            document.getElementById('stateRate').textContent = `$${stateAdjustedRate.toFixed(2)}`;
-            document.getElementById('finalRate').textContent = `$${finalRate.toFixed(2)}`;
-            document.getElementById('annualPremium').textContent = `$${annualPremium.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-            document.getElementById('monthlyCost').textContent = `$${monthlyCost.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-            document.getElementById('costPer1000').textContent = `$${costPer1000.toFixed(2)}`;
-
+            document.getElementById('weeklyBenefit').textContent = '$' + weeklyBenefit.toFixed(2);
+            document.getElementById('tempDisability').textContent = '$' + tempDisability.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('weeksOff').textContent = weeksOff;
+            document.getElementById('permDisability').textContent = '$' + permDisability.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('ppiPercent').textContent = ppiRating;
+            document.getElementById('medicalBenefits').textContent = '$' + medicalCosts.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('settlementRange').textContent = 
+                '$' + settlementLow.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + 
+                ' - $' + settlementHigh.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            
             document.getElementById('results').classList.add('show');
             document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-
-        // Auto-calculate on load if default values present
-        window.addEventListener('load', () => {
-            const industry = document.getElementById('industry');
-            if (industry.value) calculate();
-        });
+        
+        function submitLead() {
+            const name = document.getElementById('leadName').value;
+            const email = document.getElementById('leadEmail').value;
+            const phone = document.getElementById('leadPhone').value;
+            const message = document.getElementById('leadMessage').value;
+            
+            if (!name || !email || !phone) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // In production, this would send to a backend API
+            alert('Thank you! A workers\' compensation attorney will contact you within 24 hours to review your case.');
+            
+            // Clear form
+            document.getElementById('leadName').value = '';
+            document.getElementById('leadEmail').value = '';
+            document.getElementById('leadPhone').value = '';
+            document.getElementById('leadMessage').value = '';
+        }
     </script>
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
-    </div>
-    <div>
-      <h4>Popular</h4>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
-      <a href="calc/compound-interest.html">Compound Interest</a>
-    </div>
-    <div>
-      <h4>Categories</h4>
-      <a href="index.html#finance">Financial</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#health">Health</a>
-      <a href="index.html#converters">Converters</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
-      <a href="blog/index.html">Blog</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
-</footer>
 </body>
 </html>
