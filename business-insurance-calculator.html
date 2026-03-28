@@ -467,7 +467,7 @@ function lwSubmit(){
   var d={name:fn+" "+ln,email:em,phone:ph,zip:zp,type:itype,page:location.href,ts:new Date().toISOString()};
   var leads=JSON.parse(localStorage.getItem("calcleap_leads")||"[]");
   leads.push(d);localStorage.setItem("calcleap_leads",JSON.stringify(leads));
-  fetch("https://formsubmit.co/ajax/alexmathewc@gmail.com",{
+  fetch("https://formsubmit.co/ajax/contact@calcleap.com",{
     method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
     body:JSON.stringify({name:d.name,email:d.email,phone:d.phone,zip:d.zip,_subject:"🔥 "+itype+" Lead — "+zp,insurance_type:itype,source:location.href,timestamp:d.ts})
   }).catch(function(){});

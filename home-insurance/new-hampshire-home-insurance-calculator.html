@@ -293,7 +293,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
   <div class="lw-body">
     <!-- STEP 1: ZIP -->
-    <div class="lw-step active" id="lwS1_newhampshirehomeinsurancecalculator">
+    <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;font-size:.85rem;color:#92400e;line-height:1.6"><strong>Partner Disclosure:</strong> After submitting your information, we may connect you with our partner PolicyGenius for personalized insurance quotes. Your information will be shared securely.</div><div class="lw-step active" id="lwS1_newhampshirehomeinsurancecalculator">
       <div class="lw-step-label">Step 1 of 3</div>
       <div class="lw-step-title">Enter your ZIP code to start</div>
       <input type="text" class="lw-input-lg" id="lwZip_newhampshirehomeinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
@@ -392,12 +392,12 @@ function lwSubmit(){
   var d={name:fn+" "+ln,email:em,phone:ph,zip:zp,type:itype,page:location.href,ts:new Date().toISOString()};
   var leads=JSON.parse(localStorage.getItem("calcleap_leads")||"[]");
   leads.push(d);localStorage.setItem("calcleap_leads",JSON.stringify(leads));
-  fetch("https://formsubmit.co/ajax/alexmathewc@gmail.com",{
+  fetch("https://formsubmit.co/ajax/contact@calcleap.com",{
     method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
     body:JSON.stringify({name:d.name,email:d.email,phone:d.phone,zip:d.zip,_subject:"🔥 "+itype+" Lead — "+zp,insurance_type:itype,source:location.href,timestamp:d.ts})
   }).catch(function(){});
   show(4);
-  setTimeout(function(){window.open("https://www.policygenius.com/homeowners-insurance/","_blank")},2000);
+  /* Disclosure shown to user */ document.getElementById("pg-disclosure") && (document.getElementById("pg-disclosure").style.display="block"); setTimeout(function(){window.open("https://www.policygenius.com/homeowners-insurance/","_blank")},2000);
   if(typeof gtag!=="undefined")gtag("event","lead_submit",{event_category:"lead_gen",event_label:itype});
 }
 window["lwNext_"+fid]=lwNext;

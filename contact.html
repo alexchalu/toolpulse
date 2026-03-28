@@ -185,18 +185,18 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
 <div>
 <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;color:#f3f4f6">Send Us a Message</h2>
-<form onsubmit="event.preventDefault();document.getElementById('form-success').style.display='block';this.reset();" style="display:flex;flex-direction:column;gap:1rem">
+<form action="https://formsubmit.co/contact@calcleap.com" method="POST" style="display:flex;flex-direction:column;gap:1rem">
 <div>
 <label style="display:block;color:#d1d5db;font-size:.9rem;font-weight:600;margin-bottom:.35rem">Your Name</label>
-<input type="text" placeholder="John Doe" style="width:100%;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#374151'" aria-label="John Doe">
+<input type="text" name="name" placeholder="John Doe" required style="width:100%;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#374151'" aria-label="Your Name">
 </div>
 <div>
 <label style="display:block;color:#d1d5db;font-size:.9rem;font-weight:600;margin-bottom:.35rem">Email Address</label>
-<input type="email" placeholder="john@example.com" style="width:100%;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#374151'" aria-label="john@example.com">
+<input type="email" name="email" placeholder="john@example.com" required style="width:100%;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#374151'" aria-label="Email Address">
 </div>
 <div>
 <label style="display:block;color:#d1d5db;font-size:.9rem;font-weight:600;margin-bottom:.35rem">Subject</label>
-<select style="width:100%;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#374151'">
+<select name="subject" style="width:100%;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#374151'" aria-label="Subject">
 <option value="">Select a topic...</option>
 <option>Bug Report</option>
 <option>Feature Request</option>
@@ -209,9 +209,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </div>
 <div>
 <label style="display:block;color:#d1d5db;font-size:.9rem;font-weight:600;margin-bottom:.35rem">Message</label>
-<textarea rows="5" placeholder="Tell us what's on your mind..." style="width:100%;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.95rem;font-family:inherit;outline:none;resize:vertical;transition:border-color .2s" onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#374151'"></textarea>
+<textarea name="message" rows="5" placeholder="Tell us what's on your mind..." required style="width:100%;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.95rem;font-family:inherit;outline:none;resize:vertical;transition:border-color .2s" onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#374151'" aria-label="Message"></textarea>
 </div>
-<button type="submit" style="padding:.85rem 2rem;background:#6366f1;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .2s" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">Send Message</button>
+<input type="hidden" name="_subject" value="CalcLeap Contact Form"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" value="https://calcleap.com/contact.html?sent=1"><button type="submit" style="padding:.85rem 2rem;background:#6366f1;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .2s" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">Send Message</button>
 <div id="form-success" style="display:none;background:#065f46;border:1px solid #059669;border-radius:8px;padding:1rem;color:#d1fae5;font-size:.9rem">
 ✅ Thank you for your message! We typically respond within 24–48 hours.
 </div>
@@ -507,5 +507,6 @@ main>div[style*="grid-template-columns:1fr 1fr"]{display:flex!important;flex-dir
 </div>
 </div>
 <script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+<script>if(new URLSearchParams(window.location.search).get('sent')==='1'){var s=document.getElementById('form-success');if(s)s.style.display='block';}</script>
 </body>
 </html>

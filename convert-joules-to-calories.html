@@ -399,36 +399,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             tableEl.appendChild(row);
         });
     </script>
-<script>
-        const factor = 0.239006;
-        
-        const inputEl = document.getElementById('input-value');
-        const resultEl = document.getElementById('result-value');
-        const tableEl = document.getElementById('reference-table');
-        
-        function convert(value) {
-            return (value * factor).toFixed(6).replace(/.?0+$/, '');
-        }
-        
-        inputEl.addEventListener('input', () => {
-            const value = parseFloat(inputEl.value);
-            if (isNaN(value)) {
-                resultEl.textContent = 'Enter a valid number';
-                return;
-            }
-            const result = convert(value);
-            resultEl.textContent = value + ' joules = ' + result + ' calories';
-        });
-        
-        // Generate reference table
-        const referenceValues = [1, 10, 50, 100, 500, 1000, 5000];
-        referenceValues.forEach(val => {
-            const row = document.createElement('tr');
-            const result = convert(val);
-            row.innerHTML = '<td>' + val.toLocaleString() + '</td><td>' + parseFloat(result).toLocaleString() + '</td>';
-            tableEl.appendChild(row);
-        });
-    </script>
+
 
 </div>
 

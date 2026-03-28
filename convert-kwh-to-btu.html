@@ -399,40 +399,11 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             tableEl.appendChild(row);
         });
     </script>
-<script>
-        const factor = 3412.14;
-        
-        const inputEl = document.getElementById('input-value');
-        const resultEl = document.getElementById('result-value');
-        const tableEl = document.getElementById('reference-table');
-        
-        function convert(value) {
-            return (value * factor).toFixed(6).replace(/.?0+$/, '');
-        }
-        
-        inputEl.addEventListener('input', () => {
-            const value = parseFloat(inputEl.value);
-            if (isNaN(value)) {
-                resultEl.textContent = 'Enter a valid number';
-                return;
-            }
-            const result = convert(value);
-            resultEl.textContent = value + ' kwh = ' + result + ' btu';
-        });
-        
-        // Generate reference table
-        const referenceValues = [1, 10, 50, 100, 500, 1000, 5000];
-        referenceValues.forEach(val => {
-            const row = document.createElement('tr');
-            const result = convert(val);
-            row.innerHTML = '<td>' + val.toLocaleString() + '</td><td>' + parseFloat(result).toLocaleString() + '</td>';
-            tableEl.appendChild(row);
-        });
-    </script>
+
 
 </div>
 
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This tool provides estimates for informational and educational purposes only. Results may not reflect actual values and should be verified independently. CalcLeap makes no warranties regarding the accuracy or completeness of any calculations. Use at your own discretion.</div>
+<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>ℹ️ Note:</strong> Values are calculated using standard conversion factors. While every effort is made for accuracy, please verify critical calculations independently. CalcLeap is not liable for decisions made based on these results.</div>
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
