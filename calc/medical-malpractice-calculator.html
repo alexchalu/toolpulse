@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Malpractice Damages Calculator - Free Online Tool | CalcLeap</title>
+    <meta name="description" content="Calculate potential medical malpractice damages including economic losses, pain and suffering, and total compensation. Free calculator for injury victims and attorneys.">
+    <meta name="keywords" content="medical malpractice calculator, malpractice damages, injury compensation, medical negligence, economic damages, non-economic damages">
+    <link rel="canonical" href="https://calcleap.com/calc/medical-malpractice-calculator">
+    <meta property="og:title" content="Medical Malpractice Damages Calculator">
+    <meta property="og:description" content="Estimate potential medical malpractice damages including medical costs, lost wages, and pain and suffering compensation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/calc/medical-malpractice-calculator">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        .content {
+            padding: 40px;
+        }
+        .calc-section {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .calc-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .input-group {
+            margin-bottom: 25px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .help-text {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102,126,234,0.3);
+        }
+        .results {
+            display: none;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        .results.show {
+            display: block;
+        }
+        .results h3 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        .result-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .result-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .result-value {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #667eea;
+        }
+        .result-total {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .result-total .label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+        .result-total .value {
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            color: #856404;
+        }
+        .disclaimer h4 {
+            margin-bottom: 10px;
+            color: #856404;
+        }
+        .info-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .info-section h3 {
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .info-section p, .info-section ul {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .info-section ul {
+            padding-left: 25px;
+        }
+        .info-section li {
+            margin-bottom: 10px;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .related-calcs {
+            margin-top: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        .related-calcs h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .related-link {
+            display: block;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .related-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.2);
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Medical Malpractice Damages Calculator",
+      "description": "Calculate potential medical malpractice damages including economic losses, pain and suffering, and total compensation.",
+      "url": "https://calcleap.com/calc/medical-malpractice-calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚖️ Medical Malpractice Damages Calculator</h1>
+            <p>Estimate potential compensation for medical negligence cases</p>
+        </div>
+        
+        <div class="content">
+            <div class="calc-section">
+                <h2>Economic Damages (Medical Costs & Lost Income)</h2>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="pastMedical">Past Medical Expenses</label>
+                        <input type="number" id="pastMedical" value="50000" min="0" step="100">
+                        <div class="help-text">Treatment costs already incurred</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="futureMedical">Future Medical Expenses</label>
+                        <input type="number" id="futureMedical" value="100000" min="0" step="100">
+                        <div class="help-text">Estimated lifetime medical costs</div>
+                    </div>
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="lostWages">Lost Wages (Past)</label>
+                        <input type="number" id="lostWages" value="30000" min="0" step="100">
+                        <div class="help-text">Income already lost</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="futureLostIncome">Future Lost Income</label>
+                        <input type="number" id="futureLostIncome" value="200000" min="0" step="1000">
+                        <div class="help-text">Projected lifetime income loss</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="calc-section">
+                <h2>Non-Economic Damages (Pain & Suffering)</h2>
+                
+                <div class="input-group">
+                    <label for="injurySeverity">Injury Severity</label>
+                    <select id="injurySeverity">
+                        <option value="1.5">Minor (Temporary)</option>
+                        <option value="3">Moderate (Partial Disability)</option>
+                        <option value="5" selected>Severe (Permanent Disability)</option>
+                        <option value="7">Catastrophic (Total Disability)</option>
+                        <option value="10">Wrongful Death</option>
+                    </select>
+                    <div class="help-text">Severity determines pain & suffering multiplier</div>
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="age">Victim's Age</label>
+                        <input type="number" id="age" value="45" min="1" max="100">
+                        <div class="help-text">Younger victims may receive higher damages</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="liability">Defendant Liability (%)</label>
+                        <input type="number" id="liability" value="100" min="1" max="100">
+                        <div class="help-text">Percentage of fault assigned to defendant</div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="state">State (for cap purposes)</label>
+                    <select id="state">
+                        <option value="none">No Cap</option>
+                        <option value="250000">California ($250,000 cap)</option>
+                        <option value="350000">Colorado ($350,000 cap)</option>
+                        <option value="500000">Florida ($500,000 cap)</option>
+                        <option value="250000">Indiana ($250,000 cap)</option>
+                        <option value="750000">Maryland ($750,000 cap)</option>
+                        <option value="500000">Nebraska ($500,000 cap)</option>
+                        <option value="350000">Ohio ($350,000 cap)</option>
+                        <option value="750000">Texas ($750,000 cap)</option>
+                        <option value="400000">Virginia ($400,000 cap)</option>
+                        <option value="1000000">Wisconsin ($1M cap)</option>
+                    </select>
+                    <div class="help-text">Some states cap non-economic damages</div>
+                </div>
+                
+                <button class="calculate-btn" onclick="calculate()">Calculate Damages</button>
+            </div>
+            
+            <div class="results" id="results">
+                <h3>Estimated Damages</h3>
+                
+                <div class="result-item">
+                    <span class="result-label">Total Economic Damages</span>
+                    <span class="result-value" id="economicDamages">$0</span>
+                </div>
+                
+                <div class="result-item">
+                    <span class="result-label">Non-Economic Damages (Pain & Suffering)</span>
+                    <span class="result-value" id="nonEconomicDamages">$0</span>
+                </div>
+                
+                <div class="result-item">
+                    <span class="result-label">Non-Economic After State Cap</span>
+                    <span class="result-value" id="cappedNonEconomic">$0</span>
+                </div>
+                
+                <div class="result-item">
+                    <span class="result-label">Adjusted for Liability (%)</span>
+                    <span class="result-value" id="liabilityAdjustment">100%</span>
+                </div>
+                
+                <div class="result-total">
+                    <div class="label">Estimated Total Compensation</div>
+                    <div class="value" id="totalDamages">$0</div>
+                </div>
+                
+                <div class="disclaimer">
+                    <h4>⚠️ Important Legal Disclaimer</h4>
+                    <p><strong>This calculator provides estimates only and is NOT legal advice.</strong> Actual malpractice damages depend on case specifics, state laws, jury decisions, and evidence quality. Many states have caps on non-economic damages. Economic damages can vary significantly based on expert testimony. <strong>Consult a qualified medical malpractice attorney</strong> for case evaluation. Results are not guaranteed and do not constitute an attorney-client relationship.</p>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2>Understanding Medical Malpractice Damages</h2>
+                
+                <p>Medical malpractice occurs when a healthcare provider deviates from the accepted standard of care, causing injury to a patient. Victims may be entitled to compensation for both economic and non-economic damages. This calculator estimates potential damages based on proven cost factors and injury severity.</p>
+                
+                <h3>Types of Medical Malpractice Damages</h3>
+                
+                <h4>1. Economic Damages (Special Damages)</h4>
+                <p>These are quantifiable financial losses with documentation:</p>
+                <ul>
+                    <li><strong>Past Medical Expenses:</strong> Hospital bills, surgery costs, medications, physical therapy, medical devices</li>
+                    <li><strong>Future Medical Expenses:</strong> Ongoing treatment, rehabilitation, home care, prescription drugs (calculated by medical economists)</li>
+                    <li><strong>Lost Wages:</strong> Income lost during recovery, including salary, bonuses, benefits</li>
+                    <li><strong>Lost Earning Capacity:</strong> Reduced future income due to disability or career limitations</li>
+                    <li><strong>Other Economic Losses:</strong> Home modifications, transportation to medical appointments, childcare costs</li>
+                </ul>
+                
+                <h4>2. Non-Economic Damages (General Damages)</h4>
+                <p>These compensate for intangible losses that can't be precisely quantified:</p>
+                <ul>
+                    <li><strong>Pain and Suffering:</strong> Physical pain experienced due to the injury</li>
+                    <li><strong>Emotional Distress:</strong> Anxiety, depression, PTSD, loss of enjoyment of life</li>
+                    <li><strong>Loss of Consortium:</strong> Impact on spousal relationship (companionship, intimacy)</li>
+                    <li><strong>Disfigurement:</strong> Permanent scarring or physical impairment</li>
+                    <li><strong>Loss of Quality of Life:</strong> Inability to engage in hobbies, sports, or activities</li>
+                </ul>
+                
+                <h3>How Non-Economic Damages Are Calculated</h3>
+                
+                <p>Courts and insurance companies typically use one of two methods:</p>
+                
+                <h4>Multiplier Method (Used by This Calculator)</h4>
+                <p>Non-economic damages = Economic damages × Severity multiplier (1.5-10x)</p>
+                <ul>
+                    <li><strong>Minor injuries (1.5-2x):</strong> Full recovery expected, temporary pain</li>
+                    <li><strong>Moderate injuries (3-4x):</strong> Partial disability, chronic pain</li>
+                    <li><strong>Severe injuries (5-6x):</strong> Permanent disability, major life impact</li>
+                    <li><strong>Catastrophic injuries (7-8x):</strong> Total disability, constant care needed</li>
+                    <li><strong>Wrongful death (8-10x):</strong> Loss of life, maximum damages</li>
+                </ul>
+                
+                <h4>Per Diem Method</h4>
+                <p>Assigns a daily dollar amount to pain and suffering, multiplied by the number of days affected. Less common in malpractice cases due to lifetime impacts.</p>
+                
+                <h3>State Caps on Non-Economic Damages</h3>
+                
+                <p>Many states impose caps (maximum limits) on non-economic damages in medical malpractice cases. These caps vary significantly:</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>State</th>
+                                <th>Non-Economic Cap</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>California</td>
+                                <td>$250,000</td>
+                                <td>One of the lowest caps (MICRA law)</td>
+                            </tr>
+                            <tr>
+                                <td>Texas</td>
+                                <td>$750,000</td>
+                                <td>$250k per physician, $500k per hospital</td>
+                            </tr>
+                            <tr>
+                                <td>Florida</td>
+                                <td>$500,000</td>
+                                <td>Higher for death or catastrophic injury</td>
+                            </tr>
+                            <tr>
+                                <td>Maryland</td>
+                                <td>$875,000 (2024)</td>
+                                <td>Increases annually by $15,000</td>
+                            </tr>
+                            <tr>
+                                <td>Wisconsin</td>
+                                <td>$750,000</td>
+                                <td>Patient Compensation Fund provides excess</td>
+                            </tr>
+                            <tr>
+                                <td>New York</td>
+                                <td>No Cap</td>
+                                <td>Full damages available</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>Common Types of Medical Malpractice</h3>
+                
+                <ul>
+                    <li><strong>Misdiagnosis or Delayed Diagnosis:</strong> Failure to diagnose cancer, heart attack, stroke leading to progression</li>
+                    <li><strong>Surgical Errors:</strong> Wrong-site surgery, retained surgical instruments, anesthesia errors</li>
+                    <li><strong>Medication Errors:</strong> Wrong drug, incorrect dosage, dangerous drug interactions</li>
+                    <li><strong>Birth Injuries:</strong> Cerebral palsy, Erb's palsy, brain damage from oxygen deprivation</li>
+                    <li><strong>Hospital-Acquired Infections:</strong> MRSA, sepsis from unsanitary conditions</li>
+                    <li><strong>Failure to Treat:</strong> Discharging patient prematurely, ignoring test results</li>
+                </ul>
+                
+                <h3>Proving Medical Malpractice</h3>
+                
+                <p>To recover damages, you must establish four elements:</p>
+                <ol>
+                    <li><strong>Duty:</strong> A doctor-patient relationship existed</li>
+                    <li><strong>Breach:</strong> The provider breached the standard of care</li>
+                    <li><strong>Causation:</strong> The breach directly caused the injury</li>
+                    <li><strong>Damages:</strong> You suffered measurable harm</li>
+                </ol>
+                
+                <h3>Factors That Increase Damages</h3>
+                
+                <ul>
+                    <li><strong>Age:</strong> Younger victims receive higher future lost income awards</li>
+                    <li><strong>Severity:</strong> Permanent disability, disfigurement, or death increase damages</li>
+                    <li><strong>Dependents:</strong> Supporting children or family members increases economic impact</li>
+                    <li><strong>Egregious Conduct:</strong> Gross negligence or intentional misconduct (rare in medical cases)</li>
+                    <li><strong>High Earning Capacity:</strong> Lost income is higher for professionals</li>
+                    <li><strong>Expert Testimony:</strong> Strong medical and economic experts strengthen case value</li>
+                </ul>
+                
+                <h3>Factors That Reduce Damages</h3>
+                
+                <ul>
+                    <li><strong>Comparative Negligence:</strong> If you're partially at fault (e.g., didn't follow medical instructions), damages are reduced proportionally</li>
+                    <li><strong>Pre-Existing Conditions:</strong> Injuries worsened by malpractice (not solely caused) reduce damages</li>
+                    <li><strong>State Caps:</strong> Non-economic damages limited by state law</li>
+                    <li><strong>Collateral Source Rule:</strong> Some states reduce awards by insurance payments received</li>
+                    <li><strong>Statute of Limitations:</strong> Filing late can bar recovery entirely (1-3 years in most states)</li>
+                </ul>
+                
+                <h3>Timeline for Medical Malpractice Cases</h3>
+                
+                <ul>
+                    <li><strong>Investigation (1-3 months):</strong> Attorney reviews medical records, consults experts</li>
+                    <li><strong>Filing Lawsuit (3-6 months):</strong> Complaint filed, defendant responds</li>
+                    <li><strong>Discovery (6-12 months):</strong> Depositions, expert reports, document exchange</li>
+                    <li><strong>Settlement Negotiations (ongoing):</strong> Most cases settle before trial</li>
+                    <li><strong>Trial (1-3 weeks):</strong> If no settlement, case goes to jury</li>
+                    <li><strong>Appeals (1-2 years):</strong> Either side may appeal unfavorable verdict</li>
+                </ul>
+                
+                <p><strong>Total timeline:</strong> 2-5 years from injury to final resolution is typical for malpractice cases.</p>
+                
+                <h3>When to Consult an Attorney</h3>
+                
+                <p>Contact a medical malpractice attorney immediately if:</p>
+                <ul>
+                    <li>A medical error caused serious injury or death</li>
+                    <li>Your condition worsened unexpectedly during treatment</li>
+                    <li>A healthcare provider admitted fault or apologized</li>
+                    <li>You have significant medical bills or lost income</li>
+                    <li>The statute of limitations is approaching (usually 2-3 years)</li>
+                </ul>
+                
+                <p><strong>Most malpractice attorneys work on contingency</strong> (no fee unless you win, typically 33-40% of recovery). Initial consultations are usually free.</p>
+                
+                <h3>Example Damage Calculation</h3>
+                
+                <p><strong>Case:</strong> 45-year-old engineer develops permanent paralysis after spinal surgery due to surgeon error.</p>
+                
+                <p><strong>Economic Damages:</strong></p>
+                <ul>
+                    <li>Past medical costs: $200,000 (emergency care, revision surgery)</li>
+                    <li>Future medical costs: $2,000,000 (lifetime care, equipment)</li>
+                    <li>Lost wages: $100,000 (1 year recovery)</li>
+                    <li>Lost earning capacity: $1,500,000 (reduced career prospects)</li>
+                    <li><strong>Total Economic: $3,800,000</strong></li>
+                </ul>
+                
+                <p><strong>Non-Economic Damages:</strong></p>
+                <ul>
+                    <li>Severity multiplier: 7x (catastrophic injury)</li>
+                    <li>Calculation: $3,800,000 × 7 = $26,600,000</li>
+                    <li>State cap (California): $250,000</li>
+                    <li><strong>Actual Non-Economic: $250,000</strong></li>
+                </ul>
+                
+                <p><strong>Total Estimated Damages: $4,050,000</strong> (California cap drastically reduces non-economic component)</p>
+                
+                <h3>Alternative Dispute Resolution</h3>
+                
+                <p>Many malpractice cases are resolved through:</p>
+                <ul>
+                    <li><strong>Mediation:</strong> Neutral mediator facilitates settlement negotiations</li>
+                    <li><strong>Arbitration:</strong> Private judge makes binding decision (common with hospital contracts)</li>
+                    <li><strong>Settlement Conferences:</strong> Court-supervised negotiation sessions</li>
+                </ul>
+                
+                <p>These methods are faster and less expensive than trial, though they may result in lower damages.</p>
+            </div>
+            
+            <div class="related-calcs">
+                <h3>Related Legal Calculators</h3>
+                <div class="related-grid">
+                    <a href="/calc/personal-injury-settlement-calculator" class="related-link">Personal Injury Settlement</a>
+                    <a href="/calc/car-accident-settlement-calculator" class="related-link">Car Accident Settlement</a>
+                    <a href="/calc/workers-comp-settlement-calculator" class="related-link">Workers' Comp Settlement</a>
+                    <a href="/calc/wrongful-death-settlement-calculator" class="related-link">Wrongful Death Settlement</a>
+                    <a href="/calc/slip-and-fall-settlement-calculator" class="related-link">Slip and Fall Settlement</a>
+                    <a href="/calc/disability-income-calculator" class="related-link">Disability Income</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const pastMedical = parseFloat(document.getElementById('pastMedical').value) || 0;
+            const futureMedical = parseFloat(document.getElementById('futureMedical').value) || 0;
+            const lostWages = parseFloat(document.getElementById('lostWages').value) || 0;
+            const futureLostIncome = parseFloat(document.getElementById('futureLostIncome').value) || 0;
+            const severityMultiplier = parseFloat(document.getElementById('injurySeverity').value);
+            const age = parseFloat(document.getElementById('age').value) || 45;
+            const liability = parseFloat(document.getElementById('liability').value) || 100;
+            const stateCap = document.getElementById('state').value;
+            
+            const economicDamages = pastMedical + futureMedical + lostWages + futureLostIncome;
+            
+            let nonEconomicDamages = economicDamages * severityMultiplier;
+            
+            if (age < 40) {
+                nonEconomicDamages *= 1.1;
+            }
+            
+            let cappedNonEconomic = nonEconomicDamages;
+            if (stateCap !== 'none') {
+                cappedNonEconomic = Math.min(nonEconomicDamages, parseFloat(stateCap));
+            }
+            
+            const totalBeforeLiability = economicDamages + cappedNonEconomic;
+            const totalDamages = totalBeforeLiability * (liability / 100);
+            
+            document.getElementById('economicDamages').textContent = '$' + economicDamages.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('nonEconomicDamages').textContent = '$' + nonEconomicDamages.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('cappedNonEconomic').textContent = '$' + cappedNonEconomic.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('liabilityAdjustment').textContent = liability + '%';
+            document.getElementById('totalDamages').textContent = '$' + totalDamages.toLocaleString('en-US', {maximumFractionDigits: 0});
+            
+            document.getElementById('results').classList.add('show');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
