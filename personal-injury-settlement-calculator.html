@@ -1,393 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Personal Injury Settlement Calculator — Free Online Calculator | CalcLeap</title>
-<meta name="description" content="Estimate personal injury settlement value based on medical costs, lost wages, pain and suffering. Free injury claim calculator with multiplier method.">
-<link rel="canonical" href="https://calcleap.com/personal-injury-settlement-calculator.html">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-<meta property="og:title" content="Personal Injury Settlement Calculator — CalcLeap">
-<meta property="og:description" content="Estimate personal injury settlement value based on medical costs, lost wages, pain and suffering. Free injury claim calculator with multiplier method.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://calcleap.com/personal-injury-settlement-calculator.html">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Personal Injury Settlement Calculator",
-    "description": "Estimate personal injury settlement value based on medical costs, lost wages, pain and suffering. Free injury claim calculator with multiplier method.",
-    "url": "https://calcleap.com/personal-injury-settlement-calculator.html",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
-}
-</script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --white:#fff;--bg:#f5f5f7;--surface:#fff;
-  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
-  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
-  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
-  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
-  --r:16px;--r-sm:12px;--r-xs:8px;
-  --mw:980px;
-  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
-}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
-a{color:inherit;text-decoration:none}
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
-.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:.15rem}
-.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
-.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
-.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
-.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
-.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
-.breadcrumb .sep{margin:0 .35rem;opacity:.4}
-.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
-.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.form-group{display:flex;flex-direction:column;gap:.3rem}
-.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
-.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
-.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
-.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.result-big{font-size:3rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--accent)}
-.result-label{font-size:1rem;font-weight:600;margin-top:.5rem;color:var(--text-2)}
-.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.stat-row:last-child{border-bottom:none}
-.stat-label{font-size:.85rem;color:var(--text-2)}
-.stat-value{font-size:.95rem;font-weight:700}
-.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;margin-bottom:1.5rem}
-.info-card h2{font-size:1.5rem;font-weight:700;margin-bottom:1rem}
-.info-card h3{font-size:1.15rem;font-weight:600;margin:1.5rem 0 .75rem;color:var(--text)}
-.info-card p{color:var(--text-2);line-height:1.7;margin-bottom:1rem}
-.info-card ul,.info-card ol{margin-left:1.5rem;margin-bottom:1rem;color:var(--text-2);line-height:1.7}
-.info-card li{margin-bottom:.5rem}
-.faq{margin-top:1rem;border-top:1px solid var(--border);padding-top:1rem}
-.faq dt{font-weight:600;margin-top:1.25rem;margin-bottom:.5rem;color:var(--text)}
-.faq dd{color:var(--text-2);line-height:1.7;margin-bottom:1rem}
-.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 0}
-.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:2rem}
-.footer h4{font-size:.85rem;font-weight:600;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em}
-.footer ul{list-style:none}
-.footer li{margin-bottom:.5rem}
-.footer a{font-size:.85rem;color:var(--text-3);transition:color .2s}
-.footer a:hover{color:var(--accent)}
-.footer-bottom{text-align:center;font-size:.8rem;color:var(--text-3);padding-top:1.5rem;border-top:1px solid var(--border)}
-.ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;background:var(--bg);border:1px solid var(--border);border-radius:var(--r)}
-@media(max-width:768px){
-.nav-links{display:none}
-.form-row{grid-template-columns:1fr}
-.footer-grid{grid-template-columns:1fr 1fr}
-.page-title{font-size:1.75rem}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Injury Settlement Calculator - Estimate Your Claim Value | CalcLeap</title>
+    <meta name="description" content="Free personal injury settlement calculator. Estimate claim value for car accidents, slip and falls, medical malpractice based on damages, medical bills, lost wages, and pain & suffering.">
+    <link rel="canonical" href="https://calcleap.com/personal-injury-settlement-calculator.html">
+    <meta property="og:title" content="Personal Injury Settlement Calculator - Estimate Your Claim Value">
+    <meta property="og:description" content="Free personal injury settlement calculator for car accidents, slip and falls, medical malpractice claims.">
+    <meta property="og:url" content="https://calcleap.com/personal-injury-settlement-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .input-group {
+            margin: 20px 0;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .input-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .multiplier-note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .calculate-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .calculate-btn:hover {
+            opacity: 0.9;
+        }
+        .results {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            display: none;
+        }
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .result-row:last-child {
+            border-bottom: none;
+            font-size: 20px;
+            font-weight: 700;
+            color: #667eea;
+            padding-top: 20px;
+        }
+        .result-label {
+            font-weight: 600;
+        }
+        .result-value {
+            font-weight: 700;
+            color: #333;
+        }
+        .info-section {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 1px solid #e0e0e0;
+        }
+        .info-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .info-section h3 {
+            color: #667eea;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .info-section ul {
+            margin: 10px 0 10px 20px;
+        }
+        .info-section li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .severity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .severity-option {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .severity-option:hover {
+            border-color: #667eea;
+            background: #f8f9fa;
+        }
+        .severity-option.selected {
+            border-color: #667eea;
+            background: #e8ebff;
+        }
+        .lead-form {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 2px solid #667eea;
+        }
+        .lead-form h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .lead-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .lead-form button {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .faq {
+            margin: 30px 0;
+        }
+        .faq-item {
+            background: #fff;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        .faq-item h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
+    <div class="calculator-container">
+        <h1 class="page-title">Personal Injury Settlement Calculator</h1>
+        <p>Estimate the potential value of your personal injury claim based on economic damages, non-economic damages, and case factors.</p>
 
-<nav class="nav">
-<div class="nav-inner">
-<a href="index.html" class="logo">Calc<span>Leap</span></a>
-<div class="nav-links">
-<a href="index.html#finance">Finance</a>
-<a href="index.html#insurance">Insurance</a>
-<a href="index.html#health">Health</a>
-<a href="index.html#converters">Converters</a>
-<a href="about.html">About</a>
-</div>
-</div>
-</nav>
+        <div class="input-group">
+            <label for="injury-type">Type of Injury Case</label>
+            <select id="injury-type">
+                <option value="car-accident">Car Accident</option>
+                <option value="slip-fall">Slip and Fall</option>
+                <option value="medical-malpractice">Medical Malpractice</option>
+                <option value="workplace">Workplace Accident</option>
+                <option value="dog-bite">Dog Bite</option>
+                <option value="assault">Assault/Battery</option>
+                <option value="defective-product">Defective Product</option>
+                <option value="other">Other Injury</option>
+            </select>
+        </div>
 
-<main class="page">
+        <div class="input-group">
+            <label for="medical-bills">Total Medical Bills ($)</label>
+            <input type="number" id="medical-bills" placeholder="e.g., 25000" value="25000">
+            <p class="multiplier-note">Include past and estimated future medical costs</p>
+        </div>
 
-<div class="breadcrumb">
-<a href="index.html">Home</a><span class="sep">/</span><span>Personal Injury Settlement Calculator</span>
-</div>
+        <div class="input-group">
+            <label for="lost-wages">Lost Wages / Income ($)</label>
+            <input type="number" id="lost-wages" placeholder="e.g., 15000" value="15000">
+            <p class="multiplier-note">Include past lost income + future earning capacity loss</p>
+        </div>
 
-<h1 class="page-title">Personal Injury Settlement Calculator</h1>
-<p class="page-desc">Estimate your personal injury claim value based on medical expenses, lost income, and pain & suffering using the multiplier method.</p>
+        <div class="input-group">
+            <label for="property-damage">Property Damage ($)</label>
+            <input type="number" id="property-damage" placeholder="e.g., 5000" value="5000">
+            <p class="multiplier-note">Vehicle repair/replacement, damaged belongings, etc.</p>
+        </div>
 
-<div class="card">
-<h2>Injury Details</h2>
+        <div class="input-group">
+            <label for="other-expenses">Other Economic Damages ($)</label>
+            <input type="number" id="other-expenses" placeholder="e.g., 2000" value="2000">
+            <p class="multiplier-note">Home modifications, medical equipment, transportation, etc.</p>
+        </div>
 
-<div class="form-group">
-<label>Injury Type</label>
-<select id="injuryType">
-<option value="soft">Soft tissue injury (Minor)</option>
-<option value="moderate">Moderate injury (Broken bone, whiplash)</option>
-<option value="serious">Serious injury (Surgery, permanent damage)</option>
-<option value="catastrophic">Catastrophic (Disability, brain/spine injury)</option>
-</select>
-</div>
+        <div class="input-group">
+            <label>Injury Severity</label>
+            <div class="severity-grid">
+                <div class="severity-option" data-multiplier="1.5" onclick="selectSeverity(this)">
+                    <strong>Minor</strong><br>
+                    <small>Sprains, bruises<br>1.5x multiplier</small>
+                </div>
+                <div class="severity-option selected" data-multiplier="3" onclick="selectSeverity(this)">
+                    <strong>Moderate</strong><br>
+                    <small>Fractures, surgery<br>3x multiplier</small>
+                </div>
+                <div class="severity-option" data-multiplier="5" onclick="selectSeverity(this)">
+                    <strong>Severe</strong><br>
+                    <small>Permanent injury<br>5x multiplier</small>
+                </div>
+                <div class="severity-option" data-multiplier="7" onclick="selectSeverity(this)">
+                    <strong>Catastrophic</strong><br>
+                    <small>Disability, disfigurement<br>7x multiplier</small>
+                </div>
+            </div>
+        </div>
 
-<div class="form-row">
-<div class="form-group">
-<label>Medical Expenses ($)</label>
-<input type="number" id="medicalExpenses" placeholder="25000" value="25000">
-</div>
-<div class="form-group">
-<label>Lost Wages ($)</label>
-<input type="number" id="lostWages" placeholder="8000" value="8000">
-</div>
-</div>
+        <div class="input-group">
+            <label for="liability">Defendant Liability (%)</label>
+            <input type="number" id="liability" placeholder="e.g., 100" value="100" min="0" max="100">
+            <p class="multiplier-note">How clearly at-fault is the defendant? (0-100%)</p>
+        </div>
 
-<div class="form-row">
-<div class="form-group">
-<label>Property Damage ($)</label>
-<input type="number" id="propertyDamage" placeholder="5000" value="0">
-</div>
-<div class="form-group">
-<label>Future Medical Costs ($)</label>
-<input type="number" id="futureMedical" placeholder="0" value="0">
-</div>
-</div>
+        <div class="input-group">
+            <label for="comparative-negligence">Your Comparative Negligence (%)</label>
+            <input type="number" id="comparative-negligence" placeholder="e.g., 0" value="0" min="0" max="100">
+            <p class="multiplier-note">Were you partially at fault? This reduces your recovery</p>
+        </div>
 
-<div class="form-group">
-<label>Fault Percentage (Your fault %)</label>
-<input type="number" id="faultPercent" placeholder="0" value="0" min="0" max="100">
-</div>
+        <button class="calculate-btn" onclick="calculateSettlement()">Calculate Settlement Estimate</button>
 
-<button class="btn" onclick="calculate()">Calculate Settlement Range</button>
+        <div class="results" id="results">
+            <h2>Estimated Settlement Value</h2>
+            <div class="result-row">
+                <span class="result-label">Total Economic Damages:</span>
+                <span class="result-value" id="economic-total">$0</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Pain & Suffering (Non-Economic):</span>
+                <span class="result-value" id="pain-suffering">$0</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Gross Settlement Value:</span>
+                <span class="result-value" id="gross-settlement">$0</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">After Comparative Negligence:</span>
+                <span class="result-value" id="adjusted-settlement">$0</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Estimated Settlement Range:</span>
+                <span class="result-value" id="settlement-range">$0 - $0</span>
+            </div>
+        </div>
 
-<div class="result-area" id="results">
-<div class="result-big" id="settlementRange">$50,000 - $165,000</div>
-<div class="result-label">Estimated Settlement Range</div>
+        <div class="lead-form">
+            <h3>📞 Get a Free Case Evaluation</h3>
+            <p>Connect with personal injury attorneys in your area. No fee unless you win.</p>
+            <form id="contact-form" onsubmit="return false;">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea placeholder="Brief description of your injury (optional)" rows="3"></textarea>
+                <button type="submit">Request Free Consultation</button>
+            </form>
+        </div>
 
-<div style="margin-top:1.5rem">
-<div class="stat-row">
-<span class="stat-label">Economic Damages</span>
-<span class="stat-value" id="economicDamages">$33,000</span>
-</div>
-<div class="stat-row">
-<span class="stat-label">Pain & Suffering (Multiplier)</span>
-<span class="stat-value" id="multiplier">3x - 5x</span>
-</div>
-<div class="stat-row">
-<span class="stat-label">Low Estimate</span>
-<span class="stat-value" id="lowEst">$50,000</span>
-</div>
-<div class="stat-row">
-<span class="stat-label">High Estimate</span>
-<span class="stat-value" id="highEst">$165,000</span>
-</div>
-<div class="stat-row">
-<span class="stat-label">After Fault Reduction</span>
-<span class="stat-value" id="afterFault">$50,000 - $165,000</span>
-</div>
-</div>
+        <div class="info-section">
+            <h2>How to Use the Personal Injury Settlement Calculator</h2>
+            <ol>
+                <li><strong>Select injury type:</strong> Car accident, slip and fall, medical malpractice, etc.</li>
+                <li><strong>Enter economic damages:</strong> Medical bills, lost wages, property damage, other expenses</li>
+                <li><strong>Choose injury severity:</strong> Minor (1.5x), Moderate (3x), Severe (5x), or Catastrophic (7x)</li>
+                <li><strong>Assess liability:</strong> How clearly at-fault is the defendant? (0-100%)</li>
+                <li><strong>Input comparative negligence:</strong> Were you partially at fault? This reduces recovery</li>
+                <li><strong>Click Calculate:</strong> See estimated settlement range</li>
+            </ol>
 
-<p style="margin-top:1.5rem;font-size:.875rem;color:var(--text-3);line-height:1.6">
-This is a rough estimate using the multiplier method. Actual settlements depend on liability, jurisdiction, insurance limits, legal representation, and case-specific factors. Consult a personal injury attorney for an accurate valuation.
-</p>
-</div>
+            <h3>Understanding the Multiplier Method</h3>
+            <p>Personal injury settlements typically use the <strong>multiplier method</strong>:</p>
+            <ul>
+                <li><strong>Economic Damages:</strong> Medical bills + lost wages + property damage + other expenses</li>
+                <li><strong>Pain & Suffering Multiplier:</strong> Economic damages × multiplier (1.5-7x based on severity)</li>
+                <li><strong>Total Settlement:</strong> Economic damages + pain & suffering</li>
+                <li><strong>Adjustments:</strong> Reduced by comparative negligence % if plaintiff was partially at fault</li>
+            </ul>
 
-</div>
+            <h3>Injury Severity Multipliers</h3>
+            <ul>
+                <li><strong>Minor (1.5x):</strong> Soft tissue injuries, sprains, bruises, minor whiplash — full recovery expected</li>
+                <li><strong>Moderate (3x):</strong> Fractures, herniated discs, surgery required, recovery 6-12 months</li>
+                <li><strong>Severe (5x):</strong> Permanent injury, chronic pain, significant scarring, ongoing treatment</li>
+                <li><strong>Catastrophic (7x):</strong> Paralysis, traumatic brain injury, amputation, permanent disability, disfigurement</li>
+            </ul>
 
-<div class="ad-slot">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
+            <h3>What Affects Settlement Value?</h3>
+            <ul>
+                <li><strong>Clear liability:</strong> Defendant clearly at fault = higher settlement</li>
+                <li><strong>Severity of injury:</strong> Permanent injuries = higher multipliers</li>
+                <li><strong>Medical documentation:</strong> Well-documented treatment = stronger case</li>
+                <li><strong>Lost earning capacity:</strong> Future income loss significantly increases value</li>
+                <li><strong>Insurance policy limits:</strong> Defendant's coverage caps maximum recovery</li>
+                <li><strong>Plaintiff credibility:</strong> Consistent story, no exaggeration = stronger case</li>
+                <li><strong>Comparative negligence:</strong> Your fault % reduces recovery in most states</li>
+                <li><strong>Jurisdiction:</strong> Some states/counties have higher average verdicts</li>
+            </ul>
 
-<div class="info-card">
-<h2>How Personal Injury Settlements Are Calculated</h2>
+            <h3>Types of Damages in Personal Injury Cases</h3>
+            <h4>Economic Damages (Special Damages)</h4>
+            <ul>
+                <li>Past and future medical bills</li>
+                <li>Lost wages and future earning capacity</li>
+                <li>Property damage (vehicle, belongings)</li>
+                <li>Home/vehicle modifications for disability</li>
+                <li>Medical equipment and assistive devices</li>
+                <li>Transportation costs to medical appointments</li>
+                <li>Household services (if injured party can't perform)</li>
+            </ul>
 
-<p>Personal injury settlements are typically calculated using two main components: <strong>economic damages</strong> (quantifiable losses) and <strong>non-economic damages</strong> (pain and suffering). The multiplier method is the most common approach used by insurance companies and attorneys.</p>
+            <h4>Non-Economic Damages (General Damages)</h4>
+            <ul>
+                <li>Pain and suffering</li>
+                <li>Emotional distress</li>
+                <li>Loss of enjoyment of life</li>
+                <li>Loss of consortium (impact on relationships)</li>
+                <li>Disfigurement and scarring</li>
+                <li>Mental anguish</li>
+            </ul>
 
-<h3>Economic Damages (Special Damages)</h3>
-<p>These are out-of-pocket expenses with clear dollar values:</p>
-<ul>
-<li><strong>Medical expenses:</strong> Emergency room, hospital stays, surgery, physical therapy, prescriptions, medical equipment</li>
-<li><strong>Lost wages:</strong> Income lost due to time off work, including future earning capacity if permanently disabled</li>
-<li><strong>Property damage:</strong> Vehicle repairs, personal property replacement</li>
-<li><strong>Future medical costs:</strong> Ongoing treatment, rehabilitation, long-term care</li>
-</ul>
+            <h4>Punitive Damages (Rare)</h4>
+            <p>Awarded in cases of gross negligence, malice, or intentional harm. Not included in this calculator.</p>
+        </div>
 
-<h3>Non-Economic Damages (General Damages)</h3>
-<p>Pain and suffering is calculated using a multiplier (typically 1.5x to 5x) applied to economic damages:</p>
-<ul>
-<li><strong>1.5x - 2x:</strong> Minor soft tissue injuries, full recovery expected</li>
-<li><strong>3x - 4x:</strong> Moderate injuries with lingering effects (broken bones, whiplash)</li>
-<li><strong>4x - 5x:</strong> Serious injuries requiring surgery or causing permanent impairment</li>
-<li><strong>5x+:</strong> Catastrophic injuries (brain injury, paralysis, disfigurement)</li>
-</ul>
+        <div class="faq">
+            <h2>Frequently Asked Questions</h2>
 
-<h3>Factors That Increase Settlement Value</h3>
-<ul>
-<li><strong>Clear liability:</strong> Other party is 100% at fault with strong evidence</li>
-<li><strong>Severe injuries:</strong> Permanent disability, scarring, or long-term impairment</li>
-<li><strong>High medical costs:</strong> Extensive treatment increases base damages</li>
-<li><strong>Lost earning capacity:</strong> Inability to return to previous work</li>
-<li><strong>Strong legal representation:</strong> Experienced attorneys negotiate higher settlements</li>
-<li><strong>Insurance policy limits:</strong> Higher limits allow larger settlements</li>
-</ul>
+            <div class="faq-item">
+                <h3>How accurate is this settlement calculator?</h3>
+                <p>This calculator provides a rough estimate based on the multiplier method commonly used by insurance adjusters and attorneys. Actual settlements vary widely based on jurisdiction, evidence strength, insurance policy limits, and negotiation skills. Many cases settle for less than the multiplier method suggests; others (with strong evidence and clear liability) exceed it. <strong>Always consult with a personal injury attorney for a case-specific evaluation.</strong></p>
+            </div>
 
-<h3>Factors That Decrease Settlement Value</h3>
-<ul>
-<li><strong>Shared fault:</strong> Your contribution to the accident (comparative negligence)</li>
-<li><strong>Pre-existing conditions:</strong> Prior injuries to the same body part</li>
-<li><strong>Gaps in treatment:</strong> Delays or inconsistent medical care</li>
-<li><strong>Minor injuries:</strong> Full recovery with minimal treatment</li>
-<li><strong>Low policy limits:</strong> Defendant's insurance coverage cap</li>
-</ul>
+            <div class="faq-item">
+                <h3>What is the multiplier method?</h3>
+                <p>The multiplier method estimates non-economic damages (pain and suffering) by multiplying economic damages (medical bills, lost wages) by a factor between 1.5 and 7. Minor injuries typically use 1.5-2x, moderate injuries 2-4x, severe injuries 4-6x, and catastrophic injuries 5-7x or higher. The multiplier increases with injury severity, permanence, impact on quality of life, and clear defendant liability.</p>
+            </div>
 
-<h3>Typical Settlement Timeline</h3>
-<ol>
-<li><strong>Immediate:</strong> Document the accident, seek medical attention, file police report</li>
-<li><strong>Days 1-30:</strong> Notify insurance companies, gather evidence, preserve records</li>
-<li><strong>Months 1-6:</strong> Complete medical treatment, reach maximum medical improvement (MMI)</li>
-<li><strong>Months 6-12:</strong> Attorney sends demand letter, negotiations begin</li>
-<li><strong>Months 12-24:</strong> Settlement reached or lawsuit filed if no agreement</li>
-</ol>
+            <div class="faq-item">
+                <h3>How long does it take to settle a personal injury case?</h3>
+                <p>Minor injury cases can settle in 3-6 months. Moderate cases with surgery or ongoing treatment typically take 6-18 months. Severe or catastrophic injury cases often take 1-3 years or longer. Key factors: reaching maximum medical improvement (MMI), gathering all medical records, negotiating with insurance, and potentially filing a lawsuit if settlement negotiations fail.</p>
+            </div>
 
-<p><strong>Important:</strong> Never accept the first settlement offer. Insurance companies typically offer 25-50% of fair value initially. Most cases settle for 2-3x the initial offer after negotiation.</p>
+            <div class="faq-item">
+                <h3>Do I need a lawyer for a personal injury claim?</h3>
+                <p>For minor injuries with clear liability and low medical bills (under $5,000), you may be able to negotiate directly with insurance. For moderate to severe injuries, permanent injuries, disputed liability, or cases involving substantial medical bills, <strong>hiring an attorney significantly increases settlement value</strong>. Studies show represented claimants receive 3-4x higher settlements on average, even after attorney fees (typically 33-40% contingency).</p>
+            </div>
 
-</div>
+            <div class="faq-item">
+                <h3>What is comparative negligence and how does it affect my case?</h3>
+                <p>Comparative negligence reduces your recovery if you were partially at fault. For example, if you were 20% at fault in a car accident, your settlement is reduced by 20%. In "pure comparative negligence" states, you can recover even if 99% at fault. In "modified comparative negligence" states, you can't recover if you're 50% or 51%+ at fault (varies by state). Some states use "contributory negligence" — if you're even 1% at fault, you get nothing (rare, only 4-5 states).</p>
+            </div>
 
-<div class="ad-slot">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567891" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
+            <div class="faq-item">
+                <h3>How much do personal injury lawyers charge?</h3>
+                <p>Most personal injury attorneys work on <strong>contingency fees</strong>: no upfront cost, they take a percentage only if you win. Typical rates: 33% if settled before lawsuit, 40% if lawsuit filed, sometimes 25% for very high-value cases. You also pay case expenses (filing fees, expert witnesses, medical record fees), which are either deducted from settlement or billed separately. If you lose, you owe nothing (though you may owe case expenses depending on the fee agreement).</p>
+            </div>
 
-<div class="info-card">
-<dl class="faq">
-<dt>How long does it take to settle a personal injury claim?</dt>
-<dd>Most personal injury claims settle within 6-18 months. Simple cases with clear liability and minor injuries may settle in 3-6 months, while complex cases involving serious injuries or disputed liability can take 2-3 years. Cases that go to trial can take even longer.</dd>
+            <div class="faq-item">
+                <h3>What is the statute of limitations for personal injury cases?</h3>
+                <p>Varies by state: typically 1-3 years from the date of injury. California: 2 years. Texas: 2 years. New York: 3 years. Florida: 4 years (recently reduced from 4 to 2 years for some cases). Medical malpractice often has shorter deadlines (1-2 years). Government entity claims (city, county, state) require notice within 6 months to 1 year. <strong>Missing the deadline bars your claim forever — consult an attorney immediately.</strong></p>
+            </div>
 
-<dt>Should I accept the first settlement offer?</dt>
-<dd>No. Insurance companies typically offer 25-50% of what they expect to eventually pay. The first offer is designed to quickly close the claim for as little as possible. Always consult a personal injury attorney before accepting any settlement offer.</dd>
+            <div class="faq-item">
+                <h3>Should I accept the first settlement offer from insurance?</h3>
+                <p><strong>No.</strong> Initial offers from insurance companies are almost always low — often 10-30% of fair value. Adjusters hope you'll accept quickly before consulting an attorney. Common tactics: quick settlement offers before you know the full extent of injuries, pressure to sign releases, claiming policy limits are lower than they are. Always wait until you've reached maximum medical improvement (MMI), gathered all records, and consulted with an attorney. Most cases require 2-4 rounds of negotiation.</p>
+            </div>
+        </div>
 
-<dt>Do I need a lawyer for a personal injury claim?</dt>
-<dd>For minor injuries with clear fault and low medical bills (<$5,000), you may handle it yourself. For moderate to serious injuries, hiring an attorney typically increases your settlement by 3-4x even after legal fees (usually 33-40%). Attorneys negotiate higher settlements and handle insurance tactics.</dd>
+        <div class="info-section">
+            <h2>Related Calculators</h2>
+            <ul>
+                <li><a href="wrongful-death-settlement-calculator.html">Wrongful Death Settlement Calculator</a> — Estimate wrongful death claim value</li>
+                <li><a href="legal-fee-calculator.html">Legal Fee Calculator</a> — Calculate attorney costs</li>
+                <li><a href="car-insurance-calculator.html">Car Insurance Calculator</a> — Estimate auto insurance premiums</li>
+                <li><a href="disability-insurance-calculator.html">Disability Insurance Calculator</a> — Calculate coverage needs</li>
+            </ul>
+        </div>
+    </div>
 
-<dt>What is the average personal injury settlement amount?</dt>
-<dd>The average settlement varies widely: $3,000-$75,000 for most cases, with severe injury cases reaching $100,000-$500,000+. Catastrophic injury cases (brain injury, paralysis) can settle for $1M+. Your specific case depends on injury severity, economic losses, liability, and insurance limits.</dd>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Personal Injury Settlement Calculator",
+        "description": "Free personal injury settlement calculator for car accidents, slip and falls, medical malpractice claims.",
+        "url": "https://calcleap.com/personal-injury-settlement-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
 
-<dt>How much will I actually receive after a settlement?</dt>
-<dd>Your net proceeds depend on legal fees (33-40% if you have an attorney), medical liens (unpaid medical bills), and case costs (expert witnesses, court fees). On average, clients receive 50-70% of the gross settlement. Your attorney should provide a detailed breakdown before you accept any offer.</dd>
+    <script>
+        let selectedMultiplier = 3;
 
-<dt>Can I reopen a settlement if my condition worsens?</dt>
-<dd>No. Once you sign a settlement agreement and release, you cannot reopen the claim even if your condition worsens or new injuries emerge. This is why it's critical to reach maximum medical improvement (MMI) and account for future medical costs before settling.</dd>
-</dl>
-</div>
+        function selectSeverity(element) {
+            document.querySelectorAll('.severity-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedMultiplier = parseFloat(element.dataset.multiplier);
+        }
 
-<div class="ad-slot">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567892" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
+        function calculateSettlement() {
+            const medicalBills = parseFloat(document.getElementById('medical-bills').value) || 0;
+            const lostWages = parseFloat(document.getElementById('lost-wages').value) || 0;
+            const propertyDamage = parseFloat(document.getElementById('property-damage').value) || 0;
+            const otherExpenses = parseFloat(document.getElementById('other-expenses').value) || 0;
+            const liability = parseFloat(document.getElementById('liability').value) || 100;
+            const comparativeNegligence = parseFloat(document.getElementById('comparative-negligence').value) || 0;
 
-<p style="font-size:.8rem;color:var(--text-3);line-height:1.6;margin:2rem 0">
-⚠️ <strong>Disclaimer:</strong> This calculator provides rough estimates for educational purposes only. Actual settlement values vary significantly based on jurisdiction, case facts, liability, insurance policy limits, and legal representation. This is not legal advice. Results do not constitute a guarantee of any settlement amount. Always consult a qualified personal injury attorney for an accurate case evaluation. CalcLeap is not a law firm and does not provide legal services.
-</p>
+            const economicDamages = medicalBills + lostWages + propertyDamage + otherExpenses;
+            const painSuffering = economicDamages * selectedMultiplier;
+            const grossSettlement = economicDamages + painSuffering;
+            const adjustedSettlement = grossSettlement * (100 - comparativeNegligence) / 100;
+            const lowRange = adjustedSettlement * 0.7;
+            const highRange = adjustedSettlement * 1.3;
 
-</main>
+            document.getElementById('economic-total').textContent = '$' + economicDamages.toLocaleString();
+            document.getElementById('pain-suffering').textContent = '$' + painSuffering.toLocaleString();
+            document.getElementById('gross-settlement').textContent = '$' + grossSettlement.toLocaleString();
+            document.getElementById('adjusted-settlement').textContent = '$' + adjustedSettlement.toLocaleString();
+            document.getElementById('settlement-range').textContent = 
+                '$' + Math.round(lowRange).toLocaleString() + ' - $' + Math.round(highRange).toLocaleString();
 
-<footer class="footer">
-<div class="page">
-<div class="footer-grid">
-<div>
-<h4>Popular</h4>
-<ul>
-<li><a href="bmi-calculator.html">BMI Calculator</a></li>
-<li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-<li><a href="income-tax-calculator.html">Income Tax Calculator</a></li>
-</ul>
-</div>
-<div>
-<h4>Categories</h4>
-<ul>
-<li><a href="index.html#finance">Financial</a></li>
-<li><a href="index.html#insurance">Insurance</a></li>
-<li><a href="index.html#health">Health</a></li>
-<li><a href="index.html#converters">Converters</a></li>
-</ul>
-</div>
-<div>
-<h4>Company</h4>
-<ul>
-<li><a href="about.html">About</a></li>
-<li><a href="privacy.html">Privacy</a></li>
-<li><a href="terms.html">Terms</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</div>
-<div>
-<h4>CalcLeap</h4>
-<p style="font-size:.85rem;color:var(--text-3);line-height:1.6">Fast, beautiful, private calculators. Free forever.</p>
-</div>
-</div>
-<div class="footer-bottom">
-© 2026 CalcLeap. For informational purposes only.
-</div>
-</div>
-</footer>
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
 
-<script>
-function calculate() {
-  const medicalExpenses = parseFloat(document.getElementById('medicalExpenses').value) || 0;
-  const lostWages = parseFloat(document.getElementById('lostWages').value) || 0;
-  const propertyDamage = parseFloat(document.getElementById('propertyDamage').value) || 0;
-  const futureMedical = parseFloat(document.getElementById('futureMedical').value) || 0;
-  const faultPercent = parseFloat(document.getElementById('faultPercent').value) || 0;
-  const injuryType = document.getElementById('injuryType').value;
-
-  // Economic damages
-  const economicDamages = medicalExpenses + lostWages + propertyDamage + futureMedical;
-
-  // Pain & suffering multiplier based on injury severity
-  let lowMultiplier, highMultiplier;
-  switch(injuryType) {
-    case 'soft':
-      lowMultiplier = 1.5;
-      highMultiplier = 2;
-      break;
-    case 'moderate':
-      lowMultiplier = 3;
-      highMultiplier = 4;
-      break;
-    case 'serious':
-      lowMultiplier = 4;
-      highMultiplier = 5;
-      break;
-    case 'catastrophic':
-      lowMultiplier = 5;
-      highMultiplier = 7;
-      break;
-    default:
-      lowMultiplier = 3;
-      highMultiplier = 5;
-  }
-
-  // Calculate settlement range
-  let lowEstimate = economicDamages * lowMultiplier;
-  let highEstimate = economicDamages * highMultiplier;
-
-  // Adjust for fault (comparative negligence)
-  const faultReduction = 1 - (faultPercent / 100);
-  const lowAfterFault = lowEstimate * faultReduction;
-  const highAfterFault = highEstimate * faultReduction;
-
-  // Display results
-  document.getElementById('economicDamages').textContent = '$' + economicDamages.toLocaleString();
-  document.getElementById('multiplier').textContent = lowMultiplier + 'x - ' + highMultiplier + 'x';
-  document.getElementById('lowEst').textContent = '$' + Math.round(lowEstimate).toLocaleString();
-  document.getElementById('highEst').textContent = '$' + Math.round(highEstimate).toLocaleString();
-  document.getElementById('settlementRange').textContent = '$' + Math.round(lowAfterFault).toLocaleString() + ' - $' + Math.round(highAfterFault).toLocaleString();
-  document.getElementById('afterFault').textContent = '$' + Math.round(lowAfterFault).toLocaleString() + ' - $' + Math.round(highAfterFault).toLocaleString();
-
-  document.getElementById('results').style.display = 'block';
-}
-</script>
-
+    <!-- AdSense placeholder -->
+    <div style="text-align: center; margin: 40px 0; padding: 20px; background: #f5f5f5; border-radius: 8px;">
+        <p style="color: #999; font-size: 14px;">Advertisement</p>
+    </div>
 </body>
 </html>
