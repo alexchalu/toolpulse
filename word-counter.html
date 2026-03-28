@@ -321,7 +321,43 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
         <p style="color:var(--text-muted);margin-bottom:2rem">Count words, characters, sentences, and paragraphs instantly. Free online word counter with reading time estimate.</p>
         
-        <div class="tool-content" id="toolContent"></div>
+        <div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Word Counter</h2>
+    <textarea id="textInput" placeholder="Type or paste your text here..." style="width:100%;min-height:200px;padding:1rem;font-size:.95rem;font-family:var(--font);background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;resize:vertical;line-height:1.6" oninput="countWords()"></textarea>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1rem;margin-top:1.5rem">
+        <div style="text-align:center;padding:1rem;background:#f5f5f7;border-radius:8px">
+            <div style="font-size:2rem;font-weight:800;color:#0071e3" id="wordCount">0</div>
+            <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-top:.25rem">Words</div>
+        </div>
+        <div style="text-align:center;padding:1rem;background:#f5f5f7;border-radius:8px">
+            <div style="font-size:2rem;font-weight:800;color:#0071e3" id="charCount">0</div>
+            <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-top:.25rem">Characters</div>
+        </div>
+        <div style="text-align:center;padding:1rem;background:#f5f5f7;border-radius:8px">
+            <div style="font-size:2rem;font-weight:800;color:#0071e3" id="sentenceCount">0</div>
+            <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-top:.25rem">Sentences</div>
+        </div>
+        <div style="text-align:center;padding:1rem;background:#f5f5f7;border-radius:8px">
+            <div style="font-size:2rem;font-weight:800;color:#0071e3" id="paragraphCount">0</div>
+            <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-top:.25rem">Paragraphs</div>
+        </div>
+    </div>
+</div>
+
+<script>
+function countWords() {
+    const text = document.getElementById('textInput').value;
+    const words = text.trim() ? text.trim().split(/\s+/).filter(w => w.length > 0) : [];
+    const chars = text.length;
+    const sentences = text.trim() ? text.split(/[.!?]+/).filter(s => s.trim().length > 0) : [];
+    const paragraphs = text.trim() ? text.split(/\n+/).filter(p => p.trim().length > 0) : [];
+    
+    document.getElementById('wordCount').textContent = words.length;
+    document.getElementById('charCount').textContent = chars;
+    document.getElementById('sentenceCount').textContent = sentences.length;
+    document.getElementById('paragraphCount').textContent = paragraphs.length;
+}
+</script>
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">

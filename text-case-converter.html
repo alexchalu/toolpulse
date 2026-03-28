@@ -321,7 +321,44 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
         <p style="color:var(--text-muted);margin-bottom:2rem">Convert text to UPPERCASE, lowercase, Title Case, camelCase, snake_case, and kebab-case.</p>
         
-        <div class="tool-content" id="toolContent"></div>
+        <div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Text Case Converter</h2>
+    <textarea id="textCase" placeholder="Type or paste your text here..." style="width:100%;min-height:150px;padding:1rem;font-size:.95rem;font-family:var(--font);background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;resize:vertical;line-height:1.6;margin-bottom:1rem"></textarea>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem">
+        <button onclick="convertCase('upper')" style="padding:.7rem 1rem;background:#0071e3;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem">UPPERCASE</button>
+        <button onclick="convertCase('lower')" style="padding:.7rem 1rem;background:#0071e3;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem">lowercase</button>
+        <button onclick="convertCase('title')" style="padding:.7rem 1rem;background:#0071e3;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem">Title Case</button>
+        <button onclick="convertCase('camel')" style="padding:.7rem 1rem;background:#0071e3;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem">camelCase</button>
+        <button onclick="convertCase('snake')" style="padding:.7rem 1rem;background:#0071e3;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem">snake_case</button>
+    </div>
+</div>
+
+<script>
+function convertCase(type) {
+    const textarea = document.getElementById('textCase');
+    let text = textarea.value;
+    
+    switch(type) {
+        case 'upper':
+            text = text.toUpperCase();
+            break;
+        case 'lower':
+            text = text.toLowerCase();
+            break;
+        case 'title':
+            text = text.toLowerCase().replace(/\b\w/g, l => l.toUpperCase());
+            break;
+        case 'camel':
+            text = text.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+            break;
+        case 'snake':
+            text = text.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+            break;
+    }
+    
+    textarea.value = text;
+}
+</script>
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">

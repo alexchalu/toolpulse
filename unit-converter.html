@@ -321,7 +321,143 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
         <p style="color:var(--text-muted);margin-bottom:2rem">Convert between units of length, weight, temperature, data size, and speed.</p>
         
-        <div class="tool-content" id="toolContent"></div>
+        <div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Unit Converter</h2>
+    
+    <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem">Category</label>
+    <select id="category" onchange="updateUnits()" style="width:100%;padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;margin-bottom:1rem">
+        <option value="length">Length</option>
+        <option value="weight">Weight</option>
+        <option value="temperature">Temperature</option>
+        <option value="data">Data Size</option>
+        <option value="speed">Speed</option>
+    </select>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+        <div>
+            <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem">From</label>
+            <select id="fromUnit" onchange="convert()" style="width:100%;padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px"></select>
+        </div>
+        <div>
+            <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem">To</label>
+            <select id="toUnit" onchange="convert()" style="width:100%;padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px"></select>
+        </div>
+    </div>
+    
+    <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem">Value</label>
+    <input type="number" id="value" value="1" oninput="convert()" style="width:100%;padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;margin-bottom:1rem">
+    
+    <div id="result" style="background:#f5f5f7;padding:1.5rem;border-radius:8px;text-align:center">
+        <div style="font-size:2.5rem;font-weight:800;color:#0071e3;margin-bottom:.5rem" id="resultValue">1</div>
+        <div style="font-size:.9rem;color:#86868b" id="resultUnit">meter</div>
+    </div>
+</div>
+
+<script>
+const units = {
+    length: {
+        meter: 1,
+        kilometer: 0.001,
+        centimeter: 100,
+        millimeter: 1000,
+        mile: 0.000621371,
+        yard: 1.09361,
+        foot: 3.28084,
+        inch: 39.3701
+    },
+    weight: {
+        kilogram: 1,
+        gram: 1000,
+        milligram: 1000000,
+        ton: 0.001,
+        pound: 2.20462,
+        ounce: 35.274
+    },
+    temperature: {
+        celsius: { offset: 0, scale: 1 },
+        fahrenheit: { offset: 32, scale: 1.8 },
+        kelvin: { offset: 273.15, scale: 1 }
+    },
+    data: {
+        byte: 1,
+        kilobyte: 0.001,
+        megabyte: 0.000001,
+        gigabyte: 0.000000001,
+        terabyte: 0.000000000001,
+        bit: 8,
+        kilobit: 0.008,
+        megabit: 0.000008,
+        gigabit: 0.000000008
+    },
+    speed: {
+        'meter/second': 1,
+        'kilometer/hour': 3.6,
+        'mile/hour': 2.23694,
+        'foot/second': 3.28084,
+        knot: 1.94384
+    }
+};
+
+function updateUnits() {
+    const category = document.getElementById('category').value;
+    const fromUnit = document.getElementById('fromUnit');
+    const toUnit = document.getElementById('toUnit');
+    
+    fromUnit.innerHTML = '';
+    toUnit.innerHTML = '';
+    
+    const unitList = Object.keys(units[category]);
+    unitList.forEach(unit => {
+        fromUnit.innerHTML += `<option value="${unit}">${unit}</option>`;
+        toUnit.innerHTML += `<option value="${unit}">${unit}</option>`;
+    });
+    
+    if (unitList.length > 1) {
+        toUnit.selectedIndex = 1;
+    }
+    
+    convert();
+}
+
+function convert() {
+    const category = document.getElementById('category').value;
+    const value = parseFloat(document.getElementById('value').value) || 0;
+    const fromUnit = document.getElementById('fromUnit').value;
+    const toUnit = document.getElementById('toUnit').value;
+    
+    let result;
+    
+    if (category === 'temperature') {
+        // Special handling for temperature
+        let celsius = value;
+        if (fromUnit === 'fahrenheit') {
+            celsius = (value - 32) / 1.8;
+        } else if (fromUnit === 'kelvin') {
+            celsius = value - 273.15;
+        }
+        
+        if (toUnit === 'fahrenheit') {
+            result = celsius * 1.8 + 32;
+        } else if (toUnit === 'kelvin') {
+            result = celsius + 273.15;
+        } else {
+            result = celsius;
+        }
+    } else {
+        // Convert to base unit first
+        const baseValue = value / units[category][fromUnit];
+        // Then convert to target unit
+        result = baseValue * units[category][toUnit];
+    }
+    
+    document.getElementById('resultValue').textContent = result.toFixed(6).replace(/\.?0+$/, '');
+    document.getElementById('resultUnit').textContent = toUnit;
+}
+
+// Initialize
+updateUnits();
+</script>
+
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">

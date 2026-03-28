@@ -321,7 +321,94 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
         <p style="color:var(--text-muted);margin-bottom:2rem">Test and debug regular expressions with real-time matching and highlighting. Free regex tool.</p>
         
-        <div class="tool-content" id="toolContent"></div>
+        <div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Regex Tester</h2>
+    <label style="font-size:.78rem;font-weight:600;color:#424245;display:block;margin-bottom:.3rem">Regular Expression</label>
+    <div style="display:flex;gap:.5rem;margin-bottom:1rem">
+        <input type="text" id="regexInput" placeholder="\w+@\w+\.\w+" style="flex:1;padding:.7rem .85rem;font-size:.95rem;font-family:monospace;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px">
+        <div style="display:flex;gap:.5rem;align-items:center;padding:0 .5rem">
+            <label style="display:flex;align-items:center;gap:.25rem;font-size:.85rem;cursor:pointer">
+                <input type="checkbox" id="flagG" checked> g
+            </label>
+            <label style="display:flex;align-items:center;gap:.25rem;font-size:.85rem;cursor:pointer">
+                <input type="checkbox" id="flagI"> i
+            </label>
+            <label style="display:flex;align-items:center;gap:.25rem;font-size:.85rem;cursor:pointer">
+                <input type="checkbox" id="flagM"> m
+            </label>
+        </div>
+    </div>
+    <label style="font-size:.78rem;font-weight:600;color:#424245;display:block;margin-bottom:.3rem">Test String</label>
+    <textarea id="testString" placeholder="Enter text to test..." style="width:100%;min-height:150px;padding:1rem;font-size:.95rem;font-family:monospace;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;resize:vertical;margin-bottom:1rem" oninput="testRegex()"></textarea>
+    <button onclick="testRegex()" style="padding:.75rem 2rem;background:#0071e3;color:#fff;border:none;border-radius:12px;font-weight:600;cursor:pointer;font-size:.95rem;width:100%">Test Regex</button>
+    <div id="regexResult" style="margin-top:1.5rem;display:none">
+        <div style="background:#f5f5f7;padding:1rem;border-radius:8px;margin-bottom:.75rem">
+            <div style="font-size:.85rem;color:#424245;margin-bottom:.5rem"><strong id="matchCount"></strong></div>
+            <div id="highlightedText" style="font-family:monospace;font-size:.9rem;line-height:1.6;white-space:pre-wrap;word-break:break-word"></div>
+        </div>
+        <div id="matches" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;padding:1rem;max-height:200px;overflow:auto;font-family:monospace;font-size:.85rem"></div>
+    </div>
+</div>
+
+<script>
+function testRegex() {
+    const regexStr = document.getElementById('regexInput').value;
+    const testStr = document.getElementById('testString').value;
+    
+    if (!regexStr || !testStr) return;
+    
+    try {
+        let flags = '';
+        if (document.getElementById('flagG').checked) flags += 'g';
+        if (document.getElementById('flagI').checked) flags += 'i';
+        if (document.getElementById('flagM').checked) flags += 'm';
+        
+        const regex = new RegExp(regexStr, flags);
+        const matches = [...testStr.matchAll(new RegExp(regexStr, flags + (flags.includes('g') ? '' : 'g')))];
+        
+        if (matches.length === 0) {
+            document.getElementById('matchCount').innerHTML = '<span style="color:#ef4444">No matches found</span>';
+            document.getElementById('highlightedText').textContent = testStr;
+            document.getElementById('matches').innerHTML = '<div style="color:#86868b">No matches</div>';
+        } else {
+            document.getElementById('matchCount').innerHTML = `<span style="color:#22c55e">${matches.length} match${matches.length > 1 ? 'es' : ''} found</span>`;
+            
+            // Highlight matches
+            let highlighted = testStr;
+            const sortedMatches = matches.sort((a, b) => b.index - a.index);
+            sortedMatches.forEach(match => {
+                const before = highlighted.substring(0, match.index);
+                const matched = highlighted.substring(match.index, match.index + match[0].length);
+                const after = highlighted.substring(match.index + match[0].length);
+                highlighted = before + '<span style="background:#ffeb3b;padding:0 2px;border-radius:2px">' + matched + '</span>' + after;
+            });
+            document.getElementById('highlightedText').innerHTML = highlighted;
+            
+            // Show matches list
+            const matchList = matches.map((m, i) => 
+                `<div style="padding:.5rem;border-bottom:1px solid rgba(0,0,0,.08)">
+                    <strong style="color:#0071e3">Match ${i + 1}:</strong> ${m[0]}
+                    <span style="color:#86868b;font-size:.8rem"> (index: ${m.index})</span>
+                </div>`
+            ).join('');
+            document.getElementById('matches').innerHTML = matchList;
+        }
+        
+        document.getElementById('regexResult').style.display = 'block';
+    } catch (e) {
+        document.getElementById('matchCount').innerHTML = '<span style="color:#ef4444">Invalid regex: ' + e.message + '</span>';
+        document.getElementById('highlightedText').textContent = testStr;
+        document.getElementById('matches').innerHTML = '';
+        document.getElementById('regexResult').style.display = 'block';
+    }
+}
+
+// Auto-test on input
+document.getElementById('regexInput').addEventListener('input', testRegex);
+document.getElementById('flagG').addEventListener('change', testRegex);
+document.getElementById('flagI').addEventListener('change', testRegex);
+document.getElementById('flagM').addEventListener('change', testRegex);
+</script>
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">

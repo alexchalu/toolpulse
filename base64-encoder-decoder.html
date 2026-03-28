@@ -321,7 +321,62 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
         <p style="color:var(--text-muted);margin-bottom:2rem">Encode text to Base64 or decode Base64 strings instantly. Free online Base64 conversion tool.</p>
         
-        <div class="tool-content" id="toolContent"></div>
+        <div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Base64 Encoder/Decoder</h2>
+    <textarea id="base64Input" placeholder="Enter text to encode or base64 to decode..." style="width:100%;min-height:120px;padding:1rem;font-size:.95rem;font-family:var(--font);background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;resize:vertical;margin-bottom:1rem"></textarea>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem">
+        <button onclick="encodeBase64()" style="padding:.75rem 1.5rem;background:#0071e3;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.9rem">Encode</button>
+        <button onclick="decodeBase64()" style="padding:.75rem 1.5rem;background:#22c55e;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.9rem">Decode</button>
+    </div>
+    <div id="base64Result" style="display:none">
+        <label style="font-size:.78rem;font-weight:600;color:#424245;display:block;margin-bottom:.3rem">Result</label>
+        <textarea id="base64Output" readonly style="width:100%;min-height:120px;padding:1rem;font-size:.95rem;font-family:monospace;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;resize:vertical"></textarea>
+        <button onclick="copyResult()" style="margin-top:.75rem;padding:.6rem 1.5rem;background:#6366f1;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem;width:100%">Copy to Clipboard</button>
+    </div>
+</div>
+
+<script>
+function encodeBase64() {
+    const text = document.getElementById('base64Input').value;
+    if (!text) {
+        alert('Please enter text to encode');
+        return;
+    }
+    try {
+        const encoded = btoa(unescape(encodeURIComponent(text)));
+        document.getElementById('base64Output').value = encoded;
+        document.getElementById('base64Result').style.display = 'block';
+    } catch (e) {
+        alert('Error encoding: ' + e.message);
+    }
+}
+
+function decodeBase64() {
+    const text = document.getElementById('base64Input').value;
+    if (!text) {
+        alert('Please enter base64 to decode');
+        return;
+    }
+    try {
+        const decoded = decodeURIComponent(escape(atob(text)));
+        document.getElementById('base64Output').value = decoded;
+        document.getElementById('base64Result').style.display = 'block';
+    } catch (e) {
+        alert('Error decoding: Invalid base64 string');
+    }
+}
+
+function copyResult() {
+    const output = document.getElementById('base64Output');
+    output.select();
+    navigator.clipboard.writeText(output.value).then(() => {
+        const btn = event.target;
+        const original = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = original, 2000);
+    });
+}
+</script>
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">

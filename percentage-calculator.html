@@ -321,7 +321,89 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
         <p style="color:var(--text-muted);margin-bottom:2rem">Calculate percentages, percentage increases, and percentage differences easily.</p>
         
-        <div class="tool-content" id="toolContent"></div>
+        <div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">What is X% of Y?</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+        <div>
+            <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem">Percentage</label>
+            <input type="number" id="percent1" placeholder="25" style="width:100%;padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;outline:none">
+        </div>
+        <div>
+            <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem">Value</label>
+            <input type="number" id="value1" placeholder="200" style="width:100%;padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;outline:none">
+        </div>
+    </div>
+    <button onclick="calc1()" style="padding:.75rem 2rem;background:#0071e3;color:#fff;border:none;border-radius:12px;font-weight:600;cursor:pointer;font-size:.95rem;width:100%">Calculate</button>
+    <div id="result1" style="margin-top:1rem;font-size:1.5rem;font-weight:700;color:#0071e3;text-align:center"></div>
+</div>
+
+<div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">X is what % of Y?</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+        <div>
+            <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem">First Value</label>
+            <input type="number" id="value2a" placeholder="50" style="width:100%;padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;outline:none">
+        </div>
+        <div>
+            <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem">Second Value</label>
+            <input type="number" id="value2b" placeholder="200" style="width:100%;padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;outline:none">
+        </div>
+    </div>
+    <button onclick="calc2()" style="padding:.75rem 2rem;background:#0071e3;color:#fff;border:none;border-radius:12px;font-weight:600;cursor:pointer;font-size:.95rem;width:100%">Calculate</button>
+    <div id="result2" style="margin-top:1rem;font-size:1.5rem;font-weight:700;color:#0071e3;text-align:center"></div>
+</div>
+
+<div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Percentage Change from X to Y</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+        <div>
+            <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem">Original Value</label>
+            <input type="number" id="value3a" placeholder="100" style="width:100%;padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;outline:none">
+        </div>
+        <div>
+            <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem">New Value</label>
+            <input type="number" id="value3b" placeholder="150" style="width:100%;padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;outline:none">
+        </div>
+    </div>
+    <button onclick="calc3()" style="padding:.75rem 2rem;background:#0071e3;color:#fff;border:none;border-radius:12px;font-weight:600;cursor:pointer;font-size:.95rem;width:100%">Calculate</button>
+    <div id="result3" style="margin-top:1rem;font-size:1.5rem;font-weight:700;color:#0071e3;text-align:center"></div>
+</div>
+
+<script>
+function calc1() {
+    const percent = parseFloat(document.getElementById('percent1').value);
+    const value = parseFloat(document.getElementById('value1').value);
+    if (isNaN(percent) || isNaN(value)) {
+        document.getElementById('result1').innerHTML = '<span style="color:#ef4444">Please enter valid numbers</span>';
+        return;
+    }
+    const result = (percent / 100) * value;
+    document.getElementById('result1').textContent = result.toFixed(2);
+}
+
+function calc2() {
+    const a = parseFloat(document.getElementById('value2a').value);
+    const b = parseFloat(document.getElementById('value2b').value);
+    if (isNaN(a) || isNaN(b) || b === 0) {
+        document.getElementById('result2').innerHTML = '<span style="color:#ef4444">Please enter valid numbers</span>';
+        return;
+    }
+    const result = (a / b) * 100;
+    document.getElementById('result2').textContent = result.toFixed(2) + '%';
+}
+
+function calc3() {
+    const original = parseFloat(document.getElementById('value3a').value);
+    const newVal = parseFloat(document.getElementById('value3b').value);
+    if (isNaN(original) || isNaN(newVal) || original === 0) {
+        document.getElementById('result3').innerHTML = '<span style="color:#ef4444">Please enter valid numbers</span>';
+        return;
+    }
+    const change = ((newVal - original) / original) * 100;
+    const color = change >= 0 ? '#22c55e' : '#ef4444';
+    document.getElementById('result3').innerHTML = '<span style="color:' + color + '">' + (change >= 0 ? '+' : '') + change.toFixed(2) + '%</span>';
+}
+</script>
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">

@@ -321,7 +321,43 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
         <p style="color:var(--text-muted);margin-bottom:2rem">Create QR codes for URLs, text, WiFi credentials, and more. Download as PNG. No signup required.</p>
         
-        <div class="tool-content" id="toolContent"></div>
+        <div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">QR Code Generator</h2>
+    <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem">Text or URL</label>
+    <input type="text" id="qrInput" placeholder="https://example.com" style="width:100%;padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;margin-bottom:1rem">
+    <button onclick="generateQR()" style="padding:.75rem 2rem;background:#0071e3;color:#fff;border:none;border-radius:12px;font-weight:600;cursor:pointer;font-size:.95rem;width:100%">Generate QR Code</button>
+    <div id="qrResult" style="margin-top:1.5rem;text-align:center;display:none">
+        <canvas id="qrCanvas" style="max-width:100%;border:1px solid rgba(0,0,0,.08);border-radius:8px"></canvas>
+        <button onclick="downloadQR()" style="margin-top:1rem;padding:.6rem 1.5rem;background:#22c55e;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem">Download PNG</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script>
+function generateQR() {
+    const text = document.getElementById('qrInput').value.trim();
+    if (!text) {
+        alert('Please enter text or URL');
+        return;
+    }
+    const canvas = document.getElementById('qrCanvas');
+    QRCode.toCanvas(canvas, text, { width: 300, margin: 2 }, function(error) {
+        if (error) {
+            alert('Error generating QR code');
+        } else {
+            document.getElementById('qrResult').style.display = 'block';
+        }
+    });
+}
+
+function downloadQR() {
+    const canvas = document.getElementById('qrCanvas');
+    const link = document.createElement('a');
+    link.download = 'qrcode.png';
+    link.href = canvas.toDataURL();
+    link.click();
+}
+</script>
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">

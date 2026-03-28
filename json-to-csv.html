@@ -321,7 +321,80 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
         <p style="color:var(--text-muted);margin-bottom:2rem">Convert JSON data to CSV format and download. Free online JSON to CSV tool.</p>
         
-        <div class="tool-content" id="toolContent"></div>
+        <div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">JSON to CSV Converter</h2>
+    <label style="font-size:.78rem;font-weight:600;color:#424245;display:block;margin-bottom:.3rem">Input JSON (Array of Objects)</label>
+    <textarea id="jsonInput" placeholder='[{"name":"John","age":30},{"name":"Jane","age":25}]' style="width:100%;min-height:200px;padding:1rem;font-size:.9rem;font-family:monospace;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;resize:vertical;margin-bottom:1rem"></textarea>
+    <button onclick="convertToCSV()" style="padding:.75rem 2rem;background:#0071e3;color:#fff;border:none;border-radius:12px;font-weight:600;cursor:pointer;font-size:.95rem;width:100%">Convert to CSV</button>
+    <div id="csvResult" style="margin-top:1.5rem;display:none">
+        <label style="font-size:.78rem;font-weight:600;color:#424245;display:block;margin-bottom:.3rem">CSV Output</label>
+        <textarea id="csvOutput" readonly style="width:100%;min-height:150px;padding:1rem;font-size:.85rem;font-family:monospace;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;resize:vertical;margin-bottom:.75rem"></textarea>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+            <button onclick="copyCSV()" style="padding:.6rem 1.5rem;background:#22c55e;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem">Copy</button>
+            <button onclick="downloadCSV()" style="padding:.6rem 1.5rem;background:#6366f1;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem">Download CSV</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function convertToCSV() {
+    const json = document.getElementById('jsonInput').value.trim();
+    if (!json) {
+        alert('Please enter JSON data');
+        return;
+    }
+    
+    try {
+        const data = JSON.parse(json);
+        
+        if (!Array.isArray(data) || data.length === 0) {
+            alert('JSON must be a non-empty array of objects');
+            return;
+        }
+        
+        // Get headers from first object
+        const headers = Object.keys(data[0]);
+        let csv = headers.join(',') + '\n';
+        
+        // Add rows
+        data.forEach(row => {
+            const values = headers.map(header => {
+                const val = row[header] === null || row[header] === undefined ? '' : String(row[header]);
+                // Escape commas and quotes
+                return val.includes(',') || val.includes('"') ? `"${val.replace(/"/g, '""')}"` : val;
+            });
+            csv += values.join(',') + '\n';
+        });
+        
+        document.getElementById('csvOutput').value = csv;
+        document.getElementById('csvResult').style.display = 'block';
+    } catch (e) {
+        alert('Invalid JSON: ' + e.message);
+    }
+}
+
+function copyCSV() {
+    const output = document.getElementById('csvOutput');
+    output.select();
+    navigator.clipboard.writeText(output.value).then(() => {
+        const btn = event.target;
+        const original = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = original, 2000);
+    });
+}
+
+function downloadCSV() {
+    const csv = document.getElementById('csvOutput').value;
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'data.csv';
+    a.click();
+    window.URL.revokeObjectURL(url);
+}
+</script>
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">

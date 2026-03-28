@@ -321,7 +321,44 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
         <p style="color:var(--text-muted);margin-bottom:2rem">Write Markdown and see live HTML preview side by side. Free online Markdown editor.</p>
         
-        <div class="tool-content" id="toolContent"></div>
+        <div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Markdown Preview</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div>
+            <label style="font-size:.78rem;font-weight:600;color:#424245;display:block;margin-bottom:.3rem">Markdown Input</label>
+            <textarea id="mdInput" placeholder="# Heading\n\n**Bold** and *italic* text..." style="width:100%;min-height:300px;padding:1rem;font-size:.9rem;font-family:monospace;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;resize:vertical" oninput="renderMarkdown()"></textarea>
+        </div>
+        <div>
+            <label style="font-size:.78rem;font-weight:600;color:#424245;display:block;margin-bottom:.3rem">Preview</label>
+            <div id="mdPreview" style="min-height:300px;padding:1rem;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;overflow:auto;line-height:1.6;font-size:.9rem"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+function renderMarkdown() {
+    const md = document.getElementById('mdInput').value;
+    const html = marked.parse(md);
+    document.getElementById('mdPreview').innerHTML = html;
+}
+
+// Add some basic styles to the preview
+const style = document.createElement('style');
+style.textContent = `
+#mdPreview h1 { font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0; }
+#mdPreview h2 { font-size: 1.3rem; font-weight: 700; margin: 0.5rem 0; }
+#mdPreview h3 { font-size: 1.1rem; font-weight: 600; margin: 0.5rem 0; }
+#mdPreview p { margin: 0.5rem 0; }
+#mdPreview ul, #mdPreview ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+#mdPreview code { background: #f5f5f7; padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.9em; }
+#mdPreview pre { background: #f5f5f7; padding: 0.75rem; border-radius: 6px; overflow-x: auto; }
+#mdPreview pre code { background: none; padding: 0; }
+#mdPreview a { color: #0071e3; text-decoration: underline; }
+#mdPreview blockquote { border-left: 3px solid #0071e3; padding-left: 1rem; color: #424245; margin: 0.5rem 0; }
+`;
+document.head.appendChild(style);
+</script>
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">

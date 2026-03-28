@@ -321,7 +321,58 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
         <p style="color:var(--text-muted);margin-bottom:2rem">Encode and decode URL components and query strings. Free online URL encoding tool.</p>
         
-        <div class="tool-content" id="toolContent"></div>
+        <div class="card" style="background:white;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">URL Encoder/Decoder</h2>
+    <textarea id="urlInput" placeholder="Enter URL or text..." style="width:100%;min-height:120px;padding:1rem;font-size:.95rem;font-family:var(--font);background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;resize:vertical;margin-bottom:1rem"></textarea>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem">
+        <button onclick="encodeURL()" style="padding:.75rem 1.5rem;background:#0071e3;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.9rem">Encode</button>
+        <button onclick="decodeURL()" style="padding:.75rem 1.5rem;background:#22c55e;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.9rem">Decode</button>
+    </div>
+    <div id="urlResult" style="display:none">
+        <label style="font-size:.78rem;font-weight:600;color:#424245;display:block;margin-bottom:.3rem">Result</label>
+        <textarea id="urlOutput" readonly style="width:100%;min-height:120px;padding:1rem;font-size:.95rem;font-family:monospace;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;resize:vertical"></textarea>
+        <button onclick="copyURLResult()" style="margin-top:.75rem;padding:.6rem 1.5rem;background:#6366f1;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem;width:100%">Copy to Clipboard</button>
+    </div>
+</div>
+
+<script>
+function encodeURL() {
+    const text = document.getElementById('urlInput').value;
+    if (!text) {
+        alert('Please enter URL or text to encode');
+        return;
+    }
+    const encoded = encodeURIComponent(text);
+    document.getElementById('urlOutput').value = encoded;
+    document.getElementById('urlResult').style.display = 'block';
+}
+
+function decodeURL() {
+    const text = document.getElementById('urlInput').value;
+    if (!text) {
+        alert('Please enter URL to decode');
+        return;
+    }
+    try {
+        const decoded = decodeURIComponent(text);
+        document.getElementById('urlOutput').value = decoded;
+        document.getElementById('urlResult').style.display = 'block';
+    } catch (e) {
+        alert('Error decoding: Invalid URL encoding');
+    }
+}
+
+function copyURLResult() {
+    const output = document.getElementById('urlOutput');
+    output.select();
+    navigator.clipboard.writeText(output.value).then(() => {
+        const btn = event.target;
+        const original = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = original, 2000);
+    });
+}
+</script>
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">
