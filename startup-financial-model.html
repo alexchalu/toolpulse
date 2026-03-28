@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup Financial Model 2026</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.5}
+.container{max-width:1100px;margin:0 auto;padding:2rem}
+h1{font-size:2rem;text-align:center;margin-bottom:.5rem;letter-spacing:-.03em}
+.subtitle{text-align:center;color:#666;margin-bottom:2rem}
+.tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.tab{padding:.6rem 1.2rem;border-radius:8px;border:1px solid #ddd;background:white;cursor:pointer;font-weight:600;font-size:.9rem;transition:all .2s}
+.tab.active{background:#0071e3;color:white;border-color:#0071e3}
+.section{display:none;background:white;border-radius:12px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.section.active{display:block}
+.input-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-bottom:1.5rem}
+.field{display:flex;flex-direction:column;gap:.3rem}
+.field label{font-size:.78rem;font-weight:600;text-transform:uppercase;color:#666}
+.field input,.field select{padding:.6rem .8rem;border:1px solid #ddd;border-radius:8px;font-size:.95rem}
+.field input:focus{outline:none;border-color:#0071e3;box-shadow:0 0 0 3px rgba(0,113,227,.1)}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.metric{background:#f5f5f7;border-radius:12px;padding:1.25rem;text-align:center;border:1px solid rgba(0,0,0,.06)}
+.metric .value{font-size:1.8rem;font-weight:800;color:#0071e3;letter-spacing:-.03em}
+.metric .label{font-size:.75rem;color:#666;text-transform:uppercase;margin-top:.25rem}
+.metric .value.red{color:#e74c3c}
+.metric .value.green{color:#22c55e}
+table{width:100%;border-collapse:collapse;margin:1.5rem 0}
+th{background:#0071e3;color:white;padding:.6rem;text-align:left;font-size:.8rem;text-transform:uppercase}
+td{padding:.5rem .6rem;border-bottom:1px solid #eee;font-size:.9rem}
+tr:nth-child(even){background:#f8f9fa}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.btn{background:#0071e3;color:white;border:none;padding:.7rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;margin-top:1rem}
+.btn:hover{background:#005bb5}
+.chart-bar{display:flex;align-items:center;gap:.5rem;margin:.4rem 0}
+.chart-bar .bar{height:24px;background:linear-gradient(90deg,#0071e3,#00a1ff);border-radius:4px;transition:width .5s}
+.chart-bar .bar.expense{background:linear-gradient(90deg,#e74c3c,#ff6b6b)}
+.chart-bar .lbl{font-size:.8rem;color:#666;min-width:60px}
+.chart-bar .val{font-size:.8rem;font-weight:600;min-width:80px;text-align:right}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📊 Startup Financial Model</h1>
+<p class="subtitle">5-Year Revenue Projections & Burn Rate Analysis</p>
+
+<div class="tabs">
+<div class="tab active" onclick="showTab('revenue')">Revenue</div>
+<div class="tab" onclick="showTab('expenses')">Expenses</div>
+<div class="tab" onclick="showTab('projections')">5-Year Projections</div>
+<div class="tab" onclick="showTab('metrics')">Key Metrics</div>
+</div>
+
+<div class="section active" id="revenue">
+<h3 style="margin-bottom:1rem">Revenue Model</h3>
+<div class="input-grid">
+<div class="field"><label>Monthly Revenue (Starting)</label><input type="number" id="startRev" value="5000" onchange="calculate()"></div>
+<div class="field"><label>Monthly Growth Rate (%)</label><input type="number" id="growthRate" value="15" step="0.5" onchange="calculate()"></div>
+<div class="field"><label>Average Revenue Per User ($)</label><input type="number" id="arpu" value="49" step="1" onchange="calculate()"></div>
+<div class="field"><label>Monthly Churn Rate (%)</label><input type="number" id="churn" value="5" step="0.5" onchange="calculate()"></div>
+</div>
+<div class="metrics" id="revMetrics"></div>
+<h4 style="margin:1rem 0 .5rem">Monthly Revenue (Year 1)</h4>
+<div id="revChart"></div>
+</div>
+
+<div class="section" id="expenses">
+<h3 style="margin-bottom:1rem">Monthly Expenses</h3>
+<div class="input-grid">
+<div class="field"><label>Salaries & Wages</label><input type="number" id="salaries" value="15000" onchange="calculate()"></div>
+<div class="field"><label>Rent & Utilities</label><input type="number" id="rent" value="3000" onchange="calculate()"></div>
+<div class="field"><label>Marketing & Ads</label><input type="number" id="marketing" value="5000" onchange="calculate()"></div>
+<div class="field"><label>Software & Tools</label><input type="number" id="software" value="2000" onchange="calculate()"></div>
+<div class="field"><label>Other Expenses</label><input type="number" id="other" value="1000" onchange="calculate()"></div>
+<div class="field"><label>Current Cash in Bank ($)</label><input type="number" id="cash" value="500000" onchange="calculate()"></div>
+</div>
+<div class="metrics" id="expMetrics"></div>
+</div>
+
+<div class="section" id="projections">
+<h3 style="margin-bottom:1rem">5-Year Financial Projections</h3>
+<table id="projTable"><thead><tr><th>Year</th><th>Revenue</th><th>Expenses</th><th>Net Income</th><th>Cash Balance</th></tr></thead><tbody></tbody></table>
+</div>
+
+<div class="section" id="metrics">
+<h3 style="margin-bottom:1rem">Key Startup Metrics</h3>
+<div class="metrics" id="keyMetrics"></div>
+</div>
+</div>
+
+<script>
+function showTab(id){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+event.target.classList.add('active');
+}
+
+function fmt(n){return n>=1e6?'$'+(n/1e6).toFixed(1)+'M':n>=1e3?'$'+(n/1e3).toFixed(0)+'K':'$'+n.toFixed(0)}
+
+function calculate(){
+const startRev=+document.getElementById('startRev').value;
+const growth=(+document.getElementById('growthRate').value)/100;
+const arpu=+document.getElementById('arpu').value;
+const churn=(+document.getElementById('churn').value)/100;
+const salaries=+document.getElementById('salaries').value;
+const rent=+document.getElementById('rent').value;
+const marketing=+document.getElementById('marketing').value;
+const software=+document.getElementById('software').value;
+const other=+document.getElementById('other').value;
+const cash=+document.getElementById('cash').value;
+
+const monthlyExp=salaries+rent+marketing+software+other;
+
+// Year 1 monthly
+let monthly=[];
+let rev=startRev;
+for(let i=0;i<12;i++){monthly.push(rev);rev*=(1+growth);}
+const yr1Rev=monthly.reduce((a,b)=>a+b,0);
+const yr1Exp=monthlyExp*12;
+const yr1Net=yr1Rev-yr1Exp;
+
+// Revenue metrics
+document.getElementById('revMetrics').innerHTML=`
+<div class="metric"><div class="value">${fmt(yr1Rev)}</div><div class="label">Year 1 Revenue</div></div>
+<div class="metric"><div class="value">${fmt(monthly[11])}</div><div class="label">Month 12 MRR</div></div>
+<div class="metric"><div class="value">${Math.round(monthly[11]/arpu)}</div><div class="label">Users at Month 12</div></div>
+<div class="metric"><div class="value">${(monthly[11]/monthly[0]*100-100).toFixed(0)}%</div><div class="label">Annual Growth</div></div>`;
+
+// Revenue chart
+const maxRev=Math.max(...monthly);
+document.getElementById('revChart').innerHTML=monthly.map((r,i)=>`<div class="chart-bar"><span class="lbl">M${i+1}</span><div class="bar" style="width:${r/maxRev*100}%"></div><span class="val">${fmt(r)}</span></div>`).join('');
+
+// Expense metrics
+const runway=yr1Net<0?Math.floor(cash/(-yr1Net/12)):999;
+document.getElementById('expMetrics').innerHTML=`
+<div class="metric"><div class="value">${fmt(monthlyExp)}</div><div class="label">Monthly Burn</div></div>
+<div class="metric"><div class="value">${fmt(yr1Exp)}</div><div class="label">Year 1 Expenses</div></div>
+<div class="metric"><div class="value ${yr1Net>=0?'green':'red'}">${fmt(yr1Net)}</div><div class="label">Year 1 Net Income</div></div>
+<div class="metric"><div class="value ${runway<12?'red':'green'}">${runway>100?'∞':runway+'mo'}</div><div class="label">Cash Runway</div></div>`;
+
+// 5-year projections
+let tbody='';
+let cumCash=cash;
+let annualRev=yr1Rev;
+for(let y=1;y<=5;y++){
+const annualExp=monthlyExp*12*(1+0.1*(y-1));
+const net=annualRev-annualExp;
+cumCash+=net;
+tbody+=`<tr><td>Year ${y}</td><td class="num">${fmt(annualRev)}</td><td class="num">${fmt(annualExp)}</td><td class="num" style="color:${net>=0?'#22c55e':'#e74c3c'}">${fmt(net)}</td><td class="num">${fmt(cumCash)}</td></tr>`;
+annualRev*=(1+growth*12/3);
+}
+document.querySelector('#projTable tbody').innerHTML=tbody;
+
+// Key metrics
+const ltv=arpu/churn;
+const cac=marketing/(startRev/arpu*growth);
+document.getElementById('keyMetrics').innerHTML=`
+<div class="metric"><div class="value">${fmt(startRev)}</div><div class="label">Starting MRR</div></div>
+<div class="metric"><div class="value">${fmt(startRev*12)}</div><div class="label">Starting ARR</div></div>
+<div class="metric"><div class="value">$${arpu}</div><div class="label">ARPU</div></div>
+<div class="metric"><div class="value">${(churn*100).toFixed(1)}%</div><div class="label">Monthly Churn</div></div>
+<div class="metric"><div class="value">${fmt(ltv)}</div><div class="label">Customer LTV</div></div>
+<div class="metric"><div class="value">${fmt(cac)}</div><div class="label">Est. CAC</div></div>
+<div class="metric"><div class="value ${ltv/cac>=3?'green':'red'}">${(ltv/cac).toFixed(1)}x</div><div class="label">LTV/CAC Ratio</div></div>
+<div class="metric"><div class="value ${runway<12?'red':'green'}">${runway>100?'∞':runway+'mo'}</div><div class="label">Runway</div></div>`;
+}
+
+calculate();
+</script>
+</body>
+</html>
