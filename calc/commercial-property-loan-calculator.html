@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercial Property Loan Calculator - Estimate Monthly Payments | CalcLeap</title>
+    <meta name="description" content="Calculate your commercial property loan payments, total interest, and amortization schedule. Free tool for investors, business owners, and commercial real estate professionals.">
+    <meta name="keywords" content="commercial property loan calculator, commercial mortgage calculator, business property loan, CRE financing, investment property calculator">
+    <link rel="canonical" href="https://calcleap.com/calc/commercial-property-loan-calculator">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Commercial Property Loan Calculator - CalcLeap">
+    <meta property="og:description" content="Calculate monthly payments and total interest for commercial property loans. Free, accurate, instant results.">
+    <meta property="og:url" content="https://calcleap.com/calc/commercial-property-loan-calculator">
+    <meta property="og:type" content="website">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Commercial Property Loan Calculator",
+      "description": "Calculate monthly payments, total interest, and amortization schedule for commercial property loans",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a> &gt; <span>Commercial Property Loan Calculator</span>
+        </nav>
+
+        <h1 class="page-title">Commercial Property Loan Calculator</h1>
+        
+        <p class="intro">Calculate monthly payments, total interest, and view a complete amortization schedule for commercial property loans. Whether you're financing an office building, retail space, warehouse, or multifamily property, this calculator helps you understand the true cost of your commercial real estate investment.</p>
+
+        <div class="calculator-card">
+            <div class="input-group">
+                <label for="propertyPrice">Property Purchase Price ($)</label>
+                <input type="number" id="propertyPrice" value="2000000" min="50000" step="10000">
+            </div>
+
+            <div class="input-group">
+                <label for="downPayment">Down Payment ($)</label>
+                <input type="number" id="downPayment" value="500000" min="0" step="5000">
+            </div>
+
+            <div class="input-group">
+                <label for="interestRate">Interest Rate (%)</label>
+                <input type="number" id="interestRate" value="6.5" min="0.1" max="20" step="0.1">
+            </div>
+
+            <div class="input-group">
+                <label for="loanTerm">Loan Term (Years)</label>
+                <select id="loanTerm">
+                    <option value="5">5 years</option>
+                    <option value="7">7 years</option>
+                    <option value="10">10 years</option>
+                    <option value="15">15 years</option>
+                    <option value="20" selected>20 years</option>
+                    <option value="25">25 years</option>
+                </select>
+            </div>
+
+            <button class="calculate-btn" onclick="calculateCommercialLoan()">Calculate Payment</button>
+
+            <div id="result" class="result"></div>
+            <div id="amortization" class="amortization-section"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>How Commercial Property Loans Work</h2>
+            <p>Commercial property loans (also called commercial mortgages) are used to purchase or refinance income-producing real estate such as office buildings, retail centers, warehouses, apartment complexes, and industrial properties. These loans typically have:</p>
+            <ul>
+                <li><strong>Higher down payments:</strong> Usually 20-35% compared to 3-20% for residential mortgages</li>
+                <li><strong>Shorter terms:</strong> Most commonly 5, 7, 10, or 20 years vs. 30 years for residential</li>
+                <li><strong>Higher interest rates:</strong> Typically 0.5-2% higher than residential mortgage rates</li>
+                <li><strong>Balloon payments:</strong> Many have amortization periods longer than the loan term, requiring refinancing</li>
+                <li><strong>Stricter qualifications:</strong> Lenders evaluate property cash flow, debt service coverage ratio (DSCR), and borrower experience</li>
+            </ul>
+
+            <h2>Understanding Your Results</h2>
+            <p><strong>Monthly Payment:</strong> Your principal and interest payment. Note that commercial loans may also require property taxes, insurance, and CAM (Common Area Maintenance) charges paid separately.</p>
+            <p><strong>Total Interest:</strong> The total amount you'll pay in interest over the life of the loan. This can equal or exceed your loan amount for longer terms.</p>
+            <p><strong>Loan-to-Value (LTV):</strong> The ratio of your loan amount to the property's purchase price. Most commercial lenders require LTV of 65-80%.</p>
+            <p><strong>Amortization Schedule:</strong> Shows how your payment is split between principal and interest each month, and your remaining balance over time.</p>
+
+            <h2>Types of Commercial Property Loans</h2>
+            <ul>
+                <li><strong>Traditional Bank Loans:</strong> Fixed or variable rates, 5-25 year terms, best rates for qualified borrowers</li>
+                <li><strong>SBA 504 Loans:</strong> Government-backed, up to 90% LTV, fixed rates, for owner-occupied properties</li>
+                <li><strong>SBA 7(a) Loans:</strong> Up to $5M, flexible use, 10-25 year terms</li>
+                <li><strong>CMBS Loans:</strong> Commercial Mortgage-Backed Securities, fixed rates, non-recourse, for properties $2M+</li>
+                <li><strong>Bridge Loans:</strong> Short-term (6-36 months), higher rates, for quick closings or repositioning</li>
+                <li><strong>Hard Money Loans:</strong> Asset-based, fast approval, 8-15% rates, for investors with challenged credit</li>
+            </ul>
+
+            <h2>Key Factors Affecting Commercial Loan Rates</h2>
+            <ul>
+                <li><strong>Property Type:</strong> Office and retail properties typically get better rates than hotels or specialty properties</li>
+                <li><strong>Property Condition & Occupancy:</strong> Well-maintained, fully leased properties qualify for lower rates</li>
+                <li><strong>Location:</strong> Properties in strong markets with diverse economies get preferential pricing</li>
+                <li><strong>Borrower Experience:</strong> Experienced commercial property owners get better terms</li>
+                <li><strong>Cash Flow (DSCR):</strong> Lenders want debt service coverage ratio of 1.25x or higher</li>
+                <li><strong>Down Payment:</strong> Larger down payments (lower LTV) result in better rates</li>
+                <li><strong>Loan Amount:</strong> Larger loans ($1M+) often qualify for better pricing</li>
+            </ul>
+
+            <h2>Commercial vs. Residential Mortgages</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Commercial</th>
+                        <th>Residential</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Down Payment</td>
+                        <td>20-35%</td>
+                        <td>3-20%</td>
+                    </tr>
+                    <tr>
+                        <td>Typical Term</td>
+                        <td>5-20 years</td>
+                        <td>15-30 years</td>
+                    </tr>
+                    <tr>
+                        <td>Interest Rate</td>
+                        <td>5-9%</td>
+                        <td>3-7%</td>
+                    </tr>
+                    <tr>
+                        <td>Qualification</td>
+                        <td>Property cash flow + borrower</td>
+                        <td>Borrower income & credit</td>
+                    </tr>
+                    <tr>
+                        <td>Recourse</td>
+                        <td>Often recourse (personal guarantee)</td>
+                        <td>Non-recourse (except fraud)</td>
+                    </tr>
+                    <tr>
+                        <td>Prepayment Penalty</td>
+                        <td>Common (lockout, yield maintenance)</td>
+                        <td>Rare</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Tips for Getting the Best Commercial Loan</h2>
+            <ul>
+                <li><strong>Improve property performance:</strong> Higher occupancy and net operating income (NOI) means better loan terms</li>
+                <li><strong>Shop multiple lenders:</strong> Rates and terms can vary significantly between banks, credit unions, and private lenders</li>
+                <li><strong>Strengthen your financials:</strong> Strong personal and business credit, significant reserves, and low debt-to-income ratios help</li>
+                <li><strong>Consider an SBA loan:</strong> If owner-occupied (51%+ use), SBA 504 or 7(a) loans offer better terms than conventional</li>
+                <li><strong>Negotiate terms:</strong> Interest rate, amortization period, prepayment penalties, and recourse provisions are all negotiable</li>
+                <li><strong>Plan for refinancing:</strong> Many commercial loans have balloon payments requiring refinance before maturity</li>
+                <li><strong>Work with a broker:</strong> Commercial mortgage brokers have access to multiple lenders and can negotiate better terms</li>
+            </ul>
+
+            <h2>Related Calculators</h2>
+            <ul class="related-links">
+                <li><a href="/calc/cap-rate-calculator">Cap Rate Calculator</a> - Calculate capitalization rate for investment properties</li>
+                <li><a href="/calc/noi-calculator">Net Operating Income (NOI) Calculator</a> - Calculate property NOI for DSCR analysis</li>
+                <li><a href="/calc/rental-property-roi-calculator">Rental Property ROI Calculator</a> - Evaluate investment returns</li>
+                <li><a href="/calc/dscr-calculator">DSCR Calculator</a> - Calculate debt service coverage ratio</li>
+                <li><a href="/calc/mortgage-calculator">Residential Mortgage Calculator</a> - For residential property loans</li>
+                <li><a href="/calc/business-loan-calculator">Business Loan Calculator</a> - For non-real-estate business financing</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 CalcLeap. All rights reserved. | <a href="/privacy-policy">Privacy Policy</a> | <a href="/about">About</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function calculateCommercialLoan() {
+            const propertyPrice = parseFloat(document.getElementById('propertyPrice').value);
+            const downPayment = parseFloat(document.getElementById('downPayment').value);
+            const annualRate = parseFloat(document.getElementById('interestRate').value);
+            const years = parseInt(document.getElementById('loanTerm').value);
+
+            if (isNaN(propertyPrice) || propertyPrice <= 0) {
+                document.getElementById('result').innerHTML = '<p style="color: red;">Please enter a valid property price.</p>';
+                return;
+            }
+
+            if (isNaN(downPayment) || downPayment < 0 || downPayment >= propertyPrice) {
+                document.getElementById('result').innerHTML = '<p style="color: red;">Down payment must be between $0 and the property price.</p>';
+                return;
+            }
+
+            if (isNaN(annualRate) || annualRate <= 0) {
+                document.getElementById('result').innerHTML = '<p style="color: red;">Please enter a valid interest rate.</p>';
+                return;
+            }
+
+            const loanAmount = propertyPrice - downPayment;
+            const monthlyRate = annualRate / 100 / 12;
+            const numPayments = years * 12;
+
+            // Calculate monthly payment using standard mortgage formula
+            const monthlyPayment = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / 
+                                   (Math.pow(1 + monthlyRate, numPayments) - 1);
+
+            const totalPayment = monthlyPayment * numPayments;
+            const totalInterest = totalPayment - loanAmount;
+            const downPaymentPercent = (downPayment / propertyPrice) * 100;
+            const ltv = (loanAmount / propertyPrice) * 100;
+
+            // Generate amortization schedule (first 12 months, then annual summary)
+            let amortizationHTML = '<h3>Amortization Schedule</h3>';
+            amortizationHTML += '<div class="amortization-summary">';
+            amortizationHTML += '<table><thead><tr><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead><tbody>';
+
+            let balance = loanAmount;
+            let yearPrincipal = 0;
+            let yearInterest = 0;
+
+            for (let i = 1; i <= numPayments; i++) {
+                const interestPayment = balance * monthlyRate;
+                const principalPayment = monthlyPayment - interestPayment;
+                balance -= principalPayment;
+
+                yearPrincipal += principalPayment;
+                yearInterest += interestPayment;
+
+                // Show first 12 months individually
+                if (i <= 12) {
+                    amortizationHTML += `<tr>
+                        <td>Month ${i}</td>
+                        <td>$${principalPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                        <td>$${interestPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                        <td>$${Math.max(0, balance).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                    </tr>`;
+                }
+
+                // Show annual summaries after first year
+                if (i > 12 && i % 12 === 0) {
+                    const year = i / 12;
+                    amortizationHTML += `<tr style="font-weight: bold; background: #f0f8ff;">
+                        <td>Year ${year}</td>
+                        <td>$${yearPrincipal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                        <td>$${yearInterest.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                        <td>$${Math.max(0, balance).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                    </tr>`;
+                    yearPrincipal = 0;
+                    yearInterest = 0;
+                }
+            }
+
+            amortizationHTML += '</tbody></table></div>';
+
+            document.getElementById('result').innerHTML = `
+                <h3>Loan Summary</h3>
+                <p><strong>Property Price:</strong> $${propertyPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p><strong>Down Payment:</strong> $${downPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} (${downPaymentPercent.toFixed(1)}%)</p>
+                <p><strong>Loan Amount:</strong> $${loanAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p><strong>Loan-to-Value (LTV):</strong> ${ltv.toFixed(1)}%</p>
+                <p><strong>Interest Rate:</strong> ${annualRate}% APR</p>
+                <p><strong>Loan Term:</strong> ${years} years (${numPayments} payments)</p>
+                <hr>
+                <p class="result-highlight"><strong>Monthly Payment:</strong> $${monthlyPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p><strong>Total Payment:</strong> $${totalPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p><strong>Total Interest:</strong> $${totalInterest.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p style="color: #666; font-size: 0.9em; margin-top: 15px;"><em>Note: This calculator shows principal and interest only. Your actual payment will be higher if property taxes, insurance, and CAM charges are escrowed. Most commercial loans also require reserves for capital expenditures.</em></p>
+            `;
+
+            document.getElementById('amortization').innerHTML = amortizationHTML;
+        }
+
+        // Calculate on page load
+        window.addEventListener('load', calculateCommercialLoan);
+    </script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSCR Calculator - Debt Service Coverage Ratio Tool | CalcLeap</title>
+    <meta name="description" content="Calculate DSCR (Debt Service Coverage Ratio) for commercial real estate and business loans. Understand if your property or business generates enough cash flow to cover debt payments.">
+    <meta name="keywords" content="DSCR calculator, debt service coverage ratio, commercial loan DSCR, real estate DSCR, cash flow analysis, lender requirements">
+    <link rel="canonical" href="https://calcleap.com/calc/dscr-calculator">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="DSCR Calculator - Debt Service Coverage Ratio Tool | CalcLeap">
+    <meta property="og:description" content="Calculate DSCR to determine if your property or business generates enough cash flow to cover debt payments. Free, instant results.">
+    <meta property="og:url" content="https://calcleap.com/calc/dscr-calculator">
+    <meta property="og:type" content="website">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DSCR Calculator",
+      "description": "Calculate Debt Service Coverage Ratio (DSCR) for commercial loans and real estate investments",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a> &gt; <span>DSCR Calculator</span>
+        </nav>
+
+        <h1 class="page-title">DSCR Calculator</h1>
+        
+        <p class="intro">Calculate your Debt Service Coverage Ratio (DSCR) to determine if your property or business generates enough cash flow to cover debt payments. Most commercial lenders require a DSCR of 1.25x or higher for loan approval.</p>
+
+        <div class="calculator-card">
+            <h3>Calculate DSCR</h3>
+
+            <div class="input-group">
+                <label for="noi">Net Operating Income (NOI) - Annual ($)</label>
+                <input type="number" id="noi" value="150000" min="0" step="1000">
+                <small>For real estate: Gross rental income minus operating expenses (not including debt service)</small>
+            </div>
+
+            <div class="input-group">
+                <label for="debtService">Annual Debt Service ($)</label>
+                <input type="number" id="debtService" value="120000" min="0" step="1000">
+                <small>Total annual principal + interest payments on all loans</small>
+            </div>
+
+            <button class="calculate-btn" onclick="calculateDSCR()">Calculate DSCR</button>
+
+            <div id="result" class="result"></div>
+        </div>
+
+        <div class="calculator-card" style="margin-top: 30px;">
+            <h3>Calculate from Monthly Payment</h3>
+            
+            <div class="input-group">
+                <label for="monthlyIncome">Monthly Net Income ($)</label>
+                <input type="number" id="monthlyIncome" value="12500" min="0" step="100">
+            </div>
+
+            <div class="input-group">
+                <label for="monthlyPayment">Monthly Loan Payment ($)</label>
+                <input type="number" id="monthlyPayment" value="10000" min="0" step="100">
+            </div>
+
+            <button class="calculate-btn" onclick="calculateFromMonthly()">Calculate DSCR</button>
+
+            <div id="monthlyResult" class="result"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>What is DSCR?</h2>
+            <p>Debt Service Coverage Ratio (DSCR) measures how many times your net operating income can cover your debt payments. It's one of the most important metrics lenders use to assess commercial real estate loans and business loans.</p>
+            
+            <p><strong>Formula:</strong> DSCR = Net Operating Income (NOI) ÷ Annual Debt Service</p>
+
+            <h2>Understanding DSCR Results</h2>
+            <ul>
+                <li><strong>DSCR &gt; 1.25:</strong> Excellent - Most commercial lenders' minimum requirement. Shows strong cash flow cushion.</li>
+                <li><strong>DSCR = 1.20-1.24:</strong> Good - Acceptable to many lenders, but may result in higher rates or lower LTV.</li>
+                <li><strong>DSCR = 1.10-1.19:</strong> Marginal - May qualify for some hard money or specialized lenders.</li>
+                <li><strong>DSCR = 1.00-1.09:</strong> Risky - Property barely covers debt. Very difficult to get conventional financing.</li>
+                <li><strong>DSCR &lt; 1.00:</strong> Negative cash flow - Property doesn't generate enough income to cover debt payments. Will not qualify for most loans.</li>
+            </ul>
+
+            <h2>DSCR Requirements by Loan Type</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Loan Type</th>
+                        <th>Minimum DSCR</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Conventional Bank Loan</td>
+                        <td>1.25x - 1.35x</td>
+                        <td>Standard requirement for commercial mortgages</td>
+                    </tr>
+                    <tr>
+                        <td>SBA 7(a) Loan</td>
+                        <td>1.15x - 1.25x</td>
+                        <td>More flexible than conventional</td>
+                    </tr>
+                    <tr>
+                        <td>SBA 504 Loan</td>
+                        <td>1.20x</td>
+                        <td>For owner-occupied commercial real estate</td>
+                    </tr>
+                    <tr>
+                        <td>CMBS Loan</td>
+                        <td>1.25x - 1.35x</td>
+                        <td>Stricter for lower-quality properties</td>
+                    </tr>
+                    <tr>
+                        <td>Bridge Loan</td>
+                        <td>1.00x - 1.15x</td>
+                        <td>Short-term, higher rates</td>
+                    </tr>
+                    <tr>
+                        <td>Hard Money Loan</td>
+                        <td>0.80x - 1.10x</td>
+                        <td>Asset-based lending, less reliant on cash flow</td>
+                    </tr>
+                    <tr>
+                        <td>DSCR Investment Loan</td>
+                        <td>1.00x - 1.25x</td>
+                        <td>No personal income verification required</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>How to Improve Your DSCR</h2>
+            <h3>Increase Net Operating Income:</h3>
+            <ul>
+                <li><strong>Raise rents:</strong> Increase to market rates if below-market</li>
+                <li><strong>Reduce vacancy:</strong> Improve marketing, property appeal, tenant retention</li>
+                <li><strong>Add revenue streams:</strong> Parking fees, storage rentals, laundry, pet fees</li>
+                <li><strong>Reduce operating expenses:</strong> Negotiate better insurance rates, utility costs, management fees</li>
+                <li><strong>Improve efficiency:</strong> Energy-efficient upgrades reduce utility costs</li>
+            </ul>
+
+            <h3>Reduce Debt Service:</h3>
+            <ul>
+                <li><strong>Make larger down payment:</strong> Lower loan amount = lower monthly payment</li>
+                <li><strong>Extend loan term:</strong> 25 years vs. 20 years reduces payment (but increases total interest)</li>
+                <li><strong>Negotiate better rate:</strong> Shop multiple lenders, improve credit score</li>
+                <li><strong>Pay down existing debt:</strong> Eliminate or reduce other loans on the property</li>
+                <li><strong>Interest-only period:</strong> Some loans offer initial interest-only payments (increases DSCR temporarily)</li>
+            </ul>
+
+            <h2>DSCR vs. Other Metrics</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>What It Measures</th>
+                        <th>When It's Used</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DSCR</td>
+                        <td>Cash flow coverage of debt</td>
+                        <td>Commercial loans, rental properties</td>
+                    </tr>
+                    <tr>
+                        <td>LTV (Loan-to-Value)</td>
+                        <td>Loan amount vs. property value</td>
+                        <td>All real estate loans</td>
+                    </tr>
+                    <tr>
+                        <td>Cap Rate</td>
+                        <td>Return on investment (NOI/Price)</td>
+                        <td>Property valuation, investment analysis</td>
+                    </tr>
+                    <tr>
+                        <td>Cash-on-Cash Return</td>
+                        <td>Annual cash flow vs. cash invested</td>
+                        <td>Investor return measurement</td>
+                    </tr>
+                    <tr>
+                        <td>Debt-to-Income (DTI)</td>
+                        <td>Personal debt vs. personal income</td>
+                        <td>Residential mortgages</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Common DSCR Mistakes</h2>
+            <ul>
+                <li><strong>Including principal paydown in NOI:</strong> NOI should exclude all debt service (principal + interest)</li>
+                <li><strong>Forgetting property taxes and insurance:</strong> If not escrowed, these reduce NOI</li>
+                <li><strong>Using gross income instead of NOI:</strong> Must subtract all operating expenses first</li>
+                <li><strong>Not accounting for vacancy:</strong> Use effective gross income (actual collected rent) not potential</li>
+                <li><strong>Ignoring capital reserves:</strong> Lenders often require 5-10% reserves deducted from NOI</li>
+                <li><strong>Using pro forma instead of actual:</strong> Lenders base DSCR on current financials, not projections</li>
+            </ul>
+
+            <h2>DSCR Loan (No Income Verification)</h2>
+            <p>A <strong>DSCR loan</strong> is a type of investment property mortgage that qualifies borrowers based on the property's cash flow rather than personal income. Key features:</p>
+            <ul>
+                <li>No tax returns, W-2s, or pay stubs required</li>
+                <li>Perfect for self-employed investors, retirees, or those with complex income</li>
+                <li>Minimum DSCR typically 1.00x (some lenders go to 0.75x with higher rates)</li>
+                <li>Rates typically 0.5-1.5% higher than traditional investor loans</li>
+                <li>Available for 1-4 unit properties and small multifamily (5-8 units)</li>
+                <li>Requires 15-25% down payment</li>
+            </ul>
+
+            <h2>Example DSCR Calculation</h2>
+            <div style="background: #f0f8ff; padding: 20px; border-left: 4px solid #2196F3; margin: 20px 0;">
+                <h3 style="margin-top: 0;">Scenario: 8-Unit Apartment Building</h3>
+                <p><strong>Gross Rental Income:</strong> $96,000/year (8 units × $1,000/month)</p>
+                <p><strong>Operating Expenses:</strong></p>
+                <ul>
+                    <li>Property taxes: $8,000</li>
+                    <li>Insurance: $3,000</li>
+                    <li>Maintenance & repairs: $5,000</li>
+                    <li>Property management (8%): $7,680</li>
+                    <li>Utilities (owner-paid): $4,000</li>
+                    <li>Reserves: $3,000</li>
+                    <li><strong>Total Operating Expenses: $30,680</strong></li>
+                </ul>
+                <p><strong>Net Operating Income (NOI):</strong> $96,000 - $30,680 = <strong>$65,320</strong></p>
+                <p><strong>Annual Debt Service:</strong> $52,000 ($4,333/month payment)</p>
+                <p><strong>DSCR:</strong> $65,320 ÷ $52,000 = <strong>1.26x</strong></p>
+                <p style="color: green; font-weight: bold;">✓ This property would qualify for most commercial loans (DSCR &gt; 1.25x)</p>
+            </div>
+
+            <h2>Related Calculators</h2>
+            <ul class="related-links">
+                <li><a href="/calc/noi-calculator">NOI Calculator</a> - Calculate Net Operating Income</li>
+                <li><a href="/calc/commercial-property-loan-calculator">Commercial Property Loan Calculator</a> - Estimate loan payments</li>
+                <li><a href="/calc/cap-rate-calculator">Cap Rate Calculator</a> - Calculate capitalization rate</li>
+                <li><a href="/calc/rental-property-roi-calculator">Rental Property ROI Calculator</a> - Measure investment returns</li>
+                <li><a href="/calc/cash-flow-calculator">Cash Flow Calculator</a> - Project property cash flow</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 CalcLeap. All rights reserved. | <a href="/privacy-policy">Privacy Policy</a> | <a href="/about">About</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function calculateDSCR() {
+            const noi = parseFloat(document.getElementById('noi').value);
+            const debtService = parseFloat(document.getElementById('debtService').value);
+
+            if (isNaN(noi) || noi < 0) {
+                document.getElementById('result').innerHTML = '<p style="color: red;">Please enter a valid Net Operating Income.</p>';
+                return;
+            }
+
+            if (isNaN(debtService) || debtService <= 0) {
+                document.getElementById('result').innerHTML = '<p style="color: red;">Please enter a valid Annual Debt Service.</p>';
+                return;
+            }
+
+            const dscr = noi / debtService;
+            let interpretation = '';
+            let color = '';
+
+            if (dscr >= 1.25) {
+                interpretation = 'Excellent - Meets most lenders\' requirements';
+                color = 'green';
+            } else if (dscr >= 1.20) {
+                interpretation = 'Good - Acceptable to many lenders';
+                color = 'green';
+            } else if (dscr >= 1.10) {
+                interpretation = 'Marginal - May qualify for some lenders';
+                color = 'orange';
+            } else if (dscr >= 1.00) {
+                interpretation = 'Risky - Property barely covers debt';
+                color = 'red';
+            } else {
+                interpretation = 'Negative Cash Flow - Does not qualify for most loans';
+                color = 'red';
+            }
+
+            const excessCashFlow = noi - debtService;
+            const coveragePercent = ((dscr - 1) * 100);
+
+            document.getElementById('result').innerHTML = `
+                <h3>DSCR Results</h3>
+                <p class="result-highlight" style="color: ${color};"><strong>DSCR: ${dscr.toFixed(2)}x</strong></p>
+                <p style="font-weight: bold; color: ${color};">${interpretation}</p>
+                <hr>
+                <p><strong>Annual Net Operating Income:</strong> $${noi.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p><strong>Annual Debt Service:</strong> $${debtService.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p><strong>Excess Cash Flow:</strong> $${excessCashFlow.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} per year</p>
+                <p><strong>Coverage Cushion:</strong> ${coveragePercent >= 0 ? '+' : ''}${coveragePercent.toFixed(1)}%</p>
+                <p style="color: #666; font-size: 0.9em; margin-top: 15px;"><em>Interpretation: Your property generates ${dscr < 1 ? 'insufficient' : dscr.toFixed(2) + 'x the'} cash flow needed to cover debt payments.</em></p>
+            `;
+        }
+
+        function calculateFromMonthly() {
+            const monthlyIncome = parseFloat(document.getElementById('monthlyIncome').value);
+            const monthlyPayment = parseFloat(document.getElementById('monthlyPayment').value);
+
+            if (isNaN(monthlyIncome) || monthlyIncome < 0) {
+                document.getElementById('monthlyResult').innerHTML = '<p style="color: red;">Please enter a valid monthly income.</p>';
+                return;
+            }
+
+            if (isNaN(monthlyPayment) || monthlyPayment <= 0) {
+                document.getElementById('monthlyResult').innerHTML = '<p style="color: red;">Please enter a valid monthly payment.</p>';
+                return;
+            }
+
+            const annualIncome = monthlyIncome * 12;
+            const annualPayment = monthlyPayment * 12;
+            const dscr = annualIncome / annualPayment;
+
+            let interpretation = '';
+            let color = '';
+
+            if (dscr >= 1.25) {
+                interpretation = 'Excellent - Meets most lenders\' requirements';
+                color = 'green';
+            } else if (dscr >= 1.20) {
+                interpretation = 'Good - Acceptable to many lenders';
+                color = 'green';
+            } else if (dscr >= 1.10) {
+                interpretation = 'Marginal - May qualify for some lenders';
+                color = 'orange';
+            } else if (dscr >= 1.00) {
+                interpretation = 'Risky - Property barely covers debt';
+                color = 'red';
+            } else {
+                interpretation = 'Negative Cash Flow - Does not qualify for most loans';
+                color = 'red';
+            }
+
+            const excessCashFlow = annualIncome - annualPayment;
+            const monthlyExcess = excessCashFlow / 12;
+
+            document.getElementById('monthlyResult').innerHTML = `
+                <h3>DSCR Results</h3>
+                <p class="result-highlight" style="color: ${color};"><strong>DSCR: ${dscr.toFixed(2)}x</strong></p>
+                <p style="font-weight: bold; color: ${color};">${interpretation}</p>
+                <hr>
+                <p><strong>Monthly Income:</strong> $${monthlyIncome.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p><strong>Monthly Payment:</strong> $${monthlyPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p><strong>Monthly Excess:</strong> $${monthlyExcess.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <hr>
+                <p><strong>Annual Income:</strong> $${annualIncome.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p><strong>Annual Debt Service:</strong> $${annualPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p><strong>Annual Excess:</strong> $${excessCashFlow.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+            `;
+        }
+
+        // Calculate on page load
+        window.addEventListener('load', calculateDSCR);
+    </script>
+</body>
+</html>
