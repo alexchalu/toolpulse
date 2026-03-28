@@ -67,22 +67,22 @@
             <h2>Settlement Estimate Calculator</h2>
             
             <label for="age">Deceased's Age</label>
-            <input type="number" id="age" placeholder="45" value="45" min="1" max="120">
+            <input type="number" id="age" placeholder="45" value="45" min="1" max="120" aria-label="Deceased's Age">
 
             <label for="income">Annual Income ($)</label>
-            <input type="number" id="income" placeholder="75000" value="75000">
+            <input type="number" id="income" placeholder="75000" value="75000" aria-label="Annual Income">
 
             <label for="dependents">Number of Financial Dependents</label>
-            <input type="number" id="dependents" placeholder="2" value="2" min="0" max="10">
+            <input type="number" id="dependents" placeholder="2" value="2" min="0" max="10" aria-label="Number of Financial Dependents">
 
             <label for="medicalCosts">Medical Costs Before Death ($)</label>
-            <input type="number" id="medicalCosts" placeholder="50000" value="50000">
+            <input type="number" id="medicalCosts" placeholder="50000" value="50000" aria-label="Medical Costs Before Death">
 
             <label for="funeralCosts">Funeral & Burial Costs ($)</label>
-            <input type="number" id="funeralCosts" placeholder="15000" value="15000">
+            <input type="number" id="funeralCosts" placeholder="15000" value="15000" aria-label="Funeral and Burial Costs">
 
             <label for="liabilityType">Cause of Death</label>
-            <select id="liabilityType">
+            <select id="liabilityType" aria-label="Cause of Death">
                 <option value="1.0">Medical malpractice</option>
                 <option value="1.2" selected>Car accident (at-fault driver)</option>
                 <option value="1.3">Product liability (defective product)</option>
@@ -92,7 +92,7 @@
             </select>
 
             <label for="suffering">Pre-Death Pain & Suffering</label>
-            <select id="suffering">
+            <select id="suffering" aria-label="Pre-Death Pain and Suffering">
                 <option value="0">Instantaneous death (no pain)</option>
                 <option value="25000" selected>Brief pain (minutes to hours)</option>
                 <option value="75000">Moderate suffering (hours to days)</option>
@@ -272,6 +272,13 @@
 
             document.getElementById('result').style.display = 'block';
             document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // Add disclaimer next to results
+            if (!document.getElementById('settlement-disclaimer')) {
+                const disc = document.createElement('div');
+                disc.id = 'settlement-disclaimer';
+                disc.innerHTML = '<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;font-size:.85rem;color:#991b1b;line-height:1.6"><strong>⚠️ Important Legal Disclaimer:</strong> Settlement amounts vary enormously based on jurisdiction, case specifics, attorney quality, insurance policies, and many other factors. This calculator provides a very rough educational estimate only. Actual settlements can be 10x higher or lower. <strong>Always consult a qualified attorney</strong> for case-specific advice. CalcLeap is not a law firm and does not provide legal advice.</div>';
+                document.getElementById('result').appendChild(disc);
+            }
         }
 
         // Auto-calculate on page load

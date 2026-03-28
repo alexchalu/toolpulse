@@ -340,10 +340,10 @@ function calculateBMI() {
 
   const bmi = weightKg / (heightM * heightM);
   let cat, col, advice;
-  if (bmi < 18.5) { cat='Underweight'; col='#38bdf8'; advice='You may need to gain weight. Consult a healthcare provider.'; }
-  else if (bmi < 25) { cat='Normal Weight'; col='#34d399'; advice='Your weight is in the healthy range. Keep it up!'; }
-  else if (bmi < 30) { cat='Overweight'; col='#fbbf24'; advice='Consider more exercise and balanced nutrition.'; }
-  else { cat='Obese'; col='#f87171'; advice='Consult a healthcare provider about weight management.'; }
+  if (bmi < 18.5) { cat='Underweight (Blue)'; col='#38bdf8'; advice='You may need to gain weight. Consult a healthcare provider.'; }
+  else if (bmi < 25) { cat='Normal Weight (Green)'; col='#34d399'; advice='Your weight is in the healthy range. Keep it up!'; }
+  else if (bmi < 30) { cat='Overweight (Yellow)'; col='#fbbf24'; advice='Consider more exercise and balanced nutrition.'; }
+  else { cat='Obese (Red)'; col='#f87171'; advice='Consult a healthcare provider about weight management.'; }
 
   const minH = (18.5 * heightM * heightM), maxH = (24.9 * heightM * heightM);
   const isImp = currentUnit === 'imperial';

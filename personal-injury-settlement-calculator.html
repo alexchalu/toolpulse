@@ -180,7 +180,7 @@
 
         <div class="input-group">
             <label for="injury-type">Type of Injury Case</label>
-            <select id="injury-type">
+            <select id="injury-type" aria-label="Type of Injury Case">
                 <option value="car-accident">Car Accident</option>
                 <option value="slip-fall">Slip and Fall</option>
                 <option value="medical-malpractice">Medical Malpractice</option>
@@ -194,25 +194,25 @@
 
         <div class="input-group">
             <label for="medical-bills">Total Medical Bills ($)</label>
-            <input type="number" id="medical-bills" placeholder="e.g., 25000" value="25000">
+            <input type="number" id="medical-bills" placeholder="e.g., 25000" value="25000" aria-label="Total Medical Bills">
             <p class="multiplier-note">Include past and estimated future medical costs</p>
         </div>
 
         <div class="input-group">
             <label for="lost-wages">Lost Wages / Income ($)</label>
-            <input type="number" id="lost-wages" placeholder="e.g., 15000" value="15000">
+            <input type="number" id="lost-wages" placeholder="e.g., 15000" value="15000" aria-label="Lost Wages">
             <p class="multiplier-note">Include past lost income + future earning capacity loss</p>
         </div>
 
         <div class="input-group">
             <label for="property-damage">Property Damage ($)</label>
-            <input type="number" id="property-damage" placeholder="e.g., 5000" value="5000">
+            <input type="number" id="property-damage" placeholder="e.g., 5000" value="5000" aria-label="Property Damage">
             <p class="multiplier-note">Vehicle repair/replacement, damaged belongings, etc.</p>
         </div>
 
         <div class="input-group">
             <label for="other-expenses">Other Economic Damages ($)</label>
-            <input type="number" id="other-expenses" placeholder="e.g., 2000" value="2000">
+            <input type="number" id="other-expenses" placeholder="e.g., 2000" value="2000" aria-label="Other Economic Damages">
             <p class="multiplier-note">Home modifications, medical equipment, transportation, etc.</p>
         </div>
 
@@ -240,13 +240,13 @@
 
         <div class="input-group">
             <label for="liability">Defendant Liability (%)</label>
-            <input type="number" id="liability" placeholder="e.g., 100" value="100" min="0" max="100">
+            <input type="number" id="liability" placeholder="e.g., 100" value="100" min="0" max="100" aria-label="Defendant Liability Percentage">
             <p class="multiplier-note">How clearly at-fault is the defendant? (0-100%)</p>
         </div>
 
         <div class="input-group">
             <label for="comparative-negligence">Your Comparative Negligence (%)</label>
-            <input type="number" id="comparative-negligence" placeholder="e.g., 0" value="0" min="0" max="100">
+            <input type="number" id="comparative-negligence" placeholder="e.g., 0" value="0" min="0" max="100" aria-label="Comparative Negligence Percentage">
             <p class="multiplier-note">Were you partially at fault? This reduces your recovery</p>
         </div>
 
@@ -276,13 +276,17 @@
             </div>
         </div>
 
+        <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;font-size:.85rem;color:#991b1b;line-height:1.6">
+<strong>⚠️ Important Legal Disclaimer:</strong> Settlement amounts vary enormously based on jurisdiction, case specifics, attorney quality, insurance policies, and many other factors. This calculator provides a very rough educational estimate only. Actual settlements can be 10x higher or lower. <strong>Always consult a qualified attorney</strong> for case-specific advice. CalcLeap is not a law firm and does not provide legal advice.
+</div>
+
         <div class="lead-form">
             <h3>📞 Get a Free Case Evaluation</h3>
             <p>Connect with personal injury attorneys in your area. No fee unless you win.</p>
             <form id="contact-form" onsubmit="return false;">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="tel" placeholder="Phone Number" required>
+                <input type="text" placeholder="Full Name" required aria-label="Full Name">
+                <input type="email" placeholder="Email Address" required aria-label="Email Address">
+                <input type="tel" placeholder="Phone Number" required aria-label="Phone Number">
                 <textarea placeholder="Brief description of your injury (optional)" rows="3"></textarea>
                 <button type="submit">Request Free Consultation</button>
             </form>

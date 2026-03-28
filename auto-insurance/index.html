@@ -256,7 +256,7 @@ function lwSubmit(){
     body:JSON.stringify({name:d.name,email:d.email,phone:d.phone,zip:d.zip,_subject:"🔥 "+itype+" Lead — "+zp,insurance_type:itype,source:location.href,timestamp:d.ts})
   }).catch(function(){});
   show(4);
-  /* Disclosure shown to user */ document.getElementById("pg-disclosure") && (document.getElementById("pg-disclosure").style.display="block"); setTimeout(function(){window.open("https://www.policygenius.com/","_blank")},2000);
+  /* Disclosure shown to user */ document.getElementById("pg-disclosure") && (document.getElementById("pg-disclosure").style.display="block"); var pgBtn=document.createElement("a");pgBtn.href="https://www.policygenius.com/";pgBtn.target="_blank";pgBtn.rel="noopener sponsored";pgBtn.textContent="Get Personalized Insurance Quotes from PolicyGenius →";pgBtn.style.cssText="display:inline-block;margin-top:1rem;padding:.75rem 1.5rem;background:#0071e3;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:1rem;cursor:pointer;";var pgContainer=document.querySelector(".lw-step:last-child")||document.querySelector(".lw-body");if(pgContainer)pgContainer.appendChild(pgBtn);
   if(typeof gtag!=="undefined")gtag("event","lead_submit",{event_category:"lead_gen",event_label:itype});
 }
 window["lwNext_"+fid]=lwNext;
