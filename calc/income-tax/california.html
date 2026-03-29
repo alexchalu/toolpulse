@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="California income tax calculator 2026. Calculate your CA state income tax, effective rate, and take-home pay with accurate 2026 tax brackets and rates.">
+    <meta name="keywords" content="California income tax calculator, CA tax calculator, California state tax, income tax California 2026">
+    <title>California Income Tax Calculator 2026 | CalcLeap</title>
+    <link rel="canonical" href="https://calcleap.com/calc/income-tax/california.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "@id": "https://calcleap.com/calc/income-tax/california.html",
+      "name": "California Income Tax Calculator",
+      "description": "Calculate California state income tax for 2026 with accurate tax brackets and rates.",
+      "url": "https://calcleap.com/calc/income-tax/california.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../../index.html" class="logo">CalcLeap</a>
+            <nav>
+                <a href="../../index.html#tools">Tools</a>
+                <a href="../../about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>California Income Tax Calculator 2026</h1>
+        <p class="subtitle">Calculate your California state income tax, effective rate, and take-home pay using 2026 tax brackets.</p>
+
+        <div class="calculator-card">
+            <div class="form-section">
+                <h2>Income Information</h2>
+                
+                <div class="form-group">
+                    <label for="income">Annual Income ($)</label>
+                    <input type="number" id="income" value="75000" min="0" step="1000">
+                </div>
+
+                <div class="form-group">
+                    <label for="filingStatus">Filing Status</label>
+                    <select id="filingStatus">
+                        <option value="single">Single</option>
+                        <option value="married">Married Filing Jointly</option>
+                        <option value="head">Head of Household</option>
+                        <option value="separate">Married Filing Separately</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="deductions">Total Deductions ($)</label>
+                    <input type="number" id="deductions" value="0" min="0" step="100">
+                    <small>Standard deduction for 2026: Single $5,363, Married $10,726, Head $10,726</small>
+                </div>
+
+                <button onclick="calculateTax()" class="btn-primary">Calculate Tax</button>
+            </div>
+
+            <div class="results-section" id="results" style="display:none;">
+                <h2>Tax Results</h2>
+                <div class="result-grid">
+                    <div class="result-item highlight">
+                        <span class="label">California State Tax</span>
+                        <span class="value" id="stateTax">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Taxable Income</span>
+                        <span class="value" id="taxableIncome">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Effective Tax Rate</span>
+                        <span class="value" id="effectiveRate">0%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Marginal Tax Rate</span>
+                        <span class="value" id="marginalRate">0%</span>
+                    </div>
+                    <div class="result-item highlight">
+                        <span class="label">Take-Home Pay (After CA Tax)</span>
+                        <span class="value" id="takeHome">$0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="info-section">
+            <h2>California Income Tax Brackets 2026</h2>
+            
+            <h3>Single Filers</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxable Income</th>
+                        <th>Tax Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>$0 - $10,412</td><td>1.00%</td></tr>
+                    <tr><td>$10,413 - $24,684</td><td>2.00%</td></tr>
+                    <tr><td>$24,685 - $38,959</td><td>4.00%</td></tr>
+                    <tr><td>$38,960 - $54,081</td><td>6.00%</td></tr>
+                    <tr><td>$54,082 - $68,350</td><td>8.00%</td></tr>
+                    <tr><td>$68,351 - $349,137</td><td>9.30%</td></tr>
+                    <tr><td>$349,138 - $418,961</td><td>10.30%</td></tr>
+                    <tr><td>$418,962 - $698,271</td><td>11.30%</td></tr>
+                    <tr><td>$698,272+</td><td>12.30%</td></tr>
+                </tbody>
+            </table>
+
+            <h3>About California Income Tax</h3>
+            <p>California has one of the highest state income tax rates in the United States, with a progressive tax system ranging from 1% to 12.3%. High earners over $1 million also pay an additional 1% mental health services tax.</p>
+            
+            <h4>Key Features:</h4>
+            <ul>
+                <li>Progressive tax brackets from 1% to 12.3%</li>
+                <li>Standard deduction: $5,363 (single), $10,726 (married/head of household)</li>
+                <li>Additional 1% tax on income over $1 million</li>
+                <li>No local income taxes in California</li>
+                <li>Credits available for renters, earned income, and dependent care</li>
+            </ul>
+
+            <h4>Important Notes:</h4>
+            <ul>
+                <li>This calculator shows California state income tax only (not federal)</li>
+                <li>Actual tax may vary based on credits, exemptions, and other factors</li>
+                <li>Standard deduction amounts are indexed for inflation annually</li>
+                <li>Consult a tax professional for personalized advice</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+            <nav>
+                <a href="../../privacy.html">Privacy</a>
+                <a href="../../terms.html">Terms</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // 2026 California tax brackets for Single filers
+        const brackets = {
+            single: [
+                { limit: 10412, rate: 0.01 },
+                { limit: 24684, rate: 0.02 },
+                { limit: 38959, rate: 0.04 },
+                { limit: 54081, rate: 0.06 },
+                { limit: 68350, rate: 0.08 },
+                { limit: 349137, rate: 0.093 },
+                { limit: 418961, rate: 0.103 },
+                { limit: 698271, rate: 0.113 },
+                { limit: Infinity, rate: 0.123 }
+            ],
+            married: [
+                { limit: 20824, rate: 0.01 },
+                { limit: 49368, rate: 0.02 },
+                { limit: 77918, rate: 0.04 },
+                { limit: 108162, rate: 0.06 },
+                { limit: 136700, rate: 0.08 },
+                { limit: 698274, rate: 0.093 },
+                { limit: 837922, rate: 0.103 },
+                { limit: 1396542, rate: 0.113 },
+                { limit: Infinity, rate: 0.123 }
+            ],
+            head: [
+                { limit: 20839, rate: 0.01 },
+                { limit: 49371, rate: 0.02 },
+                { limit: 63644, rate: 0.04 },
+                { limit: 78765, rate: 0.06 },
+                { limit: 93037, rate: 0.08 },
+                { limit: 475416, rate: 0.093 },
+                { limit: 570500, rate: 0.103 },
+                { limit: 950832, rate: 0.113 },
+                { limit: Infinity, rate: 0.123 }
+            ],
+            separate: [
+                { limit: 10412, rate: 0.01 },
+                { limit: 24684, rate: 0.02 },
+                { limit: 38959, rate: 0.04 },
+                { limit: 54081, rate: 0.06 },
+                { limit: 68350, rate: 0.08 },
+                { limit: 349137, rate: 0.093 },
+                { limit: 418961, rate: 0.103 },
+                { limit: 698271, rate: 0.113 },
+                { limit: Infinity, rate: 0.123 }
+            ]
+        };
+
+        const standardDeductions = {
+            single: 5363,
+            married: 10726,
+            head: 10726,
+            separate: 5363
+        };
+
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const filingStatus = document.getElementById('filingStatus').value;
+            const deductions = parseFloat(document.getElementById('deductions').value) || 0;
+
+            // Use greater of standard or itemized deductions
+            const standardDed = standardDeductions[filingStatus];
+            const totalDeductions = Math.max(deductions, standardDed);
+
+            const taxableIncome = Math.max(0, income - totalDeductions);
+            
+            // Calculate tax using brackets
+            let tax = 0;
+            let previousLimit = 0;
+            const bracketSet = brackets[filingStatus];
+            
+            for (let bracket of bracketSet) {
+                if (taxableIncome > previousLimit) {
+                    const taxableInBracket = Math.min(taxableIncome - previousLimit, bracket.limit - previousLimit);
+                    tax += taxableInBracket * bracket.rate;
+                    previousLimit = bracket.limit;
+                } else {
+                    break;
+                }
+            }
+
+            // Additional 1% mental health services tax on income over $1M
+            if (income > 1000000) {
+                tax += (income - 1000000) * 0.01;
+            }
+
+            // Find marginal rate
+            let marginalRate = 0;
+            for (let bracket of bracketSet) {
+                if (taxableIncome <= bracket.limit) {
+                    marginalRate = bracket.rate * 100;
+                    break;
+                }
+            }
+
+            const effectiveRate = taxableIncome > 0 ? (tax / taxableIncome) * 100 : 0;
+            const takeHome = income - tax;
+
+            // Display results
+            document.getElementById('stateTax').textContent = '$' + tax.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('taxableIncome').textContent = '$' + taxableIncome.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(2) + '%';
+            document.getElementById('marginalRate').textContent = marginalRate.toFixed(2) + '%';
+            document.getElementById('takeHome').textContent = '$' + takeHome.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+            document.getElementById('results').style.display = 'block';
+        }
+
+        // Calculate on page load
+        window.addEventListener('DOMContentLoaded', calculateTax);
+    </script>
+</body>
+</html>

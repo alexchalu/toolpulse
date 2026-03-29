@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="New York income tax calculator 2026. Calculate your NY state income tax, effective rate, and take-home pay with accurate 2026 tax brackets and rates.">
+    <meta name="keywords" content="New York income tax calculator, NY tax calculator, New York state tax, income tax New York 2026">
+    <title>New York Income Tax Calculator 2026 | CalcLeap</title>
+    <link rel="canonical" href="https://calcleap.com/calc/income-tax/new-york.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "@id": "https://calcleap.com/calc/income-tax/new-york.html",
+      "name": "New York Income Tax Calculator",
+      "description": "Calculate New York state income tax for 2026 with accurate tax brackets and rates.",
+      "url": "https://calcleap.com/calc/income-tax/new-york.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../../index.html" class="logo">CalcLeap</a>
+            <nav>
+                <a href="../../index.html#tools">Tools</a>
+                <a href="../../about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>New York Income Tax Calculator 2026</h1>
+        <p class="subtitle">Calculate your New York state income tax, effective rate, and take-home pay using 2026 tax brackets.</p>
+
+        <div class="calculator-card">
+            <div class="form-section">
+                <h2>Income Information</h2>
+                
+                <div class="form-group">
+                    <label for="income">Annual Income ($)</label>
+                    <input type="number" id="income" value="75000" min="0" step="1000">
+                </div>
+
+                <div class="form-group">
+                    <label for="filingStatus">Filing Status</label>
+                    <select id="filingStatus">
+                        <option value="single">Single</option>
+                        <option value="married">Married Filing Jointly</option>
+                        <option value="head">Head of Household</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="deductions">Total Deductions ($)</label>
+                    <input type="number" id="deductions" value="0" min="0" step="100">
+                    <small>Standard deduction for 2026: Single $8,000, Married $16,050, Head $11,200</small>
+                </div>
+
+                <button onclick="calculateTax()" class="btn-primary">Calculate Tax</button>
+            </div>
+
+            <div class="results-section" id="results" style="display:none;">
+                <h2>Tax Results</h2>
+                <div class="result-grid">
+                    <div class="result-item highlight">
+                        <span class="label">NY State Tax</span>
+                        <span class="value" id="stateTax">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Taxable Income</span>
+                        <span class="value" id="taxableIncome">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Effective Tax Rate</span>
+                        <span class="value" id="effectiveRate">0%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Marginal Tax Rate</span>
+                        <span class="value" id="marginalRate">0%</span>
+                    </div>
+                    <div class="result-item highlight">
+                        <span class="label">Take-Home Pay (After NY Tax)</span>
+                        <span class="value" id="takeHome">$0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="info-section">
+            <h2>New York Income Tax Brackets 2026</h2>
+            
+            <h3>Single Filers</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxable Income</th>
+                        <th>Tax Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>$0 - $8,500</td><td>4.00%</td></tr>
+                    <tr><td>$8,501 - $11,700</td><td>4.50%</td></tr>
+                    <tr><td>$11,701 - $13,900</td><td>5.25%</td></tr>
+                    <tr><td>$13,901 - $80,650</td><td>5.50%</td></tr>
+                    <tr><td>$80,651 - $215,400</td><td>6.00%</td></tr>
+                    <tr><td>$215,401 - $1,077,550</td><td>6.85%</td></tr>
+                    <tr><td>$1,077,551 - $5,000,000</td><td>9.65%</td></tr>
+                    <tr><td>$5,000,001 - $25,000,000</td><td>10.30%</td></tr>
+                    <tr><td>$25,000,001+</td><td>10.90%</td></tr>
+                </tbody>
+            </table>
+
+            <h3>About New York Income Tax</h3>
+            <p>New York has a progressive state income tax system with rates ranging from 4% to 10.9%. NYC residents also pay city income tax (3.078% to 3.876%).</p>
+            
+            <h4>Key Features:</h4>
+            <ul>
+                <li>Progressive tax brackets from 4% to 10.9%</li>
+                <li>Standard deduction: $8,000 (single), $16,050 (married), $11,200 (head of household)</li>
+                <li>NYC residents pay additional city income tax</li>
+                <li>Yonkers residents pay additional 16.75% surcharge on state tax</li>
+                <li>Credits available for earned income, child/dependent care, and college tuition</li>
+            </ul>
+
+            <h4>NYC Income Tax (Additional)</h4>
+            <p>New York City residents pay additional local income tax:</p>
+            <ul>
+                <li>$0 - $12,000: 3.078%</li>
+                <li>$12,001 - $25,000: 3.762%</li>
+                <li>$25,001 - $50,000: 3.819%</li>
+                <li>$50,001+: 3.876%</li>
+            </ul>
+
+            <h4>Important Notes:</h4>
+            <ul>
+                <li>This calculator shows NY state tax only (not federal or NYC)</li>
+                <li>NYC residents add 3.078% - 3.876% city tax</li>
+                <li>Yonkers residents pay 16.75% surcharge on state tax</li>
+                <li>Actual tax may vary based on credits and exemptions</li>
+                <li>Consult a tax professional for personalized advice</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+            <nav>
+                <a href="../../privacy.html">Privacy</a>
+                <a href="../../terms.html">Terms</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        const brackets = {
+            single: [
+                { limit: 8500, rate: 0.04 },
+                { limit: 11700, rate: 0.045 },
+                { limit: 13900, rate: 0.0525 },
+                { limit: 80650, rate: 0.055 },
+                { limit: 215400, rate: 0.06 },
+                { limit: 1077550, rate: 0.0685 },
+                { limit: 5000000, rate: 0.0965 },
+                { limit: 25000000, rate: 0.103 },
+                { limit: Infinity, rate: 0.109 }
+            ],
+            married: [
+                { limit: 17150, rate: 0.04 },
+                { limit: 23600, rate: 0.045 },
+                { limit: 27900, rate: 0.0525 },
+                { limit: 161550, rate: 0.055 },
+                { limit: 323200, rate: 0.06 },
+                { limit: 2155350, rate: 0.0685 },
+                { limit: 5000000, rate: 0.0965 },
+                { limit: 25000000, rate: 0.103 },
+                { limit: Infinity, rate: 0.109 }
+            ],
+            head: [
+                { limit: 12800, rate: 0.04 },
+                { limit: 17650, rate: 0.045 },
+                { limit: 20900, rate: 0.0525 },
+                { limit: 107650, rate: 0.055 },
+                { limit: 269300, rate: 0.06 },
+                { limit: 1616450, rate: 0.0685 },
+                { limit: 5000000, rate: 0.0965 },
+                { limit: 25000000, rate: 0.103 },
+                { limit: Infinity, rate: 0.109 }
+            ]
+        };
+
+        const standardDeductions = {
+            single: 8000,
+            married: 16050,
+            head: 11200
+        };
+
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const filingStatus = document.getElementById('filingStatus').value;
+            const deductions = parseFloat(document.getElementById('deductions').value) || 0;
+
+            const standardDed = standardDeductions[filingStatus];
+            const totalDeductions = Math.max(deductions, standardDed);
+
+            const taxableIncome = Math.max(0, income - totalDeductions);
+            
+            let tax = 0;
+            let previousLimit = 0;
+            const bracketSet = brackets[filingStatus];
+            
+            for (let bracket of bracketSet) {
+                if (taxableIncome > previousLimit) {
+                    const taxableInBracket = Math.min(taxableIncome - previousLimit, bracket.limit - previousLimit);
+                    tax += taxableInBracket * bracket.rate;
+                    previousLimit = bracket.limit;
+                } else {
+                    break;
+                }
+            }
+
+            let marginalRate = 0;
+            for (let bracket of bracketSet) {
+                if (taxableIncome <= bracket.limit) {
+                    marginalRate = bracket.rate * 100;
+                    break;
+                }
+            }
+
+            const effectiveRate = taxableIncome > 0 ? (tax / taxableIncome) * 100 : 0;
+            const takeHome = income - tax;
+
+            document.getElementById('stateTax').textContent = '$' + tax.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('taxableIncome').textContent = '$' + taxableIncome.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(2) + '%';
+            document.getElementById('marginalRate').textContent = marginalRate.toFixed(2) + '%';
+            document.getElementById('takeHome').textContent = '$' + takeHome.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+            document.getElementById('results').style.display = 'block';
+        }
+
+        window.addEventListener('DOMContentLoaded', calculateTax);
+    </script>
+</body>
+</html>

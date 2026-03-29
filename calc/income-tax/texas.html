@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Texas income tax calculator 2026. Texas has NO state income tax - calculate your savings compared to other states and see your full take-home pay.">
+    <meta name="keywords" content="Texas income tax, TX tax calculator, Texas no income tax, state tax Texas 2026">
+    <title>Texas Income Tax Calculator 2026 | CalcLeap</title>
+    <link rel="canonical" href="https://calcleap.com/calc/income-tax/texas.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "@id": "https://calcleap.com/calc/income-tax/texas.html",
+      "name": "Texas Income Tax Calculator",
+      "description": "Calculate your tax savings in Texas - no state income tax. Compare with other states.",
+      "url": "https://calcleap.com/calc/income-tax/texas.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../../index.html" class="logo">CalcLeap</a>
+            <nav>
+                <a href="../../index.html#tools">Tools</a>
+                <a href="../../about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Texas Income Tax Calculator 2026</h1>
+        <p class="subtitle">Texas has NO state income tax. Calculate your tax savings compared to high-tax states.</p>
+
+        <div class="calculator-card">
+            <div class="form-section">
+                <h2>Income Information</h2>
+                
+                <div class="form-group">
+                    <label for="income">Annual Income ($)</label>
+                    <input type="number" id="income" value="75000" min="0" step="1000">
+                </div>
+
+                <div class="form-group">
+                    <label for="compareState">Compare with State</label>
+                    <select id="compareState">
+                        <option value="california">California</option>
+                        <option value="newyork">New York</option>
+                        <option value="newjersey">New Jersey</option>
+                        <option value="illinois">Illinois</option>
+                        <option value="massachusetts">Massachusetts</option>
+                    </select>
+                </div>
+
+                <button onclick="calculateSavings()" class="btn-primary">Calculate Savings</button>
+            </div>
+
+            <div class="results-section" id="results" style="display:none;">
+                <h2>Your Tax Savings in Texas</h2>
+                <div class="result-grid">
+                    <div class="result-item highlight">
+                        <span class="label">Texas State Tax</span>
+                        <span class="value">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label"><span id="compareStateName"></span> State Tax</span>
+                        <span class="value" id="otherStateTax">$0</span>
+                    </div>
+                    <div class="result-item highlight">
+                        <span class="label">Annual Tax Savings</span>
+                        <span class="value" id="savings">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">10-Year Tax Savings</span>
+                        <span class="value" id="tenYearSavings">$0</span>
+                    </div>
+                    <div class="result-item highlight">
+                        <span class="label">Your Take-Home in TX</span>
+                        <span class="value" id="takeHomeTX">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Take-Home in <span id="compareStateName2"></span></span>
+                        <span class="value" id="takeHomeOther">$0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="info-section">
+            <h2>Why Texas Has No Income Tax</h2>
+            <p>Texas is one of nine states with no state income tax. The state funds government services primarily through sales tax, property tax, and business franchise taxes.</p>
+            
+            <h3>States with No Income Tax (2026)</h3>
+            <ul>
+                <li>Alaska</li>
+                <li>Florida</li>
+                <li>Nevada</li>
+                <li>New Hampshire (wages only; dividends/interest taxed)</li>
+                <li>South Dakota</li>
+                <li>Tennessee</li>
+                <li>Texas</li>
+                <li>Washington</li>
+                <li>Wyoming</li>
+            </ul>
+
+            <h3>Tax Advantages of Living in Texas</h3>
+            <ul>
+                <li><strong>No state income tax:</strong> Keep 100% of your income (after federal taxes)</li>
+                <li><strong>No corporate income tax:</strong> Business-friendly environment</li>
+                <li><strong>No franchise tax for small businesses:</strong> Under $1.23M revenue exempt</li>
+                <li><strong>Competitive cost of living:</strong> Lower than many high-tax states</li>
+            </ul>
+
+            <h3>Other Texas Taxes to Consider</h3>
+            <ul>
+                <li><strong>Sales tax:</strong> 6.25% state + up to 2% local = 8.25% combined max</li>
+                <li><strong>Property tax:</strong> Average 1.60% (varies by county)</li>
+                <li><strong>Federal income tax:</strong> Still applies (same nationwide)</li>
+            </ul>
+
+            <h3>Moving to Texas? Key Considerations</h3>
+            <p>While Texas offers significant income tax savings, consider these factors:</p>
+            <ul>
+                <li>Property taxes are higher than many states (average 1.60% of home value)</li>
+                <li>Sales tax on most purchases (8.25% combined rate)</li>
+                <li>No state income tax deduction on federal returns</li>
+                <li>Housing costs vary widely (Austin/Dallas expensive, rural areas affordable)</li>
+            </ul>
+
+            <h3>Who Benefits Most from Texas' No Income Tax?</h3>
+            <ul>
+                <li>High earners ($150K+): Save $5K-$15K+ annually vs. California</li>
+                <li>Retirees: Social Security and retirement income not taxed by state</li>
+                <li>Business owners: No corporate income tax, lower franchise tax</li>
+                <li>Remote workers: Keep California salary without California taxes</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+            <nav>
+                <a href="../../privacy.html">Privacy</a>
+                <a href="../../terms.html">Terms</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Simplified state tax calculators (effective rates for comparison)
+        const stateTaxRates = {
+            california: (income) => {
+                if (income <= 10412) return income * 0.01;
+                if (income <= 24684) return 104.12 + (income - 10412) * 0.02;
+                if (income <= 38959) return 389.56 + (income - 24684) * 0.04;
+                if (income <= 54081) return 960.56 + (income - 38959) * 0.06;
+                if (income <= 68350) return 1867.88 + (income - 54081) * 0.08;
+                if (income <= 349137) return 3009.40 + (income - 68350) * 0.093;
+                if (income <= 418961) return 29122.59 + (income - 349137) * 0.103;
+                if (income <= 698271) return 36313.76 + (income - 418961) * 0.113;
+                return 67887.79 + (income - 698271) * 0.123;
+            },
+            newyork: (income) => {
+                if (income <= 8500) return income * 0.04;
+                if (income <= 11700) return 340 + (income - 8500) * 0.045;
+                if (income <= 13900) return 484 + (income - 11700) * 0.0525;
+                if (income <= 80650) return 600 + (income - 13900) * 0.055;
+                if (income <= 215400) return 4271.25 + (income - 80650) * 0.06;
+                if (income <= 1077550) return 12356.25 + (income - 215400) * 0.0685;
+                return 71410.28 + (income - 1077550) * 0.0882;
+            },
+            newjersey: (income) => {
+                if (income <= 20000) return income * 0.014;
+                if (income <= 35000) return 280 + (income - 20000) * 0.0175;
+                if (income <= 40000) return 542.5 + (income - 35000) * 0.035;
+                if (income <= 75000) return 717.5 + (income - 40000) * 0.05525;
+                if (income <= 500000) return 2651.25 + (income - 75000) * 0.0637;
+                if (income <= 1000000) return 29723.75 + (income - 500000) * 0.0897;
+                return 74568.75 + (income - 1000000) * 0.1075;
+            },
+            illinois: (income) => income * 0.0495,
+            massachusetts: (income) => {
+                const shortTermGains = 0; // Simplified
+                return income * 0.05 + shortTermGains * 0.08;
+            }
+        };
+
+        const stateNames = {
+            california: 'California',
+            newyork: 'New York',
+            newjersey: 'New Jersey',
+            illinois: 'Illinois',
+            massachusetts: 'Massachusetts'
+        };
+
+        function calculateSavings() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const compareState = document.getElementById('compareState').value;
+
+            const otherStateTax = stateTaxRates[compareState](income);
+            const savings = otherStateTax;
+            const tenYearSavings = savings * 10;
+            const takeHomeTX = income;
+            const takeHomeOther = income - otherStateTax;
+
+            document.getElementById('compareStateName').textContent = stateNames[compareState];
+            document.getElementById('compareStateName2').textContent = stateNames[compareState];
+            document.getElementById('otherStateTax').textContent = '$' + otherStateTax.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('savings').textContent = '$' + savings.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('tenYearSavings').textContent = '$' + tenYearSavings.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('takeHomeTX').textContent = '$' + takeHomeTX.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('takeHomeOther').textContent = '$' + takeHomeOther.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+            document.getElementById('results').style.display = 'block';
+        }
+
+        window.addEventListener('DOMContentLoaded', calculateSavings);
+    </script>
+</body>
+</html>
