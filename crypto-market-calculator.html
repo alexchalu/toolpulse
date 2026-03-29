@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Market Cap Calculator - Portfolio & Dominance Analysis | CalcLeap</title>
+    <meta name="description" content="Free crypto market cap calculator. Calculate market capitalization, coin dominance, portfolio allocation, and cryptocurrency valuations instantly.">
+    <link rel="canonical" href="https://calcleap.com/crypto-market-calculator.html">
+    <meta property="og:title" content="Crypto Market Cap Calculator - Portfolio Analysis">
+    <meta property="og:description" content="Calculate crypto market cap, dominance, and portfolio allocation instantly.">
+    <meta property="og:url" content="https://calcleap.com/crypto-market-calculator.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        .calc-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+        .input-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1d1d1f;
+            font-size: 0.95rem;
+        }
+        input, select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .result {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 30px;
+        }
+        .result h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        .result-label {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        .result-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+        .info-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .info-section h3 {
+            color: #764ba2;
+            margin: 25px 0 15px 0;
+            font-size: 1.3rem;
+        }
+        .info-section p, .info-section li {
+            color: #444;
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .info-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: white;
+            margin-top: 40px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+        footer a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .calc-card, .info-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Crypto Market Cap Calculator</h1>
+            <p>Calculate market capitalization, coin dominance, and portfolio valuations</p>
+        </header>
+
+        <div class="calc-card">
+            <div class="input-group">
+                <label for="calculation-type">Calculation Type</label>
+                <select id="calculation-type">
+                    <option value="market-cap">Market Cap (Price × Supply)</option>
+                    <option value="dominance">Coin Dominance</option>
+                    <option value="portfolio">Portfolio Value</option>
+                    <option value="target-price">Target Price Calculator</option>
+                </select>
+            </div>
+
+            <div id="market-cap-inputs">
+                <div class="input-group">
+                    <label for="coin-price">Current Coin Price (USD)</label>
+                    <input type="number" id="coin-price" placeholder="e.g., 45000" step="0.01" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="circulating-supply">Circulating Supply</label>
+                    <input type="number" id="circulating-supply" placeholder="e.g., 19500000" step="1" min="0">
+                </div>
+            </div>
+
+            <div id="dominance-inputs" style="display:none;">
+                <div class="input-group">
+                    <label for="coin-market-cap">Coin Market Cap (USD)</label>
+                    <input type="number" id="coin-market-cap" placeholder="e.g., 850000000000" step="1" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="total-market-cap">Total Crypto Market Cap (USD)</label>
+                    <input type="number" id="total-market-cap" placeholder="e.g., 2000000000000" step="1" min="0">
+                </div>
+            </div>
+
+            <div id="portfolio-inputs" style="display:none;">
+                <div class="input-group">
+                    <label for="holdings">Number of Coins Held</label>
+                    <input type="number" id="holdings" placeholder="e.g., 2.5" step="0.00000001" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="current-price">Current Price per Coin (USD)</label>
+                    <input type="number" id="current-price" placeholder="e.g., 45000" step="0.01" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="purchase-price">Purchase Price per Coin (USD) - Optional</label>
+                    <input type="number" id="purchase-price" placeholder="e.g., 35000" step="0.01" min="0">
+                </div>
+            </div>
+
+            <div id="target-price-inputs" style="display:none;">
+                <div class="input-group">
+                    <label for="current-market-cap">Current Market Cap (USD)</label>
+                    <input type="number" id="current-market-cap" placeholder="e.g., 850000000000" step="1" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="target-market-cap">Target Market Cap (USD)</label>
+                    <input type="number" id="target-market-cap" placeholder="e.g., 1000000000000" step="1" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="current-coin-price">Current Coin Price (USD)</label>
+                    <input type="number" id="current-coin-price" placeholder="e.g., 45000" step="0.01" min="0">
+                </div>
+            </div>
+
+            <button onclick="calculate()">Calculate</button>
+
+            <div id="result" style="display:none;" class="result"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>Understanding Crypto Market Cap</h2>
+            <p>Market capitalization is the total value of a cryptocurrency, calculated by multiplying the current price by the circulating supply. It's one of the most important metrics for evaluating and comparing cryptocurrencies.</p>
+
+            <h3>📊 Why Market Cap Matters</h3>
+            <ul>
+                <li><strong>Valuation Metric:</strong> Helps compare different cryptocurrencies fairly</li>
+                <li><strong>Risk Assessment:</strong> Generally, higher market cap = lower volatility risk</li>
+                <li><strong>Investment Strategy:</strong> Different strategies for large-cap vs small-cap coins</li>
+                <li><strong>Market Position:</strong> Shows where a coin stands in the overall crypto ecosystem</li>
+            </ul>
+
+            <h3>🎯 Market Cap Categories</h3>
+            <ul>
+                <li><strong>Large-cap (>$10B):</strong> Bitcoin, Ethereum — established, lower risk</li>
+                <li><strong>Mid-cap ($1B-$10B):</strong> Growing projects — moderate risk/reward</li>
+                <li><strong>Small-cap (<$1B):</strong> Emerging projects — high risk, high potential return</li>
+            </ul>
+
+            <h3>💡 Coin Dominance</h3>
+            <p>Dominance measures a coin's market share compared to the total crypto market. Bitcoin dominance above 50% typically indicates market uncertainty, while declining dominance often signals an "altcoin season."</p>
+
+            <h3>📈 Using This Calculator</h3>
+            <p><strong>Market Cap:</strong> Calculate the total value of a cryptocurrency based on price and supply.</p>
+            <p><strong>Dominance:</strong> See what percentage a coin represents of the total crypto market.</p>
+            <p><strong>Portfolio Value:</strong> Track your holdings value and profit/loss over time.</p>
+            <p><strong>Target Price:</strong> Calculate what price a coin needs to reach a specific market cap.</p>
+
+            <h3>⚠️ Important Considerations</h3>
+            <ul>
+                <li><strong>Circulating vs Total Supply:</strong> Only use circulating supply for accurate market cap</li>
+                <li><strong>Dilution Risk:</strong> Check if more coins will be released (token vesting schedules)</li>
+                <li><strong>Market Manipulation:</strong> Small-cap coins are more vulnerable to pump-and-dump schemes</li>
+                <li><strong>Not Investment Advice:</strong> Market cap is one metric among many — do comprehensive research</li>
+            </ul>
+
+            <h3>🔍 Advanced Analysis Tips</h3>
+            <ul>
+                <li>Compare market cap to trading volume for liquidity assessment</li>
+                <li>Track fully diluted valuation (FDV) for tokens with locked supply</li>
+                <li>Monitor market cap changes relative to Bitcoin dominance</li>
+                <li>Consider market cap in relation to real-world adoption metrics</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+            <div>
+                <a href="/">Home</a>
+                <a href="/about.html">About</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const calcType = document.getElementById('calculation-type');
+        const marketCapInputs = document.getElementById('market-cap-inputs');
+        const dominanceInputs = document.getElementById('dominance-inputs');
+        const portfolioInputs = document.getElementById('portfolio-inputs');
+        const targetPriceInputs = document.getElementById('target-price-inputs');
+
+        calcType.addEventListener('change', function() {
+            marketCapInputs.style.display = 'none';
+            dominanceInputs.style.display = 'none';
+            portfolioInputs.style.display = 'none';
+            targetPriceInputs.style.display = 'none';
+            document.getElementById('result').style.display = 'none';
+
+            const type = this.value;
+            if (type === 'market-cap') {
+                marketCapInputs.style.display = 'block';
+            } else if (type === 'dominance') {
+                dominanceInputs.style.display = 'block';
+            } else if (type === 'portfolio') {
+                portfolioInputs.style.display = 'block';
+            } else if (type === 'target-price') {
+                targetPriceInputs.style.display = 'block';
+            }
+        });
+
+        function formatCurrency(value) {
+            if (value >= 1e12) {
+                return '$' + (value / 1e12).toFixed(2) + 'T';
+            } else if (value >= 1e9) {
+                return '$' + (value / 1e9).toFixed(2) + 'B';
+            } else if (value >= 1e6) {
+                return '$' + (value / 1e6).toFixed(2) + 'M';
+            } else if (value >= 1e3) {
+                return '$' + (value / 1e3).toFixed(2) + 'K';
+            } else {
+                return '$' + value.toFixed(2);
+            }
+        }
+
+        function formatNumber(value) {
+            if (value >= 1e12) {
+                return (value / 1e12).toFixed(2) + 'T';
+            } else if (value >= 1e9) {
+                return (value / 1e9).toFixed(2) + 'B';
+            } else if (value >= 1e6) {
+                return (value / 1e6).toFixed(2) + 'M';
+            } else if (value >= 1e3) {
+                return (value / 1e3).toFixed(2) + 'K';
+            } else {
+                return value.toFixed(2);
+            }
+        }
+
+        function calculate() {
+            const type = calcType.value;
+            let html = '';
+
+            if (type === 'market-cap') {
+                const price = parseFloat(document.getElementById('coin-price').value);
+                const supply = parseFloat(document.getElementById('circulating-supply').value);
+
+                if (!price || !supply || price <= 0 || supply <= 0) {
+                    alert('Please enter valid positive numbers for price and supply');
+                    return;
+                }
+
+                const marketCap = price * supply;
+                
+                html = `
+                    <h2>Market Cap Results</h2>
+                    <div class="result-item">
+                        <span class="result-label">Market Capitalization</span>
+                        <span class="result-value">${formatCurrency(marketCap)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Price per Coin</span>
+                        <span class="result-value">${formatCurrency(price)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Circulating Supply</span>
+                        <span class="result-value">${formatNumber(supply)}</span>
+                    </div>
+                `;
+
+            } else if (type === 'dominance') {
+                const coinMcap = parseFloat(document.getElementById('coin-market-cap').value);
+                const totalMcap = parseFloat(document.getElementById('total-market-cap').value);
+
+                if (!coinMcap || !totalMcap || coinMcap <= 0 || totalMcap <= 0) {
+                    alert('Please enter valid positive market cap values');
+                    return;
+                }
+
+                const dominance = (coinMcap / totalMcap) * 100;
+                
+                html = `
+                    <h2>Dominance Results</h2>
+                    <div class="result-item">
+                        <span class="result-label">Market Dominance</span>
+                        <span class="result-value">${dominance.toFixed(2)}%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Coin Market Cap</span>
+                        <span class="result-value">${formatCurrency(coinMcap)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Market Cap</span>
+                        <span class="result-value">${formatCurrency(totalMcap)}</span>
+                    </div>
+                `;
+
+            } else if (type === 'portfolio') {
+                const holdings = parseFloat(document.getElementById('holdings').value);
+                const currentPrice = parseFloat(document.getElementById('current-price').value);
+                const purchasePrice = parseFloat(document.getElementById('purchase-price').value) || 0;
+
+                if (!holdings || !currentPrice || holdings <= 0 || currentPrice <= 0) {
+                    alert('Please enter valid positive numbers for holdings and current price');
+                    return;
+                }
+
+                const portfolioValue = holdings * currentPrice;
+                const costBasis = purchasePrice > 0 ? holdings * purchasePrice : 0;
+                const profitLoss = costBasis > 0 ? portfolioValue - costBasis : 0;
+                const profitLossPercent = costBasis > 0 ? ((portfolioValue - costBasis) / costBasis) * 100 : 0;
+
+                html = `
+                    <h2>Portfolio Results</h2>
+                    <div class="result-item">
+                        <span class="result-label">Current Portfolio Value</span>
+                        <span class="result-value">${formatCurrency(portfolioValue)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Holdings</span>
+                        <span class="result-value">${holdings.toFixed(8)} coins</span>
+                    </div>
+                `;
+
+                if (costBasis > 0) {
+                    html += `
+                        <div class="result-item">
+                            <span class="result-label">Cost Basis</span>
+                            <span class="result-value">${formatCurrency(costBasis)}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Profit/Loss</span>
+                            <span class="result-value" style="color: ${profitLoss >= 0 ? '#10b981' : '#ef4444'}">${formatCurrency(Math.abs(profitLoss))} (${profitLoss >= 0 ? '+' : '-'}${Math.abs(profitLossPercent).toFixed(2)}%)</span>
+                        </div>
+                    `;
+                }
+
+            } else if (type === 'target-price') {
+                const currentMcap = parseFloat(document.getElementById('current-market-cap').value);
+                const targetMcap = parseFloat(document.getElementById('target-market-cap').value);
+                const currentPrice = parseFloat(document.getElementById('current-coin-price').value);
+
+                if (!currentMcap || !targetMcap || !currentPrice || currentMcap <= 0 || targetMcap <= 0 || currentPrice <= 0) {
+                    alert('Please enter valid positive numbers for all fields');
+                    return;
+                }
+
+                const multiplier = targetMcap / currentMcap;
+                const targetPrice = currentPrice * multiplier;
+                const priceChange = ((targetPrice - currentPrice) / currentPrice) * 100;
+
+                html = `
+                    <h2>Target Price Results</h2>
+                    <div class="result-item">
+                        <span class="result-label">Target Price</span>
+                        <span class="result-value">${formatCurrency(targetPrice)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Required Price Change</span>
+                        <span class="result-value">${priceChange >= 0 ? '+' : ''}${priceChange.toFixed(2)}%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Market Cap Growth</span>
+                        <span class="result-value">${multiplier.toFixed(2)}x</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">From Market Cap</span>
+                        <span class="result-value">${formatCurrency(currentMcap)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">To Market Cap</span>
+                        <span class="result-value">${formatCurrency(targetMcap)}</span>
+                    </div>
+                `;
+            }
+
+            document.getElementById('result').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
