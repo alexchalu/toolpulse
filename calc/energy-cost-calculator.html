@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Cost Calculator 2026 - Natural Gas, Propane, Heating & Cooling Cost Estimator</title>
+    <meta name="description" content="Calculate your annual home energy costs for natural gas, propane, electric heating, oil, and cooling. Compare fuel types and find ways to save on utility bills in 2026.">
+    <meta name="keywords" content="energy cost calculator, natural gas cost, propane cost calculator, heating cost calculator, cooling cost calculator, utility bill estimator, home energy costs 2026">
+    <link rel="canonical" href="https://calcleap.com/calc/energy-cost-calculator.html">
+    <link rel="stylesheet" href="../styles/calc-styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Energy Cost Calculator",
+      "description": "Calculate annual home energy costs for natural gas, propane, electric heating, and cooling.",
+      "url": "https://calcleap.com/calc/energy-cost-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <style>
+        .calc-section { margin-bottom: 2em; }
+        .calc-section h2 { color: #2563eb; margin-bottom: 1em; }
+        .input-group { margin-bottom: 1.2em; }
+        .input-group label { display: block; margin-bottom: 0.5em; font-weight: 600; }
+        .input-group input, .input-group select { width: 100%; padding: 0.8em; border: 1px solid #ccc; border-radius: 4px; font-size: 1em; }
+        .result-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2em; border-radius: 8px; margin: 2em 0; }
+        .result-card h3 { margin: 0 0 0.5em 0; font-size: 1.1em; opacity: 0.9; }
+        .result-card .amount { font-size: 2.5em; font-weight: bold; margin: 0.2em 0; }
+        .breakdown-table { width: 100%; border-collapse: collapse; margin: 2em 0; }
+        .breakdown-table th, .breakdown-table td { padding: 1em; text-align: left; border-bottom: 1px solid #e5e7eb; }
+        .breakdown-table th { background: #f9fafb; font-weight: 600; }
+        .btn-primary { background: #2563eb; color: white; padding: 1em 2em; border: none; border-radius: 4px; font-size: 1.1em; cursor: pointer; width: 100%; margin: 1em 0; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .info-section { background: #f0f9ff; padding: 1.5em; border-left: 4px solid #2563eb; margin: 2em 0; }
+        .comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5em; margin: 2em 0; }
+        .fuel-card { background: white; border: 2px solid #e5e7eb; border-radius: 8px; padding: 1.5em; }
+        .fuel-card h4 { color: #2563eb; margin-bottom: 0.5em; }
+    </style>
+</head>
+<body>
+    <div class="calc-container">
+        <header>
+            <h1>⚡ Energy Cost Calculator 2026</h1>
+            <p>Calculate and compare heating, cooling, and utility costs for natural gas, propane, electric, and oil</p>
+        </header>
+
+        <div class="calc-section">
+            <h2>Home & Location</h2>
+            <div class="input-group">
+                <label for="squareFeet">Home Square Footage</label>
+                <input type="number" id="squareFeet" value="2000" min="500" max="10000">
+            </div>
+            <div class="input-group">
+                <label for="climate">Climate Zone</label>
+                <select id="climate">
+                    <option value="cold">Cold (North, Midwest - 7,000+ heating degree days)</option>
+                    <option value="moderate" selected>Moderate (Mid-Atlantic, Pacific NW - 4,000-7,000 HDD)</option>
+                    <option value="mild">Mild (South, Southwest - 2,000-4,000 HDD)</option>
+                    <option value="hot">Hot (Deep South, Florida - <2,000 HDD)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="insulation">Home Insulation</label>
+                <select id="insulation">
+                    <option value="poor">Poor (older home, no upgrades)</option>
+                    <option value="average" selected>Average (standard insulation)</option>
+                    <option value="good">Good (modern insulation)</option>
+                    <option value="excellent">Excellent (high-efficiency, sealed)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="calc-section">
+            <h2>Heating System</h2>
+            <div class="input-group">
+                <label for="heatingFuel">Primary Heating Fuel</label>
+                <select id="heatingFuel">
+                    <option value="naturalGas" selected>Natural Gas</option>
+                    <option value="propane">Propane</option>
+                    <option value="electric">Electric (Resistance or Heat Pump)</option>
+                    <option value="oil">Heating Oil</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="heatingEfficiency">Heating System Efficiency (%)</label>
+                <input type="number" id="heatingEfficiency" value="80" min="50" max="300" step="5">
+                <small>Natural gas: 80-95%, Electric resistance: 100%, Heat pump: 200-350%, Oil: 75-85%</small>
+            </div>
+            <div class="input-group">
+                <label for="heatingRate">Heating Fuel Rate (per unit)</label>
+                <input type="number" id="heatingRate" value="1.20" step="0.01" min="0">
+                <small id="rateUnit">$/therm (natural gas avg: $1.00-1.50)</small>
+            </div>
+        </div>
+
+        <div class="calc-section">
+            <h2>Cooling System</h2>
+            <div class="input-group">
+                <label for="coolingType">Cooling Type</label>
+                <select id="coolingType">
+                    <option value="central" selected>Central Air Conditioning</option>
+                    <option value="mini-split">Mini-Split Heat Pump</option>
+                    <option value="window">Window Units</option>
+                    <option value="none">No Cooling / Minimal Use</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="coolingSEER">Cooling Efficiency (SEER)</label>
+                <input type="number" id="coolingSEER" value="14" min="8" max="25">
+                <small>Old units: 8-10 SEER, Standard: 13-14, High-eff: 16-20, Premium: 20+</small>
+            </div>
+            <div class="input-group">
+                <label for="electricRate">Electricity Rate ($/kWh)</label>
+                <input type="number" id="electricRate" value="0.14" step="0.01" min="0">
+                <small>US average: $0.12-0.16/kWh, varies by state</small>
+            </div>
+        </div>
+
+        <button class="btn-primary" onclick="calculateEnergyCost()">Calculate Energy Costs</button>
+
+        <div id="results" style="display:none;">
+            <div class="result-card">
+                <h3>Total Annual Energy Cost</h3>
+                <div class="amount" id="totalCost">$0</div>
+                <p id="monthlyCost"></p>
+            </div>
+
+            <h2>Cost Breakdown</h2>
+            <table class="breakdown-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Usage</th>
+                        <th>Annual Cost</th>
+                        <th>% of Total</th>
+                    </tr>
+                </thead>
+                <tbody id="breakdownBody">
+                </tbody>
+            </table>
+
+            <div class="info-section">
+                <h3>💡 Ways to Reduce Energy Costs</h3>
+                <ul id="savingsTips"></ul>
+            </div>
+
+            <h2>Compare Heating Fuel Costs</h2>
+            <div class="comparison-grid" id="fuelComparison"></div>
+        </div>
+
+        <div class="info-section">
+            <h3>📊 Understanding Home Energy Costs</h3>
+            <h4>Heating Degree Days (HDD)</h4>
+            <p>Measures heating needs based on outdoor temps below 65°F. Cold climates (7,000+ HDD) like Minnesota have much higher heating costs than mild climates (2,000 HDD) like Georgia.</p>
+            
+            <h4>Fuel Cost Comparison (2026)</h4>
+            <ul>
+                <li><strong>Natural Gas:</strong> $1.00-1.50/therm ($10-15/MMBtu) — cheapest in most markets</li>
+                <li><strong>Propane:</strong> $2.50-3.50/gallon ($25-35/MMBtu) — 2-3x more expensive than gas</li>
+                <li><strong>Heating Oil:</strong> $3.00-4.50/gallon ($21-32/MMBtu) — volatile, regional pricing</li>
+                <li><strong>Electric Resistance:</strong> $0.12-0.20/kWh ($35-60/MMBtu) — most expensive unless heat pump</li>
+                <li><strong>Heat Pump:</strong> Effective $12-20/MMBtu equivalent (200-300% efficiency) — competitive with gas</li>
+            </ul>
+
+            <h4>System Efficiency Ratings</h4>
+            <ul>
+                <li><strong>AFUE (Furnaces):</strong> 80% (old) to 98% (condensing gas furnace)</li>
+                <li><strong>HSPF (Heat Pumps):</strong> 8-13 (heating), higher is better</li>
+                <li><strong>SEER (Cooling):</strong> 13-25 (cooling), minimum 14 for new units since 2023</li>
+                <li><strong>COP (Heat Pumps):</strong> 2.0-4.0 (200-400% efficiency), varies with outdoor temp</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h3>🏠 Average Energy Costs by Home Size (2026)</h3>
+            <table class="breakdown-table">
+                <thead>
+                    <tr>
+                        <th>Home Size</th>
+                        <th>Cold Climate</th>
+                        <th>Moderate Climate</th>
+                        <th>Mild Climate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1,000 sq ft</td>
+                        <td>$1,800-2,400/yr</td>
+                        <td>$1,200-1,600/yr</td>
+                        <td>$800-1,200/yr</td>
+                    </tr>
+                    <tr>
+                        <td>2,000 sq ft</td>
+                        <td>$2,800-3,600/yr</td>
+                        <td>$1,800-2,400/yr</td>
+                        <td>$1,200-1,800/yr</td>
+                    </tr>
+                    <tr>
+                        <td>3,000 sq ft</td>
+                        <td>$3,800-5,000/yr</td>
+                        <td>$2,400-3,200/yr</td>
+                        <td>$1,600-2,400/yr</td>
+                    </tr>
+                    <tr>
+                        <td>4,000 sq ft</td>
+                        <td>$5,000-6,500/yr</td>
+                        <td>$3,200-4,200/yr</td>
+                        <td>$2,000-3,000/yr</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const heatingFuelEl = document.getElementById('heatingFuel');
+        const heatingRateEl = document.getElementById('heatingRate');
+        const rateUnitEl = document.getElementById('rateUnit');
+
+        heatingFuelEl.addEventListener('change', () => {
+            const fuel = heatingFuelEl.value;
+            if (fuel === 'naturalGas') {
+                heatingRateEl.value = '1.20';
+                rateUnitEl.textContent = '$/therm (natural gas avg: $1.00-1.50)';
+            } else if (fuel === 'propane') {
+                heatingRateEl.value = '2.80';
+                rateUnitEl.textContent = '$/gallon (propane avg: $2.50-3.50)';
+            } else if (fuel === 'electric') {
+                heatingRateEl.value = '0.14';
+                rateUnitEl.textContent = '$/kWh (electricity avg: $0.12-0.16)';
+            } else if (fuel === 'oil') {
+                heatingRateEl.value = '3.80';
+                rateUnitEl.textContent = '$/gallon (oil avg: $3.00-4.50)';
+            }
+        });
+
+        function calculateEnergyCost() {
+            const sqft = parseFloat(document.getElementById('squareFeet').value);
+            const climate = document.getElementById('climate').value;
+            const insulation = document.getElementById('insulation').value;
+            const heatingFuel = heatingFuelEl.value;
+            const heatingEff = parseFloat(document.getElementById('heatingEfficiency').value) / 100;
+            const heatingRate = parseFloat(heatingRateEl.value);
+            const coolingType = document.getElementById('coolingType').value;
+            const seer = parseFloat(document.getElementById('coolingSEER').value);
+            const electricRate = parseFloat(document.getElementById('electricRate').value);
+
+            // Climate factor (heating degree days equivalent)
+            const climateFactor = {
+                'cold': 1.5,
+                'moderate': 1.0,
+                'mild': 0.6,
+                'hot': 0.3
+            }[climate];
+
+            // Insulation multiplier
+            const insulationFactor = {
+                'poor': 1.3,
+                'average': 1.0,
+                'good': 0.8,
+                'excellent': 0.65
+            }[insulation];
+
+            // Base heating load: ~50 MMBtu per 1000 sqft in moderate climate
+            const baseHeatingMMBtu = (sqft / 1000) * 50 * climateFactor * insulationFactor;
+
+            // Convert MMBtu to fuel units and calculate cost
+            let heatingCost = 0;
+            let heatingUsage = '';
+            
+            if (heatingFuel === 'naturalGas') {
+                const therms = (baseHeatingMMBtu / 0.1) / heatingEff; // 1 therm = 0.1 MMBtu
+                heatingCost = therms * heatingRate;
+                heatingUsage = Math.round(therms) + ' therms';
+            } else if (heatingFuel === 'propane') {
+                const gallons = (baseHeatingMMBtu / 0.091) / heatingEff; // 1 gal propane = 0.091 MMBtu
+                heatingCost = gallons * heatingRate;
+                heatingUsage = Math.round(gallons) + ' gallons';
+            } else if (heatingFuel === 'electric') {
+                const kWh = (baseHeatingMMBtu * 293) / heatingEff; // 1 MMBtu = 293 kWh
+                heatingCost = kWh * heatingRate;
+                heatingUsage = Math.round(kWh) + ' kWh';
+            } else if (heatingFuel === 'oil') {
+                const gallons = (baseHeatingMMBtu / 0.138) / heatingEff; // 1 gal oil = 0.138 MMBtu
+                heatingCost = gallons * heatingRate;
+                heatingUsage = Math.round(gallons) + ' gallons';
+            }
+
+            // Cooling cost
+            let coolingCost = 0;
+            let coolingUsage = '';
+            
+            if (coolingType !== 'none') {
+                const coolingFactor = {
+                    'cold': 0.3,
+                    'moderate': 0.8,
+                    'mild': 1.2,
+                    'hot': 1.8
+                }[climate];
+
+                const coolingTypeFactor = {
+                    'central': 1.0,
+                    'mini-split': 0.7,
+                    'window': 1.2
+                }[coolingType];
+
+                // Base cooling: ~3000 kWh per 1000 sqft in moderate climate
+                const coolingKWh = (sqft / 1000) * 3000 * coolingFactor * insulationFactor * coolingTypeFactor * (14 / seer);
+                coolingCost = coolingKWh * electricRate;
+                coolingUsage = Math.round(coolingKWh) + ' kWh';
+            }
+
+            // Base electric (lights, appliances) - ~10,000 kWh/year for 2000 sqft
+            const baseElectricKWh = (sqft / 1000) * 5000;
+            const baseElectricCost = baseElectricKWh * electricRate;
+
+            const totalCost = heatingCost + coolingCost + baseElectricCost;
+
+            // Display results
+            document.getElementById('totalCost').textContent = '$' + Math.round(totalCost).toLocaleString();
+            document.getElementById('monthlyCost').textContent = 'Monthly average: $' + Math.round(totalCost / 12);
+
+            const breakdown = [
+                { category: 'Heating', usage: heatingUsage, cost: heatingCost },
+                { category: 'Cooling', usage: coolingUsage || 'N/A', cost: coolingCost },
+                { category: 'Base Electric (lights, appliances)', usage: Math.round(baseElectricKWh) + ' kWh', cost: baseElectricCost }
+            ];
+
+            let html = '';
+            breakdown.forEach(item => {
+                const pct = (item.cost / totalCost * 100).toFixed(0);
+                html += `<tr>
+                    <td>${item.category}</td>
+                    <td>${item.usage}</td>
+                    <td>$${Math.round(item.cost).toLocaleString()}</td>
+                    <td>${pct}%</td>
+                </tr>`;
+            });
+            document.getElementById('breakdownBody').innerHTML = html;
+
+            // Savings tips
+            const tips = [];
+            if (insulationFactor > 0.8) tips.push('Upgrade insulation (save 10-30%)');
+            if (heatingEff < 0.85) tips.push('Replace old heating system (save 15-25%)');
+            if (seer < 14) tips.push('Upgrade to 16+ SEER AC (save 15-20% on cooling)');
+            if (heatingFuel === 'propane' || heatingFuel === 'oil') tips.push('Consider heat pump or natural gas conversion (save 30-50%)');
+            if (coolingCost > heatingCost * 0.5) tips.push('Add window shading and reflective roof coating (save 10-15%)');
+            tips.push('Smart thermostat can reduce costs 10-15%');
+            tips.push('Air seal windows and doors (save 5-10%)');
+
+            document.getElementById('savingsTips').innerHTML = tips.map(t => `<li>${t}</li>`).join('');
+
+            // Fuel comparison
+            const fuelTypes = [
+                { name: 'Natural Gas', cost: (baseHeatingMMBtu / 0.1 / 0.9) * 1.20, unit: 'therms' },
+                { name: 'Propane', cost: (baseHeatingMMBtu / 0.091 / 0.85) * 2.80, unit: 'gallons' },
+                { name: 'Heating Oil', cost: (baseHeatingMMBtu / 0.138 / 0.80) * 3.80, unit: 'gallons' },
+                { name: 'Electric Resistance', cost: (baseHeatingMMBtu * 293 / 1.0) * electricRate, unit: 'kWh' },
+                { name: 'Heat Pump (COP 2.5)', cost: (baseHeatingMMBtu * 293 / 2.5) * electricRate, unit: 'kWh' }
+            ];
+
+            let compHtml = '';
+            fuelTypes.forEach(fuel => {
+                compHtml += `<div class="fuel-card">
+                    <h4>${fuel.name}</h4>
+                    <p style="font-size:1.8em; font-weight:bold; color:#2563eb; margin:0.5em 0;">$${Math.round(fuel.cost)}</p>
+                    <p style="color:#666; margin:0;">Annual heating only</p>
+                </div>`;
+            });
+            document.getElementById('fuelComparison').innerHTML = compHtml;
+
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
