@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Appreciation Calculator - CalcLeap</title>
+    <meta name="description" content="Calculate future property value based on historical appreciation rates. Estimate real estate appreciation over time with compound growth projections.">
+    <meta name="keywords" content="property appreciation calculator, home value growth, real estate appreciation, property value estimator, home price forecast">
+    <link rel="canonical" href="https://calcleap.com/property-appreciation-calculator.html">
+    <link rel="stylesheet" href="css/gold.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Property Appreciation Calculator",
+        "description": "Calculate future property value based on historical appreciation rates",
+        "url": "https://calcleap.com/property-appreciation-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">CalcLeap</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="hero">
+                <h1>Property Appreciation Calculator</h1>
+                <p>Estimate future property value based on historical appreciation rates and holding period.</p>
+            </div>
+
+            <div class="tool-card">
+                <div id="toolContent">
+                    <div class="input-group">
+                        <label for="currentValue">Current Property Value ($)</label>
+                        <input type="number" id="currentValue" value="350000" min="1000" step="1000">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="annualRate">Annual Appreciation Rate (%)</label>
+                        <input type="number" id="annualRate" value="3.5" min="0" max="20" step="0.1">
+                        <small>Historical US average: 3-5% per year</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="years">Holding Period (Years)</label>
+                        <input type="number" id="years" value="10" min="1" max="50" step="1">
+                    </div>
+
+                    <button class="calc-btn" onclick="calculateAppreciation()">Calculate Appreciation</button>
+
+                    <div id="results" style="display:none;">
+                        <h3>Appreciation Summary</h3>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <span class="result-label">Future Property Value</span>
+                                <span class="result-value" id="futureValue">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Total Appreciation</span>
+                                <span class="result-value" id="totalGain">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Percentage Gain</span>
+                                <span class="result-value" id="percentGain">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Average Annual Gain</span>
+                                <span class="result-value" id="avgAnnual">-</span>
+                            </div>
+                        </div>
+
+                        <div class="year-breakdown">
+                            <h4>Year-by-Year Breakdown</h4>
+                            <div id="yearlyTable"></div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Understanding Property Appreciation</h3>
+                        <p><strong>Property appreciation</strong> refers to the increase in a property's value over time. Real estate typically appreciates due to inflation, market demand, economic growth, and neighborhood improvements.</p>
+
+                        <h4>Factors Affecting Appreciation</h4>
+                        <ul>
+                            <li><strong>Location:</strong> Proximity to jobs, schools, transportation, and amenities</li>
+                            <li><strong>Economic Growth:</strong> Local job market and income growth</li>
+                            <li><strong>Supply & Demand:</strong> Housing inventory vs. buyer demand</li>
+                            <li><strong>Interest Rates:</strong> Lower rates increase affordability and demand</li>
+                            <li><strong>Property Improvements:</strong> Renovations and upgrades add value</li>
+                            <li><strong>Neighborhood Development:</strong> New infrastructure and businesses</li>
+                        </ul>
+
+                        <h4>Historical Appreciation Rates (US)</h4>
+                        <ul>
+                            <li><strong>Long-term average:</strong> 3-5% per year (1970-2024)</li>
+                            <li><strong>High-growth markets:</strong> 6-8% (Silicon Valley, Austin, Seattle)</li>
+                            <li><strong>Stable markets:</strong> 2-4% (Midwest, rural areas)</li>
+                            <li><strong>Boom periods:</strong> 10-15% (2020-2022 pandemic surge)</li>
+                            <li><strong>Recession periods:</strong> -5% to -20% (2008-2012 housing crisis)</li>
+                        </ul>
+
+                        <h4>Important Considerations</h4>
+                        <ul>
+                            <li>Past performance doesn't guarantee future returns</li>
+                            <li>Real estate markets are cyclical and can experience downturns</li>
+                            <li>Property taxes and maintenance costs offset some appreciation gains</li>
+                            <li>Capital gains taxes apply when selling (consult a tax professional)</li>
+                            <li>Leverage (mortgages) can amplify both gains and losses</li>
+                            <li>Location-specific factors can override national trends</li>
+                        </ul>
+
+                        <h4>Using This Calculator</h4>
+                        <p>This calculator uses compound growth to project future property values. Enter your current property value, expected annual appreciation rate (research local market averages), and holding period to see projected growth.</p>
+                        <p>The year-by-year breakdown shows how compound appreciation accelerates gains over time. Compare different appreciation scenarios to understand upside and downside possibilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CalcLeap. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculateAppreciation() {
+            const currentValue = parseFloat(document.getElementById('currentValue').value);
+            const annualRate = parseFloat(document.getElementById('annualRate').value) / 100;
+            const years = parseInt(document.getElementById('years').value);
+
+            if (!currentValue || currentValue <= 0) {
+                alert('Please enter a valid current property value');
+                return;
+            }
+
+            if (!annualRate || annualRate < 0) {
+                alert('Please enter a valid appreciation rate');
+                return;
+            }
+
+            if (!years || years <= 0) {
+                alert('Please enter a valid holding period');
+                return;
+            }
+
+            // Calculate future value using compound growth
+            const futureValue = currentValue * Math.pow(1 + annualRate, years);
+            const totalGain = futureValue - currentValue;
+            const percentGain = ((futureValue - currentValue) / currentValue) * 100;
+            const avgAnnualGain = totalGain / years;
+
+            // Display summary
+            document.getElementById('futureValue').textContent = '$' + futureValue.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('totalGain').textContent = '$' + totalGain.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('percentGain').textContent = percentGain.toFixed(1) + '%';
+            document.getElementById('avgAnnual').textContent = '$' + avgAnnualGain.toLocaleString('en-US', {maximumFractionDigits: 0}) + '/year';
+
+            // Generate year-by-year table
+            let tableHTML = '<table><thead><tr><th>Year</th><th>Property Value</th><th>Annual Gain</th><th>Total Gain</th></tr></thead><tbody>';
+            
+            let previousValue = currentValue;
+            for (let year = 1; year <= years; year++) {
+                const yearValue = currentValue * Math.pow(1 + annualRate, year);
+                const yearGain = yearValue - previousValue;
+                const totalYearGain = yearValue - currentValue;
+
+                tableHTML += `<tr>
+                    <td>${year}</td>
+                    <td>$${yearValue.toLocaleString('en-US', {maximumFractionDigits: 0})}</td>
+                    <td>$${yearGain.toLocaleString('en-US', {maximumFractionDigits: 0})}</td>
+                    <td>$${totalYearGain.toLocaleString('en-US', {maximumFractionDigits: 0})}</td>
+                </tr>`;
+
+                previousValue = yearValue;
+            }
+            
+            tableHTML += '</tbody></table>';
+            document.getElementById('yearlyTable').innerHTML = tableHTML;
+
+            document.getElementById('results').style.display = 'block';
+        }
+
+        // Auto-calculate on input
+        document.getElementById('currentValue').addEventListener('input', calculateAppreciation);
+        document.getElementById('annualRate').addEventListener('input', calculateAppreciation);
+        document.getElementById('years').addEventListener('input', calculateAppreciation);
+
+        // Initial calculation
+        calculateAppreciation();
+    </script>
+</body>
+</html>
