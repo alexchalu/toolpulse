@@ -348,322 +348,158 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   <h1 class="page-title">Umbrella Insurance Calculator</h1>
   <p class="page-desc">Calculate umbrella liability insurance coverage needs. Free umbrella insurance calculator. Get instant estimates and compare rates.</p>
 
-
-
-<!-- LEAD WIZARD V2 -->
-<div class="lw" id="lw_umbrellainsurancecalculator">
-  <div class="lw-header">
-    <h3>Compare Umbrella Insurance Rates</h3>
-    <p>See how much you could save — free quotes in 60 seconds</p>
-    <div class="lw-social">
-      <span>⭐ 4.8/5 rating</span>
-      <span>👥 2M+ quotes compared</span>
-      <span>🔒 Secure & private</span>
-    </div>
-    <div class="lw-progress">
-      <div class="lw-progress-step active" id="lwP1_umbrellainsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP2_umbrellainsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP3_umbrellainsurancecalculator"></div>
-    </div>
-  </div>
-  <div class="lw-body">
-    <!-- STEP 1: ZIP -->
-    <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;font-size:.85rem;color:#92400e;line-height:1.6"><strong>Partner Disclosure:</strong> After submitting your information, we may connect you with our partner PolicyGenius for personalized insurance quotes. Your information will be shared securely.</div><div class="lw-step active" id="lwS1_umbrellainsurancecalculator">
-      <div class="lw-step-label">Step 1 of 3</div>
-      <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_umbrellainsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
-      <button class="lw-btn" onclick="lwNext_umbrellainsurancecalculator(1)" id="lwBtn1_umbrellainsurancecalculator" disabled>
-        Compare Rates <span style="font-size:1.1em">→</span>
-      </button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>Your information is encrypted and secure. We never sell your personal data.</span>
-      </div>
-    </div>
-    <!-- STEP 2: Details -->
-    <div class="lw-step" id="lwS2_umbrellainsurancecalculator">
-      
-            <div class="lw-step-label">Step 2 of 3</div>
-            <div class="lw-step-title">What coverage level are you looking for?</div>
-            <div class="lw-options" id="lwCoverage_umbrellainsurancecalculator">
-                <div class="lw-opt" data-v="basic" onclick="lwSelOpt(this)">Basic</div>
-                <div class="lw-opt selected" data-v="standard" onclick="lwSelOpt(this)">Standard</div>
-                <div class="lw-opt" data-v="premium" onclick="lwSelOpt(this)">Premium</div>
-                <div class="lw-opt" data-v="notsure" onclick="lwSelOpt(this)">Not Sure</div>
-            </div>
-            <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label for="lwInsured_umbrellainsurancecalculator">Currently insured?</label>
-                    <select id="lwInsured_umbrellainsurancecalculator" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option></select>
-                </div>
-                <div class="lw-field"><label for="lwAge_umbrellainsurancecalculator">Age range</label>
-                    <select id="lwAge_umbrellainsurancecalculator" aria-label="Age"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
-                </div>
-            </div>
-      <button class="lw-btn" onclick="lwNext_umbrellainsurancecalculator(2)">
-        Almost Done — Continue <span style="font-size:1.1em">→</span>
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_umbrellainsurancecalculator(2)">← Back</button>
-    </div>
-    <!-- STEP 3: Contact -->
-    <div class="lw-step" id="lwS3_umbrellainsurancecalculator">
-      <div class="lw-step-label">Step 3 of 3 — Final step</div>
-      <div class="lw-step-title">Where should we send your quotes?</div>
-      <div class="lw-grid">
-        <div class="lw-field"><label for="lwFname_umbrellainsurancecalculator">First name</label><input type="text" id="lwFname_umbrellainsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
-        <div class="lw-field"><label for="lwLname_umbrellainsurancecalculator">Last name</label><input type="text" id="lwLname_umbrellainsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
-        <div class="lw-field"><label for="lwEmail_umbrellainsurancecalculator">Email</label><input type="email" id="lwEmail_umbrellainsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
-        <div class="lw-field"><label for="lwPhone_umbrellainsurancecalculator">Phone</label><input type="tel" id="lwPhone_umbrellainsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
-      </div>
-      <button class="lw-btn" onclick="lwSubmit_umbrellainsurancecalculator()" style="background:#16a34a">
-        🎯 Get My Free Quotes
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_umbrellainsurancecalculator(3)">← Back</button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>By submitting this form, you provide express written consent to be contacted by licensed insurance agents at the phone number and email provided, including via automated calls/texts. This is not a condition of purchase. You may revoke consent anytime. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="terms.html" style="color:inherit;text-decoration:underline">Terms</a></span>
-      </div>
-    </div>
-    <!-- SUCCESS -->
-    <div class="lw-step" id="lwS4_umbrellainsurancecalculator">
-      <div class="lw-success">
-        <div class="lw-check">✓</div>
-        <h4>Quotes Are On Their Way!</h4>
-        <div class="lw-savings">
-          <div class="lw-savings-amt">$480+</div>
-          <div class="lw-savings-lbl">Average annual savings when comparing quotes</div>
+<div class="card" style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Estimate Your Umbrella Insurance Premium</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem">
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Current Auto Liability</label>
+            <select id="umbAutoLiab" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="100000">$100,000 / $300,000</option>
+                <option value="250000" selected>$250,000 / $500,000</option>
+                <option value="300000">$300,000 / $500,000</option>
+                <option value="500000">$500,000 / $500,000</option>
+            </select>
         </div>
-        <p>We are opening a comparison tool where you can see real quotes from top carriers. A licensed agent may also follow up with personalized rates.</p>
-        <div class="lw-carriers" style="margin-top:1.25rem">
-          <span class="lw-carrier">State Farm</span><span class="lw-carrier">Allstate</span><span class="lw-carrier">Progressive</span><span class="lw-carrier">Geico</span><span class="lw-carrier">Liberty Mutual</span><span class="lw-carrier">Nationwide</span>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Current Home Liability</label>
+            <select id="umbHomeLiab" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="100000">$100,000</option>
+                <option value="300000" selected>$300,000</option>
+                <option value="500000">$500,000</option>
+            </select>
         </div>
-      </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Net Worth ($)</label>
+            <input type="number" id="umbNetWorth" value="750000" min="0" step="50000" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+        </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Number of Properties</label>
+            <select id="umbProps" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5+</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Drivers in Household</label>
+            <select id="umbDrivers" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5+</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Risk Factors</label>
+            <select id="umbRisk" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="none" selected>None</option>
+                <option value="pool">Pool or Trampoline</option>
+                <option value="dog">Dog (Aggressive Breed)</option>
+                <option value="teen">Teen Driver</option>
+                <option value="multiple">Multiple Risk Factors</option>
+            </select>
+        </div>
     </div>
-  </div>
+    <button onclick="calcUmbrella()" style="display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;background:#0071e3;color:#fff;border:none;border-radius:12px;cursor:pointer;width:100%">Calculate Umbrella Insurance</button>
+    
+    <div id="umbResults" style="display:none;margin-top:1.5rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem">
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">Recommended Coverage</div>
+                <div id="umbRec" style="font-size:2rem;font-weight:800;color:#0071e3;letter-spacing:-.03em"></div>
+            </div>
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">Estimated Annual Premium</div>
+                <div id="umbAnnual" style="font-size:1.5rem;font-weight:700;color:#22c55e;letter-spacing:-.02em"></div>
+            </div>
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">Cost per $1M Coverage</div>
+                <div id="umbPerMil" style="font-size:1.5rem;font-weight:700;letter-spacing:-.02em"></div>
+            </div>
+        </div>
+        <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;margin-top:.75rem">
+            <h4 style="font-size:.85rem;margin-bottom:.75rem">Coverage Details</h4>
+            <div id="umbBreakdown" style="font-size:.9rem;color:#424245;line-height:1.8"></div>
+        </div>
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:1.25rem;margin-top:1rem">
+            <p style="font-size:.9rem;color:#166534;margin:0"><strong>&#128161; Tip:</strong> Umbrella insurance is the best value in insurance — $1M in coverage typically costs just $150-$300/year. If your net worth exceeds your auto + home liability limits, you need an umbrella policy to protect your assets.</p>
+        </div>
+    </div>
 </div>
+
 <script>
-(function(){
-var fid="umbrellainsurancecalculator",itype="Umbrella Insurance";
-var zip=document.getElementById("lwZip_"+fid);
-zip.addEventListener("input",function(){
-  this.value=this.value.replace(/\D/g,"");
-  document.getElementById("lwBtn1_"+fid).disabled=this.value.length<5;
-});
-zip.addEventListener("keydown",function(e){if(e.key==="Enter"&&this.value.length===5)lwNext(1)});
-function show(n){for(var i=1;i<=4;i++){
-  var s=document.getElementById("lwS"+i+"_"+fid);
-  var p=document.getElementById("lwP"+i+"_"+fid);
-  if(s)s.classList.toggle("active",i===n);
-  if(p){p.classList.toggle("active",i===n);p.classList.toggle("done",i<n)}
-}}
-function lwNext(step){show(step+1)}
-function lwBack(step){show(step-1)}
-function lwSubmit(){
-  var fn=document.getElementById("lwFname_"+fid).value;
-  var ln=document.getElementById("lwLname_"+fid).value;
-  var em=document.getElementById("lwEmail_"+fid).value;
-  var ph=document.getElementById("lwPhone_"+fid).value;
-  var zp=zip.value;
-  if(!fn||!ln||!em||!ph){alert("Please fill in all fields");return}
-  var d={name:fn+" "+ln,email:em,phone:ph,zip:zp,type:itype,page:location.href,ts:new Date().toISOString()};
-  var leads=JSON.parse(localStorage.getItem("calcleap_leads")||"[]");
-  leads.push(d);localStorage.setItem("calcleap_leads",JSON.stringify(leads));
-  fetch("https://formsubmit.co/ajax/contact@calcleap.com",{
-    method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
-    body:JSON.stringify({name:d.name,email:d.email,phone:d.phone,zip:d.zip,_subject:"🔥 "+itype+" Lead — "+zp,insurance_type:itype,source:location.href,timestamp:d.ts})
-  }).catch(function(){});
-  show(4);
-  /* Show partner link - no auto-redirect */ var pgd=document.getElementById("pg-disclosure"); if(pgd) pgd.style.display="block";
-  if(typeof gtag!=="undefined")gtag("event","lead_submit",{event_category:"lead_gen",event_label:itype});
+function calcUmbrella(){
+    const autoLiab=parseInt(document.getElementById('umbAutoLiab').value)||250000;
+    const homeLiab=parseInt(document.getElementById('umbHomeLiab').value)||300000;
+    const netWorth=parseFloat(document.getElementById('umbNetWorth').value)||750000;
+    const props=parseInt(document.getElementById('umbProps').value)||1;
+    const drivers=parseInt(document.getElementById('umbDrivers').value)||2;
+    const risk=document.getElementById('umbRisk').value;
+    
+    // Recommended coverage: at least net worth rounded up to nearest $1M
+    let recMillions=Math.max(1,Math.ceil(netWorth/1000000));
+    if(netWorth>5000000)recMillions=Math.max(recMillions,5);
+    
+    // Base cost: first $1M = $200, each additional $1M = $100
+    let annual=200+(recMillions-1)*100;
+    
+    // Higher base liability = lower umbrella (already partially covered)
+    if(autoLiab>=500000)annual*=0.85;else if(autoLiab<=100000)annual*=1.25;
+    
+    // Properties add $25 each beyond first
+    annual+=(props-1)*25;
+    
+    // Drivers add $30 each beyond first
+    annual+=(drivers-1)*30;
+    
+    // Risk factors
+    const riskAdd={none:0,pool:50,dog:75,teen:100,multiple:150};
+    annual+=(riskAdd[risk]||0);
+    
+    annual=Math.round(Math.max(150,annual));
+    const perMillion=Math.round(annual/recMillions);
+    
+    const f=v=>'$'+v.toLocaleString('en-US');
+    const recLabel=recMillions>=1?'$'+recMillions+'M':'$'+f(recMillions*1000000);
+    document.getElementById('umbRec').textContent='$'+recMillions+'M';
+    document.getElementById('umbAnnual').textContent=f(annual)+'/yr';
+    document.getElementById('umbPerMil').textContent=f(perMillion)+'/yr per $1M';
+    
+    let bd=`Recommended umbrella: $${recMillions}M<br>Net worth to protect: ${f(netWorth)}<br>Current auto liability: ${f(autoLiab)}<br>Current home liability: ${f(homeLiab)}<br>Properties: ${props} | Drivers: ${drivers}<br>`;
+    if(risk!=='none')bd+=`Risk factor surcharge: +${f(riskAdd[risk]||0)}<br>`;
+    bd+=`<strong>Estimated annual premium: ${f(annual)}</strong><br>`;
+    bd+=`Monthly: ${f(Math.round(annual/12))}<br>`;
+    bd+=`<span style="color:#86868b;font-size:.8rem">Umbrella policies require minimum underlying auto (250/500) and home ($300K) liability. Adjust base policies if needed.</span>`;
+    document.getElementById('umbBreakdown').innerHTML=bd;
+    document.getElementById('umbResults').style.display='block';
 }
-window["lwNext_"+fid]=lwNext;
-window["lwBack_"+fid]=lwBack;
-window["lwSubmit_"+fid]=lwSubmit;
-})();
-function lwSelOpt(el){
-  var siblings=el.parentElement.querySelectorAll(".lw-opt");
-  siblings.forEach(function(s){s.classList.remove("selected")});
-  el.classList.add("selected");
-}
+calcUmbrella();
 </script>
-<!-- END LEAD WIZARD V2 -->
 
-<div class="header">
-        <div class="container">
-            
-            <p>Calculate umbrella liability insurance coverage needs</p>
-        </div>
-    </div>
-
-    <div class="main container">
-        <!-- Ad Slot 1 -->
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="calc-box">
-            <h2>Calculate Umbrella Insurance Cost</h2>
-            
-        <div class="input-group">
-          <label for="net-worth">Net Worth ($):</label>
-          <input type="number" id="net-worth"  min="0"  value="500000" aria-label="Net Worth">
-        </div>
-
-        <div class="input-group">
-          <label for="income">Annual Income ($):</label>
-          <input type="number" id="income"  min="0"  value="100000" aria-label="Income">
-        </div>
-
-        <div class="input-group">
-          <label for="properties">Properties Owned:</label>
-          <input type="number" id="properties"  min="0" max="10" value="1" aria-label="Properties">
-        </div>
-
-        <div class="input-group">
-          <label for="vehicles">Vehicles Owned:</label>
-          <input type="number" id="vehicles"  min="0" max="10" value="2" aria-label="Vehicles">
-        </div>
-
-        <div class="input-group">
-          <label for="risk-factors">Risk Factors:</label>
-          <select id="risk-factors" aria-label="Risk Factors">
-            <option value="Low (desk job)">Low (desk job)</option>
-<option value="Medium (some travel)">Medium (some travel)</option>
-<option value="High (public-facing, travel)">High (public-facing, travel)</option>
-          </select>
-        </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
-            <div class="result-box" id="result">
-                <h3>Estimated Umbrella Insurance Premium</h3>
-                <div class="price" id="monthly"></div>
-                <div class="detail" id="annual"></div>
-                <div class="detail" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                    💡 This is an estimate. Actual rates vary by insurer, location, and individual factors. Get quotes from multiple providers for best rates.
-                </div>
-            </div>
-        </div>
-
-        <!-- Ad Slot 2 -->
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="info-section">
-            <h3>About Umbrella Insurance</h3>
-            <p>This umbrella insurance calculator helps you estimate your insurance costs. Factors affecting your premium include:</p>
-            <ul>
-                <li>Your age and experience</li>
-                <li>Location and ZIP code</li>
-                <li>Coverage type and limits</li>
-                <li>Deductible amount</li>
-                <li>Claims and driving history</li>
-                <li>Value of insured property</li>
-            </ul>
-            <p><strong>How to save on insurance:</strong></p>
-            <ul>
-                <li>Compare quotes from multiple insurers</li>
-                <li>Bundle policies (auto + home)</li>
-                <li>Increase deductibles to lower premiums</li>
-                <li>Ask about discounts (safe driver, good student, etc.)</li>
-                <li>Maintain good credit and claims history</li>
-            </ul>
-        </div>
-
-        <!-- Ad Slot 3 -->
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="info-section">
-            <h3>More Insurance & Financial Calculators</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://calcleap.com/">HealthCalcs - Health & Wellness</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a> | <a href="https://calcleap.com/">HealthCalcs</a></p>
-        </div>
-    </div>
-
-    <script>
-        function calculate() {
-            // Simple estimation logic - in reality, insurance uses complex actuarial tables
-            let monthly = 0;
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            const netWorth = parseInt(document.getElementById('net-worth').value) || 500000;
-            const properties = parseInt(document.getElementById('properties').value) || 1;
-            
-            const coverage = Math.max(1000000, netWorth * 2);
-            monthly = (coverage / 1000000) * 15;
-            monthly += properties * 5;
-            
-            
-            monthly = Math.max(10, monthly);
-            const annual = monthly * 12;
-            
-            document.getElementById('monthly').textContent = '$' + monthly.toFixed(2) + '/month';
-            document.getElementById('annual').textContent = 'Annual Premium: $' + annual.toFixed(2);
-            document.getElementById('result').style.display = 'block';
-        }
-    </script>
-<script>
-        function calculate() {
-            // Simple estimation logic - in reality, insurance uses complex actuarial tables
-            let monthly = 0;
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            const netWorth = parseInt(document.getElementById('net-worth').value) || 500000;
-            const properties = parseInt(document.getElementById('properties').value) || 1;
-            
-            const coverage = Math.max(1000000, netWorth * 2);
-            monthly = (coverage / 1000000) * 15;
-            monthly += properties * 5;
-            
-            
-            monthly = Math.max(10, monthly);
-            const annual = monthly * 12;
-            
-            document.getElementById('monthly').textContent = '$' + monthly.toFixed(2) + '/month';
-            document.getElementById('annual').textContent = 'Annual Premium: $' + annual.toFixed(2);
-            document.getElementById('result').style.display = 'block';
-        }
-    </script>
-
+<div class="faq-item">
+    <div class="faq-q">What is umbrella insurance?</div>
+    <div class="faq-a">Umbrella insurance provides extra liability coverage beyond your auto and homeowners policy limits. If you're sued for $1M after a car accident but your auto policy only covers $300K, an umbrella policy covers the remaining $700K. It also covers some claims not included in base policies, like defamation, libel, and false arrest.</div>
 </div>
+<div class="faq-item">
+    <div class="faq-q">Who needs umbrella insurance?</div>
+    <div class="faq-a">Anyone whose net worth exceeds their auto + home liability limits should seriously consider umbrella insurance. It's especially important if you have significant assets (home equity, investments, savings), a pool or trampoline, teen drivers, rental properties, a dog, or a high-profile career. Jury awards regularly exceed $1M for serious accidents.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">How much does umbrella insurance cost?</div>
+    <div class="faq-a">Umbrella insurance is remarkably affordable. The first $1M of coverage typically costs $150-$300/year, and each additional $1M costs about $100 more. A $2M umbrella policy might cost $250-$400/year — less than $1/day for millions in protection. It's widely considered the best value in personal insurance.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">What does umbrella insurance cover?</div>
+    <div class="faq-a">Umbrella insurance covers: auto accident liability above your auto policy limits, injury claims on your property above homeowners limits, libel/slander/defamation lawsuits, false arrest or wrongful eviction claims, and legal defense costs. It does NOT cover your own injuries, your own property damage, business activities, or intentional acts.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">How much umbrella coverage do I need?</div>
+    <div class="faq-a">A good rule of thumb: your umbrella coverage should at least equal your total net worth (assets minus debts). Consider future earnings too — a lawsuit judgment can garnish future wages. Most families need $1M-$2M. High-net-worth individuals ($1M+ net worth) should consider $3M-$5M or more. The cost difference between $1M and $2M is only about $100/year.</div>
+</div>
+
 
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides rough estimates for educational purposes only. Actual insurance premiums vary significantly based on your specific circumstances, claims history, coverage options, and insurer. These estimates are not quotes and do not guarantee any rate or coverage. Always obtain official quotes from licensed insurance agents or carriers. CalcLeap is not an insurance company, broker, or agent and does not sell, solicit, or negotiate insurance.</div>
 <footer class="footer" role="contentinfo">

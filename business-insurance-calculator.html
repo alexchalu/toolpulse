@@ -348,295 +348,142 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   <h1 class="page-title">Business Insurance Calculator</h1>
   <p class="page-desc">Estimate business liability, property, and general liability insurance costs.. Free business insurance calculator with instant estimates.</p>
 
-
-
-<!-- LEAD WIZARD V2 -->
-<div class="lw" id="lw_businessinsurancecalculator">
-  <div class="lw-header">
-    <h3>Compare Business Insurance Rates</h3>
-    <p>See how much you could save — free quotes in 60 seconds</p>
-    <div class="lw-social">
-      <span>⭐ 4.8/5 rating</span>
-      <span>👥 2M+ quotes compared</span>
-      <span>🔒 Secure & private</span>
-    </div>
-    <div class="lw-progress">
-      <div class="lw-progress-step active" id="lwP1_businessinsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP2_businessinsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP3_businessinsurancecalculator"></div>
-    </div>
-  </div>
-  <div class="lw-body">
-    <!-- STEP 1: ZIP -->
-    <div class="lw-step active" id="lwS1_businessinsurancecalculator">
-      <div class="lw-step-label">Step 1 of 3</div>
-      <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_businessinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
-      <button class="lw-btn" onclick="lwNext_businessinsurancecalculator(1)" id="lwBtn1_businessinsurancecalculator" disabled>
-        Compare Rates <span style="font-size:1.1em">→</span>
-      </button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>Your information is encrypted and secure. We never sell your personal data.</span>
-      </div>
-    </div>
-    <!-- STEP 2: Details -->
-    <div class="lw-step" id="lwS2_businessinsurancecalculator">
-      
-            <div class="lw-step-label">Step 2 of 3</div>
-            <div class="lw-step-title">What coverage level are you looking for?</div>
-            <div class="lw-options" id="lwCoverage_businessinsurancecalculator">
-                <div class="lw-opt" data-v="basic" onclick="lwSelOpt(this)">Basic</div>
-                <div class="lw-opt selected" data-v="standard" onclick="lwSelOpt(this)">Standard</div>
-                <div class="lw-opt" data-v="premium" onclick="lwSelOpt(this)">Premium</div>
-                <div class="lw-opt" data-v="notsure" onclick="lwSelOpt(this)">Not Sure</div>
-            </div>
-            <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label for="lwInsured_businessinsurancecalculator">Currently insured?</label>
-                    <select id="lwInsured_businessinsurancecalculator" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option></select>
-                </div>
-                <div class="lw-field"><label for="lwAge_businessinsurancecalculator">Age range</label>
-                    <select id="lwAge_businessinsurancecalculator" aria-label="Age"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
-                </div>
-            </div>
-      <button class="lw-btn" onclick="lwNext_businessinsurancecalculator(2)">
-        Almost Done — Continue <span style="font-size:1.1em">→</span>
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_businessinsurancecalculator(2)">← Back</button>
-    </div>
-    <!-- STEP 3: Contact -->
-    <div class="lw-step" id="lwS3_businessinsurancecalculator">
-      <div class="lw-step-label">Step 3 of 3 — Final step</div>
-      <div class="lw-step-title">Where should we send your quotes?</div>
-      <div class="lw-grid">
-        <div class="lw-field"><label for="lwFname_businessinsurancecalculator">First name</label><input type="text" id="lwFname_businessinsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
-        <div class="lw-field"><label for="lwLname_businessinsurancecalculator">Last name</label><input type="text" id="lwLname_businessinsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
-        <div class="lw-field"><label for="lwEmail_businessinsurancecalculator">Email</label><input type="email" id="lwEmail_businessinsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
-        <div class="lw-field"><label for="lwPhone_businessinsurancecalculator">Phone</label><input type="tel" id="lwPhone_businessinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
-      </div>
-      <button class="lw-btn" onclick="lwSubmit_businessinsurancecalculator()" style="background:#16a34a">
-        🎯 Get My Free Quotes
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_businessinsurancecalculator(3)">← Back</button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>By submitting this form, you provide express written consent to be contacted by licensed insurance agents at the phone number and email provided, including via automated calls/texts. This is not a condition of purchase. You may revoke consent anytime. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="terms.html" style="color:inherit;text-decoration:underline">Terms</a></span>
-      </div>
-    </div>
-    <!-- SUCCESS -->
-    <div class="lw-step" id="lwS4_businessinsurancecalculator">
-      <div class="lw-success">
-        <div class="lw-check">✓</div>
-        <h4>Quotes Are On Their Way!</h4>
-        <div class="lw-savings">
-          <div class="lw-savings-amt">$480+</div>
-          <div class="lw-savings-lbl">Average annual savings when comparing quotes</div>
+<div class="card" style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Estimate Your Business Insurance Costs</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem">
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Business Type</label>
+            <select id="bizType" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="consulting" selected>Consulting / Professional Services</option>
+                <option value="retail">Retail Store</option>
+                <option value="restaurant">Restaurant / Food Service</option>
+                <option value="construction">Construction / Trades</option>
+                <option value="tech">Technology / Software</option>
+                <option value="healthcare">Healthcare / Medical</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="realestate">Real Estate</option>
+            </select>
         </div>
-        <p>We are opening a comparison tool where you can see real quotes from top carriers. A licensed agent may also follow up with personalized rates.</p>
-        <div class="lw-carriers" style="margin-top:1.25rem">
-          <span class="lw-carrier">State Farm</span><span class="lw-carrier">Allstate</span><span class="lw-carrier">Progressive</span><span class="lw-carrier">Geico</span><span class="lw-carrier">Liberty Mutual</span><span class="lw-carrier">Nationwide</span>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Annual Revenue ($)</label>
+            <input type="number" id="bizRevenue" value="500000" min="0" step="10000" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
         </div>
-      </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Number of Employees</label>
+            <input type="number" id="bizEmployees" value="5" min="0" max="10000" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+        </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Industry Risk Level</label>
+            <select id="bizRisk" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="low" selected>Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="veryhigh">Very High</option>
+            </select>
+        </div>
     </div>
-  </div>
+    <button onclick="calcBiz()" style="display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;background:#0071e3;color:#fff;border:none;border-radius:12px;cursor:pointer;width:100%">Calculate Business Insurance</button>
+    
+    <div id="bizResults" style="display:none;margin-top:1.5rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem">
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">General Liability (Annual)</div>
+                <div id="bizGL" style="font-size:1.5rem;font-weight:800;color:#0071e3;letter-spacing:-.03em"></div>
+            </div>
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">Workers' Comp (Annual)</div>
+                <div id="bizWC" style="font-size:1.5rem;font-weight:700;color:#f59e0b;letter-spacing:-.02em"></div>
+            </div>
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">BOP Bundle (Annual)</div>
+                <div id="bizBOP" style="font-size:1.5rem;font-weight:700;color:#22c55e;letter-spacing:-.02em"></div>
+            </div>
+        </div>
+        <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;margin-top:.75rem">
+            <h4 style="font-size:.85rem;margin-bottom:.75rem">Coverage Breakdown</h4>
+            <div id="bizBreakdown" style="font-size:.9rem;color:#424245;line-height:1.8"></div>
+        </div>
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:1.25rem;margin-top:1rem">
+            <p style="font-size:.9rem;color:#166534;margin:0"><strong>💡 Tip:</strong> A BOP (Business Owner's Policy) bundles general liability + commercial property at 15–30% less than buying them separately. Most small businesses save significantly with a BOP.</p>
+        </div>
+    </div>
 </div>
+
 <script>
-(function(){
-var fid="businessinsurancecalculator",itype="Business Insurance";
-var zip=document.getElementById("lwZip_"+fid);
-zip.addEventListener("input",function(){
-  this.value=this.value.replace(/\D/g,"");
-  document.getElementById("lwBtn1_"+fid).disabled=this.value.length<5;
-});
-zip.addEventListener("keydown",function(e){if(e.key==="Enter"&&this.value.length===5)lwNext(1)});
-function show(n){for(var i=1;i<=4;i++){
-  var s=document.getElementById("lwS"+i+"_"+fid);
-  var p=document.getElementById("lwP"+i+"_"+fid);
-  if(s)s.classList.toggle("active",i===n);
-  if(p){p.classList.toggle("active",i===n);p.classList.toggle("done",i<n)}
-}}
-function lwNext(step){show(step+1)}
-function lwBack(step){show(step-1)}
-function lwSubmit(){
-  var fn=document.getElementById("lwFname_"+fid).value;
-  var ln=document.getElementById("lwLname_"+fid).value;
-  var em=document.getElementById("lwEmail_"+fid).value;
-  var ph=document.getElementById("lwPhone_"+fid).value;
-  var zp=zip.value;
-  if(!fn||!ln||!em||!ph){alert("Please fill in all fields");return}
-  var d={name:fn+" "+ln,email:em,phone:ph,zip:zp,type:itype,page:location.href,ts:new Date().toISOString()};
-  var leads=JSON.parse(localStorage.getItem("calcleap_leads")||"[]");
-  leads.push(d);localStorage.setItem("calcleap_leads",JSON.stringify(leads));
-  fetch("https://formsubmit.co/ajax/contact@calcleap.com",{
-    method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
-    body:JSON.stringify({name:d.name,email:d.email,phone:d.phone,zip:d.zip,_subject:"🔥 "+itype+" Lead — "+zp,insurance_type:itype,source:location.href,timestamp:d.ts})
-  }).catch(function(){});
-  show(4);
-  setTimeout(function(){window.open("https://www.thimble.com/get-a-quote","_blank")},2000);
-  if(typeof gtag!=="undefined")gtag("event","lead_submit",{event_category:"lead_gen",event_label:itype});
+function calcBiz(){
+    const type=document.getElementById('bizType').value;
+    const revenue=parseFloat(document.getElementById('bizRevenue').value)||0;
+    const employees=parseInt(document.getElementById('bizEmployees').value)||0;
+    const risk=document.getElementById('bizRisk').value;
+    
+    // GL rate per $1,000 of revenue by business type
+    const typeRates={consulting:2.50,retail:4.00,restaurant:6.50,construction:10.00,tech:3.00,healthcare:5.50,manufacturing:7.50,realestate:3.50};
+    const typeRate=typeRates[type]||4.00;
+    
+    // Risk multiplier
+    const riskMult={low:0.85,medium:1.0,high:1.35,veryhigh:1.75};
+    const rMult=riskMult[risk]||1.0;
+    
+    // General Liability
+    let gl=(revenue/1000)*typeRate*rMult;
+    gl=Math.max(400,Math.round(gl));
+    
+    // Workers' Comp (assumes $50K avg payroll per employee)
+    const industryRates={consulting:0.35,retail:1.20,restaurant:2.50,construction:5.00,tech:0.40,healthcare:1.80,manufacturing:3.50,realestate:0.50};
+    const wcRate=industryRates[type]||1.0;
+    const estPayroll=employees*50000;
+    let wc=Math.round((estPayroll/100)*wcRate);
+    if(employees===0) wc=0;
+    
+    // Commercial property estimate (rough)
+    const propertyEst=Math.round(revenue*0.02);
+    
+    // BOP = (GL + property) * 0.85 discount
+    const bop=Math.round((gl+propertyEst)*0.85);
+    
+    const f=v=>'$'+v.toLocaleString('en-US');
+    
+    document.getElementById('bizGL').textContent=f(gl)+'/yr';
+    document.getElementById('bizWC').textContent=employees>0?f(wc)+'/yr':'N/A (no employees)';
+    document.getElementById('bizBOP').textContent=f(bop)+'/yr';
+    
+    let bd='';
+    bd+='General Liability: '+f(gl)+'<br>';
+    bd+='Commercial Property (est.): '+f(propertyEst)+'<br>';
+    bd+='Workers\' Comp: '+(employees>0?f(wc):'N/A')+'<br>';
+    bd+='BOP Bundle (GL + Property × 0.85): '+f(bop)+'<br>';
+    bd+='<br><strong>Recommended: BOP + Workers\' Comp = '+f(bop+(employees>0?wc:0))+'</strong>';
+    bd+='<br><span style="color:#86868b;font-size:.8rem">'+type+' business, '+f(revenue)+' revenue, '+employees+' employees, '+risk+' risk</span>';
+    
+    document.getElementById('bizBreakdown').innerHTML=bd;
+    document.getElementById('bizResults').style.display='block';
 }
-window["lwNext_"+fid]=lwNext;
-window["lwBack_"+fid]=lwBack;
-window["lwSubmit_"+fid]=lwSubmit;
-})();
-function lwSelOpt(el){
-  var siblings=el.parentElement.querySelectorAll(".lw-opt");
-  siblings.forEach(function(s){s.classList.remove("selected")});
-  el.classList.add("selected");
-}
+calcBiz();
 </script>
-<!-- END LEAD WIZARD V2 -->
 
-<div class="header">
-        <div class="container">
-            
-            <p>Estimate business liability, property, and general liability insurance costs.</p>
-        </div>
-    </div>
-
-    <div class="main container">
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="calc-box">
-            <h2>Business Insurance Estimator</h2>
-            
-        <div class="input-group">
-          <label for="business-type">Business Type:</label>
-          <select id="business-type" aria-label="Business Type">
-            <option value="Retail">Retail</option>
-<option value="Restaurant">Restaurant</option>
-<option value="Office/Professional">Office/Professional</option>
-<option value="Manufacturing">Manufacturing</option>
-<option value="Construction">Construction</option>
-<option value="Service/Consulting">Service/Consulting</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="revenue">Annual Revenue ($):</label>
-          <input type="number" id="revenue"  min="0"   value="500000" aria-label="Revenue">
-        </div>
-
-        <div class="input-group">
-          <label for="employees">Number of Employees:</label>
-          <input type="number" id="employees"  min="0" max="1000"  value="5" aria-label="Employees">
-        </div>
-
-        <div class="input-group">
-          <label for="property-value">Property/Equipment Value ($):</label>
-          <input type="number" id="property-value"  min="0"   value="100000" aria-label="Property Value">
-        </div>
-
-        <div class="input-group">
-          <label for="coverage-limit">Liability Coverage Limit:</label>
-          <select id="coverage-limit" aria-label="Coverage Limit">
-            <option value="$1 Million">$1 Million</option>
-<option value="$2 Million">$2 Million</option>
-<option value="$5 Million">$5 Million</option>
-<option value="$10 Million">$10 Million</option>
-          </select>
-        </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
-            <div class="result-box" id="result"></div>
-        </div>
-
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="info-section">
-            <h3>About Business Insurance</h3>
-            <p>Use this calculator to estimate your business insurance costs. Actual premiums will vary by insurer.</p>
-            <h3>More Insurance & Financial Tools</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://calcleap.com/">HealthCalcs - Health & Wellness</a></li>
-            </ul>
-        </div>
-
-        <div class="ad-placeholder">
-            
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a></p>
-        </div>
-    </div>
-
-    <script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let monthly = 0;
-            let html = '<h3>Estimated Premium</h3>';
-            
-            
-            
-            
-            const revenue = parseFloat(document.getElementById('revenue').value);
-            const employees = parseInt(document.getElementById('employees').value);
-            const propertyValue = parseFloat(document.getElementById('property-value').value);
-            
-            monthly = 100 + (revenue * 0.002 / 12) + (employees * 50) + (propertyValue * 0.01 / 12);
-            const annual = monthly * 12;
-            
-            html += '<div class="result-value">$' + monthly.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Annual Premium: $' + annual.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Employees: ' + employees + '</div>';
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
-<script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let monthly = 0;
-            let html = '<h3>Estimated Premium</h3>';
-            
-            
-            
-            
-            const revenue = parseFloat(document.getElementById('revenue').value);
-            const employees = parseInt(document.getElementById('employees').value);
-            const propertyValue = parseFloat(document.getElementById('property-value').value);
-            
-            monthly = 100 + (revenue * 0.002 / 12) + (employees * 50) + (propertyValue * 0.01 / 12);
-            const annual = monthly * 12;
-            
-            html += '<div class="result-value">$' + monthly.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Annual Premium: $' + annual.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Employees: ' + employees + '</div>';
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
-
+<div class="faq-item">
+    <div class="faq-q">What types of business insurance do I need?</div>
+    <div class="faq-a">Most businesses need at minimum: General Liability (GL) insurance to cover third-party injuries and property damage, Commercial Property insurance for your business assets, and Workers' Compensation if you have employees. Depending on your industry, you may also need Professional Liability (E&O), Commercial Auto, Cyber Liability, or Product Liability insurance.</div>
 </div>
+<div class="faq-item">
+    <div class="faq-q">What is a Business Owner's Policy (BOP)?</div>
+    <div class="faq-a">A BOP bundles General Liability and Commercial Property insurance into one policy at a discounted rate — typically 15–30% cheaper than buying them separately. It's designed for small to mid-sized businesses and often includes business interruption coverage. Most insurers offer BOPs for businesses with fewer than 100 employees and less than $5M in annual revenue.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">How much does general liability insurance cost?</div>
+    <div class="faq-a">General liability insurance typically costs $400–$2,000 per year for small businesses with $1M/$2M coverage limits. Low-risk businesses like consulting may pay $400–$800, while higher-risk industries like construction or restaurants may pay $2,000–$5,000+. Your rate depends on revenue, industry, claims history, and coverage limits.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">Is workers' compensation insurance required?</div>
+    <div class="faq-a">In most states, workers' compensation is legally required as soon as you have one employee. A few states exempt very small employers (under 3–5 employees), and sole proprietors/partners can sometimes opt out. Even when not required, it's highly recommended — a single workplace injury without coverage could bankrupt a small business. Rates vary widely by industry risk level.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">What is Errors & Omissions (E&O) insurance?</div>
+    <div class="faq-a">Errors & Omissions (E&O), also called Professional Liability insurance, protects your business against claims of negligence, mistakes, or failure to deliver professional services. It's essential for consultants, accountants, architects, IT professionals, real estate agents, and other service-based businesses. Typical costs range from $500–$3,000 per year depending on your profession and revenue.</div>
+</div>
+</div>
+
+
 
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides rough estimates for educational purposes only. Actual insurance premiums vary significantly based on your specific circumstances, claims history, coverage options, and insurer. These estimates are not quotes and do not guarantee any rate or coverage. Always obtain official quotes from licensed insurance agents or carriers. CalcLeap is not an insurance company, broker, or agent and does not sell, solicit, or negotiate insurance.</div>
 <footer class="footer" role="contentinfo">

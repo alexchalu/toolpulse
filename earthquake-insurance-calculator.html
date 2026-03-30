@@ -348,314 +348,164 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   <h1 class="page-title">Earthquake Insurance Calculator</h1>
   <p class="page-desc">Estimate earthquake insurance costs based on location and home value.. Free earthquake insurance calculator with instant estimates.</p>
 
-
-
-<!-- LEAD WIZARD V2 -->
-<div class="lw" id="lw_earthquakeinsurancecalculator">
-  <div class="lw-header">
-    <h3>Compare Earthquake Insurance Rates</h3>
-    <p>See how much you could save — free quotes in 60 seconds</p>
-    <div class="lw-social">
-      <span>⭐ 4.8/5 rating</span>
-      <span>👥 2M+ quotes compared</span>
-      <span>🔒 Secure & private</span>
-    </div>
-    <div class="lw-progress">
-      <div class="lw-progress-step active" id="lwP1_earthquakeinsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP2_earthquakeinsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP3_earthquakeinsurancecalculator"></div>
-    </div>
-  </div>
-  <div class="lw-body">
-    <!-- STEP 1: ZIP -->
-    <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;font-size:.85rem;color:#92400e;line-height:1.6"><strong>Partner Disclosure:</strong> After submitting your information, we may connect you with our partner PolicyGenius for personalized insurance quotes. Your information will be shared securely.</div><div class="lw-step active" id="lwS1_earthquakeinsurancecalculator">
-      <div class="lw-step-label">Step 1 of 3</div>
-      <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_earthquakeinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
-      <button class="lw-btn" onclick="lwNext_earthquakeinsurancecalculator(1)" id="lwBtn1_earthquakeinsurancecalculator" disabled>
-        Compare Rates <span style="font-size:1.1em">→</span>
-      </button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>Your information is encrypted and secure. We never sell your personal data.</span>
-      </div>
-    </div>
-    <!-- STEP 2: Details -->
-    <div class="lw-step" id="lwS2_earthquakeinsurancecalculator">
-      
-            <div class="lw-step-label">Step 2 of 3</div>
-            <div class="lw-step-title">What coverage level are you looking for?</div>
-            <div class="lw-options" id="lwCoverage_earthquakeinsurancecalculator">
-                <div class="lw-opt" data-v="basic" onclick="lwSelOpt(this)">Basic</div>
-                <div class="lw-opt selected" data-v="standard" onclick="lwSelOpt(this)">Standard</div>
-                <div class="lw-opt" data-v="premium" onclick="lwSelOpt(this)">Premium</div>
-                <div class="lw-opt" data-v="notsure" onclick="lwSelOpt(this)">Not Sure</div>
-            </div>
-            <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label for="lwInsured_earthquakeinsurancecalculator">Currently insured?</label>
-                    <select id="lwInsured_earthquakeinsurancecalculator" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option></select>
-                </div>
-                <div class="lw-field"><label for="lwAge_earthquakeinsurancecalculator">Age range</label>
-                    <select id="lwAge_earthquakeinsurancecalculator" aria-label="Age"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
-                </div>
-            </div>
-      <button class="lw-btn" onclick="lwNext_earthquakeinsurancecalculator(2)">
-        Almost Done — Continue <span style="font-size:1.1em">→</span>
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_earthquakeinsurancecalculator(2)">← Back</button>
-    </div>
-    <!-- STEP 3: Contact -->
-    <div class="lw-step" id="lwS3_earthquakeinsurancecalculator">
-      <div class="lw-step-label">Step 3 of 3 — Final step</div>
-      <div class="lw-step-title">Where should we send your quotes?</div>
-      <div class="lw-grid">
-        <div class="lw-field"><label for="lwFname_earthquakeinsurancecalculator">First name</label><input type="text" id="lwFname_earthquakeinsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
-        <div class="lw-field"><label for="lwLname_earthquakeinsurancecalculator">Last name</label><input type="text" id="lwLname_earthquakeinsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
-        <div class="lw-field"><label for="lwEmail_earthquakeinsurancecalculator">Email</label><input type="email" id="lwEmail_earthquakeinsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
-        <div class="lw-field"><label for="lwPhone_earthquakeinsurancecalculator">Phone</label><input type="tel" id="lwPhone_earthquakeinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
-      </div>
-      <button class="lw-btn" onclick="lwSubmit_earthquakeinsurancecalculator()" style="background:#16a34a">
-        🎯 Get My Free Quotes
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_earthquakeinsurancecalculator(3)">← Back</button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>By submitting this form, you provide express written consent to be contacted by licensed insurance agents at the phone number and email provided, including via automated calls/texts. This is not a condition of purchase. You may revoke consent anytime. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="terms.html" style="color:inherit;text-decoration:underline">Terms</a></span>
-      </div>
-    </div>
-    <!-- SUCCESS -->
-    <div class="lw-step" id="lwS4_earthquakeinsurancecalculator">
-      <div class="lw-success">
-        <div class="lw-check">✓</div>
-        <h4>Quotes Are On Their Way!</h4>
-        <div class="lw-savings">
-          <div class="lw-savings-amt">$480+</div>
-          <div class="lw-savings-lbl">Average annual savings when comparing quotes</div>
+<div class="card" style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Estimate Your Earthquake Insurance Premium</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem">
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Home Value ($)</label>
+            <input type="number" id="eqHomeValue" value="400000" min="50000" step="10000" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
         </div>
-        <p>We are opening a comparison tool where you can see real quotes from top carriers. A licensed agent may also follow up with personalized rates.</p>
-        <div class="lw-carriers" style="margin-top:1.25rem">
-          <span class="lw-carrier">State Farm</span><span class="lw-carrier">Allstate</span><span class="lw-carrier">Progressive</span><span class="lw-carrier">Geico</span><span class="lw-carrier">Liberty Mutual</span><span class="lw-carrier">Nationwide</span>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Seismic Zone</label>
+            <select id="eqZone" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="high" selected>High Risk (CA, AK, WA, OR)</option>
+                <option value="moderate">Moderate Risk (UT, NV, MO, SC)</option>
+                <option value="low">Low Risk (Most other states)</option>
+            </select>
         </div>
-      </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Foundation Type</label>
+            <select id="eqFoundation" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="slab">Slab on Grade</option>
+                <option value="bolted" selected>Bolted to Foundation</option>
+                <option value="cripple">Cripple Wall (Unretrofitted)</option>
+                <option value="raised">Raised / Pier & Post</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Number of Stories</label>
+            <select id="eqStories" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="1" selected>1 Story</option>
+                <option value="2">2 Stories</option>
+                <option value="3">3+ Stories</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Year Built</label>
+            <input type="number" id="eqYear" value="1985" min="1900" max="2026" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+        </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Deductible (%)</label>
+            <select id="eqDeductible" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="5">5%</option>
+                <option value="10">10%</option>
+                <option value="15" selected>15%</option>
+                <option value="20">20%</option>
+                <option value="25">25%</option>
+            </select>
+        </div>
     </div>
-  </div>
+    <button onclick="calcEQ()" style="display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;background:#0071e3;color:#fff;border:none;border-radius:12px;cursor:pointer;width:100%">Calculate Earthquake Insurance</button>
+    
+    <div id="eqResults" style="display:none;margin-top:1.5rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem">
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">Estimated Annual Premium</div>
+                <div id="eqAnnual" style="font-size:2rem;font-weight:800;color:#0071e3;letter-spacing:-.03em"></div>
+            </div>
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">Your Deductible</div>
+                <div id="eqDedAmount" style="font-size:1.5rem;font-weight:700;color:#ef4444;letter-spacing:-.02em"></div>
+            </div>
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">Monthly Cost</div>
+                <div id="eqMonthly" style="font-size:1.5rem;font-weight:700;color:#22c55e;letter-spacing:-.02em"></div>
+            </div>
+        </div>
+        <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;margin-top:.75rem">
+            <h4 style="font-size:.85rem;margin-bottom:.75rem">Coverage Breakdown</h4>
+            <div id="eqBreakdown" style="font-size:.9rem;color:#424245;line-height:1.8"></div>
+        </div>
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:1.25rem;margin-top:1rem">
+            <p style="font-size:.9rem;color:#166534;margin:0"><strong>💡 Tip:</strong> Earthquake deductibles are percentage-based (typically 10–20% of coverage), meaning a $400K home with a 15% deductible = $60,000 out of pocket before insurance pays. Choose your deductible carefully.</p>
+        </div>
+    </div>
 </div>
+
 <script>
-(function(){
-var fid="earthquakeinsurancecalculator",itype="Earthquake Insurance";
-var zip=document.getElementById("lwZip_"+fid);
-zip.addEventListener("input",function(){
-  this.value=this.value.replace(/\D/g,"");
-  document.getElementById("lwBtn1_"+fid).disabled=this.value.length<5;
-});
-zip.addEventListener("keydown",function(e){if(e.key==="Enter"&&this.value.length===5)lwNext(1)});
-function show(n){for(var i=1;i<=4;i++){
-  var s=document.getElementById("lwS"+i+"_"+fid);
-  var p=document.getElementById("lwP"+i+"_"+fid);
-  if(s)s.classList.toggle("active",i===n);
-  if(p){p.classList.toggle("active",i===n);p.classList.toggle("done",i<n)}
-}}
-function lwNext(step){show(step+1)}
-function lwBack(step){show(step-1)}
-function lwSubmit(){
-  var fn=document.getElementById("lwFname_"+fid).value;
-  var ln=document.getElementById("lwLname_"+fid).value;
-  var em=document.getElementById("lwEmail_"+fid).value;
-  var ph=document.getElementById("lwPhone_"+fid).value;
-  var zp=zip.value;
-  if(!fn||!ln||!em||!ph){alert("Please fill in all fields");return}
-  var d={name:fn+" "+ln,email:em,phone:ph,zip:zp,type:itype,page:location.href,ts:new Date().toISOString()};
-  var leads=JSON.parse(localStorage.getItem("calcleap_leads")||"[]");
-  leads.push(d);localStorage.setItem("calcleap_leads",JSON.stringify(leads));
-  fetch("https://formsubmit.co/ajax/contact@calcleap.com",{
-    method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
-    body:JSON.stringify({name:d.name,email:d.email,phone:d.phone,zip:d.zip,_subject:"🔥 "+itype+" Lead — "+zp,insurance_type:itype,source:location.href,timestamp:d.ts})
-  }).catch(function(){});
-  show(4);
-  /* Show partner link - no auto-redirect */ var pgd=document.getElementById("pg-disclosure"); if(pgd) pgd.style.display="block";
-  if(typeof gtag!=="undefined")gtag("event","lead_submit",{event_category:"lead_gen",event_label:itype});
+function calcEQ(){
+    const homeValue=parseFloat(document.getElementById('eqHomeValue').value)||0;
+    const zone=document.getElementById('eqZone').value;
+    const foundation=document.getElementById('eqFoundation').value;
+    const stories=parseInt(document.getElementById('eqStories').value)||1;
+    const year=parseInt(document.getElementById('eqYear').value)||1985;
+    const dedPct=parseInt(document.getElementById('eqDeductible').value)||15;
+    
+    // Rate per $1,000 of coverage by seismic zone
+    const zoneRates={high:3.50,moderate:1.50,low:0.60};
+    let ratePerK=zoneRates[zone]||1.50;
+    
+    // Foundation multiplier
+    const foundMults={slab:0.90,bolted:0.85,cripple:1.35,raised:1.20};
+    ratePerK*=(foundMults[foundation]||1.0);
+    
+    // Stories multiplier
+    if(stories>=3) ratePerK*=1.20;
+    else if(stories===2) ratePerK*=1.10;
+    
+    // Age factor
+    const age=2026-year;
+    if(age>50) ratePerK*=1.40;
+    else if(age>30) ratePerK*=1.20;
+    else if(age>15) ratePerK*=1.05;
+    else ratePerK*=0.90;
+    
+    // Deductible discount
+    const dedMults={5:1.40,10:1.15,15:1.0,20:0.85,25:0.70};
+    ratePerK*=(dedMults[dedPct]||1.0);
+    
+    const annual=Math.max(200,Math.round((homeValue/1000)*ratePerK));
+    const monthly=Math.round(annual/12);
+    const dedAmount=Math.round(homeValue*(dedPct/100));
+    
+    const f=v=>'$'+v.toLocaleString('en-US');
+    
+    document.getElementById('eqAnnual').textContent=f(annual)+'/yr';
+    document.getElementById('eqDedAmount').textContent=f(dedAmount);
+    document.getElementById('eqMonthly').textContent=f(monthly)+'/mo';
+    
+    // Breakdown
+    const dwelling=Math.round(annual*0.60);
+    const personal=Math.round(annual*0.25);
+    const lossOfUse=annual-dwelling-personal;
+    
+    let bd='';
+    bd+='Dwelling coverage (60%): '+f(dwelling)+'<br>';
+    bd+='Personal property (25%): '+f(personal)+'<br>';
+    bd+='Loss of use (15%): '+f(lossOfUse)+'<br>';
+    bd+='<br>Your deductible ('+dedPct+'%): <strong style="color:#ef4444">'+f(dedAmount)+'</strong>';
+    bd+='<br><br><strong>Total annual premium: '+f(annual)+'</strong>';
+    bd+='<br><span style="color:#86868b;font-size:.8rem">'+f(homeValue)+' home, '+zone+' risk zone, '+foundation+' foundation, '+stories+' story, built '+year+'</span>';
+    
+    document.getElementById('eqBreakdown').innerHTML=bd;
+    document.getElementById('eqResults').style.display='block';
 }
-window["lwNext_"+fid]=lwNext;
-window["lwBack_"+fid]=lwBack;
-window["lwSubmit_"+fid]=lwSubmit;
-})();
-function lwSelOpt(el){
-  var siblings=el.parentElement.querySelectorAll(".lw-opt");
-  siblings.forEach(function(s){s.classList.remove("selected")});
-  el.classList.add("selected");
-}
+calcEQ();
 </script>
-<!-- END LEAD WIZARD V2 -->
 
-<div class="header">
-        <div class="container">
-            
-            <p>Estimate earthquake insurance costs based on location and home value.</p>
-        </div>
-    </div>
-
-    <div class="main container">
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="calc-box">
-            <h2>Earthquake Insurance Estimator</h2>
-            
-        <div class="input-group">
-          <label for="home-value">Home Value ($):</label>
-          <input type="number" id="home-value"  min="0"   value="400000" aria-label="Home Value">
-        </div>
-
-        <div class="input-group">
-          <label for="location">Location Risk:</label>
-          <select id="location" aria-label="Location">
-            <option value="Low Risk">Low Risk</option>
-<option value="Moderate Risk">Moderate Risk</option>
-<option value="High Risk (CA, AK, WA)">High Risk (CA, AK, WA)</option>
-<option value="Very High Risk">Very High Risk</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="construction">Construction Type:</label>
-          <select id="construction" aria-label="Construction">
-            <option value="Wood Frame">Wood Frame</option>
-<option value="Steel Frame">Steel Frame</option>
-<option value="Concrete">Concrete</option>
-<option value="Brick/Masonry">Brick/Masonry</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="deductible">Deductible %:</label>
-          <select id="deductible" aria-label="Deductible">
-            <option value="5%">5%</option>
-<option value="10%">10%</option>
-<option value="15%">15%</option>
-<option value="20%">20%</option>
-<option value="25%">25%</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="retrofit">Seismic Retrofit?:</label>
-          <select id="retrofit" aria-label="Retrofit">
-            <option value="Yes">Yes</option>
-<option value="No">No</option>
-          </select>
-        </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
-            <div class="result-box" id="result"></div>
-        </div>
-
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="info-section">
-            <h3>About Earthquake Insurance</h3>
-            <p>Use this calculator to estimate your earthquake insurance costs. Actual premiums will vary by insurer.</p>
-            <h3>More Insurance & Financial Tools</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://calcleap.com/">HealthCalcs - Health & Wellness</a></li>
-            </ul>
-        </div>
-
-        <div class="ad-placeholder">
-            
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a></p>
-        </div>
-    </div>
-
-    <script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let monthly = 0;
-            let html = '<h3>Estimated Premium</h3>';
-            
-            
-            
-            
-            
-            
-            
-            
-            const homeValue = parseFloat(document.getElementById('home-value').value);
-            const location = document.getElementById('location').value;
-            const deductible = document.getElementById('deductible').value;
-            
-            let rate = 0.002;
-            if (location.includes('Very High')) rate = 0.015;
-            else if (location.includes('High Risk')) rate = 0.010;
-            else if (location.includes('Moderate')) rate = 0.005;
-            
-            const annual = homeValue * rate;
-            monthly = annual / 12;
-            const deductibleAmount = homeValue * (parseInt(deductible) / 100);
-            
-            html += '<div class="result-value">$' + annual.toFixed(2) + '/year</div>';
-            html += '<div class="result-detail">Monthly: $' + monthly.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Deductible Amount: $' + deductibleAmount.toLocaleString() + '</div>';
-            
-            
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
-<script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let monthly = 0;
-            let html = '<h3>Estimated Premium</h3>';
-            
-            
-            
-            
-            
-            
-            
-            
-            const homeValue = parseFloat(document.getElementById('home-value').value);
-            const location = document.getElementById('location').value;
-            const deductible = document.getElementById('deductible').value;
-            
-            let rate = 0.002;
-            if (location.includes('Very High')) rate = 0.015;
-            else if (location.includes('High Risk')) rate = 0.010;
-            else if (location.includes('Moderate')) rate = 0.005;
-            
-            const annual = homeValue * rate;
-            monthly = annual / 12;
-            const deductibleAmount = homeValue * (parseInt(deductible) / 100);
-            
-            html += '<div class="result-value">$' + annual.toFixed(2) + '/year</div>';
-            html += '<div class="result-detail">Monthly: $' + monthly.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Deductible Amount: $' + deductibleAmount.toLocaleString() + '</div>';
-            
-            
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
-
+<div class="faq-item">
+    <div class="faq-q">Does homeowners insurance cover earthquake damage?</div>
+    <div class="faq-a">No. Standard homeowners insurance policies explicitly exclude earthquake damage. You need a separate earthquake insurance policy or an endorsement to your existing policy. This is true nationwide — even in low-risk areas. In California, the CEA (California Earthquake Authority) is the primary provider, while private insurers offer coverage in other states.</div>
 </div>
+<div class="faq-item">
+    <div class="faq-q">Why are earthquake insurance deductibles so high?</div>
+    <div class="faq-a">Earthquake deductibles are percentage-based (typically 10–25% of coverage amount) rather than flat dollar amounts. This is because earthquake damage tends to be catastrophic and widespread, making flat deductibles impractical for insurers. A 15% deductible on a $400,000 home means you pay the first $60,000 out of pocket. Higher deductibles significantly reduce your premium.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">Is earthquake insurance worth it?</div>
+    <div class="faq-a">It depends on your risk level and financial situation. If you live in a high seismic zone (California, Pacific Northwest, Alaska), have a mortgage, or couldn't afford to rebuild, earthquake insurance is generally worth it. Even with high deductibles, it protects against total loss. In low-risk areas, the cost-benefit may not justify the premium unless you have a high-value home.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">What does earthquake insurance actually cover?</div>
+    <div class="faq-a">Earthquake insurance typically covers three things: dwelling coverage (structural repairs to your home), personal property (furniture, electronics, clothing), and additional living expenses / loss of use (hotel and food costs if your home is uninhabitable). It does not usually cover external structures like fences and pools, vehicles, or land damage. Some policies offer optional coverage for masonry veneer and breakable items.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">How does my foundation type affect earthquake insurance?</div>
+    <div class="faq-a">Foundation type significantly impacts both your risk and premium. Homes bolted to their foundation or on concrete slabs perform best in earthquakes (lower premiums). Homes with cripple wall foundations (short wood-framed walls between the foundation and first floor) are most vulnerable and cost much more to insure. Retrofitting a cripple wall can reduce premiums by 5–20% and is often required by the CEA in California.</div>
+</div>
+</div>
+
+
 
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides rough estimates for educational purposes only. Actual insurance premiums vary significantly based on your specific circumstances, claims history, coverage options, and insurer. These estimates are not quotes and do not guarantee any rate or coverage. Always obtain official quotes from licensed insurance agents or carriers. CalcLeap is not an insurance company, broker, or agent and does not sell, solicit, or negotiate insurance.</div>
 <footer class="footer" role="contentinfo">

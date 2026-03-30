@@ -348,322 +348,136 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   <h1 class="page-title">Travel Insurance Calculator</h1>
   <p class="page-desc">Calculate travel insurance costs for trips, cruises, and international travel.. Free travel insurance calculator with instant estimates.</p>
 
-
-
-<!-- LEAD WIZARD V2 -->
-<div class="lw" id="lw_travelinsurancecalculator">
-  <div class="lw-header">
-    <h3>Compare Travel Insurance Rates</h3>
-    <p>See how much you could save — free quotes in 60 seconds</p>
-    <div class="lw-social">
-      <span>⭐ 4.8/5 rating</span>
-      <span>👥 2M+ quotes compared</span>
-      <span>🔒 Secure & private</span>
-    </div>
-    <div class="lw-progress">
-      <div class="lw-progress-step active" id="lwP1_travelinsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP2_travelinsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP3_travelinsurancecalculator"></div>
-    </div>
-  </div>
-  <div class="lw-body">
-    <!-- STEP 1: ZIP -->
-    <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;font-size:.85rem;color:#92400e;line-height:1.6"><strong>Partner Disclosure:</strong> After submitting your information, we may connect you with our partner PolicyGenius for personalized insurance quotes. Your information will be shared securely.</div><div class="lw-step active" id="lwS1_travelinsurancecalculator">
-      <div class="lw-step-label">Step 1 of 3</div>
-      <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_travelinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
-      <button class="lw-btn" onclick="lwNext_travelinsurancecalculator(1)" id="lwBtn1_travelinsurancecalculator" disabled>
-        Compare Rates <span style="font-size:1.1em">→</span>
-      </button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>Your information is encrypted and secure. We never sell your personal data.</span>
-      </div>
-    </div>
-    <!-- STEP 2: Details -->
-    <div class="lw-step" id="lwS2_travelinsurancecalculator">
-      
-            <div class="lw-step-label">Step 2 of 3</div>
-            <div class="lw-step-title">What coverage level are you looking for?</div>
-            <div class="lw-options" id="lwCoverage_travelinsurancecalculator">
-                <div class="lw-opt" data-v="basic" onclick="lwSelOpt(this)">Basic</div>
-                <div class="lw-opt selected" data-v="standard" onclick="lwSelOpt(this)">Standard</div>
-                <div class="lw-opt" data-v="premium" onclick="lwSelOpt(this)">Premium</div>
-                <div class="lw-opt" data-v="notsure" onclick="lwSelOpt(this)">Not Sure</div>
-            </div>
-            <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label for="lwInsured_travelinsurancecalculator">Currently insured?</label>
-                    <select id="lwInsured_travelinsurancecalculator" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option></select>
-                </div>
-                <div class="lw-field"><label for="lwAge_travelinsurancecalculator">Age range</label>
-                    <select id="lwAge_travelinsurancecalculator" aria-label="Age"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
-                </div>
-            </div>
-      <button class="lw-btn" onclick="lwNext_travelinsurancecalculator(2)">
-        Almost Done — Continue <span style="font-size:1.1em">→</span>
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_travelinsurancecalculator(2)">← Back</button>
-    </div>
-    <!-- STEP 3: Contact -->
-    <div class="lw-step" id="lwS3_travelinsurancecalculator">
-      <div class="lw-step-label">Step 3 of 3 — Final step</div>
-      <div class="lw-step-title">Where should we send your quotes?</div>
-      <div class="lw-grid">
-        <div class="lw-field"><label for="lwFname_travelinsurancecalculator">First name</label><input type="text" id="lwFname_travelinsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
-        <div class="lw-field"><label for="lwLname_travelinsurancecalculator">Last name</label><input type="text" id="lwLname_travelinsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
-        <div class="lw-field"><label for="lwEmail_travelinsurancecalculator">Email</label><input type="email" id="lwEmail_travelinsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
-        <div class="lw-field"><label for="lwPhone_travelinsurancecalculator">Phone</label><input type="tel" id="lwPhone_travelinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
-      </div>
-      <button class="lw-btn" onclick="lwSubmit_travelinsurancecalculator()" style="background:#16a34a">
-        🎯 Get My Free Quotes
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_travelinsurancecalculator(3)">← Back</button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>By submitting this form, you provide express written consent to be contacted by licensed insurance agents at the phone number and email provided, including via automated calls/texts. This is not a condition of purchase. You may revoke consent anytime. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="terms.html" style="color:inherit;text-decoration:underline">Terms</a></span>
-      </div>
-    </div>
-    <!-- SUCCESS -->
-    <div class="lw-step" id="lwS4_travelinsurancecalculator">
-      <div class="lw-success">
-        <div class="lw-check">✓</div>
-        <h4>Quotes Are On Their Way!</h4>
-        <div class="lw-savings">
-          <div class="lw-savings-amt">$480+</div>
-          <div class="lw-savings-lbl">Average annual savings when comparing quotes</div>
+<div class="card" style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
+    <h2 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Estimate Your Travel Insurance Premium</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem">
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Total Trip Cost ($)</label>
+            <input type="number" id="tripCost" value="5000" min="100" step="500" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
         </div>
-        <p>We are opening a comparison tool where you can see real quotes from top carriers. A licensed agent may also follow up with personalized rates.</p>
-        <div class="lw-carriers" style="margin-top:1.25rem">
-          <span class="lw-carrier">State Farm</span><span class="lw-carrier">Allstate</span><span class="lw-carrier">Progressive</span><span class="lw-carrier">Geico</span><span class="lw-carrier">Liberty Mutual</span><span class="lw-carrier">Nationwide</span>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Trip Duration (Days)</label>
+            <input type="number" id="tripDays" value="10" min="1" max="365" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
         </div>
-      </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Traveler Age</label>
+            <input type="number" id="tripAge" value="40" min="1" max="90" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+        </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Destination</label>
+            <select id="tripDest" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="domestic">Domestic (US)</option>
+                <option value="international" selected>International</option>
+                <option value="highrisk">High-Risk / Remote Region</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Number of Travelers</label>
+            <input type="number" id="tripTravelers" value="2" min="1" max="10" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+        </div>
+        <div class="input-group">
+            <label style="font-size:.78rem;font-weight:600;color:#424245;text-transform:uppercase;display:block;margin-bottom:.3rem">Coverage Level</label>
+            <select id="tripLevel" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;width:100%;outline:none">
+                <option value="basic">Basic (Medical + Cancellation)</option>
+                <option value="comprehensive" selected>Comprehensive</option>
+                <option value="cfar">Cancel for Any Reason (CFAR)</option>
+            </select>
+        </div>
     </div>
-  </div>
+    <button onclick="calcTravel()" style="display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;background:#0071e3;color:#fff;border:none;border-radius:12px;cursor:pointer;width:100%">Calculate Travel Insurance</button>
+    
+    <div id="travelResults" style="display:none;margin-top:1.5rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem">
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">Total Premium</div>
+                <div id="travelTotal" style="font-size:2rem;font-weight:800;color:#0071e3;letter-spacing:-.03em"></div>
+            </div>
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">Per Person</div>
+                <div id="travelPerPerson" style="font-size:1.5rem;font-weight:700;color:#22c55e;letter-spacing:-.02em"></div>
+            </div>
+            <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1.25rem;text-align:center">
+                <div style="font-size:.75rem;color:#86868b;text-transform:uppercase;margin-bottom:.35rem">% of Trip Cost</div>
+                <div id="travelPct" style="font-size:1.5rem;font-weight:700;letter-spacing:-.02em"></div>
+            </div>
+        </div>
+        <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;margin-top:.75rem">
+            <h4 style="font-size:.85rem;margin-bottom:.75rem">Coverage Breakdown</h4>
+            <div id="travelBreakdown" style="font-size:.9rem;color:#424245;line-height:1.8"></div>
+        </div>
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:1.25rem;margin-top:1rem">
+            <p style="font-size:.9rem;color:#166534;margin:0"><strong>&#128161; Tip:</strong> Buy travel insurance within 14 days of your initial trip deposit to qualify for pre-existing condition coverage waivers. Cancel for Any Reason (CFAR) costs 40-60% more but reimburses 75% of trip cost for any cancellation reason.</p>
+        </div>
+    </div>
 </div>
+
 <script>
-(function(){
-var fid="travelinsurancecalculator",itype="Travel Insurance";
-var zip=document.getElementById("lwZip_"+fid);
-zip.addEventListener("input",function(){
-  this.value=this.value.replace(/\D/g,"");
-  document.getElementById("lwBtn1_"+fid).disabled=this.value.length<5;
-});
-zip.addEventListener("keydown",function(e){if(e.key==="Enter"&&this.value.length===5)lwNext(1)});
-function show(n){for(var i=1;i<=4;i++){
-  var s=document.getElementById("lwS"+i+"_"+fid);
-  var p=document.getElementById("lwP"+i+"_"+fid);
-  if(s)s.classList.toggle("active",i===n);
-  if(p){p.classList.toggle("active",i===n);p.classList.toggle("done",i<n)}
-}}
-function lwNext(step){show(step+1)}
-function lwBack(step){show(step-1)}
-function lwSubmit(){
-  var fn=document.getElementById("lwFname_"+fid).value;
-  var ln=document.getElementById("lwLname_"+fid).value;
-  var em=document.getElementById("lwEmail_"+fid).value;
-  var ph=document.getElementById("lwPhone_"+fid).value;
-  var zp=zip.value;
-  if(!fn||!ln||!em||!ph){alert("Please fill in all fields");return}
-  var d={name:fn+" "+ln,email:em,phone:ph,zip:zp,type:itype,page:location.href,ts:new Date().toISOString()};
-  var leads=JSON.parse(localStorage.getItem("calcleap_leads")||"[]");
-  leads.push(d);localStorage.setItem("calcleap_leads",JSON.stringify(leads));
-  fetch("https://formsubmit.co/ajax/contact@calcleap.com",{
-    method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
-    body:JSON.stringify({name:d.name,email:d.email,phone:d.phone,zip:d.zip,_subject:"🔥 "+itype+" Lead — "+zp,insurance_type:itype,source:location.href,timestamp:d.ts})
-  }).catch(function(){});
-  show(4);
-  /* Show partner link - no auto-redirect */ var pgd=document.getElementById("pg-disclosure"); if(pgd) pgd.style.display="block";
-  if(typeof gtag!=="undefined")gtag("event","lead_submit",{event_category:"lead_gen",event_label:itype});
+function calcTravel(){
+    const cost=parseFloat(document.getElementById('tripCost').value)||5000;
+    const days=parseInt(document.getElementById('tripDays').value)||10;
+    const age=parseInt(document.getElementById('tripAge').value)||40;
+    const dest=document.getElementById('tripDest').value;
+    const travelers=parseInt(document.getElementById('tripTravelers').value)||2;
+    const level=document.getElementById('tripLevel').value;
+    
+    // Base rate: 4-8% of trip cost per person
+    let rateBase={basic:0.04,comprehensive:0.06,cfar:0.09}[level]||0.06;
+    
+    // Age multiplier
+    let ageMult=1.0;
+    if(age<18)ageMult=0.70;else if(age<35)ageMult=0.80;else if(age<=50)ageMult=1.0;else if(age<=65)ageMult=1.30;else if(age<=75)ageMult=1.60;else ageMult=2.10;
+    
+    // Duration factor (longer trips cost more per day)
+    let durMult=1.0;if(days>30)durMult=1.20;else if(days>14)durMult=1.10;
+    
+    // Destination
+    const destMult={domestic:0.80,international:1.0,highrisk:1.50};
+    
+    const perPerson=Math.round(cost*rateBase*ageMult*durMult*(destMult[dest]||1.0));
+    const total=perPerson*travelers;
+    const pctOfTrip=((total/cost)*100).toFixed(1);
+    
+    const f=v=>'$'+v.toLocaleString('en-US');
+    document.getElementById('travelTotal').textContent=f(total);
+    document.getElementById('travelPerPerson').textContent=f(perPerson)+'/person';
+    document.getElementById('travelPct').textContent=pctOfTrip+'%';
+    
+    // Coverage amounts
+    const medCov=dest==='domestic'?'$50,000':'$100,000';
+    const evacCov=dest==='highrisk'?'$500,000':'$250,000';
+    const cancelCov=f(cost);
+    const baggageCov='$2,500';
+    
+    let bd=`Trip cancellation: up to ${cancelCov}<br>Medical coverage: ${medCov}<br>Medical evacuation: ${evacCov}<br>Baggage loss/delay: ${baggageCov}<br>Trip delay: $200/day<br>`;
+    if(level==='cfar')bd+=`Cancel for Any Reason: 75% reimbursement<br>`;
+    bd+=`<strong>Total premium (${travelers} traveler${travelers>1?'s':''}): ${f(total)}</strong><br><span style="color:#86868b;font-size:.8rem">Based on ${f(cost)} trip, ${days} days, age ${age}, ${dest} destination, ${level} coverage</span>`;
+    document.getElementById('travelBreakdown').innerHTML=bd;
+    document.getElementById('travelResults').style.display='block';
 }
-window["lwNext_"+fid]=lwNext;
-window["lwBack_"+fid]=lwBack;
-window["lwSubmit_"+fid]=lwSubmit;
-})();
-function lwSelOpt(el){
-  var siblings=el.parentElement.querySelectorAll(".lw-opt");
-  siblings.forEach(function(s){s.classList.remove("selected")});
-  el.classList.add("selected");
-}
+calcTravel();
 </script>
-<!-- END LEAD WIZARD V2 -->
 
-<div class="header">
-        <div class="container">
-            
-            <p>Calculate travel insurance costs for trips, cruises, and international travel.</p>
-        </div>
-    </div>
-
-    <div class="main container">
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="calc-box">
-            <h2>Travel Insurance Estimator</h2>
-            
-        <div class="input-group">
-          <label for="trip-cost">Total Trip Cost ($):</label>
-          <input type="number" id="trip-cost"  min="0"   value="5000" aria-label="Trip Cost">
-        </div>
-
-        <div class="input-group">
-          <label for="destination">Destination:</label>
-          <select id="destination" aria-label="Destination">
-            <option value="Domestic US">Domestic US</option>
-<option value="Canada/Mexico">Canada/Mexico</option>
-<option value="Europe">Europe</option>
-<option value="Asia">Asia</option>
-<option value="South America">South America</option>
-<option value="Africa/Middle East">Africa/Middle East</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="travelers">Number of Travelers:</label>
-          <input type="number" id="travelers"  min="1" max="10"  value="2" aria-label="Travelers">
-        </div>
-
-        <div class="input-group">
-          <label for="duration">Trip Duration (days):</label>
-          <input type="number" id="duration"  min="1" max="365"  value="7" aria-label="Duration">
-        </div>
-
-        <div class="input-group">
-          <label for="coverage-level">Coverage Level:</label>
-          <select id="coverage-level" aria-label="Coverage Level">
-            <option value="Basic">Basic</option>
-<option value="Standard">Standard</option>
-<option value="Premium">Premium</option>
-<option value="Cancel for Any Reason">Cancel for Any Reason</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="avg-age">Average Traveler Age:</label>
-          <input type="number" id="avg-age"  min="0" max="100"  value="45" aria-label="Avg Age">
-        </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
-            <div class="result-box" id="result"></div>
-        </div>
-
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="info-section">
-            <h3>About Travel Insurance</h3>
-            <p>Use this calculator to estimate your travel insurance costs. Actual premiums will vary by insurer.</p>
-            <h3>More Insurance & Financial Tools</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://calcleap.com/">HealthCalcs - Health & Wellness</a></li>
-            </ul>
-        </div>
-
-        <div class="ad-placeholder">
-            
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a></p>
-        </div>
-    </div>
-
-    <script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let monthly = 0;
-            let html = '<h3>Estimated Premium</h3>';
-            
-            
-            const tripCost = parseFloat(document.getElementById('trip-cost').value);
-            const travelers = parseInt(document.getElementById('travelers').value);
-            const duration = parseInt(document.getElementById('duration').value);
-            const avgAge = parseInt(document.getElementById('avg-age').value);
-            const coverage = document.getElementById('coverage-level').value;
-            
-            let rate = 0.05;
-            if (coverage === 'Standard') rate = 0.07;
-            else if (coverage === 'Premium') rate = 0.10;
-            else if (coverage === 'Cancel for Any Reason') rate = 0.12;
-            
-            let cost = tripCost * rate * travelers;
-            if (avgAge > 65) cost *= 1.5;
-            else if (avgAge > 50) cost *= 1.2;
-            if (duration > 14) cost *= 1.3;
-            
-            html += '<div class="result-value">$' + cost.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Trip Cost: $' + tripCost.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Travelers: ' + travelers + '</div>';
-            html += '<div class="result-detail">Duration: ' + duration + ' days</div>';
-            html += '<div class="result-detail">Coverage: ' + coverage + '</div>';
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
-<script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let monthly = 0;
-            let html = '<h3>Estimated Premium</h3>';
-            
-            
-            const tripCost = parseFloat(document.getElementById('trip-cost').value);
-            const travelers = parseInt(document.getElementById('travelers').value);
-            const duration = parseInt(document.getElementById('duration').value);
-            const avgAge = parseInt(document.getElementById('avg-age').value);
-            const coverage = document.getElementById('coverage-level').value;
-            
-            let rate = 0.05;
-            if (coverage === 'Standard') rate = 0.07;
-            else if (coverage === 'Premium') rate = 0.10;
-            else if (coverage === 'Cancel for Any Reason') rate = 0.12;
-            
-            let cost = tripCost * rate * travelers;
-            if (avgAge > 65) cost *= 1.5;
-            else if (avgAge > 50) cost *= 1.2;
-            if (duration > 14) cost *= 1.3;
-            
-            html += '<div class="result-value">$' + cost.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Trip Cost: $' + tripCost.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Travelers: ' + travelers + '</div>';
-            html += '<div class="result-detail">Duration: ' + duration + ' days</div>';
-            html += '<div class="result-detail">Coverage: ' + coverage + '</div>';
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
-
+<div class="faq-item">
+    <div class="faq-q">What does travel insurance cover?</div>
+    <div class="faq-a">Comprehensive travel insurance typically covers: trip cancellation/interruption (reimbursement for non-refundable costs), emergency medical expenses abroad, medical evacuation, baggage loss or delay, trip delay expenses, and 24/7 emergency assistance. Some plans also cover rental car damage, adventure sports, and identity theft.</div>
 </div>
+<div class="faq-item">
+    <div class="faq-q">When should I buy travel insurance?</div>
+    <div class="faq-a">Buy within 14 days of your initial trip deposit to qualify for pre-existing condition waivers, waiver of time-sensitive benefits, and the best coverage options. You can buy up to the day before departure, but you'll miss some benefits. The earlier you buy, the longer your cancellation coverage is in effect.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">Is travel insurance worth it?</div>
+    <div class="faq-a">For expensive international trips, absolutely. A medical emergency abroad can cost $50,000-$500,000+, and US health insurance often doesn't cover overseas care. For a $5,000 trip, insurance costs $250-$450 — a small price for peace of mind. It's especially valuable for non-refundable bookings, trips to remote destinations, and travelers over 65.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">What is Cancel for Any Reason (CFAR)?</div>
+    <div class="faq-a">CFAR is a premium upgrade that lets you cancel your trip for ANY reason (not just covered reasons like illness or weather). It typically reimburses 75% of your non-refundable trip costs. CFAR costs 40-60% more than standard coverage and must usually be purchased within 14-21 days of your initial deposit. It's the most flexible cancellation coverage available.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-q">Does my credit card provide travel insurance?</div>
+    <div class="faq-a">Many premium credit cards offer some travel protection — typically trip delay, lost baggage, and rental car coverage. However, credit card coverage is usually limited: no medical coverage, no trip cancellation, and lower benefit limits. It's a nice supplement but NOT a replacement for comprehensive travel insurance, especially for international trips.</div>
+</div>
+
 
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides rough estimates for educational purposes only. Actual insurance premiums vary significantly based on your specific circumstances, claims history, coverage options, and insurer. These estimates are not quotes and do not guarantee any rate or coverage. Always obtain official quotes from licensed insurance agents or carriers. CalcLeap is not an insurance company, broker, or agent and does not sell, solicit, or negotiate insurance.</div>
 <footer class="footer" role="contentinfo">

@@ -148,7 +148,6 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 }
 
 
-
 /* === COMPREHENSIVE COMPONENT STYLES === */
 
 /* Calc card (used by tax, mortgage, insurance pages) */
@@ -283,53 +282,8 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 }
 
 
-
 /* === LEAD WIZARD V2 — Best-in-class multi-step === */
 .lw{background:#fff;border:1px solid var(--border);border-radius:20px;padding:0;margin:1.5rem 0;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06)}
-.lw-header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);padding:2rem 2rem 1.5rem;color:#fff;text-align:center}
-.lw-header h3{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.35rem}
-.lw-header p{font-size:.9rem;opacity:.75;line-height:1.4}
-.lw-social{display:flex;justify-content:center;gap:1.5rem;margin-top:1rem;font-size:.75rem;opacity:.6}
-.lw-social span{display:flex;align-items:center;gap:.3rem}
-.lw-progress{display:flex;gap:4px;padding:0 2rem;margin-top:1.25rem}
-.lw-progress-step{flex:1;height:3px;background:rgba(255,255,255,.2);border-radius:4px;transition:background .3s}
-.lw-progress-step.active{background:#4ade80}
-.lw-progress-step.done{background:#22c55e}
-.lw-body{padding:2rem}
-.lw-step{display:none;animation:lwFade .3s ease}
-.lw-step.active{display:block}
-@keyframes lwFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.lw-step-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);font-weight:700;margin-bottom:.5rem}
-.lw-step-title{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem;color:var(--text)}
-.lw-input-lg{width:100%;padding:1rem 1.2rem;font-size:1.2rem;font-family:var(--font);font-weight:600;text-align:center;background:var(--bg);border:2px solid var(--border);border-radius:14px;color:var(--text);outline:none;transition:all .2s;letter-spacing:.15em}
-.lw-input-lg:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(0,113,227,.1);background:#fff}
-.lw-input-lg::placeholder{color:var(--text-3);letter-spacing:.05em;font-weight:400}
-.lw-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-.lw-field{display:flex;flex-direction:column;gap:.3rem}
-.lw-field label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);font-weight:700}
-.lw-field input,.lw-field select{padding:.75rem .9rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1.5px solid var(--border);border-radius:10px;color:var(--text);outline:none;transition:all .2s}
-.lw-field input:focus,.lw-field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.08);background:#fff}
-.lw-options{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1rem}
-.lw-opt{padding:.85rem 1rem;font-size:.85rem;font-weight:600;font-family:var(--font);border:1.5px solid var(--border);border-radius:10px;background:#fff;color:var(--text-2);cursor:pointer;transition:all .15s;text-align:center}
-.lw-opt:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,113,227,.03)}
-.lw-opt.selected{border-color:var(--accent);background:rgba(0,113,227,.06);color:var(--accent)}
-.lw-btn{width:100%;padding:.9rem;font-size:1rem;font-weight:700;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:12px;cursor:pointer;transition:all .2s;margin-top:1rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
-.lw-btn:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,113,227,.3)}
-.lw-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
-.lw-btn-back{background:none;border:none;color:var(--text-3);font-size:.8rem;font-family:var(--font);cursor:pointer;padding:.5rem;margin-top:.5rem;display:block;margin-left:auto;margin-right:auto}
-.lw-btn-back:hover{color:var(--text)}
-.lw-trust{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.72rem;color:var(--text-3)}
-.lw-trust svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
-.lw-carriers{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1rem}
-.lw-carrier{background:var(--bg);padding:.35rem .75rem;border-radius:6px;font-size:.7rem;font-weight:600;color:var(--text-2);border:1px solid var(--border)}
-.lw-success{text-align:center;padding:2rem 1rem}
-.lw-success .lw-check{width:64px;height:64px;background:#22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.8rem;color:#fff}
-.lw-success h4{font-size:1.3rem;font-weight:700;margin-bottom:.5rem}
-.lw-success p{color:var(--text-2);font-size:.9rem;line-height:1.5}
-.lw-savings{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;border-radius:12px;padding:1rem;margin:1rem 0;text-align:center}
-.lw-savings .lw-savings-amt{font-size:2rem;font-weight:800;color:#16a34a;letter-spacing:-.03em}
-.lw-savings .lw-savings-lbl{font-size:.8rem;color:#15803d}
-@media(max-width:600px){.lw-grid{grid-template-columns:1fr}.lw-options{grid-template-columns:1fr 1fr}.lw-header h3{font-size:1.25rem}.lw-input-lg{font-size:1rem}}
 
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much car insurance do I need?", "acceptedAnswer": {"@type": "Answer", "text": "At minimum, you need the liability coverage required by your state. However, most financial experts recommend at least 100/300/100 liability coverage ($100k per person, $300k per accident for bodily injury, $100k for property damage). If you have a car loan or lease, your lender will require comprehensive and collision coverage. Consider your assets — if you have significant savings, higher liability limits protect you from lawsuits."}}, {"@type": "Question", "name": "Why is my car insurance so expensive?", "acceptedAnswer": {"@type": "Answer", "text": "Common reasons include: being under 25, having recent accidents or tickets, living in a high-crime urban area, driving a new or luxury vehicle, having comprehensive coverage, poor credit score, or high annual mileage. Insurance rates also vary significantly by state — Michigan, Louisiana, and Florida have the highest average premiums nationally."}}, {"@type": "Question", "name": "How often should I shop for car insurance?", "acceptedAnswer": {"@type": "Answer", "text": "Compare quotes every 6-12 months, or whenever your policy renews. Rates change frequently based on competition, your driving record aging, and life changes. Getting just 3 quotes can save you $300-$1,000+ per year. Also shop after major life events like moving, turning 25, getting married, or paying off your car loan."}}, {"@type": "Question", "name": "Does my credit score affect car insurance rates?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, in most states. Insurers use credit-based insurance scores as a factor in pricing. Studies show drivers with poor credit file more claims on average. A poor credit score can increase your premium by 20-50% compared to excellent credit. California, Hawaii, Massachusetts, and Michigan are the only states that prohibit using credit for auto insurance pricing."}}]}</script>
@@ -361,431 +315,158 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   <h1 class="page-title">Car Insurance Cost Calculator</h1>
   <p class="page-desc">Free car insurance calculator. Estimate your auto insurance premium based on age, vehicle, location, and driving record. Compare rates and save on car insurance in 2026.</p>
 
-
-
-<!-- LEAD WIZARD V2 -->
-<div class="lw" id="lw_carinsurancecalculator">
-  <div class="lw-header">
-    <h3>Compare Auto Insurance Rates</h3>
-    <p>See how much you could save — free quotes in 60 seconds</p>
-    <div class="lw-social">
-      <span>⭐ 4.8/5 rating</span>
-      <span>👥 2M+ quotes compared</span>
-      <span>🔒 Secure & private</span>
+<!-- Calculator Card -->
+<div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem">
+  <h2 style="font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem">🚗 Car Insurance Premium Calculator</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">Vehicle Year</label>
+      <input type="number" id="ci-year" value="2022" min="1990" max="2026" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
     </div>
-    <div class="lw-progress">
-      <div class="lw-progress-step active" id="lwP1_carinsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP2_carinsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP3_carinsurancecalculator"></div>
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">Vehicle Type</label>
+      <select id="ci-vtype" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
+        <option value="sedan">Sedan</option>
+        <option value="suv" selected>SUV</option>
+        <option value="truck">Truck</option>
+        <option value="sports">Sports Car</option>
+        <option value="luxury">Luxury</option>
+        <option value="minivan">Minivan</option>
+        <option value="electric">Electric</option>
+      </select>
+    </div>
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">Driver Age</label>
+      <input type="number" id="ci-age" value="35" min="16" max="99" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
+    </div>
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">ZIP Code</label>
+      <input type="text" id="ci-zip" value="90210" maxlength="5" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
+    </div>
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">Coverage Type</label>
+      <select id="ci-coverage" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
+        <option value="liability">Liability Only</option>
+        <option value="comprehensive">Comprehensive</option>
+        <option value="full" selected>Full Coverage</option>
+      </select>
+    </div>
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">Driving Record</label>
+      <select id="ci-record" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
+        <option value="clean" selected>Clean</option>
+        <option value="ticket">Speeding Ticket</option>
+        <option value="accident">At-Fault Accident</option>
+        <option value="dui">DUI/DWI</option>
+      </select>
     </div>
   </div>
-  <div class="lw-body">
-    <!-- STEP 1: ZIP -->
-    <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;font-size:.85rem;color:#92400e;line-height:1.6"><strong>Partner Disclosure:</strong> After submitting your information, we may connect you with our partner PolicyGenius for personalized insurance quotes. Your information will be shared securely.</div><div class="lw-step active" id="lwS1_carinsurancecalculator">
-      <div class="lw-step-label">Step 1 of 3</div>
-      <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_carinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
-      <button class="lw-btn" onclick="lwNext_carinsurancecalculator(1)" id="lwBtn1_carinsurancecalculator" disabled>
-        Compare Rates <span style="font-size:1.1em">→</span>
-      </button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>Your information is encrypted and secure. We never sell your personal data.</span>
+  <button onclick="calcCarIns()" style="margin-top:1.25rem;width:100%;padding:.75rem 2rem;font-size:.95rem;font-weight:600;background:#0071e3;color:#fff;border:none;border-radius:12px;cursor:pointer;transition:all .2s">Calculate Premium</button>
+
+  <div id="ci-results" style="display:none;margin-top:1.5rem;animation:fadeUp .3s ease">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:1.5rem">
+      <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;text-align:center">
+        <div style="font-size:.78rem;font-weight:600;color:#86868b;text-transform:uppercase;letter-spacing:.02em">Monthly Premium</div>
+        <div id="ci-monthly" style="font-size:2rem;font-weight:800;color:#1d1d1f;letter-spacing:-.02em;margin-top:.25rem">$0</div>
+      </div>
+      <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;text-align:center">
+        <div style="font-size:.78rem;font-weight:600;color:#86868b;text-transform:uppercase;letter-spacing:.02em">Annual Premium</div>
+        <div id="ci-annual" style="font-size:2rem;font-weight:800;color:#1d1d1f;letter-spacing:-.02em;margin-top:.25rem">$0</div>
+      </div>
+      <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;text-align:center">
+        <div style="font-size:.78rem;font-weight:600;color:#86868b;text-transform:uppercase;letter-spacing:.02em">6-Month Policy</div>
+        <div id="ci-sixmo" style="font-size:2rem;font-weight:800;color:#1d1d1f;letter-spacing:-.02em;margin-top:.25rem">$0</div>
       </div>
     </div>
-    <!-- STEP 2: Details -->
-    <div class="lw-step" id="lwS2_carinsurancecalculator">
-      
-            <div class="lw-step-label">Step 2 of 3</div>
-            <div class="lw-step-title">What coverage are you looking for?</div>
-            <div class="lw-options" id="lwCoverage_carinsurancecalculator">
-                <div class="lw-opt" data-v="basic" onclick="lwSelOpt(this)">Basic Coverage</div>
-                <div class="lw-opt" data-v="standard" onclick="lwSelOpt(this)">Standard</div>
-                <div class="lw-opt selected" data-v="full" onclick="lwSelOpt(this)">Full Coverage</div>
-                <div class="lw-opt" data-v="minimum" onclick="lwSelOpt(this)">State Minimum</div>
-            </div>
-            <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label for="lwInsured_carinsurancecalculator">Currently insured?</label>
-                    <select id="lwInsured_carinsurancecalculator" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option><option value="switching">Switching providers</option></select>
-                </div>
-                <div class="lw-field"><label for="lwAge_carinsurancecalculator">Age</label>
-                    <select id="lwAge_carinsurancecalculator" aria-label="Age"><option value="">Select</option><option>16-24</option><option selected>25-34</option><option>35-44</option><option>45-54</option><option>55-64</option><option>65+</option></select>
-                </div>
-            </div>
-      <button class="lw-btn" onclick="lwNext_carinsurancecalculator(2)">
-        Almost Done — Continue <span style="font-size:1.1em">→</span>
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_carinsurancecalculator(2)">← Back</button>
+
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:1rem">
+      <h3 style="font-size:.95rem;font-weight:700;margin-bottom:.75rem">Coverage Breakdown (Annual)</h3>
+      <div id="ci-breakdown"></div>
     </div>
-    <!-- STEP 3: Contact -->
-    <div class="lw-step" id="lwS3_carinsurancecalculator">
-      <div class="lw-step-label">Step 3 of 3 — Final step</div>
-      <div class="lw-step-title">Where should we send your quotes?</div>
-      <div class="lw-grid">
-        <div class="lw-field"><label for="lwFname_carinsurancecalculator">First name</label><input type="text" id="lwFname_carinsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
-        <div class="lw-field"><label for="lwLname_carinsurancecalculator">Last name</label><input type="text" id="lwLname_carinsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
-        <div class="lw-field"><label for="lwEmail_carinsurancecalculator">Email</label><input type="email" id="lwEmail_carinsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
-        <div class="lw-field"><label for="lwPhone_carinsurancecalculator">Phone</label><input type="tel" id="lwPhone_carinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
-      </div>
-      <button class="lw-btn" onclick="lwSubmit_carinsurancecalculator()" style="background:#16a34a">
-        🎯 Get My Free Quotes
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_carinsurancecalculator(3)">← Back</button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>By submitting this form, you provide express written consent to be contacted by licensed insurance agents at the phone number and email provided, including via automated calls/texts. This is not a condition of purchase. You may revoke consent anytime. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="terms.html" style="color:inherit;text-decoration:underline">Terms</a></span>
-      </div>
-    </div>
-    <!-- SUCCESS -->
-    <div class="lw-step" id="lwS4_carinsurancecalculator">
-      <div class="lw-success">
-        <div class="lw-check">✓</div>
-        <h4>Quotes Are On Their Way!</h4>
-        <div class="lw-savings">
-          <div class="lw-savings-amt">$480+</div>
-          <div class="lw-savings-lbl">Average annual savings when comparing quotes</div>
-        </div>
-        <p>We are opening a comparison tool where you can see real quotes from top carriers. A licensed agent may also follow up with personalized rates.</p>
-        <div class="lw-carriers" style="margin-top:1.25rem">
-          <span class="lw-carrier">State Farm</span><span class="lw-carrier">Geico</span><span class="lw-carrier">Progressive</span><span class="lw-carrier">Allstate</span><span class="lw-carrier">USAA</span><span class="lw-carrier">Liberty Mutual</span>
-        </div>
-      </div>
+
+    <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:1.25rem">
+      <div style="font-weight:700;color:#166534;margin-bottom:.35rem">💡 Money-Saving Tip</div>
+      <div style="font-size:.9rem;color:#15803d;line-height:1.6">Compare quotes from at least 3 insurers — the same driver can see 40–60% price differences. Bundle home + auto for an extra 10–25% discount.</div>
     </div>
   </div>
 </div>
-<script>
-(function(){
-var fid="carinsurancecalculator",itype="Auto Insurance";
-var zip=document.getElementById("lwZip_"+fid);
-zip.addEventListener("input",function(){
-  this.value=this.value.replace(/\D/g,"");
-  document.getElementById("lwBtn1_"+fid).disabled=this.value.length<5;
-});
-zip.addEventListener("keydown",function(e){if(e.key==="Enter"&&this.value.length===5)lwNext(1)});
-function show(n){for(var i=1;i<=4;i++){
-  var s=document.getElementById("lwS"+i+"_"+fid);
-  var p=document.getElementById("lwP"+i+"_"+fid);
-  if(s)s.classList.toggle("active",i===n);
-  if(p){p.classList.toggle("active",i===n);p.classList.toggle("done",i<n)}
-}}
-function lwNext(step){show(step+1)}
-function lwBack(step){show(step-1)}
-function lwSubmit(){
-  var fn=document.getElementById("lwFname_"+fid).value;
-  var ln=document.getElementById("lwLname_"+fid).value;
-  var em=document.getElementById("lwEmail_"+fid).value;
-  var ph=document.getElementById("lwPhone_"+fid).value;
-  var zp=zip.value;
-  if(!fn||!ln||!em||!ph){alert("Please fill in all fields");return}
-  var d={name:fn+" "+ln,email:em,phone:ph,zip:zp,type:itype,page:location.href,ts:new Date().toISOString()};
-  var leads=JSON.parse(localStorage.getItem("calcleap_leads")||"[]");
-  leads.push(d);localStorage.setItem("calcleap_leads",JSON.stringify(leads));
-  fetch("https://formsubmit.co/ajax/contact@calcleap.com",{
-    method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
-    body:JSON.stringify({name:d.name,email:d.email,phone:d.phone,zip:d.zip,_subject:"🔥 "+itype+" Lead — "+zp,insurance_type:itype,source:location.href,timestamp:d.ts})
-  }).catch(function(){});
-  show(4);
-  /* Show partner link - no auto-redirect */ var pgd=document.getElementById("pg-disclosure"); if(pgd) pgd.style.display="block";
-  if(typeof gtag!=="undefined")gtag("event","lead_submit",{event_category:"lead_gen",event_label:itype});
-}
-window["lwNext_"+fid]=lwNext;
-window["lwBack_"+fid]=lwBack;
-window["lwSubmit_"+fid]=lwSubmit;
-})();
-function lwSelOpt(el){
-  var siblings=el.parentElement.querySelectorAll(".lw-opt");
-  siblings.forEach(function(s){s.classList.remove("selected")});
-  el.classList.add("selected");
-}
-</script>
-<!-- END LEAD WIZARD V2 -->
 
-<div style="max-width:1200px;margin:1.5rem auto;padding:0">
-        
-    </div>
-
-    <div class="calc-card">
-        <h2>Calculate Your Car Insurance Cost</h2>
-        <div class="input-grid">
-            <div class="input-group">
-                <label for="age">Your Age</label>
-                <input type="number" id="age" placeholder="e.g., 35" min="16" max="100" aria-label="e.g., 35">
-            </div>
-            <div class="input-group">
-                <label for="gender">Gender</label>
-                <select id="gender" aria-label="Gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="vehicle-age">Vehicle Age (years)</label>
-                <input type="number" id="vehicle-age" placeholder="e.g., 3" min="0" max="50" aria-label="e.g., 3">
-            </div>
-            <div class="input-group">
-                <label for="vehicle-value">Vehicle Value ($)</label>
-                <input type="number" id="vehicle-value" placeholder="e.g., 25000" min="1000" max="500000" aria-label="e.g., 25000">
-            </div>
-            <div class="input-group">
-                <label for="coverage">Coverage Type</label>
-                <select id="coverage" aria-label="Coverage">
-                    <option value="liability">Liability Only</option>
-                    <option value="standard">Standard (Liability + Collision)</option>
-                    <option value="comprehensive">Comprehensive (Full Coverage)</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="driving-record">Driving Record</label>
-                <select id="driving-record" aria-label="Driving Record">
-                    <option value="clean">Clean (No accidents/tickets)</option>
-                    <option value="minor">Minor Violation (1 ticket)</option>
-                    <option value="major">Major Violation or Accident</option>
-                    <option value="multiple">Multiple Violations</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="location">Location Type</label>
-                <select id="location" aria-label="Location">
-                    <option value="rural">Rural Area</option>
-                    <option value="suburban">Suburban Area</option>
-                    <option value="urban">Urban/City Area</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="annual-miles">Annual Miles Driven</label>
-                <input type="number" id="annual-miles" placeholder="e.g., 12000" min="1000" max="50000" aria-label="e.g., 12000">
-            </div>
-        </div>
-        <button class="calc-btn" onclick="calculateInsurance()">Calculate Insurance Cost</button>
-        <div class="result-box" id="result">
-            <h3>📊 Your Estimated Auto Insurance Cost</h3>
-            <div id="result-content"></div>
-        </div>
-    </div>
-
-    <div style="max-width:1200px;margin:1.5rem auto;padding:0">
-        
-    </div>
-
-    <div class="section">
-        <h3>💡 Ways to Save on Car Insurance</h3>
-        <div class="tips-grid">
-            <div class="tip-card">
-                <h4>🎯 Bundle Policies</h4>
-                <p>Save 15-25% by bundling auto with home insurance from the same provider.</p>
-            </div>
-            <div class="tip-card">
-                <h4>📊 Compare Quotes</h4>
-                <p>Shop around every 6-12 months. Rates vary by $500-$1,000+ between insurers.</p>
-            </div>
-            <div class="tip-card">
-                <h4>🚗 Safe Driver Discounts</h4>
-                <p>Maintain a clean driving record for 3+ years to qualify for safe driver discounts.</p>
-            </div>
-            <div class="tip-card">
-                <h4>💰 Increase Deductible</h4>
-                <p>Raising your deductible from $250 to $1,000 can save 15-30% on premiums.</p>
-            </div>
-            <div class="tip-card">
-                <h4>🎓 Good Student Discount</h4>
-                <p>Students under 25 with B average or higher can save 10-20%.</p>
-            </div>
-            <div class="tip-card">
-                <h4>📱 Usage-Based Insurance</h4>
-                <p>Save 10-40% with telematics programs that track safe driving habits.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h3>📋 What Affects Your Car Insurance Rate?</h3>
-        <ul>
-            <li><strong>Age & Experience:</strong> Young drivers (16-25) pay 2-3x more than experienced drivers</li>
-            <li><strong>Location:</strong> Urban areas have 30-50% higher rates due to theft and accident risk</li>
-            <li><strong>Driving Record:</strong> One accident can increase premiums by 20-40% for 3-5 years</li>
-            <li><strong>Vehicle Type:</strong> Sports cars and luxury vehicles cost 50-100% more to insure</li>
-            <li><strong>Coverage Level:</strong> Full coverage costs 2-3x more than liability-only</li>
-            <li><strong>Credit Score:</strong> Poor credit can increase rates by 20-50% in most states</li>
-            <li><strong>Annual Mileage:</strong> Higher mileage = higher risk = higher premiums</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h3>🔍 Understanding Coverage Types</h3>
-        <p><strong>Liability Only:</strong> Covers damage you cause to others. Required by law in most states. Cheapest option but doesn't cover your vehicle.</p>
-        <p><strong>Standard Coverage:</strong> Liability + Collision (covers your car if you hit something) + Comprehensive (covers theft, weather, vandalism).</p>
-        <p><strong>Full Coverage:</strong> All of the above plus higher limits, rental car coverage, roadside assistance, and gap insurance.</p>
-        <h3 style="margin-top:1.5rem">📈 Average Car Insurance Costs by State (2026)</h3>
-        <p>National average: <strong style="color:#6366f1">$1,771/year</strong> for full coverage</p>
-        <ul>
-            <li><strong>Cheapest states:</strong> Maine ($1,062), Idaho ($1,189), Vermont ($1,221)</li>
-            <li><strong>Most expensive:</strong> Michigan ($3,643), Louisiana ($2,883), Florida ($2,808)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h3>Related Insurance Tools</h3>
-        <div class="related-grid">
-            <a href="home-insurance-calculator.html" class="related-link">🏡 Home Insurance</a>
-            <a href="life-insurance-calculator.html" class="related-link">🛡️ Life Insurance</a>
-            <a href="motorcycle-insurance-calculator.html" class="related-link">🏍️ Motorcycle Insurance</a>
-            <a href="boat-insurance-calculator.html" class="related-link">⛵ Boat Insurance</a>
-            <a href="rv-insurance-calculator.html" class="related-link">🚐 RV Insurance</a>
-            <a href="pet-insurance-calculator.html" class="related-link">🐾 Pet Insurance</a>
-            <a href="umbrella-insurance-calculator.html" class="related-link">☂️ Umbrella Insurance</a>
-        </div>
-    </div>
-
-    <div class="section">
-        <h3>Frequently Asked Questions</h3>
-        <div class="faq-item">
-            <div class="faq-q">How much car insurance do I need?</div>
-            <div class="faq-a">At minimum, you need the liability coverage required by your state. However, most financial experts recommend at least 100/300/100 liability coverage ($100k per person, $300k per accident for bodily injury, $100k for property damage). If you have a car loan or lease, your lender will require comprehensive and collision coverage. Consider your assets — if you have significant savings, higher liability limits protect you from lawsuits.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q">Why is my car insurance so expensive?</div>
-            <div class="faq-a">Common reasons include: being under 25, having recent accidents or tickets, living in a high-crime urban area, driving a new or luxury vehicle, having comprehensive coverage, poor credit score, or high annual mileage. Insurance rates also vary significantly by state — Michigan, Louisiana, and Florida have the highest average premiums nationally.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q">How often should I shop for car insurance?</div>
-            <div class="faq-a">Compare quotes every 6-12 months, or whenever your policy renews. Rates change frequently based on competition, your driving record aging, and life changes. Getting just 3 quotes can save you $300-$1,000+ per year. Also shop after major life events like moving, turning 25, getting married, or paying off your car loan.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q">Does my credit score affect car insurance rates?</div>
-            <div class="faq-a">Yes, in most states. Insurers use credit-based insurance scores as a factor in pricing. Studies show drivers with poor credit file more claims on average. A poor credit score can increase your premium by 20-50% compared to excellent credit. California, Hawaii, Massachusetts, and Michigan are the only states that prohibit using credit for auto insurance pricing.</div>
-        </div>
-    </div>
-
-    <div style="max-width:1200px;margin:1.5rem auto;padding:0">
-        
-    </div>
-<script>
-function calculateInsurance() {
-    const age = parseInt(document.getElementById('age').value);
-    const gender = document.getElementById('gender').value;
-    const vehicleAge = parseInt(document.getElementById('vehicle-age').value);
-    const vehicleValue = parseInt(document.getElementById('vehicle-value').value);
-    const coverage = document.getElementById('coverage').value;
-    const drivingRecord = document.getElementById('driving-record').value;
-    const location = document.getElementById('location').value;
-    const annualMiles = parseInt(document.getElementById('annual-miles').value);
-
-    if (!age || !vehicleAge && vehicleAge !== 0 || !vehicleValue || !annualMiles) {
-        alert('Please fill in all fields');
-        return;
-    }
-
-    // Base premium calculation
-    let basePremium = 800;
-
-    // Age factor
-    if (age < 20) basePremium *= 2.5;
-    else if (age < 25) basePremium *= 1.8;
-    else if (age < 30) basePremium *= 1.3;
-    else if (age >= 65) basePremium *= 1.1;
-
-    // Gender factor (statistical difference)
-    if (gender === 'male' && age < 25) basePremium *= 1.15;
-
-    // Vehicle factors
-    const vehicleDepreciationFactor = Math.max(0.5, 1 - (vehicleAge * 0.05));
-    const vehicleValueFactor = (vehicleValue / 25000);
-    basePremium *= vehicleValueFactor * vehicleDepreciationFactor;
-
-    // Coverage type
-    if (coverage === 'standard') basePremium *= 1.8;
-    else if (coverage === 'comprehensive') basePremium *= 2.5;
-
-    // Driving record
-    const recordMultipliers = {
-        'clean': 1.0,
-        'minor': 1.25,
-        'major': 1.5,
-        'multiple': 1.9
-    };
-    basePremium *= recordMultipliers[drivingRecord];
-
-    // Location
-    const locationMultipliers = {
-        'rural': 0.85,
-        'suburban': 1.0,
-        'urban': 1.35
-    };
-    basePremium *= locationMultipliers[location];
-
-    // Mileage
-    if (annualMiles > 15000) basePremium *= 1.15;
-    else if (annualMiles < 7500) basePremium *= 0.9;
-
-    const annualPremium = Math.round(basePremium);
-    const monthlyPremium = Math.round(annualPremium / 12);
-    const sixMonthPremium = Math.round(annualPremium / 2);
-
-    // Calculate potential savings
-    const bundleSavings = Math.round(annualPremium * 0.20);
-    const deductibleSavings = Math.round(annualPremium * 0.25);
-    const shopSavings = Math.round(annualPremium * 0.30);
-
-    const resultContent = `
-        <div class="result-item">
-            <strong>Monthly Premium:</strong> $${monthlyPremium.toLocaleString()}
-        </div>
-        <div class="result-item">
-            <strong>6-Month Premium:</strong> $${sixMonthPremium.toLocaleString()}
-        </div>
-        <div class="result-item">
-            <strong>Annual Premium:</strong> $${annualPremium.toLocaleString()}
-        </div>
-        <div style="margin-top:1.5rem;padding-top:1rem;border-top:2px solid #6366f1">
-            <h4 style="color:#6366f1;margin-bottom:1rem">💰 Potential Savings:</h4>
-            <div class="result-item">
-                <strong>Bundle with home insurance:</strong> Save ~$${bundleSavings.toLocaleString()}/year
-            </div>
-            <div class="result-item">
-                <strong>Raise deductible to $1,000:</strong> Save ~$${deductibleSavings.toLocaleString()}/year
-            </div>
-            <div class="result-item">
-                <strong>Shop & compare 3+ insurers:</strong> Save ~$${shopSavings.toLocaleString()}/year
-            </div>
-        </div>
-        <p style="margin-top:1rem;font-size:.9rem;color:#9ca3af;font-style:italic">
-            💡 These are estimates based on national averages. Actual rates vary by insurer, state, and individual factors.
-        </p>
-    `;
-
-    // Premium factors bar chart
-    const premFactors = [
-        { label: 'Base Premium', value: 800 },
-        { label: 'Age Factor', value: Math.round(annualPremium * 0.25) },
-        { label: 'Vehicle Value', value: Math.round(annualPremium * 0.20) },
-        { label: 'Coverage Level', value: Math.round(annualPremium * 0.20) },
-        { label: 'Driving Record', value: Math.round(annualPremium * 0.15) },
-        { label: 'Location', value: Math.round(annualPremium * 0.10) },
-        { label: 'Mileage', value: Math.round(annualPremium * 0.10) }
-    ];
-    const maxPF = Math.max(...premFactors.map(f => f.value), 1);
-    const pfColors = ['#0071e3','#34c759','#ff9500','#af52de','#ff3b30','#5ac8fa','#ffcc00'];
-    let pfChart = '<div style="margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem;color:#1d1d1f">Premium Factors</h3>';
-    premFactors.forEach((f, i) => {
-        const pct = Math.round((f.value / maxPF) * 100);
-        pfChart += '<div style="margin-bottom:.75rem">';
-        pfChart += '<div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem">';
-        pfChart += '<span style="color:#6e6e73">' + f.label + '</span>';
-        pfChart += '<span style="font-weight:600">$' + f.value.toLocaleString() + '</span>';
-        pfChart += '</div>';
-        pfChart += '<div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden">';
-        pfChart += '<div style="width:' + pct + '%;height:100%;background:' + pfColors[i] + ';border-radius:6px;transition:width .5s ease"></div>';
-        pfChart += '</div></div>';
-    });
-    pfChart += '</div>';
-
-    document.getElementById('result-content').innerHTML = resultContent + pfChart;
-    document.getElementById('result').style.display = 'block';
-    document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-</script>
-
+<!-- FAQ Section -->
+<div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem">
+  <h2 style="font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1rem">Frequently Asked Questions</h2>
+  <div class="faq-item" style="padding:.85rem 0;border-top:1px solid var(--border)">
+    <strong style="font-size:.95rem;color:#1d1d1f">What factors affect car insurance rates?</strong>
+    <p style="font-size:.875rem;color:#424245;line-height:1.6;margin-top:.35rem">Key factors include your age, driving record, vehicle type and year, location (ZIP code), coverage level, credit score (in most states), annual mileage, and whether you bundle policies. Young drivers and those with violations pay significantly more.</p>
+  </div>
+  <div class="faq-item" style="padding:.85rem 0;border-top:1px solid var(--border)">
+    <strong style="font-size:.95rem;color:#1d1d1f">What's the difference between liability, comprehensive, and full coverage?</strong>
+    <p style="font-size:.875rem;color:#424245;line-height:1.6;margin-top:.35rem">Liability covers damage you cause to others (required in most states). Comprehensive adds protection for theft, weather, and animal strikes. Full coverage includes liability + comprehensive + collision, covering damage to your own vehicle in an accident.</p>
+  </div>
+  <div class="faq-item" style="padding:.85rem 0;border-top:1px solid var(--border)">
+    <strong style="font-size:.95rem;color:#1d1d1f">How can I lower my car insurance premium?</strong>
+    <p style="font-size:.875rem;color:#424245;line-height:1.6;margin-top:.35rem">Shop around and compare quotes, raise your deductible, bundle home + auto, ask about low-mileage discounts, maintain a clean driving record, take a defensive driving course, and review your coverage annually to drop unnecessary extras.</p>
+  </div>
+  <div class="faq-item" style="padding:.85rem 0;border-top:1px solid var(--border)">
+    <strong style="font-size:.95rem;color:#1d1d1f">How much car insurance do I need?</strong>
+    <p style="font-size:.875rem;color:#424245;line-height:1.6;margin-top:.35rem">At minimum, carry your state's required liability limits. Most experts recommend at least 100/300/100 ($100k per person, $300k per accident bodily injury, $100k property damage). If you have significant assets, consider an umbrella policy for extra protection.</p>
+  </div>
+  <div class="faq-item" style="padding:.85rem 0;border-top:1px solid var(--border)">
+    <strong style="font-size:.95rem;color:#1d1d1f">Does my credit score affect my car insurance rate?</strong>
+    <p style="font-size:.875rem;color:#424245;line-height:1.6;margin-top:.35rem">In most states (except California, Hawaii, and Massachusetts), insurers use credit-based insurance scores. A poor credit score can increase premiums by 40–100%. Improving your credit is one of the most effective ways to lower your rate over time.</p>
+  </div>
 </div>
+
+<script>
+function calcCarIns(){
+  const year=parseInt(document.getElementById('ci-year').value)||2022;
+  const vtype=document.getElementById('ci-vtype').value;
+  const age=parseInt(document.getElementById('ci-age').value)||35;
+  const coverage=document.getElementById('ci-coverage').value;
+  const record=document.getElementById('ci-record').value;
+
+  const baseCov={liability:600,comprehensive:1200,full:1800};
+  const vtypeMult={sedan:1.0,suv:1.15,truck:1.10,sports:1.55,luxury:1.45,minivan:0.95,electric:1.20};
+  const recordMult={clean:1.0,ticket:1.20,accident:1.45,dui:2.0};
+
+  let ageMult=1.0;
+  if(age<21)ageMult=1.80;
+  else if(age<25)ageMult=1.45;
+  else if(age<30)ageMult=1.15;
+  else if(age<65)ageMult=1.0;
+  else if(age<75)ageMult=1.10;
+  else ageMult=1.25;
+
+  const vehicleAge=2026-year;
+  let vAgeMult=1.0;
+  if(vehicleAge<=1)vAgeMult=1.20;
+  else if(vehicleAge<=3)vAgeMult=1.10;
+  else if(vehicleAge<=7)vAgeMult=1.0;
+  else if(vehicleAge<=12)vAgeMult=0.90;
+  else vAgeMult=0.80;
+
+  const base=baseCov[coverage]||1800;
+  const annual=Math.round(base*(vtypeMult[vtype]||1)*(ageMult)*(vAgeMult)*(recordMult[record]||1));
+  const monthly=Math.round(annual/12);
+  const sixmo=Math.round(annual/2);
+
+  document.getElementById('ci-monthly').textContent='$'+monthly.toLocaleString();
+  document.getElementById('ci-annual').textContent='$'+annual.toLocaleString();
+  document.getElementById('ci-sixmo').textContent='$'+sixmo.toLocaleString();
+
+  // Breakdown
+  let liab,comp,coll,unim,pip;
+  if(coverage==='liability'){liab=annual;comp=0;coll=0;unim=Math.round(annual*0.12);pip=Math.round(annual*0.08);}
+  else if(coverage==='comprehensive'){liab=Math.round(annual*0.38);comp=Math.round(annual*0.30);coll=0;unim=Math.round(annual*0.18);pip=Math.round(annual*0.14);}
+  else{liab=Math.round(annual*0.30);comp=Math.round(annual*0.22);coll=Math.round(annual*0.28);unim=Math.round(annual*0.12);pip=Math.round(annual*0.08);}
+
+  const rows=[['Liability Coverage','$'+liab.toLocaleString()],['Comprehensive','$'+comp.toLocaleString()],['Collision','$'+coll.toLocaleString()],['Uninsured Motorist','$'+unim.toLocaleString()],['Personal Injury Protection','$'+pip.toLocaleString()]];
+  let bhtml='';
+  rows.forEach(r=>{bhtml+='<div style="display:flex;justify-content:space-between;padding:.55rem 0;border-bottom:1px solid var(--border)"><span style="font-size:.875rem;color:#424245">'+r[0]+'</span><span style="font-size:.875rem;font-weight:700">'+r[1]+'</span></div>';});
+  document.getElementById('ci-breakdown').innerHTML=bhtml;
+  document.getElementById('ci-results').style.display='block';
+}
+document.addEventListener('DOMContentLoaded',calcCarIns);
+</script>
 
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides rough estimates for educational purposes only. Actual insurance premiums vary significantly based on your specific circumstances, claims history, coverage options, and insurer. These estimates are not quotes and do not guarantee any rate or coverage. Always obtain official quotes from licensed insurance agents or carriers. CalcLeap is not an insurance company, broker, or agent and does not sell, solicit, or negotiate insurance.</div>
 <footer class="footer" role="contentinfo">

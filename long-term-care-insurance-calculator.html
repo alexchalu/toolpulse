@@ -136,7 +136,6 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 }
 
 
-
 /* === COMPREHENSIVE COMPONENT STYLES === */
 
 /* Calc card (used by tax, mortgage, insurance pages) */
@@ -271,53 +270,8 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 }
 
 
-
 /* === LEAD WIZARD V2 — Best-in-class multi-step === */
 .lw{background:#fff;border:1px solid var(--border);border-radius:20px;padding:0;margin:1.5rem 0;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06)}
-.lw-header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);padding:2rem 2rem 1.5rem;color:#fff;text-align:center}
-.lw-header h3{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.35rem}
-.lw-header p{font-size:.9rem;opacity:.75;line-height:1.4}
-.lw-social{display:flex;justify-content:center;gap:1.5rem;margin-top:1rem;font-size:.75rem;opacity:.6}
-.lw-social span{display:flex;align-items:center;gap:.3rem}
-.lw-progress{display:flex;gap:4px;padding:0 2rem;margin-top:1.25rem}
-.lw-progress-step{flex:1;height:3px;background:rgba(255,255,255,.2);border-radius:4px;transition:background .3s}
-.lw-progress-step.active{background:#4ade80}
-.lw-progress-step.done{background:#22c55e}
-.lw-body{padding:2rem}
-.lw-step{display:none;animation:lwFade .3s ease}
-.lw-step.active{display:block}
-@keyframes lwFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.lw-step-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);font-weight:700;margin-bottom:.5rem}
-.lw-step-title{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem;color:var(--text)}
-.lw-input-lg{width:100%;padding:1rem 1.2rem;font-size:1.2rem;font-family:var(--font);font-weight:600;text-align:center;background:var(--bg);border:2px solid var(--border);border-radius:14px;color:var(--text);outline:none;transition:all .2s;letter-spacing:.15em}
-.lw-input-lg:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(0,113,227,.1);background:#fff}
-.lw-input-lg::placeholder{color:var(--text-3);letter-spacing:.05em;font-weight:400}
-.lw-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-.lw-field{display:flex;flex-direction:column;gap:.3rem}
-.lw-field label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);font-weight:700}
-.lw-field input,.lw-field select{padding:.75rem .9rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1.5px solid var(--border);border-radius:10px;color:var(--text);outline:none;transition:all .2s}
-.lw-field input:focus,.lw-field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.08);background:#fff}
-.lw-options{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1rem}
-.lw-opt{padding:.85rem 1rem;font-size:.85rem;font-weight:600;font-family:var(--font);border:1.5px solid var(--border);border-radius:10px;background:#fff;color:var(--text-2);cursor:pointer;transition:all .15s;text-align:center}
-.lw-opt:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,113,227,.03)}
-.lw-opt.selected{border-color:var(--accent);background:rgba(0,113,227,.06);color:var(--accent)}
-.lw-btn{width:100%;padding:.9rem;font-size:1rem;font-weight:700;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:12px;cursor:pointer;transition:all .2s;margin-top:1rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
-.lw-btn:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,113,227,.3)}
-.lw-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
-.lw-btn-back{background:none;border:none;color:var(--text-3);font-size:.8rem;font-family:var(--font);cursor:pointer;padding:.5rem;margin-top:.5rem;display:block;margin-left:auto;margin-right:auto}
-.lw-btn-back:hover{color:var(--text)}
-.lw-trust{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.72rem;color:var(--text-3)}
-.lw-trust svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
-.lw-carriers{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1rem}
-.lw-carrier{background:var(--bg);padding:.35rem .75rem;border-radius:6px;font-size:.7rem;font-weight:600;color:var(--text-2);border:1px solid var(--border)}
-.lw-success{text-align:center;padding:2rem 1rem}
-.lw-success .lw-check{width:64px;height:64px;background:#22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.8rem;color:#fff}
-.lw-success h4{font-size:1.3rem;font-weight:700;margin-bottom:.5rem}
-.lw-success p{color:var(--text-2);font-size:.9rem;line-height:1.5}
-.lw-savings{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;border-radius:12px;padding:1rem;margin:1rem 0;text-align:center}
-.lw-savings .lw-savings-amt{font-size:2rem;font-weight:800;color:#16a34a;letter-spacing:-.03em}
-.lw-savings .lw-savings-lbl{font-size:.8rem;color:#15803d}
-@media(max-width:600px){.lw-grid{grid-template-columns:1fr}.lw-options{grid-template-columns:1fr 1fr}.lw-header h3{font-size:1.25rem}.lw-input-lg{font-size:1rem}}
 
 </style>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
@@ -348,321 +302,199 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   <h1 class="page-title">Long-Term Care Insurance Calculator</h1>
   <p class="page-desc">Calculate long-term care insurance premiums and coverage needs.. Free long-term care insurance calculator with instant estimates.</p>
 
-
-
-<!-- LEAD WIZARD V2 -->
-<div class="lw" id="lw_longtermcareinsurancecalculator">
-  <div class="lw-header">
-    <h3>Compare Auto Insurance Rates</h3>
-    <p>See how much you could save — free quotes in 60 seconds</p>
-    <div class="lw-social">
-      <span>⭐ 4.8/5 rating</span>
-      <span>👥 2M+ quotes compared</span>
-      <span>🔒 Secure & private</span>
+<!-- Calculator Card -->
+<div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem">
+  <h2 style="font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem">🏥 Long-Term Care Insurance Calculator</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">Your Age</label>
+      <input type="number" id="ltc-age" value="55" min="30" max="85" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
     </div>
-    <div class="lw-progress">
-      <div class="lw-progress-step active" id="lwP1_longtermcareinsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP2_longtermcareinsurancecalculator"></div>
-      <div class="lw-progress-step" id="lwP3_longtermcareinsurancecalculator"></div>
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">Gender</label>
+      <select id="ltc-gender" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
+        <option value="male" selected>Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">Daily Benefit Amount</label>
+      <select id="ltc-daily" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
+        <option value="100">$100/day</option>
+        <option value="150" selected>$150/day</option>
+        <option value="200">$200/day</option>
+        <option value="250">$250/day</option>
+        <option value="300">$300/day</option>
+        <option value="350">$350/day</option>
+        <option value="400">$400/day</option>
+      </select>
+    </div>
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">Benefit Period</label>
+      <select id="ltc-period" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
+        <option value="2">2 Years</option>
+        <option value="3" selected>3 Years</option>
+        <option value="4">4 Years</option>
+        <option value="5">5 Years</option>
+        <option value="99">Lifetime</option>
+      </select>
+    </div>
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">Elimination Period</label>
+      <select id="ltc-elim" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
+        <option value="30">30 Days</option>
+        <option value="60">60 Days</option>
+        <option value="90" selected>90 Days</option>
+        <option value="180">180 Days</option>
+      </select>
+    </div>
+    <div class="input-group" style="display:flex;flex-direction:column;gap:.3rem">
+      <label style="font-size:.78rem;font-weight:600;color:#424245;letter-spacing:.02em;text-transform:uppercase">Inflation Protection</label>
+      <select id="ltc-inflation" style="padding:.7rem .85rem;font-size:.95rem;background:#f5f5f7;border:1px solid rgba(0,0,0,.08);border-radius:8px;color:#1d1d1f;outline:none">
+        <option value="none">None</option>
+        <option value="simple3" selected>Simple 3%</option>
+        <option value="compound3">Compound 3%</option>
+        <option value="compound5">Compound 5%</option>
+      </select>
     </div>
   </div>
-  <div class="lw-body">
-    <!-- STEP 1: ZIP -->
-    <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;font-size:.85rem;color:#92400e;line-height:1.6"><strong>Partner Disclosure:</strong> After submitting your information, we may connect you with our partner PolicyGenius for personalized insurance quotes. Your information will be shared securely.</div><div class="lw-step active" id="lwS1_longtermcareinsurancecalculator">
-      <div class="lw-step-label">Step 1 of 3</div>
-      <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_longtermcareinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
-      <button class="lw-btn" onclick="lwNext_longtermcareinsurancecalculator(1)" id="lwBtn1_longtermcareinsurancecalculator" disabled>
-        Compare Rates <span style="font-size:1.1em">→</span>
-      </button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>Your information is encrypted and secure. We never sell your personal data.</span>
+  <button onclick="calcLTC()" style="margin-top:1.25rem;width:100%;padding:.75rem 2rem;font-size:.95rem;font-weight:600;background:#0071e3;color:#fff;border:none;border-radius:12px;cursor:pointer;transition:all .2s">Calculate Premium</button>
+
+  <div id="ltc-results" style="display:none;margin-top:1.5rem;animation:fadeUp .3s ease">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:1.5rem">
+      <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;text-align:center">
+        <div style="font-size:.78rem;font-weight:600;color:#86868b;text-transform:uppercase;letter-spacing:.02em">Monthly Premium</div>
+        <div id="ltc-monthly" style="font-size:2rem;font-weight:800;color:#1d1d1f;letter-spacing:-.02em;margin-top:.25rem">$0</div>
+      </div>
+      <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;text-align:center">
+        <div style="font-size:.78rem;font-weight:600;color:#86868b;text-transform:uppercase;letter-spacing:.02em">Annual Premium</div>
+        <div id="ltc-annual" style="font-size:2rem;font-weight:800;color:#1d1d1f;letter-spacing:-.02em;margin-top:.25rem">$0</div>
+      </div>
+      <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;text-align:center">
+        <div style="font-size:.78rem;font-weight:600;color:#86868b;text-transform:uppercase;letter-spacing:.02em">Total Lifetime Benefit</div>
+        <div id="ltc-lifetime" style="font-size:2rem;font-weight:800;color:#1d1d1f;letter-spacing:-.02em;margin-top:.25rem">$0</div>
       </div>
     </div>
-    <!-- STEP 2: Details -->
-    <div class="lw-step" id="lwS2_longtermcareinsurancecalculator">
-      
-            <div class="lw-step-label">Step 2 of 3</div>
-            <div class="lw-step-title">What coverage are you looking for?</div>
-            <div class="lw-options" id="lwCoverage_longtermcareinsurancecalculator">
-                <div class="lw-opt" data-v="basic" onclick="lwSelOpt(this)">Basic Coverage</div>
-                <div class="lw-opt" data-v="standard" onclick="lwSelOpt(this)">Standard</div>
-                <div class="lw-opt selected" data-v="full" onclick="lwSelOpt(this)">Full Coverage</div>
-                <div class="lw-opt" data-v="minimum" onclick="lwSelOpt(this)">State Minimum</div>
-            </div>
-            <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label for="lwInsured_longtermcareinsurancecalculator">Currently insured?</label>
-                    <select id="lwInsured_longtermcareinsurancecalculator" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option><option value="switching">Switching providers</option></select>
-                </div>
-                <div class="lw-field"><label for="lwAge_longtermcareinsurancecalculator">Age</label>
-                    <select id="lwAge_longtermcareinsurancecalculator" aria-label="Age"><option value="">Select</option><option>16-24</option><option selected>25-34</option><option>35-44</option><option>45-54</option><option>55-64</option><option>65+</option></select>
-                </div>
-            </div>
-      <button class="lw-btn" onclick="lwNext_longtermcareinsurancecalculator(2)">
-        Almost Done — Continue <span style="font-size:1.1em">→</span>
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_longtermcareinsurancecalculator(2)">← Back</button>
+
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:1rem">
+      <h3 style="font-size:.95rem;font-weight:700;margin-bottom:.75rem">Coverage Breakdown</h3>
+      <div id="ltc-breakdown"></div>
     </div>
-    <!-- STEP 3: Contact -->
-    <div class="lw-step" id="lwS3_longtermcareinsurancecalculator">
-      <div class="lw-step-label">Step 3 of 3 — Final step</div>
-      <div class="lw-step-title">Where should we send your quotes?</div>
-      <div class="lw-grid">
-        <div class="lw-field"><label for="lwFname_longtermcareinsurancecalculator">First name</label><input type="text" id="lwFname_longtermcareinsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
-        <div class="lw-field"><label for="lwLname_longtermcareinsurancecalculator">Last name</label><input type="text" id="lwLname_longtermcareinsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
-        <div class="lw-field"><label for="lwEmail_longtermcareinsurancecalculator">Email</label><input type="email" id="lwEmail_longtermcareinsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
-        <div class="lw-field"><label for="lwPhone_longtermcareinsurancecalculator">Phone</label><input type="tel" id="lwPhone_longtermcareinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
-      </div>
-      <button class="lw-btn" onclick="lwSubmit_longtermcareinsurancecalculator()" style="background:#16a34a">
-        🎯 Get My Free Quotes
-      </button>
-      <button class="lw-btn-back" onclick="lwBack_longtermcareinsurancecalculator(3)">← Back</button>
-      <div class="lw-trust">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        <span>By submitting this form, you provide express written consent to be contacted by licensed insurance agents at the phone number and email provided, including via automated calls/texts. This is not a condition of purchase. You may revoke consent anytime. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="terms.html" style="color:inherit;text-decoration:underline">Terms</a></span>
-      </div>
-    </div>
-    <!-- SUCCESS -->
-    <div class="lw-step" id="lwS4_longtermcareinsurancecalculator">
-      <div class="lw-success">
-        <div class="lw-check">✓</div>
-        <h4>Quotes Are On Their Way!</h4>
-        <div class="lw-savings">
-          <div class="lw-savings-amt">$480+</div>
-          <div class="lw-savings-lbl">Average annual savings when comparing quotes</div>
-        </div>
-        <p>We are opening a comparison tool where you can see real quotes from top carriers. A licensed agent may also follow up with personalized rates.</p>
-        <div class="lw-carriers" style="margin-top:1.25rem">
-          <span class="lw-carrier">State Farm</span><span class="lw-carrier">Geico</span><span class="lw-carrier">Progressive</span><span class="lw-carrier">Allstate</span><span class="lw-carrier">USAA</span><span class="lw-carrier">Liberty Mutual</span>
-        </div>
-      </div>
+
+    <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:1.25rem">
+      <div style="font-weight:700;color:#166534;margin-bottom:.35rem">💡 Money-Saving Tip</div>
+      <div style="font-size:.9rem;color:#15803d;line-height:1.6">The ideal age to buy LTC insurance is 55–60 — premiums are reasonable and you're more likely to qualify medically. Couples can save 30–40% with shared-care or spousal discounts.</div>
     </div>
   </div>
 </div>
+
+<!-- FAQ Section -->
+<div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem">
+  <h2 style="font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1rem">Frequently Asked Questions</h2>
+  <div class="faq-item" style="padding:.85rem 0;border-top:1px solid var(--border)">
+    <strong style="font-size:.95rem;color:#1d1d1f">What is long-term care insurance?</strong>
+    <p style="font-size:.875rem;color:#424245;line-height:1.6;margin-top:.35rem">Long-term care (LTC) insurance covers the costs of care when you can no longer perform daily activities independently — such as bathing, dressing, or eating. It pays for services like nursing home stays, assisted living, home health aides, and adult day care that health insurance and Medicare typically don't cover.</p>
+  </div>
+  <div class="faq-item" style="padding:.85rem 0;border-top:1px solid var(--border)">
+    <strong style="font-size:.95rem;color:#1d1d1f">When is the best time to buy LTC insurance?</strong>
+    <p style="font-size:.875rem;color:#424245;line-height:1.6;margin-top:.35rem">Most experts recommend purchasing between ages 55–60. Buy too early and you pay premiums longer; buy too late and premiums skyrocket or you may not qualify due to health conditions. About 70% of people over 65 will need some form of long-term care.</p>
+  </div>
+  <div class="faq-item" style="padding:.85rem 0;border-top:1px solid var(--border)">
+    <strong style="font-size:.95rem;color:#1d1d1f">Why do women pay more for LTC insurance?</strong>
+    <p style="font-size:.875rem;color:#424245;line-height:1.6;margin-top:.35rem">Women statistically live longer, are more likely to need long-term care, and use care services for longer periods (average 3.7 years vs. 2.2 years for men). Insurers price this higher risk into premiums, typically charging women 40–60% more than men of the same age.</p>
+  </div>
+  <div class="faq-item" style="padding:.85rem 0;border-top:1px solid var(--border)">
+    <strong style="font-size:.95rem;color:#1d1d1f">What is the elimination period?</strong>
+    <p style="font-size:.875rem;color:#424245;line-height:1.6;margin-top:.35rem">The elimination period is like a deductible measured in time — it's the number of days you must pay for care out of pocket before your policy starts paying. Common options are 30, 60, 90, or 180 days. A longer elimination period means lower premiums but higher out-of-pocket costs when you need care.</p>
+  </div>
+  <div class="faq-item" style="padding:.85rem 0;border-top:1px solid var(--border)">
+    <strong style="font-size:.95rem;color:#1d1d1f">Should I add inflation protection?</strong>
+    <p style="font-size:.875rem;color:#424245;line-height:1.6;margin-top:.35rem">Yes, especially if you're buying in your 50s. LTC costs rise 3–5% annually. Without inflation protection, a $150/day benefit purchased at 55 would cover much less of actual costs by age 80. Compound 3% protection is the most popular choice — it roughly doubles your benefit over 25 years.</p>
+  </div>
+</div>
+
 <script>
-(function(){
-var fid="longtermcareinsurancecalculator",itype="Auto Insurance";
-var zip=document.getElementById("lwZip_"+fid);
-zip.addEventListener("input",function(){
-  this.value=this.value.replace(/\D/g,"");
-  document.getElementById("lwBtn1_"+fid).disabled=this.value.length<5;
-});
-zip.addEventListener("keydown",function(e){if(e.key==="Enter"&&this.value.length===5)lwNext(1)});
-function show(n){for(var i=1;i<=4;i++){
-  var s=document.getElementById("lwS"+i+"_"+fid);
-  var p=document.getElementById("lwP"+i+"_"+fid);
-  if(s)s.classList.toggle("active",i===n);
-  if(p){p.classList.toggle("active",i===n);p.classList.toggle("done",i<n)}
-}}
-function lwNext(step){show(step+1)}
-function lwBack(step){show(step-1)}
-function lwSubmit(){
-  var fn=document.getElementById("lwFname_"+fid).value;
-  var ln=document.getElementById("lwLname_"+fid).value;
-  var em=document.getElementById("lwEmail_"+fid).value;
-  var ph=document.getElementById("lwPhone_"+fid).value;
-  var zp=zip.value;
-  if(!fn||!ln||!em||!ph){alert("Please fill in all fields");return}
-  var d={name:fn+" "+ln,email:em,phone:ph,zip:zp,type:itype,page:location.href,ts:new Date().toISOString()};
-  var leads=JSON.parse(localStorage.getItem("calcleap_leads")||"[]");
-  leads.push(d);localStorage.setItem("calcleap_leads",JSON.stringify(leads));
-  fetch("https://formsubmit.co/ajax/contact@calcleap.com",{
-    method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
-    body:JSON.stringify({name:d.name,email:d.email,phone:d.phone,zip:d.zip,_subject:"🔥 "+itype+" Lead — "+zp,insurance_type:itype,source:location.href,timestamp:d.ts})
-  }).catch(function(){});
-  show(4);
-  /* Show partner link - no auto-redirect */ var pgd=document.getElementById("pg-disclosure"); if(pgd) pgd.style.display="block";
-  if(typeof gtag!=="undefined")gtag("event","lead_submit",{event_category:"lead_gen",event_label:itype});
+function calcLTC(){
+  const age=parseInt(document.getElementById('ltc-age').value)||55;
+  const gender=document.getElementById('ltc-gender').value;
+  const daily=parseInt(document.getElementById('ltc-daily').value)||150;
+  const period=parseInt(document.getElementById('ltc-period').value)||3;
+  const elim=parseInt(document.getElementById('ltc-elim').value)||90;
+  const inflation=document.getElementById('ltc-inflation').value;
+
+  // Base: $1200/yr per $100/day at age 55
+  const basePer100=1200;
+
+  // Age multipliers
+  let ageMult=1.0;
+  if(age<40)ageMult=0.40;
+  else if(age<45)ageMult=0.55;
+  else if(age<50)ageMult=0.70;
+  else if(age<55)ageMult=0.85;
+  else if(age<60)ageMult=1.0;
+  else if(age<65)ageMult=1.50;
+  else if(age<70)ageMult=2.20;
+  else ageMult=3.50;
+
+  // Gender multiplier
+  const genderMult=gender==='female'?1.50:1.0;
+
+  // Scale by daily benefit
+  const dailyScale=daily/100;
+
+  // Period multiplier
+  let periodMult=1.0;
+  if(period===2)periodMult=0.80;
+  else if(period===3)periodMult=1.0;
+  else if(period===4)periodMult=1.20;
+  else if(period===5)periodMult=1.40;
+  else periodMult=1.85; // lifetime
+
+  // Elimination period multiplier
+  let elimMult=1.0;
+  if(elim===30)elimMult=1.20;
+  else if(elim===60)elimMult=1.08;
+  else if(elim===90)elimMult=1.0;
+  else elimMult=0.85; // 180 days
+
+  // Inflation multiplier
+  let inflMult=1.0;
+  if(inflation==='none')inflMult=1.0;
+  else if(inflation==='simple3')inflMult=1.40;
+  else if(inflation==='compound3')inflMult=1.65;
+  else inflMult=2.10; // compound 5%
+
+  const annualPremium=Math.round(basePer100*ageMult*genderMult*dailyScale*periodMult*elimMult*inflMult);
+  const monthlyPremium=Math.round(annualPremium/12);
+
+  // Lifetime benefit
+  const periodYears=period===99?10:period; // lifetime = ~10yrs for calc
+  const lifetimeBenefit=daily*365*periodYears;
+
+  document.getElementById('ltc-monthly').textContent='$'+monthlyPremium.toLocaleString();
+  document.getElementById('ltc-annual').textContent='$'+annualPremium.toLocaleString();
+  document.getElementById('ltc-lifetime').textContent='$'+lifetimeBenefit.toLocaleString();
+
+  // Breakdown
+  const elimCostLabel=elim+' days';
+  const periodLabel=period===99?'Lifetime':period+' years';
+  const inflLabel={none:'None',simple3:'Simple 3%/yr',compound3:'Compound 3%/yr',compound5:'Compound 5%/yr'}[inflation];
+  const lifetimeMax='$'+lifetimeBenefit.toLocaleString();
+
+  const rows=[
+    ['Daily Benefit','$'+daily+'/day'],
+    ['Benefit Period',periodLabel],
+    ['Elimination Period',elimCostLabel],
+    ['Inflation Protection',inflLabel],
+    ['Lifetime Maximum',lifetimeMax]
+  ];
+  let bhtml='';
+  rows.forEach(r=>{bhtml+='<div style="display:flex;justify-content:space-between;padding:.55rem 0;border-bottom:1px solid var(--border)"><span style="font-size:.875rem;color:#424245">'+r[0]+'</span><span style="font-size:.875rem;font-weight:700">'+r[1]+'</span></div>';});
+  document.getElementById('ltc-breakdown').innerHTML=bhtml;
+  document.getElementById('ltc-results').style.display='block';
 }
-window["lwNext_"+fid]=lwNext;
-window["lwBack_"+fid]=lwBack;
-window["lwSubmit_"+fid]=lwSubmit;
-})();
-function lwSelOpt(el){
-  var siblings=el.parentElement.querySelectorAll(".lw-opt");
-  siblings.forEach(function(s){s.classList.remove("selected")});
-  el.classList.add("selected");
-}
+document.addEventListener('DOMContentLoaded',calcLTC);
 </script>
-<!-- END LEAD WIZARD V2 -->
-
-<div class="header">
-        <div class="container">
-            
-            <p>Calculate long-term care insurance premiums and coverage needs.</p>
-        </div>
-    </div>
-
-    <div class="main container">
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="calc-box">
-            <h2>Long-Term Care Insurance Estimator</h2>
-            
-        <div class="input-group">
-          <label for="age">Your Age:</label>
-          <input type="number" id="age"  min="40" max="85"  value="60" aria-label="Age">
-        </div>
-
-        <div class="input-group">
-          <label for="daily-benefit">Daily Benefit Amount ($):</label>
-          <input type="number" id="daily-benefit"  min="0"   value="150" aria-label="Daily Benefit">
-        </div>
-
-        <div class="input-group">
-          <label for="benefit-period">Benefit Period:</label>
-          <select id="benefit-period" aria-label="Benefit Period">
-            <option value="3 years">3 years</option>
-<option value="5 years">5 years</option>
-<option value="10 years">10 years</option>
-<option value="Lifetime">Lifetime</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="elimination">Elimination Period (days):</label>
-          <select id="elimination" aria-label="Elimination">
-            <option value="30">30</option>
-<option value="60">60</option>
-<option value="90">90</option>
-<option value="180">180</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="inflation">Inflation Protection:</label>
-          <select id="inflation" aria-label="Inflation">
-            <option value="None">None</option>
-<option value="3% Simple">3% Simple</option>
-<option value="3% Compound">3% Compound</option>
-<option value="5% Compound">5% Compound</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="health">Health Status:</label>
-          <select id="health" aria-label="Health">
-            <option value="Excellent">Excellent</option>
-<option value="Good">Good</option>
-<option value="Fair">Fair</option>
-          </select>
-        </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
-            <div class="result-box" id="result"></div>
-        </div>
-
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="info-section">
-            <h3>About Long-Term Care Insurance</h3>
-            <p>Use this calculator to estimate your long-term care insurance costs. Actual premiums will vary by insurer.</p>
-            <h3>More Insurance & Financial Tools</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://calcleap.com/">HealthCalcs - Health & Wellness</a></li>
-            </ul>
-        </div>
-
-        <div class="ad-placeholder">
-            
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a></p>
-        </div>
-    </div>
-
-    <script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let monthly = 0;
-            let html = '<h3>Estimated Premium</h3>';
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            const age = parseInt(document.getElementById('age').value);
-            const dailyBenefit = parseFloat(document.getElementById('daily-benefit').value);
-            const inflation = document.getElementById('inflation').value;
-            
-            let baseRate = 100;
-            if (age >= 70) baseRate = 400;
-            else if (age >= 65) baseRate = 250;
-            else if (age >= 60) baseRate = 150;
-            
-            monthly = baseRate + (dailyBenefit * 0.5);
-            if (inflation.includes('Compound')) monthly *= 1.5;
-            else if (inflation.includes('Simple')) monthly *= 1.2;
-            
-            const annual = monthly * 12;
-            html += '<div class="result-value">$' + monthly.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Annual Premium: $' + annual.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Daily Benefit: $' + dailyBenefit.toFixed(2) + '</div>';
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
-<script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let monthly = 0;
-            let html = '<h3>Estimated Premium</h3>';
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            const age = parseInt(document.getElementById('age').value);
-            const dailyBenefit = parseFloat(document.getElementById('daily-benefit').value);
-            const inflation = document.getElementById('inflation').value;
-            
-            let baseRate = 100;
-            if (age >= 70) baseRate = 400;
-            else if (age >= 65) baseRate = 250;
-            else if (age >= 60) baseRate = 150;
-            
-            monthly = baseRate + (dailyBenefit * 0.5);
-            if (inflation.includes('Compound')) monthly *= 1.5;
-            else if (inflation.includes('Simple')) monthly *= 1.2;
-            
-            const annual = monthly * 12;
-            html += '<div class="result-value">$' + monthly.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Annual Premium: $' + annual.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Daily Benefit: $' + dailyBenefit.toFixed(2) + '</div>';
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
-
-</div>
 
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides rough estimates for educational purposes only. Actual insurance premiums vary significantly based on your specific circumstances, claims history, coverage options, and insurer. These estimates are not quotes and do not guarantee any rate or coverage. Always obtain official quotes from licensed insurance agents or carriers. CalcLeap is not an insurance company, broker, or agent and does not sell, solicit, or negotiate insurance.</div>
 <footer class="footer" role="contentinfo">
