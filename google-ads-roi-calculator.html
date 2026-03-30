@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads ROI Calculator - Measure Ad Campaign Performance | CalcLeap</title>
+    <meta name="description" content="Free Google Ads ROI calculator. Calculate return on investment, cost per acquisition, conversion rate, and profitability for your Google Ads campaigns.">
+    <meta name="keywords" content="google ads roi calculator, ppc roi calculator, adwords roi, cost per acquisition, conversion rate calculator, advertising roi, campaign performance">
+    <link rel="canonical" href="https://calcleap.com/google-ads-roi-calculator.html">
+    <link rel="stylesheet" href="styles/gold.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Google Ads ROI Calculator",
+      "description": "Calculate your Google Ads return on investment and campaign performance metrics",
+      "url": "https://calcleap.com/google-ads-roi-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="brand"><a href="index.html">CalcLeap</a></div>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <main>
+        <h1>💰 Google Ads ROI Calculator</h1>
+        <p class="subtitle">Measure the profitability and performance of your Google Ads campaigns</p>
+
+        <div class="tool-container">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="adSpend">Total Ad Spend ($)</label>
+                    <input type="number" id="adSpend" value="5000" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label for="revenue">Revenue from Ads ($)</label>
+                    <input type="number" id="revenue" value="15000" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label for="conversions">Number of Conversions</label>
+                    <input type="number" id="conversions" value="50" min="0" step="1">
+                </div>
+
+                <div class="input-group">
+                    <label for="clicks">Total Clicks</label>
+                    <input type="number" id="clicks" value="1000" min="0" step="1">
+                </div>
+
+                <div class="input-group">
+                    <label for="impressions">Total Impressions</label>
+                    <input type="number" id="impressions" value="50000" min="0" step="1">
+                </div>
+
+                <div class="input-group">
+                    <label for="costOfGoods">Cost of Goods Sold - COGS ($ - optional)</label>
+                    <input type="number" id="costOfGoods" value="0" min="0" step="0.01">
+                </div>
+
+                <button class="cta-button" onclick="calculate()">Calculate ROI</button>
+            </div>
+
+            <div class="result-section" id="results" style="display:none;">
+                <h2>📊 Campaign Performance</h2>
+                
+                <div class="result-card">
+                    <h3>Return on Investment (ROI)</h3>
+                    <div class="result-value" id="roi"></div>
+                    <p class="result-label">Profit relative to ad spend</p>
+                </div>
+
+                <div class="result-card">
+                    <h3>Return on Ad Spend (ROAS)</h3>
+                    <div class="result-value" id="roas"></div>
+                    <p class="result-label">Revenue per dollar spent</p>
+                </div>
+
+                <div class="result-card">
+                    <h3>Net Profit</h3>
+                    <div class="result-value" id="netProfit"></div>
+                    <p class="result-label">Total earnings after costs</p>
+                </div>
+
+                <div class="result-card">
+                    <h3>Cost Per Acquisition (CPA)</h3>
+                    <div class="result-value" id="cpa"></div>
+                    <p class="result-label">Cost to acquire one customer</p>
+                </div>
+
+                <div class="result-card">
+                    <h3>Conversion Rate</h3>
+                    <div class="result-value" id="conversionRate"></div>
+                    <p class="result-label">Percentage of clicks that convert</p>
+                </div>
+
+                <div class="result-card">
+                    <h3>Cost Per Click (CPC)</h3>
+                    <div class="result-value" id="cpc"></div>
+                    <p class="result-label">Average cost per click</p>
+                </div>
+
+                <div class="result-card">
+                    <h3>Click-Through Rate (CTR)</h3>
+                    <div class="result-value" id="ctr"></div>
+                    <p class="result-label">Percentage of impressions that get clicked</p>
+                </div>
+
+                <div class="result-card">
+                    <h3>Revenue Per Click</h3>
+                    <div class="result-value" id="revenuePerClick"></div>
+                    <p class="result-label">Average revenue generated per click</p>
+                </div>
+
+                <div id="interpretation" class="interpretation"></div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>📈 Understanding Your Google Ads ROI</h2>
+            
+            <div class="info-card">
+                <h3>Key Metrics Explained</h3>
+                <ul>
+                    <li><strong>ROI:</strong> (Revenue - Ad Spend - COGS) / Ad Spend × 100. Shows profit percentage relative to spend.</li>
+                    <li><strong>ROAS:</strong> Revenue / Ad Spend. Shows how many dollars you earn per dollar spent.</li>
+                    <li><strong>CPA:</strong> Ad Spend / Conversions. How much you pay to acquire one customer.</li>
+                    <li><strong>Conversion Rate:</strong> (Conversions / Clicks) × 100. Percentage of clicks that become customers.</li>
+                    <li><strong>CTR:</strong> (Clicks / Impressions) × 100. How often your ad gets clicked when shown.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>What's a Good ROI?</h3>
+                <ul>
+                    <li><strong>200%+ ROI:</strong> Excellent - highly profitable campaign</li>
+                    <li><strong>100-200% ROI:</strong> Good - healthy profit margins</li>
+                    <li><strong>50-100% ROI:</strong> Fair - profitable but room to improve</li>
+                    <li><strong>0-50% ROI:</strong> Marginal - barely breaking even</li>
+                    <li><strong>Negative ROI:</strong> Losing money - immediate optimization needed</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>ROAS Benchmarks</h3>
+                <ul>
+                    <li><strong>4:1 or higher:</strong> Strong performance for most industries</li>
+                    <li><strong>3:1 to 4:1:</strong> Solid, sustainable returns</li>
+                    <li><strong>2:1 to 3:1:</strong> Acceptable, but optimization recommended</li>
+                    <li><strong>Below 2:1:</strong> Typically not sustainable long-term</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>How to Improve Your Google Ads ROI</h3>
+                <ul>
+                    <li><strong>Refine targeting:</strong> Focus on high-intent keywords and audiences</li>
+                    <li><strong>Optimize ad copy:</strong> Test different headlines and descriptions</li>
+                    <li><strong>Improve landing pages:</strong> Ensure pages match ad promise and load fast</li>
+                    <li><strong>Use negative keywords:</strong> Exclude irrelevant searches that waste budget</li>
+                    <li><strong>Bid strategically:</strong> Adjust bids based on performance data</li>
+                    <li><strong>A/B test everything:</strong> Test ads, landing pages, offers continuously</li>
+                    <li><strong>Track conversions properly:</strong> Ensure all conversion actions are tracked</li>
+                    <li><strong>Pause underperformers:</strong> Stop ads with high CPA or low conversion rates</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Industry-Specific Considerations</h3>
+                <ul>
+                    <li><strong>E-commerce:</strong> Factor in product margins and shipping costs. ROAS 4:1+ is typical.</li>
+                    <li><strong>B2B/SaaS:</strong> Higher CPA acceptable due to customer lifetime value.</li>
+                    <li><strong>Local services:</strong> Focus on conversion rate and cost per lead quality.</li>
+                    <li><strong>High-ticket items:</strong> Longer sales cycles may require attribution modeling.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>When to Include COGS</h3>
+                <p>Include Cost of Goods Sold when:</p>
+                <ul>
+                    <li>Selling physical products with manufacturing/wholesale costs</li>
+                    <li>You want to measure TRUE profit (not just revenue)</li>
+                    <li>Comparing profitability across different product lines</li>
+                    <li>Planning budgets based on actual margins</li>
+                </ul>
+                <p>Leave COGS at 0 for service businesses or when measuring gross revenue ROI.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CalcLeap. All calculators are free to use.</p>
+        <div><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="contact.html">Contact</a></div>
+    </footer>
+
+    <script>
+        function calculate() {
+            const adSpend = parseFloat(document.getElementById('adSpend').value) || 0;
+            const revenue = parseFloat(document.getElementById('revenue').value) || 0;
+            const conversions = parseFloat(document.getElementById('conversions').value) || 0;
+            const clicks = parseFloat(document.getElementById('clicks').value) || 0;
+            const impressions = parseFloat(document.getElementById('impressions').value) || 0;
+            const costOfGoods = parseFloat(document.getElementById('costOfGoods').value) || 0;
+
+            if (adSpend <= 0) {
+                alert('Please enter a valid ad spend amount');
+                return;
+            }
+
+            // Calculate metrics
+            const netProfit = revenue - adSpend - costOfGoods;
+            const roi = (netProfit / adSpend) * 100;
+            const roas = revenue / adSpend;
+            const cpa = conversions > 0 ? adSpend / conversions : 0;
+            const conversionRate = clicks > 0 ? (conversions / clicks) * 100 : 0;
+            const cpc = clicks > 0 ? adSpend / clicks : 0;
+            const ctr = impressions > 0 ? (clicks / impressions) * 100 : 0;
+            const revenuePerClick = clicks > 0 ? revenue / clicks : 0;
+
+            // Display results
+            document.getElementById('roi').textContent = roi.toFixed(2) + '%';
+            document.getElementById('roas').textContent = roas.toFixed(2) + ':1';
+            document.getElementById('netProfit').textContent = '$' + netProfit.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            
+            if (conversions > 0) {
+                document.getElementById('cpa').textContent = '$' + cpa.toFixed(2);
+                document.getElementById('conversionRate').textContent = conversionRate.toFixed(2) + '%';
+            } else {
+                document.getElementById('cpa').textContent = 'N/A (no conversions)';
+                document.getElementById('conversionRate').textContent = 'N/A';
+            }
+
+            if (clicks > 0) {
+                document.getElementById('cpc').textContent = '$' + cpc.toFixed(2);
+                document.getElementById('revenuePerClick').textContent = '$' + revenuePerClick.toFixed(2);
+            } else {
+                document.getElementById('cpc').textContent = 'N/A (no clicks)';
+                document.getElementById('revenuePerClick').textContent = 'N/A';
+            }
+
+            if (impressions > 0) {
+                document.getElementById('ctr').textContent = ctr.toFixed(2) + '%';
+            } else {
+                document.getElementById('ctr').textContent = 'N/A';
+            }
+
+            // Interpretation
+            let interpretation = '<h3>📋 Campaign Assessment</h3><ul>';
+            
+            if (roi >= 200) {
+                interpretation += '<li><strong>ROI Status:</strong> 🟢 Excellent - This campaign is highly profitable!</li>';
+            } else if (roi >= 100) {
+                interpretation += '<li><strong>ROI Status:</strong> 🟢 Good - Healthy profit margins.</li>';
+            } else if (roi >= 50) {
+                interpretation += '<li><strong>ROI Status:</strong> 🟡 Fair - Profitable but optimization recommended.</li>';
+            } else if (roi >= 0) {
+                interpretation += '<li><strong>ROI Status:</strong> 🟡 Marginal - Barely breaking even. Needs improvement.</li>';
+            } else {
+                interpretation += '<li><strong>ROI Status:</strong> 🔴 Negative - You are losing money on this campaign!</li>';
+            }
+
+            if (roas >= 4) {
+                interpretation += '<li><strong>ROAS Status:</strong> 🟢 Strong performance - earning $' + roas.toFixed(2) + ' per dollar spent.</li>';
+            } else if (roas >= 2) {
+                interpretation += '<li><strong>ROAS Status:</strong> 🟡 Acceptable but could be better.</li>';
+            } else {
+                interpretation += '<li><strong>ROAS Status:</strong> 🔴 Below sustainable levels - optimization critical.</li>';
+            }
+
+            if (conversions > 0) {
+                if (conversionRate >= 5) {
+                    interpretation += '<li><strong>Conversion Rate:</strong> 🟢 Excellent - ' + conversionRate.toFixed(2) + '% is well above average.</li>';
+                } else if (conversionRate >= 2) {
+                    interpretation += '<li><strong>Conversion Rate:</strong> 🟡 Average - ' + conversionRate.toFixed(2) + '% is typical for most industries.</li>';
+                } else {
+                    interpretation += '<li><strong>Conversion Rate:</strong> 🔴 Low - ' + conversionRate.toFixed(2) + '% indicates landing page or targeting issues.</li>';
+                }
+            }
+
+            if (impressions > 0 && clicks > 0) {
+                if (ctr >= 3) {
+                    interpretation += '<li><strong>Click-Through Rate:</strong> 🟢 Strong - ' + ctr.toFixed(2) + '% shows compelling ad creative.</li>';
+                } else if (ctr >= 1) {
+                    interpretation += '<li><strong>Click-Through Rate:</strong> 🟡 Average - ' + ctr.toFixed(2) + '% is typical.</li>';
+                } else {
+                    interpretation += '<li><strong>Click-Through Rate:</strong> 🔴 Low - ' + ctr.toFixed(2) + '% suggests ad copy needs improvement.</li>';
+                }
+            }
+
+            interpretation += '</ul>';
+
+            // Recommendations
+            interpretation += '<h3>💡 Recommendations</h3><ul>';
+            
+            if (roi < 100) {
+                interpretation += '<li>Focus on improving conversion rate - optimize landing pages and test different offers.</li>';
+            }
+            if (roas < 3) {
+                interpretation += '<li>Consider raising prices or reducing costs to improve margins.</li>';
+            }
+            if (conversionRate > 0 && conversionRate < 2) {
+                interpretation += '<li>Your landing page may not match user intent - review messaging and design.</li>';
+            }
+            if (ctr > 0 && ctr < 1) {
+                interpretation += '<li>Test new ad copy and headlines to improve click-through rate.</li>';
+            }
+            if (cpa > 0 && conversions > 0) {
+                const avgOrderValue = revenue / conversions;
+                if (cpa > avgOrderValue * 0.3) {
+                    interpretation += '<li>Your CPA is high relative to average order value - consider tightening targeting.</li>';
+                }
+            }
+            
+            interpretation += '</ul>';
+
+            document.getElementById('interpretation').innerHTML = interpretation;
+            document.getElementById('results').style.display = 'block';
+
+            // Scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Calculate on page load with default values
+        window.addEventListener('load', calculate);
+
+        // Recalculate on input change
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', calculate);
+        });
+    </script>
+</body>
+</html>
