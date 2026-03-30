@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Equity Calculator - Calculate Your Home Equity</title>
+    <meta name="description" content="Calculate your home equity instantly. See how much equity you have built in your home based on current market value and remaining mortgage balance.">
+    <link rel="stylesheet" href="gold.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Home Equity Calculator",
+        "description": "Calculate your home equity based on current home value and mortgage balance.",
+        "url": "https://calcleap.com/home-equity-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>💰 CalcLeap</h1>
+        <p>Free Calculators for Everything</p>
+    </header>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="loan-calculator.html">Loan Calculator</a>
+        <a href="investment-calculator.html">Investment Calculator</a>
+    </nav>
+
+    <main>
+        <div class="tool-container">
+            <h2>Home Equity Calculator</h2>
+            <p>Calculate how much equity you have built in your home. Home equity is the difference between your home's current market value and the amount you still owe on your mortgage.</p>
+            
+            <div id="toolContent">
+                <div class="input-group">
+                    <label for="homeValue">Current Home Value ($)</label>
+                    <input type="number" id="homeValue" placeholder="500000" min="0" step="1000">
+                </div>
+
+                <div class="input-group">
+                    <label for="mortgageBalance">Remaining Mortgage Balance ($)</label>
+                    <input type="number" id="mortgageBalance" placeholder="300000" min="0" step="1000">
+                </div>
+
+                <div class="input-group">
+                    <label for="otherLoans">Other Home Loans (HELOC, Second Mortgage) ($)</label>
+                    <input type="number" id="otherLoans" placeholder="0" min="0" step="1000" value="0">
+                </div>
+
+                <button onclick="calculateEquity()">Calculate Home Equity</button>
+
+                <div id="result"></div>
+
+                <div class="info-section">
+                    <h3>Understanding Home Equity</h3>
+                    <p><strong>Home equity</strong> represents your ownership stake in your home. It's calculated as:</p>
+                    <p style="text-align: center; font-weight: bold; margin: 20px 0;">Home Equity = Current Home Value - Total Debt</p>
+                    
+                    <h4>Ways to Build Home Equity:</h4>
+                    <ul>
+                        <li><strong>Pay down your mortgage:</strong> Each monthly payment reduces principal</li>
+                        <li><strong>Home value appreciation:</strong> Market increases boost equity</li>
+                        <li><strong>Home improvements:</strong> Renovations can increase value</li>
+                        <li><strong>Extra payments:</strong> Additional principal payments accelerate equity growth</li>
+                    </ul>
+
+                    <h4>Using Your Home Equity:</h4>
+                    <ul>
+                        <li><strong>HELOC:</strong> Home equity line of credit for flexible borrowing</li>
+                        <li><strong>Home equity loan:</strong> Lump sum loan at fixed rate</li>
+                        <li><strong>Cash-out refinance:</strong> Replace mortgage and take cash difference</li>
+                        <li><strong>Reverse mortgage:</strong> For seniors 62+ to access equity</li>
+                    </ul>
+
+                    <h4>Equity Percentage Guidelines:</h4>
+                    <ul>
+                        <li><strong>0-20%:</strong> Building equity, limited borrowing options</li>
+                        <li><strong>20-50%:</strong> Good equity position, eligible for most loans</li>
+                        <li><strong>50-80%:</strong> Strong equity, best rates and terms</li>
+                        <li><strong>80%+:</strong> Excellent position, maximum financial flexibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CalcLeap. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        function calculateEquity() {
+            const homeValue = parseFloat(document.getElementById('homeValue').value) || 0;
+            const mortgageBalance = parseFloat(document.getElementById('mortgageBalance').value) || 0;
+            const otherLoans = parseFloat(document.getElementById('otherLoans').value) || 0;
+
+            if (homeValue <= 0) {
+                document.getElementById('result').innerHTML = '<div class="error">Please enter a valid home value.</div>';
+                return;
+            }
+
+            const totalDebt = mortgageBalance + otherLoans;
+            const equity = homeValue - totalDebt;
+            const equityPercent = (equity / homeValue) * 100;
+
+            let status = '';
+            let statusClass = '';
+            if (equityPercent < 20) {
+                status = 'Building Equity';
+                statusClass = 'warning';
+            } else if (equityPercent < 50) {
+                status = 'Good Equity Position';
+                statusClass = 'info';
+            } else if (equityPercent < 80) {
+                status = 'Strong Equity';
+                statusClass = 'success';
+            } else {
+                status = 'Excellent Position';
+                statusClass = 'success';
+            }
+
+            const maxBorrowable = equity * 0.8; // Most lenders allow up to 80% LTV
+
+            let html = '<div class="success">';
+            html += '<h3>Your Home Equity</h3>';
+            html += '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">';
+            
+            html += '<div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">';
+            html += '<div style="font-size: 0.9em; opacity: 0.8;">Current Home Value</div>';
+            html += '<div style="font-size: 1.5em; font-weight: bold; margin: 5px 0;">$' + homeValue.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) + '</div>';
+            html += '</div>';
+
+            html += '<div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">';
+            html += '<div style="font-size: 0.9em; opacity: 0.8;">Total Debt</div>';
+            html += '<div style="font-size: 1.5em; font-weight: bold; margin: 5px 0;">$' + totalDebt.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) + '</div>';
+            html += '</div>';
+
+            html += '<div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">';
+            html += '<div style="font-size: 0.9em; opacity: 0.8;">Home Equity</div>';
+            html += '<div style="font-size: 1.5em; font-weight: bold; margin: 5px 0; color: #4CAF50;">$' + equity.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) + '</div>';
+            html += '</div>';
+
+            html += '<div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">';
+            html += '<div style="font-size: 0.9em; opacity: 0.8;">Equity Percentage</div>';
+            html += '<div style="font-size: 1.5em; font-weight: bold; margin: 5px 0; color: #4CAF50;">' + equityPercent.toFixed(1) + '%</div>';
+            html += '</div>';
+
+            html += '</div>';
+
+            html += '<div style="background: rgba(76, 175, 80, 0.2); padding: 15px; border-radius: 8px; margin: 15px 0;">';
+            html += '<div style="font-weight: bold; margin-bottom: 5px;">Status: ' + status + '</div>';
+            html += '<div style="font-size: 0.9em;">Estimated borrowing capacity (80% LTV): <strong>$' + maxBorrowable.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) + '</strong></div>';
+            html += '</div>';
+
+            html += '<div style="margin-top: 20px; padding: 15px; background: rgba(33, 150, 243, 0.1); border-radius: 8px;">';
+            html += '<h4 style="margin-top: 0;">Breakdown</h4>';
+            html += '<table style="width: 100%; border-collapse: collapse;">';
+            html += '<tr><td style="padding: 8px 0;">Mortgage Balance:</td><td style="text-align: right; font-weight: bold;">$' + mortgageBalance.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) + '</td></tr>';
+            if (otherLoans > 0) {
+                html += '<tr><td style="padding: 8px 0;">Other Loans:</td><td style="text-align: right; font-weight: bold;">$' + otherLoans.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) + '</td></tr>';
+            }
+            html += '<tr style="border-top: 2px solid rgba(255,255,255,0.3);"><td style="padding: 8px 0; font-weight: bold;">Your Equity:</td><td style="text-align: right; font-weight: bold; color: #4CAF50;">$' + equity.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) + '</td></tr>';
+            html += '</table>';
+            html += '</div>';
+
+            html += '<div style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">';
+            html += '<strong>Note:</strong> Actual borrowing amounts depend on your credit score, income, debt-to-income ratio, and lender requirements. Contact a mortgage lender for personalized options.';
+            html += '</div>';
+
+            html += '</div>';
+
+            document.getElementById('result').innerHTML = html;
+        }
+
+        // Auto-calculate on input change
+        document.getElementById('homeValue').addEventListener('input', calculateEquity);
+        document.getElementById('mortgageBalance').addEventListener('input', calculateEquity);
+        document.getElementById('otherLoans').addEventListener('input', calculateEquity);
+    </script>
+</body>
+</html>
