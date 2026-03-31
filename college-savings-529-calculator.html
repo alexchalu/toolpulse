@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>529 College Savings Plan Calculator - CalcLeap</title>
+    <meta name="description" content="Free 529 college savings calculator. Project future college costs, plan monthly contributions, and see tax-advantaged growth. Calculate education savings goals.">
+    <link rel="canonical" href="https://calcleap.com/college-savings-529-calculator">
+    <link rel="stylesheet" href="gold.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "529 College Savings Calculator",
+      "description": "Calculate 529 plan contributions and future college costs",
+      "url": "https://calcleap.com/college-savings-529-calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo"><a href="index.html">CalcLeap</a></div>
+            <p class="tagline">Financial Tools That Work</p>
+        </header>
+
+        <main>
+            <h1>529 College Savings Plan Calculator</h1>
+            <p class="subtitle">Project education costs and plan tax-advantaged savings for college</p>
+
+            <div id="toolContent">
+                <div class="input-group">
+                    <label for="childAge">Child's Current Age</label>
+                    <input type="number" id="childAge" value="5" min="0" max="17" step="1">
+                    <span class="unit">years old</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="collegeAge">College Start Age</label>
+                    <input type="number" id="collegeAge" value="18" min="1" max="25" step="1">
+                    <span class="unit">years old</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="currentCost">Current Annual College Cost</label>
+                    <input type="number" id="currentCost" value="30000" min="0" step="1000">
+                    <span class="unit">$/year</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="educationInflation">Education Inflation Rate</label>
+                    <input type="number" id="educationInflation" value="5.0" min="0" max="15" step="0.1">
+                    <span class="unit">%/year</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="yearsInCollege">Years in College</label>
+                    <input type="number" id="yearsInCollege" value="4" min="1" max="8" step="1">
+                    <span class="unit">years</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="currentSavings">Current 529 Balance</label>
+                    <input type="number" id="currentSavings" value="10000" min="0" step="1000">
+                    <span class="unit">$</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="monthlyContribution">Monthly Contribution</label>
+                    <input type="number" id="monthlyContribution" value="400" min="0" step="50">
+                    <span class="unit">$/month</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="returnRate">Expected Annual Return</label>
+                    <input type="number" id="returnRate" value="7.0" min="0" max="20" step="0.1">
+                    <span class="unit">%/year</span>
+                </div>
+
+                <div class="result-box">
+                    <h2>Projection Results</h2>
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">Years Until College</div>
+                            <div class="result-value" id="yearsUntil">—</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Total College Cost (Future)</div>
+                            <div class="result-value" id="totalCost">—</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Projected 529 Balance</div>
+                            <div class="result-value" id="projectedBalance">—</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Funding Gap</div>
+                            <div class="result-value" id="fundingGap">—</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Total Contributions</div>
+                            <div class="result-value" id="totalContributions">—</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Investment Gains</div>
+                            <div class="result-value" id="investmentGains">—</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Coverage %</div>
+                            <div class="result-value" id="coveragePercent">—</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Recommended Monthly</div>
+                            <div class="result-value" id="recommendedMonthly">—</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>Understanding 529 Plans</h2>
+                    <p><strong>529 college savings plans</strong> are tax-advantaged investment accounts designed to help families save for education expenses. They offer significant benefits:</p>
+                    <ul>
+                        <li><strong>Tax-Free Growth:</strong> Earnings grow federal tax-free and are not taxed when withdrawn for qualified education expenses</li>
+                        <li><strong>State Tax Benefits:</strong> Many states offer tax deductions or credits for contributions</li>
+                        <li><strong>High Contribution Limits:</strong> Most plans allow total contributions exceeding $300,000</li>
+                        <li><strong>Flexibility:</strong> Can be used at any accredited college, university, or vocational school nationwide</li>
+                        <li><strong>Control:</strong> Account owner maintains control of funds, not the beneficiary</li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h2>Planning Tips</h2>
+                    <ul>
+                        <li><strong>Start Early:</strong> The earlier you start, the more time for compound growth to work in your favor</li>
+                        <li><strong>Automate Contributions:</strong> Set up automatic monthly transfers to ensure consistent saving</li>
+                        <li><strong>Age-Based Portfolios:</strong> Consider target-date funds that automatically adjust risk as college approaches</li>
+                        <li><strong>Gift Contributions:</strong> Family members can contribute directly to a 529 plan as gifts</li>
+                        <li><strong>Multiple Children:</strong> You can change beneficiaries or split funds among siblings</li>
+                        <li><strong>Beyond Tuition:</strong> 529 funds can be used for room, board, books, computers, and required supplies</li>
+                        <li><strong>K-12 Expenses:</strong> Up to $10,000 per year can be withdrawn tax-free for K-12 tuition</li>
+                        <li><strong>Student Loan Repayment:</strong> Up to $10,000 lifetime can be used for student loan repayment</li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h2>Common Questions</h2>
+                    <p><strong>What if my child doesn't go to college?</strong> You can change the beneficiary to another family member, use funds for yourself, or withdraw the money (earnings will be taxed and subject to a 10% penalty).</p>
+                    <p><strong>How does a 529 affect financial aid?</strong> Parent-owned 529 accounts have minimal impact (assessed at 5.64% for FAFSA), much better than student-owned accounts.</p>
+                    <p><strong>What are qualified expenses?</strong> Tuition, fees, books, supplies, equipment, room and board (for at least half-time students), computer and internet access, and special needs services.</p>
+                    <p><strong>Can I invest in any state's plan?</strong> Yes, you're not limited to your home state's plan, though your state may offer tax benefits for using its plan.</p>
+                    <p><strong>What's the typical education inflation rate?</strong> College costs have historically risen 5-6% annually, significantly higher than general inflation (2-3%).</p>
+                </div>
+
+                <div class="info-section">
+                    <h2>Investment Strategy</h2>
+                    <p><strong>When child is young (10+ years to college):</strong> Consider aggressive growth portfolios with 80-100% stocks for maximum long-term growth potential.</p>
+                    <p><strong>Mid-range (5-10 years):</strong> Transition to balanced portfolios with 50-70% stocks to reduce volatility while maintaining growth.</p>
+                    <p><strong>Near college (0-5 years):</strong> Shift to conservative portfolios with 70-90% bonds/cash to preserve capital and reduce risk.</p>
+                    <p><strong>Age-based portfolios</strong> automatically adjust this allocation over time, making them a popular hands-off option.</p>
+                </div>
+
+                <div class="info-section">
+                    <h2>Calculation Notes</h2>
+                    <p>This calculator projects future college costs using the education inflation rate (typically 5-6% historically). Your current savings and future monthly contributions grow at your expected return rate (typical balanced portfolio: 6-8%). The funding gap shows whether you're on track to cover costs. The recommended monthly amount shows what you'd need to contribute to fully fund projected costs.</p>
+                    <p><strong>Important:</strong> This is a projection based on assumptions. Actual returns, college costs, and inflation will vary. Review and adjust your plan annually.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 CalcLeap. Free calculators for life's important decisions.</p>
+            <p><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="blog.html">Blog</a> | <a href="contact.html">Contact</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function calculate() {
+            const childAge = parseFloat(document.getElementById('childAge').value) || 0;
+            const collegeAge = parseFloat(document.getElementById('collegeAge').value) || 18;
+            const currentCost = parseFloat(document.getElementById('currentCost').value) || 0;
+            const educationInflation = parseFloat(document.getElementById('educationInflation').value) || 0;
+            const yearsInCollege = parseFloat(document.getElementById('yearsInCollege').value) || 4;
+            const currentSavings = parseFloat(document.getElementById('currentSavings').value) || 0;
+            const monthlyContribution = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+            const returnRate = parseFloat(document.getElementById('returnRate').value) || 0;
+
+            const yearsUntil = Math.max(0, collegeAge - childAge);
+            const monthsUntil = yearsUntil * 12;
+
+            // Calculate future value of current savings
+            const fvCurrentSavings = currentSavings * Math.pow(1 + returnRate/100, yearsUntil);
+
+            // Calculate future value of monthly contributions (annuity)
+            let fvContributions = 0;
+            if (returnRate > 0 && monthsUntil > 0) {
+                const monthlyRate = returnRate / 100 / 12;
+                fvContributions = monthlyContribution * ((Math.pow(1 + monthlyRate, monthsUntil) - 1) / monthlyRate) * (1 + monthlyRate);
+            } else if (monthsUntil > 0) {
+                fvContributions = monthlyContribution * monthsUntil;
+            }
+
+            const projectedBalance = fvCurrentSavings + fvContributions;
+            const totalContributions = currentSavings + (monthlyContribution * monthsUntil);
+            const investmentGains = projectedBalance - totalContributions;
+
+            // Calculate total college cost (sum of all years with inflation)
+            let totalCost = 0;
+            for (let i = 0; i < yearsInCollege; i++) {
+                const costYear = currentCost * Math.pow(1 + educationInflation/100, yearsUntil + i);
+                totalCost += costYear;
+            }
+
+            const fundingGap = totalCost - projectedBalance;
+            const coveragePercent = totalCost > 0 ? (projectedBalance / totalCost) * 100 : 0;
+
+            // Calculate recommended monthly contribution to fully fund
+            let recommendedMonthly = 0;
+            if (monthsUntil > 0 && totalCost > fvCurrentSavings) {
+                const needed = totalCost - fvCurrentSavings;
+                if (returnRate > 0) {
+                    const monthlyRate = returnRate / 100 / 12;
+                    recommendedMonthly = needed * monthlyRate / ((Math.pow(1 + monthlyRate, monthsUntil) - 1) * (1 + monthlyRate));
+                } else {
+                    recommendedMonthly = needed / monthsUntil;
+                }
+            }
+
+            // Display results
+            document.getElementById('yearsUntil').textContent = yearsUntil.toFixed(1) + ' years';
+            document.getElementById('totalCost').textContent = '$' + totalCost.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('projectedBalance').textContent = '$' + projectedBalance.toLocaleString('en-US', {maximumFractionDigits: 0});
+            
+            const gapElement = document.getElementById('fundingGap');
+            if (fundingGap > 0) {
+                gapElement.textContent = '$' + fundingGap.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' short';
+                gapElement.style.color = '#d32f2f';
+            } else {
+                gapElement.textContent = '$' + Math.abs(fundingGap).toLocaleString('en-US', {maximumFractionDigits: 0}) + ' surplus';
+                gapElement.style.color = '#388e3c';
+            }
+
+            document.getElementById('totalContributions').textContent = '$' + totalContributions.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('investmentGains').textContent = '$' + investmentGains.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('coveragePercent').textContent = coveragePercent.toFixed(1) + '%';
+            document.getElementById('recommendedMonthly').textContent = '$' + recommendedMonthly.toLocaleString('en-US', {maximumFractionDigits: 0}) + '/mo';
+        }
+
+        // Add event listeners
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', calculate);
+        });
+
+        // Initial calculation
+        calculate();
+    </script>
+</body>
+</html>
