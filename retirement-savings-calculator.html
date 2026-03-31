@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirement Savings Calculator - Plan Your Future | CalcLeap</title>
+    <meta name="description" content="Free retirement savings calculator. Calculate how much to save for retirement, estimate your retirement income, and plan for a comfortable future with compound growth projections.">
+    <meta name="keywords" content="retirement savings calculator, retirement planning, retirement income, 401k calculator, IRA calculator, nest egg calculator">
+    <link rel="canonical" href="https://calcleap.com/retirement-savings-calculator">
+    <link rel="stylesheet" href="gold.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Retirement Savings Calculator",
+      "description": "Calculate retirement savings needs and income projections",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="/">CalcLeap</a></h1>
+            <p class="tagline">Financial clarity in seconds</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Retirement Savings Calculator</h2>
+        <p>Plan for your retirement by calculating how much you need to save and what income you can expect in retirement.</p>
+
+        <div class="tool-card">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="currentAge">Current Age</label>
+                    <input type="number" id="currentAge" value="30" min="18" max="100">
+                </div>
+
+                <div class="input-group">
+                    <label for="retirementAge">Retirement Age</label>
+                    <input type="number" id="retirementAge" value="65" min="50" max="100">
+                </div>
+
+                <div class="input-group">
+                    <label for="currentSavings">Current Retirement Savings ($)</label>
+                    <input type="number" id="currentSavings" value="50000" min="0" step="1000">
+                </div>
+
+                <div class="input-group">
+                    <label for="monthlyContribution">Monthly Contribution ($)</label>
+                    <input type="number" id="monthlyContribution" value="500" min="0" step="50">
+                </div>
+
+                <div class="input-group">
+                    <label for="returnRate">Expected Annual Return (%)</label>
+                    <input type="number" id="returnRate" value="7" min="0" max="20" step="0.1">
+                </div>
+
+                <div class="input-group">
+                    <label for="inflationRate">Inflation Rate (%)</label>
+                    <input type="number" id="inflationRate" value="3" min="0" max="10" step="0.1">
+                </div>
+
+                <div class="input-group">
+                    <label for="retirementYears">Years in Retirement</label>
+                    <input type="number" id="retirementYears" value="30" min="1" max="50">
+                </div>
+
+                <div class="input-group">
+                    <label for="withdrawalRate">Annual Withdrawal Rate (%)</label>
+                    <input type="number" id="withdrawalRate" value="4" min="1" max="10" step="0.5">
+                </div>
+
+                <button class="cta-button" onclick="calculateRetirement()">Calculate Retirement Plan</button>
+            </div>
+
+            <div id="toolContent">
+                <div class="result-section">
+                    <h3>Retirement Projection</h3>
+                    <div class="result-row">
+                        <span>Total Saved at Retirement:</span>
+                        <strong id="totalSaved">$1,383,131</strong>
+                    </div>
+                    <div class="result-row">
+                        <span>Total Contributions:</span>
+                        <strong id="totalContributions">$260,000</strong>
+                    </div>
+                    <div class="result-row">
+                        <span>Investment Gains:</span>
+                        <strong id="investmentGains">$1,073,131</strong>
+                    </div>
+                    <div class="result-row">
+                        <span>Annual Retirement Income (first year):</span>
+                        <strong id="annualIncome">$55,325</strong>
+                    </div>
+                    <div class="result-row">
+                        <span>Monthly Retirement Income (first year):</span>
+                        <strong id="monthlyIncome">$4,610</strong>
+                    </div>
+                    <div class="result-row">
+                        <span>Real Income (inflation-adjusted):</span>
+                        <strong id="realIncome">$23,461</strong>
+                    </div>
+                    <div class="result-row">
+                        <span>Years Until Retirement:</span>
+                        <strong id="yearsToRetire">35 years</strong>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h4>Understanding Your Results</h4>
+                    <p><strong>Total Saved:</strong> Amount accumulated by retirement age with monthly contributions and compound growth.</p>
+                    <p><strong>Annual Income:</strong> Based on the withdrawal rate (default 4% per year following the "4% rule").</p>
+                    <p><strong>Real Income:</strong> Inflation-adjusted purchasing power in today's dollars.</p>
+                    <p><strong>Investment Gains:</strong> Growth from compound returns on contributions and existing savings.</p>
+                </div>
+
+                <div class="info-section">
+                    <h4>Retirement Planning Tips</h4>
+                    <ul>
+                        <li><strong>Start Early:</strong> Time is your biggest ally. Starting in your 20s vs 40s can mean hundreds of thousands more.</li>
+                        <li><strong>Max Employer Match:</strong> Always contribute enough to get full 401(k) match—it's free money.</li>
+                        <li><strong>Increase Over Time:</strong> Raise contributions by 1% annually as income grows.</li>
+                        <li><strong>Diversify:</strong> Balance stocks, bonds, and other assets based on age and risk tolerance.</li>
+                        <li><strong>Consider Inflation:</strong> $1M today won't have the same value in 30 years.</li>
+                        <li><strong>Tax Optimization:</strong> Mix traditional (tax-deferred) and Roth (tax-free) accounts.</li>
+                        <li><strong>Review Annually:</strong> Adjust contributions and allocations as circumstances change.</li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h4>Common Retirement Mistakes</h4>
+                    <ul>
+                        <li>Waiting too long to start saving</li>
+                        <li>Not maximizing employer 401(k) match</li>
+                        <li>Withdrawing from retirement accounts early</li>
+                        <li>Being too conservative or too aggressive with investments</li>
+                        <li>Ignoring inflation in planning</li>
+                        <li>Not accounting for healthcare costs in retirement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="related-tools">
+            <h3>Related Calculators</h3>
+            <div class="tool-grid">
+                <a href="/401k-calculator" class="related-tool-card">401(k) Calculator</a>
+                <a href="/compound-interest-calculator" class="related-tool-card">Compound Interest</a>
+                <a href="/roth-ira-calculator" class="related-tool-card">Roth IRA Calculator</a>
+                <a href="/investment-calculator" class="related-tool-card">Investment Calculator</a>
+                <a href="/salary-calculator" class="related-tool-card">Salary Calculator</a>
+                <a href="/budget-calculator" class="related-tool-card">Budget Calculator</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+            <p><a href="/privacy">Privacy</a> | <a href="/terms">Terms</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+
+        function calculateRetirement() {
+            const currentAge = parseFloat(document.getElementById('currentAge').value);
+            const retirementAge = parseFloat(document.getElementById('retirementAge').value);
+            const currentSavings = parseFloat(document.getElementById('currentSavings').value);
+            const monthlyContribution = parseFloat(document.getElementById('monthlyContribution').value);
+            const returnRate = parseFloat(document.getElementById('returnRate').value) / 100;
+            const inflationRate = parseFloat(document.getElementById('inflationRate').value) / 100;
+            const retirementYears = parseFloat(document.getElementById('retirementYears').value);
+            const withdrawalRate = parseFloat(document.getElementById('withdrawalRate').value) / 100;
+
+            const yearsToRetirement = retirementAge - currentAge;
+            
+            if (yearsToRetirement <= 0) {
+                alert('Retirement age must be greater than current age.');
+                return;
+            }
+
+            // Calculate future value with monthly contributions
+            const monthlyRate = returnRate / 12;
+            const months = yearsToRetirement * 12;
+            
+            // Future value of current savings
+            const futureSavings = currentSavings * Math.pow(1 + returnRate, yearsToRetirement);
+            
+            // Future value of monthly contributions (annuity)
+            const futureContributions = monthlyContribution * 
+                ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+            
+            const totalSaved = futureSavings + futureContributions;
+            const totalContributions = currentSavings + (monthlyContribution * months);
+            const investmentGains = totalSaved - totalContributions;
+            
+            // Annual income from withdrawal rate
+            const annualIncome = totalSaved * withdrawalRate;
+            const monthlyIncome = annualIncome / 12;
+            
+            // Inflation-adjusted income (in today's dollars)
+            const realIncome = annualIncome / Math.pow(1 + inflationRate, yearsToRetirement);
+
+            document.getElementById('totalSaved').textContent = formatCurrency(totalSaved);
+            document.getElementById('totalContributions').textContent = formatCurrency(totalContributions);
+            document.getElementById('investmentGains').textContent = formatCurrency(investmentGains);
+            document.getElementById('annualIncome').textContent = formatCurrency(annualIncome);
+            document.getElementById('monthlyIncome').textContent = formatCurrency(monthlyIncome);
+            document.getElementById('realIncome').textContent = formatCurrency(realIncome);
+            document.getElementById('yearsToRetire').textContent = `${yearsToRetirement} years`;
+        }
+
+        // Calculate on page load
+        calculateRetirement();
+
+        // Recalculate on input change
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', calculateRetirement);
+        });
+    </script>
+</body>
+</html>
