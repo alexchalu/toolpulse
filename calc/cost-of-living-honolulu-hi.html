@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honolulu, HI Cost of Living Calculator - Compare Living Expenses | CalcLeap</title>
+    <meta name="description" content="Calculate cost of living in Honolulu, HI. Estimate housing, food, transportation, healthcare costs. Oahu, Hawaii expense calculator.">
+    <link rel="canonical" href="https://calcleap.com/calc/cost-of-living-honolulu-hi.html">
+    <link rel="stylesheet" href="../gold.css">
+</head>
+<body>
+    <header>
+        <div class="logo-section">
+            <a href="../index.html" class="logo-link"><h1>CalcLeap</h1></a>
+        </div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="mortgage-calculator.html">Mortgage</a>
+            <a href="bmi-calculator.html">Health</a>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h1>Honolulu, HI Cost of Living Calculator</h1>
+            <p class="subtitle">Estimate monthly living expenses in Honolulu, HI. Compare housing, food, transportation, healthcare, and utilities costs.</p>
+            <div class="tool-container">
+                <div class="calculator-section">
+                    <h2>Monthly Expense Inputs</h2>
+                    <div class="input-group">
+                        <label for="housingType">Housing Type:</label>
+                        <select id="housingType">
+                            <option value="studio">Studio Apartment</option>
+                            <option value="1bed" selected>1 Bedroom</option>
+                            <option value="2bed">2 Bedroom</option>
+                            <option value="3bed">3 Bedroom</option>
+                            <option value="house">Single Family Home</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="area">Area:</label>
+                        <select id="area">
+                            <option value="waikiki" selected>Waikiki</option>
+                            <option value="kakaako">Kakaako</option>
+                            <option value="manoa">Manoa</option>
+                            <option value="suburbs">Suburbs</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="householdSize">Household Size:</label>
+                        <input type="number" id="householdSize" value="1" min="1" max="10">
+                    </div>
+                    <div class="input-group">
+                        <label for="hasCar">Transportation:</label>
+                        <select id="hasCar">
+                            <option value="public">Public Transit</option>
+                            <option value="occasional">Occasional Uber/Taxi</option>
+                            <option value="car" selected>Own Car</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="diningOut">Dining Out (meals/week):</label>
+                        <input type="number" id="diningOut" value="3" min="0" max="21">
+                    </div>
+                    <div class="input-group">
+                        <label for="lifestyle">Lifestyle:</label>
+                        <select id="lifestyle">
+                            <option value="budget">Budget</option>
+                            <option value="moderate" selected>Moderate</option>
+                            <option value="comfortable">Comfortable</option>
+                            <option value="luxury">Luxury</option>
+                        </select>
+                    </div>
+                    <button onclick="calculate()" class="calculate-btn">Calculate Cost of Living</button>
+                </div>
+                <div id="results" class="results-section" style="display:none;">
+                    <h2>Estimated Monthly Cost of Living</h2>
+                    <div class="result-card">
+                        <h3>Total Monthly Expenses</h3>
+                        <p class="result-value" id="totalCost">$0</p>
+                        <p class="result-subtext" id="annualCost">$0/year</p>
+                    </div>
+                    <div class="breakdown-section">
+                        <h3>Expense Breakdown</h3>
+                        <div class="breakdown-item"><span class="breakdown-label">Housing:</span><span class="breakdown-value" id="housingCost">$0</span></div>
+                        <div class="breakdown-item"><span class="breakdown-label">Utilities:</span><span class="breakdown-value" id="utilitiesCost">$0</span></div>
+                        <div class="breakdown-item"><span class="breakdown-label">Food & Groceries:</span><span class="breakdown-value" id="foodCost">$0</span></div>
+                        <div class="breakdown-item"><span class="breakdown-label">Dining Out:</span><span class="breakdown-value" id="diningCost">$0</span></div>
+                        <div class="breakdown-item"><span class="breakdown-label">Transportation:</span><span class="breakdown-value" id="transportCost">$0</span></div>
+                        <div class="breakdown-item"><span class="breakdown-label">Healthcare:</span><span class="breakdown-value" id="healthcareCost">$0</span></div>
+                        <div class="breakdown-item"><span class="breakdown-label">Entertainment:</span><span class="breakdown-value" id="entertainmentCost">$0</span></div>
+                    </div>
+                </div>
+            </div>
+            <section class="related-tools">
+                <h2>Related Calculators</h2>
+                <div class="tool-grid">
+                    <a href="salary-comparison-calculator.html" class="tool-card">Salary Comparison</a>
+                    <a href="rent-vs-buy-calculator.html" class="tool-card">Rent vs Buy</a>
+                    <a href="cost-of-living-new-york-ny.html" class="tool-card">NYC Cost of Living</a>
+                </div>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2025 CalcLeap. All rights reserved.</p>
+    </footer>
+    <script>
+        const housingCosts = {"waikiki":{"studio":2000,"1bed":2700,"2bed":3700,"3bed":4800,"house":6500},"kakaako":{"studio":2200,"1bed":3000,"2bed":4100,"3bed":5300,"house":7200},"manoa":{"studio":1900,"1bed":2500,"2bed":3400,"3bed":4400,"house":6000},"suburbs":{"studio":1700,"1bed":2300,"2bed":3100,"3bed":4000,"house":5500}};
+        function calculate() {
+            const housingType = document.getElementById('housingType').value;
+            const area = document.getElementById('area').value;
+            const householdSize = parseInt(document.getElementById('householdSize').value);
+            const hasCar = document.getElementById('hasCar').value;
+            const diningOut = parseInt(document.getElementById('diningOut').value);
+            const lifestyle = document.getElementById('lifestyle').value;
+            
+            let housing = housingCosts[area][housingType];
+            let baseUtil = housingType==='studio'||housingType==='1bed'?130:housingType==='2bed'?170:220;
+            let utilities = baseUtil + (householdSize>2?(householdSize-2)*25:0);
+            
+            let foodPP = lifestyle==='budget'?300:lifestyle==='moderate'?380:lifestyle==='comfortable'?480:650;
+            let food = foodPP * householdSize;
+            
+            let mealCost = lifestyle==='budget'?15:lifestyle==='moderate'?22:lifestyle==='comfortable'?32:50;
+            let dining = diningOut * mealCost * 4.33;
+            
+            let transport = 0;
+            if (hasCar==='public') transport = 80*householdSize;
+            else if (hasCar==='occasional') transport = 80*householdSize + 120;
+            else transport = 300 + 180 + 150 + 60;
+            
+            let healthPP = lifestyle==='budget'?180:lifestyle==='moderate'?260:lifestyle==='comfortable'?350:520;
+            let healthcare = healthPP * householdSize;
+            
+            let ent = lifestyle==='budget'?120:lifestyle==='moderate'?280:lifestyle==='comfortable'?480:950;
+            ent += (householdSize-1)*60;
+            
+            let total = housing+utilities+food+dining+transport+healthcare+ent;
+            let annual = total*12;
+            
+            document.getElementById('results').style.display='block';
+            document.getElementById('totalCost').textContent='$'+total.toLocaleString('en-US',{maximumFractionDigits:0});
+            document.getElementById('annualCost').textContent='$'+annual.toLocaleString('en-US',{maximumFractionDigits:0})+'/year';
+            document.getElementById('housingCost').textContent='$'+housing.toLocaleString();
+            document.getElementById('utilitiesCost').textContent='$'+utilities.toLocaleString();
+            document.getElementById('foodCost').textContent='$'+food.toLocaleString();
+            document.getElementById('diningCost').textContent='$'+dining.toLocaleString();
+            document.getElementById('transportCost').textContent='$'+transport.toLocaleString();
+            document.getElementById('healthcareCost').textContent='$'+healthcare.toLocaleString();
+            document.getElementById('entertainmentCost').textContent='$'+ent.toLocaleString();
+            document.getElementById('results').scrollIntoView({behavior:'smooth',block:'nearest'});
+        }
+    </script>
+</body>
+</html>

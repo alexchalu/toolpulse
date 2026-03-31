@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York, NY Cost of Living Calculator - Compare Living Expenses | CalcLeap</title>
+    <meta name="description" content="Calculate and compare cost of living in New York, NY. Estimate housing, food, transportation, healthcare, and utilities costs for Manhattan, Brooklyn, Queens, Bronx, Staten Island.">
+    <meta name="keywords" content="New York cost of living, NYC expenses, Manhattan rent, Brooklyn cost, cost of living New York, move to NYC calculator">
+    <link rel="canonical" href="https://calcleap.com/calc/cost-of-living-new-york-ny.html">
+    <link rel="stylesheet" href="../gold.css">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="New York, NY Cost of Living Calculator">
+    <meta property="og:description" content="Estimate monthly living costs in New York City. Compare housing, food, transportation, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/calc/cost-of-living-new-york-ny.html">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "New York, NY Cost of Living Calculator",
+      "description": "Calculate monthly cost of living in New York City",
+      "url": "https://calcleap.com/calc/cost-of-living-new-york-ny.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-section">
+            <a href="../index.html" class="logo-link">
+                <h1>CalcLeap</h1>
+            </a>
+        </div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../calc/mortgage-calculator.html">Mortgage</a>
+            <a href="../calc/bmi-calculator.html">Health</a>
+            <a href="../converters.html">Converters</a>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>New York, NY Cost of Living Calculator</h1>
+            <p class="subtitle">Estimate your monthly expenses in the Big Apple. Compare housing, food, transportation, healthcare, and utilities costs.</p>
+
+            <div class="tool-container">
+                <div class="calculator-section">
+                    <h2>Monthly Expense Inputs</h2>
+                    
+                    <div class="input-group">
+                        <label for="housingType">Housing Type:</label>
+                        <select id="housingType">
+                            <option value="studio">Studio Apartment</option>
+                            <option value="1bed" selected>1 Bedroom</option>
+                            <option value="2bed">2 Bedroom</option>
+                            <option value="3bed">3 Bedroom</option>
+                            <option value="house">Single Family Home</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="borough">Borough/Area:</label>
+                        <select id="borough">
+                            <option value="manhattan">Manhattan</option>
+                            <option value="brooklyn" selected>Brooklyn</option>
+                            <option value="queens">Queens</option>
+                            <option value="bronx">Bronx</option>
+                            <option value="staten">Staten Island</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="householdSize">Household Size:</label>
+                        <input type="number" id="householdSize" value="1" min="1" max="10" step="1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="hasCar">Transportation:</label>
+                        <select id="hasCar">
+                            <option value="metro" selected>Subway/Bus Only</option>
+                            <option value="occasional">Occasional Uber/Taxi</option>
+                            <option value="car">Own Car</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="diningOut">Dining Out (meals/week):</label>
+                        <input type="number" id="diningOut" value="3" min="0" max="21" step="1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="lifestyle">Lifestyle:</label>
+                        <select id="lifestyle">
+                            <option value="budget">Budget (Minimal Entertainment)</option>
+                            <option value="moderate" selected>Moderate (Some Activities)</option>
+                            <option value="comfortable">Comfortable (Regular Entertainment)</option>
+                            <option value="luxury">Luxury (Premium Choices)</option>
+                        </select>
+                    </div>
+
+                    <button onclick="calculate()" class="calculate-btn">Calculate Cost of Living</button>
+                </div>
+
+                <div id="results" class="results-section" style="display:none;">
+                    <h2>Your Estimated Monthly Cost of Living</h2>
+                    
+                    <div class="result-card">
+                        <h3>Total Monthly Expenses</h3>
+                        <p class="result-value" id="totalCost">$0</p>
+                        <p class="result-subtext" id="annualCost">$0/year</p>
+                    </div>
+
+                    <div class="breakdown-section">
+                        <h3>Expense Breakdown</h3>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Housing (Rent):</span>
+                            <span class="breakdown-value" id="housingCost">$0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Utilities (Electric, Gas, Internet):</span>
+                            <span class="breakdown-value" id="utilitiesCost">$0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Food & Groceries:</span>
+                            <span class="breakdown-value" id="foodCost">$0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Dining Out:</span>
+                            <span class="breakdown-value" id="diningCost">$0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Transportation:</span>
+                            <span class="breakdown-value" id="transportCost">$0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Healthcare:</span>
+                            <span class="breakdown-value" id="healthcareCost">$0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Entertainment & Misc:</span>
+                            <span class="breakdown-value" id="entertainmentCost">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <p><strong>Living in New York City:</strong> NYC is one of the most expensive cities in the US. Manhattan averages $4,500+/month for 1BR, Brooklyn $3,200+, Queens $2,400+. Public transportation (MetroCard: $132/month unlimited) is extensive. Budget for higher costs in dining, entertainment, and services compared to national averages.</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="info-section">
+                <h2>Understanding New York City Living Costs</h2>
+                
+                <h3>Housing Market by Borough</h3>
+                <p><strong>Manhattan:</strong> Most expensive borough. Studio: $3,200-4,000, 1BR: $4,500-6,000, 2BR: $6,500-9,000+. Premium neighborhoods (Upper West Side, Greenwich Village, Tribeca) command even higher rents.</p>
+                <p><strong>Brooklyn:</strong> Increasingly expensive, especially in Park Slope, Williamsburg, DUMBO. 1BR: $3,200-4,200, 2BR: $4,200-5,500. More affordable options in Sunset Park, Bay Ridge, Bushwick.</p>
+                <p><strong>Queens:</strong> More affordable family-friendly option. 1BR: $2,400-3,000, 2BR: $3,200-4,000. Astoria, Long Island City popular for young professionals. Flushing, Elmhurst have diverse communities.</p>
+                <p><strong>Bronx:</strong> Most affordable borough. 1BR: $1,800-2,400, 2BR: $2,400-3,200. Improving neighborhoods like Riverdale, Fordham, Pelham Bay.</p>
+                <p><strong>Staten Island:</strong> Suburban feel with lower density. 1BR: $1,600-2,000, 2BR: $2,000-2,800. Car ownership more common here.</p>
+
+                <h3>Transportation</h3>
+                <p>NYC has the most extensive public transit system in the US. MTA MetroCard: $132/month unlimited subway and local bus. Express buses $7/ride. Many residents don't own cars. If you do: parking $300-600/month, insurance higher due to congestion, tolls ($15+ for bridges/tunnels).</p>
+
+                <h3>Food & Dining</h3>
+                <p>Groceries cost 20-30% above national average. Trader Joe's, Costco, ethnic markets offer better value. Restaurant meal: $20-35 casual, $50-100+ fine dining. Coffee: $3-5. Food delivery is ubiquitous (Seamless, Uber Eats) but adds up quickly.</p>
+
+                <h3>Lifestyle Considerations</h3>
+                <ul>
+                    <li>World-class museums, Broadway shows, concerts - budget $50-200+ per event</li>
+                    <li>Gym memberships: $50-200/month depending on chain vs boutique</li>
+                    <li>Healthcare: Excellent hospitals but higher costs. Urgent care visit: $150-300 without insurance</li>
+                    <li>Taxes: NY state + NYC city income tax combined ~8-10% for middle incomes</li>
+                    <li>Laundry: Many apartments lack in-unit washer/dryer. Laundromat: $15-30/week</li>
+                </ul>
+
+                <h3>Cost-Saving Tips</h3>
+                <ul>
+                    <li>Live in outer boroughs (Brooklyn, Queens) for better value</li>
+                    <li>Use public transportation - owning a car is often more trouble than it's worth</li>
+                    <li>Take advantage of free events: Central Park concerts, museum free days, Brooklyn Bridge walks</li>
+                    <li>Shop at discount grocers (Lidl, Aldi) or ethnic markets for produce</li>
+                    <li>Cook at home - dining out adds up fast in NYC</li>
+                    <li>Consider roommates to split rent costs</li>
+                    <li>Look for rent-stabilized apartments</li>
+                </ul>
+            </section>
+
+            <section class="related-tools">
+                <h2>Related Calculators</h2>
+                <div class="tool-grid">
+                    <a href="salary-comparison-calculator.html" class="tool-card">Salary Comparison Calculator</a>
+                    <a href="rent-vs-buy-calculator.html" class="tool-card">Rent vs Buy Calculator</a>
+                    <a href="cost-of-living-los-angeles-ca.html" class="tool-card">Los Angeles Cost of Living</a>
+                    <a href="cost-of-living-chicago-il.html" class="tool-card">Chicago Cost of Living</a>
+                    <a href="nyc-income-tax-calculator.html" class="tool-card">NYC Income Tax Calculator</a>
+                    <a href="new-york-income-tax-calculator.html" class="tool-card">NY State Income Tax</a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CalcLeap. All rights reserved.</p>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../about.html">About</a>
+            <a href="../privacy.html">Privacy</a>
+            <a href="../contact.html">Contact</a>
+        </nav>
+    </footer>
+
+    <script>
+        function calculate() {
+            const housingType = document.getElementById('housingType').value;
+            const borough = document.getElementById('borough').value;
+            const householdSize = parseInt(document.getElementById('householdSize').value);
+            const hasCar = document.getElementById('hasCar').value;
+            const diningOut = parseInt(document.getElementById('diningOut').value);
+            const lifestyle = document.getElementById('lifestyle').value;
+
+            // Housing costs by borough and type (monthly averages 2025)
+            const housingCosts = {
+                manhattan: { studio: 3600, '1bed': 5000, '2bed': 7200, '3bed': 9500, house: 12000 },
+                brooklyn: { studio: 2600, '1bed': 3600, '2bed': 4800, '3bed': 6200, house: 8000 },
+                queens: { studio: 2000, '1bed': 2700, '2bed': 3600, '3bed': 4500, house: 5500 },
+                bronx: { studio: 1600, '1bed': 2100, '2bed': 2800, '3bed': 3500, house: 4500 },
+                staten: { studio: 1400, '1bed': 1800, '2bed': 2400, '3bed': 3000, house: 4000 }
+            };
+
+            let housing = housingCosts[borough][housingType];
+
+            // Utilities (scales with household size and home size)
+            let baseUtilities = housingType === 'studio' || housingType === '1bed' ? 150 : 
+                                housingType === '2bed' ? 200 : 250;
+            let utilities = baseUtilities + (householdSize > 2 ? (householdSize - 2) * 30 : 0);
+
+            // Food & Groceries (per person, NYC is 25% above national avg)
+            let foodPerPerson = lifestyle === 'budget' ? 350 : 
+                               lifestyle === 'moderate' ? 450 :
+                               lifestyle === 'comfortable' ? 550 : 700;
+            let food = foodPerPerson * householdSize;
+
+            // Dining out (NYC avg meal $25-30)
+            let avgMealCost = lifestyle === 'budget' ? 20 : 
+                             lifestyle === 'moderate' ? 28 :
+                             lifestyle === 'comfortable' ? 38 : 55;
+            let dining = diningOut * avgMealCost * 4.33; // weeks to month
+
+            // Transportation
+            let transport = 0;
+            if (hasCar === 'metro') {
+                transport = 132 * householdSize; // MetroCard unlimited
+            } else if (hasCar === 'occasional') {
+                transport = 132 * householdSize + 150; // MetroCard + Uber/taxi
+            } else {
+                // Car: parking, insurance, gas, tolls, maintenance
+                transport = 450 + 250 + 200 + 100 + 80;
+            }
+
+            // Healthcare (per person average with insurance)
+            let healthcarePerPerson = lifestyle === 'budget' ? 200 :
+                                     lifestyle === 'moderate' ? 300 :
+                                     lifestyle === 'comfortable' ? 400 : 600;
+            let healthcare = healthcarePerPerson * householdSize;
+
+            // Entertainment & Miscellaneous
+            let entertainment = 0;
+            if (lifestyle === 'budget') {
+                entertainment = 150 + (householdSize - 1) * 50;
+            } else if (lifestyle === 'moderate') {
+                entertainment = 350 + (householdSize - 1) * 100;
+            } else if (lifestyle === 'comfortable') {
+                entertainment = 600 + (householdSize - 1) * 150;
+            } else {
+                entertainment = 1200 + (householdSize - 1) * 300;
+            }
+
+            // Total monthly cost
+            let total = housing + utilities + food + dining + transport + healthcare + entertainment;
+            let annual = total * 12;
+
+            // Display results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('totalCost').textContent = '$' + total.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('annualCost').textContent = '$' + annual.toLocaleString('en-US', {maximumFractionDigits: 0}) + '/year';
+            document.getElementById('housingCost').textContent = '$' + housing.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('utilitiesCost').textContent = '$' + utilities.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('foodCost').textContent = '$' + food.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('diningCost').textContent = '$' + dining.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('transportCost').textContent = '$' + transport.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('healthcareCost').textContent = '$' + healthcare.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('entertainmentCost').textContent = '$' + entertainment.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
