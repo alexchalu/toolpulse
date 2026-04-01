@@ -377,7 +377,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     // Alabama standard deduction based on filing status
     let stdDed = 2500;
     if (filingStatus === "married" || filingStatus === "married_joint") stdDed = 7500;
-    else if (filingStatus === "head") stdDed = 4700;
+    else if (filingStatus === "hoh" || filingStatus === "head") stdDed = 4700;
     const taxable = Math.max(0, income - stdDed);
     
     let stateTax = 0;

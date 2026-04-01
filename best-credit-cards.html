@@ -368,8 +368,9 @@
 
     <script>
     function filterCards(cat) {
+        const btn = window.event ? window.event.target : document.querySelector('.filter-btn.active');
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        event.target.classList.add('active');
+        if (btn && btn.classList) btn.classList.add('active');
         document.querySelectorAll('.card-offer').forEach(c => {
             if (cat === 'all' || c.dataset.category === cat) {
                 c.style.display = 'block';

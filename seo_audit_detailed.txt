@@ -1,0 +1,36 @@
+================================================================================
+SEO & AdSense AUDIT - CalcLeap.com - DETAILED REPORT
+================================================================================
+
+
+4_SCHEMA (10 issues):
+--------------------------------------------------------------------------------
+best-credit-cards.html
+calc/cost-of-living-kansas-city-mo.html
+calc/renters-insurance-calculator.html
+car-insurance-calculator.html
+convert-ml-to-cups.html
+convert-tablespoons-to-teaspoons.html
+georgia-sales-tax-calculator.html
+insolvency-calculator.html
+los-angeles-cost-of-living-calculator.html
+mississippi-income-tax-calculator.html
+
+6_OG (9 issues):
+--------------------------------------------------------------------------------
+Missing og:title: calc/cost-of-living-kansas-city-mo.html
+Missing og:title: calc/energy-cost-calculator.html
+Missing og:title: car-insurance-calculator.html
+Missing og:description: calc/cost-of-living-kansas-city-mo.html
+Missing og:description: calc/energy-cost-calculator.html
+Missing og:description: car-insurance-calculator.html
+Missing og:url: calc/cost-of-living-kansas-city-mo.html
+Missing og:url: calc/energy-cost-calculator.html
+Missing og:url: car-insurance-calculator.html
+
+9_ADSENSE (4 issues):
+--------------------------------------------------------------------------------
+calc/cost-of-living-kansas-city-mo.html
+calc/energy-cost-calculator.html
+car-insurance-calculator.html
+personal-injury-settlement-calculator.html
