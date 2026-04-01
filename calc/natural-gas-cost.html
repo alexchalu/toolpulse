@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your monthly and annual natural gas costs. Estimate natural gas bills based on usage, rate, and appliance consumption. Free natural gas cost calculator.">
+    <title>Natural Gas Cost Calculator - Calculate Monthly Gas Bills | CalcLeap</title>
+    <link rel="stylesheet" href="../gold.css">
+    <link rel="canonical" href="https://calcleap.com/calc/natural-gas-cost.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Natural Gas Cost Calculator",
+      "description": "Calculate your monthly and annual natural gas costs based on usage and rate.",
+      "url": "https://calcleap.com/calc/natural-gas-cost.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><a href="../index.html">CalcLeap</a></div>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../calc/index.html">Calculators</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="calc-wrapper">
+            <h1>Natural Gas Cost Calculator</h1>
+            <p class="calc-description">Calculate your monthly and annual natural gas costs based on usage, rate per therm, and individual appliance consumption. Get accurate estimates of your natural gas bills.</p>
+
+            <div class="calc-modes">
+                <button class="mode-btn active" onclick="switchMode('simple')">Simple</button>
+                <button class="mode-btn" onclick="switchMode('detailed')">Detailed (Appliances)</button>
+            </div>
+
+            <div id="simpleMode" class="calc-mode active">
+                <div class="form-group">
+                    <label for="monthlyUsage">Monthly Gas Usage (therms):</label>
+                    <input type="number" id="monthlyUsage" placeholder="Enter therms per month" min="0" step="0.1">
+                    <span class="input-hint">Average US household: 40-100 therms/month</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="ratePerTherm">Rate per Therm ($):</label>
+                    <input type="number" id="ratePerTherm" placeholder="Enter $ per therm" min="0" step="0.01" value="1.20">
+                    <span class="input-hint">US average: $1.00-$1.50 per therm</span>
+                </div>
+
+                <button class="calc-button" onclick="calculateSimple()">Calculate Cost</button>
+            </div>
+
+            <div id="detailedMode" class="calc-mode">
+                <div class="form-group">
+                    <label for="ratePerThermDetailed">Rate per Therm ($):</label>
+                    <input type="number" id="ratePerThermDetailed" placeholder="Enter $ per therm" min="0" step="0.01" value="1.20">
+                </div>
+
+                <h3>Appliances</h3>
+
+                <div class="appliance-section">
+                    <h4>Furnace / Heating</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="furnaceHours">Hours/day:</label>
+                            <input type="number" id="furnaceHours" min="0" max="24" step="0.5" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="furnaceBtu">BTU/hour:</label>
+                            <input type="number" id="furnaceBtu" value="80000" step="1000">
+                            <span class="input-hint">Typical: 60,000-100,000 BTU/hr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="appliance-section">
+                    <h4>Water Heater</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="waterHeaterHours">Hours/day:</label>
+                            <input type="number" id="waterHeaterHours" min="0" max="24" step="0.5" value="3">
+                        </div>
+                        <div class="form-group">
+                            <label for="waterHeaterBtu">BTU/hour:</label>
+                            <input type="number" id="waterHeaterBtu" value="40000" step="1000">
+                            <span class="input-hint">Typical: 30,000-50,000 BTU/hr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="appliance-section">
+                    <h4>Gas Stove / Range</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="stoveHours">Hours/day:</label>
+                            <input type="number" id="stoveHours" min="0" max="24" step="0.25" value="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="stoveBtu">BTU/hour:</label>
+                            <input type="number" id="stoveBtu" value="7000" step="500">
+                            <span class="input-hint">Typical: 5,000-10,000 BTU/hr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="appliance-section">
+                    <h4>Gas Dryer</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dryerHours">Hours/week:</label>
+                            <input type="number" id="dryerHours" min="0" max="168" step="0.5" value="3">
+                        </div>
+                        <div class="form-group">
+                            <label for="dryerBtu">BTU/hour:</label>
+                            <input type="number" id="dryerBtu" value="20000" step="1000">
+                            <span class="input-hint">Typical: 15,000-25,000 BTU/hr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="calc-button" onclick="calculateDetailed()">Calculate Cost</button>
+            </div>
+
+            <div id="toolContent"></div>
+
+            <div class="info-section">
+                <h2>About Natural Gas Costs</h2>
+                <p>Natural gas is measured in therms (1 therm = 100,000 BTU). Understanding your gas usage helps you identify high-consumption appliances and opportunities to save money.</p>
+
+                <h3>Average Natural Gas Consumption</h3>
+                <ul>
+                    <li><strong>Heating-dominated climate:</strong> 80-120 therms/month in winter</li>
+                    <li><strong>Moderate climate:</strong> 40-60 therms/month</li>
+                    <li><strong>Warm climate:</strong> 10-30 therms/month</li>
+                    <li><strong>Summer (hot water only):</strong> 10-20 therms/month</li>
+                </ul>
+
+                <h3>Tips to Reduce Natural Gas Bills</h3>
+                <ul>
+                    <li>Lower thermostat by 2-3°F (can save 5-10% on heating)</li>
+                    <li>Install programmable thermostat</li>
+                    <li>Seal air leaks around windows and doors</li>
+                    <li>Insulate attic and walls</li>
+                    <li>Service furnace annually</li>
+                    <li>Lower water heater temperature to 120°F</li>
+                    <li>Insulate water heater tank and hot water pipes</li>
+                    <li>Use cold water for laundry when possible</li>
+                </ul>
+
+                <h3>Understanding Your Gas Bill</h3>
+                <p>Natural gas bills typically include:</p>
+                <ul>
+                    <li><strong>Supply charge:</strong> The cost per therm of gas consumed</li>
+                    <li><strong>Delivery charge:</strong> Infrastructure and distribution costs</li>
+                    <li><strong>Customer charge:</strong> Fixed monthly fee for service</li>
+                    <li><strong>Taxes and fees:</strong> Vary by location</li>
+                </ul>
+                <p><strong>Disclaimer:</strong> Values are calculated using standard conversion factors. Actual costs may vary based on appliance efficiency, local rates, usage patterns, and seasonal factors. This calculator provides estimates for planning purposes.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CalcLeap. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchMode(mode) {
+            const simpleModeDiv = document.getElementById('simpleMode');
+            const detailedModeDiv = document.getElementById('detailedMode');
+            const buttons = document.querySelectorAll('.mode-btn');
+
+            if (mode === 'simple') {
+                simpleModeDiv.classList.add('active');
+                detailedModeDiv.classList.remove('active');
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+            } else {
+                simpleModeDiv.classList.remove('active');
+                detailedModeDiv.classList.add('active');
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+            }
+            document.getElementById('toolContent').innerHTML = '';
+        }
+
+        function calculateSimple() {
+            const monthlyUsage = parseFloat(document.getElementById('monthlyUsage').value);
+            const ratePerTherm = parseFloat(document.getElementById('ratePerTherm').value);
+
+            if (isNaN(monthlyUsage) || monthlyUsage <= 0) {
+                alert('Please enter valid monthly usage');
+                return;
+            }
+            if (isNaN(ratePerTherm) || ratePerTherm <= 0) {
+                alert('Please enter valid rate per therm');
+                return;
+            }
+
+            const monthlyCost = monthlyUsage * ratePerTherm;
+            const annualUsage = monthlyUsage * 12;
+            const annualCost = monthlyCost * 12;
+
+            displayResults({
+                monthlyUsage: monthlyUsage,
+                annualUsage: annualUsage,
+                monthlyCost: monthlyCost,
+                annualCost: annualCost,
+                ratePerTherm: ratePerTherm
+            });
+        }
+
+        function calculateDetailed() {
+            const ratePerTherm = parseFloat(document.getElementById('ratePerThermDetailed').value);
+
+            if (isNaN(ratePerTherm) || ratePerTherm <= 0) {
+                alert('Please enter valid rate per therm');
+                return;
+            }
+
+            // Get appliance inputs
+            const furnaceHours = parseFloat(document.getElementById('furnaceHours').value) || 0;
+            const furnaceBtu = parseFloat(document.getElementById('furnaceBtu').value) || 0;
+
+            const waterHeaterHours = parseFloat(document.getElementById('waterHeaterHours').value) || 0;
+            const waterHeaterBtu = parseFloat(document.getElementById('waterHeaterBtu').value) || 0;
+
+            const stoveHours = parseFloat(document.getElementById('stoveHours').value) || 0;
+            const stoveBtu = parseFloat(document.getElementById('stoveBtu').value) || 0;
+
+            const dryerHours = parseFloat(document.getElementById('dryerHours').value) || 0;
+            const dryerBtu = parseFloat(document.getElementById('dryerBtu').value) || 0;
+
+            // Calculate monthly therms per appliance (1 therm = 100,000 BTU)
+            const furnaceTherms = (furnaceHours * furnaceBtu * 30) / 100000;
+            const waterHeaterTherms = (waterHeaterHours * waterHeaterBtu * 30) / 100000;
+            const stoveTherms = (stoveHours * stoveBtu * 30) / 100000;
+            const dryerTherms = (dryerHours * dryerBtu * 4.33) / 100000; // 4.33 weeks per month
+
+            const totalMonthlyTherms = furnaceTherms + waterHeaterTherms + stoveTherms + dryerTherms;
+            const monthlyCost = totalMonthlyTherms * ratePerTherm;
+            const annualCost = monthlyCost * 12;
+
+            displayDetailedResults({
+                furnaceTherms: furnaceTherms,
+                waterHeaterTherms: waterHeaterTherms,
+                stoveTherms: stoveTherms,
+                dryerTherms: dryerTherms,
+                totalMonthlyTherms: totalMonthlyTherms,
+                monthlyCost: monthlyCost,
+                annualCost: annualCost,
+                ratePerTherm: ratePerTherm
+            });
+        }
+
+        function displayResults(data) {
+            const resultDiv = document.getElementById('toolContent');
+            resultDiv.innerHTML = `
+                <div class="result-box">
+                    <h2>Natural Gas Cost Summary</h2>
+                    
+                    <div class="result-row">
+                        <span class="result-label">Monthly Usage:</span>
+                        <span class="result-value">${data.monthlyUsage.toFixed(1)} therms</span>
+                    </div>
+                    
+                    <div class="result-row highlight">
+                        <span class="result-label">Monthly Cost:</span>
+                        <span class="result-value">$${data.monthlyCost.toFixed(2)}</span>
+                    </div>
+                    
+                    <div class="result-row">
+                        <span class="result-label">Annual Usage:</span>
+                        <span class="result-value">${data.annualUsage.toFixed(1)} therms</span>
+                    </div>
+                    
+                    <div class="result-row highlight">
+                        <span class="result-label">Annual Cost:</span>
+                        <span class="result-value">$${data.annualCost.toFixed(2)}</span>
+                    </div>
+                    
+                    <div class="result-row">
+                        <span class="result-label">Rate per Therm:</span>
+                        <span class="result-value">$${data.ratePerTherm.toFixed(3)}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displayDetailedResults(data) {
+            const resultDiv = document.getElementById('toolContent');
+            
+            const furnaceCost = data.furnaceTherms * data.ratePerTherm;
+            const waterHeaterCost = data.waterHeaterTherms * data.ratePerTherm;
+            const stoveCost = data.stoveTherms * data.ratePerTherm;
+            const dryerCost = data.dryerTherms * data.ratePerTherm;
+
+            resultDiv.innerHTML = `
+                <div class="result-box">
+                    <h2>Natural Gas Cost Breakdown</h2>
+                    
+                    <h3>Monthly Costs by Appliance</h3>
+                    
+                    <div class="result-row">
+                        <span class="result-label">Furnace / Heating:</span>
+                        <span class="result-value">$${furnaceCost.toFixed(2)} <small>(${data.furnaceTherms.toFixed(1)} therms)</small></span>
+                    </div>
+                    
+                    <div class="result-row">
+                        <span class="result-label">Water Heater:</span>
+                        <span class="result-value">$${waterHeaterCost.toFixed(2)} <small>(${data.waterHeaterTherms.toFixed(1)} therms)</small></span>
+                    </div>
+                    
+                    <div class="result-row">
+                        <span class="result-label">Stove / Range:</span>
+                        <span class="result-value">$${stoveCost.toFixed(2)} <small>(${data.stoveTherms.toFixed(1)} therms)</small></span>
+                    </div>
+                    
+                    <div class="result-row">
+                        <span class="result-label">Dryer:</span>
+                        <span class="result-value">$${dryerCost.toFixed(2)} <small>(${data.dryerTherms.toFixed(1)} therms)</small></span>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="result-row highlight">
+                        <span class="result-label">Total Monthly Cost:</span>
+                        <span class="result-value">$${data.monthlyCost.toFixed(2)}</span>
+                    </div>
+                    
+                    <div class="result-row">
+                        <span class="result-label">Total Monthly Usage:</span>
+                        <span class="result-value">${data.totalMonthlyTherms.toFixed(1)} therms</span>
+                    </div>
+                    
+                    <div class="result-row highlight">
+                        <span class="result-label">Estimated Annual Cost:</span>
+                        <span class="result-value">$${data.annualCost.toFixed(2)}</span>
+                    </div>
+                    
+                    <div class="result-row">
+                        <span class="result-label">Rate per Therm:</span>
+                        <span class="result-value">$${data.ratePerTherm.toFixed(3)}</span>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h3>Largest Consumer</h3>
+                    <p><strong>${getLargestConsumer(data)}</strong> accounts for the most natural gas usage. Consider energy-efficient upgrades or usage adjustments for this appliance.</p>
+                </div>
+            `;
+        }
+
+        function getLargestConsumer(data) {
+            const appliances = [
+                { name: 'Furnace / Heating', therms: data.furnaceTherms },
+                { name: 'Water Heater', therms: data.waterHeaterTherms },
+                { name: 'Stove / Range', therms: data.stoveTherms },
+                { name: 'Dryer', therms: data.dryerTherms }
+            ];
+            
+            appliances.sort((a, b) => b.therms - a.therms);
+            return appliances[0].name;
+        }
+    </script>
+</body>
+</html>
