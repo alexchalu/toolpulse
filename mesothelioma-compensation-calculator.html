@@ -3,24 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesothelioma Compensation Calculator - Free Legal Estimate | CalcLeap</title>
-    <meta name="description" content="Calculate potential mesothelioma compensation based on asbestos exposure, medical costs, lost wages, and pain & suffering. Free legal estimate with instant results.">
-    <meta name="keywords" content="mesothelioma compensation, asbestos lawsuit calculator, mesothelioma settlement, asbestos exposure compensation, mesothelioma legal claims">
+    <title>Mesothelioma Compensation Calculator | Free Settlement Estimator</title>
+    <meta name="description" content="Calculate potential mesothelioma compensation based on diagnosis type, exposure history, and state laws. Free settlement estimator with case value ranges.">
     <link rel="canonical" href="https://calcleap.com/mesothelioma-compensation-calculator.html">
-    <meta property="og:title" content="Mesothelioma Compensation Calculator - Free Legal Estimate">
-    <meta property="og:description" content="Calculate potential mesothelioma compensation based on asbestos exposure, medical costs, and damages.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://calcleap.com/mesothelioma-compensation-calculator.html">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gold.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Mesothelioma Compensation Calculator",
-      "description": "Calculate potential mesothelioma compensation based on asbestos exposure, medical costs, lost wages, and pain & suffering.",
+      "description": "Calculate potential mesothelioma compensation based on diagnosis type, exposure history, and state laws.",
       "url": "https://calcleap.com/mesothelioma-compensation-calculator.html",
       "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Any",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -28,339 +22,317 @@
       }
     }
     </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5W5SEPQWV"></script>
-<script>
- window.dataLayer = window.dataLayer || [];
- function gtag(){dataLayer.push(arguments);}
- gtag('js', new Date());
- gtag('config', 'G-Y5W5SEPQWV');
-</script>
 </head>
 <body>
-<nav class="nav">
-    <div class="nav-inner">
-        <a href="index.html" class="logo">CalcLeap</a>
-        <div class="nav-links">
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </div>
-</nav>
-
     <div class="container">
         <header>
-            <div class="logo"><a href="index.html">CalcLeap</a></div>
-            <p class="tagline">Lightning-fast calculators for work and life</p>
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-calc">Calc</span><span class="logo-leap">Leap</span>
+                </a>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="calc/index.html">Calculators</a>
+                <a href="blog.html">Blog</a>
+                <a href="about.html">About</a>
+            </nav>
         </header>
 
         <main>
-            <h1>⚖️ Mesothelioma Compensation Calculator</h1>
-            <p class="subtitle">Estimate potential compensation for asbestos-related mesothelioma claims based on medical costs, lost income, and damages.</p>
-    <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 0;margin-bottom:1rem;border-bottom:1px solid rgba(0,0,0,.06)">
-    <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0071e3,#40a9ff);display:flex;align-items:center;justify-content:center;color:#1d1d1f;font-weight:700;font-size:.8rem">CL</div>
-    <div>
-        <div style="font-size:.82rem;font-weight:600">CalcLeap Editorial Team</div>
-        <div style="font-size:.72rem;color:#86868b">Reviewed by certified professionals · Last updated April 1, 2026</div>
-    </div>
-</div>
+            <div class="calc-header">
+                <h1>Mesothelioma Compensation Calculator</h1>
+                <p class="calc-description">Estimate potential compensation for mesothelioma claims based on diagnosis type, exposure history, state laws, and case factors.</p>
+            </div>
 
-
-            <div class="calculator-card">
+            <div class="calc-container">
                 <div class="input-group">
-                    <label for="exposureYears">Years of Asbestos Exposure:</label>
-                    <input type="number" id="exposureYears" value="10" min="1" max="50" step="1">
-                    <small>Typical exposure ranges from 5-30 years in occupational settings</small>
-                </div>
-
-                <div class="input-group">
-                    <label for="diagnosisStage">Diagnosis Stage:</label>
-                    <select id="diagnosisStage">
-                        <option value="1">Stage 1 (Early/Localized)</option>
-                        <option value="2" selected>Stage 2 (Regional Spread)</option>
-                        <option value="3">Stage 3 (Advanced)</option>
-                        <option value="4">Stage 4 (Metastatic)</option>
+                    <label for="diagnosisType">Diagnosis Type</label>
+                    <select id="diagnosisType" aria-label="Select mesothelioma diagnosis type">
+                        <option value="pleural">Pleural Mesothelioma (lungs)</option>
+                        <option value="peritoneal">Peritoneal Mesothelioma (abdomen)</option>
+                        <option value="pericardial">Pericardial Mesothelioma (heart)</option>
+                        <option value="testicular">Testicular Mesothelioma</option>
                     </select>
                 </div>
 
                 <div class="input-group">
-                    <label for="medicalCosts">Total Medical Costs ($):</label>
-                    <input type="number" id="medicalCosts" value="250000" min="0" step="1000">
-                    <small>Include treatment, surgery, chemotherapy, radiation, and ongoing care</small>
-                </div>
-
-                <div class="input-group">
-                    <label for="lostWages">Lost Wages/Income ($):</label>
-                    <input type="number" id="lostWages" value="150000" min="0" step="1000">
-                    <small>Past and future income loss due to inability to work</small>
-                </div>
-
-                <div class="input-group">
-                    <label for="age">Your Current Age:</label>
-                    <input type="number" id="age" value="60" min="18" max="90" step="1">
-                </div>
-
-                <div class="input-group">
-                    <label for="dependents">Number of Dependents:</label>
-                    <input type="number" id="dependents" value="2" min="0" max="10" step="1">
-                </div>
-
-                <div class="checkbox-group">
-                    <label>
-                        <input type="checkbox" id="negligence" checked>
-                        <span>Clear employer negligence documented</span>
-                    </label>
-                </div>
-
-                <div class="checkbox-group">
-                    <label>
-                        <input type="checkbox" id="multipleDefendants">
-                        <span>Multiple liable parties (multiple employers/manufacturers)</span>
-                    </label>
-                </div>
-
-                <button class="calculate-btn" onclick="calculateCompensation()">Calculate Compensation</button>
-
-                <div id="result" class="result" style="display: none;">
-                    <h3>Estimated Compensation Range</h3>
-                    <div class="result-detail">
-                        <span>Economic Damages:</span>
-                        <strong id="economicDamages">$0</strong>
-                    </div>
-                    <div class="result-detail">
-                        <span>Non-Economic Damages:</span>
-                        <strong id="nonEconomicDamages">$0</strong>
-                    </div>
-                    <div class="result-detail">
-                        <span>Punitive Damages (if applicable):</span>
-                        <strong id="punitiveDamages">$0</strong>
-                    </div>
-                    <div class="result-total">
-                        <span>Total Estimated Range:</span>
-                        <strong id="totalRange">$0 - $0</strong>
-                    </div>
-                    <p class="disclaimer"><strong>⚠️ Important:</strong> This is an estimate only. Actual compensation varies widely based on jurisdiction, case specifics, defendant assets, and settlement negotiations. Consult a qualified mesothelioma attorney for case evaluation.</p>
-                </div>
-            </div>
-
-            <div class="lead-form-card">
-                <h3>🏛️ Connect with Mesothelioma Legal Experts</h3>
-                <p>Get a free case evaluation from experienced mesothelioma attorneys. No obligation, confidential consultation.</p>
-                <form id="leadForm" onsubmit="return handleLeadSubmit(event);">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="tel" placeholder="Phone Number" required>
-                    <select required>
-                        <option value="">Select Diagnosis Status</option>
-                        <option>Recently Diagnosed</option>
-                        <option>Currently in Treatment</option>
-                        <option>Family Member of Patient</option>
-                        <option>Seeking Second Opinion</option>
+                    <label for="stage">Cancer Stage</label>
+                    <select id="stage" aria-label="Select cancer stage">
+                        <option value="1">Stage 1 (localized)</option>
+                        <option value="2">Stage 2 (regional spread)</option>
+                        <option value="3">Stage 3 (advanced regional)</option>
+                        <option value="4">Stage 4 (metastatic)</option>
                     </select>
-                    <textarea placeholder="Brief description of asbestos exposure history (optional)" rows="3"></textarea>
-                    <button type="submit">Request Free Consultation</button>
-                    <small>Your information is secure and confidential.</small>
-                </form>
+                </div>
+
+                <div class="input-group">
+                    <label for="exposureYears">Years of Asbestos Exposure</label>
+                    <input type="number" id="exposureYears" value="15" min="1" max="50" aria-label="Years of exposure">
+                </div>
+
+                <div class="input-group">
+                    <label for="exposureType">Primary Exposure Source</label>
+                    <select id="exposureType" aria-label="Select exposure source">
+                        <option value="occupational">Occupational (workplace)</option>
+                        <option value="military">Military service</option>
+                        <option value="secondary">Secondary (family member)</option>
+                        <option value="environmental">Environmental exposure</option>
+                        <option value="product">Product liability</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="age">Current Age</label>
+                    <input type="number" id="age" value="62" min="18" max="100" aria-label="Current age">
+                </div>
+
+                <div class="input-group">
+                    <label for="medicalCosts">Total Medical Costs ($)</label>
+                    <input type="number" id="medicalCosts" value="250000" min="0" step="1000" aria-label="Medical costs in dollars">
+                </div>
+
+                <div class="input-group">
+                    <label for="lostWages">Lost Wages/Income ($)</label>
+                    <input type="number" id="lostWages" value="150000" min="0" step="1000" aria-label="Lost wages in dollars">
+                </div>
+
+                <div class="input-group">
+                    <label for="dependents">Number of Dependents</label>
+                    <input type="number" id="dependents" value="2" min="0" max="10" aria-label="Number of dependents">
+                </div>
+
+                <div class="input-group">
+                    <label for="state">State of Residence</label>
+                    <select id="state" aria-label="Select state">
+                        <option value="ca">California</option>
+                        <option value="ny">New York</option>
+                        <option value="tx">Texas</option>
+                        <option value="fl">Florida</option>
+                        <option value="il">Illinois</option>
+                        <option value="pa">Pennsylvania</option>
+                        <option value="oh">Ohio</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <button class="calc-button" onclick="calculate()">Calculate Compensation</button>
+
+                <div id="result" class="result" style="display: none;"></div>
+
+                <div class="disclaimer" style="background-color: #fff3cd; border: 2px solid #856404; border-radius: 8px; padding: 15px; margin-top: 20px; color: #856404;">
+                    <strong>⚠️ Important Legal Disclaimer:</strong> This calculator provides rough estimates only based on typical settlement ranges. Actual compensation varies dramatically based on defendant solvency, jurisdiction, attorney quality, case strength, jury composition, and many other unpredictable factors. Mesothelioma cases are complex and require specialized asbestos litigation attorneys. <strong>Consult with a qualified mesothelioma lawyer for case evaluation.</strong> Settlements can range from $0 (dismissed cases) to $10M+ (rare verdicts). This tool is for informational purposes only and does not constitute legal advice.
+                </div>
             </div>
 
-            <section class="info-section">
-                <h2>Understanding Mesothelioma Compensation</h2>
-                <p>Mesothelioma is a rare and aggressive cancer caused by asbestos exposure. If you've been diagnosed with mesothelioma due to occupational or environmental asbestos exposure, you may be entitled to significant compensation. This calculator provides an estimate based on typical settlement and verdict ranges, but actual compensation depends on many factors including:</p>
-                
+            <div class="info-section">
+                <h2>About Mesothelioma Compensation</h2>
+                <p>Mesothelioma compensation typically comes from three sources: asbestos trust funds (over $30 billion available), lawsuit settlements, and trial verdicts. Average settlements range from $1 million to $2.4 million, though amounts vary widely based on case specifics.</p>
+
                 <h3>Factors Affecting Compensation</h3>
                 <ul>
-                    <li><strong>Exposure History:</strong> Duration, intensity, and circumstances of asbestos exposure significantly impact case value.</li>
-                    <li><strong>Medical Costs:</strong> Treatment for mesothelioma is expensive, often exceeding $400,000. All medical expenses should be documented.</li>
-                    <li><strong>Lost Income:</strong> Both past lost wages and future earning capacity lost due to illness are compensable.</li>
-                    <li><strong>Pain & Suffering:</strong> Non-economic damages for physical pain, emotional distress, and reduced quality of life.</li>
-                    <li><strong>Age & Life Expectancy:</strong> Younger victims with longer life expectancy typically receive higher compensation.</li>
-                    <li><strong>Dependents:</strong> Number of dependents can influence compensation, especially in wrongful death cases.</li>
-                    <li><strong>Negligence Severity:</strong> Cases with clear employer negligence or concealment of asbestos risks often result in higher awards.</li>
-                    <li><strong>Multiple Defendants:</strong> Cases involving multiple liable parties (multiple employers, manufacturers) can yield higher total compensation.</li>
-                    <li><strong>Jurisdiction:</strong> State laws vary significantly in caps on damages and statutes of limitations.</li>
+                    <li><strong>Diagnosis type and stage:</strong> Earlier diagnosis and less common types may receive higher awards</li>
+                    <li><strong>Exposure history:</strong> Longer exposure periods and clearer liability chains increase value</li>
+                    <li><strong>Age and dependents:</strong> Younger victims with families receive higher compensation for lost income</li>
+                    <li><strong>State laws:</strong> Some states have more favorable statutes of limitations and damage caps</li>
+                    <li><strong>Medical costs:</strong> Higher treatment expenses increase economic damages</li>
+                    <li><strong>Defendant solvency:</strong> Cases against bankrupt companies rely on trust funds with set payout schedules</li>
                 </ul>
 
-                <h3>Types of Mesothelioma Compensation</h3>
-                <div class="info-grid">
-                    <div>
-                        <h4>Economic Damages</h4>
-                        <p>Quantifiable financial losses including medical bills, lost wages, travel expenses for treatment, home modifications, and loss of future earning capacity.</p>
-                    </div>
-                    <div>
-                        <h4>Non-Economic Damages</h4>
-                        <p>Pain and suffering, emotional distress, loss of enjoyment of life, loss of consortium (for spouses), and reduced quality of life.</p>
-                    </div>
-                    <div>
-                        <h4>Punitive Damages</h4>
-                        <p>In cases of gross negligence or intentional misconduct (e.g., knowingly exposing workers to asbestos without protection), courts may award punitive damages to punish defendants.</p>
-                    </div>
-                    <div style="background:var(--white,#fff);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:1.5rem;margin:1.5rem 0">
-    <h3 style="font-size:.95rem;font-weight:700;margin-bottom:.75rem">📐 How We Calculate This</h3>
-    <p style="font-size:.85rem;color:#424245;line-height:1.7;margin-bottom:.75rem">Settlement estimates use the multiplier method commonly applied by insurance adjusters: total medical expenses × a severity multiplier (1.5-5×) plus lost wages. The multiplier depends on injury severity, permanence, and impact on daily life.</p>
-    <p style="font-size:.85rem;color:#424245;line-height:1.7">Every case is unique. This calculator provides a rough estimate only — actual settlements depend on liability, jurisdiction, insurance policy limits, and attorney negotiation. Consult a licensed personal injury attorney for case-specific advice.</p>
-</div>
-<div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;margin:1.25rem 0">
-    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:.5rem">📚 Sources & References</h4>
-    <ul style="font-size:.82rem;color:#424245;line-height:1.8;padding-left:1.2rem;margin:0"><li><a href="https://www.americanbar.org/" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">American Bar Association — Injury Resources</a></li><li><a href="https://www.nhtsa.gov/data" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">NHTSA — Traffic Safety Data</a></li></ul>
-</div>
-
-
-<div>
-                        <h4>Wrongful Death Claims</h4>
-                        <p>If a mesothelioma victim passes away, family members may file wrongful death claims for funeral expenses, loss of financial support, and loss of companionship.</p>
-                    </div>
-                </div>
-
-                <h3>Typical Mesothelioma Settlement Ranges</h3>
-                <p>According to industry data:</p>
+                <h3>Types of Compensation Available</h3>
                 <ul>
-                    <li>Average mesothelioma settlement: <strong>$1 million to $2.4 million</strong></li>
-                    <li>Average mesothelioma trial verdict: <strong>$2.4 million (often higher but less predictable)</strong></li>
-                    <li>Settlements from asbestos trust funds: <strong>$40,000 to $200,000 per trust</strong> (victims may claim from multiple trusts)</li>
-                    <li>Timeline: Settlements typically take 6-18 months; trials can take 1-3 years</li>
+                    <li><strong>Medical expenses:</strong> Past and future treatment costs, including surgery, chemotherapy, radiation</li>
+                    <li><strong>Lost income:</strong> Past lost wages and future earning capacity</li>
+                    <li><strong>Pain and suffering:</strong> Non-economic damages for physical and emotional distress</li>
+                    <li><strong>Punitive damages:</strong> Additional awards in cases of gross negligence (rare)</li>
+                    <li><strong>Wrongful death:</strong> Compensation for surviving family members</li>
                 </ul>
 
-                <h3>Legal Options for Mesothelioma Victims</h3>
-                <ol>
-                    <li><strong>Personal Injury Lawsuit:</strong> File against employers, manufacturers, or property owners responsible for asbestos exposure while you're still living.</li>
-                    <li><strong>Asbestos Trust Fund Claims:</strong> Many asbestos companies have established bankruptcy trust funds to compensate victims. You can file claims with multiple trusts.</li>
-                    <li><strong>Veterans Benefits:</strong> Veterans exposed to asbestos during military service may be eligible for VA benefits and compensation.</li>
-                    <li><strong>Wrongful Death Lawsuit:</strong> Family members can file after the victim's death to recover damages for loss of financial support and companionship.</li>
-                    <li><strong>Workers' Compensation:</strong> Some victims may be eligible for workers' comp benefits, though this often limits ability to sue employers directly.</li>
-                </ol>
-
-                <h3>Statute of Limitations</h3>
-                <p>Every state has a statute of limitations (deadline) for filing mesothelioma lawsuits, typically:</p>
-                <ul>
-                    <li>Personal injury claims: 1-6 years from diagnosis (varies by state)</li>
-                    <li>Wrongful death claims: 1-3 years from date of death (varies by state)</li>
-                    <li>The clock usually starts at diagnosis or discovery of the disease, not at the time of exposure</li>
-                </ul>
-                <p><strong>Act quickly.</strong> Consult with a mesothelioma attorney as soon as possible after diagnosis to preserve your legal rights.</p>
-
-                <h3>Choosing a Mesothelioma Lawyer</h3>
-                <p>Mesothelioma cases are complex and require specialized legal expertise. Look for:</p>
-                <ul>
-                    <li>Attorneys or firms with <strong>extensive mesothelioma case experience</strong> and proven track records</li>
-                    <li><strong>Contingency fee arrangements</strong> (you don't pay unless you win)</li>
-                    <li>Resources to investigate asbestos exposure history, identify liable parties, and retain expert witnesses</li>
-                    <li>National reach (many firms handle cases across multiple states)</li>
-                    <li>Compassionate approach that understands the urgency and sensitivity of mesothelioma cases</li>
-                </ul>
-
-                <h3>Frequently Asked Questions</h3>
-                <details>
-                    <summary>How long does it take to receive mesothelioma compensation?</summary>
-                    <p>Settlements typically take 6-18 months from filing. Trust fund claims can be faster (3-6 months). Trials can take 1-3 years but may result in higher awards. Many attorneys can arrange expedited settlements for terminally ill clients.</p>
-                </details>
-                <details>
-                    <summary>Can I still file a claim if the company that exposed me is bankrupt?</summary>
-                    <p>Yes. Many asbestos companies have established bankruptcy trust funds specifically to compensate victims. There are over 60 asbestos trust funds with billions in assets. An experienced attorney can identify all relevant trusts.</p>
-                </details>
-                <details>
-                    <summary>What if I was exposed to asbestos decades ago?</summary>
-                    <p>Mesothelioma has a long latency period (20-50 years). The statute of limitations typically starts at diagnosis, not exposure. You can file a claim even if exposure occurred many decades ago, as long as you file within your state's statute of limitations from diagnosis.</p>
-                </details>
-                <details>
-                    <summary>Will compensation affect my VA benefits or Social Security?</summary>
-                    <p>Mesothelioma lawsuit settlements and trust fund payments generally do NOT affect VA disability benefits or Social Security benefits. These are separate programs. However, workers' compensation may offset other benefits. Consult an attorney.</p>
-                </details>
-                <details>
-                    <summary>Do I have to go to court?</summary>
-                    <p>Most mesothelioma cases settle out of court. Only about 5-10% go to trial. Settlements are often preferred because they provide faster, more predictable compensation. Your attorney will advise on the best strategy for your case.</p>
-                </details>
-                <details>
-                    <summary>How much does it cost to hire a mesothelioma lawyer?</summary>
-                    <p>Most mesothelioma attorneys work on contingency, meaning they only get paid if you receive compensation. Typical contingency fees are 30-40% of the recovery. There are no upfront costs to you.</p>
-                </details>
-            </section>
-
-            <section class="info-section">
-                <h2>Additional Resources</h2>
-                <ul>
-                    <li><a href="https://www.cancer.org/cancer/malignant-mesothelioma.html" target="_blank" rel="noopener">American Cancer Society - Mesothelioma Information</a></li>
-                    <li><a href="https://www.mesothelioma.com/" target="_blank" rel="noopener">Mesothelioma.com - Comprehensive Resource</a></li>
-                    <li><a href="https://www.va.gov/disability/eligibility/hazardous-materials-exposure/asbestos/" target="_blank" rel="noopener">VA Benefits for Asbestos Exposure</a></li>
-                    <li><a href="https://www.ssa.gov/compassionateallowances/" target="_blank" rel="noopener">Social Security Compassionate Allowances (Mesothelioma)</a></li>
-                </ul>
-            </section>
+                <h3>Timeline and Process</h3>
+                <p>Mesothelioma claims typically take 12-18 months to settle, though expedited processes exist for terminal cases. Most cases (95%+) settle out of court. Attorney fees are typically 33-40% of recovery on contingency (no upfront cost).</p>
+            </div>
         </main>
 
         <footer>
-            <p>&copy; 2026 CalcLeap. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
-            <p class="disclaimer">This calculator provides estimates for educational purposes only and does not constitute legal advice. Actual compensation depends on many case-specific factors. Consult a qualified mesothelioma attorney for professional evaluation.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CalcLeap</h4>
+                    <p>Free online calculators for everyday use.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="calc/index.html">All Calculators</a></li>
+                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalcLeap. All rights reserved.</p>
+            </div>
         </footer>
     </div>
 
     <script>
-        function calculateCompensation() {
-            const exposureYears = parseFloat(document.getElementById('exposureYears').value);
-            const diagnosisStage = parseInt(document.getElementById('diagnosisStage').value);
+        function calculate() {
+            const diagnosisType = document.getElementById('diagnosisType').value;
+            const stage = parseInt(document.getElementById('stage').value);
+            const exposureYears = parseInt(document.getElementById('exposureYears').value);
+            const exposureType = document.getElementById('exposureType').value;
+            const age = parseInt(document.getElementById('age').value);
             const medicalCosts = parseFloat(document.getElementById('medicalCosts').value);
             const lostWages = parseFloat(document.getElementById('lostWages').value);
-            const age = parseFloat(document.getElementById('age').value);
             const dependents = parseInt(document.getElementById('dependents').value);
-            const negligence = document.getElementById('negligence').checked;
-            const multipleDefendants = document.getElementById('multipleDefendants').checked;
+            const state = document.getElementById('state').value;
 
-            // Economic damages (direct costs)
-            const economicDamages = medicalCosts + lostWages;
+            // Base compensation by diagnosis type (typical ranges)
+            const baseRanges = {
+                pleural: { min: 800000, max: 2000000 },
+                peritoneal: { min: 900000, max: 2500000 },
+                pericardial: { min: 1000000, max: 2800000 },
+                testicular: { min: 1100000, max: 3000000 }
+            };
 
-            // Base non-economic damages (pain & suffering)
-            let baseNonEconomic = 500000;
+            let base = baseRanges[diagnosisType];
+            let minComp = base.min;
+            let maxComp = base.max;
 
-            // Adjust for exposure duration (longer exposure = more culpability)
-            baseNonEconomic += exposureYears * 15000;
+            // Stage multiplier (earlier stage = potentially longer suffering, higher lifetime costs)
+            const stageMultipliers = { 1: 1.2, 2: 1.1, 3: 1.0, 4: 0.9 };
+            minComp *= stageMultipliers[stage];
+            maxComp *= stageMultipliers[stage];
 
-            // Adjust for diagnosis stage (later stage = more suffering)
-            const stageMultiplier = [1.0, 1.3, 1.6, 2.0];
-            baseNonEconomic *= stageMultiplier[diagnosisStage - 1];
+            // Exposure years (longer exposure = stronger liability)
+            if (exposureYears >= 20) {
+                minComp *= 1.15;
+                maxComp *= 1.15;
+            } else if (exposureYears >= 10) {
+                minComp *= 1.05;
+                maxComp *= 1.05;
+            }
 
-            // Adjust for age (younger = more years lost)
+            // Exposure type (occupational/military have clearer liability chains)
+            const exposureMultipliers = {
+                occupational: 1.1,
+                military: 1.15,
+                secondary: 0.9,
+                environmental: 0.85,
+                product: 1.05
+            };
+            minComp *= exposureMultipliers[exposureType];
+            maxComp *= exposureMultipliers[exposureType];
+
+            // Age factor (younger victims = higher lost income potential)
             if (age < 50) {
-                baseNonEconomic *= 1.4;
-            } else if (age < 65) {
-                baseNonEconomic *= 1.2;
+                minComp *= 1.2;
+                maxComp *= 1.25;
+            } else if (age < 60) {
+                minComp *= 1.1;
+                maxComp *= 1.15;
+            } else if (age > 75) {
+                minComp *= 0.85;
+                maxComp *= 0.85;
             }
 
-            // Adjust for dependents
-            baseNonEconomic += dependents * 50000;
-
-            const nonEconomicDamages = baseNonEconomic;
-
-            // Punitive damages (if negligence documented)
-            let punitiveDamages = 0;
-            if (negligence) {
-                punitiveDamages = economicDamages * 1.5; // Typical multiplier
+            // Dependents (more dependents = higher wrongful death/loss of support)
+            if (dependents >= 3) {
+                minComp *= 1.1;
+                maxComp *= 1.15;
+            } else if (dependents >= 1) {
+                minComp *= 1.05;
+                maxComp *= 1.08;
             }
 
-            // Adjustment for multiple defendants
-            let totalLow = economicDamages + nonEconomicDamages + punitiveDamages;
-            let totalHigh = totalLow * 1.5; // Range reflects uncertainty
+            // State multiplier (some states have more favorable laws/juries)
+            const stateMultipliers = {
+                ca: 1.15, // California: high verdicts, strong plaintiff laws
+                ny: 1.1,  // New York: favorable venue
+                il: 1.1,  // Illinois: historically high verdicts
+                pa: 1.05, // Pennsylvania: moderate
+                tx: 0.95, // Texas: tort reform
+                fl: 0.95, // Florida: tort reform
+                oh: 1.0,
+                other: 1.0
+            };
+            minComp *= stateMultipliers[state];
+            maxComp *= stateMultipliers[state];
 
-            if (multipleDefendants) {
-                totalLow *= 1.3;
-                totalHigh *= 1.6; // Multiple defendants can increase total recovery
-            }
+            // Add economic damages directly
+            const economicDamages = medicalCosts + lostWages;
+            minComp += economicDamages;
+            maxComp += economicDamages * 1.5; // Upper range includes future costs
 
-            // Display results
-            document.getElementById('economicDamages').textContent = '$' + economicDamages.toLocaleString('en-US', {maximumFractionDigits: 0});
-            document.getElementById('nonEconomicDamages').textContent = '$' + nonEconomicDamages.toLocaleString('en-US', {maximumFractionDigits: 0});
-            document.getElementById('punitiveDamages').textContent = punitiveDamages > 0 ? '$' + punitiveDamages.toLocaleString('en-US', {maximumFractionDigits: 0}) : 'Not applicable';
-            document.getElementById('totalRange').textContent = '$' + totalLow.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' - $' + totalHigh.toLocaleString('en-US', {maximumFractionDigits: 0});
+            // Calculate non-economic damages (pain/suffering, typically 1-3x economic)
+            const painMin = economicDamages * 1.0;
+            const painMax = economicDamages * 3.0;
 
-            document.getElementById('result').style.display = 'block';
+            // Total compensation
+            const totalMin = Math.round(minComp);
+            const totalMax = Math.round(maxComp);
+            const avgComp = Math.round((totalMin + totalMax) / 2);
+
+            // Attorney fees (33-40%, using 35% average)
+            const attorneyFee = avgComp * 0.35;
+            const netComp = avgComp - attorneyFee;
+
+            // Timeline estimate
+            let timeline = "12-18 months";
+            if (stage === 4) timeline = "6-12 months (expedited)";
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h3>Estimated Compensation Range</h3>
+                <div class="result-row">
+                    <span class="result-label">Low Range:</span>
+                    <span class="result-value">$${totalMin.toLocaleString()}</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Average Estimate:</span>
+                    <span class="result-value" style="font-size: 1.3em; font-weight: bold; color: #2c5f2d;">$${avgComp.toLocaleString()}</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">High Range:</span>
+                    <span class="result-value">$${totalMax.toLocaleString()}</span>
+                </div>
+                <div class="result-divider"></div>
+                <h4 style="margin-top: 20px;">Breakdown</h4>
+                <div class="result-row">
+                    <span class="result-label">Economic Damages:</span>
+                    <span class="result-value">$${economicDamages.toLocaleString()}</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Pain & Suffering (est.):</span>
+                    <span class="result-value">$${painMin.toLocaleString()} - $${painMax.toLocaleString()}</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Attorney Fees (35%):</span>
+                    <span class="result-value">-$${attorneyFee.toLocaleString()}</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Net Compensation:</span>
+                    <span class="result-value" style="font-weight: bold;">$${netComp.toLocaleString()}</span>
+                </div>
+                <div class="result-divider"></div>
+                <div class="result-row">
+                    <span class="result-label">Estimated Timeline:</span>
+                    <span class="result-value">${timeline}</span>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.95em; color: #666;">
+                    <strong>Next Steps:</strong> Contact a mesothelioma attorney immediately. Most cases are handled on contingency (no upfront cost). Statutes of limitations vary by state (1-6 years from diagnosis).
+                </p>
+            `;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-
-        function handleLeadSubmit(event) {
-            event.preventDefault();
-            alert('Thank you for your request. A mesothelioma attorney will contact you within 24 hours for a free, confidential consultation.');
-            event.target.reset();
-            return false;
-        }
-
-        // Auto-calculate on page load
-        window.addEventListener('DOMContentLoaded', calculateCompensation);
     </script>
 </body>
 </html>
