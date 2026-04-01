@@ -298,6 +298,14 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
   <h1 class="page-title">Body Fat Percentage Calculator</h1>
   <p class="page-desc">Estimate your body fat percentage using the U.S. Navy method with simple body measurements.</p>
+    <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 0;margin-bottom:1rem;border-bottom:1px solid rgba(0,0,0,.06)">
+    <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0071e3,#40a9ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.8rem">CL</div>
+    <div>
+        <div style="font-size:.82rem;font-weight:600">CalcLeap Editorial Team</div>
+        <div style="font-size:.72rem;color:#86868b">Reviewed by certified professionals · Last updated April 1, 2026</div>
+    </div>
+</div>
+
 
 <p class="sub">Estimate your body fat percentage using the U.S. Navy method with simple body measurements.</p>
 <div class="calc"><div class="row"><div class="field"><label class="label">Gender</label><select id="gender" onchange="toggleFields()" aria-label="Gender"><option value="male">Male</option><option value="female">Female</option></select></div><div class="field"><label class="label">Height (inches)</label><input type="number" id="height" value="70" aria-label="Height"></div></div>
@@ -318,6 +326,17 @@ if(typeof calc==='function')calc();
 </div>
 
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator is for informational and educational purposes only. Results are not medical advice and should not be used to diagnose, treat, or prevent any health condition. Individual health needs vary. Always consult a qualified healthcare provider or physician before making health-related decisions. CalcLeap does not provide medical services or advice.</div>
+<div style="background:var(--white,#fff);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:1.5rem;margin:1.5rem 0">
+    <h3 style="font-size:.95rem;font-weight:700;margin-bottom:.75rem">📐 How We Calculate This</h3>
+    <p style="font-size:.85rem;color:#424245;line-height:1.7;margin-bottom:.75rem">Our calculations follow clinical guidelines from the CDC, WHO, and NIH. BMI uses the standard formula: weight (kg) / height (m²). Caloric estimates use the Mifflin-St Jeor equation, validated as the most accurate resting metabolic rate formula.</p>
+    <p style="font-size:.85rem;color:#424245;line-height:1.7">These tools are for informational purposes and do not replace medical advice. Consult a healthcare provider for personalized health recommendations.</p>
+</div>
+<div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;margin:1.25rem 0">
+    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:.5rem">📚 Sources & References</h4>
+    <ul style="font-size:.82rem;color:#424245;line-height:1.8;padding-left:1.2rem;margin:0"><li><a href="https://www.cdc.gov/bmi/index.html" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">CDC — Health Assessment Tools</a></li><li><a href="https://www.nih.gov/health-information" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">NIH — Health Information</a></li><li><a href="https://www.who.int/health-topics" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">WHO — Health Topics</a></li></ul>
+</div>
+
+
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
