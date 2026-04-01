@@ -1,0 +1,39 @@
+================================================================================
+SEO & AdSense COMPLIANCE REPORT - CalcLeap.com
+================================================================================
+
+STATISTICS:
+--------------------------------------------------------------------------------
+canonical_correct: 20
+existing_files: 1237
+has_adsense: 19
+missing_files: 0
+og_description: 19
+og_title: 19
+og_url: 19
+robots_ok: 1
+schema_valid: 12
+sitemap_urls: 1237
+viewport_checked: 1237
+viewport_missing: 0
+viewport_ok: 20
+
+
+ISSUES:
+--------------------------------------------------------------------------------
+[ADS.TXT] ads.txt: Missing AdSense publisher ID: ca-pub-3112605892426625
+[SCHEMA] calc/cost-of-living-jacksonville-fl.html: Missing JSON-LD schema markup
+[OG] calc/cost-of-living-jacksonville-fl.html: Missing og:title
+[OG] calc/cost-of-living-jacksonville-fl.html: Missing og:description
+[OG] calc/cost-of-living-jacksonville-fl.html: Missing og:url
+[SCHEMA] calc/home-equity-loan-calculator.html: Missing JSON-LD schema markup
+[SCHEMA] col/boston.html: Missing JSON-LD schema markup
+[SCHEMA] convert-acres-to-square-feet.html: Missing JSON-LD schema markup
+[SCHEMA] home-appreciation-calculator.html: Missing JSON-LD schema markup
+[SCHEMA] las-vegas-cost-of-living-calculator.html: Missing JSON-LD schema markup
+[SCHEMA] payday-loan-calculator.html: Missing JSON-LD schema markup
+[SCHEMA] slip-and-fall-settlement-calculator.html: Missing JSON-LD schema markup
+
+
+WARNINGS:
+--------------------------------------------------------------------------------
