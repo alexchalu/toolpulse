@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Injury Settlement Calculator | Free Estimate Tool | CalcLeap</title>
+    <meta name="description" content="Estimate potential personal injury settlement value based on medical costs, lost wages, pain and suffering multipliers, and liability factors. Free calculator tool.">
+    <link rel="stylesheet" href="../gold.css">
+    <link rel="canonical" href="https://calcleap.com/calc/personal-injury-settlement-calculator.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Personal Injury Settlement Calculator",
+      "description": "Calculate estimated personal injury settlement value based on economic damages, pain and suffering, and case factors.",
+      "url": "https://calcleap.com/calc/personal-injury-settlement-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><a href="../index.html">CalcLeap</a></div>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../calc/index.html">Calculators</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Personal Injury Settlement Calculator</h1>
+        <p class="subtitle">Estimate potential settlement value for personal injury claims based on medical expenses, lost income, pain and suffering, and case strength factors.</p>
+
+        <div class="tool-card">
+            <div id="toolContent">
+                <div class="input-group">
+                    <label for="medicalBills">Total Medical Bills ($)</label>
+                    <input type="number" id="medicalBills" placeholder="50000" min="0" step="100">
+                    <small>Past and projected future medical expenses</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="lostWages">Lost Wages ($)</label>
+                    <input type="number" id="lostWages" placeholder="15000" min="0" step="100">
+                    <small>Income lost due to injury (past and future earning capacity)</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="propertyDamage">Property Damage ($)</label>
+                    <input type="number" id="propertyDamage" placeholder="5000" min="0" step="100">
+                    <small>Vehicle damage, personal property loss</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="painMultiplier">Pain & Suffering Multiplier</label>
+                    <select id="painMultiplier">
+                        <option value="1.5">1.5 - Minor soft tissue injury</option>
+                        <option value="2">2 - Moderate injury, full recovery expected</option>
+                        <option value="3" selected>3 - Significant injury, some permanent effects</option>
+                        <option value="4">4 - Serious injury with lasting disability</option>
+                        <option value="5">5 - Severe/catastrophic injury or disfigurement</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="liability">Defendant Liability (%)</label>
+                    <input type="number" id="liability" value="100" min="0" max="100" step="5">
+                    <small>Percentage of fault attributable to defendant (affects comparative negligence states)</small>
+                </div>
+
+                <div class="input-group">
+                    <label>
+                        <input type="checkbox" id="hasWitnesses"> Strong witness testimony
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <label>
+                        <input type="checkbox" id="hasClearEvidence"> Clear liability evidence (photos, video, police report)
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <label>
+                        <input type="checkbox" id="hasExpertTestimony"> Medical expert testimony available
+                    </label>
+                </div>
+
+                <button onclick="calculate()" class="cta-button">Calculate Settlement Estimate</button>
+
+                <div id="results" style="display:none; margin-top: 2rem;">
+                    <h2>Estimated Settlement Range</h2>
+                    <div class="result-box">
+                        <p><strong>Economic Damages:</strong> <span id="economicDamages"></span></p>
+                        <p><strong>Non-Economic Damages (Pain & Suffering):</strong> <span id="nonEconomicDamages"></span></p>
+                        <p><strong>Total Value (Pre-Adjustment):</strong> <span id="totalValue"></span></p>
+                        <p><strong>Liability Adjustment:</strong> <span id="liabilityAdjustment"></span></p>
+                        <p><strong>Case Strength Modifier:</strong> <span id="strengthModifier"></span></p>
+                        <hr>
+                        <p style="font-size: 1.3rem; color: #2563eb;"><strong>Conservative Estimate:</strong> <span id="conservative"></span></p>
+                        <p style="font-size: 1.3rem; color: #2563eb;"><strong>Likely Range:</strong> <span id="likelyRange"></span></p>
+                        <p style="font-size: 1.3rem; color: #2563eb;"><strong>Optimistic Estimate:</strong> <span id="optimistic"></span></p>
+                    </div>
+
+                    <div class="disclaimer" style="background: #fee; border-left: 4px solid #c00; padding: 1rem; margin-top: 1.5rem; border-radius: 4px;">
+                        <p><strong>⚠️ CRITICAL DISCLAIMER:</strong></p>
+                        <p>This calculator provides a <strong>rough estimate only</strong>. Actual settlement outcomes vary dramatically based on:</p>
+                        <ul>
+                            <li>Jurisdiction (state laws, jury award history, comparative negligence rules)</li>
+                            <li>Quality of legal representation and negotiation skill</li>
+                            <li>Defendant's insurance policy limits</li>
+                            <li>Credibility of witnesses and strength of medical documentation</li>
+                            <li>Pre-existing conditions and their documentation</li>
+                            <li>Plaintiff's age, occupation, and life expectancy</li>
+                            <li>Settlement timing (pre-trial vs. trial verdict vs. appeal)</li>
+                        </ul>
+                        <p><strong>This is NOT legal advice.</strong> Always consult a licensed personal injury attorney for case-specific guidance. Many attorneys offer free consultations. Attorney fees typically operate on contingency (25-40% of recovery).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="info-section">
+            <h2>Understanding Personal Injury Settlement Calculations</h2>
+            
+            <h3>Economic vs. Non-Economic Damages</h3>
+            <p><strong>Economic damages</strong> (special damages) are calculable financial losses:</p>
+            <ul>
+                <li>Medical bills (emergency care, surgery, physical therapy, medication, future treatment)</li>
+                <li>Lost wages (past income loss and future earning capacity reduction)</li>
+                <li>Property damage (vehicle repair/replacement, personal items)</li>
+                <li>Out-of-pocket expenses (travel to medical appointments, home modifications)</li>
+            </ul>
+            
+            <p><strong>Non-economic damages</strong> (general damages) compensate intangible losses:</p>
+            <ul>
+                <li>Pain and suffering (physical pain, emotional distress)</li>
+                <li>Loss of enjoyment of life (inability to participate in hobbies, activities)</li>
+                <li>Disfigurement and scarring</li>
+                <li>Loss of consortium (impact on relationships)</li>
+            </ul>
+
+            <h3>Pain and Suffering Multiplier Method</h3>
+            <p>Insurance adjusters and attorneys commonly use the <strong>multiplier method</strong>: multiply economic damages by a factor (typically 1.5-5) based on injury severity.</p>
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f0f0f0;">
+                    <th style="padding: 0.5rem; text-align: left; border: 1px solid #ddd;">Multiplier</th>
+                    <th style="padding: 0.5rem; text-align: left; border: 1px solid #ddd;">Injury Severity</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">1.5-2</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Minor soft tissue injuries (sprains, whiplash with full recovery)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">3</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Moderate injuries (fractures, herniated discs, surgery required)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">4</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Serious injuries (permanent disability, chronic pain)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">5+</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Catastrophic (paralysis, traumatic brain injury, loss of limb)</td>
+                </tr>
+            </table>
+
+            <h3>Factors That Increase Settlement Value</h3>
+            <ul>
+                <li><strong>Clear liability:</strong> Video evidence, police report citing defendant, traffic violations</li>
+                <li><strong>Strong witnesses:</strong> Independent, credible eyewitnesses</li>
+                <li><strong>Severe injuries:</strong> Objective medical findings (X-rays, MRIs showing damage)</li>
+                <li><strong>High medical bills:</strong> Extensive documented treatment</li>
+                <li><strong>Permanent impairment:</strong> Long-term disability, scarring, lost earning capacity</li>
+                <li><strong>Sympathetic plaintiff:</strong> Young victim, clear pre-injury quality of life</li>
+                <li><strong>Deep pockets defendant:</strong> Commercial entity, high insurance policy limits</li>
+            </ul>
+
+            <h3>Factors That Decrease Settlement Value</h3>
+            <ul>
+                <li><strong>Shared fault:</strong> Comparative negligence reduces recovery proportionally</li>
+                <li><strong>Pre-existing conditions:</strong> Prior injuries to same body part</li>
+                <li><strong>Gaps in treatment:</strong> Delayed medical care, missed appointments</li>
+                <li><strong>Soft tissue only:</strong> No objective findings on imaging</li>
+                <li><strong>Low policy limits:</strong> Defendant's insurance cap limits recovery</li>
+                <li><strong>Weak causation:</strong> Unclear if accident caused injury</li>
+            </ul>
+
+            <h3>Comparative Negligence Rules</h3>
+            <p>Most states follow <strong>comparative negligence</strong> rules that reduce your recovery by your percentage of fault:</p>
+            <ul>
+                <li><strong>Pure comparative negligence</strong> (13 states): Recover even if 99% at fault (recovery reduced by fault %)</li>
+                <li><strong>Modified comparative negligence (50% bar)</strong> (12 states): No recovery if 50%+ at fault</li>
+                <li><strong>Modified comparative negligence (51% bar)</strong> (21 states): No recovery if 51%+ at fault</li>
+                <li><strong>Contributory negligence</strong> (4 states + DC): No recovery if ANY fault (harsh rule)</li>
+            </ul>
+
+            <h3>Settlement vs. Trial</h3>
+            <p><strong>95% of personal injury cases settle</strong> before trial. Reasons:</p>
+            <ul>
+                <li><strong>Cost:</strong> Trials are expensive (expert witnesses, depositions, court fees)</li>
+                <li><strong>Time:</strong> Trials can take 1-3+ years; settlements often resolve in months</li>
+                <li><strong>Risk:</strong> Jury verdicts are unpredictable (could award more, less, or nothing)</li>
+                <li><strong>Stress:</strong> Trials require testimony, cross-examination, public scrutiny</li>
+            </ul>
+            <p>However, credible trial preparation often increases settlement offers as trial date approaches.</p>
+
+            <h3>When to Hire an Attorney</h3>
+            <p>Consider legal representation if:</p>
+            <ul>
+                <li>Injuries are severe or permanent</li>
+                <li>Medical bills exceed $10,000</li>
+                <li>Liability is disputed</li>
+                <li>Multiple parties involved</li>
+                <li>Insurance company denies claim or offers lowball settlement</li>
+                <li>You're unsure of your rights or claim value</li>
+            </ul>
+            <p><strong>Contingency fee structure:</strong> Most personal injury attorneys work on contingency (typically 33-40% of recovery), meaning no upfront costs and fees only if you win.</p>
+        </section>
+
+        <section class="cta-section">
+            <h2>Need Legal Guidance?</h2>
+            <p>Settlement calculators provide rough estimates, but every case is unique. Consult a licensed personal injury attorney for case-specific advice. Many offer free consultations.</p>
+            <a href="../contact.html" class="cta-button">Contact Us</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CalcLeap. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function calculate() {
+            const medicalBills = parseFloat(document.getElementById('medicalBills').value) || 0;
+            const lostWages = parseFloat(document.getElementById('lostWages').value) || 0;
+            const propertyDamage = parseFloat(document.getElementById('propertyDamage').value) || 0;
+            const painMultiplier = parseFloat(document.getElementById('painMultiplier').value);
+            const liability = parseFloat(document.getElementById('liability').value) / 100;
+
+            const hasWitnesses = document.getElementById('hasWitnesses').checked;
+            const hasClearEvidence = document.getElementById('hasClearEvidence').checked;
+            const hasExpertTestimony = document.getElementById('hasExpertTestimony').checked;
+
+            if (medicalBills === 0 && lostWages === 0 && propertyDamage === 0) {
+                alert('Please enter at least one economic damage value.');
+                return;
+            }
+
+            // Economic damages
+            const economicDamages = medicalBills + lostWages + propertyDamage;
+
+            // Non-economic damages (pain & suffering multiplier applied to medical bills + lost wages)
+            const nonEconomicBase = medicalBills + lostWages;
+            const nonEconomicDamages = nonEconomicBase * painMultiplier;
+
+            // Total pre-adjustment
+            const totalValue = economicDamages + nonEconomicDamages;
+
+            // Liability adjustment
+            const liabilityAdjusted = totalValue * liability;
+
+            // Case strength modifier (strong evidence can increase settlement by 10-30%)
+            let strengthModifier = 1.0;
+            let strengthFactors = 0;
+            if (hasWitnesses) strengthFactors++;
+            if (hasClearEvidence) strengthFactors++;
+            if (hasExpertTestimony) strengthFactors++;
+
+            if (strengthFactors === 3) strengthModifier = 1.25; // 25% boost
+            else if (strengthFactors === 2) strengthModifier = 1.15; // 15% boost
+            else if (strengthFactors === 1) strengthModifier = 1.08; // 8% boost
+
+            const adjustedValue = liabilityAdjusted * strengthModifier;
+
+            // Settlement range (conservative 60%, likely 70-85%, optimistic 100%)
+            const conservative = adjustedValue * 0.60;
+            const likelyLow = adjustedValue * 0.70;
+            const likelyHigh = adjustedValue * 0.85;
+            const optimistic = adjustedValue;
+
+            // Display results
+            document.getElementById('economicDamages').textContent = '$' + economicDamages.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('nonEconomicDamages').textContent = '$' + nonEconomicDamages.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('totalValue').textContent = '$' + totalValue.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('liabilityAdjustment').textContent = (liability * 100).toFixed(0) + '% = $' + liabilityAdjusted.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('strengthModifier').textContent = (strengthModifier * 100 - 100).toFixed(0) + '% boost = $' + adjustedValue.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('conservative').textContent = '$' + conservative.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('likelyRange').textContent = '$' + likelyLow.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0}) + ' - $' + likelyHigh.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('optimistic').textContent = '$' + optimistic.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
