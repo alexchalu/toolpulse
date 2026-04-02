@@ -61,13 +61,13 @@ for fpath in sorted(all_files):
         results['no_page_title'].append(fpath)
         issues.append('NO-TITLE')
     
-    # 4. Missing gold CSS
-    if '#f5f5f7' not in html:
+    # 4. Missing gold CSS (inline color or gold.css link)
+    if '#f5f5f7' not in html and 'gold.css' not in html:
         results['no_gold_css'].append(fpath)
         issues.append('NO-GOLD')
     
-    # 5. Missing footer
-    if 'class="footer"' not in html:
+    # 5. Missing footer (class="footer" or <footer tag)
+    if 'class="footer"' not in html and '<footer' not in html:
         results['no_footer'].append(fpath)
         issues.append('NO-FOOTER')
     
