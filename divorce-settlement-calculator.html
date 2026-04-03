@@ -3,194 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divorce Settlement Calculator - Free Divorce Settlement Tool | CalcLeap</title>
-    <meta name="description" content="Calculate equitable property division and asset split in divorce settlements.. Free online calculator with instant cost estimates.">
+    <title>Divorce Settlement Calculator - Free Property Division Estimator 2026 | CalcLeap</title>
+    <meta name="description" content="Estimate your divorce settlement with our free calculator. Covers property division, asset splitting, debt allocation, retirement accounts, and spousal support. Community property and equitable distribution states.">
     <link rel="canonical" href="https://calcleap.com/divorce-settlement-calculator.html">
-<meta property="og:title" content="Divorce Settlement Calculator - Free Divorce Settlement Tool">
-<meta property="og:description" content="Calculate equitable property division and asset split in divorce settlements.. Free online calculator with instant cost estimates.">
-<meta property="og:url" content="https://calcleap.com/divorce-settlement-calculator.html">
-<meta property="og:type" content="website">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
-        .header { background: white; border-bottom: 1px solid #e5e5e7; padding: 1rem 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); background: rgba(255,255,255,0.8); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        .header h1 { font-size: 2rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem; }
-        .header p { color: #6e6e73; font-size: 1.1rem; }
-        .main { padding: 3rem 0; }
-        .calc-box { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
-        .calc-box h2 { font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem; color: #1d1d1f; }
-        .input-group { margin-bottom: 1.5rem; }
-        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: #1d1d1f; font-size: 1rem; }
-        .input-group input, .input-group select { width: 100%; padding: 0.875rem 1rem; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 1rem; transition: all 0.2s; background: white; }
-        .input-group input:focus, .input-group select:focus { outline: none; border-color: #0071e3; box-shadow: 0 0 0 4px rgba(0,113,227,0.1); }
-        .input-group small { color: #6e6e73; font-size: 0.9rem; }
-        .calc-btn { background: #0071e3; color: white; border: none; padding: 1rem 2rem; font-size: 1.125rem; font-weight: 500; border-radius: 12px; cursor: pointer; width: 100%; transition: background 0.2s; }
-        .calc-btn:hover { background: #0077ed; }
-        .result-box { background: linear-gradient(135deg, #f5f9ff 0%, #e8f4ff 100%); border: 1px solid #0071e3; padding: 2rem; border-radius: 18px; margin-top: 1.5rem; display: none; }
-        .result-box h3 { color: #0071e3; margin-bottom: 1.25rem; font-size: 1.5rem; font-weight: 600; }
-        .result-value { font-size: 2.5rem; font-weight: 700; color: #0071e3; margin: 0.75rem 0; }
-        .result-detail { margin: 0.75rem 0; color: #1d1d1f; font-size: 1.05rem; }
-        .result-detail strong { font-weight: 600; }
-        .disclaimer { background: #fff4e6; border-left: 4px solid #ff9500; padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
-        .disclaimer p { margin: 0; color: #1d1d1f; font-size: 0.95rem; }
-        .info-section { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
-        .info-section h3 { color: #1d1d1f; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600; }
-        .info-section p { margin-bottom: 1rem; color: #1d1d1f; line-height: 1.7; }
-        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-        .info-section li { margin-bottom: 0.5rem; color: #1d1d1f; }
-        .footer { background: #f5f5f7; padding: 2rem 0; text-align: center; border-top: 1px solid #e5e5e7; margin-top: 4rem; }
-        .footer a { color: #0071e3; text-decoration: none; }
-        @media (max-width: 768px) { .header h1 { font-size: 1.75rem; } .calc-box, .info-section { padding: 1.5rem; } }
-    
-
-/* === COMPREHENSIVE COMPONENT STYLES === */
-
-/* Calc card (used by tax, mortgage, insurance pages) */
-.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-/* Input groups and grids */
-.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group.full{grid-column:1/-1}
-.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-/* Field class (converter pages) */
-.field{margin-bottom:1rem}
-.row{display:flex;gap:.75rem;align-items:center}
-
-/* Radio buttons */
-.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
-.radio-label:hover{border-color:var(--accent);color:var(--accent)}
-.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
-.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
-
-/* Buttons */
-.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#1d1d1f;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
-.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* Result boxes */
-.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
-.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
-
-/* Result grid (tax, insurance calculators) */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-
-/* Result rows */
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none}
-.result-detail{font-size:.85rem;color:var(--text-2)}
-.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
-.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
-.result-item:last-child{border-bottom:none}
-
-/* Stat cards (state tax pages) */
-.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
-.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
-
-/* Section */
-.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-/* Container (fallback for old pages) */
-.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
-
-/* Tool cards (converter index pages) */
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
-.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
-.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
-.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
-.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
-.tool-content{flex:1}
-
-/* Output area (dev tools) */
-.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
-
-/* Converter box */
-.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
-.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
-.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
-.conversion-table{margin-top:1rem}
-
-/* Bar charts */
-.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
-.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
-.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
-
-/* Badge */
-.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Table wrapper */
-.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
-.bracket-table{width:100%;border-collapse:collapse}
-
-/* Rate cards */
-.rate{font-size:.875rem;color:var(--text-2)}
-
-/* Header (old pages fallback) */
-.header{display:none} /* Old header hidden, replaced by .nav */
-
-/* Sub text */
-.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
-
-/* Ad placeholder — HIDE */
-.ad-placeholder{display:none !important}
-
-/* Hero override */
-.hero{padding:.5rem 0 1rem}
-.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
-
-/* FAQ items (old class) */
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-
-/* Toggle/tab buttons */
-.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#1d1d1f;border-color:var(--accent)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
-
-/* Color helpers */
-.green{color:#22c55e !important}
-.red{color:#ef4444 !important}
-
-/* Responsive */
-@media(max-width:768px){
-  .result-grid{grid-template-columns:1fr 1fr}
-  .radio-group{flex-direction:column}
-  .tool-grid{grid-template-columns:1fr}
-  .row{flex-direction:column}
-}
-@media(max-width:480px){
-  .result-grid{grid-template-columns:1fr}
-}
-
-</style>
+    <meta property="og:title" content="Divorce Settlement Calculator - Free Property Division Estimator 2026">
+    <meta property="og:description" content="Estimate your divorce settlement including property division, debt allocation, retirement accounts, and spousal support.">
+    <meta property="og:url" content="https://calcleap.com/divorce-settlement-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://calcleap.com/og-default.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<meta property="og:image" content="https://calcleap.com/og-default.png">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5W5SEPQWV"></script>
-<script>
- window.dataLayer = window.dataLayer || [];
- function gtag(){dataLayer.push(arguments);}
- gtag('js', new Date());
- gtag('config', 'G-Y5W5SEPQWV');
-</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Divorce Settlement Calculator",
+      "description": "Free divorce settlement calculator covering property division, asset splitting, debt allocation, retirement accounts, and spousal support estimation.",
+      "url": "https://calcleap.com/divorce-settlement-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What is the difference between community property and equitable distribution?","acceptedAnswer":{"@type":"Answer","text":"Community property states (like California, Texas, Arizona) split marital assets 50/50. Equitable distribution states (like New York, Florida, Illinois) divide assets 'fairly' but not necessarily equally, considering factors like income, earning capacity, marriage length, and contributions."}},
+      {"@type":"Question","name":"How are retirement accounts divided in a divorce?","acceptedAnswer":{"@type":"Answer","text":"Retirement accounts accumulated during the marriage are generally considered marital property. A Qualified Domestic Relations Order (QDRO) is used to divide 401(k)s and pensions. IRAs are divided through a transfer incident to divorce. Only the portion earned during the marriage is typically subject to division."}},
+      {"@type":"Question","name":"What assets are considered separate property in a divorce?","acceptedAnswer":{"@type":"Answer","text":"Separate property generally includes assets owned before the marriage, inheritances received by one spouse, gifts given specifically to one spouse, and personal injury settlements. However, if separate property is commingled with marital assets, it may lose its separate status."}},
+      {"@type":"Question","name":"How is debt divided in a divorce?","acceptedAnswer":{"@type":"Answer","text":"Marital debt (incurred during the marriage for family purposes) is typically divided between both spouses. In community property states, it's split 50/50. In equitable distribution states, courts consider who incurred the debt and who benefited. Pre-marriage debt usually stays with the original debtor."}},
+      {"@type":"Question","name":"What factors affect divorce settlement amounts?","acceptedAnswer":{"@type":"Answer","text":"Key factors include: length of marriage, each spouse's income and earning capacity, contributions to the marriage (including homemaking), age and health of both parties, custody arrangements, tax consequences, and whether either spouse dissipated assets."}}
+    ]}
+    </script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+          --white:#fff;--bg:#f5f5f7;--surface:#fff;
+          --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+          --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+          --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+          --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+          --r:16px;--r-sm:12px;--r-xs:8px;
+          --mw:980px;
+          --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+        }
+        body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+        a{color:inherit;text-decoration:none}
+
+        .nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+        .nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+        .logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+        .nav-links{display:flex;gap:.15rem}
+        .nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+        .nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+        .page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+        .breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+        .breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+        .breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+        .page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+        .page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+
+        .card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+        .card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+        .form-group{display:flex;flex-direction:column;gap:.3rem}
+        .form-group.full{grid-column:1/-1}
+        .form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+        .form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
+        .form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+
+        .toggle-row{display:flex;gap:.5rem;margin-bottom:1.25rem}
+        .toggle-btn{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
+        .toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+        .btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem;width:100%}
+        .btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+
+        .result-area{display:none;margin-top:1.5rem;animation:fadeUp .3s ease}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+        .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
+        .result-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
+        .result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
+        .result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
+        .result-card .value.green{color:#22c55e}
+        .result-card .value.blue{color:var(--accent)}
+        .result-card .value.red{color:#ef4444}
+
+        .result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
+        .result-row:last-child{border-bottom:none}
+        .result-label{font-size:.85rem;color:var(--text-2)}
+        .result-value{font-size:.95rem;font-weight:700}
+
+        .chart-wrap{margin:1.5rem 0}
+        .split-bar{display:flex;height:32px;border-radius:100px;overflow:hidden;gap:2px}
+        .split-bar .seg{display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:#fff;transition:width .5s ease}
+        .split-labels{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-top:.4rem}
+
+        .breakdown-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem;margin:1rem 0}
+        .breakdown-table th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
+        .breakdown-table th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
+        .breakdown-table th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
+        .breakdown-table td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+        .breakdown-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--text)}
+
+        .info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+        .info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+        .info-card p{font-size:.875rem;color:var(--text-2);line-height:1.7;margin-bottom:.75rem}
+        .info-card ul{margin-left:1.25rem;margin-bottom:.75rem}
+        .info-card li{font-size:.875rem;color:var(--text-2);line-height:1.7;margin-bottom:.35rem}
+
+        table.state-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem}
+        table.state-table th{background:var(--bg);font-weight:600;text-align:left;padding:.5rem .75rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
+        table.state-table td{padding:.5rem .75rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+        .badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.15rem .5rem;border-radius:100px;text-transform:uppercase;letter-spacing:.02em}
+        .badge-blue{background:rgba(0,113,227,.1);color:var(--accent)}
+        .badge-green{background:rgba(34,197,94,.1);color:#16a34a}
+
+        .faq{border-top:1px solid var(--border);padding:.85rem 0}
+        .faq:last-child{border-bottom:none}
+        .faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
+        .faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
+
+        .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+        .related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
+        .related-link:hover{border-color:var(--accent);color:var(--accent)}
+
+        .ad-slot{margin:1.5rem 0}
+
+        .footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+        .footer-inner{max-width:var(--mw);margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+        .footer h4{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+        .footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+        .footer a:hover{color:var(--text)}
+
+        .section-divider{height:1px;background:var(--border);margin:1.5rem 0}
+
+        .disclaimer-box{background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+        @media(max-width:768px){
+          .nav-links{display:none}
+          .page{padding:0 1.25rem}
+          .page-title{font-size:1.75rem}
+          .form-row{grid-template-columns:1fr}
+          .related-grid{grid-template-columns:1fr 1fr}
+          .footer-grid{grid-template-columns:1fr 1fr}
+          .result-grid{grid-template-columns:1fr 1fr}
+        }
+        @media(max-width:480px){
+          .related-grid{grid-template-columns:1fr}
+          .footer-grid{grid-template-columns:1fr}
+          .result-grid{grid-template-columns:1fr}
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5W5SEPQWV"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'G-Y5W5SEPQWV');
+    </script>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#1d1d1f;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.cssText='position:fixed;left:0;top:0;width:auto;height:auto;overflow:visible;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;'" onblur="this.style.cssText='position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden'">Skip to content</a>
+
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="logo">Calc<span>Leap</span></a>
@@ -206,142 +187,600 @@
   </div>
 </nav>
 
-    <div class="header">
-        <div class="container">
-            <h1 class="page-title">Divorce Settlement Calculator</h1>
-            <p>Calculate equitable property division and asset split in divorce settlements.</p>
-    <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 0;margin-bottom:1rem;border-bottom:1px solid rgba(0,0,0,.06)">
-    <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0071e3,#40a9ff);display:flex;align-items:center;justify-content:center;color:#1d1d1f;font-weight:700;font-size:.8rem">CL</div>
+<main id="main-content" class="page">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span class="sep">›</span>
+    <a href="index.html#finance">Finance</a><span class="sep">›</span>
+    Divorce Settlement Calculator
+  </div>
+
+  <h1 class="page-title">Divorce Settlement Calculator</h1>
+  <p class="page-desc">Estimate how marital assets and debts may be divided in a divorce. Supports both community property and equitable distribution methods.</p>
+
+  <div style="display:flex;align-items:center;gap:.75rem;padding:0 0 1.5rem">
+    <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0071e3,#40a9ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.8rem">CL</div>
     <div>
-        <div style="font-size:.82rem;font-weight:600">CalcLeap Editorial Team</div>
-        <div style="font-size:.72rem;color:#86868b">Reviewed by certified professionals · Last updated April 1, 2026</div>
+      <div style="font-size:.82rem;font-weight:600">CalcLeap Editorial Team</div>
+      <div style="font-size:.72rem;color:#86868b">Reviewed by certified professionals · Last updated April 3, 2026</div>
     </div>
-</div>
+  </div>
 
-        </div>
-    </div>
+  <!-- Ad slot 1 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;border-radius:18px" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 
-    <div class="main container">
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <!-- CALCULATOR -->
+  <div class="card">
+    <h2>⚖️ Property Division Estimator</h2>
+    <p style="font-size:.875rem;color:var(--text-2);margin-bottom:1.5rem">Enter marital assets, debts, and income information to estimate how property may be divided.</p>
 
-        <div class="calc-box">
-            <h2>Calculate Divorce Settlement Costs</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your information below for cost estimates.</p>
-            <div class="input-group">
-                <label for="complexity">Case Complexity:</label>
-                <select id="complexity" aria-label="Complexity">
-                    <option value="simple">Simple/Uncontested</option>
-                    <option value="moderate" selected>Moderate Complexity</option>
-                    <option value="complex">Complex/Contested</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="hours">Estimated Attorney Hours:</label>
-                <input type="number" id="hours" min="0" value="20" step="1" aria-label="Hours">
-                <small>Simple: 10-20hrs, Moderate: 20-50hrs, Complex: 50-200hrs</small>
-            </div>
-            <div class="input-group">
-                <label for="rate">Attorney Hourly Rate ($):</label>
-                <input type="number" id="rate" min="0" value="300" step="25" aria-label="Rate">
-                <small>Typical range: $200-500/hour depending on location</small>
-            </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Costs</button>
-            <div class="result-box" id="result">
-                <h3>Results</h3>
-            </div>
-        </div>
-
-        <div class="disclaimer">
-            <p><strong>Legal Disclaimer:</strong> This calculator provides estimates for informational purposes only. Actual costs vary significantly based on location, attorney rates, case complexity, and specific circumstances. Consult with a licensed family law attorney for accurate cost estimates and legal advice.</p>
-        </div>
-
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-        <div class="info-section">
-            <h3>About Divorce Settlement Calculator</h3>
-            <p>Calculate equitable property division and asset split in divorce settlements.</p>
-            <h3>Understanding Divorce Settlement Costs</h3>
-            <p>Costs can vary widely based on:</p>
-            <ul>
-                <li>Geographic location and local attorney rates</li>
-                <li>Case complexity and level of dispute</li>
-                <li>Court fees and filing costs</li>
-                <li>Expert witness fees (if needed)</li>
-                <li>Whether the case settles or goes to trial</li>
-            </ul>
-            <h3>Ways to Reduce Costs</h3>
-            <ul>
-                <li>Consider mediation before litigation</li>
-                <li>Organize documents and information in advance</li>
-                <li>Communicate efficiently with your attorney</li>
-                <li>Explore unbundled legal services for simpler cases</li>
-            </ul>
-            <h3>More Family Law Calculators</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Calculators</a></li>
-                <li><a href="about.html">About CalcLeap</a></li>
-            </ul>
-        </div>
-
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <!-- Division Method -->
+    <div class="form-group" style="margin-bottom:1.25rem">
+      <label>Division Method</label>
+      <div class="toggle-row" style="margin-top:.35rem">
+        <button class="toggle-btn active" onclick="setMethod('community',this)">Community Property (50/50)</button>
+        <button class="toggle-btn" onclick="setMethod('equitable',this)">Equitable Distribution</button>
+      </div>
     </div>
 
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online calculators and tools.</p>
-            <p><a href="index.html">Home</a> • <a href="about.html">About</a> • <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a> • <a href="contact.html">Contact</a></p>
-        </div>
+    <h2>📊 Income & Marriage Details</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="incomeA">Your Annual Income ($)</label>
+        <input type="number" id="incomeA" value="85000" min="0">
+      </div>
+      <div class="form-group">
+        <label for="incomeB">Spouse's Annual Income ($)</label>
+        <input type="number" id="incomeB" value="55000" min="0">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="marriageYears">Length of Marriage (years)</label>
+        <input type="number" id="marriageYears" value="12" min="0" max="80">
+      </div>
+      <div class="form-group">
+        <label for="state">State</label>
+        <select id="state">
+          <option value="equitable">Alabama (Equitable)</option>
+          <option value="equitable">Alaska (Equitable)</option>
+          <option value="community">Arizona (Community)</option>
+          <option value="equitable">Arkansas (Equitable)</option>
+          <option value="community" selected>California (Community)</option>
+          <option value="equitable">Colorado (Equitable)</option>
+          <option value="equitable">Connecticut (Equitable)</option>
+          <option value="equitable">Delaware (Equitable)</option>
+          <option value="equitable">Florida (Equitable)</option>
+          <option value="equitable">Georgia (Equitable)</option>
+          <option value="equitable">Hawaii (Equitable)</option>
+          <option value="community">Idaho (Community)</option>
+          <option value="equitable">Illinois (Equitable)</option>
+          <option value="equitable">Indiana (Equitable)</option>
+          <option value="equitable">Iowa (Equitable)</option>
+          <option value="equitable">Kansas (Equitable)</option>
+          <option value="equitable">Kentucky (Equitable)</option>
+          <option value="community">Louisiana (Community)</option>
+          <option value="equitable">Maine (Equitable)</option>
+          <option value="equitable">Maryland (Equitable)</option>
+          <option value="equitable">Massachusetts (Equitable)</option>
+          <option value="equitable">Michigan (Equitable)</option>
+          <option value="equitable">Minnesota (Equitable)</option>
+          <option value="equitable">Mississippi (Equitable)</option>
+          <option value="equitable">Missouri (Equitable)</option>
+          <option value="equitable">Montana (Equitable)</option>
+          <option value="equitable">Nebraska (Equitable)</option>
+          <option value="community">Nevada (Community)</option>
+          <option value="equitable">New Hampshire (Equitable)</option>
+          <option value="equitable">New Jersey (Equitable)</option>
+          <option value="community">New Mexico (Community)</option>
+          <option value="equitable">New York (Equitable)</option>
+          <option value="equitable">North Carolina (Equitable)</option>
+          <option value="equitable">North Dakota (Equitable)</option>
+          <option value="equitable">Ohio (Equitable)</option>
+          <option value="equitable">Oklahoma (Equitable)</option>
+          <option value="equitable">Oregon (Equitable)</option>
+          <option value="equitable">Pennsylvania (Equitable)</option>
+          <option value="equitable">Rhode Island (Equitable)</option>
+          <option value="equitable">South Carolina (Equitable)</option>
+          <option value="equitable">South Dakota (Equitable)</option>
+          <option value="equitable">Tennessee (Equitable)</option>
+          <option value="community">Texas (Community)</option>
+          <option value="equitable">Utah (Equitable)</option>
+          <option value="equitable">Vermont (Equitable)</option>
+          <option value="equitable">Virginia (Equitable)</option>
+          <option value="community">Washington (Community)</option>
+          <option value="equitable">West Virginia (Equitable)</option>
+          <option value="community">Wisconsin (Community)</option>
+          <option value="equitable">Wyoming (Equitable)</option>
+        </select>
+      </div>
     </div>
 
-    <script>
-        function calculate() {
-            const complexity = document.getElementById('complexity').value;
-            const hours = parseFloat(document.getElementById('hours').value) || 20;
-            const rate = parseFloat(document.getElementById('rate').value) || 300;
-            
-            const attorneyFees = hours * rate;
-            const courtFees = complexity === 'simple' ? 500 : complexity === 'moderate' ? 1500 : 3000;
-            const otherCosts = complexity === 'simple' ? 500 : complexity === 'moderate' ? 2000 : 5000;
-            const totalCost = attorneyFees + courtFees + otherCosts;
-            
-            let html = '<h3>Estimated Costs</h3>';
-            html += '<div class="result-value">$' + totalCost.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Attorney Fees:</strong> $' + attorneyFees.toLocaleString() + ' (' + hours + ' hours × $' + rate + '/hr)</div>';
-            html += '<div class="result-detail"><strong>Court Fees:</strong> $' + courtFees.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Other Costs:</strong> $' + otherCosts.toLocaleString() + ' (filing, documents, etc.)</div>';
-            html += '<div class="result-detail"><strong>Case Complexity:</strong> ' + complexity.charAt(0).toUpperCase() + complexity.slice(1) + '</div>';
-            
-            html += '<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #6e6e73;"><em>This is a rough estimate. Actual costs depend on many factors including location, specific circumstances, and whether the case settles or goes to trial. Always consult with a licensed attorney for accurate cost projections.</em></p>';
-            
-            html += '<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;font-size:.85rem;color:#991b1b;line-height:1.6">\n<strong>⚠️ Important Legal Disclaimer:</strong> Settlement amounts vary enormously based on jurisdiction, case specifics, attorney quality, insurance policies, and many other factors. This calculator provides a very rough educational estimate only. Actual settlements can be 10x higher or lower. <strong>Always consult a qualified attorney</strong> for case-specific advice. CalcLeap is not a law firm and does not provide legal advice.\n</div>';
-            document.getElementById('result').innerHTML = html;
-            document.getElementById('result').style.display = 'block';
-        }
-    </script>
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This tool provides estimates for informational and educational purposes only. Results may not reflect actual values and should be verified independently. CalcLeap makes no warranties regarding the accuracy or completeness of any calculations. Use at your own discretion.</div>
-<div style="background:var(--white,#fff);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:1.5rem;margin:1.5rem 0">
+    <div class="section-divider"></div>
+    <h2>🏠 Marital Assets</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="homeValue">Primary Home Value ($)</label>
+        <input type="number" id="homeValue" value="450000" min="0">
+      </div>
+      <div class="form-group">
+        <label for="homeMortgage">Remaining Mortgage ($)</label>
+        <input type="number" id="homeMortgage" value="280000" min="0">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="savings">Bank Accounts & Savings ($)</label>
+        <input type="number" id="savings" value="45000" min="0">
+      </div>
+      <div class="form-group">
+        <label for="investments">Investments & Stocks ($)</label>
+        <input type="number" id="investments" value="120000" min="0">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="retirementA">Your Retirement Accounts ($)</label>
+        <input type="number" id="retirementA" value="185000" min="0">
+      </div>
+      <div class="form-group">
+        <label for="retirementB">Spouse's Retirement Accounts ($)</label>
+        <input type="number" id="retirementB" value="95000" min="0">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="vehicles">Vehicle Values ($)</label>
+        <input type="number" id="vehicles" value="35000" min="0">
+      </div>
+      <div class="form-group">
+        <label for="otherAssets">Other Assets (jewelry, business, etc.) ($)</label>
+        <input type="number" id="otherAssets" value="20000" min="0">
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+    <h2>💳 Marital Debts</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="creditCards">Credit Card Debt ($)</label>
+        <input type="number" id="creditCards" value="12000" min="0">
+      </div>
+      <div class="form-group">
+        <label for="autoLoans">Auto Loans ($)</label>
+        <input type="number" id="autoLoans" value="15000" min="0">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="studentLoans">Student Loans ($)</label>
+        <input type="number" id="studentLoans" value="25000" min="0">
+      </div>
+      <div class="form-group">
+        <label for="otherDebt">Other Debts ($)</label>
+        <input type="number" id="otherDebt" value="5000" min="0">
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+    <h2>🏡 Separate Property (Not Divided)</h2>
+    <p style="font-size:.82rem;color:var(--text-3);margin-bottom:1rem">Assets owned before marriage or received as inheritance/gift.</p>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="separateA">Your Separate Property ($)</label>
+        <input type="number" id="separateA" value="50000" min="0">
+      </div>
+      <div class="form-group">
+        <label for="separateB">Spouse's Separate Property ($)</label>
+        <input type="number" id="separateB" value="30000" min="0">
+      </div>
+    </div>
+
+    <button class="btn" onclick="calculate()">Calculate Settlement Estimate</button>
+
+    <!-- RESULTS -->
+    <div class="result-area" id="results">
+      <h2 style="margin-bottom:1rem">📋 Estimated Settlement Breakdown</h2>
+      <div class="result-grid" id="summaryCards"></div>
+
+      <div class="chart-wrap">
+        <p style="font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:.5rem">ASSET DIVISION SPLIT</p>
+        <div class="split-bar" id="splitBar"></div>
+        <div class="split-labels" id="splitLabels"></div>
+      </div>
+
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.25rem;margin:1rem 0">
+        <p style="font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:.75rem">DETAILED BREAKDOWN</p>
+        <table class="breakdown-table" id="breakdownTable"></table>
+      </div>
+
+      <div id="equitableNote" style="display:none;background:var(--accent-bg);border:1px solid rgba(0,113,227,.15);border-radius:var(--r-sm);padding:1rem 1.25rem;margin:1rem 0;font-size:.85rem;color:var(--accent);line-height:1.6"></div>
+
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.25rem;margin:1rem 0">
+        <p style="font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:.75rem">MONTHLY IMPACT ESTIMATE</p>
+        <div id="monthlyImpact"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer-box">
+    <strong>⚠️ Legal Disclaimer:</strong> This calculator provides estimates for informational and educational purposes only. Actual divorce settlements depend on state laws, individual circumstances, judicial discretion, prenuptial agreements, and many other factors. Always consult with a licensed family law attorney for advice specific to your situation.
+  </div>
+
+  <!-- Ad slot 2 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;border-radius:18px" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- INFO SECTIONS -->
+  <div class="info-card">
+    <h3>Community Property vs. Equitable Distribution</h3>
+    <p>The United States uses two primary systems for dividing marital property in a divorce:</p>
+    <h4 style="font-size:.9rem;font-weight:600;margin:.75rem 0 .5rem;color:var(--text)">Community Property States (9 states)</h4>
+    <p>Arizona, California, Idaho, Louisiana, Nevada, New Mexico, Texas, Washington, and Wisconsin follow community property law. In these states, all assets and debts acquired during the marriage are considered equally owned by both spouses and are split 50/50.</p>
+    <h4 style="font-size:.9rem;font-weight:600;margin:.75rem 0 .5rem;color:var(--text)">Equitable Distribution States (41 states + DC)</h4>
+    <p>All other states follow equitable distribution, where marital property is divided "fairly" but not necessarily equally. Courts consider factors such as:</p>
+    <ul>
+      <li>Each spouse's income and earning capacity</li>
+      <li>Length of the marriage</li>
+      <li>Age and health of both parties</li>
+      <li>Contributions to the marriage (including homemaking)</li>
+      <li>Custody arrangements for children</li>
+      <li>Tax consequences of the proposed division</li>
+      <li>Any prenuptial or postnuptial agreements</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3>Property Division by State</h3>
+    <table class="state-table">
+      <thead>
+        <tr><th>State</th><th>Method</th><th>Key Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>California</td><td><span class="badge badge-blue">Community</span></td><td>Strict 50/50 split of all community property</td></tr>
+        <tr><td>Texas</td><td><span class="badge badge-blue">Community</span></td><td>Court may order unequal split for "just and right" division</td></tr>
+        <tr><td>New York</td><td><span class="badge badge-green">Equitable</span></td><td>Considers 13+ statutory factors for division</td></tr>
+        <tr><td>Florida</td><td><span class="badge badge-green">Equitable</span></td><td>Starts with 50/50 presumption, then adjusts</td></tr>
+        <tr><td>Illinois</td><td><span class="badge badge-green">Equitable</span></td><td>Non-marital property stays with original owner</td></tr>
+        <tr><td>Washington</td><td><span class="badge badge-blue">Community</span></td><td>Court has wide discretion, can award unequal shares</td></tr>
+        <tr><td>Arizona</td><td><span class="badge badge-blue">Community</span></td><td>Quasi-community property from other states may be divided</td></tr>
+        <tr><td>Pennsylvania</td><td><span class="badge badge-green">Equitable</span></td><td>Considers 11 statutory factors including standard of living</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-card">
+    <h3>How Retirement Accounts Are Divided</h3>
+    <p>Retirement accounts are often the second-largest asset in a divorce after the family home. Here's how different types are handled:</p>
+    <ul>
+      <li><strong>401(k) and 403(b):</strong> Divided via a Qualified Domestic Relations Order (QDRO). Only the portion earned during the marriage is subject to division. No early withdrawal penalty when transferred via QDRO.</li>
+      <li><strong>IRA:</strong> Divided through a "transfer incident to divorce" per IRS rules. No QDRO required, but must follow specific transfer procedures to avoid tax penalties.</li>
+      <li><strong>Pensions:</strong> Divided via QDRO. The marital share is typically calculated using a "coverture fraction" (years married while earning pension ÷ total years of service).</li>
+      <li><strong>Stock Options:</strong> Unvested options may be considered marital property if granted during the marriage. Valuation can be complex and may require expert appraisal.</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3>Protecting Yourself During Divorce</h3>
+    <ul>
+      <li><strong>Document everything:</strong> Gather bank statements, tax returns, pay stubs, property deeds, and investment account statements from the entire marriage</li>
+      <li><strong>Understand your finances:</strong> Know all marital accounts, debts, and assets before negotiations begin</li>
+      <li><strong>Consider tax implications:</strong> Some assets (like retirement accounts) have different tax treatments that affect their true value</li>
+      <li><strong>Don't hide assets:</strong> Courts can impose severe penalties for hidden assets, including awarding them entirely to the other spouse</li>
+      <li><strong>Get professional help:</strong> A family law attorney, financial advisor, and possibly a forensic accountant can protect your interests</li>
+      <li><strong>Consider mediation:</strong> Can be faster, cheaper, and less adversarial than litigation, while still producing a legally binding agreement</li>
+    </ul>
+  </div>
+
+  <!-- Ad slot 3 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;border-radius:18px" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="info-card">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <p class="faq-q">What is the difference between community property and equitable distribution?</p>
+      <p class="faq-a">Community property states (California, Texas, Arizona, etc.) split marital assets 50/50. Equitable distribution states (New York, Florida, Illinois, etc.) divide assets "fairly" but not necessarily equally, considering factors like income, earning capacity, marriage length, and contributions.</p>
+    </div>
+    <div class="faq">
+      <p class="faq-q">How are retirement accounts divided in a divorce?</p>
+      <p class="faq-a">Retirement accounts accumulated during the marriage are generally considered marital property. A QDRO is used to divide 401(k)s and pensions without tax penalty. IRAs are divided through a transfer incident to divorce. Only the portion earned during the marriage is typically subject to division.</p>
+    </div>
+    <div class="faq">
+      <p class="faq-q">What assets are considered separate property?</p>
+      <p class="faq-a">Separate property includes assets owned before the marriage, inheritances received by one spouse, gifts given specifically to one spouse, and personal injury settlements. However, if separate property is commingled with marital assets, it may lose its separate status.</p>
+    </div>
+    <div class="faq">
+      <p class="faq-q">How is marital debt divided in a divorce?</p>
+      <p class="faq-a">Marital debt incurred during the marriage for family purposes is typically divided between both spouses. Community property states split it 50/50. Equitable distribution states consider who incurred the debt and who benefited. Pre-marriage debt usually stays with the original debtor.</p>
+    </div>
+    <div class="faq">
+      <p class="faq-q">What factors affect divorce settlement amounts?</p>
+      <p class="faq-a">Key factors include length of marriage, each spouse's income and earning capacity, contributions to the marriage (including homemaking), age and health, custody arrangements, tax consequences, dissipation of assets, and prenuptial agreements.</p>
+    </div>
+    <div class="faq">
+      <p class="faq-q">How long does a divorce settlement take?</p>
+      <p class="faq-a">An uncontested divorce with agreed-upon terms can be finalized in 1-3 months. Contested divorces with complex assets typically take 6-18 months. High-net-worth cases with business valuations or hidden assets can take 2+ years.</p>
+    </div>
+  </div>
+
+  <!-- Related tools -->
+  <div class="info-card">
+    <h3>Related Calculators</h3>
+    <div class="related-grid">
+      <a href="alimony-calculator.html" class="related-link">⚖️ Alimony Calculator</a>
+      <a href="personal-injury-settlement-calculator.html" class="related-link">🏥 Personal Injury Calculator</a>
+      <a href="structured-settlement-calculator.html" class="related-link">📄 Structured Settlement</a>
+      <a href="calc/mortgage-payment.html" class="related-link">🏠 Mortgage Calculator</a>
+      <a href="401k-withdrawal-calculator.html" class="related-link">💰 401(k) Withdrawal</a>
+      <a href="income-tax-calculator.html" class="related-link">📊 Income Tax Calculator</a>
+    </div>
+  </div>
+
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin:1.5rem 0">
     <h3 style="font-size:.95rem;font-weight:700;margin-bottom:.75rem">📐 How We Calculate This</h3>
-    <p style="font-size:.85rem;color:#424245;line-height:1.7;margin-bottom:.75rem">Settlement estimates use the multiplier method commonly applied by insurance adjusters: total medical expenses × a severity multiplier (1.5-5×) plus lost wages. The multiplier depends on injury severity, permanence, and impact on daily life.</p>
-    <p style="font-size:.85rem;color:#424245;line-height:1.7">Every case is unique. This calculator provides a rough estimate only — actual settlements depend on liability, jurisdiction, insurance policy limits, and attorney negotiation. Consult a licensed personal injury attorney for case-specific advice.</p>
-</div>
-<div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;margin:1.25rem 0">
+    <p style="font-size:.85rem;color:var(--text-2);line-height:1.7;margin-bottom:.75rem">Our divorce settlement calculator uses state-specific property division rules. For community property states, marital assets are split 50/50. For equitable distribution states, we apply a weighted formula based on income disparity, marriage length, and contribution factors — consistent with guidelines published by the American Bar Association and state family law statutes.</p>
+    <p style="font-size:.85rem;color:var(--text-2);line-height:1.7">Results are estimates for educational purposes. Every divorce is unique, and a licensed family law attorney can provide guidance tailored to your specific situation.</p>
+  </div>
+
+  <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;margin:1.25rem 0">
     <h4 style="font-size:.85rem;font-weight:700;margin-bottom:.5rem">📚 Sources & References</h4>
-    <ul style="font-size:.82rem;color:#424245;line-height:1.8;padding-left:1.2rem;margin:0"><li><a href="https://www.americanbar.org/" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">American Bar Association — Injury Resources</a></li><li><a href="https://www.nhtsa.gov/data" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">NHTSA — Traffic Safety Data</a></li></ul>
-</div>
+    <ul style="font-size:.82rem;color:#424245;line-height:1.8;padding-left:1.2rem;margin:0">
+      <li><a href="https://www.americanbar.org/groups/family_law/" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">American Bar Association — Family Law Section</a></li>
+      <li><a href="https://www.law.cornell.edu/wex/community_property" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">Cornell Law Institute — Community Property</a></li>
+      <li><a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-qdro" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">IRS — QDROs (Retirement Account Division)</a></li>
+      <li><a href="https://www.nolo.com/legal-encyclopedia/divorce-property-division-702.html" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">Nolo — Divorce Property Division Guide</a></li>
+    </ul>
+  </div>
+</main>
 
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><h4>CalcLeap</h4><p style="font-size:.8rem;color:var(--text-3);line-height:1.5">Free calculators and tools for everyone.</p></div>
+      <div><h4>Popular</h4><a href="bmi-calculator.html">BMI Calculator</a><a href="calc/mortgage-payment.html">Mortgage Calculator</a><a href="income-tax-calculator.html">Tax Calculator</a></div>
+      <div><h4>Categories</h4><a href="index.html#finance">Finance</a><a href="index.html#health">Health</a><a href="index.html#insurance">Insurance</a></div>
+      <div><h4>Company</h4><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></div>
+    </div>
+    <p style="text-align:center;font-size:.75rem;color:var(--text-3);margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border)">© 2026 CalcLeap. All rights reserved.</p>
+  </div>
+</footer>
 
-<footer class="footer" role="contentinfo"><div class="footer-inner"><div class="footer-grid"><div><h4>CalcLeap</h4><p style="font-size:.8rem;color:var(--text-3);line-height:1.5">Free calculators and tools for everyone.</p></div><div><h4>Popular</h4><a href="bmi-calculator.html">BMI Calculator</a><a href="calc/mortgage-payment.html">Mortgage Calculator</a><a href="/income-tax-calculator.html">Tax Calculator</a></div><div><h4>Categories</h4><a href="/index.html#finance">Finance</a><a href="/index.html#health">Health</a><a href="/index.html#insurance">Insurance</a></div><div><h4>Company</h4><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></div></div><p style="text-align:center;font-size:.75rem;color:var(--text-3);margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border)">© 2026 CalcLeap. All rights reserved.</p></div></footer>
 <div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#f5f5f7;color:#1d1d1f;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising. By continuing, you consent to our use of cookies. <a href="privacy.html" style="color:#0071e3;text-decoration:underline">Privacy Policy</a></p>
 <div style="display:flex;gap:.5rem;flex-shrink:0">
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#1d1d1f;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#0071e3;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#86868b;border:1px solid #d2d2d7;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
 </div>
 </div>
 <script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+
+<script>
+let divisionMethod = 'community';
+
+function setMethod(method, btn) {
+  divisionMethod = method;
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Also update state dropdown to match
+  const stateEl = document.getElementById('state');
+  if (method === 'community') {
+    // Update toggle based on manual selection
+  }
+}
+
+// Auto-set method when state changes
+document.getElementById('state').addEventListener('change', function() {
+  const method = this.value;
+  divisionMethod = method;
+  const btns = document.querySelectorAll('.toggle-btn');
+  btns.forEach(b => b.classList.remove('active'));
+  if (method === 'community') btns[0].classList.add('active');
+  else btns[1].classList.add('active');
+});
+
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString('en-US');
+}
+
+function calculate() {
+  // Gather inputs
+  const incomeA = parseFloat(document.getElementById('incomeA').value) || 0;
+  const incomeB = parseFloat(document.getElementById('incomeB').value) || 0;
+  const years = parseFloat(document.getElementById('marriageYears').value) || 0;
+
+  const homeValue = parseFloat(document.getElementById('homeValue').value) || 0;
+  const homeMortgage = parseFloat(document.getElementById('homeMortgage').value) || 0;
+  const savings = parseFloat(document.getElementById('savings').value) || 0;
+  const investments = parseFloat(document.getElementById('investments').value) || 0;
+  const retirementA = parseFloat(document.getElementById('retirementA').value) || 0;
+  const retirementB = parseFloat(document.getElementById('retirementB').value) || 0;
+  const vehicles = parseFloat(document.getElementById('vehicles').value) || 0;
+  const otherAssets = parseFloat(document.getElementById('otherAssets').value) || 0;
+
+  const creditCards = parseFloat(document.getElementById('creditCards').value) || 0;
+  const autoLoans = parseFloat(document.getElementById('autoLoans').value) || 0;
+  const studentLoans = parseFloat(document.getElementById('studentLoans').value) || 0;
+  const otherDebt = parseFloat(document.getElementById('otherDebt').value) || 0;
+
+  const separateA = parseFloat(document.getElementById('separateA').value) || 0;
+  const separateB = parseFloat(document.getElementById('separateB').value) || 0;
+
+  // Calculate totals
+  const homeEquity = Math.max(0, homeValue - homeMortgage);
+  const totalRetirement = retirementA + retirementB;
+  const totalAssets = homeEquity + savings + investments + totalRetirement + vehicles + otherAssets;
+  const totalDebts = creditCards + autoLoans + studentLoans + otherDebt;
+  const maritalEstate = totalAssets - totalDebts;
+
+  // Division calculation
+  let yourShare, spouseShare, yourPct;
+
+  if (divisionMethod === 'community') {
+    // 50/50 split
+    yourShare = maritalEstate / 2;
+    spouseShare = maritalEstate / 2;
+    yourPct = 50;
+  } else {
+    // Equitable distribution - weighted by factors
+    const totalIncome = incomeA + incomeB;
+    let incomeWeight = totalIncome > 0 ? incomeA / totalIncome : 0.5;
+
+    // Adjust for marriage length (longer = closer to 50/50)
+    const lengthFactor = Math.min(years / 25, 1); // Max influence at 25+ years
+    const adjustedWeight = incomeWeight * (1 - lengthFactor * 0.4) + 0.5 * (lengthFactor * 0.4);
+
+    // Higher earner typically gets slightly less in equitable distribution
+    // because lower earner "needs more"
+    if (incomeA > incomeB) {
+      yourPct = Math.round(Math.max(35, Math.min(50, adjustedWeight * 100 - (incomeWeight - 0.5) * 20)));
+    } else {
+      yourPct = Math.round(Math.max(50, Math.min(65, adjustedWeight * 100 + (0.5 - incomeWeight) * 20)));
+    }
+
+    yourShare = maritalEstate * (yourPct / 100);
+    spouseShare = maritalEstate * ((100 - yourPct) / 100);
+  }
+
+  // Summary cards
+  const summaryHTML = `
+    <div class="result-card">
+      <div class="label">Total Marital Estate</div>
+      <div class="value">${fmt(maritalEstate)}</div>
+    </div>
+    <div class="result-card">
+      <div class="label">Your Estimated Share</div>
+      <div class="value blue">${fmt(yourShare)}</div>
+    </div>
+    <div class="result-card">
+      <div class="label">Spouse's Estimated Share</div>
+      <div class="value">${fmt(spouseShare)}</div>
+    </div>
+    <div class="result-card">
+      <div class="label">Division Ratio</div>
+      <div class="value">${yourPct}/${100 - yourPct}</div>
+    </div>
+  `;
+  document.getElementById('summaryCards').innerHTML = summaryHTML;
+
+  // Split bar
+  const spousePct = 100 - yourPct;
+  document.getElementById('splitBar').innerHTML = `
+    <div class="seg" style="width:${yourPct}%;background:linear-gradient(135deg,#0071e3,#40a9ff)">${yourPct}%</div>
+    <div class="seg" style="width:${spousePct}%;background:linear-gradient(135deg,#6366f1,#a78bfa)">${spousePct}%</div>
+  `;
+  document.getElementById('splitLabels').innerHTML = `
+    <span>Your Share (${fmt(yourShare)})</span>
+    <span>Spouse's Share (${fmt(spouseShare)})</span>
+  `;
+
+  // Detailed breakdown table
+  const yourRetire = totalRetirement * (yourPct / 100);
+  const spouseRetire = totalRetirement * ((100 - yourPct) / 100);
+  const yourDebt = totalDebts * (yourPct / 100);
+  const spouseDebt = totalDebts * ((100 - yourPct) / 100);
+
+  document.getElementById('breakdownTable').innerHTML = `
+    <thead>
+      <tr><th>Category</th><th>Total Value</th><th>Your Share</th><th>Spouse's Share</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Home Equity</td>
+        <td>${fmt(homeEquity)}</td>
+        <td>${fmt(homeEquity * yourPct / 100)}</td>
+        <td>${fmt(homeEquity * (100 - yourPct) / 100)}</td>
+      </tr>
+      <tr>
+        <td>Bank Accounts & Savings</td>
+        <td>${fmt(savings)}</td>
+        <td>${fmt(savings * yourPct / 100)}</td>
+        <td>${fmt(savings * (100 - yourPct) / 100)}</td>
+      </tr>
+      <tr>
+        <td>Investments & Stocks</td>
+        <td>${fmt(investments)}</td>
+        <td>${fmt(investments * yourPct / 100)}</td>
+        <td>${fmt(investments * (100 - yourPct) / 100)}</td>
+      </tr>
+      <tr>
+        <td>Retirement Accounts</td>
+        <td>${fmt(totalRetirement)}</td>
+        <td>${fmt(yourRetire)}</td>
+        <td>${fmt(spouseRetire)}</td>
+      </tr>
+      <tr>
+        <td>Vehicles</td>
+        <td>${fmt(vehicles)}</td>
+        <td>${fmt(vehicles * yourPct / 100)}</td>
+        <td>${fmt(vehicles * (100 - yourPct) / 100)}</td>
+      </tr>
+      <tr>
+        <td>Other Assets</td>
+        <td>${fmt(otherAssets)}</td>
+        <td>${fmt(otherAssets * yourPct / 100)}</td>
+        <td>${fmt(otherAssets * (100 - yourPct) / 100)}</td>
+      </tr>
+      <tr style="color:#ef4444">
+        <td>Marital Debts</td>
+        <td>-${fmt(totalDebts)}</td>
+        <td>-${fmt(yourDebt)}</td>
+        <td>-${fmt(spouseDebt)}</td>
+      </tr>
+      <tr>
+        <td><strong>Net Settlement</strong></td>
+        <td><strong>${fmt(maritalEstate)}</strong></td>
+        <td><strong style="color:var(--accent)">${fmt(yourShare)}</strong></td>
+        <td><strong>${fmt(spouseShare)}</strong></td>
+      </tr>
+    </tbody>
+  `;
+
+  // Equitable note
+  const noteEl = document.getElementById('equitableNote');
+  if (divisionMethod === 'equitable') {
+    noteEl.style.display = 'block';
+    noteEl.innerHTML = `<strong>ℹ️ Equitable Distribution Note:</strong> Based on the income disparity (${fmt(incomeA)} vs ${fmt(incomeB)}) and ${years}-year marriage, the estimated split is ${yourPct}/${100 - yourPct}. Courts may adjust this based on factors like child custody, health conditions, non-financial contributions, and wasteful dissipation of assets. A ${years >= 15 ? 'long' : years >= 7 ? 'medium-length' : 'short'} marriage tends to result in a ${years >= 15 ? 'more equal' : 'less equal'} division.`;
+  } else {
+    noteEl.style.display = 'none';
+  }
+
+  // Monthly impact
+  const monthlyIncomeA = incomeA / 12;
+  const monthlyDebtPaymentYou = yourDebt / 60; // Assume 5yr payoff
+  document.getElementById('monthlyImpact').innerHTML = `
+    <div class="result-row">
+      <span class="result-label">Your Current Monthly Income</span>
+      <span class="result-value">${fmt(monthlyIncomeA)}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Estimated Monthly Debt Payment (5-yr payoff)</span>
+      <span class="result-value" style="color:#ef4444">-${fmt(monthlyDebtPaymentYou)}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Liquid Assets You'd Receive</span>
+      <span class="result-value" style="color:var(--accent)">${fmt((savings + investments) * yourPct / 100)}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Retirement Assets (subject to QDRO)</span>
+      <span class="result-value">${fmt(yourRetire)}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Your Separate Property (kept)</span>
+      <span class="result-value" style="color:#22c55e">${fmt(separateA)}</span>
+    </div>
+  `;
+
+  // Show results
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
 </body>
 </html>
