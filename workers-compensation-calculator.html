@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workers' Compensation Calculator - Estimate Settlement & Benefits | CalcLeap</title>
+    <meta name="description" content="Calculate workers' compensation settlement amounts, weekly benefits, and total compensation. Free tool for injury claims, wage replacement, and settlement estimates.">
+    <link rel="stylesheet" href="gold.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta property="og:title" content="Workers' Compensation Calculator - Estimate Settlement & Benefits">
+    <meta property="og:description" content="Calculate workers' compensation settlement amounts, weekly benefits, and total compensation for workplace injury claims.">
+    <meta property="og:image" content="https://calcleap.com/og-workers-comp.png">
+    <meta property="og:url" content="https://calcleap.com/workers-compensation-calculator.html">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5W5SEPQWV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5W5SEPQWV');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5587116071753085"
+     crossorigin="anonymous"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Workers' Compensation Calculator",
+      "description": "Calculate workers' compensation settlement amounts, weekly benefits, and total compensation for workplace injury claims.",
+      "url": "https://calcleap.com/workers-compensation-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is workers' compensation calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Workers' compensation benefits are typically calculated based on your average weekly wage (AWW) before the injury. Temporary disability benefits usually pay 2/3 of your AWW, subject to state maximum and minimum limits. Permanent disability and settlement amounts depend on impairment rating, future medical needs, and state-specific formulas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the average workers' comp settlement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Workers' compensation settlements vary widely based on injury severity, state, and circumstances. Minor injuries may settle for $2,000-$20,000, moderate injuries $20,000-$100,000, and severe permanent disabilities can reach $200,000+. Factors include medical costs, lost wages, permanent impairment rating, and future treatment needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long do workers' comp benefits last?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Temporary disability benefits continue until you reach maximum medical improvement (MMI) or return to work. Permanent disability benefits duration varies by state - some provide lump sum settlements, others pay weekly benefits for a set period or lifetime. Medical benefits typically continue for all treatment related to the work injury."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the workers' comp wage replacement rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most states pay 2/3 (66.67%) of your average weekly wage for temporary total disability. Some states pay slightly more or less. Benefits are subject to state maximum and minimum weekly amounts, which vary significantly by jurisdiction. Tax-free status makes the net replacement rate higher than the nominal percentage."
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+        .calc-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .input-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .input-group {
+            margin-bottom: 1.25rem;
+        }
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .btn-calculate {
+            background: linear-gradient(135deg, #d4af37 0%, #c9a22b 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(212, 175, 55, 0.3);
+        }
+        .results {
+            display: none;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+        .results.show {
+            display: block;
+        }
+        .result-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #d4af37;
+        }
+        .result-card h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        .result-label {
+            color: #555;
+            font-weight: 500;
+        }
+        .result-value {
+            color: #2c3e50;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #d4af37 0%, #c9a22b 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .highlight-box h2 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .highlight-box p {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        .info-section {
+            background: #e8f4f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 4px solid #3498db;
+        }
+        .info-section h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .info-section ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+        .info-section li {
+            margin-bottom: 0.5rem;
+        }
+        .content-section {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .content-section h2 {
+            color: #2c3e50;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+        .content-section h3 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        .content-section p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        .content-section ul {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 768px) {
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+            .calc-container {
+                padding: 1rem;
+            }
+            .results {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); padding: 1rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
+            <a href="index.html" style="color: #d4af37; text-decoration: none; font-size: 1.5rem; font-weight: 700;">CalcLeap</a>
+            <div style="display: flex; gap: 2rem;">
+                <a href="index.html" style="color: white; text-decoration: none; font-weight: 500;">Home</a>
+                <a href="index.html#calculators" style="color: white; text-decoration: none; font-weight: 500;">Calculators</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="calc-container">
+        <h1 style="color: #2c3e50; margin-top: 0;">Workers' Compensation Calculator</h1>
+        <p style="color: #555; font-size: 1.1rem;">Estimate your workers' compensation benefits, settlement amount, and weekly wage replacement for workplace injuries.</p>
+
+        <!-- Ad Slot 1 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5587116071753085"
+             data-ad-slot="7891234561"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div class="input-section">
+            <h2 style="margin-top: 0; color: #2c3e50;">Income Information</h2>
+            
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="weeklyWage">Average Weekly Wage Before Injury</label>
+                    <input type="number" id="weeklyWage" value="1000" min="0" step="10">
+                </div>
+                <div class="input-group">
+                    <label for="state">State</label>
+                    <select id="state">
+                        <option value="general">General (2/3 rate)</option>
+                        <option value="ca">California</option>
+                        <option value="ny">New York</option>
+                        <option value="tx">Texas</option>
+                        <option value="fl">Florida</option>
+                        <option value="il">Illinois</option>
+                        <option value="pa">Pennsylvania</option>
+                        <option value="oh">Ohio</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3 style="color: #2c3e50; margin-top: 1.5rem;">Injury Details</h3>
+            
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="injuryType">Injury Type</label>
+                    <select id="injuryType">
+                        <option value="temporary">Temporary Total Disability</option>
+                        <option value="permanent">Permanent Partial Disability</option>
+                        <option value="permanent-total">Permanent Total Disability</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="impairmentRating">Permanent Impairment Rating (%)</label>
+                    <input type="number" id="impairmentRating" value="10" min="0" max="100" step="1">
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="weeksDisabled">Weeks Disabled/Estimated Duration</label>
+                    <input type="number" id="weeksDisabled" value="12" min="1" step="1">
+                </div>
+                <div class="input-group">
+                    <label for="medicalCosts">Total Medical Costs</label>
+                    <input type="number" id="medicalCosts" value="15000" min="0" step="100">
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="futureMedical">Future Medical Costs (Estimated)</label>
+                    <input type="number" id="futureMedical" value="5000" min="0" step="100">
+                </div>
+                <div class="input-group">
+                    <label for="lostWages">Additional Lost Wages</label>
+                    <input type="number" id="lostWages" value="0" min="0" step="100">
+                </div>
+            </div>
+
+            <button class="btn-calculate" onclick="calculateWorkersComp()">Calculate Workers' Comp Benefits</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="highlight-box">
+                <h2 id="totalSettlement">$0</h2>
+                <p>Estimated Total Settlement Range</p>
+            </div>
+
+            <div class="result-card">
+                <h3>Weekly Benefits</h3>
+                <div class="result-item">
+                    <span class="result-label">Weekly Benefit Amount</span>
+                    <span class="result-value" id="weeklyBenefit">$0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Compensation Rate</span>
+                    <span class="result-value" id="compRate">0%</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">State Maximum Weekly Benefit</span>
+                    <span class="result-value" id="stateMax">N/A</span>
+                </div>
+            </div>
+
+            <div class="result-card">
+                <h3>Total Compensation Breakdown</h3>
+                <div class="result-item">
+                    <span class="result-label">Total Wage Replacement</span>
+                    <span class="result-value" id="totalWages">$0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Permanent Disability Compensation</span>
+                    <span class="result-value" id="permDisability">$0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Medical Costs Covered</span>
+                    <span class="result-value" id="medicalTotal">$0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Future Medical Allocation</span>
+                    <span class="result-value" id="futureMedicalTotal">$0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Additional Lost Wages</span>
+                    <span class="result-value" id="lostWagesTotal">$0</span>
+                </div>
+            </div>
+
+            <!-- Ad Slot 2 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5587116071753085"
+                 data-ad-slot="7891234562"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+            <div class="info-section">
+                <h4>Important Notes</h4>
+                <ul>
+                    <li><strong>Tax-Free Benefits:</strong> Workers' compensation benefits are not subject to federal or state income tax</li>
+                    <li><strong>State Variations:</strong> Benefit rates, maximums, and formulas vary significantly by state</li>
+                    <li><strong>Settlement Timing:</strong> Settlements may occur at maximum medical improvement (MMI)</li>
+                    <li><strong>Attorney Involvement:</strong> Complex cases benefit from workers' comp attorney representation</li>
+                    <li><strong>Lump Sum vs. Structured:</strong> Settlements can be paid as lump sum or periodic payments</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ad Slot 3 -->
+    <div style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5587116071753085"
+             data-ad-slot="7891234563"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="content-section">
+        <h2>Understanding Workers' Compensation Benefits</h2>
+        <p>Workers' compensation is a state-mandated insurance program that provides benefits to employees who suffer work-related injuries or illnesses. The system provides wage replacement, medical care, rehabilitation services, and compensation for permanent disabilities without requiring the injured worker to prove employer fault.</p>
+
+        <h3>Types of Workers' Compensation Benefits</h3>
+        <p>Workers' compensation systems typically provide several categories of benefits:</p>
+        <ul>
+            <li><strong>Temporary Total Disability (TTD):</strong> Pays 2/3 of your average weekly wage while you're completely unable to work during recovery</li>
+            <li><strong>Temporary Partial Disability (TPD):</strong> Compensates for reduced earning capacity when you return to light duty or modified work</li>
+            <li><strong>Permanent Partial Disability (PPD):</strong> Compensation for permanent impairment that doesn't completely prevent work</li>
+            <li><strong>Permanent Total Disability (PTD):</strong> Ongoing benefits for injuries preventing any substantial gainful employment</li>
+            <li><strong>Medical Benefits:</strong> Full coverage of all reasonable and necessary medical treatment related to the work injury</li>
+            <li><strong>Vocational Rehabilitation:</strong> Retraining and job placement assistance when you cannot return to previous work</li>
+        </ul>
+
+        <h3>How Workers' Compensation is Calculated</h3>
+        <p>Benefit calculations follow state-specific formulas but generally include these components:</p>
+        <ul>
+            <li><strong>Average Weekly Wage (AWW):</strong> Calculated from earnings in the 13-52 weeks before injury, depending on state law</li>
+            <li><strong>Compensation Rate:</strong> Most states pay 2/3 (66.67%) of AWW for temporary total disability</li>
+            <li><strong>State Maximums:</strong> Weekly benefits capped at state-specific maximum amounts (varies $500-$1,500+)</li>
+            <li><strong>State Minimums:</strong> Minimum weekly benefit floors ensure basic income support</li>
+            <li><strong>Duration Limits:</strong> Some states cap total weeks of temporary disability benefits</li>
+        </ul>
+
+        <h3>Permanent Disability Ratings and Settlements</h3>
+        <p>Permanent disability compensation depends on medical impairment ratings:</p>
+        <ul>
+            <li><strong>Impairment Rating:</strong> Physician assigns percentage rating using state-approved medical guides (often AMA Guides to Permanent Impairment)</li>
+            <li><strong>Scheduled Injuries:</strong> Specific body parts (arm, leg, eye) have predetermined compensation schedules</li>
+            <li><strong>Unscheduled Injuries:</strong> Back, neck, internal injuries calculated using impairment percentage formulas</li>
+            <li><strong>Wage Loss vs. Impairment:</strong> Some states base PPD on actual wage loss, others on medical impairment only</li>
+        </ul>
+
+        <h3>Workers' Comp Settlement Factors</h3>
+        <p>Settlement amounts vary based on multiple factors:</p>
+        <ul>
+            <li><strong>Injury Severity:</strong> More severe injuries with higher impairment ratings yield larger settlements</li>
+            <li><strong>Age and Occupation:</strong> Younger workers and those in physically demanding jobs may receive higher settlements</li>
+            <li><strong>Future Medical Needs:</strong> Ongoing treatment requirements significantly increase settlement value</li>
+            <li><strong>State Laws:</strong> Benefit formulas, maximums, and duration limits vary dramatically by jurisdiction</li>
+            <li><strong>Return to Work Capacity:</strong> Inability to return to previous employment increases compensation</li>
+            <li><strong>Pre-existing Conditions:</strong> May reduce settlement if they contributed to current impairment</li>
+        </ul>
+
+        <h3>State-Specific Workers' Comp Variations</h3>
+        <p>Workers' compensation laws differ significantly across states:</p>
+        <ul>
+            <li><strong>California:</strong> Uses complex formulas with adjustment factors, highest maximum weekly benefits in nation</li>
+            <li><strong>New York:</strong> Scheduled injuries have specific week durations, 2/3 wage replacement rate</li>
+            <li><strong>Texas:</strong> Only state where workers' comp insurance is optional for most private employers</li>
+            <li><strong>Florida:</strong> 104-week cap on temporary benefits for most injuries, permanent impairment must exceed threshold</li>
+            <li><strong>Illinois:</strong> Generous PPD benefits, no weekly maximum for permanent total disability</li>
+        </ul>
+
+        <h3>When to Settle vs. Ongoing Benefits</h3>
+        <p>Deciding between settlement and continuing benefits requires careful consideration:</p>
+        <ul>
+            <li><strong>Lump Sum Settlement Advantages:</strong> Immediate funds, case closure, certainty of amount, no ongoing insurance company control</li>
+            <li><strong>Structured Benefits Advantages:</strong> Guaranteed medical coverage, protection if condition worsens, higher total value in many cases</li>
+            <li><strong>Medicare Set-Asides:</strong> Settlements may require Medicare Set-Aside accounts for future medical coverage</li>
+            <li><strong>Social Security Offset:</strong> Workers' comp can reduce Social Security Disability payments - settlement structure matters</li>
+            <li><strong>Attorney Guidance:</strong> Complex settlement decisions benefit from experienced workers' comp attorney advice</li>
+        </ul>
+
+        <h3>Workers' Comp Settlement Process</h3>
+        <p>Settlement negotiations typically follow this timeline:</p>
+        <ul>
+            <li><strong>Maximum Medical Improvement (MMI):</strong> Physician determines recovery has plateaued, permanent impairment can be rated</li>
+            <li><strong>Impairment Rating:</strong> Independent medical exam or treating physician assigns permanent disability percentage</li>
+            <li><strong>Settlement Demand:</strong> Claimant's attorney (if represented) submits settlement demand with supporting documentation</li>
+            <li><strong>Negotiation:</strong> Back-and-forth between parties to reach agreement on settlement amount and terms</li>
+            <li><strong>Settlement Agreement:</strong> Written document detailing lump sum amount, structured payments, medical set-asides</li>
+            <li><strong>Court/Board Approval:</strong> Many states require workers' comp judge or board approval of settlements</li>
+            <li><strong>Payment:</strong> Typically within 30 days of approval, may be phased for large settlements</li>
+        </ul>
+
+        <h3>Maximizing Your Workers' Comp Settlement</h3>
+        <p>Several strategies can help ensure fair compensation:</p>
+        <ul>
+            <li><strong>Report Immediately:</strong> Delayed reporting can jeopardize claim - notify employer within state deadline (often 30 days)</li>
+            <li><strong>Document Everything:</strong> Keep records of medical treatment, lost wages, out-of-pocket expenses, impact on daily life</li>
+            <li><strong>Follow Medical Advice:</strong> Non-compliance with treatment can reduce benefits and settlement value</li>
+            <li><strong>Get Independent Medical Exam:</strong> Employer's doctor may understate impairment - consider independent evaluation</li>
+            <li><strong>Understand Future Needs:</strong> Account for ongoing medical care, reduced earning capacity, vocational retraining costs</li>
+            <li><strong>Consider Attorney Representation:</strong> Workers' comp attorneys typically work on contingency (15-25% of recovery)</li>
+            <li><strong>Don't Rush Settlement:</strong> Settling before MMI or without full understanding can leave money on the table</li>
+        </ul>
+
+        <h3>Common Workers' Comp Mistakes to Avoid</h3>
+        <ul>
+            <li><strong>Missing Filing Deadlines:</strong> Statute of limitations varies by state - file claim promptly</li>
+            <li><strong>Accepting First Offer:</strong> Initial settlement offers are often low - negotiate or get attorney review</li>
+            <li><strong>Signing Without Understanding:</strong> Settlement releases are final - ensure you understand all terms and implications</li>
+            <li><strong>Ignoring Social Security Impact:</strong> Workers' comp can offset SSDI - coordinate benefits properly</li>
+            <li><strong>Inadequate Medicare Set-Aside:</strong> Underfunding MSA can leave you paying future medical bills out-of-pocket</li>
+            <li><strong>Settling Before MMI:</strong> Premature settlement may not account for full extent of permanent impairment</li>
+        </ul>
+    </div>
+
+    <!-- Ad Slot 4 -->
+    <div style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5587116071753085"
+             data-ad-slot="7891234564"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <footer style="background: #2c3e50; color: white; padding: 2rem 0; margin-top: 4rem;">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center; padding: 0 2rem;">
+            <p style="margin: 0 0 0.5rem 0;">&copy; 2026 CalcLeap. All rights reserved.</p>
+            <p style="margin: 0; opacity: 0.8; font-size: 0.9rem;">By CalcLeap Editorial Team</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateWorkersComp() {
+            const weeklyWage = parseFloat(document.getElementById('weeklyWage').value) || 0;
+            const state = document.getElementById('state').value;
+            const injuryType = document.getElementById('injuryType').value;
+            const impairmentRating = parseFloat(document.getElementById('impairmentRating').value) || 0;
+            const weeksDisabled = parseFloat(document.getElementById('weeksDisabled').value) || 0;
+            const medicalCosts = parseFloat(document.getElementById('medicalCosts').value) || 0;
+            const futureMedical = parseFloat(document.getElementById('futureMedical').value) || 0;
+            const lostWages = parseFloat(document.getElementById('lostWages').value) || 0;
+
+            // State-specific maximums (2026 estimates)
+            const stateMaxWeekly = {
+                'general': 9999999,
+                'ca': 1619,
+                'ny': 1063,
+                'tx': 1167,
+                'fl': 1070,
+                'il': 1774,
+                'pa': 1276,
+                'oh': 1029
+            };
+
+            const maxWeekly = stateMaxWeekly[state] || 9999999;
+            const compRate = 2/3; // 66.67%
+            
+            // Calculate weekly benefit (2/3 of AWW, capped at state max)
+            let weeklyBenefit = weeklyWage * compRate;
+            if (weeklyBenefit > maxWeekly) {
+                weeklyBenefit = maxWeekly;
+            }
+
+            // Total wage replacement
+            const totalWageReplacement = weeklyBenefit * weeksDisabled;
+
+            // Permanent disability calculation
+            let permDisabilityComp = 0;
+            if (injuryType === 'permanent' || injuryType === 'permanent-total') {
+                // Simplified formula: base on impairment rating × wage × multiplier
+                // Actual formulas vary greatly by state
+                const baseComp = weeklyWage * (impairmentRating / 100) * 500; // 500 weeks as general multiplier
+                permDisabilityComp = baseComp;
+                
+                if (injuryType === 'permanent-total') {
+                    // Permanent total could be lifetime benefits
+                    permDisabilityComp = weeklyBenefit * 520; // 10 years as example
+                }
+            }
+
+            // Total settlement range
+            const settlementLow = totalWageReplacement + permDisabilityComp + medicalCosts + futureMedical + lostWages;
+            const settlementHigh = settlementLow * 1.3; // Settlement range variation
+
+            // Display results
+            document.getElementById('totalSettlement').textContent = 
+                `$${settlementLow.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})} - $${settlementHigh.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}`;
+            
+            document.getElementById('weeklyBenefit').textContent = 
+                `$${weeklyBenefit.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            
+            document.getElementById('compRate').textContent = 
+                `${(compRate * 100).toFixed(2)}% of AWW`;
+            
+            document.getElementById('stateMax').textContent = 
+                maxWeekly === 9999999 ? 'No Cap' : `$${maxWeekly.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}/week`;
+            
+            document.getElementById('totalWages').textContent = 
+                `$${totalWageReplacement.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            
+            document.getElementById('permDisability').textContent = 
+                `$${permDisabilityComp.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            
+            document.getElementById('medicalTotal').textContent = 
+                `$${medicalCosts.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            
+            document.getElementById('futureMedicalTotal').textContent = 
+                `$${futureMedical.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            
+            document.getElementById('lostWagesTotal').textContent = 
+                `$${lostWages.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+            document.getElementById('results').classList.add('show');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Auto-calculate on page load
+        window.addEventListener('load', calculateWorkersComp);
+    </script>
+</body>
+</html>
