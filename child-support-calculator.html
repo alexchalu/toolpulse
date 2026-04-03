@@ -3,48 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Child Support Calculator - Free Support Payment Estimator | CalcLeap</title>
-    <meta name="description" content="Calculate estimated child support payments based on income, custody arrangements, and state guidelines. Free child support calculator with detailed breakdowns.">
+    <title>Child Support Calculator - Estimate Support Payments | CalcLeap</title>
+    <meta name="description" content="Calculate child support payments based on income, number of children, custody arrangements, and state guidelines. Free child support estimator for parents.">
     <link rel="canonical" href="https://calcleap.com/child-support-calculator.html">
-    <meta property="og:title" content="Child Support Calculator - Free Support Payment Estimator">
-    <meta property="og:description" content="Calculate estimated child support payments based on income, custody arrangements, and state guidelines.">
-    <meta property="og:url" content="https://calcleap.com/child-support-calculator.html">
+    <meta property="og:title" content="Child Support Calculator - Estimate Support Payments">
+    <meta property="og:description" content="Calculate child support payments based on income, custody, and state guidelines.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/child-support-calculator.html">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: #1a1a2e; background: #f8f9fa; }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 20px; text-align: center; margin-bottom: 40px; }
-        header h1 { font-size: 2.5em; margin-bottom: 10px; }
-        header p { font-size: 1.1em; opacity: 0.95; }
-        nav { background: white; padding: 15px 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 30px; }
-        nav a { color: #667eea; text-decoration: none; margin-right: 20px; font-weight: 500; }
-        nav a:hover { text-decoration: underline; }
-        .calc-card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 30px; }
-        .calc-card h2 { color: #667eea; margin-bottom: 20px; font-size: 1.8em; }
-        .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
-        .input-group input, .input-group select { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1em; transition: border-color 0.3s; }
-        .input-group input:focus, .input-group select:focus { outline: none; border-color: #667eea; }
-        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        button { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 14px 32px; border: none; border-radius: 8px; font-size: 1.1em; cursor: pointer; width: 100%; margin-top: 10px; transition: transform 0.2s; }
-        button:hover { transform: translateY(-2px); }
-        #results { display: none; margin-top: 30px; }
-        .result-box { background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); border-left: 4px solid #667eea; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-        .result-box h3 { color: #667eea; margin-bottom: 10px; }
-        .result-value { font-size: 2em; font-weight: bold; color: #1a1a2e; margin: 10px 0; }
-        .breakdown { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 15px; }
-        .breakdown-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #e0e0e0; }
-        .breakdown-item:last-child { border-bottom: none; }
-        .info-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; border-radius: 8px; margin: 20px 0; }
-        .info-box p { margin-bottom: 8px; }
-        .info-box p:last-child { margin-bottom: 0; }
-        footer { background: #1a1a2e; color: white; padding: 40px 20px; margin-top: 60px; text-align: center; }
-        footer a { color: #667eea; text-decoration: none; }
-        @media (max-width: 768px) {
-            header h1 { font-size: 1.8em; }
-            .input-row { grid-template-columns: 1fr; }
-            .result-value { font-size: 1.5em; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .calculator-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        .btn {
+            background: #3498db;
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .result {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 8px;
+            display: none;
+        }
+        .result h2 {
+            color: #2e7d32;
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        .result-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #1b5e20;
+            margin: 15px 0;
+        }
+        .result-detail {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #c8e6c9;
+        }
+        .result-detail h3 {
+            margin-top: 0;
+            color: #2e7d32;
+            font-size: 1.1em;
+        }
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .help-text {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        nav {
+            background: #2c3e50;
+            padding: 1rem 2rem;
+            margin: -20px -20px 20px -20px;
+            border-radius: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: #3498db;
+        }
+        .byline {
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .calculator-container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .result-value {
+                font-size: 2em;
+            }
         }
     </style>
     <!-- Google Analytics -->
@@ -59,254 +168,301 @@
 <body>
     <nav>
         <a href="index.html">Home</a>
-        <a href="percentage-calculator.html">Percentage Calculator</a>
-        <a href="mortgage-calculator.html">Mortgage Calculator</a>
-        <a href="password-generator.html">Password Generator</a>
+        <a href="index.html#calculators">Calculators</a>
+        <a href="about.html">About</a>
     </nav>
 
-    <header>
-        <h1>💰 Child Support Calculator</h1>
-        <p>Estimate monthly child support payments based on income and custody arrangements</p>
-    </header>
+    <div class="calculator-container">
+        <h1>Child Support Calculator</h1>
+        <p class="subtitle">Estimate child support payments based on income, custody, and state guidelines</p>
 
-    <div class="container">
-        <div class="calc-card">
-            <h2>Calculate Child Support Payment</h2>
+        <div class="info-box">
+            <strong>Note:</strong> This calculator provides estimates based on general formulas. Actual child support amounts are determined by state-specific guidelines and court orders. Consult a family law attorney for accurate calculations.
+        </div>
+
+        <div class="input-group">
+            <label for="model">Calculation Model</label>
+            <select id="model">
+                <option value="income-shares">Income Shares Model (Most Common)</option>
+                <option value="percentage">Percentage of Income Model</option>
+                <option value="melson">Melson Formula</option>
+            </select>
+            <div class="help-text">Income Shares: Based on combined parental income (used in ~40 states). Percentage: Based on non-custodial parent's income only.</div>
+        </div>
+
+        <div class="input-group">
+            <label for="payorIncome">Non-Custodial Parent Monthly Gross Income ($)</label>
+            <input type="number" id="payorIncome" placeholder="5000" min="0" step="100">
+        </div>
+
+        <div class="input-group" id="custodialIncomeGroup">
+            <label for="custodialIncome">Custodial Parent Monthly Gross Income ($)</label>
+            <input type="number" id="custodialIncome" placeholder="4000" min="0" step="100">
+            <div class="help-text">Required for Income Shares and Melson models</div>
+        </div>
+
+        <div class="input-group">
+            <label for="numChildren">Number of Children</label>
+            <select id="numChildren">
+                <option value="1">1 child</option>
+                <option value="2">2 children</option>
+                <option value="3">3 children</option>
+                <option value="4">4 children</option>
+                <option value="5">5 or more children</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="overnights">Overnights Per Year with Non-Custodial Parent</label>
+            <input type="number" id="overnights" placeholder="52" min="0" max="365" value="52">
+            <div class="help-text">Standard visitation (~once per week) = 52 nights. 50/50 custody = 182.5 nights</div>
+        </div>
+
+        <div class="input-group">
+            <label for="healthInsurance">Monthly Health Insurance Cost for Children ($)</label>
+            <input type="number" id="healthInsurance" placeholder="200" min="0" step="10" value="0">
+        </div>
+
+        <div class="input-group">
+            <label for="childcare">Monthly Childcare/Work-Related Expenses ($)</label>
+            <input type="number" id="childcare" placeholder="800" min="0" step="50" value="0">
+        </div>
+
+        <button class="btn" onclick="calculateSupport()">Calculate Child Support</button>
+
+        <div class="result" id="result">
+            <h2>Estimated Monthly Child Support</h2>
+            <div class="result-value" id="supportAmount">$0</div>
             
-            <div class="info-box">
-                <p><strong>Note:</strong> This calculator provides estimates based on simplified state guidelines. Actual child support orders vary by state and individual circumstances. Always consult with a family law attorney or your state's child support agency for accurate calculations.</p>
+            <div class="result-detail">
+                <h3>Payment Breakdown</h3>
+                <div id="breakdown"></div>
             </div>
 
-            <div class="input-group">
-                <label for="payor-income">Paying Parent's Gross Monthly Income ($)</label>
-                <input type="number" id="payor-income" placeholder="5000" min="0" step="100">
+            <div class="result-detail">
+                <h3>Annual Payment</h3>
+                <div id="annualPayment"></div>
             </div>
 
-            <div class="input-group">
-                <label for="recipient-income">Receiving Parent's Gross Monthly Income ($)</label>
-                <input type="number" id="recipient-income" placeholder="3500" min="0" step="100">
-            </div>
-
-            <div class="input-row">
-                <div class="input-group">
-                    <label for="num-children">Number of Children</label>
-                    <select id="num-children">
-                        <option value="1">1 Child</option>
-                        <option value="2">2 Children</option>
-                        <option value="3">3 Children</option>
-                        <option value="4">4 Children</option>
-                        <option value="5">5+ Children</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="custody-type">Custody Arrangement</label>
-                    <select id="custody-type">
-                        <option value="primary">Primary Custody (100% time)</option>
-                        <option value="shared">Shared Custody (50/50 time)</option>
-                        <option value="visitation">Visitation (25% time)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="input-row">
-                <div class="input-group">
-                    <label for="healthcare">Monthly Healthcare Cost ($)</label>
-                    <input type="number" id="healthcare" placeholder="200" min="0" step="10" value="200">
-                </div>
-
-                <div class="input-group">
-                    <label for="childcare">Monthly Childcare Cost ($)</label>
-                    <input type="number" id="childcare" placeholder="500" min="0" step="50" value="0">
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="state-model">State Calculation Model</label>
-                <select id="state-model">
-                    <option value="income-shares">Income Shares Model (most states)</option>
-                    <option value="percentage">Percentage of Income Model</option>
-                    <option value="melson">Melson Formula (DE, HI, MT)</option>
-                </select>
-            </div>
-
-            <button onclick="calculateChildSupport()">Calculate Child Support</button>
-
-            <div id="results">
-                <div class="result-box">
-                    <h3>Monthly Child Support Payment</h3>
-                    <div class="result-value" id="monthly-payment">$0</div>
-                    <div id="annual-payment" style="font-size: 1.2em; color: #666; margin-top: 10px;"></div>
-                </div>
-
-                <div class="breakdown">
-                    <h3 style="margin-bottom: 15px;">Payment Breakdown</h3>
-                    <div class="breakdown-item">
-                        <span>Combined Gross Income</span>
-                        <strong id="combined-income">$0</strong>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>Payor Income Share</span>
-                        <strong id="payor-share">0%</strong>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>Base Support Obligation</span>
-                        <strong id="base-obligation">$0</strong>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>Healthcare Add-On</span>
-                        <strong id="healthcare-addon">$0</strong>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>Childcare Add-On</span>
-                        <strong id="childcare-addon">$0</strong>
-                    </div>
-                    <div class="breakdown-item" style="border-top: 2px solid #667eea; padding-top: 12px; margin-top: 8px;">
-                        <span><strong>Total Monthly Payment</strong></span>
-                        <strong id="total-payment" style="color: #667eea; font-size: 1.2em;">$0</strong>
-                    </div>
-                </div>
-
-                <div class="info-box" style="margin-top: 20px;">
-                    <p><strong>Understanding Your Results:</strong></p>
-                    <p>• <strong>Income Shares Model:</strong> Assumes both parents contribute proportionally to combined income</p>
-                    <p>• <strong>Healthcare/Childcare:</strong> Add-ons are typically shared based on income proportion</p>
-                    <p>• <strong>Custody Adjustment:</strong> Shared custody may reduce payment by 10-30% depending on state</p>
-                    <p>• <strong>State Variations:</strong> Each state has specific guidelines, caps, and adjustments</p>
-                    <p>• <strong>Modifications:</strong> Support can be modified if circumstances change significantly</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="calc-card">
-            <h2>About Child Support Calculations</h2>
-            <p style="margin-bottom: 15px;">Child support is a court-ordered payment from one parent to another to help cover the costs of raising a child. The amount is determined by state guidelines that consider:</p>
-            <ul style="margin-left: 20px; margin-bottom: 15px;">
-                <li><strong>Parental Income:</strong> Both parents' gross income from all sources</li>
-                <li><strong>Number of Children:</strong> More children typically increase the total amount</li>
-                <li><strong>Custody Time:</strong> How much time each parent spends with the child(ren)</li>
-                <li><strong>Additional Expenses:</strong> Healthcare, childcare, education costs</li>
-                <li><strong>State Guidelines:</strong> Each state uses different formulas and caps</li>
-            </ul>
-            <p style="margin-bottom: 15px;"><strong>Common Calculation Models:</strong></p>
-            <ul style="margin-left: 20px;">
-                <li><strong>Income Shares (Most States):</strong> Both parents contribute proportionally to what they would spend if living together</li>
-                <li><strong>Percentage of Income:</strong> Fixed percentage of non-custodial parent's income (e.g., 17% for 1 child, 25% for 2)</li>
-                <li><strong>Melson Formula:</strong> Ensures basic needs of parents before calculating support (DE, HI, MT)</li>
-            </ul>
-        </div>
-
-        <div class="calc-card">
-            <h2>Frequently Asked Questions</h2>
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #667eea; margin-bottom: 8px;">How is child support calculated?</h3>
-                <p>Child support is calculated using state-specific guidelines based on parents' combined income, number of children, and custody arrangements. Most states use an "income shares" model that assumes both parents contribute proportionally.</p>
-            </div>
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #667eea; margin-bottom: 8px;">What income is counted?</h3>
-                <p>All sources of income are typically counted: wages, salaries, bonuses, commissions, self-employment income, rental income, investment income, unemployment benefits, and disability payments.</p>
-            </div>
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #667eea; margin-bottom: 8px;">Can child support be modified?</h3>
-                <p>Yes, child support can be modified if there's a significant change in circumstances, such as job loss, income increase, changes in custody, or changes in the child's needs. You must file a motion with the court.</p>
-            </div>
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #667eea; margin-bottom: 8px;">How long does child support last?</h3>
-                <p>Child support typically ends when the child turns 18 or graduates high school (whichever is later). In some states, it extends to age 21 or if the child has special needs.</p>
-            </div>
-            <div>
-                <h3 style="color: #667eea; margin-bottom: 8px;">What if I can't afford the payment?</h3>
-                <p>Contact your state's child support agency immediately. Never stop paying without a court order. You may be able to request a modification based on changed circumstances.</p>
+            <div class="result-detail">
+                <h3>Assumptions & Notes</h3>
+                <div id="assumptions"></div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 CalcLeap. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
-        <p style="margin-top: 10px; opacity: 0.8;">Created by the CalcLeap Editorial Team</p>
-    </footer>
+    <div class="calculator-container">
+        <h2>Understanding Child Support</h2>
+        <h3>Three Main Calculation Models</h3>
+        <p><strong>Income Shares Model (Most Common):</strong> Used in ~40 states. Calculates support based on both parents' combined income, assuming children should receive the same proportion of parental income they would have if parents lived together.</p>
+        
+        <p><strong>Percentage of Income Model:</strong> Used in ~10 states. Calculates support as a fixed percentage of the non-custodial parent's income only (typically 17-25% for one child, increasing with more children).</p>
+        
+        <p><strong>Melson Formula:</strong> Used in Delaware, Hawaii, and Montana. Ensures each parent's basic needs are met before calculating support, then allocates remaining income to children.</p>
+
+        <h3>Factors That Affect Payments</h3>
+        <ul>
+            <li><strong>Parenting Time:</strong> More overnights with non-custodial parent typically reduces support</li>
+            <li><strong>Health Insurance:</strong> Parent paying children's health insurance may get credit/reduction</li>
+            <li><strong>Childcare Costs:</strong> Work-related childcare is typically shared proportionally</li>
+            <li><strong>Special Needs:</strong> Medical, educational, or therapeutic needs may increase support</li>
+            <li><strong>Other Children:</strong> Support obligations to children from other relationships may reduce payment</li>
+        </ul>
+
+        <h3>State-Specific Guidelines</h3>
+        <p>Every state has its own child support guidelines and calculation methods. Key variations include:</p>
+        <ul>
+            <li>Income caps or thresholds</li>
+            <li>How overnight parenting time affects calculations</li>
+            <li>Treatment of bonuses, overtime, and self-employment income</li>
+            <li>Deviation factors (reasons to adjust from guideline amount)</li>
+        </ul>
+
+        <h3>Modification of Support</h3>
+        <p>Child support can be modified when there's a significant change in circumstances:</p>
+        <ul>
+            <li>Substantial change in either parent's income (typically 15-20% or more)</li>
+            <li>Change in custody or parenting time arrangements</li>
+            <li>Child's needs change (medical, educational)</li>
+            <li>Birth of additional children</li>
+        </ul>
+
+        <h3>Payment & Enforcement</h3>
+        <p><strong>How Payments Are Made:</strong> Usually through state child support enforcement agency, often via wage garnishment. Direct payments between parents are discouraged as they're harder to document.</p>
+        
+        <p><strong>Consequences of Non-Payment:</strong></p>
+        <ul>
+            <li>Wage garnishment and bank levies</li>
+            <li>Tax refund interception</li>
+            <li>License suspension (driver's, professional, recreational)</li>
+            <li>Credit reporting</li>
+            <li>Contempt of court (potential jail time)</li>
+        </ul>
+
+        <h3>Important Considerations</h3>
+        <ul>
+            <li><strong>Arrears:</strong> Past-due support continues to accrue interest and doesn't automatically expire</li>
+            <li><strong>Emancipation:</strong> Support typically ends at age 18-21, depending on state</li>
+            <li><strong>College Expenses:</strong> Some states require contribution to college costs beyond basic support</li>
+            <li><strong>Voluntary Agreements:</strong> Parents can agree to amounts different from guidelines, but court approval is required</li>
+        </ul>
+    </div>
+
+    <div class="byline">
+        <p>Created by the CalcLeap Editorial Team | Last updated April 2026</p>
+    </div>
 
     <script>
-        function calculateChildSupport() {
-            const payorIncome = parseFloat(document.getElementById('payor-income').value) || 0;
-            const recipientIncome = parseFloat(document.getElementById('recipient-income').value) || 0;
-            const numChildren = parseInt(document.getElementById('num-children').value);
-            const custodyType = document.getElementById('custody-type').value;
-            const healthcare = parseFloat(document.getElementById('healthcare').value) || 0;
-            const childcare = parseFloat(document.getElementById('childcare').value) || 0;
-            const stateModel = document.getElementById('state-model').value;
+        const model = document.getElementById('model');
+        const custodialIncomeGroup = document.getElementById('custodialIncomeGroup');
 
-            if (payorIncome === 0 && recipientIncome === 0) {
-                alert('Please enter at least one parent\'s income');
+        model.addEventListener('change', function() {
+            if (this.value === 'percentage') {
+                custodialIncomeGroup.style.display = 'none';
+            } else {
+                custodialIncomeGroup.style.display = 'block';
+            }
+        });
+
+        function calculateSupport() {
+            const modelType = document.getElementById('model').value;
+            const payorIncome = parseFloat(document.getElementById('payorIncome').value) || 0;
+            const custodialIncome = parseFloat(document.getElementById('custodialIncome').value) || 0;
+            const numChildren = parseInt(document.getElementById('numChildren').value);
+            const overnights = parseInt(document.getElementById('overnights').value) || 0;
+            const healthInsurance = parseFloat(document.getElementById('healthInsurance').value) || 0;
+            const childcare = parseFloat(document.getElementById('childcare').value) || 0;
+
+            if (payorIncome === 0) {
+                alert('Please enter the non-custodial parent\'s income');
                 return;
             }
 
-            const combinedIncome = payorIncome + recipientIncome;
-            const payorIncomeShare = combinedIncome > 0 ? (payorIncome / combinedIncome) * 100 : 0;
+            let basicSupport = 0;
+            let breakdown = '';
+            let assumptions = '';
 
-            // Base support percentages (Income Shares Model approximation)
-            let basePercentages = {
-                1: 0.17,  // 17% for 1 child
-                2: 0.25,  // 25% for 2 children
-                3: 0.29,  // 29% for 3 children
-                4: 0.31,  // 31% for 4 children
-                5: 0.35   // 35% for 5+ children
-            };
+            if (modelType === 'percentage') {
+                // Percentage of Income Model (simplified Wisconsin model)
+                const percentages = {1: 0.17, 2: 0.25, 3: 0.29, 4: 0.31, 5: 0.34};
+                const basePercent = percentages[numChildren];
+                basicSupport = payorIncome * basePercent;
 
-            let baseObligation = 0;
+                breakdown = `<strong>Base Obligation:</strong> ${(basePercent * 100).toFixed(0)}% of $${payorIncome.toLocaleString()} = $${basicSupport.toFixed(2)}<br>`;
+                assumptions = 'Based on Percentage of Income model. Percentages vary by state.';
 
-            if (stateModel === 'income-shares') {
-                // Income shares: calculate based on combined income
-                baseObligation = combinedIncome * basePercentages[numChildren];
-                // Payor pays their proportional share
-                baseObligation = baseObligation * (payorIncome / combinedIncome);
-            } else if (stateModel === 'percentage') {
-                // Percentage of income: payor pays fixed percentage of their income
-                baseObligation = payorIncome * basePercentages[numChildren];
-            } else if (stateModel === 'melson') {
-                // Melson: ensure basic self-support reserve (~$1200/month), then calculate
+            } else if (modelType === 'income-shares') {
+                // Income Shares Model (simplified)
+                if (custodialIncome === 0) {
+                    alert('Please enter the custodial parent\'s income for Income Shares model');
+                    return;
+                }
+
+                const combinedIncome = payorIncome + custodialIncome;
+                
+                // Simplified basic child support obligation based on combined income
+                // These are approximations based on typical state schedules
+                const basicObligation = calculateBasicObligation(combinedIncome, numChildren);
+                
+                // Payor's share based on income proportion
+                const payorShare = payorIncome / combinedIncome;
+                basicSupport = basicObligation * payorShare;
+
+                breakdown = `<strong>Combined Income:</strong> $${combinedIncome.toLocaleString()}<br>`;
+                breakdown += `<strong>Basic Support Obligation:</strong> $${basicObligation.toFixed(2)}<br>`;
+                breakdown += `<strong>Non-Custodial Share:</strong> ${(payorShare * 100).toFixed(1)}% = $${basicSupport.toFixed(2)}<br>`;
+                
+                assumptions = 'Based on Income Shares model. Uses simplified schedule approximation.';
+
+            } else if (modelType === 'melson') {
+                // Melson Formula (simplified)
+                if (custodialIncome === 0) {
+                    alert('Please enter the custodial parent\'s income for Melson model');
+                    return;
+                }
+
+                // Self-support reserve (approximation: $1,200/month per parent)
                 const selfSupportReserve = 1200;
-                const adjustedPayorIncome = Math.max(0, payorIncome - selfSupportReserve);
-                baseObligation = adjustedPayorIncome * basePercentages[numChildren];
+                const payorResidual = Math.max(0, payorIncome - selfSupportReserve);
+                const custodialResidual = Math.max(0, custodialIncome - selfSupportReserve);
+                
+                // Primary support (approximation)
+                const primarySupport = 250 * numChildren; // $250 per child base
+                
+                // Standard of living allowance from residual income
+                const totalResidual = payorResidual + custodialResidual;
+                const solAllowance = totalResidual * (0.10 * numChildren);
+                
+                const totalObligation = primarySupport + solAllowance;
+                const payorShare = (payorResidual + selfSupportReserve) / (payorIncome + custodialIncome);
+                basicSupport = totalObligation * payorShare;
+
+                breakdown = `<strong>Self-Support Reserve:</strong> $${selfSupportReserve.toLocaleString()} per parent<br>`;
+                breakdown += `<strong>Primary Support:</strong> $${primarySupport.toFixed(2)}<br>`;
+                breakdown += `<strong>Standard of Living Allowance:</strong> $${solAllowance.toFixed(2)}<br>`;
+                breakdown += `<strong>Non-Custodial Share:</strong> ${(payorShare * 100).toFixed(1)}% = $${basicSupport.toFixed(2)}<br>`;
+                
+                assumptions = 'Based on simplified Melson Formula. Actual calculations are more complex.';
             }
 
-            // Add healthcare and childcare (proportional share)
-            const healthcareAddon = healthcare * (payorIncome / combinedIncome);
-            const childcareAddon = childcare * (payorIncome / combinedIncome);
-
-            // Custody adjustments
-            let custodyMultiplier = 1.0;
-            if (custodyType === 'shared') {
-                custodyMultiplier = 0.75; // 25% reduction for 50/50 custody
-            } else if (custodyType === 'visitation') {
-                custodyMultiplier = 0.9; // 10% reduction for visitation
+            // Adjust for parenting time
+            let timeAdjustment = 0;
+            const parentingTimePercent = (overnights / 365) * 100;
+            
+            if (parentingTimePercent >= 35) {
+                // Substantial parenting time - reduce support
+                const reductionFactor = Math.min(0.35, parentingTimePercent / 100 - 0.15);
+                timeAdjustment = -basicSupport * reductionFactor;
+                breakdown += `<strong>Parenting Time Adjustment:</strong> ${overnights} nights/year (${parentingTimePercent.toFixed(1)}%) = -$${Math.abs(timeAdjustment).toFixed(2)}<br>`;
             }
 
-            baseObligation = baseObligation * custodyMultiplier;
+            // Add-ons
+            let totalAddOns = 0;
+            if (healthInsurance > 0) {
+                const healthShare = modelType === 'percentage' ? healthInsurance : 
+                                   healthInsurance * (payorIncome / (payorIncome + custodialIncome));
+                totalAddOns += healthShare;
+                breakdown += `<strong>Health Insurance Share:</strong> $${healthShare.toFixed(2)}<br>`;
+            }
 
-            const monthlyPayment = baseObligation + healthcareAddon + childcareAddon;
-            const annualPayment = monthlyPayment * 12;
+            if (childcare > 0) {
+                const childcareShare = modelType === 'percentage' ? childcare : 
+                                      childcare * (payorIncome / (payorIncome + custodialIncome));
+                totalAddOns += childcareShare;
+                breakdown += `<strong>Childcare Share:</strong> $${childcareShare.toFixed(2)}<br>`;
+            }
 
-            // Update UI
-            document.getElementById('monthly-payment').textContent = '$' + monthlyPayment.toFixed(2);
-            document.getElementById('annual-payment').textContent = '$' + annualPayment.toFixed(2) + ' per year';
-            document.getElementById('combined-income').textContent = '$' + combinedIncome.toFixed(2);
-            document.getElementById('payor-share').textContent = payorIncomeShare.toFixed(1) + '%';
-            document.getElementById('base-obligation').textContent = '$' + baseObligation.toFixed(2);
-            document.getElementById('healthcare-addon').textContent = '$' + healthcareAddon.toFixed(2);
-            document.getElementById('childcare-addon').textContent = '$' + childcareAddon.toFixed(2);
-            document.getElementById('total-payment').textContent = '$' + monthlyPayment.toFixed(2);
+            const totalSupport = Math.max(0, basicSupport + timeAdjustment + totalAddOns);
+            const annualSupport = totalSupport * 12;
 
-            document.getElementById('results').style.display = 'block';
-            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            document.getElementById('supportAmount').textContent = '$' + totalSupport.toFixed(2);
+            document.getElementById('breakdown').innerHTML = breakdown;
+            document.getElementById('annualPayment').innerHTML = `<strong>$${annualSupport.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong> per year`;
+            
+            assumptions += `<br><br><strong>Important:</strong> This is an estimate only. Actual child support is determined by state-specific guidelines and court orders. Many factors not included here can affect the final amount. Consult a family law attorney for accurate calculations.`;
+            document.getElementById('assumptions').innerHTML = assumptions;
+
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
-        // Allow Enter key to trigger calculation
-        document.querySelectorAll('input').forEach(input => {
-            input.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') calculateChildSupport();
-            });
-        });
+        function calculateBasicObligation(combinedIncome, numChildren) {
+            // Simplified basic support schedule (approximation based on typical state schedules)
+            // Returns monthly basic obligation for children based on combined parental income
+            
+            let basePercent;
+            if (combinedIncome < 2000) {
+                basePercent = [0, 0.15, 0.22, 0.27, 0.30, 0.33][numChildren];
+            } else if (combinedIncome < 5000) {
+                basePercent = [0, 0.17, 0.25, 0.29, 0.31, 0.34][numChildren];
+            } else if (combinedIncome < 10000) {
+                basePercent = [0, 0.16, 0.24, 0.28, 0.30, 0.32][numChildren];
+            } else {
+                basePercent = [0, 0.15, 0.22, 0.26, 0.28, 0.30][numChildren];
+            }
+            
+            return combinedIncome * basePercent;
+        }
     </script>
 </body>
 </html>
