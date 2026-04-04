@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hernia Mesh Lawsuit Settlement Calculator | CalcLeap</title>
+    <meta name="description" content="Free hernia mesh lawsuit settlement calculator. Estimate potential compensation for hernia mesh complications including pain, revision surgeries, and medical costs. Not legal advice.">
+    <link rel="stylesheet" href="gold.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5W5SEPQWV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5W5SEPQWV');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Hernia Mesh Lawsuit Settlement Calculator",
+      "description": "Calculate potential hernia mesh lawsuit settlement based on complications, revision surgeries, and medical costs",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">CalcLeap</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>⚖️ Hernia Mesh Lawsuit Settlement Calculator</h1>
+        
+        <div class="disclaimer" style="background:#fff3cd;border-left:4px solid #ffc107;padding:15px;margin:20px 0;">
+            <strong>⚠️ IMPORTANT LEGAL DISCLAIMER:</strong> This calculator provides <strong>estimates only</strong> and is NOT legal advice. Actual settlement amounts vary widely based on specific facts, jurisdiction, attorney skill, and many other factors. Consult with a qualified product liability attorney for advice on your specific case. Past results do not guarantee future outcomes.
+        </div>
+
+        <div id="toolContent">
+            <div class="form-group">
+                <label for="meshType">Type of Hernia Mesh:</label>
+                <select id="meshType">
+                    <option value="">Select mesh brand/type...</option>
+                    <option value="ethicon">Ethicon Physiomesh</option>
+                    <option value="atrium">Atrium C-QUR</option>
+                    <option value="bard">Bard Composix Kugel</option>
+                    <option value="bard-ventralex">Bard Ventralex</option>
+                    <option value="bard-3dmax">Bard 3DMax</option>
+                    <option value="covidien">Covidien Parietex</option>
+                    <option value="other">Other/Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="herniaType">Original Hernia Type:</label>
+                <select id="herniaType">
+                    <option value="">Select hernia type...</option>
+                    <option value="inguinal">Inguinal Hernia</option>
+                    <option value="ventral">Ventral Hernia</option>
+                    <option value="umbilical">Umbilical Hernia</option>
+                    <option value="incisional">Incisional Hernia</option>
+                    <option value="hiatal">Hiatal Hernia</option>
+                    <option value="femoral">Femoral Hernia</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Complications Experienced: (check all that apply)</label>
+                <div style="margin:10px 0;">
+                    <label style="display:block;margin:8px 0;">
+                        <input type="checkbox" id="compMigration" style="margin-right:8px;">
+                        Mesh Migration
+                    </label>
+                    <label style="display:block;margin:8px 0;">
+                        <input type="checkbox" id="compShrinkage" style="margin-right:8px;">
+                        Mesh Shrinkage
+                    </label>
+                    <label style="display:block;margin:8px 0;">
+                        <input type="checkbox" id="compAdhesion" style="margin-right:8px;">
+                        Adhesion/Bowel Obstruction
+                    </label>
+                    <label style="display:block;margin:8px 0;">
+                        <input type="checkbox" id="compInfection" style="margin-right:8px;">
+                        Chronic Infection
+                    </label>
+                    <label style="display:block;margin:8px 0;">
+                        <input type="checkbox" id="compPain" style="margin-right:8px;">
+                        Chronic Pain
+                    </label>
+                    <label style="display:block;margin:8px 0;">
+                        <input type="checkbox" id="compPerforation" style="margin-right:8px;">
+                        Organ/Tissue Perforation
+                    </label>
+                    <label style="display:block;margin:8px 0;">
+                        <input type="checkbox" id="compRecurrence" style="margin-right:8px;">
+                        Hernia Recurrence
+                    </label>
+                    <label style="display:block;margin:8px 0;">
+                        <input type="checkbox" id="compFistula" style="margin-right:8px;">
+                        Fistula Formation
+                    </label>
+                    <label style="display:block;margin:8px 0;">
+                        <input type="checkbox" id="compNerve" style="margin-right:8px;">
+                        Nerve Damage
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="revisionSurgeries">Number of Revision/Removal Surgeries:</label>
+                <input type="number" id="revisionSurgeries" min="0" max="10" value="0">
+            </div>
+
+            <div class="form-group">
+                <label for="yearsWithMesh">Years Since Original Mesh Implant:</label>
+                <input type="number" id="yearsWithMesh" min="0" max="30" step="0.5" value="3">
+            </div>
+
+            <div class="form-group">
+                <label for="ageAtImplant">Age at Mesh Implant:</label>
+                <input type="number" id="ageAtImplant" min="18" max="100" value="50">
+            </div>
+
+            <div class="form-group">
+                <label for="medicalCosts">Total Medical Costs (complications + revisions):</label>
+                <input type="number" id="medicalCosts" min="0" max="2000000" step="1000" value="0" placeholder="$">
+            </div>
+
+            <div class="form-group">
+                <label for="lostWages">Lost Wages/Income:</label>
+                <input type="number" id="lostWages" min="0" max="1000000" step="1000" value="0" placeholder="$">
+            </div>
+
+            <div class="form-group">
+                <label for="permanentDisability">Permanent Disability/Impairment:</label>
+                <select id="permanentDisability">
+                    <option value="none">None</option>
+                    <option value="partial">Partial (can work with limitations)</option>
+                    <option value="severe">Severe (cannot work)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="evidence">Medical Documentation Strength:</label>
+                <select id="evidence">
+                    <option value="strong">Strong (detailed records, imaging, pathology)</option>
+                    <option value="moderate">Moderate (some records, doctor testimony)</option>
+                    <option value="weak">Weak (limited documentation)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="display:block;margin:12px 0;">
+                    <input type="checkbox" id="hasExpert" style="margin-right:8px;">
+                    Expert Medical Witness Available
+                </label>
+            </div>
+
+            <button onclick="calculateSettlement()" class="btn">Calculate Settlement Estimate</button>
+
+            <div id="result" style="display:none;margin-top:30px;"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>About Hernia Mesh Lawsuits</h2>
+            <p><strong>Hernia mesh lawsuits</strong> involve claims against manufacturers of defective surgical mesh products used in hernia repair surgeries. When these mesh products fail, migrate, shrink, or cause serious complications, victims may be entitled to significant compensation.</p>
+
+            <h3>Common Hernia Mesh Complications</h3>
+            <ul>
+                <li><strong>Mesh Migration:</strong> The mesh moves from its original position, potentially damaging organs and tissue</li>
+                <li><strong>Mesh Shrinkage:</strong> The mesh contracts, causing pain and hernia recurrence</li>
+                <li><strong>Adhesion/Bowel Obstruction:</strong> Mesh causes scar tissue that blocks intestines</li>
+                <li><strong>Chronic Infection:</strong> Persistent infections requiring antibiotics or mesh removal</li>
+                <li><strong>Organ Perforation:</strong> Mesh erodes through tissue, puncturing organs</li>
+                <li><strong>Chronic Pain:</strong> Persistent, severe pain at the mesh site</li>
+                <li><strong>Hernia Recurrence:</strong> The original hernia returns despite mesh implant</li>
+                <li><strong>Fistula Formation:</strong> Abnormal connections between organs or skin</li>
+                <li><strong>Nerve Damage:</strong> Mesh causes lasting nerve injury</li>
+            </ul>
+
+            <h3>Major Hernia Mesh Manufacturers and Products</h3>
+            <ul>
+                <li><strong>Ethicon (Johnson & Johnson):</strong> Physiomesh (recalled 2016), Proceed, Prolene</li>
+                <li><strong>Bard/Davol:</strong> Composix Kugel, Ventralex, 3DMax, PerFix Plug</li>
+                <li><strong>Atrium Medical:</strong> C-QUR mesh</li>
+                <li><strong>Covidien (Medtronic):</strong> Parietex, Symbotex</li>
+            </ul>
+
+            <h3>Notable Hernia Mesh Verdicts & Settlements</h3>
+            <ul>
+                <li><strong>$255 million</strong> — Jury verdict against Atrium for C-QUR mesh (later reduced to $127M)</li>
+                <li><strong>$4.7 million</strong> — Pennsylvania jury verdict against Bard</li>
+                <li><strong>$1.5 million</strong> — Average settlement in Bard Composix Kugel cases</li>
+                <li><strong>Thousands of pending cases</strong> in federal MDL (multidistrict litigation)</li>
+            </ul>
+
+            <h3>Factors Affecting Hernia Mesh Settlement Amounts</h3>
+            <ol>
+                <li><strong>Type and Brand of Mesh:</strong> Some products (Physiomesh, C-QUR) have stronger liability evidence</li>
+                <li><strong>Severity of Complications:</strong> More serious injuries = higher settlements</li>
+                <li><strong>Number of Revision Surgeries:</strong> Multiple failed surgeries significantly increase value</li>
+                <li><strong>Permanent Disability:</strong> Long-term or permanent impairment greatly increases compensation</li>
+                <li><strong>Medical Costs:</strong> Higher documented medical expenses increase settlement</li>
+                <li><strong>Lost Income:</strong> Inability to work due to complications adds to economic damages</li>
+                <li><strong>Quality of Life Impact:</strong> Chronic pain, inability to perform daily activities</li>
+                <li><strong>Medical Documentation:</strong> Strong evidence linking mesh to complications</li>
+                <li><strong>Expert Testimony:</strong> Medical experts supporting causation claims</li>
+                <li><strong>Age at Implant:</strong> Younger patients with longer suffering period may receive more</li>
+                <li><strong>Jurisdiction:</strong> Some courts/juries more favorable to plaintiffs</li>
+            </ol>
+
+            <h3>Average Settlement Ranges (Industry Data)</h3>
+            <ul>
+                <li><strong>Minor complications, no revision surgery:</strong> $50,000 - $150,000</li>
+                <li><strong>One revision surgery, moderate complications:</strong> $150,000 - $400,000</li>
+                <li><strong>Multiple revisions, severe complications:</strong> $400,000 - $1,000,000</li>
+                <li><strong>Permanent disability, multiple failed surgeries:</strong> $1,000,000 - $5,000,000+</li>
+            </ul>
+
+            <h3>Timeline Considerations</h3>
+            <ul>
+                <li><strong>Investigation & Filing:</strong> 1-3 months to investigate claim and file lawsuit</li>
+                <li><strong>Discovery:</strong> 6-18 months gathering evidence, depositions, expert reports</li>
+                <li><strong>Settlement Negotiations:</strong> 3-12 months of negotiation with manufacturer</li>
+                <li><strong>Trial (if no settlement):</strong> 1-3 weeks of trial, several months for verdict appeals</li>
+                <li><strong>Average Total Time:</strong> 1-3 years from filing to resolution</li>
+            </ul>
+
+            <h3>Attorney Fees and Costs</h3>
+            <p>Most hernia mesh attorneys work on <strong>contingency fee</strong> basis:</p>
+            <ul>
+                <li><strong>Attorney Fees:</strong> Typically 33-40% of settlement/verdict</li>
+                <li><strong>Case Costs:</strong> $10,000-$50,000+ (expert witnesses, medical records, filing fees) — usually deducted from settlement</li>
+                <li><strong>No Recovery = No Fee:</strong> If case loses, you typically pay nothing</li>
+            </ul>
+
+            <h3>Statute of Limitations</h3>
+            <p>Time limits to file hernia mesh lawsuits vary by state:</p>
+            <ul>
+                <li><strong>Most states:</strong> 2-3 years from discovery of injury</li>
+                <li><strong>"Discovery rule":</strong> Clock starts when you knew or should have known the mesh caused your injury</li>
+                <li><strong>WARNING:</strong> Missing the deadline means losing your right to compensation forever</li>
+            </ul>
+
+            <h3>Steps to File a Hernia Mesh Lawsuit</h3>
+            <ol>
+                <li><strong>Document Your Case:</strong> Gather medical records, surgical reports, imaging, bills</li>
+                <li><strong>Consult an Attorney:</strong> Find a product liability lawyer with hernia mesh experience</li>
+                <li><strong>Free Case Evaluation:</strong> Most attorneys offer free initial consultation</li>
+                <li><strong>Medical Review:</strong> Attorney will have medical experts review your records</li>
+                <li><strong>File Lawsuit:</strong> If claim is viable, attorney files complaint in appropriate court</li>
+                <li><strong>Join MDL or Individual Track:</strong> Case may be consolidated with others or proceed individually</li>
+                <li><strong>Participate in Discovery:</strong> Provide deposition, medical exams, document requests</li>
+                <li><strong>Settlement Negotiation:</strong> Most cases settle before trial</li>
+                <li><strong>Trial (if needed):</strong> Present case to jury if settlement not reached</li>
+            </ol>
+
+            <h3>Do You Qualify for a Hernia Mesh Lawsuit?</h3>
+            <p>You may have a valid claim if:</p>
+            <ul>
+                <li>✓ You had hernia repair surgery using surgical mesh</li>
+                <li>✓ You experienced complications within months or years after surgery</li>
+                <li>✓ Your complications required revision surgery or mesh removal</li>
+                <li>✓ You have medical records documenting the mesh and complications</li>
+                <li>✓ Your injuries occurred within the statute of limitations period</li>
+            </ul>
+
+            <div class="disclaimer" style="background:#f8f9fa;padding:15px;margin-top:20px;border-left:3px solid #666;">
+                <p><strong>This Calculator is Not Legal Advice:</strong></p>
+                <ul style="margin:10px 0 0 20px;">
+                    <li>Estimates are based on industry averages and general settlement data</li>
+                    <li>Your actual settlement may be higher or lower depending on specific facts</li>
+                    <li>Consult with a qualified product liability attorney for evaluation of your case</li>
+                    <li>Past verdicts and settlements do not guarantee future results</li>
+                    <li>This tool does not create an attorney-client relationship</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CalcLeap. All rights reserved.</p>
+        <p style="font-size:0.85em;margin-top:8px;">Authored by CalcLeap Editorial Team</p>
+    </footer>
+
+    <script>
+    function calculateSettlement() {
+        const meshType = document.getElementById('meshType').value;
+        const herniaType = document.getElementById('herniaType').value;
+        const revisions = parseInt(document.getElementById('revisionSurgeries').value) || 0;
+        const yearsWithMesh = parseFloat(document.getElementById('yearsWithMesh').value) || 0;
+        const ageAtImplant = parseInt(document.getElementById('ageAtImplant').value) || 50;
+        const medCosts = parseFloat(document.getElementById('medicalCosts').value) || 0;
+        const lostWages = parseFloat(document.getElementById('lostWages').value) || 0;
+        const disability = document.getElementById('permanentDisability').value;
+        const evidence = document.getElementById('evidence').value;
+        const hasExpert = document.getElementById('hasExpert').checked;
+
+        // Count complications
+        let compCount = 0;
+        let hasSerious = false;
+        if (document.getElementById('compMigration').checked) { compCount++; hasSerious = true; }
+        if (document.getElementById('compShrinkage').checked) compCount++;
+        if (document.getElementById('compAdhesion').checked) { compCount++; hasSerious = true; }
+        if (document.getElementById('compInfection').checked) { compCount++; hasSerious = true; }
+        if (document.getElementById('compPain').checked) compCount++;
+        if (document.getElementById('compPerforation').checked) { compCount++; hasSerious = true; }
+        if (document.getElementById('compRecurrence').checked) compCount++;
+        if (document.getElementById('compFistula').checked) { compCount++; hasSerious = true; }
+        if (document.getElementById('compNerve').checked) compCount++;
+
+        if (!meshType || !herniaType || compCount === 0) {
+            alert('Please select mesh type, hernia type, and at least one complication.');
+            return;
+        }
+
+        // Base settlement range based on severity
+        let baseLow = 75000;
+        let baseHigh = 200000;
+
+        // Mesh type multiplier (some products have stronger liability)
+        let meshMulti = 1.0;
+        if (meshType === 'ethicon') meshMulti = 1.3; // Physiomesh recalled
+        else if (meshType === 'atrium') meshMulti = 1.25; // C-QUR large verdicts
+        else if (meshType === 'bard' || meshType === 'bard-ventralex' || meshType === 'bard-3dmax') meshMulti = 1.2;
+        else if (meshType === 'covidien') meshMulti = 1.1;
+
+        // Complications severity
+        if (compCount >= 5) {
+            baseLow *= 2.5;
+            baseHigh *= 3.0;
+        } else if (compCount >= 3) {
+            baseLow *= 1.8;
+            baseHigh *= 2.2;
+        } else if (compCount >= 2) {
+            baseLow *= 1.4;
+            baseHigh *= 1.6;
+        }
+
+        if (hasSerious) {
+            baseLow *= 1.3;
+            baseHigh *= 1.4;
+        }
+
+        // Revision surgeries (major factor)
+        if (revisions >= 3) {
+            baseLow *= 2.5;
+            baseHigh *= 3.0;
+        } else if (revisions === 2) {
+            baseLow *= 1.8;
+            baseHigh *= 2.0;
+        } else if (revisions === 1) {
+            baseLow *= 1.4;
+            baseHigh *= 1.5;
+        }
+
+        // Permanent disability
+        if (disability === 'severe') {
+            baseLow *= 2.5;
+            baseHigh *= 3.5;
+        } else if (disability === 'partial') {
+            baseLow *= 1.6;
+            baseHigh *= 1.8;
+        }
+
+        // Age adjustment (younger = longer suffering = higher)
+        if (ageAtImplant < 40) {
+            baseLow *= 1.35;
+            baseHigh *= 1.4;
+        } else if (ageAtImplant < 50) {
+            baseLow *= 1.2;
+            baseHigh *= 1.25;
+        } else if (ageAtImplant > 70) {
+            baseLow *= 0.85;
+            baseHigh *= 0.9;
+        }
+
+        // Years with mesh (longer suffering)
+        if (yearsWithMesh >= 10) {
+            baseLow *= 1.3;
+            baseHigh *= 1.35;
+        } else if (yearsWithMesh >= 5) {
+            baseLow *= 1.15;
+            baseHigh *= 1.2;
+        }
+
+        // Evidence quality
+        let evidMulti = 1.0;
+        if (evidence === 'strong') evidMulti = 1.3;
+        else if (evidence === 'moderate') evidMulti = 1.1;
+        else evidMulti = 0.75;
+
+        // Expert witness
+        if (hasExpert) {
+            baseLow *= 1.25;
+            baseHigh *= 1.3;
+        }
+
+        // Apply mesh type and evidence multipliers
+        baseLow *= meshMulti * evidMulti;
+        baseHigh *= meshMulti * evidMulti;
+
+        // Economic damages
+        const economicDamages = medCosts + lostWages;
+
+        // Non-economic damages (pain/suffering, typically 1.5x-4x economic)
+        const nonEconLow = economicDamages * 1.5;
+        const nonEconHigh = economicDamages * 4.0;
+
+        // Total settlement = base + economic + non-economic
+        let totalLow = baseLow + economicDamages + nonEconLow;
+        let totalHigh = baseHigh + economicDamages + nonEconHigh;
+
+        // Cap absurdly high settlements unless truly catastrophic
+        if (totalHigh > 5000000 && disability !== 'severe' && revisions < 3) {
+            totalHigh = 5000000;
+        }
+
+        // Case strength assessment
+        let strength = 'Moderate';
+        let strengthScore = 0;
+        if (meshType === 'ethicon' || meshType === 'atrium') strengthScore += 3;
+        else if (meshType === 'bard' || meshType === 'bard-ventralex' || meshType === 'bard-3dmax') strengthScore += 2;
+        if (compCount >= 4) strengthScore += 3;
+        else if (compCount >= 2) strengthScore += 2;
+        if (revisions >= 2) strengthScore += 3;
+        else if (revisions >= 1) strengthScore += 2;
+        if (hasSerious) strengthScore += 2;
+        if (disability === 'severe') strengthScore += 3;
+        else if (disability === 'partial') strengthScore += 1;
+        if (evidence === 'strong') strengthScore += 2;
+        if (hasExpert) strengthScore += 2;
+
+        if (strengthScore >= 12) strength = 'Very Strong';
+        else if (strengthScore >= 8) strength = 'Strong';
+        else if (strengthScore >= 5) strength = 'Moderate';
+        else strength = 'Weak';
+
+        // Display results
+        document.getElementById('result').innerHTML = `
+            <div class="result-box">
+                <h3>Estimated Settlement Range</h3>
+                <div class="result-value">$${totalLow.toLocaleString()} - $${totalHigh.toLocaleString()}</div>
+                
+                <h4 style="margin-top:25px;">Breakdown:</h4>
+                <table style="width:100%;margin:15px 0;border-collapse:collapse;">
+                    <tr style="border-bottom:1px solid #ddd;">
+                        <td style="padding:8px;"><strong>Economic Damages:</strong></td>
+                        <td style="padding:8px;text-align:right;">$${economicDamages.toLocaleString()}</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #ddd;">
+                        <td style="padding:8px;">Medical Costs</td>
+                        <td style="padding:8px;text-align:right;color:#666;">$${medCosts.toLocaleString()}</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #ddd;">
+                        <td style="padding:8px;">Lost Wages</td>
+                        <td style="padding:8px;text-align:right;color:#666;">$${lostWages.toLocaleString()}</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #ddd;">
+                        <td style="padding:8px;"><strong>Non-Economic Damages:</strong></td>
+                        <td style="padding:8px;text-align:right;">$${nonEconLow.toLocaleString()} - $${nonEconHigh.toLocaleString()}</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #ddd;">
+                        <td style="padding:8px;"><strong>Base Settlement (complications):</strong></td>
+                        <td style="padding:8px;text-align:right;">$${baseLow.toLocaleString()} - $${baseHigh.toLocaleString()}</td>
+                    </tr>
+                </table>
+
+                <div style="background:#f0f8ff;padding:15px;margin:20px 0;border-radius:8px;">
+                    <h4 style="margin:0 0 10px 0;">Case Strength: <span style="color:#0066cc;">${strength}</span></h4>
+                    <p style="margin:5px 0;font-size:0.95em;">
+                        <strong>Complications:</strong> ${compCount} documented (${hasSerious ? 'includes serious complications' : 'minor to moderate'})<br>
+                        <strong>Revision Surgeries:</strong> ${revisions}<br>
+                        <strong>Mesh Product:</strong> ${meshType === 'ethicon' ? 'Ethicon Physiomesh (recalled 2016)' : 
+                                                         meshType === 'atrium' ? 'Atrium C-QUR (major verdicts)' :
+                                                         meshType === 'bard' ? 'Bard Composix Kugel (MDL litigation)' :
+                                                         meshType === 'bard-ventralex' ? 'Bard Ventralex' :
+                                                         meshType === 'bard-3dmax' ? 'Bard 3DMax' :
+                                                         meshType === 'covidien' ? 'Covidien Parietex' : 'Other mesh product'}<br>
+                        <strong>Disability:</strong> ${disability === 'severe' ? 'Severe (cannot work)' : disability === 'partial' ? 'Partial impairment' : 'None documented'}<br>
+                        <strong>Evidence Quality:</strong> ${evidence === 'strong' ? 'Strong documentation' : evidence === 'moderate' ? 'Moderate documentation' : 'Weak documentation'}
+                    </p>
+                </div>
+
+                <div style="background:#fff3cd;padding:15px;margin:20px 0;border-radius:8px;">
+                    <h4 style="margin:0 0 10px 0;">⚠️ Important Considerations</h4>
+                    <ul style="margin:5px 0;padding-left:20px;font-size:0.95em;">
+                        <li>This is an <strong>estimate</strong> based on industry averages and general settlement data</li>
+                        <li>Actual settlements vary widely based on jurisdiction, attorney skill, trial vs. settlement, and specific facts</li>
+                        <li>Some cases settle for less, some for significantly more (verdicts up to $255M documented)</li>
+                        <li>Attorney fees (33-40%) and case costs ($10k-$50k+) are typically deducted from settlement</li>
+                        <li>Statute of limitations: most states have 2-3 year deadline from injury discovery</li>
+                        <li><strong>Consult with a qualified product liability attorney</strong> for evaluation of your specific case</li>
+                    </ul>
+                </div>
+
+                <div style="text-align:center;margin:25px 0;">
+                    <p style="font-size:1.1em;"><strong>Next Steps:</strong></p>
+                    <p>If you have suffered complications from hernia mesh, consult with an experienced product liability attorney who handles hernia mesh cases. Most offer <strong>free consultations</strong> and work on <strong>contingency</strong> (no fee unless you win).</p>
+                </div>
+            </div>
+        `;
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    </script>
+</body>
+</html>
