@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asbestos Exposure Compensation Calculator - CalcLeap</title>
+    <meta name="description" content="Calculate potential compensation for asbestos exposure based on diagnosis, exposure duration, medical costs, and lost wages. Free asbestos compensation estimator.">
+    <link rel="stylesheet" href="gold.css">
+    <link rel="canonical" href="https://calcleap.com/asbestos-exposure-compensation.html">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5W5SEPQWV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5W5SEPQWV');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Asbestos Exposure Compensation Calculator",
+      "description": "Calculate potential compensation for asbestos exposure based on diagnosis, exposure duration, medical costs, and lost wages.",
+      "url": "https://calcleap.com/asbestos-exposure-compensation.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any"
+    }
+    </script>
+
+    <style>
+        .calc-grid {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .input-group label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .input-group input,
+        .input-group select {
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+        
+        .calc-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .calc-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .results {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+        
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .result-row:last-child {
+            border-bottom: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+        
+        .result-label {
+            font-weight: 500;
+        }
+        
+        .result-value {
+            font-weight: 700;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .info-box ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .info-box li {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">CalcLeap</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <h1>⚖️ Asbestos Exposure Compensation Calculator</h1>
+        <p class="subtitle">Estimate potential compensation for asbestos-related illness based on exposure history, diagnosis, and damages.</p>
+
+        <div class="calc-grid">
+            <div class="input-group">
+                <label for="diagnosis">Type of Asbestos-Related Diagnosis</label>
+                <select id="diagnosis">
+                    <option value="mesothelioma">Mesothelioma</option>
+                    <option value="lung-cancer">Lung Cancer (Asbestos-Related)</option>
+                    <option value="asbestosis">Asbestosis</option>
+                    <option value="pleural-disease">Pleural Disease/Plaques</option>
+                    <option value="other">Other Asbestos-Related Illness</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="severity">Disease Stage/Severity</label>
+                <select id="severity">
+                    <option value="early">Early Stage / Mild</option>
+                    <option value="moderate">Moderate / Stage II-III</option>
+                    <option value="advanced">Advanced / Stage IV</option>
+                    <option value="terminal">Terminal / End-Stage</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="years">Years of Asbestos Exposure</label>
+                <input type="number" id="years" min="0" max="60" value="15" placeholder="Years">
+            </div>
+
+            <div class="input-group">
+                <label for="medical">Total Medical Expenses (Past + Expected Future)</label>
+                <input type="number" id="medical" min="0" value="250000" placeholder="$250,000">
+            </div>
+
+            <div class="input-group">
+                <label for="wages">Lost Wages (Past + Expected Future)</label>
+                <input type="number" id="wages" min="0" value="150000" placeholder="$150,000">
+            </div>
+
+            <div class="input-group">
+                <label for="age">Your Current Age</label>
+                <input type="number" id="age" min="18" max="100" value="62" placeholder="62">
+            </div>
+
+            <div class="input-group">
+                <label for="dependents">Number of Dependents</label>
+                <input type="number" id="dependents" min="0" max="10" value="0" placeholder="0">
+            </div>
+
+            <button class="calc-button" onclick="calculateCompensation()">Calculate Estimated Compensation</button>
+        </div>
+
+        <div id="results" style="display: none;" class="results">
+            <h2>💰 Estimated Compensation Range</h2>
+            <div class="result-row">
+                <span class="result-label">Economic Damages (Medical + Wages):</span>
+                <span class="result-value" id="economic"></span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Pain & Suffering (Non-Economic):</span>
+                <span class="result-value" id="pain"></span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Punitive Damages (Est. Range):</span>
+                <span class="result-value" id="punitive"></span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Total Estimated Settlement Range:</span>
+                <span class="result-value" id="total"></span>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>About Asbestos Exposure Compensation</h3>
+            <p>Victims of asbestos exposure may be entitled to compensation from:</p>
+            <ul>
+                <li><strong>Asbestos Trust Funds:</strong> Over $30 billion set aside by bankrupt asbestos companies</li>
+                <li><strong>Lawsuits Against Manufacturers:</strong> Companies that produced or used asbestos products</li>
+                <li><strong>Workers' Compensation:</strong> For occupational asbestos exposure</li>
+                <li><strong>VA Benefits:</strong> For veterans exposed to asbestos during military service</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>Types of Damages in Asbestos Claims</h3>
+            <ul>
+                <li><strong>Economic Damages:</strong> Medical bills, lost income, future treatment costs, lost earning capacity</li>
+                <li><strong>Non-Economic Damages:</strong> Pain and suffering, emotional distress, loss of quality of life</li>
+                <li><strong>Punitive Damages:</strong> Awarded in cases of gross negligence or willful misconduct by defendants</li>
+                <li><strong>Wrongful Death:</strong> Additional compensation for surviving family members</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>Factors That Affect Compensation</h3>
+            <ul>
+                <li><strong>Type of Diagnosis:</strong> Mesothelioma cases typically receive higher settlements ($1M-$2.4M average)</li>
+                <li><strong>Disease Stage:</strong> More advanced illness = higher damages due to reduced life expectancy</li>
+                <li><strong>Exposure Duration:</strong> Longer exposure = stronger causation link = higher compensation</li>
+                <li><strong>Number of Defendants:</strong> More responsible parties = higher total recovery potential</li>
+                <li><strong>State Law:</strong> Caps on non-economic damages vary by state</li>
+                <li><strong>Age & Dependents:</strong> Younger victims with families typically receive higher awards</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>Important Notes</h3>
+            <ul>
+                <li>This calculator provides estimates only. Actual compensation varies widely based on specific case facts.</li>
+                <li>Average mesothelioma settlements range from $1 million to $2.4 million.</li>
+                <li>Statute of limitations for asbestos claims varies by state (typically 1-6 years from diagnosis).</li>
+                <li>Most asbestos cases settle out of court. Trials can result in higher awards but take longer.</li>
+                <li>Multiple sources of compensation can be pursued simultaneously (trust funds + lawsuits + VA benefits).</li>
+                <li><strong>Consult an experienced asbestos attorney for a case evaluation.</strong></li>
+            </ul>
+        </div>
+
+        <p class="byline">Prepared by the CalcLeap Editorial Team</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CalcLeap. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        function calculateCompensation() {
+            const diagnosis = document.getElementById('diagnosis').value;
+            const severity = document.getElementById('severity').value;
+            const years = parseFloat(document.getElementById('years').value) || 0;
+            const medical = parseFloat(document.getElementById('medical').value) || 0;
+            const wages = parseFloat(document.getElementById('wages').value) || 0;
+            const age = parseFloat(document.getElementById('age').value) || 62;
+            const dependents = parseFloat(document.getElementById('dependents').value) || 0;
+
+            // Economic damages (actual costs)
+            const economic = medical + wages;
+
+            // Base pain & suffering multiplier by diagnosis
+            let painMultiplier;
+            switch(diagnosis) {
+                case 'mesothelioma':
+                    painMultiplier = 3.5;
+                    break;
+                case 'lung-cancer':
+                    painMultiplier = 3.0;
+                    break;
+                case 'asbestosis':
+                    painMultiplier = 2.0;
+                    break;
+                case 'pleural-disease':
+                    painMultiplier = 1.5;
+                    break;
+                default:
+                    painMultiplier = 2.5;
+            }
+
+            // Adjust for severity
+            let severityMultiplier;
+            switch(severity) {
+                case 'early':
+                    severityMultiplier = 0.7;
+                    break;
+                case 'moderate':
+                    severityMultiplier = 1.0;
+                    break;
+                case 'advanced':
+                    severityMultiplier = 1.4;
+                    break;
+                case 'terminal':
+                    severityMultiplier = 1.8;
+                    break;
+                default:
+                    severityMultiplier = 1.0;
+            }
+
+            // Adjust for exposure duration (longer = stronger case)
+            const exposureBonus = Math.min(years / 20, 1.5);
+
+            // Adjust for age (younger = more years lost)
+            const ageMultiplier = age < 50 ? 1.3 : age < 65 ? 1.1 : 1.0;
+
+            // Adjust for dependents
+            const dependentBonus = dependents * 0.1;
+
+            // Calculate pain & suffering
+            const totalMultiplier = painMultiplier * severityMultiplier * exposureBonus * ageMultiplier * (1 + dependentBonus);
+            const pain = economic * totalMultiplier;
+
+            // Punitive damages (typically 1x to 3x compensatory, but capped in many states)
+            // More common in mesothelioma cases with clear negligence
+            const compensatory = economic + pain;
+            const punitiveMin = diagnosis === 'mesothelioma' || diagnosis === 'lung-cancer' ? compensatory * 0.5 : 0;
+            const punitiveMax = diagnosis === 'mesothelioma' || diagnosis === 'lung-cancer' ? compensatory * 2 : compensatory * 0.5;
+
+            // Total settlement range
+            const totalMin = economic + pain + punitiveMin;
+            const totalMax = economic + pain + punitiveMax;
+
+            // Display results
+            document.getElementById('economic').textContent = '$' + economic.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('pain').textContent = '$' + pain.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('punitive').textContent = '$' + punitiveMin.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' - $' + punitiveMax.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('total').textContent = '$' + totalMin.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' - $' + totalMax.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Auto-calculate on page load
+        window.addEventListener('load', calculateCompensation);
+    </script>
+</body>
+</html>
