@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+Sitemap: https://calcleap.com/sitemap-index.xml
+Sitemap: https://calcleap.com/sitemap-priority.xml
 Sitemap: https://calcleap.com/sitemap.xml
