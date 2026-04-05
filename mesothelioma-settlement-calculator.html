@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesothelioma Settlement Calculator | Free Legal Compensation Estimator</title>
+    <meta name="description" content="Calculate potential mesothelioma settlement compensation. Free legal settlement estimator for asbestos exposure claims including medical expenses, lost wages, and pain & suffering.">
+    <meta name="keywords" content="mesothelioma settlement, asbestos compensation, mesothelioma lawyer, asbestos lawsuit, settlement calculator">
+    <link rel="canonical" href="https://calcleap.com/mesothelioma-settlement-calculator.html">
+    <meta property="og:title" content="Mesothelioma Settlement Calculator">
+    <meta property="og:description" content="Estimate potential compensation for mesothelioma claims">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/mesothelioma-settlement-calculator.html">
+    <link rel="stylesheet" href="gold.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5W5SEPQWV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Y5W5SEPQWV');
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mesothelioma Settlement Calculator",
+        "description": "Calculate potential mesothelioma settlement compensation for asbestos exposure claims",
+        "url": "https://calcleap.com/mesothelioma-settlement-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <style>
+        .calculator-container {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+        }
+        .result {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-left: 4px solid #d4af37;
+            border-radius: 8px;
+            display: none;
+        }
+        .result.show {
+            display: block;
+        }
+        .result h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .settlement-range {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d4af37;
+            margin: 1rem 0;
+        }
+        .breakdown {
+            margin-top: 1.5rem;
+        }
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+        .disclaimer {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .info-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .info-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        .info-section ul {
+            margin-left: 1.5rem;
+        }
+        .info-section li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" style="font-size: 1.5rem; font-weight: 700; color: #d4af37; text-decoration: none;">CalcLeap</a>
+            <div style="display: flex; gap: 2rem;">
+                <a href="/" style="color: white; text-decoration: none;">Tools</a>
+                <a href="/blog.html" style="color: white; text-decoration: none;">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <main style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+        <h1 style="text-align: center; color: #2c3e50; margin-bottom: 1rem;">Mesothelioma Settlement Calculator</h1>
+        <p style="text-align: center; color: #555; max-width: 700px; margin: 0 auto 2rem;">Estimate potential compensation for asbestos-related mesothelioma claims including medical costs, lost income, and pain & suffering damages.</p>
+
+        <div class="calculator-container">
+            <form id="calculatorForm">
+                <div class="input-group">
+                    <label for="diagnosisType">Diagnosis Type</label>
+                    <select id="diagnosisType" required>
+                        <option value="">Select diagnosis...</option>
+                        <option value="pleural">Pleural Mesothelioma</option>
+                        <option value="peritoneal">Peritoneal Mesothelioma</option>
+                        <option value="pericardial">Pericardial Mesothelioma</option>
+                        <option value="testicular">Testicular Mesothelioma</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="stage">Cancer Stage</label>
+                    <select id="stage" required>
+                        <option value="">Select stage...</option>
+                        <option value="1">Stage 1 (Localized)</option>
+                        <option value="2">Stage 2 (Advanced Local)</option>
+                        <option value="3">Stage 3 (Regional Spread)</option>
+                        <option value="4">Stage 4 (Distant Metastasis)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="age">Age at Diagnosis</label>
+                    <input type="number" id="age" min="18" max="100" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="exposureYears">Years of Asbestos Exposure</label>
+                    <input type="number" id="exposureYears" min="1" max="60" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="medicalCosts">Medical Expenses to Date ($)</label>
+                    <input type="number" id="medicalCosts" min="0" step="1000" placeholder="e.g., 150000" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="annualIncome">Annual Income Before Diagnosis ($)</label>
+                    <input type="number" id="annualIncome" min="0" step="5000" placeholder="e.g., 65000" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="dependents">Number of Dependents</label>
+                    <input type="number" id="dependents" min="0" max="10" value="0" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="lifeExpectancy">Estimated Life Expectancy (months)</label>
+                    <input type="number" id="lifeExpectancy" min="6" max="120" placeholder="e.g., 18" required>
+                </div>
+
+                <button type="submit" class="calculate-btn">Calculate Settlement Range</button>
+            </form>
+
+            <div id="result" class="result">
+                <h3>Estimated Settlement Range</h3>
+                <div class="settlement-range" id="settlementRange"></div>
+                <div class="breakdown">
+                    <div class="breakdown-item">
+                        <span>Medical Expenses:</span>
+                        <strong id="medicalBreakdown"></strong>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Lost Wages:</span>
+                        <strong id="lostWagesBreakdown"></strong>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Pain & Suffering:</span>
+                        <strong id="painSufferingBreakdown"></strong>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Punitive Damages:</span>
+                        <strong id="punitiveBreakdown"></strong>
+                    </div>
+                </div>
+                <div class="disclaimer">
+                    <strong>⚠️ Important Disclaimer:</strong> This calculator provides an estimate only and is not a guarantee of compensation. Actual settlements vary based on case specifics, jurisdiction, defendant solvency, and legal representation. Consult with a qualified mesothelioma attorney for a personalized case evaluation.
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Understanding Mesothelioma Settlements</h2>
+            <p>Mesothelioma settlements compensate victims of asbestos exposure for damages including:</p>
+            <ul>
+                <li><strong>Medical Expenses:</strong> Treatment costs, surgery, chemotherapy, radiation, medications, and ongoing care</li>
+                <li><strong>Lost Income:</strong> Past and future earnings lost due to inability to work</li>
+                <li><strong>Pain & Suffering:</strong> Compensation for physical pain, emotional distress, and reduced quality of life</li>
+                <li><strong>Punitive Damages:</strong> Additional compensation to punish negligent companies in certain cases</li>
+            </ul>
+            <p>Settlement amounts typically range from $1 million to $2.4 million, with some cases reaching higher amounts depending on case strength and defendant resources.</p>
+
+            <h2>Factors Affecting Settlement Value</h2>
+            <ul>
+                <li>Type and stage of mesothelioma diagnosis</li>
+                <li>Age and life expectancy at diagnosis</li>
+                <li>Duration and intensity of asbestos exposure</li>
+                <li>Number of liable defendants and their solvency</li>
+                <li>Extent of medical expenses and future care needs</li>
+                <li>Lost earning capacity and impact on family</li>
+                <li>Quality of legal representation and case evidence</li>
+                <li>Jurisdiction and jury verdict history in your area</li>
+            </ul>
+
+            <h2>Timeline for Mesothelioma Claims</h2>
+            <p>Most mesothelioma cases settle within 6-12 months, though some may take longer depending on complexity. Key timeline considerations:</p>
+            <ul>
+                <li><strong>Statute of Limitations:</strong> Typically 1-3 years from diagnosis (varies by state)</li>
+                <li><strong>Investigation Phase:</strong> 2-4 months to gather evidence and identify defendants</li>
+                <li><strong>Filing and Discovery:</strong> 3-6 months for legal proceedings</li>
+                <li><strong>Settlement Negotiations:</strong> 1-3 months (or trial if no settlement reached)</li>
+            </ul>
+            <p>Expedited case handling is available for patients with limited life expectancy.</p>
+
+            <h2>Next Steps After Diagnosis</h2>
+            <ol>
+                <li>Seek immediate medical treatment from mesothelioma specialists</li>
+                <li>Document all asbestos exposure history (employers, job sites, products)</li>
+                <li>Consult with an experienced mesothelioma attorney (most work on contingency)</li>
+                <li>Gather medical records, employment history, and financial documentation</li>
+                <li>File your claim before the statute of limitations expires</li>
+            </ol>
+        </div>
+
+        <p style="text-align: center; margin-top: 3rem; color: #777; font-size: 0.9rem;">
+            By <strong>CalcLeap Editorial Team</strong> | Last updated April 2026
+        </p>
+    </main>
+
+    <script>
+        document.getElementById('calculatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const diagnosisType = document.getElementById('diagnosisType').value;
+            const stage = parseInt(document.getElementById('stage').value);
+            const age = parseInt(document.getElementById('age').value);
+            const exposureYears = parseInt(document.getElementById('exposureYears').value);
+            const medicalCosts = parseFloat(document.getElementById('medicalCosts').value);
+            const annualIncome = parseFloat(document.getElementById('annualIncome').value);
+            const dependents = parseInt(document.getElementById('dependents').value);
+            const lifeExpectancy = parseInt(document.getElementById('lifeExpectancy').value);
+
+            // Base settlement multipliers by diagnosis type
+            const diagnosisMultipliers = {
+                'pleural': 1.0,
+                'peritoneal': 1.2,
+                'pericardial': 1.3,
+                'testicular': 1.1
+            };
+
+            // Stage multipliers (later stages = higher settlement due to severity)
+            const stageMultipliers = [1.0, 1.2, 1.4, 1.6];
+
+            // Calculate medical expenses (past + future)
+            const futureYears = lifeExpectancy / 12;
+            const annualMedicalCost = medicalCosts / Math.max(1, (12 - lifeExpectancy) / 12);
+            const totalMedical = medicalCosts + (annualMedicalCost * futureYears);
+
+            // Calculate lost wages
+            const yearsToRetirement = Math.max(0, 65 - age);
+            const workingYearsRemaining = Math.min(yearsToRetirement, futureYears);
+            const lostWages = annualIncome * workingYearsRemaining;
+
+            // Pain & suffering (typically 2-5x economic damages)
+            const economicDamages = totalMedical + lostWages;
+            const painSufferingMin = economicDamages * 2;
+            const painSufferingMax = economicDamages * 4;
+
+            // Punitive damages (0-2x compensatory, depends on case)
+            const punitiveMin = 0;
+            const punitiveMax = (economicDamages + painSufferingMax) * 1.5;
+
+            // Exposure years factor
+            const exposureFactor = 1 + (exposureYears / 100);
+
+            // Dependents factor
+            const dependentsFactor = 1 + (dependents * 0.05);
+
+            // Age factor (younger victims often receive higher settlements)
+            const ageFactor = age < 50 ? 1.2 : age < 60 ? 1.1 : 1.0;
+
+            // Calculate base settlement range
+            let minSettlement = economicDamages + painSufferingMin;
+            let maxSettlement = economicDamages + painSufferingMax + punitiveMax;
+
+            // Apply all multipliers
+            const typeMultiplier = diagnosisMultipliers[diagnosisType];
+            const stageMultiplier = stageMultipliers[stage - 1];
+            
+            minSettlement *= typeMultiplier * stageMultiplier * exposureFactor * dependentsFactor * ageFactor;
+            maxSettlement *= typeMultiplier * stageMultiplier * exposureFactor * dependentsFactor * ageFactor;
+
+            // Cap at realistic ranges
+            minSettlement = Math.max(500000, minSettlement);
+            maxSettlement = Math.min(10000000, maxSettlement);
+
+            // Display results
+            document.getElementById('settlementRange').textContent = 
+                `$${Math.round(minSettlement).toLocaleString()} - $${Math.round(maxSettlement).toLocaleString()}`;
+            
+            document.getElementById('medicalBreakdown').textContent = 
+                `$${Math.round(totalMedical).toLocaleString()}`;
+            
+            document.getElementById('lostWagesBreakdown').textContent = 
+                `$${Math.round(lostWages).toLocaleString()}`;
+            
+            document.getElementById('painSufferingBreakdown').textContent = 
+                `$${Math.round((painSufferingMin + painSufferingMax) / 2).toLocaleString()}`;
+            
+            document.getElementById('punitiveBreakdown').textContent = 
+                `$${Math.round(punitiveMax / 2).toLocaleString()}`;
+
+            document.getElementById('result').classList.add('show');
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    </script>
+</body>
+</html>
