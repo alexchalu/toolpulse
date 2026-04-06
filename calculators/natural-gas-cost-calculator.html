@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Gas Cost Calculator - Estimate Your Monthly Bill</title>
+    <meta name="description" content="Calculate your monthly natural gas bill based on usage, unit cost, and appliance consumption. Save money by understanding your energy costs.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
+    <style>
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .calculator-grid .input-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+        }
+        .calculator-grid .input-group input,
+        .calculator-grid .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        .calculator-grid .input-group input:focus,
+        .calculator-grid .input-group select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+        .results {
+            background-color: #e9f5ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        .results h2 {
+            color: #0056b3;
+            margin-top: 0;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #b3d9ff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .results p {
+            margin-bottom: 10px;
+        }
+        .results strong {
+            color: #0056b3;
+        }
+        .appliance-section {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .appliance-section h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .appliance-item {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        .appliance-item input {
+            text-align: right;
+        }
+        .appliance-item label {
+            font-weight: normal;
+        }
+        .appliance-item .unit {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        @media (min-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .full-width {
+                grid-column: 1 / -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Natural Gas Cost Calculator</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../calculators.html">Calculators</a></li>
+                    <li><a href="../about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="calculator-grid">
+                <div class="input-group">
+                    <label for="monthlyUsage">Monthly Natural Gas Usage</label>
+                    <input type="number" id="monthlyUsage" value="100" min="0">
+                    <select id="usageUnit">
+                        <option value="therms">Therms</option>
+                        <option value="ccf">CCF (100 cubic feet)</option>
+                        <option value="mcf">MCF (1000 cubic feet)</option>
+                        <option value="kwh">kWh equivalent</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="costPerUnit">Cost per Unit</label>
+                    <input type="number" id="costPerUnit" value="1.50" min="0" step="0.01">
+                    <span id="costUnitDisplay">$ / Therm</span>
+                </div>
+                <div class="input-group">
+                    <label for="deliveryFee">Monthly Delivery Fee (Fixed)</label>
+                    <input type="number" id="deliveryFee" value="15" min="0" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="otherCharges">Other Monthly Charges</label>
+                    <input type="number" id="otherCharges" value="0" min="0" step="0.01">
+                </div>
+
+                <div class="full-width appliance-section">
+                    <h3>Appliance Usage (Optional)</h3>
+                    <p class="description">Estimate costs based on common natural gas appliances.</p>
+
+                    <div class="appliance-item">
+                        <label for="furnaceHours">Furnace (avg. 100,000 BTU/hr)</label>
+                        <input type="number" id="furnaceHours" value="0" min="0" max="744">
+                        <span class="unit">hours/month</span>
+                        <span id="furnaceCost" class="unit">$0.00</span>
+                    </div>
+                    <div class="appliance-item">
+                        <label for="waterHeaterHours">Water Heater (avg. 40,000 BTU/hr)</label>
+                        <input type="number" id="waterHeaterHours" value="0" min="0" max="744">
+                        <span class="unit">hours/month</span>
+                        <span id="waterHeaterCost" class="unit">$0.00</span>
+                    </div>
+                    <div class="appliance-item">
+                        <label for="dryerLoads">Clothes Dryer (avg. 20,000 BTU/load)</label>
+                        <input type="number" id="dryerLoads" value="0" min="0">
+                        <span class="unit">loads/month</span>
+                        <span id="dryerCost" class="unit">$0.00</span>
+                    </div>
+                    <div class="appliance-item">
+                        <label for="stoveHours">Gas Stove (avg. 7,000 BTU/hr burner)</label>
+                        <input type="number" id="stoveHours" value="0" min="0" max="744">
+                        <span class="unit">hours/month</span>
+                        <span id="stoveCost" class="unit">$0.00</span>
+                    </div>
+                    <div class="appliance-item">
+                        <label for="fireplaceHours">Gas Fireplace (avg. 30,000 BTU/hr)</label>
+                        <input type="number" id="fireplaceHours" value="0" min="0" max="744">
+                        <span class="unit">hours/month</span>
+                        <span id="fireplaceCost" class="unit">$0.00</span>
+                    </div>
+                </div>
+
+                <div class="full-width results">
+                    <h2>Estimated Monthly Natural Gas Bill</h2>
+                    <p>Total Usage: <strong id="totalUsageResult">0.00 Therms</strong></p>
+                    <p>Usage Cost: <strong id="usageCostResult">$0.00</strong></p>
+                    <p>Appliance Cost: <strong id="applianceCostResult">$0.00</strong></p>
+                    <p>Fixed Fees: <strong id="fixedFeesResult">$0.00</strong></p>
+                    <hr>
+                    <h3>Total Estimated Bill: <strong id="totalBillResult">$0.00</strong></h3>
+                    <p><em>This estimate helps you budget for natural gas expenses. Individual bills may vary based on actual consumption, specific appliance efficiency, and utility rates.</em></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const monthlyUsageInput = document.getElementById('monthlyUsage');
+            const usageUnitSelect = document.getElementById('usageUnit');
+            const costPerUnitInput = document.getElementById('costPerUnit');
+            const costUnitDisplay = document.getElementById('costUnitDisplay');
+            const deliveryFeeInput = document.getElementById('deliveryFee');
+            const otherChargesInput = document.getElementById('otherCharges');
+
+            const furnaceHoursInput = document.getElementById('furnaceHours');
+            const waterHeaterHoursInput = document.getElementById('waterHeaterHours');
+            const dryerLoadsInput = document.getElementById('dryerLoads');
+            const stoveHoursInput = document.getElementById('stoveHours');
+            const fireplaceHoursInput = document.getElementById('fireplaceHours');
+
+            const furnaceCostSpan = document.getElementById('furnaceCost');
+            const waterHeaterCostSpan = document.getElementById('waterHeaterCost');
+            const dryerCostSpan = document.getElementById('dryerCost');
+            const stoveCostSpan = document.getElementById('stoveCost');
+            const fireplaceCostSpan = document.getElementById('fireplaceCost');
+
+            const totalUsageResult = document.getElementById('totalUsageResult');
+            const usageCostResult = document.getElementById('usageCostResult');
+            const applianceCostResult = document.getElementById('applianceCostResult');
+            const fixedFeesResult = document.getElementById('fixedFeesResult');
+            const totalBillResult = document.getElementById('totalBillResult');
+
+            const BTU_PER_THERM = 100000; // 1 Therm = 100,000 BTU
+            const BTU_PER_CCF = 103700; // Approximate, varies by gas composition
+
+            // Appliance BTUs per hour/load (average estimates)
+            const APPLIANCE_BTUS = {
+                furnace: 100000, // BTU/hr
+                waterHeater: 40000, // BTU/hr
+                dryer: 20000, // BTU/load
+                stoveBurner: 7000, // BTU/hr per burner (use for one burner equivalent)
+                fireplace: 30000 // BTU/hr
+            };
+
+            function convertToTherms(value, unit) {
+                switch (unit) {
+                    case 'therms':
+                        return value;
+                    case 'ccf':
+                        return value * (BTU_PER_CCF / BTU_PER_THERM);
+                    case 'mcf':
+                        return value * 10 * (BTU_PER_CCF / BTU_PER_THERM); // 1 MCF = 10 CCF
+                    case 'kwh':
+                        return value * 0.0341214; // 1 kWh = ~0.0341214 therms
+                    default:
+                        return value;
+                }
+            }
+
+            function updateCalculator() {
+                let monthlyUsage = parseFloat(monthlyUsageInput.value) || 0;
+                const usageUnit = usageUnitSelect.value;
+                let costPerUnit = parseFloat(costPerUnitInput.value) || 0;
+                const deliveryFee = parseFloat(deliveryFeeInput.value) || 0;
+                const otherCharges = parseFloat(otherChargesInput.value) || 0;
+
+                // Update cost unit display
+                costUnitDisplay.textContent = '$ / ' + (usageUnit === 'therms' ? 'Therm' : usageUnit.toUpperCase());
+
+                // Convert input monthly usage to therms
+                let monthlyUsageInTherms = convertToTherms(monthlyUsage, usageUnit);
+
+                // Calculate appliance usage in Therms
+                const furnaceTherms = (parseFloat(furnaceHoursInput.value) || 0) * APPLIANCE_BTUS.furnace / BTU_PER_THERM;
+                const waterHeaterTherms = (parseFloat(waterHeaterHoursInput.value) || 0) * APPLIANCE_BTUS.waterHeater / BTU_PER_THERM;
+                const dryerTherms = (parseFloat(dryerLoadsInput.value) || 0) * APPLIANCE_BTUS.dryer / BTU_PER_THERM;
+                const stoveTherms = (parseFloat(stoveHoursInput.value) || 0) * APPLIANCE_BTUS.stoveBurner / BTU_PER_THERM;
+                const fireplaceTherms = (parseFloat(fireplaceHoursInput.value) || 0) * APPLIANCE_BTUS.fireplace / BTU_PER_THERM;
+
+                const totalApplianceTherms = furnaceTherms + waterHeaterTherms + dryerTherms + stoveTherms + fireplaceTherms;
+
+                // Appliance costs (based on cost per unit in Therms)
+                const costPerTherm = (usageUnit === 'therms' ? costPerUnit : costPerUnit / (convertToTherms(1, usageUnit)));
+
+                const furnaceCost = furnaceTherms * costPerTherm;
+                const waterHeaterCost = waterHeaterTherms * costPerTherm;
+                const dryerCost = dryerTherms * costPerTherm;
+                const stoveCost = stoveTherms * costPerTherm;
+                const fireplaceCost = fireplaceTherms * costPerTherm;
+
+                furnaceCostSpan.textContent = `$${furnaceCost.toFixed(2)}`;
+                waterHeaterCostSpan.textContent = `$${waterHeaterCost.toFixed(2)}`;
+                dryerCostSpan.textContent = `$${dryerCost.toFixed(2)}`;
+                stoveCostSpan.textContent = `$${stoveCost.toFixed(2)}`;
+                fireplaceCostSpan.textContent = `$${fireplaceCost.toFixed(2)}`;
+
+                // Total usage including explicit input and appliance estimates
+                const totalTherms = monthlyUsageInTherms + totalApplianceTherms;
+
+                // Calculate costs
+                const totalUsageCost = totalTherms * costPerTherm;
+                const totalFixedFees = deliveryFee + otherCharges;
+                const totalEstimatedBill = totalUsageCost + totalFixedFees;
+
+                // Display results
+                totalUsageResult.textContent = `${totalTherms.toFixed(2)} Therms`;
+                usageCostResult.textContent = `$${totalUsageCost.toFixed(2)}`;
+                applianceCostResult.textContent = `$${totalApplianceTherms > 0 ? (totalApplianceTherms * costPerTherm).toFixed(2) : '0.00'}`;
+                fixedFeesResult.textContent = `$${totalFixedFees.toFixed(2)}`;
+                totalBillResult.textContent = `$${totalEstimatedBill.toFixed(2)}`;
+            }
+
+            // Add event listeners
+            const inputs = [
+                monthlyUsageInput, usageUnitSelect, costPerUnitInput, deliveryFeeInput, otherChargesInput,
+                furnaceHoursInput, waterHeaterHoursInput, dryerLoadsInput, stoveHoursInput, fireplaceHoursInput
+            ];
+            inputs.forEach(input => input.addEventListener('input', updateCalculator));
+
+            // Initial calculation
+            updateCalculator();
+        });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</body>
+</html>
