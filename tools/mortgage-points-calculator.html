@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Points Calculator - Free Online Tool | CalcLeap</title>
+    <meta name="description" content="Calculate the value of buying mortgage points vs. lower interest rates. Fast, accurate, and easy to use.">
+    <meta name="keywords" content="mortgage, points, closing costs">
+    <link rel="canonical" href="https://calcleap.com/tools/mortgage-points-calculator.html">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/gold.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YOUR_MEASUREMENT_ID');
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">CalcLeap</a>
+            </div>
+            <nav class="main-nav">
+                <a href="../index.html">Home</a>
+                <a href="../tools.html">Tools</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="tool-page">
+            <h1 class="page-title">Mortgage Points Calculator</h1>
+            <p class="tool-description">Calculate the value of buying mortgage points vs. lower interest rates</p>
+
+            <div id="toolContent" class="tool-container">
+                <div class="calculator-modes">
+                    <button id="buyPointsBtn" class="mode-btn active">Should I Buy Points?</button>
+                    <button id="breakEvenBtn" class="mode-btn">Break-Even Analysis</button>
+                </div>
+
+                <!-- Mode 1: Buy Points Analysis -->
+                <div id="buyPointsMode" class="calc-mode">
+                    <div class="input-group">
+                        <label for="loanAmount">Loan Amount ($)</label>
+                        <input type="number" id="loanAmount" value="300000" min="1000" step="1000">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="baseRate">Base Interest Rate (%)</label>
+                        <input type="number" id="baseRate" value="6.5" min="0.1" max="20" step="0.01">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="points">Points to Buy</label>
+                        <input type="number" id="points" value="1" min="0.125" max="3" step="0.125">
+                        <small>1 point = 1% of loan amount</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="rateReduction">Rate Reduction per Point (%)</label>
+                        <input type="number" id="rateReduction" value="0.25" min="0.01" max="1" step="0.01">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="loanTerm">Loan Term (years)</label>
+                        <input type="number" id="loanTerm" value="30" min="1" max="40" step="1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="yearsInHome">Expected Years in Home</label>
+                        <input type="number" id="yearsInHome" value="7" min="1" max="40" step="1">
+                    </div>
+
+                    <button onclick="calculatePoints()" class="calc-btn">Calculate Value</button>
+
+                    <div id="results" class="results-card" style="display: none;">
+                        <h3>Analysis Results</h3>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <span class="result-label">Cost of Points:</span>
+                                <span class="result-value" id="pointsCost"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">New Interest Rate:</span>
+                                <span class="result-value" id="newRate"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Original Monthly Payment:</span>
+                                <span class="result-value" id="originalPayment"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">New Monthly Payment:</span>
+                                <span class="result-value" id="newPayment"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Monthly Savings:</span>
+                                <span class="result-value highlight" id="monthlySavings"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Break-Even Point:</span>
+                                <span class="result-value" id="breakEvenMonths"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Total Savings Over Period:</span>
+                                <span class="result-value highlight" id="totalSavings"></span>
+                            </div>
+                        </div>
+                        <div id="recommendation" class="recommendation"></div>
+                    </div>
+                </div>
+
+                <!-- Mode 2: Break-Even -->
+                <div id="breakEvenMode" class="calc-mode" style="display: none;">
+                    <div class="input-group">
+                        <label for="loanAmount2">Loan Amount ($)</label>
+                        <input type="number" id="loanAmount2" value="300000" min="1000" step="1000">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="baseRate2">Base Interest Rate (%)</label>
+                        <input type="number" id="baseRate2" value="6.5" min="0.1" max="20" step="0.01">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="points2">Points to Buy</label>
+                        <input type="number" id="points2" value="1" min="0.125" max="3" step="0.125">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="rateReduction2">Rate Reduction per Point (%)</label>
+                        <input type="number" id="rateReduction2" value="0.25" min="0.01" max="1" step="0.01">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="loanTerm2">Loan Term (years)</label>
+                        <input type="number" id="loanTerm2" value="30" min="1" max="40" step="1">
+                    </div>
+
+                    <button onclick="calculateBreakEven()" class="calc-btn">Calculate Break-Even</button>
+
+                    <div id="results2" class="results-card" style="display: none;">
+                        <h3>Break-Even Analysis</h3>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <span class="result-label">Cost of Points:</span>
+                                <span class="result-value" id="pointsCost2"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Monthly Savings:</span>
+                                <span class="result-value" id="monthlySavings2"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Break-Even Point:</span>
+                                <span class="result-value highlight" id="breakEvenMonths2"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Break-Even Date:</span>
+                                <span class="result-value" id="breakEvenDate"></span>
+                            </div>
+                        </div>
+                        <div class="savings-timeline">
+                            <h4>Savings Timeline</h4>
+                            <table id="timelineTable"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>What Are Mortgage Points?</h2>
+                <p>Mortgage points (also called discount points) are fees you pay upfront to your lender to reduce your interest rate. One point costs 1% of your loan amount. For example, on a $300,000 loan, one point costs $3,000.</p>
+                <p>Typically, each point reduces your interest rate by 0.25%, though this varies by lender and market conditions.</p>
+
+                <h2>When Should You Buy Points?</h2>
+                <ul>
+                    <li><strong>Long-term ownership:</strong> If you plan to stay in the home beyond the break-even point</li>
+                    <li><strong>Extra cash available:</strong> You have funds for closing costs without depleting savings</li>
+                    <li><strong>High interest rates:</strong> When rates are elevated, points provide more value</li>
+                    <li><strong>Tax benefits:</strong> Points may be tax-deductible (consult a tax advisor)</li>
+                </ul>
+
+                <h2>When to Skip Points</h2>
+                <ul>
+                    <li><strong>Short-term ownership:</strong> Planning to sell or refinance within a few years</li>
+                    <li><strong>Tight budget:</strong> Need cash for emergency fund or home repairs</li>
+                    <li><strong>Low rates:</strong> When rates are already low, points provide less benefit</li>
+                    <li><strong>Better investments:</strong> If you can earn more investing elsewhere</li>
+                </ul>
+
+                <h2>How to Use This Calculator</h2>
+                <p><strong>Buy Points Mode:</strong> Enter your loan details to see if buying points makes financial sense based on how long you plan to own the home.</p>
+                <p><strong>Break-Even Mode:</strong> Calculate exactly when you'll recoup the cost of points and see a year-by-year savings timeline.</p>
+
+                <h2>Key Considerations</h2>
+                <ul>
+                    <li><strong>Break-even point:</strong> The number of months until savings equal the cost of points</li>
+                    <li><strong>Opportunity cost:</strong> Could the upfront cash generate better returns elsewhere?</li>
+                    <li><strong>Tax deductibility:</strong> Points are often tax-deductible in the year paid</li>
+                    <li><strong>Lender variations:</strong> Rate reductions per point vary—shop around</li>
+                    <li><strong>Refinancing risk:</strong> If you refinance, you lose remaining point value</li>
+                </ul>
+            </div>
+
+            <div class="author-byline">
+                <p>Calculator by <a href="../about.html">CalcLeap Financial Tools</a> | Last updated: April 2026</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CalcLeap</h3>
+                    <p>Professional calculators and conversion tools for everyday use.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li><a href="../tools.html">All Tools</a></li>
+                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Mode switching
+    document.getElementById('buyPointsBtn').addEventListener('click', function() {
+        document.getElementById('buyPointsMode').style.display = 'block';
+        document.getElementById('breakEvenMode').style.display = 'none';
+        this.classList.add('active');
+        document.getElementById('breakEvenBtn').classList.remove('active');
+    });
+
+    document.getElementById('breakEvenBtn').addEventListener('click', function() {
+        document.getElementById('buyPointsMode').style.display = 'none';
+        document.getElementById('breakEvenMode').style.display = 'block';
+        this.classList.add('active');
+        document.getElementById('buyPointsBtn').classList.remove('active');
+    });
+
+    function calculateMortgagePayment(principal, annualRate, years) {
+        const monthlyRate = annualRate / 100 / 12;
+        const numPayments = years * 12;
+        
+        if (monthlyRate === 0) return principal / numPayments;
+        
+        return principal * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / 
+               (Math.pow(1 + monthlyRate, numPayments) - 1);
+    }
+
+    function calculatePoints() {
+        const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+        const baseRate = parseFloat(document.getElementById('baseRate').value);
+        const points = parseFloat(document.getElementById('points').value);
+        const rateReduction = parseFloat(document.getElementById('rateReduction').value);
+        const loanTerm = parseFloat(document.getElementById('loanTerm').value);
+        const yearsInHome = parseFloat(document.getElementById('yearsInHome').value);
+
+        if (!loanAmount || !baseRate || !loanTerm || !yearsInHome) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        const pointsCost = loanAmount * (points / 100);
+        const newRate = baseRate - (points * rateReduction);
+        
+        const originalPayment = calculateMortgagePayment(loanAmount, baseRate, loanTerm);
+        const newPayment = calculateMortgagePayment(loanAmount, newRate, loanTerm);
+        const monthlySavings = originalPayment - newPayment;
+        
+        const breakEvenMonths = monthlySavings > 0 ? pointsCost / monthlySavings : 999999;
+        const totalSavingsOverPeriod = (monthlySavings * yearsInHome * 12) - pointsCost;
+
+        document.getElementById('pointsCost').textContent = '$' + pointsCost.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('newRate').textContent = newRate.toFixed(3) + '%';
+        document.getElementById('originalPayment').textContent = '$' + originalPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('newPayment').textContent = '$' + newPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('monthlySavings').textContent = '$' + monthlySavings.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('breakEvenMonths').textContent = breakEvenMonths.toFixed(1) + ' months (' + (breakEvenMonths / 12).toFixed(1) + ' years)';
+        
+        const savingsText = totalSavingsOverPeriod > 0 ? '+$' : '-$';
+        document.getElementById('totalSavings').textContent = savingsText + Math.abs(totalSavingsOverPeriod).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+        // Recommendation
+        let recommendation = '';
+        if (breakEvenMonths / 12 < yearsInHome) {
+            const netSavings = totalSavingsOverPeriod;
+            recommendation = '<p class="recommend-yes"><strong>✓ Buying points looks favorable.</strong> You\'ll break even in ' + (breakEvenMonths / 12).toFixed(1) + ' years and save $' + netSavings.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' over ' + yearsInHome + ' years.</p>';
+        } else {
+            const yearsNeeded = (breakEvenMonths / 12).toFixed(1);
+            recommendation = '<p class="recommend-no"><strong>✗ Buying points may not be worth it.</strong> You\'d need to stay ' + yearsNeeded + ' years to break even, but you plan to stay only ' + yearsInHome + ' years.</p>';
+        }
+        document.getElementById('recommendation').innerHTML = recommendation;
+
+        document.getElementById('results').style.display = 'block';
+    }
+
+    function calculateBreakEven() {
+        const loanAmount = parseFloat(document.getElementById('loanAmount2').value);
+        const baseRate = parseFloat(document.getElementById('baseRate2').value);
+        const points = parseFloat(document.getElementById('points2').value);
+        const rateReduction = parseFloat(document.getElementById('rateReduction2').value);
+        const loanTerm = parseFloat(document.getElementById('loanTerm2').value);
+
+        if (!loanAmount || !baseRate || !loanTerm) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        const pointsCost = loanAmount * (points / 100);
+        const newRate = baseRate - (points * rateReduction);
+        
+        const originalPayment = calculateMortgagePayment(loanAmount, baseRate, loanTerm);
+        const newPayment = calculateMortgagePayment(loanAmount, newRate, loanTerm);
+        const monthlySavings = originalPayment - newPayment;
+        
+        const breakEvenMonths = monthlySavings > 0 ? pointsCost / monthlySavings : 999999;
+        
+        const today = new Date();
+        const breakEvenDate = new Date(today);
+        breakEvenDate.setMonth(today.getMonth() + Math.ceil(breakEvenMonths));
+
+        document.getElementById('pointsCost2').textContent = '$' + pointsCost.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('monthlySavings2').textContent = '$' + monthlySavings.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('breakEvenMonths2').textContent = breakEvenMonths.toFixed(1) + ' months (' + (breakEvenMonths / 12).toFixed(1) + ' years)';
+        document.getElementById('breakEvenDate').textContent = breakEvenDate.toLocaleDateString('en-US', {month: 'long', year: 'numeric'});
+
+        // Timeline table
+        let tableHTML = '<tr><th>Year</th><th>Cumulative Savings</th><th>Net Benefit</th></tr>';
+        for (let year = 1; year <= 10; year++) {
+            const cumulativeSavings = monthlySavings * year * 12;
+            const netBenefit = cumulativeSavings - pointsCost;
+            const benefitClass = netBenefit > 0 ? 'positive' : 'negative';
+            tableHTML += '<tr><td>' + year + '</td><td>$' + cumulativeSavings.toLocaleString('en-US', {maximumFractionDigits: 0}) + '</td><td class="' + benefitClass + '">$' + netBenefit.toLocaleString('en-US', {maximumFractionDigits: 0}) + '</td></tr>';
+        }
+        document.getElementById('timelineTable').innerHTML = tableHTML;
+
+        document.getElementById('results2').style.display = 'block';
+    }
+    </script>
+
+    <style>
+    .calculator-modes {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .mode-btn {
+        flex: 1;
+        padding: 12px;
+        border: 2px solid #ddd;
+        background: white;
+        cursor: pointer;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+    .mode-btn.active {
+        background: #2563eb;
+        color: white;
+        border-color: #2563eb;
+    }
+    .recommendation {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+    .recommend-yes {
+        background: #d1fae5;
+        border-left: 4px solid #10b981;
+        color: #065f46;
+    }
+    .recommend-no {
+        background: #fee2e2;
+        border-left: 4px solid #ef4444;
+        color: #991b1b;
+    }
+    .savings-timeline {
+        margin-top: 20px;
+    }
+    .savings-timeline table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .savings-timeline th, .savings-timeline td {
+        padding: 10px;
+        border: 1px solid #e5e7eb;
+        text-align: right;
+    }
+    .savings-timeline th {
+        background: #f3f4f6;
+        font-weight: 600;
+    }
+    .positive { color: #10b981; font-weight: 600; }
+    .negative { color: #ef4444; font-weight: 600; }
+    </style>
+</body>
+</html>
