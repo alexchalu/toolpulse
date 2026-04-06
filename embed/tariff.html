@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tariff Calculator Widget — Embed Free</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Arial,sans-serif;background:#fff;color:#1d1d1f;padding:1rem;max-width:400px}
+h2{font-size:1rem;font-weight:700;margin-bottom:.75rem}
+.form-group{margin-bottom:.75rem}
+.form-group label{display:block;font-size:.72rem;font-weight:600;color:#86868b;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.2rem}
+.form-group select{width:100%;padding:.5rem;font-size:.85rem;border:1px solid rgba(0,0,0,.1);border-radius:8px;background:#f5f5f7;font-family:inherit;color:#1d1d1f}
+.btn{width:100%;padding:.6rem;font-size:.85rem;font-weight:600;background:#0071e3;color:#fff;border:none;border-radius:8px;cursor:pointer;margin-top:.25rem}
+.btn:hover{background:#0077ED}
+.result{display:none;text-align:center;padding:1rem;background:#fff5f5;border:2px solid #e34040;border-radius:12px;margin-top:.75rem}
+.result .big{font-size:2rem;font-weight:800;color:#e34040}
+.result .sub{font-size:.78rem;color:#424245;margin-top:.25rem}
+.powered{text-align:center;margin-top:.75rem;font-size:.7rem;color:#86868b}
+.powered a{color:#0071e3;text-decoration:none}
+</style>
+</head>
+<body>
+<h2>🇺🇸 2026 Tariff Cost Calculator</h2>
+<div class="form-group"><label>Annual Income</label><select id="w_inc"><option value="30000">Under $30K</option><option value="50000">$30K-$60K</option><option value="75000" selected>$60K-$100K</option><option value="125000">$100K-$150K</option><option value="200000">$150K+</option></select></div>
+<div class="form-group"><label>Household Size</label><select id="w_hh"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4+</option></select></div>
+<div class="form-group"><label>Own a Car?</label><select id="w_car"><option value="0">No</option><option value="1" selected>Yes (1)</option><option value="2">Yes (2+)</option></select></div>
+<button class="btn" onclick="calc()">Calculate Tariff Cost</button>
+<div class="result" id="w_res">
+<div class="big" id="w_total">$0</div>
+<div class="sub" id="w_sub">estimated annual tariff cost</div>
+</div>
+<div class="powered">Powered by <a href="https://calcleap.com/tariff-impact-calculator.html" target="_blank">CalcLeap</a></div>
+<script>
+function calc(){
+  var inc=parseInt(document.getElementById('w_inc').value),hh=parseInt(document.getElementById('w_hh').value),car=parseInt(document.getElementById('w_car').value);
+  var hhM=0.6+hh*0.2,lvl=inc<=30000?0:inc<=50000?0.25:inc<=75000?0.5:inc<=125000?0.7:1;
+  var cats=[{r:.012,sl:.33,sh:.10},{r:.035,sl:.15,sh:.08},{r:.025,sl:.05,sh:.03},{r:.018,sl:.04,sh:.05},{r:.02,sl:.3,sh:.25},{r:.008,sl:.08,sh:.04}];
+  var t=0;cats.forEach(function(c,i){var sh=c.sl+(c.sh-c.sl)*lvl;var cost=inc*sh*c.r*hhM;if(i===1)cost*=car;t+=cost});
+  t=Math.round(t);var m=Math.round(t/12);
+  document.getElementById('w_total').textContent='$'+t.toLocaleString()+'/yr';
+  document.getElementById('w_sub').textContent='$'+m+'/month — '+((t/inc)*100).toFixed(1)+'% of income';
+  document.getElementById('w_res').style.display='block';
+}
+</script>
+</body>
+</html>
