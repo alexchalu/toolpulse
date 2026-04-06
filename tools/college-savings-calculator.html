@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Savings Calculator - Calculate 529 Plan Growth | CalcLeap</title>
+    <meta name="description" content="Free college savings calculator to estimate 529 plan growth, determine monthly contributions needed, and plan for education expenses with inflation adjustments.">
+    <meta name="keywords" content="college savings calculator, 529 plan calculator, education savings, tuition planning, college fund calculator">
+    <link rel="canonical" href="https://calcleap.com/tools/college-savings-calculator.html">
+    <meta property="og:title" content="College Savings Calculator - Calculate 529 Plan Growth">
+    <meta property="og:description" content="Estimate 529 plan growth and determine monthly contributions needed for college savings with our free calculator.">
+    <meta property="og:url" content="https://calcleap.com/tools/college-savings-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/gold.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "College Savings Calculator",
+      "description": "Calculate 529 plan growth and determine monthly contributions needed for college education savings.",
+      "url": "https://calcleap.com/tools/college-savings-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-26FDEVMBTY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-26FDEVMBTY');
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">CalcLeap</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../tools.html">Tools</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article>
+            <header class="tool-header">
+                <h1>College Savings Calculator</h1>
+                <p class="tool-subtitle">Calculate 529 plan growth and determine monthly contributions needed for education expenses</p>
+                <div class="author-date">
+                    <span class="author">By CalcLeap</span>
+                    <span class="date">Updated April 2026</span>
+                </div>
+            </header>
+
+            <div class="tool-content">
+                <div class="calculator-container">
+                    <div class="calc-mode-tabs">
+                        <button class="tab-btn active" data-mode="growth">Calculate Growth</button>
+                        <button class="tab-btn" data-mode="contribution">Calculate Contribution</button>
+                    </div>
+
+                    <!-- Growth Calculator Mode -->
+                    <div id="growthMode" class="calc-mode active">
+                        <div class="input-group">
+                            <label for="currentSavings">Current College Savings ($)</label>
+                            <input type="number" id="currentSavings" value="10000" min="0" step="1000">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="monthlyContribution">Monthly Contribution ($)</label>
+                            <input type="number" id="monthlyContribution" value="500" min="0" step="50">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="yearsToCollege">Years Until College</label>
+                            <input type="number" id="yearsToCollege" value="10" min="1" max="18" step="1">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="annualReturn">Expected Annual Return (%)</label>
+                            <input type="number" id="annualReturn" value="7" min="0" max="15" step="0.1">
+                            <small>Historical 529 returns: 6-8% annually</small>
+                        </div>
+
+                        <button class="calculate-btn" onclick="calculateGrowth()">Calculate Savings Growth</button>
+
+                        <div id="growthResults" class="results" style="display: none;">
+                            <h3>Projected College Savings</h3>
+                            <div class="result-highlight">
+                                <div class="result-label">Future Value</div>
+                                <div class="result-value" id="futureValue">$0</div>
+                            </div>
+                            <div class="result-row">
+                                <span>Total Contributions:</span>
+                                <strong id="totalContributions">$0</strong>
+                            </div>
+                            <div class="result-row">
+                                <span>Investment Earnings:</span>
+                                <strong id="earnings">$0</strong>
+                            </div>
+                            <div class="result-row">
+                                <span>Return on Investment:</span>
+                                <strong id="roi">0%</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contribution Calculator Mode -->
+                    <div id="contributionMode" class="calc-mode">
+                        <div class="input-group">
+                            <label for="currentSavings2">Current College Savings ($)</label>
+                            <input type="number" id="currentSavings2" value="10000" min="0" step="1000">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="targetAmount">Target College Fund ($)</label>
+                            <input type="number" id="targetAmount" value="100000" min="0" step="10000">
+                            <small>Average 4-year public: $100k | Private: $200k+</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="yearsToCollege2">Years Until College</label>
+                            <input type="number" id="yearsToCollege2" value="10" min="1" max="18" step="1">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="annualReturn2">Expected Annual Return (%)</label>
+                            <input type="number" id="annualReturn2" value="7" min="0" max="15" step="0.1">
+                        </div>
+
+                        <button class="calculate-btn" onclick="calculateContribution()">Calculate Monthly Contribution</button>
+
+                        <div id="contributionResults" class="results" style="display: none;">
+                            <h3>Required Monthly Contribution</h3>
+                            <div class="result-highlight">
+                                <div class="result-label">Monthly Payment</div>
+                                <div class="result-value" id="requiredContribution">$0</div>
+                            </div>
+                            <div class="result-row">
+                                <span>Total You'll Contribute:</span>
+                                <strong id="totalOut">$0</strong>
+                            </div>
+                            <div class="result-row">
+                                <span>Investment Will Earn:</span>
+                                <strong id="willEarn">$0</strong>
+                            </div>
+                            <div class="result-row">
+                                <span>Final Fund Value:</span>
+                                <strong id="finalValue">$0</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="info-section">
+                    <h2>About College Savings Planning</h2>
+                    <p>This calculator helps you plan for education expenses using 529 plans or other college savings vehicles. It accounts for compound growth and shows both scenarios: how much your savings will grow with current contributions, or how much you need to save monthly to reach a target.</p>
+                    
+                    <h3>529 Plan Benefits</h3>
+                    <ul>
+                        <li><strong>Tax-Free Growth:</strong> Earnings grow tax-free when used for qualified education expenses</li>
+                        <li><strong>State Tax Deductions:</strong> Many states offer deductions for 529 contributions (up to $10k+ in some states)</li>
+                        <li><strong>High Contribution Limits:</strong> Most states allow $300k-500k total contributions per beneficiary</li>
+                        <li><strong>Flexible Use:</strong> Can be used for tuition, room & board, books, computers, and K-12 tuition</li>
+                        <li><strong>Control:</strong> Account owner retains control; can change beneficiaries</li>
+                    </ul>
+
+                    <h3>Average College Costs (2026)</h3>
+                    <ul>
+                        <li><strong>Public 4-Year (In-State):</strong> $25,000-30,000/year ($100k-120k total)</li>
+                        <li><strong>Public 4-Year (Out-of-State):</strong> $40,000-50,000/year ($160k-200k total)</li>
+                        <li><strong>Private 4-Year:</strong> $50,000-80,000/year ($200k-320k total)</li>
+                        <li><strong>Community College (2-Year):</strong> $3,500-5,000/year ($7k-10k total)</li>
+                    </ul>
+
+                    <h3>College Savings Strategies</h3>
+                    <ul>
+                        <li><strong>Start Early:</strong> The earlier you start, the more compound growth works in your favor</li>
+                        <li><strong>Automate:</strong> Set up automatic monthly contributions to stay consistent</li>
+                        <li><strong>Adjust Over Time:</strong> Start aggressive (100% stocks), shift conservative as college approaches</li>
+                        <li><strong>Use Gift Contributions:</strong> Ask family to contribute to 529 instead of traditional gifts</li>
+                        <li><strong>Consider Age-Based Portfolios:</strong> Many 529 plans auto-adjust risk as child ages</li>
+                        <li><strong>Don't Over-Save:</strong> Unused 529 funds can be transferred or withdrawn (with penalties)</li>
+                    </ul>
+
+                    <h3>Tips for Maximizing Growth</h3>
+                    <ul>
+                        <li>Contribute at least enough to get any available state tax deduction</li>
+                        <li>Front-load contributions early in the year to maximize growth time</li>
+                        <li>Use lump-sum contributions from bonuses, tax refunds, or gifts</li>
+                        <li>Review and rebalance your 529 portfolio annually</li>
+                        <li>Factor in inflation: college costs rise 3-5% annually on average</li>
+                        <li>Don't rely solely on 529s: scholarships, grants, and student loans can fill gaps</li>
+                    </ul>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>CalcLeap</h3>
+                <p>Professional calculators and tools for everyday decisions.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Tools</h4>
+                <ul>
+                    <li><a href="../tools.html">All Tools</a></li>
+                    <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const mode = btn.dataset.mode;
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.calc-mode').forEach(m => m.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(mode + 'Mode').classList.add('active');
+            });
+        });
+
+        function calculateGrowth() {
+            const current = parseFloat(document.getElementById('currentSavings').value) || 0;
+            const monthly = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+            const years = parseFloat(document.getElementById('yearsToCollege').value) || 1;
+            const rate = (parseFloat(document.getElementById('annualReturn').value) || 0) / 100;
+
+            const months = years * 12;
+            const monthlyRate = rate / 12;
+
+            // Future value of current savings
+            const fvCurrent = current * Math.pow(1 + monthlyRate, months);
+
+            // Future value of monthly contributions (ordinary annuity)
+            const fvContributions = monthly * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+
+            const futureValue = fvCurrent + fvContributions;
+            const totalContributions = current + (monthly * months);
+            const earnings = futureValue - totalContributions;
+            const roi = totalContributions > 0 ? ((earnings / totalContributions) * 100) : 0;
+
+            document.getElementById('futureValue').textContent = '$' + futureValue.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('totalContributions').textContent = '$' + totalContributions.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('earnings').textContent = '$' + earnings.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('roi').textContent = roi.toFixed(1) + '%';
+
+            document.getElementById('growthResults').style.display = 'block';
+        }
+
+        function calculateContribution() {
+            const current = parseFloat(document.getElementById('currentSavings2').value) || 0;
+            const target = parseFloat(document.getElementById('targetAmount').value) || 0;
+            const years = parseFloat(document.getElementById('yearsToCollege2').value) || 1;
+            const rate = (parseFloat(document.getElementById('annualReturn2').value) || 0) / 100;
+
+            const months = years * 12;
+            const monthlyRate = rate / 12;
+
+            // Future value of current savings
+            const fvCurrent = current * Math.pow(1 + monthlyRate, months);
+
+            // Remaining amount needed from contributions
+            const remainingNeeded = Math.max(0, target - fvCurrent);
+
+            // Calculate required monthly contribution using PMT formula
+            // PMT = (FV * r) / ((1 + r)^n - 1)
+            let requiredMonthly = 0;
+            if (remainingNeeded > 0 && monthlyRate > 0) {
+                requiredMonthly = (remainingNeeded * monthlyRate) / (Math.pow(1 + monthlyRate, months) - 1);
+            } else if (remainingNeeded > 0) {
+                requiredMonthly = remainingNeeded / months;
+            }
+
+            const totalOut = current + (requiredMonthly * months);
+            const willEarn = target - totalOut;
+
+            document.getElementById('requiredContribution').textContent = '$' + requiredMonthly.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('totalOut').textContent = '$' + totalOut.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('willEarn').textContent = '$' + willEarn.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('finalValue').textContent = '$' + target.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+            document.getElementById('contributionResults').style.display = 'block';
+        }
+
+        // Auto-calculate on input change
+        ['currentSavings', 'monthlyContribution', 'yearsToCollege', 'annualReturn'].forEach(id => {
+            document.getElementById(id).addEventListener('input', () => {
+                if (document.getElementById('growthResults').style.display === 'block') {
+                    calculateGrowth();
+                }
+            });
+        });
+
+        ['currentSavings2', 'targetAmount', 'yearsToCollege2', 'annualReturn2'].forEach(id => {
+            document.getElementById(id).addEventListener('input', () => {
+                if (document.getElementById('contributionResults').style.display === 'block') {
+                    calculateContribution();
+                }
+            });
+        });
+
+        // Initial calculation
+        calculateGrowth();
+    </script>
+</body>
+</html>
