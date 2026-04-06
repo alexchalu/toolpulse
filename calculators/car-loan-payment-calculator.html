@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Loan Payment Calculator - Calculate Monthly Auto Loan Payments | CalcLeap</title>
+    <meta name="description" content="Free car loan payment calculator. Calculate monthly auto loan payments, total interest, and see full amortization schedule for your vehicle financing.">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ000F21XJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HJ000F21XJ');
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Car Loan Payment Calculator",
+      "description": "Calculate monthly car loan payments, total interest, and amortization schedule",
+      "url": "https://calcleap.com/calculators/car-loan-payment-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">CalcLeap</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../calculators.html">Calculators</a></li>
+                <li><a href="../converters.html">Converters</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="calculator-container">
+            <h1>Car Loan Payment Calculator</h1>
+            <p class="calculator-description">
+                Calculate your monthly car loan payment, total interest paid, and view a complete amortization schedule. 
+                Perfect for planning your auto financing and comparing different loan terms.
+            </p>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="loanAmount">Vehicle Price ($)</label>
+                    <input type="number" id="loanAmount" value="30000" min="0" step="1000">
+                </div>
+
+                <div class="input-group">
+                    <label for="downPayment">Down Payment ($)</label>
+                    <input type="number" id="downPayment" value="5000" min="0" step="500">
+                </div>
+
+                <div class="input-group">
+                    <label for="interestRate">Annual Interest Rate (%)</label>
+                    <input type="number" id="interestRate" value="5.5" min="0" max="30" step="0.1">
+                </div>
+
+                <div class="input-group">
+                    <label for="loanTerm">Loan Term (months)</label>
+                    <select id="loanTerm">
+                        <option value="24">24 months (2 years)</option>
+                        <option value="36">36 months (3 years)</option>
+                        <option value="48">48 months (4 years)</option>
+                        <option value="60" selected>60 months (5 years)</option>
+                        <option value="72">72 months (6 years)</option>
+                        <option value="84">84 months (7 years)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="tradeInValue">Trade-In Value ($)</label>
+                    <input type="number" id="tradeInValue" value="0" min="0" step="500">
+                </div>
+
+                <button class="btn-primary" onclick="calculateLoan()">Calculate Payment</button>
+            </div>
+
+            <div id="toolContent" class="result-section">
+                <!-- Results will be displayed here -->
+            </div>
+
+            <div class="info-section">
+                <h2>How Car Loan Payments Work</h2>
+                <p>
+                    Car loan payments are calculated using an amortization formula that accounts for your loan amount, 
+                    interest rate, and repayment term. Each monthly payment covers both principal (the borrowed amount) 
+                    and interest charges.
+                </p>
+                
+                <h3>Factors Affecting Your Payment</h3>
+                <ul>
+                    <li><strong>Vehicle Price:</strong> The total cost of the car before any down payment or trade-in</li>
+                    <li><strong>Down Payment:</strong> The amount you pay upfront, reducing your loan amount</li>
+                    <li><strong>Interest Rate:</strong> Annual percentage rate (APR) charged by the lender</li>
+                    <li><strong>Loan Term:</strong> The length of time to repay (typically 36-72 months)</li>
+                    <li><strong>Trade-In Value:</strong> Credit from your current vehicle toward the new purchase</li>
+                </ul>
+
+                <h3>Tips for Better Car Financing</h3>
+                <ul>
+                    <li>Put down at least 10-20% to reduce interest costs and avoid being underwater</li>
+                    <li>Choose the shortest term you can comfortably afford (typically 48-60 months)</li>
+                    <li>Shop around with multiple lenders to compare rates</li>
+                    <li>Check your credit score before applying - higher scores get better rates</li>
+                    <li>Consider total interest paid, not just monthly payment</li>
+                    <li>Factor in insurance, gas, maintenance when budgeting</li>
+                </ul>
+
+                <h3>Understanding Amortization</h3>
+                <p>
+                    Early in your loan, most of each payment goes toward interest. As you pay down the principal, 
+                    more of each payment goes toward the loan balance. This is why making extra payments early 
+                    can significantly reduce total interest paid.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+        <p><a href="../about.html">About</a> | <a href="../contact.html">Contact</a> | <a href="../privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        function calculateLoan() {
+            const vehiclePrice = parseFloat(document.getElementById('loanAmount').value) || 0;
+            const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+            const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const termMonths = parseInt(document.getElementById('loanTerm').value) || 60;
+            const tradeIn = parseFloat(document.getElementById('tradeInValue').value) || 0;
+
+            const loanAmount = vehiclePrice - downPayment - tradeIn;
+
+            if (loanAmount <= 0) {
+                document.getElementById('toolContent').innerHTML = `
+                    <div class="error-message">
+                        <p>Your down payment and trade-in exceed the vehicle price. No loan needed!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const monthlyRate = annualRate / 100 / 12;
+            let monthlyPayment;
+            let totalPaid;
+            let totalInterest;
+
+            if (monthlyRate === 0) {
+                monthlyPayment = loanAmount / termMonths;
+                totalPaid = loanAmount;
+                totalInterest = 0;
+            } else {
+                monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, termMonths)) / 
+                                 (Math.pow(1 + monthlyRate, termMonths) - 1);
+                totalPaid = monthlyPayment * termMonths;
+                totalInterest = totalPaid - loanAmount;
+            }
+
+            // Generate amortization schedule
+            let balance = loanAmount;
+            let scheduleHTML = '<table class="amortization-table"><thead><tr><th>Payment #</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead><tbody>';
+            
+            for (let i = 1; i <= Math.min(termMonths, 12); i++) {
+                const interestPayment = balance * monthlyRate;
+                const principalPayment = monthlyPayment - interestPayment;
+                balance -= principalPayment;
+
+                scheduleHTML += `<tr>
+                    <td>${i}</td>
+                    <td>$${monthlyPayment.toFixed(2)}</td>
+                    <td>$${principalPayment.toFixed(2)}</td>
+                    <td>$${interestPayment.toFixed(2)}</td>
+                    <td>$${Math.max(0, balance).toFixed(2)}</td>
+                </tr>`;
+            }
+            
+            if (termMonths > 12) {
+                scheduleHTML += `<tr><td colspan="5" style="text-align: center; font-style: italic;">Showing first 12 months of ${termMonths} total payments</td></tr>`;
+            }
+            scheduleHTML += '</tbody></table>';
+
+            const resultHTML = `
+                <div class="result-card">
+                    <h2>Loan Summary</h2>
+                    <div class="result-grid">
+                        <div class="result-item highlight">
+                            <div class="result-label">Monthly Payment</div>
+                            <div class="result-value">$${monthlyPayment.toFixed(2)}</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Loan Amount</div>
+                            <div class="result-value">$${loanAmount.toFixed(2)}</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Total Interest Paid</div>
+                            <div class="result-value">$${totalInterest.toFixed(2)}</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Total Amount Paid</div>
+                            <div class="result-value">$${totalPaid.toFixed(2)}</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Total Cost (Price + Interest)</div>
+                            <div class="result-value">$${(vehiclePrice + totalInterest).toFixed(2)}</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Down Payment</div>
+                            <div class="result-value">$${downPayment.toFixed(2)}</div>
+                        </div>
+                        ${tradeIn > 0 ? `<div class="result-item">
+                            <div class="result-label">Trade-In Value</div>
+                            <div class="result-value">$${tradeIn.toFixed(2)}</div>
+                        </div>` : ''}
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h2>Amortization Schedule</h2>
+                    ${scheduleHTML}
+                </div>
+
+                <div class="tips-box">
+                    <h3>💡 Money-Saving Tips</h3>
+                    <ul>
+                        <li>Every $1,000 down reduces your payment by approximately $${(1000 * monthlyRate * Math.pow(1 + monthlyRate, termMonths) / (Math.pow(1 + monthlyRate, termMonths) - 1)).toFixed(2)}/month</li>
+                        <li>A 1% lower interest rate saves you $${(loanAmount * 0.01 / 12 * termMonths / 2).toFixed(2)} over the loan term</li>
+                        <li>Refinancing after 1-2 years with better credit could lower your rate</li>
+                    </ul>
+                </div>
+            `;
+
+            document.getElementById('toolContent').innerHTML = resultHTML;
+        }
+
+        // Auto-calculate on page load
+        window.onload = function() {
+            calculateLoan();
+        };
+
+        // Auto-calculate on input change
+        document.querySelectorAll('input, select').forEach(input => {
+            input.addEventListener('input', calculateLoan);
+        });
+    </script>
+
+    <style>
+        .amortization-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .amortization-table th,
+        .amortization-table td {
+            padding: 0.75rem;
+            text-align: right;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .amortization-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .amortization-table th:first-child,
+        .amortization-table td:first-child {
+            text-align: center;
+        }
+
+        .amortization-table tbody tr:hover {
+            background-color: #f9fafb;
+        }
+
+        .tips-box {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .tips-box h3 {
+            margin-top: 0;
+            color: #1e40af;
+        }
+
+        .tips-box ul {
+            margin-bottom: 0;
+        }
+
+        .tips-box li {
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+
+        .error-message {
+            background-color: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 1rem;
+            border-radius: 4px;
+            color: #991b1b;
+        }
+    </style>
+</body>
+</html>
