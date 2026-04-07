@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate potential medical malpractice settlement values based on economic damages, non-economic damages, and case strength. Free calculator tool.">
+    <title>Medical Malpractice Settlement Calculator | CalcLeap</title>
+    <link rel="canonical" href="https://calcleap.com/tools/medical-malpractice-settlement-calculator.html">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/calc-modern.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3Y77FP78T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-T3Y77FP78T');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Medical Malpractice Settlement Calculator",
+      "description": "Calculate potential medical malpractice settlement values based on economic damages, non-economic damages, and case strength.",
+      "url": "https://calcleap.com/tools/medical-malpractice-settlement-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">CalcLeap</a>
+            <div class="nav-links">
+                <a href="../index.html#tools">Tools</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../about.html">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="calc-container">
+        <header class="calc-header">
+            <h1>Medical Malpractice Settlement Calculator</h1>
+            <p>Estimate potential settlement values based on economic damages, non-economic damages, and case factors. This calculator provides rough estimates for informational purposes only.</p>
+        </header>
+
+        <div class="calc-content">
+            <div class="input-section">
+                <h2>Economic Damages</h2>
+                <div class="input-group">
+                    <label for="medicalCosts">Past Medical Costs ($)</label>
+                    <input type="number" id="medicalCosts" value="50000" min="0" step="1000">
+                    <span class="input-hint">Bills already incurred</span>
+                </div>
+                <div class="input-group">
+                    <label for="futureMedical">Future Medical Costs ($)</label>
+                    <input type="number" id="futureMedical" value="100000" min="0" step="1000">
+                    <span class="input-hint">Estimated future treatment costs</span>
+                </div>
+                <div class="input-group">
+                    <label for="lostWages">Lost Wages ($)</label>
+                    <input type="number" id="lostWages" value="75000" min="0" step="1000">
+                    <span class="input-hint">Past and future lost earnings</span>
+                </div>
+
+                <h2>Non-Economic Damages</h2>
+                <div class="input-group">
+                    <label for="painSuffering">Pain & Suffering Base ($)</label>
+                    <input type="number" id="painSuffering" value="200000" min="0" step="10000">
+                    <span class="input-hint">Mental anguish, loss of quality of life</span>
+                </div>
+
+                <h2>Case Factors</h2>
+                <div class="input-group">
+                    <label for="severity">Injury Severity</label>
+                    <select id="severity">
+                        <option value="1.0">Minor (temporary symptoms)</option>
+                        <option value="1.3">Moderate (persistent symptoms)</option>
+                        <option value="1.6" selected>Serious (permanent disability)</option>
+                        <option value="2.0">Catastrophic (life-altering)</option>
+                        <option value="2.5">Wrongful death</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="liability">Defendant Liability</label>
+                    <select id="liability">
+                        <option value="0.5">Weak (disputed causation)</option>
+                        <option value="0.7">Moderate (shared blame)</option>
+                        <option value="1.0" selected>Strong (clear negligence)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="stateCap">State Damage Cap</label>
+                    <select id="stateCap">
+                        <option value="0">No cap</option>
+                        <option value="250000">$250,000 cap</option>
+                        <option value="350000">$350,000 cap</option>
+                        <option value="500000">$500,000 cap</option>
+                        <option value="750000">$750,000 cap</option>
+                        <option value="1000000">$1,000,000 cap</option>
+                    </select>
+                    <span class="input-hint">Some states cap non-economic damages</span>
+                </div>
+                <div class="input-group">
+                    <label for="attorneyFee">Attorney Fee (%)</label>
+                    <input type="number" id="attorneyFee" value="33" min="0" max="50" step="1">
+                    <span class="input-hint">Typical contingency fee: 33-40%</span>
+                </div>
+
+                <button class="calc-button" onclick="calculateSettlement()">Calculate Settlement</button>
+            </div>
+
+            <div class="results-section" id="results" style="display: none;">
+                <h2>Settlement Estimate</h2>
+                <div class="result-card highlight">
+                    <div class="result-label">Estimated Settlement Range</div>
+                    <div class="result-value" id="settlementRange">$0 - $0</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Total Economic Damages</div>
+                    <div class="result-value" id="economicTotal">$0</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Non-Economic Damages (After Cap)</div>
+                    <div class="result-value" id="nonEconomicTotal">$0</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Total Damages (Before Fees)</div>
+                    <div class="result-value" id="totalDamages">$0</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Attorney Fees</div>
+                    <div class="result-value" id="attorneyFees">$0</div>
+                </div>
+                <div class="result-card highlight">
+                    <div class="result-label">Net Settlement to Plaintiff</div>
+                    <div class="result-value" id="netSettlement">$0</div>
+                </div>
+
+                <div class="info-box">
+                    <h3>Important Disclaimers</h3>
+                    <ul>
+                        <li><strong>This is not legal advice.</strong> Consult with a qualified medical malpractice attorney for case evaluation.</li>
+                        <li>Actual settlements vary widely based on jurisdiction, jury pool, case facts, and negotiation.</li>
+                        <li>Many states cap non-economic damages in medical malpractice cases.</li>
+                        <li>Economic damages (medical bills, lost wages) are generally not capped.</li>
+                        <li>Settlement ranges reflect uncertainty in litigation outcomes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section class="info-content">
+            <h2>Understanding Medical Malpractice Settlements</h2>
+            <p>Medical malpractice settlements compensate patients harmed by healthcare provider negligence. Settlement values depend on economic damages, non-economic damages, injury severity, and state laws.</p>
+
+            <h3>Types of Damages</h3>
+            <ul>
+                <li><strong>Economic Damages:</strong> Medical bills (past and future), lost wages, rehabilitation costs, home modifications. These are calculable and typically not capped.</li>
+                <li><strong>Non-Economic Damages:</strong> Pain and suffering, emotional distress, loss of quality of life, loss of consortium. Many states cap these damages (often $250k-$750k).</li>
+                <li><strong>Punitive Damages:</strong> Rare in malpractice cases; reserved for egregious conduct.</li>
+            </ul>
+
+            <h3>Factors Affecting Settlement Value</h3>
+            <ul>
+                <li><strong>Severity of Injury:</strong> Catastrophic injuries (paralysis, brain damage, death) command higher settlements.</li>
+                <li><strong>Clear Negligence:</strong> Strong deviation from standard of care increases settlement leverage.</li>
+                <li><strong>State Caps:</strong> Non-economic damage caps significantly reduce settlement values in many states.</li>
+                <li><strong>Plaintiff Characteristics:</strong> Age, earning capacity, and life expectancy affect economic damage calculations.</li>
+                <li><strong>Defendant Resources:</strong> Hospital systems and insured physicians settle higher than uninsured solo practitioners.</li>
+            </ul>
+
+            <h3>States with Damage Caps (Examples)</h3>
+            <ul>
+                <li><strong>California:</strong> $250,000 cap on non-economic damages (MICRA)</li>
+                <li><strong>Texas:</strong> $250,000 per physician, $500,000 total for institutions</li>
+                <li><strong>Florida:</strong> $500,000 practitioners, $1M non-practitioners (death cases higher)</li>
+                <li><strong>Indiana:</strong> $1.8M total cap on all damages</li>
+                <li><strong>New York:</strong> No cap on damages</li>
+            </ul>
+
+            <h3>Settlement vs. Trial</h3>
+            <p>Most medical malpractice cases settle before trial. Settlements provide certainty and faster payment, while trials carry risk but potential for higher awards. Defense often settles to avoid negative publicity and uncertain jury verdicts.</p>
+
+            <h3>When to Consult an Attorney</h3>
+            <p>Medical malpractice cases require expert testimony and extensive investigation. Consult a specialized attorney if you suffered harm from:</p>
+            <ul>
+                <li>Surgical errors (wrong-site surgery, retained instruments)</li>
+                <li>Misdiagnosis or delayed diagnosis (cancer, heart attack, stroke)</li>
+                <li>Medication errors (wrong drug, wrong dose)</li>
+                <li>Birth injuries (cerebral palsy, Erb's palsy)</li>
+                <li>Anesthesia errors</li>
+                <li>Hospital-acquired infections from negligent care</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>CalcLeap</h3>
+                <p>Free calculators and tools for everyday decisions.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="../privacy.html">Privacy Policy</a></li>
+                    <li><a href="../terms.html">Terms of Service</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Popular Tools</h3>
+                <ul>
+                    <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+                    <li><a href="password-generator.html">Password Generator</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CalcLeap. Built by <a href="https://chalunkal.com" target="_blank">Alex Chalunkal</a>.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateSettlement() {
+            const medicalCosts = parseFloat(document.getElementById('medicalCosts').value) || 0;
+            const futureMedical = parseFloat(document.getElementById('futureMedical').value) || 0;
+            const lostWages = parseFloat(document.getElementById('lostWages').value) || 0;
+            const painSuffering = parseFloat(document.getElementById('painSuffering').value) || 0;
+            const severityMultiplier = parseFloat(document.getElementById('severity').value);
+            const liabilityFactor = parseFloat(document.getElementById('liability').value);
+            const stateCap = parseFloat(document.getElementById('stateCap').value) || 0;
+            const attorneyFee = parseFloat(document.getElementById('attorneyFee').value) / 100 || 0.33;
+
+            const economicDamages = medicalCosts + futureMedical + lostWages;
+            let nonEconomicDamages = painSuffering * severityMultiplier;
+
+            if (stateCap > 0 && nonEconomicDamages > stateCap) {
+                nonEconomicDamages = stateCap;
+            }
+
+            const totalDamages = economicDamages + nonEconomicDamages;
+            const adjustedDamages = totalDamages * liabilityFactor;
+
+            const lowEstimate = adjustedDamages * 0.6;
+            const highEstimate = adjustedDamages * 1.0;
+
+            const avgSettlement = (lowEstimate + highEstimate) / 2;
+            const attorneyFeesAmount = avgSettlement * attorneyFee;
+            const netSettlement = avgSettlement - attorneyFeesAmount;
+
+            document.getElementById('economicTotal').textContent = '$' + economicDamages.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('nonEconomicTotal').textContent = '$' + nonEconomicDamages.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('totalDamages').textContent = '$' + adjustedDamages.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('settlementRange').textContent = '$' + lowEstimate.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' - $' + highEstimate.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('attorneyFees').textContent = '$' + attorneyFeesAmount.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('netSettlement').textContent = '$' + netSettlement.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        document.querySelectorAll('input, select').forEach(elem => {
+            elem.addEventListener('input', () => {
+                if (document.getElementById('results').style.display === 'block') {
+                    calculateSettlement();
+                }
+            });
+        });
+
+        window.addEventListener('load', calculateSettlement);
+    </script>
+</body>
+</html>
