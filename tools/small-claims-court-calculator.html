@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Claims Court Calculator - Calculate Your Claim Value | CalcLeap</title>
+    <meta name="description" content="Free small claims court calculator. Calculate your claim value, court costs, filing fees, and chances of recovery. Know your damages before filing.">
+    <meta name="keywords" content="small claims court calculator, small claims calculator, court filing fees, claim value calculator, small claims damages, court costs estimator">
+    <link rel="canonical" href="https://calcleap.com/tools/small-claims-court-calculator.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Small Claims Court Calculator - Calculate Your Claim Value">
+    <meta property="og:description" content="Free small claims court calculator. Calculate claim value, court costs, filing fees, and recovery chances.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/tools/small-claims-court-calculator.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Small Claims Court Calculator - Calculate Your Claim Value">
+    <meta name="twitter:description" content="Free small claims court calculator. Calculate claim value, court costs, filing fees, and recovery chances.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BYQ29QEQP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1BYQ29QEQP');
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Small Claims Court Calculator",
+        "description": "Calculate your small claims court case value, filing fees, and recovery potential",
+        "url": "https://calcleap.com/tools/small-claims-court-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .calculator-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .checkbox-group {
+            margin: 15px 0;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        #results {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .result-value {
+            font-weight: 700;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .total-row {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 3px solid #667eea;
+            font-size: 1.3em;
+        }
+
+        .info-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .info-section h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .info-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-section li {
+            margin-bottom: 10px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .state-limits {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .state-limits h4 {
+            margin-bottom: 10px;
+            color: #1976d2;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+        }
+
+        footer a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .calculator-card,
+            .info-section {
+                padding: 25px;
+            }
+            
+            .result-item {
+                flex-direction: column;
+            }
+            
+            .result-value {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💼 Small Claims Court Calculator</h1>
+            <p class="subtitle">Calculate Your Claim Value, Court Costs & Recovery Potential</p>
+        </header>
+
+        <div class="calculator-card">
+            <h2>Case Information</h2>
+            
+            <div class="input-group">
+                <label for="state">Your State:</label>
+                <select id="state">
+                    <option value="general">General (National Average)</option>
+                    <option value="CA">California ($12,500)</option>
+                    <option value="TX">Texas ($20,000)</option>
+                    <option value="NY">New York ($10,000)</option>
+                    <option value="FL">Florida ($8,000)</option>
+                    <option value="IL">Illinois ($10,000)</option>
+                    <option value="PA">Pennsylvania ($12,000)</option>
+                    <option value="OH">Ohio ($6,000)</option>
+                    <option value="GA">Georgia ($15,000)</option>
+                    <option value="NC">North Carolina ($10,000)</option>
+                    <option value="MI">Michigan ($6,500)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="damageAmount">Actual Damages ($):</label>
+                <input type="number" id="damageAmount" value="2500" min="0" step="0.01">
+                <small>Money lost, property damage, unpaid bills, etc.</small>
+            </div>
+
+            <div class="input-group">
+                <label for="outOfPocket">Out-of-Pocket Expenses ($):</label>
+                <input type="number" id="outOfPocket" value="150" min="0" step="0.01">
+                <small>Costs incurred trying to resolve the issue</small>
+            </div>
+
+            <div class="input-group">
+                <label for="lostWages">Lost Wages ($):</label>
+                <input type="number" id="lostWages" value="0" min="0" step="0.01">
+                <small>Income lost due to this dispute</small>
+            </div>
+
+            <div class="input-group">
+                <label for="filingFee">Estimated Filing Fee ($):</label>
+                <input type="number" id="filingFee" value="75" min="0" step="0.01">
+                <small>Court filing fee (typically $30-$200)</small>
+            </div>
+
+            <div class="input-group">
+                <label for="serviceFee">Service of Process Fee ($):</label>
+                <input type="number" id="serviceFee" value="40" min="0" step="0.01">
+                <small>Cost to serve papers to defendant</small>
+            </div>
+
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="hasEvidence" checked>
+                    I have strong evidence (receipts, contracts, photos, etc.)
+                </label>
+                <label>
+                    <input type="checkbox" id="hasWitnesses">
+                    I have witnesses who can testify
+                </label>
+                <label>
+                    <input type="checkbox" id="writtenAgreement" checked>
+                    There was a written agreement or contract
+                </label>
+                <label>
+                    <input type="checkbox" id="defendantSolvent" checked>
+                    Defendant appears able to pay (employed, owns property)
+                </label>
+            </div>
+
+            <button onclick="calculateClaim()">Calculate My Case</button>
+
+            <div id="results" style="display: none;"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>Understanding Small Claims Court</h2>
+            
+            <p>Small claims court provides a fast, inexpensive way to resolve disputes involving smaller amounts of money. Most cases are resolved within 1-3 months, and you don't need a lawyer (though some states allow them).</p>
+
+            <h3>Common Small Claims Cases</h3>
+            <ul>
+                <li><strong>Security deposit disputes</strong> - Landlord won't return deposit</li>
+                <li><strong>Unpaid debts</strong> - Money owed by individuals or businesses</li>
+                <li><strong>Property damage</strong> - Damage to car, home, or possessions</li>
+                <li><strong>Breach of contract</strong> - Failed services, undelivered goods</li>
+                <li><strong>Auto accidents</strong> - Uninsured driver damages</li>
+                <li><strong>Bad repairs</strong> - Contractor or mechanic did poor work</li>
+                <li><strong>Personal property disputes</strong> - Borrowed items not returned</li>
+            </ul>
+
+            <div class="state-limits">
+                <h4>State Dollar Limits (2026)</h4>
+                <p><strong>Highest limits:</strong></p>
+                <ul>
+                    <li>Tennessee: $25,000</li>
+                    <li>Georgia: $15,000</li>
+                    <li>Delaware: $15,000</li>
+                    <li>Texas: $20,000</li>
+                </ul>
+                <p><strong>Lowest limits:</strong></p>
+                <ul>
+                    <li>Rhode Island: $2,500</li>
+                    <li>Kentucky: $2,500</li>
+                    <li>Vermont: $5,000</li>
+                </ul>
+            </div>
+
+            <h3>Before You File</h3>
+            <ul>
+                <li><strong>Send a demand letter</strong> - Many disputes settle after a formal written demand</li>
+                <li><strong>Gather evidence</strong> - Receipts, contracts, photos, emails, text messages</li>
+                <li><strong>Calculate accurately</strong> - You can only claim actual damages, not punitive</li>
+                <li><strong>Check the statute of limitations</strong> - Typically 2-4 years depending on claim type</li>
+                <li><strong>Verify defendant can pay</strong> - Winning is meaningless if they can't pay</li>
+                <li><strong>Consider mediation first</strong> - Often faster and less stressful</li>
+            </ul>
+
+            <h3>The Filing Process</h3>
+            <ol>
+                <li><strong>File your claim</strong> - Complete court forms, pay filing fee</li>
+                <li><strong>Serve the defendant</strong> - They must be legally notified</li>
+                <li><strong>Prepare your case</strong> - Organize evidence, practice testimony</li>
+                <li><strong>Attend hearing</strong> - Present your case to the judge</li>
+                <li><strong>Get judgment</strong> - Usually issued immediately or within days</li>
+                <li><strong>Collect payment</strong> - May require garnishment, liens, or levies if they don't pay</li>
+            </ol>
+
+            <h3>Collectibility Factors</h3>
+            <p>Winning your case doesn't guarantee payment. Consider:</p>
+            <ul>
+                <li><strong>Employment</strong> - Employed defendants can have wages garnished</li>
+                <li><strong>Bank accounts</strong> - Can be levied to collect judgment</li>
+                <li><strong>Real property</strong> - Can place lien on their home or land</li>
+                <li><strong>Business assets</strong> - If they own a business, assets may be seized</li>
+                <li><strong>Bankruptcy risk</strong> - They might file bankruptcy to avoid payment</li>
+            </ul>
+
+            <h3>Costs to Consider</h3>
+            <ul>
+                <li><strong>Filing fee:</strong> $30-$200 (varies by state and claim amount)</li>
+                <li><strong>Service fee:</strong> $20-$100 per defendant</li>
+                <li><strong>Witness fees:</strong> If witnesses must be subpoenaed</li>
+                <li><strong>Time off work:</strong> Court appearances during business hours</li>
+                <li><strong>Collection costs:</strong> Sheriff fees, garnishment fees if they don't pay voluntarily</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Important Disclaimer:</strong> This calculator provides estimates only and is not legal advice. Small claims procedures, limits, and fees vary by state and jurisdiction. Consult your local small claims court clerk or an attorney before filing. Winning a judgment doesn't guarantee collection—defendant's ability to pay is critical.
+            </div>
+
+            <h3>When to Consider Regular Court Instead</h3>
+            <ul>
+                <li>Your damages exceed your state's small claims limit</li>
+                <li>You need an injunction (court order) not just money</li>
+                <li>The case involves complex legal issues</li>
+                <li>You want the right to appeal (many states don't allow small claims appeals)</li>
+                <li>You need extensive discovery (depositions, interrogatories)</li>
+            </ul>
+
+            <h3>Tips for Winning Your Case</h3>
+            <ul>
+                <li><strong>Be organized</strong> - Bring all documents in chronological order</li>
+                <li><strong>Be concise</strong> - Judges hear many cases; get to the point</li>
+                <li><strong>Stay calm</strong> - Don't argue with defendant; address the judge</li>
+                <li><strong>Bring copies</strong> - Three sets: judge, defendant, yourself</li>
+                <li><strong>Dress professionally</strong> - First impressions matter</li>
+                <li><strong>Arrive early</strong> - Familiarize yourself with the courtroom</li>
+                <li><strong>Practice your presentation</strong> - 3-5 minute clear story</li>
+                <li><strong>Know what you're asking for</strong> - Specific dollar amount and why</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Made with precision by <a href="https://calcleap.com">CalcLeap</a></p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <a href="../index.html">Home</a> • 
+                <a href="../privacy.html">Privacy Policy</a> • 
+                <a href="../contact.html">Contact</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.85em; opacity: 0.8;">
+                By Alex Chalunkal • Built for people who need answers, not confusion
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // State small claims limits (2026)
+        const stateLimits = {
+            'general': 10000,
+            'CA': 12500,
+            'TX': 20000,
+            'NY': 10000,
+            'FL': 8000,
+            'IL': 10000,
+            'PA': 12000,
+            'OH': 6000,
+            'GA': 15000,
+            'NC': 10000,
+            'MI': 6500
+        };
+
+        function calculateClaim() {
+            // Get inputs
+            const state = document.getElementById('state').value;
+            const damageAmount = parseFloat(document.getElementById('damageAmount').value) || 0;
+            const outOfPocket = parseFloat(document.getElementById('outOfPocket').value) || 0;
+            const lostWages = parseFloat(document.getElementById('lostWages').value) || 0;
+            const filingFee = parseFloat(document.getElementById('filingFee').value) || 0;
+            const serviceFee = parseFloat(document.getElementById('serviceFee').value) || 0;
+
+            // Get checkboxes
+            const hasEvidence = document.getElementById('hasEvidence').checked;
+            const hasWitnesses = document.getElementById('hasWitnesses').checked;
+            const writtenAgreement = document.getElementById('writtenAgreement').checked;
+            const defendantSolvent = document.getElementById('defendantSolvent').checked;
+
+            // Calculate total damages
+            const totalDamages = damageAmount + outOfPocket + lostWages;
+            const totalCourtCosts = filingFee + serviceFee;
+            const totalClaim = totalDamages + totalCourtCosts;
+
+            // Check state limit
+            const stateLimit = stateLimits[state];
+            const withinLimit = totalClaim <= stateLimit;
+            const maxRecoverable = Math.min(totalClaim, stateLimit);
+
+            // Calculate success probability
+            let successScore = 50; // baseline
+            if (hasEvidence) successScore += 15;
+            if (hasWitnesses) successScore += 10;
+            if (writtenAgreement) successScore += 15;
+            if (defendantSolvent) successScore += 10;
+            
+            successScore = Math.min(successScore, 95); // Cap at 95%
+
+            // Calculate collection probability
+            let collectionScore = 40; // baseline
+            if (defendantSolvent) collectionScore += 30;
+            if (hasEvidence) collectionScore += 10;
+            if (writtenAgreement) collectionScore += 10;
+            
+            collectionScore = Math.min(collectionScore, 85); // Cap at 85%
+
+            // Expected value
+            const expectedRecovery = maxRecoverable * (successScore / 100) * (collectionScore / 100);
+            const netExpectedValue = expectedRecovery - totalCourtCosts;
+
+            // Calculate ROI
+            const roi = totalCourtCosts > 0 ? ((netExpectedValue / totalCourtCosts) * 100) : 0;
+
+            // Display results
+            let resultsHTML = '<h3>Case Analysis</h3>';
+            
+            resultsHTML += '<div class="result-item">';
+            resultsHTML += '<span class="result-label">Total Damages Claimed:</span>';
+            resultsHTML += '<span class="result-value">$' + totalDamages.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</span>';
+            resultsHTML += '</div>';
+
+            resultsHTML += '<div class="result-item">';
+            resultsHTML += '<span class="result-label">Court Filing Costs:</span>';
+            resultsHTML += '<span class="result-value">$' + totalCourtCosts.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</span>';
+            resultsHTML += '</div>';
+
+            resultsHTML += '<div class="result-item">';
+            resultsHTML += '<span class="result-label">State Small Claims Limit:</span>';
+            resultsHTML += '<span class="result-value">$' + stateLimit.toLocaleString('en-US') + '</span>';
+            resultsHTML += '</div>';
+
+            if (!withinLimit) {
+                resultsHTML += '<div class="warning-box" style="margin: 15px 0;">';
+                resultsHTML += '<strong>⚠️ Warning:</strong> Your claim ($' + totalClaim.toLocaleString('en-US', {minimumFractionDigits: 2}) + ') exceeds your state\'s small claims limit ($' + stateLimit.toLocaleString('en-US') + '). ';
+                resultsHTML += 'You can either reduce your claim or file in regular civil court.';
+                resultsHTML += '</div>';
+            }
+
+            resultsHTML += '<div class="result-item">';
+            resultsHTML += '<span class="result-label">Maximum Recoverable in Small Claims:</span>';
+            resultsHTML += '<span class="result-value">$' + maxRecoverable.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</span>';
+            resultsHTML += '</div>';
+
+            resultsHTML += '<div class="result-item">';
+            resultsHTML += '<span class="result-label">Estimated Win Probability:</span>';
+            resultsHTML += '<span class="result-value">' + successScore + '%</span>';
+            resultsHTML += '</div>';
+
+            resultsHTML += '<div class="result-item">';
+            resultsHTML += '<span class="result-label">Estimated Collection Probability:</span>';
+            resultsHTML += '<span class="result-value">' + collectionScore + '%</span>';
+            resultsHTML += '</div>';
+
+            resultsHTML += '<div class="result-item total-row">';
+            resultsHTML += '<span class="result-label">Expected Recovery:</span>';
+            resultsHTML += '<span class="result-value">$' + expectedRecovery.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</span>';
+            resultsHTML += '</div>';
+
+            resultsHTML += '<div class="result-item">';
+            resultsHTML += '<span class="result-label">Net Expected Value:</span>';
+            resultsHTML += '<span class="result-value ' + (netExpectedValue >= 0 ? '' : 'text-danger') + '">$' + netExpectedValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</span>';
+            resultsHTML += '</div>';
+
+            resultsHTML += '<div class="result-item">';
+            resultsHTML += '<span class="result-label">Return on Investment:</span>';
+            resultsHTML += '<span class="result-value">' + roi.toFixed(0) + '%</span>';
+            resultsHTML += '</div>';
+
+            // Recommendation
+            resultsHTML += '<div style="margin-top: 20px; padding: 15px; background: ' + (netExpectedValue > 0 ? '#d4edda' : '#f8d7da') + '; border-radius: 8px;">';
+            resultsHTML += '<h4 style="margin-bottom: 10px;">Recommendation:</h4>';
+            
+            if (netExpectedValue > totalDamages * 0.5) {
+                resultsHTML += '<p><strong>Strong case.</strong> Your expected recovery significantly exceeds court costs. Consider filing.</p>';
+            } else if (netExpectedValue > 0) {
+                resultsHTML += '<p><strong>Marginal case.</strong> Expected recovery is positive but modest. Consider mediation first or demand letter.</p>';
+            } else {
+                resultsHTML += '<p><strong>Weak case.</strong> Expected costs exceed likely recovery. Try to settle outside of court.</p>';
+            }
+
+            if (!defendantSolvent) {
+                resultsHTML += '<p style="margin-top: 10px;"><strong>⚠️ Collection Risk:</strong> Even if you win, collecting from an insolvent defendant may be difficult or impossible.</p>';
+            }
+
+            if (!hasEvidence) {
+                resultsHTML += '<p style="margin-top: 10px;"><strong>⚠️ Evidence Gap:</strong> Weak evidence significantly reduces your chance of winning. Gather documentation before filing.</p>';
+            }
+
+            resultsHTML += '</div>';
+
+            // Show results
+            document.getElementById('results').innerHTML = resultsHTML;
+            document.getElementById('results').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Calculate on page load
+        window.addEventListener('load', calculateClaim);
+    </script>
+</body>
+</html>
