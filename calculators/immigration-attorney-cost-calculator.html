@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Immigration Attorney Cost Calculator - CalcLeap.com</title>
+  <meta name="description" content="Estimate immigration attorney fees for green cards, citizenship, visas, deportation defense, and more. Free calculator with cost breakdowns by case type.">
+  <link rel="canonical" href="https://calcleap.com/calculators/immigration-attorney-cost-calculator.html">
+  <link rel="stylesheet" href="../css/gold.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FCMBZ66RD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0FCMBZ66RD');</script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="../index.html" class="logo">CalcLeap</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../calculators.html">Calculators</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-title">
+      <h1>Immigration Attorney Cost Calculator</h1>
+      <p class="page-subtitle">Estimate legal fees for immigration cases: green cards, citizenship, visas, deportation defense, and more</p>
+    </div>
+
+    <div class="calculator-container">
+      <div class="calculator-card">
+        <div class="input-section">
+          <label>Case Type</label>
+          <select id="caseType" onchange="updateCostEstimate()">
+            <option value="">Select Case Type</option>
+            <option value="greencard-family">Green Card (Family-Based)</option>
+            <option value="greencard-employment">Green Card (Employment-Based)</option>
+            <option value="citizenship">Citizenship/Naturalization</option>
+            <option value="h1b">H-1B Work Visa</option>
+            <option value="student">Student Visa (F-1)</option>
+            <option value="visitor">Tourist/Visitor Visa (B-1/B-2)</option>
+            <option value="fiance">Fiancé Visa (K-1)</option>
+            <option value="asylum">Asylum Application</option>
+            <option value="deportation">Deportation Defense</option>
+            <option value="daca">DACA Application/Renewal</option>
+            <option value="tps">TPS (Temporary Protected Status)</option>
+            <option value="adjustment">Adjustment of Status</option>
+            <option value="consular">Consular Processing</option>
+            <option value="waiver">Waiver (I-601/I-601A)</option>
+            <option value="appeal">Immigration Appeal (BIA)</option>
+          </select>
+
+          <label>Case Complexity</label>
+          <select id="complexity" onchange="updateCostEstimate()">
+            <option value="simple">Simple (No complications)</option>
+            <option value="moderate">Moderate (Some complications)</option>
+            <option value="complex">Complex (Multiple issues, denials, or appeals)</option>
+          </select>
+
+          <label>Geographic Location</label>
+          <select id="location" onchange="updateCostEstimate()">
+            <option value="rural">Rural/Small City</option>
+            <option value="medium">Medium City</option>
+            <option value="metro">Major Metro Area (NYC, LA, SF, etc.)</option>
+          </select>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="consultation" onchange="updateCostEstimate()">
+            <label for="consultation">Include Initial Consultation ($200-500)</label>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="translation" onchange="updateCostEstimate()">
+            <label for="translation">Need Translation Services (+$500-1,500)</label>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="expedite" onchange="updateCostEstimate()">
+            <label for="expedite">Expedited Processing Needed (+20-40%)</label>
+          </div>
+
+          <button class="calc-btn" onclick="updateCostEstimate()">Calculate Attorney Cost</button>
+        </div>
+
+        <div id="results" class="result-section" style="display:none;">
+          <h2>Estimated Immigration Attorney Cost</h2>
+          <div class="result-card highlight">
+            <div class="result-row">
+              <span class="result-label">Base Attorney Fee Range:</span>
+              <span class="result-value" id="baseFee">$0</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Additional Services:</span>
+              <span class="result-value" id="additionalFees">$0</span>
+            </div>
+            <div class="result-row total-row">
+              <span class="result-label">Total Estimated Cost:</span>
+              <span class="result-value" id="totalCost">$0</span>
+            </div>
+          </div>
+
+          <div id="breakdown" class="info-section"></div>
+          
+          <div class="info-section">
+            <h3>Important Notes</h3>
+            <ul>
+              <li><strong>Government Filing Fees Not Included:</strong> These estimates cover attorney fees only. USCIS filing fees are separate and vary by case type ($500-$3,000+)</li>
+              <li><strong>Hourly vs. Flat Fee:</strong> Many immigration attorneys charge flat fees for standard cases. Complex cases may be billed hourly ($150-$500/hour)</li>
+              <li><strong>Payment Plans:</strong> Many immigration lawyers offer payment plans for expensive cases</li>
+              <li><strong>Free Consultations:</strong> Some attorneys offer free initial consultations—shop around before committing</li>
+              <li><strong>Legal Aid:</strong> Non-profit organizations may provide free or low-cost immigration legal services for qualifying individuals</li>
+              <li><strong>Retainers:</strong> Most immigration attorneys require an upfront retainer before starting work</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container">
+        <div class="info-section">
+          <h2>Immigration Attorney Fee Guide (2026)</h2>
+          
+          <h3>Common Case Types & Typical Costs</h3>
+          <ul>
+            <li><strong>Green Card (Family):</strong> $2,000-$5,000 (simple cases) to $5,000-$10,000 (complex)</li>
+            <li><strong>Green Card (Employment):</strong> $3,000-$7,000 (depends on visa category)</li>
+            <li><strong>Citizenship/Naturalization:</strong> $1,500-$3,500</li>
+            <li><strong>H-1B Visa:</strong> $2,500-$5,000 (employer often pays)</li>
+            <li><strong>Student Visa (F-1):</strong> $1,000-$2,500</li>
+            <li><strong>Fiancé Visa (K-1):</strong> $2,500-$5,000</li>
+            <li><strong>Deportation Defense:</strong> $5,000-$15,000+ (highly complex)</li>
+            <li><strong>Asylum:</strong> $3,000-$10,000</li>
+            <li><strong>Immigration Appeals:</strong> $5,000-$15,000+</li>
+          </ul>
+
+          <h3>What Affects Immigration Attorney Costs?</h3>
+          <ul>
+            <li><strong>Case Type:</strong> Simple applications cost less than complex deportation defense or appeals</li>
+            <li><strong>Complexity:</strong> Prior denials, criminal history, or multiple issues increase costs significantly</li>
+            <li><strong>Location:</strong> Major cities (NYC, LA, Miami) have higher rates than rural areas</li>
+            <li><strong>Attorney Experience:</strong> Senior attorneys or specialists charge premium rates</li>
+            <li><strong>Language Barriers:</strong> Translation services add $500-$2,000</li>
+            <li><strong>Urgency:</strong> Expedited or emergency cases cost 20-40% more</li>
+          </ul>
+
+          <h3>What's Included in Immigration Attorney Fees?</h3>
+          <ul>
+            <li>Initial consultation and case evaluation</li>
+            <li>Form preparation and document gathering</li>
+            <li>Filing applications with USCIS, DOL, or immigration court</li>
+            <li>Communication with government agencies</li>
+            <li>Representation at interviews or hearings (if applicable)</li>
+            <li>Follow-up and status updates</li>
+          </ul>
+
+          <h3>What's NOT Included?</h3>
+          <ul>
+            <li><strong>Government Filing Fees:</strong> USCIS fees range from $500 to $3,000+ per application</li>
+            <li><strong>Translation Services:</strong> Certified document translation ($20-$100 per page)</li>
+            <li><strong>Medical Exams:</strong> Required for green card applicants ($200-$500)</li>
+            <li><strong>Fingerprinting/Biometrics:</strong> $85 fee paid to USCIS</li>
+            <li><strong>Travel Costs:</strong> If your attorney needs to travel for interviews/hearings</li>
+          </ul>
+
+          <h3>How to Save on Immigration Attorney Costs</h3>
+          <ul>
+            <li><strong>Get Organized:</strong> Gather all documents yourself before meeting the attorney</li>
+            <li><strong>Ask About Flat Fees:</strong> For standard cases, flat fees are often cheaper than hourly billing</li>
+            <li><strong>Shop Around:</strong> Consult 2-3 attorneys before hiring (many offer free initial consults)</li>
+            <li><strong>Check for Non-Profits:</strong> Organizations like Catholic Charities, RAICES, and local legal aid societies offer free/low-cost help</li>
+            <li><strong>Do Your Own Research:</strong> Understanding the process reduces time your attorney spends explaining basics</li>
+            <li><strong>Avoid Notarios:</strong> Only licensed attorneys can legally represent you in immigration matters in the U.S.</li>
+          </ul>
+
+          <h3>Red Flags When Hiring an Immigration Attorney</h3>
+          <ul>
+            <li>Guarantees specific outcomes (no attorney can guarantee approval)</li>
+            <li>Asks for large cash payments with no receipt</li>
+            <li>Not licensed to practice law (check your state bar association)</li>
+            <li>Pressures you to lie on applications</li>
+            <li>Won't explain fee structure clearly</li>
+            <li>Claims to have "special connections" with USCIS</li>
+          </ul>
+
+          <h3>When You NEED an Immigration Attorney</h3>
+          <ul>
+            <li>You have a criminal record</li>
+            <li>Prior visa denials or deportation orders</li>
+            <li>Complex family situations (blended families, adoption, etc.)</li>
+            <li>Employment-based green cards requiring PERM labor certification</li>
+            <li>Asylum or refugee applications</li>
+            <li>Deportation/removal proceedings</li>
+            <li>Immigration court hearings or appeals</li>
+          </ul>
+
+          <h3>When You Might NOT Need an Attorney</h3>
+          <ul>
+            <li>Simple green card renewal (I-90)</li>
+            <li>DACA renewal (straightforward cases)</li>
+            <li>Travel document applications</li>
+            <li>Straightforward citizenship applications (no criminal record, no travel issues)</li>
+            <li><strong>Note:</strong> Even for "simple" cases, an attorney review can catch errors that lead to denials</li>
+          </ul>
+
+          <h3>How to Find a Qualified Immigration Attorney</h3>
+          <ul>
+            <li><strong>American Immigration Lawyers Association (AILA):</strong> <a href="https://www.ailalawyer.com" target="_blank" rel="noopener">www.ailalawyer.com</a></li>
+            <li><strong>State Bar Association:</strong> Verify attorney is licensed and in good standing</li>
+            <li><strong>Referrals:</strong> Ask friends/family who have successfully navigated immigration</li>
+            <li><strong>Legal Aid Organizations:</strong> Many offer free consultations or sliding-scale fees</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 CalcLeap.com - Free Online Calculators</p>
+    <div class="footer-links">
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+const baseCosts = {
+  'greencard-family': { simple: [2000, 4000], moderate: [4000, 6000], complex: [6000, 10000] },
+  'greencard-employment': { simple: [3000, 5000], moderate: [5000, 7000], complex: [7000, 12000] },
+  'citizenship': { simple: [1500, 2500], moderate: [2500, 3500], complex: [3500, 6000] },
+  'h1b': { simple: [2500, 4000], moderate: [4000, 5000], complex: [5000, 8000] },
+  'student': { simple: [1000, 1500], moderate: [1500, 2500], complex: [2500, 4000] },
+  'visitor': { simple: [800, 1500], moderate: [1500, 2500], complex: [2500, 4500] },
+  'fiance': { simple: [2500, 4000], moderate: [4000, 5000], complex: [5000, 8000] },
+  'asylum': { simple: [3000, 6000], moderate: [6000, 10000], complex: [10000, 20000] },
+  'deportation': { simple: [5000, 10000], moderate: [10000, 15000], complex: [15000, 30000] },
+  'daca': { simple: [800, 1500], moderate: [1500, 2500], complex: [2500, 4000] },
+  'tps': { simple: [1000, 2000], moderate: [2000, 3000], complex: [3000, 5000] },
+  'adjustment': { simple: [2000, 3500], moderate: [3500, 5000], complex: [5000, 8000] },
+  'consular': { simple: [2500, 4000], moderate: [4000, 6000], complex: [6000, 10000] },
+  'waiver': { simple: [3000, 5000], moderate: [5000, 8000], complex: [8000, 15000] },
+  'appeal': { simple: [5000, 8000], moderate: [8000, 12000], complex: [12000, 25000] }
+};
+
+const caseNames = {
+  'greencard-family': 'Green Card (Family-Based)',
+  'greencard-employment': 'Green Card (Employment-Based)',
+  'citizenship': 'Citizenship/Naturalization',
+  'h1b': 'H-1B Work Visa',
+  'student': 'Student Visa (F-1)',
+  'visitor': 'Tourist/Visitor Visa',
+  'fiance': 'Fiancé Visa (K-1)',
+  'asylum': 'Asylum Application',
+  'deportation': 'Deportation Defense',
+  'daca': 'DACA Application/Renewal',
+  'tps': 'TPS (Temporary Protected Status)',
+  'adjustment': 'Adjustment of Status',
+  'consular': 'Consular Processing',
+  'waiver': 'Waiver (I-601/I-601A)',
+  'appeal': 'Immigration Appeal (BIA)'
+};
+
+function updateCostEstimate() {
+  const caseType = document.getElementById('caseType').value;
+  const complexity = document.getElementById('complexity').value;
+  const location = document.getElementById('location').value;
+  const consultation = document.getElementById('consultation').checked;
+  const translation = document.getElementById('translation').checked;
+  const expedite = document.getElementById('expedite').checked;
+
+  if (!caseType || !complexity) {
+    document.getElementById('results').style.display = 'none';
+    return;
+  }
+
+  const costs = baseCosts[caseType][complexity];
+  let baseLow = costs[0];
+  let baseHigh = costs[1];
+
+  // Location adjustment
+  if (location === 'metro') {
+    baseLow *= 1.3;
+    baseHigh *= 1.3;
+  } else if (location === 'medium') {
+    baseLow *= 1.1;
+    baseHigh *= 1.1;
+  }
+
+  let additionalLow = 0;
+  let additionalHigh = 0;
+  let breakdownHTML = '<h3>Cost Breakdown</h3><ul>';
+
+  if (consultation) {
+    additionalLow += 200;
+    additionalHigh += 500;
+    breakdownHTML += '<li><strong>Initial Consultation:</strong> $200-$500</li>';
+  }
+
+  if (translation) {
+    additionalLow += 500;
+    additionalHigh += 1500;
+    breakdownHTML += '<li><strong>Translation Services:</strong> $500-$1,500</li>';
+  }
+
+  if (expedite) {
+    const expediteLow = baseLow * 0.2;
+    const expediteHigh = baseHigh * 0.4;
+    additionalLow += expediteLow;
+    additionalHigh += expediteHigh;
+    breakdownHTML += `<li><strong>Expedited Processing:</strong> $${Math.round(expediteLow).toLocaleString()}-$${Math.round(expediteHigh).toLocaleString()}</li>`;
+  }
+
+  breakdownHTML += '</ul>';
+
+  const totalLow = Math.round(baseLow + additionalLow);
+  const totalHigh = Math.round(baseHigh + additionalHigh);
+
+  document.getElementById('baseFee').textContent = `$${Math.round(baseLow).toLocaleString()} - $${Math.round(baseHigh).toLocaleString()}`;
+  document.getElementById('additionalFees').textContent = `$${Math.round(additionalLow).toLocaleString()} - $${Math.round(additionalHigh).toLocaleString()}`;
+  document.getElementById('totalCost').textContent = `$${totalLow.toLocaleString()} - $${totalHigh.toLocaleString()}`;
+  
+  breakdownHTML += `<p><strong>Case Type:</strong> ${caseNames[caseType]}</p>`;
+  breakdownHTML += `<p><strong>Complexity:</strong> ${complexity.charAt(0).toUpperCase() + complexity.slice(1)}</p>`;
+  breakdownHTML += `<p><strong>Location:</strong> ${location === 'metro' ? 'Major Metro Area' : location === 'medium' ? 'Medium City' : 'Rural/Small City'}</p>`;
+  
+  document.getElementById('breakdown').innerHTML = breakdownHTML;
+  document.getElementById('results').style.display = 'block';
+}
+  </script>
+</body>
+</html>
