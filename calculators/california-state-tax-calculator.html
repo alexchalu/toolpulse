@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California State Income Tax Calculator 2026 - CalcLeap</title>
+    <meta name="description" content="Calculate your California state income tax for 2026. Accurate progressive tax brackets, standard deductions, credits, and take-home pay estimates for single, married, and head of household filers.">
+    <link rel="canonical" href="https://calcleap.com/calculators/california-state-tax-calculator.html">
+    <link rel="stylesheet" href="../css/gold.css">
+    <link rel="stylesheet" href="../css/comprehensive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "California State Income Tax Calculator",
+      "description": "Calculate California state income tax for 2026 using official tax brackets and deductions",
+      "url": "https://calcleap.com/calculators/california-state-tax-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5N024XMM82"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5N024XMM82');
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">CalcLeap</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../tools.html">Tools</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">California State Income Tax Calculator 2026</h1>
+        
+        <div class="tool-container">
+            <div class="input-section">
+                <h2>Tax Information</h2>
+                
+                <label for="filingStatus">Filing Status</label>
+                <select id="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="married">Married Filing Jointly</option>
+                    <option value="head">Head of Household</option>
+                    <option value="marriedSeparate">Married Filing Separately</option>
+                </select>
+
+                <label for="income">Annual Gross Income ($)</label>
+                <input type="number" id="income" value="75000" min="0" step="1000">
+
+                <label for="deductions">Itemized Deductions ($)</label>
+                <input type="number" id="deductions" value="0" min="0" step="100">
+                <small>Leave 0 to use standard deduction</small>
+
+                <label for="dependents">Number of Dependents</label>
+                <input type="number" id="dependents" value="0" min="0" max="20">
+
+                <label for="credits">Additional Tax Credits ($)</label>
+                <input type="number" id="credits" value="0" min="0" step="50">
+                <small>CA credits: renter's credit, college access, solar, etc.</small>
+
+                <button onclick="calculateTax()">Calculate Tax</button>
+            </div>
+
+            <div class="results-section" id="toolContent">
+                <h2>Tax Results</h2>
+                <div id="results"></div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>California State Income Tax 2026: Complete Guide</h2>
+            
+            <p>California has one of the highest state income tax rates in the United States, with a progressive tax system that ranges from 1% to 13.3% depending on income level. This calculator helps you estimate your exact California state tax liability for 2026 using official tax brackets, standard deductions, and common credits.</p>
+
+            <h3>2026 California Tax Brackets</h3>
+            
+            <p>California uses progressive tax brackets that vary by filing status. Higher earners pay higher marginal rates on income above each threshold:</p>
+
+            <h4>Single Filers</h4>
+            <ul>
+                <li><strong>1%</strong> on income up to $10,412</li>
+                <li><strong>2%</strong> on income $10,413 – $24,684</li>
+                <li><strong>4%</strong> on income $24,685 – $38,959</li>
+                <li><strong>6%</strong> on income $38,960 – $54,081</li>
+                <li><strong>8%</strong> on income $54,082 – $68,350</li>
+                <li><strong>9.3%</strong> on income $68,351 – $349,137</li>
+                <li><strong>10.3%</strong> on income $349,138 – $418,961</li>
+                <li><strong>11.3%</strong> on income $418,962 – $698,271</li>
+                <li><strong>12.3%</strong> on income $698,272 – $1,000,000</li>
+                <li><strong>13.3%</strong> on income over $1,000,000</li>
+            </ul>
+
+            <h4>Married Filing Jointly</h4>
+            <ul>
+                <li><strong>1%</strong> on income up to $20,824</li>
+                <li><strong>2%</strong> on income $20,825 – $49,368</li>
+                <li><strong>4%</strong> on income $49,369 – $77,918</li>
+                <li><strong>6%</strong> on income $77,919 – $108,162</li>
+                <li><strong>8%</strong> on income $108,163 – $136,700</li>
+                <li><strong>9.3%</strong> on income $136,701 – $698,274</li>
+                <li><strong>10.3%</strong> on income $698,275 – $837,922</li>
+                <li><strong>11.3%</strong> on income $837,923 – $1,396,542</li>
+                <li><strong>12.3%</strong> on income $1,396,543 – $2,000,000</li>
+                <li><strong>13.3%</strong> on income over $2,000,000</li>
+            </ul>
+
+            <h3>Standard Deductions (2026)</h3>
+            <ul>
+                <li><strong>Single:</strong> $5,363</li>
+                <li><strong>Married Filing Jointly:</strong> $10,726</li>
+                <li><strong>Head of Household:</strong> $10,726</li>
+                <li><strong>Married Filing Separately:</strong> $5,363</li>
+            </ul>
+
+            <h3>Dependent Exemptions</h3>
+            <p>California allows a personal exemption credit for each dependent. For 2026, the dependent exemption credit is <strong>$446 per dependent</strong>. This directly reduces your tax liability.</p>
+
+            <h3>Common California Tax Credits</h3>
+            
+            <h4>Renter's Credit</h4>
+            <p>California renters with AGI under $51,041 (single) or $102,082 (married) can claim a credit of $60 (single) or $120 (married).</p>
+
+            <h4>California Earned Income Tax Credit (CalEITC)</h4>
+            <p>Low to moderate-income workers can claim CalEITC, which ranges from a few hundred to over $3,000 depending on income and number of children. Eligibility phases out around $30,950 for no children, rising to $63,398 for 3+ children.</p>
+
+            <h4>Young Child Tax Credit (YCTC)</h4>
+            <p>Families with children under age 6 who qualify for CalEITC can receive an additional $1,117 per child.</p>
+
+            <h4>Solar Energy System Credit</h4>
+            <p>Taxpayers who install solar energy systems may qualify for state credits (separate from federal ITC).</p>
+
+            <h4>College Access Tax Credit</h4>
+            <p>California businesses and individuals who contribute to college access programs can claim credits.</p>
+
+            <h3>How California State Tax Works</h3>
+            
+            <h4>Progressive Brackets</h4>
+            <p>California taxes income in segments. For example, a single filer earning $100,000 pays 1% on the first $10,412, 2% on the next segment, and so on—not 9.3% on the entire amount. This marginal tax structure means your <em>effective tax rate</em> (total tax ÷ income) is always lower than your top bracket.</p>
+
+            <h4>Taxable Income Calculation</h4>
+            <p><strong>Taxable Income = Gross Income − Deductions</strong></p>
+            <p>You can take either the standard deduction or itemized deductions (whichever is higher). Common itemized deductions include state/local taxes (SALT—capped at $10,000 for federal, but California has no cap), mortgage interest, charitable contributions, and medical expenses above 7.5% of AGI.</p>
+
+            <h4>Credits vs Deductions</h4>
+            <ul>
+                <li><strong>Deductions</strong> reduce your taxable income (saving you taxes at your marginal rate).</li>
+                <li><strong>Credits</strong> reduce your tax bill dollar-for-dollar, making them more valuable.</li>
+            </ul>
+
+            <h3>Key Differences Between California and Federal Tax</h3>
+            
+            <h4>No Capital Gains Preference</h4>
+            <p>California taxes long-term capital gains at ordinary income rates (up to 13.3%), unlike the federal 0%/15%/20% preferential rates. High earners face a combined federal + state capital gains rate exceeding 30%.</p>
+
+            <h4>Higher Top Bracket</h4>
+            <p>California's top rate of 13.3% is the highest state income tax in the nation, affecting incomes over $1 million (single) or $2 million (married).</p>
+
+            <h4>State-Specific Credits</h4>
+            <p>California offers credits not available federally, such as renter's credit, CalEITC (more generous than federal EITC for some), and various energy/education incentives.</p>
+
+            <h4>No Federal Deduction for State Taxes</h4>
+            <p>The 2017 Tax Cuts and Jobs Act capped the federal SALT deduction at $10,000, limiting high-income Californians' ability to offset state taxes on their federal return. This effectively raises the combined tax burden.</p>
+
+            <h3>Tax Planning Strategies for California Residents</h3>
+            
+            <h4>Maximize Retirement Contributions</h4>
+            <p>401(k), 403(b), and traditional IRA contributions reduce your California taxable income. For 2026, you can contribute up to $23,500 to a 401(k) ($31,000 if 50+), saving 9.3%–13.3% in state tax on those dollars.</p>
+
+            <h4>Harvest Capital Losses</h4>
+            <p>Offset capital gains with losses to reduce taxable income. You can deduct up to $3,000 in net losses per year against ordinary income on both federal and California returns.</p>
+
+            <h4>Health Savings Accounts (HSAs)</h4>
+            <p>HSA contributions (up to $4,300 individual, $8,550 family for 2026) reduce federal taxable income. California does <strong>not</strong> allow HSA deductions for state purposes, so they save federal tax but not California tax.</p>
+
+            <h4>529 College Savings Plans</h4>
+            <p>California's ScholarShare 529 plan offers tax-deferred growth. While contributions aren't deductible, earnings grow tax-free if used for qualified education expenses (federal and state).</p>
+
+            <h4>Charitable Contributions</h4>
+            <p>Itemize deductions to deduct charitable gifts. California follows federal rules: up to 60% of AGI for cash donations to public charities. If you're in the 9.3%+ bracket, a $1,000 donation saves $93+ in state tax alone.</p>
+
+            <h4>Consider Residency</h4>
+            <p>California taxes residents on all income worldwide. High earners moving to no-tax states (Nevada, Texas, Florida, etc.) can avoid California's 13.3% top rate entirely—but must establish bona fide residency (change driver's license, voter registration, spend >183 days/year out of CA). California's Franchise Tax Board aggressively audits residency changes.</p>
+
+            <h3>When Are California Taxes Due?</h3>
+            <p>California state income tax returns are due on the same date as federal returns: <strong>April 15, 2027</strong> for the 2026 tax year (or the next business day if April 15 falls on a weekend/holiday). Extensions are available until October 15, but you must still pay any owed tax by April 15 to avoid penalties and interest.</p>
+
+            <h3>Estimated Tax Payments</h3>
+            <p>If you're self-employed, have investment income, or don't have enough withheld, California requires quarterly estimated tax payments:</p>
+            <ul>
+                <li><strong>Q1:</strong> April 15, 2026</li>
+                <li><strong>Q2:</strong> June 15, 2026</li>
+                <li><strong>Q3:</strong> September 15, 2026</li>
+                <li><strong>Q4:</strong> January 15, 2027</li>
+            </ul>
+            <p>Underpayment penalties apply if you owe $500+ and didn't pay at least 90% of current year tax or 100% of prior year tax (110% if AGI > $150,000).</p>
+
+            <h3>High-Income Surtax (Mental Health Services Tax)</h3>
+            <p>The 13.3% top bracket includes a 1% Mental Health Services Tax on income over $1 million, enacted by Proposition 63 in 2004. This surtax funds mental health programs statewide.</p>
+
+            <h3>Who Must File a California Return?</h3>
+            <p>You must file if you're a California resident with gross income above:</p>
+            <ul>
+                <li><strong>Single:</strong> $20,897</li>
+                <li><strong>Married Filing Jointly:</strong> $41,794</li>
+                <li><strong>Head of Household:</strong> $31,345</li>
+                <li><strong>Married Filing Separately:</strong> $20,897</li>
+            </ul>
+            <p>Part-year residents and nonresidents with California-source income also have filing requirements.</p>
+
+            <h3>Example Tax Calculation</h3>
+            <p><strong>Scenario:</strong> Single filer, $150,000 gross income, standard deduction, no dependents, no credits.</p>
+            
+            <p><strong>Step 1: Calculate Taxable Income</strong><br>
+            $150,000 − $5,363 (standard deduction) = <strong>$144,637 taxable income</strong></p>
+
+            <p><strong>Step 2: Apply Brackets</strong></p>
+            <ul>
+                <li>$10,412 × 1% = $104.12</li>
+                <li>($24,684 − $10,412) × 2% = $285.44</li>
+                <li>($38,959 − $24,684) × 4% = $571.00</li>
+                <li>($54,081 − $38,959) × 6% = $907.32</li>
+                <li>($68,350 − $54,081) × 8% = $1,141.52</li>
+                <li>($144,637 − $68,350) × 9.3% = <strong>$7,094.69</strong></li>
+            </ul>
+            <p><strong>Total Tax:</strong> $104.12 + $285.44 + $571.00 + $907.32 + $1,141.52 + $7,094.69 = <strong>$10,104.09</strong></p>
+
+            <p><strong>Effective Tax Rate:</strong> $10,104 ÷ $150,000 = <strong>6.74%</strong> (far below the 9.3% marginal rate).</p>
+
+            <h3>Frequently Asked Questions</h3>
+            
+            <h4>Does California tax Social Security benefits?</h4>
+            <p>No. California does not tax Social Security retirement benefits, unlike the federal government.</p>
+
+            <h4>Does California tax retirement account withdrawals?</h4>
+            <p>Yes. Distributions from 401(k)s, traditional IRAs, and pensions are taxed as ordinary income. Roth IRA withdrawals are tax-free if qualified.</p>
+
+            <h4>Can I deduct federal income tax on my California return?</h4>
+            <p>No. California does not allow a deduction for federal income taxes paid.</p>
+
+            <h4>What is the California SDI tax?</h4>
+            <p>State Disability Insurance (SDI) is a separate payroll tax (1.1% on wages up to $176,850 in 2026, max $1,945.35). It's not part of income tax but is withheld from paychecks.</p>
+
+            <h4>How does California tax remote workers?</h4>
+            <p>California residents pay tax on all income regardless of where it's earned. If you work remotely for an out-of-state employer while living in California, you owe California tax. Nonresidents working remotely <em>for</em> a California company while outside the state generally do not owe California tax on that income (unless physically in California). Consult a tax professional for complex situations.</p>
+
+            <h4>What if I moved to/from California during the year?</h4>
+            <p>File as a part-year resident. You'll pay California tax on income earned while a resident plus California-source income earned as a nonresident. Use Form 540NR and allocate income by period and source.</p>
+
+            <h3>Additional Resources</h3>
+            <ul>
+                <li><strong>California Franchise Tax Board (FTB):</strong> <a href="https://www.ftb.ca.gov" target="_blank" rel="noopener">ftb.ca.gov</a> — Official tax forms, publications, and guidance</li>
+                <li><strong>Form 540:</strong> California Resident Income Tax Return</li>
+                <li><strong>Form 540NR:</strong> California Nonresident or Part-Year Resident Income Tax Return</li>
+                <li><strong>IRS Free File:</strong> Some providers include California e-filing</li>
+                <li><strong>MyFTB Account:</strong> Manage payments, view tax history, file online</li>
+            </ul>
+
+            <p><em>Disclaimer: This calculator provides estimates for informational purposes. Consult a tax professional or the California Franchise Tax Board for personalized advice. Tax laws change; verify current rates and brackets.</em></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="../privacy.html">Privacy Policy</a>
+                <a href="../terms.html">Terms of Service</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+            <p class="byline">Created by <a href="https://alexchalunkal.com" target="_blank">Alex Chalunkal</a></p>
+        </div>
+    </footer>
+
+    <script>
+    function calculateTax() {
+        const filingStatus = document.getElementById('filingStatus').value;
+        const income = parseFloat(document.getElementById('income').value) || 0;
+        const itemizedDeductions = parseFloat(document.getElementById('deductions').value) || 0;
+        const dependents = parseInt(document.getElementById('dependents').value) || 0;
+        const additionalCredits = parseFloat(document.getElementById('credits').value) || 0;
+
+        // Standard deductions 2026
+        const standardDeductions = {
+            single: 5363,
+            married: 10726,
+            head: 10726,
+            marriedSeparate: 5363
+        };
+
+        const standardDeduction = standardDeductions[filingStatus];
+        const actualDeduction = Math.max(standardDeduction, itemizedDeductions);
+        const taxableIncome = Math.max(0, income - actualDeduction);
+
+        // Tax brackets 2026
+        const brackets = {
+            single: [
+                {limit: 10412, rate: 0.01},
+                {limit: 24684, rate: 0.02},
+                {limit: 38959, rate: 0.04},
+                {limit: 54081, rate: 0.06},
+                {limit: 68350, rate: 0.08},
+                {limit: 349137, rate: 0.093},
+                {limit: 418961, rate: 0.103},
+                {limit: 698271, rate: 0.113},
+                {limit: 1000000, rate: 0.123},
+                {limit: Infinity, rate: 0.133}
+            ],
+            married: [
+                {limit: 20824, rate: 0.01},
+                {limit: 49368, rate: 0.02},
+                {limit: 77918, rate: 0.04},
+                {limit: 108162, rate: 0.06},
+                {limit: 136700, rate: 0.08},
+                {limit: 698274, rate: 0.093},
+                {limit: 837922, rate: 0.103},
+                {limit: 1396542, rate: 0.113},
+                {limit: 2000000, rate: 0.123},
+                {limit: Infinity, rate: 0.133}
+            ],
+            head: [
+                {limit: 20839, rate: 0.01},
+                {limit: 49371, rate: 0.02},
+                {limit: 63644, rate: 0.04},
+                {limit: 78765, rate: 0.06},
+                {limit: 93037, rate: 0.08},
+                {limit: 474824, rate: 0.093},
+                {limit: 569790, rate: 0.103},
+                {limit: 949649, rate: 0.113},
+                {limit: 1000000, rate: 0.123},
+                {limit: Infinity, rate: 0.133}
+            ],
+            marriedSeparate: [
+                {limit: 10412, rate: 0.01},
+                {limit: 24684, rate: 0.02},
+                {limit: 38959, rate: 0.04},
+                {limit: 54081, rate: 0.06},
+                {limit: 68350, rate: 0.08},
+                {limit: 349137, rate: 0.093},
+                {limit: 418961, rate: 0.103},
+                {limit: 698271, rate: 0.113},
+                {limit: 1000000, rate: 0.123},
+                {limit: Infinity, rate: 0.133}
+            ]
+        };
+
+        const selectedBrackets = brackets[filingStatus];
+        let tax = 0;
+        let previousLimit = 0;
+
+        for (let i = 0; i < selectedBrackets.length; i++) {
+            const bracket = selectedBrackets[i];
+            if (taxableIncome > previousLimit) {
+                const taxableInBracket = Math.min(taxableIncome, bracket.limit) - previousLimit;
+                tax += taxableInBracket * bracket.rate;
+                previousLimit = bracket.limit;
+            }
+            if (taxableIncome <= bracket.limit) break;
+        }
+
+        // Apply credits
+        const dependentCredit = dependents * 446; // 2026 CA dependent exemption credit
+        const totalCredits = dependentCredit + additionalCredits;
+        const finalTax = Math.max(0, tax - totalCredits);
+
+        const effectiveRate = income > 0 ? (finalTax / income * 100) : 0;
+        const takeHome = income - finalTax;
+        const marginalRate = getMarginalRate(taxableIncome, selectedBrackets);
+
+        const deductionType = itemizedDeductions > standardDeduction ? 'Itemized' : 'Standard';
+
+        let html = '<div class="result-grid">';
+        html += `<div class="result-item"><span class="label">Gross Income:</span><span class="value">$${income.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></div>`;
+        html += `<div class="result-item"><span class="label">${deductionType} Deduction:</span><span class="value">$${actualDeduction.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></div>`;
+        html += `<div class="result-item"><span class="label">Taxable Income:</span><span class="value">$${taxableIncome.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></div>`;
+        html += `<div class="result-item"><span class="label">Tax Before Credits:</span><span class="value">$${tax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></div>`;
+        html += `<div class="result-item"><span class="label">Total Tax Credits:</span><span class="value">$${totalCredits.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></div>`;
+        html += `<div class="result-item highlight"><span class="label">California State Tax Owed:</span><span class="value">$${finalTax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></div>`;
+        html += `<div class="result-item"><span class="label">Effective Tax Rate:</span><span class="value">${effectiveRate.toFixed(2)}%</span></div>`;
+        html += `<div class="result-item"><span class="label">Marginal Tax Rate:</span><span class="value">${(marginalRate * 100).toFixed(1)}%</span></div>`;
+        html += `<div class="result-item highlight"><span class="label">After-Tax Income:</span><span class="value">$${takeHome.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></div>`;
+        html += '</div>';
+
+        // Insights
+        html += '<div class="insights">';
+        html += '<h3>💡 Tax Insights</h3>';
+
+        if (marginalRate >= 0.093) {
+            html += `<p><strong>You're in California's 9.3%+ tax bracket.</strong> Consider maxing out your 401(k) contributions (up to $23,500 in 2026, or $31,000 if 50+) to reduce taxable income and save ${(marginalRate * 100).toFixed(1)}% state tax on those dollars.</p>`;
+        }
+
+        if (income > 1000000 && filingStatus === 'single') {
+            html += `<p><strong>Mental Health Services Tax applies.</strong> Your income over $1,000,000 is taxed at California's highest rate of 13.3%, which includes a 1% surtax for mental health programs.</p>`;
+        }
+
+        if (income > 2000000 && filingStatus === 'married') {
+            html += `<p><strong>You're at California's top tax bracket (13.3%).</strong> Consider residency strategies if you have location flexibility—moving to Nevada, Texas, or Florida could save you hundreds of thousands in state tax annually.</p>`;
+        }
+
+        if (itemizedDeductions > 0 && itemizedDeductions > standardDeduction) {
+            html += `<p><strong>Itemizing saves you money.</strong> Your itemized deductions ($${itemizedDeductions.toLocaleString()}) exceed the standard deduction by $${(itemizedDeductions - standardDeduction).toLocaleString()}, reducing taxable income further.</p>`;
+        }
+
+        if (itemizedDeductions === 0 || itemizedDeductions < standardDeduction) {
+            html += `<p><strong>Standard deduction is optimal.</strong> Unless you have significant mortgage interest, charitable contributions, or medical expenses, the standard deduction ($${standardDeduction.toLocaleString()}) is your best option.</p>`;
+        }
+
+        if (dependents > 0) {
+            html += `<p><strong>Dependent credits applied:</strong> You received $${dependentCredit.toLocaleString()} in credits for ${dependents} dependent${dependents > 1 ? 's' : ''}. Consider contributing to a 529 plan for tax-free growth on education savings.</p>`;
+        }
+
+        if (income < 30950 && filingStatus === 'single') {
+            html += `<p><strong>You may qualify for CalEITC.</strong> California's Earned Income Tax Credit can provide hundreds to thousands in refundable credits for low to moderate-income workers. Check eligibility at ftb.ca.gov.</p>`;
+        }
+
+        if (income < 51041 && (filingStatus === 'single' || filingStatus === 'head')) {
+            html += `<p><strong>Renter's Credit eligible.</strong> If you rent your primary residence, you may qualify for a $60 credit (single) or $120 (married). This directly reduces your tax bill.</p>`;
+        }
+
+        const monthlyTax = finalTax / 12;
+        html += `<p><strong>Monthly tax impact:</strong> You'll pay approximately $${monthlyTax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} per month in California state income tax. Adjust your W-4 withholding to avoid a large balance due at tax time.</p>`;
+
+        html += '</div>';
+
+        document.getElementById('results').innerHTML = html;
+    }
+
+    function getMarginalRate(taxableIncome, brackets) {
+        let previousLimit = 0;
+        for (let i = 0; i < brackets.length; i++) {
+            const bracket = brackets[i];
+            if (taxableIncome > previousLimit && taxableIncome <= bracket.limit) {
+                return bracket.rate;
+            }
+            previousLimit = bracket.limit;
+        }
+        return brackets[brackets.length - 1].rate;
+    }
+
+    // Auto-calculate on load
+    window.addEventListener('load', calculateTax);
+
+    // Real-time calculation
+    document.getElementById('filingStatus').addEventListener('change', calculateTax);
+    document.getElementById('income').addEventListener('input', calculateTax);
+    document.getElementById('deductions').addEventListener('input', calculateTax);
+    document.getElementById('dependents').addEventListener('input', calculateTax);
+    document.getElementById('credits').addEventListener('input', calculateTax);
+    </script>
+</body>
+</html>
