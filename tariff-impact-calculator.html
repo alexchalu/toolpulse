@@ -493,22 +493,30 @@ function calculate() {
   document.getElementById('energyCost').textContent = '$' + breakdown.energy.cost.toLocaleString();
   document.getElementById('energyPct').textContent = '+0.8% on energy bills';
 
-  // Draw bar chart
+  // Draw bar chart with correct formatting
   const avgCost = 980; // National average (midpoint of $650-$1,340)
-  const maxVal = Math.max(totalCost, avgCost, 1340) * 1.2;
-  const colors = ['#e34040','#e37000','#0071e3','#34a853','#9333ea','#e3409e'];
-  let barHTML = '';
+  const lowIncome = 1340; // Bottom quintile estimated cost
+  const highIncome = 650; // Top quintile estimated cost
+  const maxVal = Math.max(totalCost, avgCost, lowIncome) * 1.15; // Max for chart scale
+  
   const comparisons = [
     { label: 'Your household', val: totalCost, color: '#e34040' },
     { label: 'National avg.', val: avgCost, color: '#0071e3' },
-    { label: 'Bottom 20% income', val: 1340, color: '#e37000' },
-    { label: 'Top 20% income', val: 650, color: '#34a853' }
+    { label: 'Bottom 20% income', val: lowIncome, color: '#e37000' },
+    { label: 'Top 20% income', val: highIncome, color: '#34a853' }
   ];
+  
+  let barHTML = '';
   for (const c of comparisons) {
-    const pct = Math.round((c.val / maxVal) * 100);
+    const pct = Math.min(Math.round((c.val / maxVal) * 100), 100); // Cap at 100%
+    const formattedVal = '$' + c.val.toLocaleString();
     barHTML += `<div class="bar-row">
       <div class="bar-label">${c.label}</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${c.color}"><span class="bar-val">$${c.val.toLocaleString()}</span></div></div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${pct}%;background:${c.color}">
+          <span class="bar-val">${formattedVal}</span>
+        </div>
+      </div>
     </div>`;
   }
   document.getElementById('barChart').innerHTML = barHTML;
