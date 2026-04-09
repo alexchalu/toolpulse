@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesothelioma Settlement Calculator - Estimate Compensation</title>
+    <meta name="description" content="Calculate potential mesothelioma settlement amounts based on exposure history, diagnosis, medical costs, and lost wages. Free asbestos compensation estimator.">
+    <link rel="stylesheet" href="../styles/light.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T15B36EMR3"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T15B36EMR3');</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mesothelioma Settlement Calculator",
+        "description": "Calculate potential mesothelioma settlement amounts based on exposure, diagnosis, and financial damages",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">CalcLeap</a>
+            <a href="../index.html">All Tools</a>
+        </div>
+    </nav>
+
+    <main class="calculator-page">
+        <header class="tool-header">
+            <h1>Mesothelioma Settlement Calculator</h1>
+            <p class="tool-description">Estimate potential compensation for mesothelioma diagnosis based on exposure history, medical costs, and financial damages</p>
+        </header>
+
+        <div class="tool-container">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="diagnosisType">Diagnosis Type</label>
+                    <select id="diagnosisType">
+                        <option value="pleural">Pleural Mesothelioma</option>
+                        <option value="peritoneal">Peritoneal Mesothelioma</option>
+                        <option value="pericardial">Pericardial Mesothelioma</option>
+                        <option value="testicular">Testicular Mesothelioma</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="stage">Cancer Stage</label>
+                    <select id="stage">
+                        <option value="1">Stage 1 (Early/Localized)</option>
+                        <option value="2">Stage 2 (Locally Advanced)</option>
+                        <option value="3">Stage 3 (Regional Spread)</option>
+                        <option value="4">Stage 4 (Distant Metastasis)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="exposureYears">Years of Asbestos Exposure</label>
+                    <input type="number" id="exposureYears" value="15" min="1" max="60">
+                </div>
+
+                <div class="input-group">
+                    <label for="exposureType">Primary Exposure Type</label>
+                    <select id="exposureType">
+                        <option value="occupational">Occupational (Workplace)</option>
+                        <option value="military">Military Service</option>
+                        <option value="secondary">Secondary (Family Member)</option>
+                        <option value="environmental">Environmental</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="medicalCosts">Total Medical Costs ($)</label>
+                    <input type="number" id="medicalCosts" value="400000" min="0" step="1000">
+                </div>
+
+                <div class="input-group">
+                    <label for="lostWages">Lost Wages/Income ($)</label>
+                    <input type="number" id="lostWages" value="200000" min="0" step="1000">
+                </div>
+
+                <div class="input-group">
+                    <label for="age">Current Age</label>
+                    <input type="number" id="age" value="65" min="18" max="100">
+                </div>
+
+                <div class="input-group">
+                    <label for="dependents">Number of Dependents</label>
+                    <input type="number" id="dependents" value="2" min="0" max="10">
+                </div>
+
+                <div class="input-group">
+                    <label for="documentedExposure">Documented Exposure Evidence?</label>
+                    <select id="documentedExposure">
+                        <option value="yes">Yes (Employment records, service records, etc.)</option>
+                        <option value="partial">Partial documentation</option>
+                        <option value="no">No documentation</option>
+                    </select>
+                </div>
+
+                <button class="calculate-btn" onclick="calculateSettlement()">Calculate Settlement Range</button>
+            </div>
+
+            <div class="result-section" id="results" style="display: none;">
+                <h2>Estimated Settlement Range</h2>
+                <div class="result-box">
+                    <div class="result-item">
+                        <span class="result-label">Low Estimate:</span>
+                        <span class="result-value" id="lowEstimate">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Average Estimate:</span>
+                        <span class="result-value highlight" id="avgEstimate">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">High Estimate:</span>
+                        <span class="result-value" id="highEstimate">-</span>
+                    </div>
+                </div>
+
+                <div class="breakdown">
+                    <h3>Settlement Breakdown</h3>
+                    <table>
+                        <tr>
+                            <td>Economic Damages (Medical + Lost Wages):</td>
+                            <td id="economicDamages">-</td>
+                        </tr>
+                        <tr>
+                            <td>Pain and Suffering Multiplier:</td>
+                            <td id="painMultiplier">-</td>
+                        </tr>
+                        <tr>
+                            <td>Non-Economic Damages:</td>
+                            <td id="nonEconomicDamages">-</td>
+                        </tr>
+                        <tr>
+                            <td>Additional Factors Adjustment:</td>
+                            <td id="adjustmentFactor">-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="info-box">
+                    <h3>Important Information</h3>
+                    <ul>
+                        <li><strong>Case Strength:</strong> <span id="caseStrength">-</span></li>
+                        <li><strong>Average Timeline:</strong> Settlements typically take 6-18 months; trials 1-3+ years</li>
+                        <li><strong>No Attorney Fees Until Recovery:</strong> Most mesothelioma attorneys work on contingency (typically 30-40%)</li>
+                        <li><strong>Statute of Limitations:</strong> Varies by state (1-6 years from diagnosis); act quickly</li>
+                        <li><strong>Trust Fund Claims:</strong> Many asbestos companies have bankruptcy trust funds available separately</li>
+                    </ul>
+                </div>
+
+                <div class="disclaimer-box">
+                    <p><strong>Legal Disclaimer:</strong> This calculator provides general estimates only and is not legal advice. Actual settlements vary widely based on jurisdiction, defendant solvency, case strength, jury sympathy, and many other factors. Consult with a qualified mesothelioma attorney for case evaluation. Past results do not guarantee future outcomes.</p>
+                </div>
+            </div>
+        </div>
+
+        <article class="content-section">
+            <h2>Understanding Mesothelioma Settlements</h2>
+            
+            <h3>What Affects Settlement Amounts?</h3>
+            <p>Mesothelioma settlement values depend on several critical factors:</p>
+            <ul>
+                <li><strong>Economic Damages:</strong> Documented medical expenses, treatment costs, lost wages, and future care needs</li>
+                <li><strong>Non-Economic Damages:</strong> Pain and suffering, loss of quality of life, emotional distress</li>
+                <li><strong>Cancer Stage:</strong> Earlier diagnoses with better prognoses may receive different compensation than advanced cases</li>
+                <li><strong>Exposure Evidence:</strong> Strong documentation of asbestos exposure increases settlement value</li>
+                <li><strong>Defendant Solvency:</strong> Whether liable companies are still operating or have bankruptcy trusts</li>
+                <li><strong>Age and Dependents:</strong> Younger victims with dependents often receive higher compensation</li>
+            </ul>
+
+            <h3>Average Settlement Ranges</h3>
+            <p>While every case is unique, mesothelioma settlements typically range from:</p>
+            <ul>
+                <li><strong>Settlement (Out of Court):</strong> $1 million to $2.4 million average</li>
+                <li><strong>Trial Verdict:</strong> $2.4 million to $11+ million average (but higher risk/longer timeline)</li>
+                <li><strong>Trust Fund Claims:</strong> $40,000 to $200,000+ per trust (can file multiple claims)</li>
+                <li><strong>VA Benefits:</strong> Additional compensation available for veterans</li>
+            </ul>
+
+            <h3>Settlement vs. Trial</h3>
+            <p><strong>Settlement Advantages:</strong> Faster resolution (6-18 months), guaranteed compensation, lower stress, lower legal costs</p>
+            <p><strong>Trial Advantages:</strong> Potentially higher awards, jury sympathy for victims, punitive damages possible</p>
+            <p>Most mesothelioma cases settle before trial, as defendants prefer to avoid public trials and uncertain jury verdicts.</p>
+
+            <h3>Types of Compensation Available</h3>
+            <ul>
+                <li><strong>Personal Injury Lawsuits:</strong> Filed by the victim for their own damages</li>
+                <li><strong>Wrongful Death Claims:</strong> Filed by family after victim's passing</li>
+                <li><strong>Asbestos Trust Fund Claims:</strong> Claims against bankruptcy trusts (over 60 trusts with $30+ billion)</li>
+                <li><strong>VA Claims:</strong> Veterans exposed during military service</li>
+                <li><strong>Workers' Compensation:</strong> State benefits (typically lower than lawsuits)</li>
+            </ul>
+
+            <h3>Legal Timeline</h3>
+            <ol>
+                <li><strong>Free Consultation (Week 1):</strong> Attorney evaluates your case at no cost</li>
+                <li><strong>Case Filing (Weeks 2-4):</strong> Lawsuit filed identifying liable parties</li>
+                <li><strong>Discovery (Months 2-8):</strong> Evidence gathering, depositions, medical records</li>
+                <li><strong>Settlement Negotiations (Months 6-12):</strong> Most cases settle during this phase</li>
+                <li><strong>Trial (If No Settlement):</strong> Typically 1-3+ years from filing</li>
+            </ol>
+
+            <h3>Who Can File a Claim?</h3>
+            <ul>
+                <li>Anyone diagnosed with mesothelioma caused by asbestos exposure</li>
+                <li>Family members of deceased mesothelioma victims (wrongful death)</li>
+                <li>Spouses/family members with secondary exposure (from bringing home asbestos fibers)</li>
+                <li>Veterans exposed during military service</li>
+                <li>Workers in high-risk industries: construction, shipyards, manufacturing, automotive, firefighting</li>
+            </ul>
+
+            <h3>Next Steps</h3>
+            <p>If you or a loved one has been diagnosed with mesothelioma:</p>
+            <ol>
+                <li><strong>Act Quickly:</strong> Statutes of limitations vary by state (1-6 years from diagnosis)</li>
+                <li><strong>Gather Documentation:</strong> Employment records, military service records, medical records, witness statements</li>
+                <li><strong>Consult a Specialist:</strong> Choose an attorney experienced in mesothelioma cases</li>
+                <li><strong>No Upfront Costs:</strong> Most mesothelioma attorneys work on contingency (only paid if you win)</li>
+                <li><strong>Multiple Claims:</strong> You may be eligible for lawsuit settlement AND trust fund claims AND VA benefits</li>
+            </ol>
+
+            <p><strong>Important:</strong> This calculator provides estimates based on typical settlement ranges and case factors. Your actual compensation will depend on your specific circumstances, jurisdiction, legal representation, and many other variables. Consult with a qualified mesothelioma attorney for a professional case evaluation.</p>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 CalcLeap. Free tools for smarter decisions.</p>
+        <p class="footer-byline">Built by Alex Chalunkal — <a href="https://chalunkal.com" target="_blank" rel="noopener">chalunkal.com</a></p>
+    </footer>
+
+    <script>
+        function calculateSettlement() {
+            const diagnosisType = document.getElementById('diagnosisType').value;
+            const stage = parseInt(document.getElementById('stage').value);
+            const exposureYears = parseFloat(document.getElementById('exposureYears').value);
+            const exposureType = document.getElementById('exposureType').value;
+            const medicalCosts = parseFloat(document.getElementById('medicalCosts').value);
+            const lostWages = parseFloat(document.getElementById('lostWages').value);
+            const age = parseInt(document.getElementById('age').value);
+            const dependents = parseInt(document.getElementById('dependents').value);
+            const documentedExposure = document.getElementById('documentedExposure').value;
+
+            // Calculate economic damages (actual costs)
+            const economicDamages = medicalCosts + lostWages;
+
+            // Pain and suffering multiplier based on stage and diagnosis type
+            let painMultiplier = 2.5;
+            if (stage === 1) painMultiplier = 2.0;
+            if (stage === 2) painMultiplier = 2.5;
+            if (stage === 3) painMultiplier = 3.0;
+            if (stage === 4) painMultiplier = 3.5;
+
+            // Diagnosis type adjustment
+            if (diagnosisType === 'peritoneal') painMultiplier += 0.3; // Rarer, often higher awards
+            if (diagnosisType === 'pericardial') painMultiplier += 0.5; // Very rare, severe
+            if (diagnosisType === 'testicular') painMultiplier += 0.4; // Extremely rare
+
+            // Calculate non-economic damages
+            const nonEconomicDamages = economicDamages * painMultiplier;
+
+            // Base settlement
+            let baseSettlement = economicDamages + nonEconomicDamages;
+
+            // Adjustment factors
+            let adjustmentFactor = 1.0;
+
+            // Exposure type impact
+            if (exposureType === 'occupational') adjustmentFactor += 0.15; // Strong liability
+            if (exposureType === 'military') adjustmentFactor += 0.20; // Jury sympathy, VA benefits too
+            if (exposureType === 'secondary') adjustmentFactor += 0.10; // Tragic circumstances
+            if (exposureType === 'environmental') adjustmentFactor += 0.05; // Harder to prove
+
+            // Exposure duration
+            if (exposureYears > 20) adjustmentFactor += 0.10;
+            if (exposureYears > 30) adjustmentFactor += 0.15;
+
+            // Documentation quality
+            if (documentedExposure === 'yes') adjustmentFactor += 0.20; // Strong case
+            if (documentedExposure === 'partial') adjustmentFactor += 0.05;
+            if (documentedExposure === 'no') adjustmentFactor -= 0.15; // Weaker case
+
+            // Age factor (younger victims, more life years lost)
+            if (age < 50) adjustmentFactor += 0.15;
+            if (age < 40) adjustmentFactor += 0.25;
+            if (age > 75) adjustmentFactor -= 0.05;
+
+            // Dependents (more financial impact on family)
+            if (dependents > 0) adjustmentFactor += 0.10;
+            if (dependents > 2) adjustmentFactor += 0.15;
+
+            // Apply adjustment
+            const adjustedSettlement = baseSettlement * adjustmentFactor;
+
+            // Calculate range (settlements vary widely)
+            const lowEstimate = adjustedSettlement * 0.6;
+            const avgEstimate = adjustedSettlement;
+            const highEstimate = adjustedSettlement * 1.8;
+
+            // Ensure minimum values (mesothelioma settlements rarely under $500k)
+            const finalLow = Math.max(lowEstimate, 500000);
+            const finalAvg = Math.max(avgEstimate, 800000);
+            const finalHigh = Math.max(highEstimate, 1500000);
+
+            // Display results
+            document.getElementById('lowEstimate').textContent = '$' + finalLow.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('avgEstimate').textContent = '$' + finalAvg.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('highEstimate').textContent = '$' + finalHigh.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+            document.getElementById('economicDamages').textContent = '$' + economicDamages.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('painMultiplier').textContent = painMultiplier.toFixed(1) + 'x';
+            document.getElementById('nonEconomicDamages').textContent = '$' + nonEconomicDamages.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('adjustmentFactor').textContent = ((adjustmentFactor - 1) * 100).toFixed(0) + '%';
+
+            // Case strength assessment
+            let caseStrength = 'Moderate';
+            if (documentedExposure === 'yes' && exposureYears > 15 && (exposureType === 'occupational' || exposureType === 'military')) {
+                caseStrength = 'Strong - Well-documented exposure with clear liability';
+            } else if (documentedExposure === 'no' || exposureYears < 5) {
+                caseStrength = 'Weaker - Limited documentation or short exposure period';
+            } else if (documentedExposure === 'partial' && exposureYears > 10) {
+                caseStrength = 'Moderate to Strong - Some documentation with significant exposure';
+            }
+            document.getElementById('caseStrength').textContent = caseStrength;
+
+            // Show results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Auto-calculate on input change
+        document.querySelectorAll('input, select').forEach(element => {
+            element.addEventListener('change', calculateSettlement);
+        });
+
+        // Initial calculation
+        calculateSettlement();
+    </script>
+</body>
+</html>
