@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Income Tax Calculator 2026 - Calculate Your CA Tax</title>
+    <meta name="description" content="Free California income tax calculator. Calculate your CA state income tax, take-home pay, and effective tax rate for 2026. Includes all tax brackets and standard deductions.">
+    <meta name="keywords" content="california income tax, ca tax calculator, california tax brackets 2026, california state tax, take home pay california">
+    <link rel="canonical" href="https://calcleap.com/calculators/california-income-tax-calculator.html">
+    <link rel="stylesheet" href="../styles/calc.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E7R3T6FNT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1E7R3T6FNT');
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "California Income Tax Calculator",
+      "description": "Calculate your California state income tax and take-home pay for 2026",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">CalcLeap</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../calculators.html">Calculators</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <header>
+                <h1>California Income Tax Calculator 2026</h1>
+                <p class="subtitle">Calculate your California state income tax and take-home pay with accurate 2026 tax brackets</p>
+                <p class="byline">By CalcLeap Financial Tools • Updated April 2026</p>
+            </header>
+
+            <div class="toolContent">
+                <div class="calculator-container">
+                    <div class="input-section">
+                        <div class="input-group">
+                            <label for="income">Annual Income ($)</label>
+                            <input type="number" id="income" placeholder="75000" min="0" step="1000">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="filingStatus">Filing Status</label>
+                            <select id="filingStatus">
+                                <option value="single">Single</option>
+                                <option value="married">Married Filing Jointly</option>
+                                <option value="headOfHousehold">Head of Household</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="dependents">Number of Dependents</label>
+                            <input type="number" id="dependents" value="0" min="0" max="20">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="deductions">Additional Deductions ($)</label>
+                            <input type="number" id="deductions" value="0" min="0" step="500">
+                        </div>
+
+                        <button onclick="calculateTax()" class="calculate-btn">Calculate Tax</button>
+                    </div>
+
+                    <div id="results" class="results-section" style="display: none;">
+                        <h2>Your California Tax Results</h2>
+                        <div class="result-grid">
+                            <div class="result-item highlight">
+                                <span class="result-label">California State Tax</span>
+                                <span class="result-value" id="stateTax">$0</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Effective Tax Rate</span>
+                                <span class="result-value" id="effectiveRate">0%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Taxable Income</span>
+                                <span class="result-value" id="taxableIncome">$0</span>
+                            </div>
+                            <div class="result-item highlight">
+                                <span class="result-label">Take-Home Pay (After State Tax)</span>
+                                <span class="result-value" id="takeHome">$0</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Monthly Take-Home</span>
+                                <span class="result-value" id="monthlyTakeHome">$0</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Standard Deduction</span>
+                                <span class="result-value" id="standardDeduction">$0</span>
+                            </div>
+                        </div>
+
+                        <div class="tax-breakdown">
+                            <h3>Tax Bracket Breakdown</h3>
+                            <div id="bracketBreakdown"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>About California Income Tax</h2>
+                    <p>California has one of the most progressive income tax systems in the United States, with nine tax brackets ranging from 1% to 13.3%. This calculator helps you estimate your California state income tax based on the 2026 tax brackets and standard deductions.</p>
+
+                    <h3>2026 California Tax Brackets</h3>
+                    
+                    <h4>Single Filers</h4>
+                    <ul>
+                        <li>1% on income up to $10,412</li>
+                        <li>2% on income $10,413 to $24,684</li>
+                        <li>4% on income $24,685 to $38,959</li>
+                        <li>6% on income $38,960 to $54,081</li>
+                        <li>8% on income $54,082 to $68,350</li>
+                        <li>9.3% on income $68,351 to $349,137</li>
+                        <li>10.3% on income $349,138 to $418,961</li>
+                        <li>11.3% on income $418,962 to $698,271</li>
+                        <li>12.3% on income $698,272 to $1,000,000</li>
+                        <li>13.3% on income over $1,000,000</li>
+                    </ul>
+
+                    <h4>Married Filing Jointly</h4>
+                    <ul>
+                        <li>1% on income up to $20,824</li>
+                        <li>2% on income $20,825 to $49,368</li>
+                        <li>4% on income $49,369 to $77,918</li>
+                        <li>6% on income $77,919 to $108,162</li>
+                        <li>8% on income $108,163 to $136,700</li>
+                        <li>9.3% on income $136,701 to $698,274</li>
+                        <li>10.3% on income $698,275 to $837,922</li>
+                        <li>11.3% on income $837,923 to $1,396,542</li>
+                        <li>12.3% on income $1,396,543 to $2,000,000</li>
+                        <li>13.3% on income over $2,000,000</li>
+                    </ul>
+
+                    <h3>Standard Deductions (2026)</h3>
+                    <ul>
+                        <li><strong>Single:</strong> $5,363</li>
+                        <li><strong>Married Filing Jointly:</strong> $10,726</li>
+                        <li><strong>Head of Household:</strong> $10,726</li>
+                    </ul>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Progressive tax system with 9 brackets</li>
+                        <li>Top marginal rate of 13.3% (highest in the nation)</li>
+                        <li>Standard deduction reduces taxable income</li>
+                        <li>Additional 1% Mental Health Services Tax on income over $1 million</li>
+                        <li>No local income taxes (state-level only)</li>
+                    </ul>
+
+                    <h3>How to Lower Your California Tax</h3>
+                    <ul>
+                        <li><strong>Maximize retirement contributions:</strong> 401(k), IRA contributions reduce taxable income</li>
+                        <li><strong>Health Savings Account (HSA):</strong> Tax-deductible contributions</li>
+                        <li><strong>Itemize deductions:</strong> If total deductions exceed standard deduction</li>
+                        <li><strong>Tax credits:</strong> Earned Income Tax Credit, dependent care credits</li>
+                        <li><strong>Property tax deduction:</strong> Limited by federal SALT cap</li>
+                    </ul>
+
+                    <h3>Important Notes</h3>
+                    <p><strong>This calculator provides estimates only.</strong> Actual tax liability may vary based on credits, additional deductions, and other factors. Consult a tax professional for personalized advice.</p>
+                    <p>Federal income tax, Social Security, and Medicare taxes are separate and not included in this calculation. This calculator only computes California state income tax.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CalcLeap</h3>
+                <p>Free online calculators and conversion tools for everyday use.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../calculators.html">All Calculators</a></li>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Popular Tools</h3>
+                <ul>
+                    <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                    <li><a href="password-generator.html">Password Generator</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const TAX_BRACKETS_2026 = {
+            single: [
+                { limit: 10412, rate: 0.01 },
+                { limit: 24684, rate: 0.02 },
+                { limit: 38959, rate: 0.04 },
+                { limit: 54081, rate: 0.06 },
+                { limit: 68350, rate: 0.08 },
+                { limit: 349137, rate: 0.093 },
+                { limit: 418961, rate: 0.103 },
+                { limit: 698271, rate: 0.113 },
+                { limit: 1000000, rate: 0.123 },
+                { limit: Infinity, rate: 0.133 }
+            ],
+            married: [
+                { limit: 20824, rate: 0.01 },
+                { limit: 49368, rate: 0.02 },
+                { limit: 77918, rate: 0.04 },
+                { limit: 108162, rate: 0.06 },
+                { limit: 136700, rate: 0.08 },
+                { limit: 698274, rate: 0.093 },
+                { limit: 837922, rate: 0.103 },
+                { limit: 1396542, rate: 0.113 },
+                { limit: 2000000, rate: 0.123 },
+                { limit: Infinity, rate: 0.133 }
+            ],
+            headOfHousehold: [
+                { limit: 20839, rate: 0.01 },
+                { limit: 49371, rate: 0.02 },
+                { limit: 63644, rate: 0.04 },
+                { limit: 78765, rate: 0.06 },
+                { limit: 93037, rate: 0.08 },
+                { limit: 475411, rate: 0.093 },
+                { limit: 570081, rate: 0.103 },
+                { limit: 950107, rate: 0.113 },
+                { limit: 1000000, rate: 0.123 },
+                { limit: Infinity, rate: 0.133 }
+            ]
+        };
+
+        const STANDARD_DEDUCTIONS = {
+            single: 5363,
+            married: 10726,
+            headOfHousehold: 10726
+        };
+
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const filingStatus = document.getElementById('filingStatus').value;
+            const dependents = parseInt(document.getElementById('dependents').value) || 0;
+            const additionalDeductions = parseFloat(document.getElementById('deductions').value) || 0;
+
+            if (income <= 0) {
+                alert('Please enter a valid income amount');
+                return;
+            }
+
+            const standardDeduction = STANDARD_DEDUCTIONS[filingStatus];
+            const dependentExemption = dependents * 153; // CA dependent exemption 2026
+            const totalDeductions = standardDeduction + dependentExemption + additionalDeductions;
+            const taxableIncome = Math.max(0, income - totalDeductions);
+
+            const brackets = TAX_BRACKETS_2026[filingStatus];
+            let tax = 0;
+            let previousLimit = 0;
+            let bracketBreakdownHTML = '';
+
+            for (let i = 0; i < brackets.length; i++) {
+                const bracket = brackets[i];
+                if (taxableIncome > previousLimit) {
+                    const taxableInBracket = Math.min(taxableIncome, bracket.limit) - previousLimit;
+                    const taxInBracket = taxableInBracket * bracket.rate;
+                    tax += taxInBracket;
+
+                    if (taxableInBracket > 0) {
+                        bracketBreakdownHTML += `
+                            <div class="bracket-item">
+                                <span>${(bracket.rate * 100).toFixed(1)}% bracket:</span>
+                                <span>$${taxableInBracket.toLocaleString('en-US', {maximumFractionDigits: 0})} × ${(bracket.rate * 100).toFixed(1)}% = $${taxInBracket.toLocaleString('en-US', {maximumFractionDigits: 0})}</span>
+                            </div>
+                        `;
+                    }
+
+                    previousLimit = bracket.limit;
+                }
+                if (taxableIncome <= bracket.limit) break;
+            }
+
+            const effectiveRate = taxableIncome > 0 ? (tax / taxableIncome * 100) : 0;
+            const takeHome = income - tax;
+            const monthlyTakeHome = takeHome / 12;
+
+            document.getElementById('stateTax').textContent = '$' + tax.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(2) + '%';
+            document.getElementById('taxableIncome').textContent = '$' + taxableIncome.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('takeHome').textContent = '$' + takeHome.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('monthlyTakeHome').textContent = '$' + monthlyTakeHome.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('standardDeduction').textContent = '$' + totalDeductions.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('bracketBreakdown').innerHTML = bracketBreakdownHTML;
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Allow Enter key to calculate
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        calculateTax();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

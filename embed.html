@@ -7,32 +7,47 @@
     <meta name="description" content="Free embeddable calculator widgets for your website. Mortgage, loan, BMI, retirement calculators and more. No API keys, just copy and paste.">
     <link rel="canonical" href="https://calcleap.com/embed.html">
     <style>
+/* === CalcLeap Apple Design System - Minimal for Embeds === */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #f5f5f7;
-            color: #1d1d1f;
-            line-height: 1.6;
+        :root{
+            --white:#fff;--bg:#f5f5f7;--surface:#fff;
+            --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+            --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+            --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+            --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+            --r:16px;--r-sm:12px;--r-xs:8px;
+            --mw:980px;
+            --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
         }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration: none; }
+
         .nav {
-            background: rgba(255,255,255,0.8);
+            background: rgba(245,245,247,.8);
             backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
             padding: 12px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         .nav-content {
-            max-width: 980px;
+            max-width: var(--mw);
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo { font-size: 20px; font-weight: 600; color: #0071e3; text-decoration: none; }
+        .logo { font-size: 20px; font-weight: 600; color: var(--accent); text-decoration: none; }
         .page {
-            max-width: 980px;
+            max-width: var(--mw);
             margin: 60px auto;
             padding: 0 20px;
         }
@@ -41,12 +56,15 @@
             font-weight: 700;
             margin-bottom: 20px;
             text-align: center;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
         }
         .subtitle {
             font-size: 21px;
-            color: #6e6e73;
+            color: var(--text-2);
             text-align: center;
             margin-bottom: 60px;
+            line-height: 1.5;
         }
         .widget-grid {
             display: grid;
@@ -55,32 +73,36 @@
             margin-bottom: 60px;
         }
         .widget-card {
-            background: white;
-            border-radius: 18px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
             padding: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            box-shadow: var(--shadow);
         }
         .widget-card h2 {
             font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
             margin-bottom: 15px;
         }
         .widget-card p {
-            color: #6e6e73;
+            color: var(--text-2);
             margin-bottom: 20px;
         }
         .embed-code {
-            background: #f5f5f7;
-            border: 1px solid #d2d2d7;
-            border-radius: 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--r-xs);
             padding: 15px;
             font-family: 'SF Mono', Monaco, monospace;
             font-size: 13px;
             overflow-x: auto;
             margin-bottom: 15px;
+            color: var(--text-2);
         }
         .copy-btn {
-            background: #0071e3;
-            color: white;
+            background: var(--accent);
+            color: var(--text);
             border: none;
             padding: 12px 24px;
             border-radius: 980px;
@@ -91,24 +113,96 @@
             width: 100%;
         }
         .copy-btn:hover {
-            background: #0077ed;
+            background: var(--accent-hover);
             transform: translateY(-1px);
         }
         .preview {
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid #d2d2d7;
+            border-top: 1px solid var(--border);
         }
         .preview h3 {
             font-size: 17px;
             margin-bottom: 15px;
-            color: #6e6e73;
+            color: var(--text-2);
+            font-weight: 600;
         }
         iframe {
             width: 100%;
             height: 400px;
-            border: 1px solid #d2d2d7;
-            border-radius: 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--r-sm);
+        }
+        /* === FOOTER === */
+        footer {
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+            padding: 2.5rem 2rem 1.5rem;
+            background: var(--white);
+        }
+        .footer-content {
+            max-width: var(--mw);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+        .footer-col h3 {
+            font-size: .9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--text);
+            margin-bottom: .8rem;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col a {
+            display: block;
+            font-size: .85rem;
+            color: var(--text-2);
+            padding: .25rem 0;
+            transition: color .15s;
+        }
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+        .footer-col p {
+            font-size: .85rem;
+            color: var(--text-2);
+            line-height: 1.6;
+        }
+        .social-links a {
+            display: inline-block;
+            margin-right: .75rem;
+            font-size: .85rem;
+            color: var(--text-3);
+        }
+        .footer-bottom {
+            max-width: var(--mw);
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .footer-bottom p {
+            font-size: .75rem;
+            color: var(--text-3);
+        }
+
+        /* === RESPONSIVE === */
+        @media(max-width:768px){
+            .nav-content a:last-child { display: none; } /* Hide 'Embed Widgets' link on smaller screens for cleaner nav */
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1rem; }
+            .page { padding: 0 1rem; }
+            .widget-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+        @media(max-width:480px){
+            .footer-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -229,5 +323,46 @@
         gtag('js', new Date());
         gtag('config', 'G-Y5W5SEPQWV');
     </script>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Popular Calculators</h3>
+                <ul>
+                    <li><a href="/mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="/bmi-calculator.html">BMI Calculator</a></li>
+                    <li><a href="/compound-interest-calculator.html">Compound Interest</a></li>
+                    <li><a href="/loan-calculator.html">Loan Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="/finance-calculators.html">Finance</a></li>
+                    <li><a href="/health-calculators.html">Health</a></li>
+                    <li><a href="/math-calculators.html">Math</a></li>
+                    <li><a href="/science-calculators.html">Science</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <p>Stay updated with our latest tools and features.</p>
+                <div class="social-links">
+                    <a href="https://github.com/alexchalu/toolpulse" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
