@@ -3,547 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Structured Settlement Calculator - Present Value & Cash Out Estimator | CalcLeap</title>
-    <meta name="description" content="Calculate the present value of your structured settlement payments. Compare lump sum cash-out options vs. keeping payments. Free instant analysis with discount rate comparison.">
-    <link rel="canonical" href="https://calcleap.com/structured-settlement-calculator.html">
-    <meta property="og:title" content="Structured Settlement Calculator - Present Value & Cash Out Estimator">
-    <meta property="og:description" content="Calculate the present value of your structured settlement payments. Compare lump sum vs. keeping payments with our free calculator.">
+    <title>Structured Settlement Calculator - Calculate Your Payout Value</title>
+    <meta name="description" content="Calculate the present value of your structured settlement. Get instant estimates for lump sum vs periodic payments. Free calculator with detailed breakdown.">
+    <meta name="keywords" content="structured settlement calculator, settlement payout calculator, structured settlement value, lump sum vs payments, settlement calculator">
+    <meta property="og:title" content="Structured Settlement Calculator">
+    <meta property="og:description" content="Calculate the present value of your structured settlement. Get instant estimates for lump sum vs periodic payments.">
     <meta property="og:url" content="https://calcleap.com/structured-settlement-calculator.html">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://calcleap.com/og-default.png">
-    <link rel="stylesheet" href="gold.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5W5SEPQWV"></script>
-    <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'G-Y5W5SEPQWV');
-    </script>
+    <meta property="og:image" content="https://calcleap.com/images/structured-settlement-calculator-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Structured Settlement Calculator">
+    <meta name="twitter:description" content="Calculate the present value of your structured settlement. Get instant estimates for lump sum vs periodic payments.">
+    <meta name="twitter:image" content="https://calcleap.com/images/structured-settlement-calculator-og.jpg">
+    
+    <!-- Schema.org markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": "Calculator",
       "name": "Structured Settlement Calculator",
-      "description": "Calculate the present value of structured settlement payments and compare lump sum cash-out options.",
+      "description": "Calculate the present value of your structured settlement with detailed breakdown.",
       "url": "https://calcleap.com/structured-settlement-calculator.html",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Any",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "author": { "@type": "Organization", "name": "CalcLeap", "url": "https://calcleap.com" }
+      "image": "https://calcleap.com/images/structured-settlement-calculator-og.jpg",
+      "calculatorType": "Financial",
+      "mathExpression": "Present Value = Future Payment / (1 + Discount Rate)^Periods"
     }
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is a structured settlement?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A structured settlement is a negotiated financial arrangement where a claimant agrees to receive periodic payments over time instead of a single lump sum. Common in personal injury, wrongful death, and workers' compensation cases, structured settlements provide guaranteed tax-free income over months, years, or a lifetime."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much is my structured settlement worth?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The present value of your structured settlement depends on the payment amount, frequency, remaining years, and the discount rate used. Typically, selling a structured settlement yields 60-80% of the total remaining payments. For example, a settlement paying $2,000/month for 20 years ($480,000 total) might have a present value of $300,000-$380,000 depending on the discount rate."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What discount rate do structured settlement buyers use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Structured settlement purchasing companies typically use discount rates between 7% and 18%, with most falling in the 9-15% range. Lower discount rates mean you receive more money. By comparison, the risk-free rate (US Treasury bonds) is around 4-5%. The difference represents the buyer's profit margin and risk premium."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Should I sell my structured settlement?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Selling a structured settlement means receiving significantly less than the total future payments. Financial advisors generally recommend keeping structured settlements because they provide guaranteed tax-free income. However, selling may make sense for urgent needs like medical emergencies, debt elimination, home purchase, or education costs. Always get multiple quotes and consider selling only a portion of your payments."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are structured settlement payments taxable?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Structured settlement payments from personal physical injury or sickness claims are generally tax-free under IRC Section 104(a)(2). This includes both the principal and the growth/interest portion. However, if you sell your structured settlement for a lump sum, the proceeds may have different tax implications. Punitive damages and non-physical injury settlements may be taxable."
-          }
-        }
-      ]
-    }
+    
+    <link rel="stylesheet" href="css/gold.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="stylesheet" href="css/structured-settlement.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3K1E9Z1E1Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3K1E9Z1E1Z');
     </script>
-    <style>
-      .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-      @media (max-width: 600px) { .calc-grid { grid-template-columns: 1fr; } }
-      .result-card { background: linear-gradient(135deg, #f5f5f7, #e8e8ed); border-radius: 16px; padding: 24px; margin: 16px 0; }
-      .result-card h3 { color: #1d1d1f; margin-bottom: 12px; font-size: 16px; }
-      .result-big { font-size: 36px; font-weight: 700; color: #0071e3; margin: 8px 0; }
-      .result-sub { font-size: 14px; color: #86868b; }
-      .comparison-bar { display: flex; border-radius: 12px; overflow: hidden; height: 40px; margin: 16px 0; }
-      .bar-kept { background: #34c759; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 13px; }
-      .bar-lost { background: #ff3b30; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 13px; }
-      .schedule-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
-      .schedule-table th { background: #f5f5f7; padding: 10px 12px; text-align: left; font-weight: 600; border-bottom: 2px solid #d2d2d7; }
-      .schedule-table td { padding: 10px 12px; border-bottom: 1px solid #e8e8ed; }
-      .schedule-table tr:hover td { background: #f5f5f7; }
-      .tip-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px; border-radius: 0 12px 12px 0; margin: 16px 0; }
-      .tip-box strong { color: #856404; }
-      .discount-compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 16px 0; }
-      .dc-card { background: #fff; border: 2px solid #e8e8ed; border-radius: 12px; padding: 16px; text-align: center; transition: border-color 0.2s; }
-      .dc-card.active { border-color: #0071e3; background: #f0f7ff; }
-      .dc-card .dc-rate { font-size: 20px; font-weight: 700; color: #1d1d1f; }
-      .dc-card .dc-value { font-size: 16px; font-weight: 600; color: #0071e3; margin-top: 4px; }
-      .dc-card .dc-pct { font-size: 12px; color: #86868b; margin-top: 4px; }
-      canvas { max-width: 100%; margin: 16px 0; }
-      .warning-box { background: #fff0f0; border-left: 4px solid #ff3b30; padding: 16px; border-radius: 0 12px 12px 0; margin: 16px 0; }
-      .info-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0; }
-      @media (max-width: 600px) { .info-columns { grid-template-columns: 1fr; } }
-    </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#1d1d1f;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position='fixed';this.style.left='0';this.style.top='0';this.style.width='auto';this.style.height='auto';this.style.overflow='visible'" onblur="this.style.position='absolute';this.style.left='-9999px';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden'">Skip to content</a>
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="CalcLeap Home">CalcLeap</a>
-    <div class="nav-links">
-      <a href="/calc/">Calculators</a>
-      <a href="/blog/">Blog</a>
-      <a href="/about.html">About</a>
-    </div>
-  </div>
-</nav>
-
-<main id="main-content">
-  <section class="hero-section" style="padding:48px 24px 32px;max-width:800px;margin:0 auto;text-align:center">
-    <h1 class="page-title" style="font-size:clamp(28px,5vw,42px);font-weight:800;color:#1d1d1f;margin-bottom:12px">Structured Settlement Calculator</h1>
-    <p style="font-size:18px;color:#6e6e73;max-width:640px;margin:0 auto">Calculate the present value of your structured settlement payments. Compare lump sum cash-out offers against keeping your guaranteed income.</p>
-  </section>
-
-  <section style="max-width:800px;margin:0 auto;padding:0 24px 48px">
-    <div id="toolContent">
-      <div style="background:#fff;border-radius:20px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,0.06);margin-bottom:32px">
-        <h2 style="font-size:20px;font-weight:700;color:#1d1d1f;margin-bottom:20px">💰 Your Settlement Details</h2>
-        
-        <div class="calc-grid">
-          <div>
-            <label style="display:block;font-size:14px;font-weight:600;color:#6e6e73;margin-bottom:6px">Payment Amount ($)</label>
-            <input type="number" id="paymentAmount" value="2000" min="100" step="100" style="width:100%;padding:14px 16px;border:2px solid #d2d2d7;border-radius:12px;font-size:16px;transition:border-color 0.2s" onfocus="this.style.borderColor='#0071e3'" onblur="this.style.borderColor='#d2d2d7'">
-          </div>
-          <div>
-            <label style="display:block;font-size:14px;font-weight:600;color:#6e6e73;margin-bottom:6px">Payment Frequency</label>
-            <select id="payFrequency" style="width:100%;padding:14px 16px;border:2px solid #d2d2d7;border-radius:12px;font-size:16px;background:#fff;transition:border-color 0.2s" onfocus="this.style.borderColor='#0071e3'" onblur="this.style.borderColor='#d2d2d7'">
-              <option value="12">Monthly</option>
-              <option value="4">Quarterly</option>
-              <option value="2">Semi-Annually</option>
-              <option value="1">Annually</option>
-            </select>
-          </div>
-          <div>
-            <label style="display:block;font-size:14px;font-weight:600;color:#6e6e73;margin-bottom:6px">Years Remaining</label>
-            <input type="number" id="yearsRemaining" value="15" min="1" max="50" step="1" style="width:100%;padding:14px 16px;border:2px solid #d2d2d7;border-radius:12px;font-size:16px;transition:border-color 0.2s" onfocus="this.style.borderColor='#0071e3'" onblur="this.style.borderColor='#d2d2d7'">
-          </div>
-          <div>
-            <label style="display:block;font-size:14px;font-weight:600;color:#6e6e73;margin-bottom:6px">Annual Cost-of-Living Increase (%)</label>
-            <input type="number" id="colaRate" value="0" min="0" max="10" step="0.5" style="width:100%;padding:14px 16px;border:2px solid #d2d2d7;border-radius:12px;font-size:16px;transition:border-color 0.2s" onfocus="this.style.borderColor='#0071e3'" onblur="this.style.borderColor='#d2d2d7'">
-          </div>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="images/logo.svg" alt="CalcLeap Logo" class="logo-img">
+                    <span class="logo-text">CalcLeap</span>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#categories">Categories</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search calculators...">
+                <button onclick="searchCalculators()">Search</button>
+            </div>
         </div>
+    </header>
 
-        <div style="margin-top:20px">
-          <label style="display:block;font-size:14px;font-weight:600;color:#6e6e73;margin-bottom:6px">Discount Rate (%) — <span style="color:#86868b">typical buyer range: 9-15%</span></label>
-          <input type="range" id="discountRate" min="3" max="20" value="9" step="0.5" style="width:100%;accent-color:#0071e3" oninput="document.getElementById('drDisplay').textContent=this.value+'%'">
-          <div style="display:flex;justify-content:space-between;font-size:13px;color:#86868b;margin-top:4px">
-            <span>3% (Treasury)</span>
-            <span id="drDisplay" style="font-weight:700;color:#0071e3;font-size:16px">9%</span>
-            <span>20% (High)</span>
-          </div>
+    <main>
+        <div class="calculator-container">
+            <div class="calculator-header">
+                <h1>Structured Settlement Calculator</h1>
+                <p class="subtitle">Calculate the present value of your structured settlement payments</p>
+                
+                <div class="calculator-info">
+                    <div class="info-box">
+                        <h3>💡 What is a Structured Settlement?</h3>
+                        <p>A structured settlement is a financial arrangement where a claimant receives periodic payments over time rather than a lump sum. These are commonly used in personal injury lawsuits, workers' compensation claims, and other legal settlements.</p>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>📊 Why Calculate Present Value?</h3>
+                        <p>Present value calculations help you understand how much your future payments are worth today. This is crucial for:</p>
+                        <ul>
+                            <li>Comparing lump sum offers</li>
+                            <li>Making financial decisions</li>
+                            <li>Understanding your settlement's true value</li>
+                            <li>Negotiating with insurance companies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-form">
+                <div class="form-group">
+                    <label for="settlementAmount">Total Settlement Amount ($)</label>
+                    <input type="number" id="settlementAmount" min="1000" max="10000000" step="1000" value="100000" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="annualPayment">Annual Payment Amount ($)</label>
+                        <input type="number" id="annualPayment" min="1000" max="500000" step="1000" value="20000" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="paymentYears">Number of Years</label>
+                        <input type="number" id="paymentYears" min="1" max="50" value="10" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="discountRate">Discount Rate (%)</label>
+                        <input type="number" id="discountRate" min="0.1" max="15" step="0.1" value="5.5" required>
+                        <span class="hint">Typical rates: 3-8%</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inflationRate">Inflation Rate (%)</label>
+                        <input type="number" id="inflationRate" min="0" max="10" step="0.1" value="2.5" required>
+                        <span class="hint">Historical average: ~2.5%</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentFrequency">Payment Frequency</label>
+                    <select id="paymentFrequency">
+                        <option value="annual">Annual</option>
+                        <option value="semi-annual">Semi-Annual (2x per year)</option>
+                        <option value="quarterly">Quarterly (4x per year)</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </div>
+
+                <button onclick="calculateSettlement()" class="calculate-btn">Calculate Present Value</button>
+                <button onclick="resetCalculator()" class="reset-btn">Reset</button>
+            </div>
+
+            <div class="results-container" id="resultsContainer" style="display: none;">
+                <h2>Your Settlement Analysis</h2>
+                
+                <div class="result-card">
+                    <h3>📈 Present Value Summary</h3>
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <span class="result-label">Total Future Payments:</span>
+                            <span class="result-value" id="totalFuturePayments">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Present Value (Discounted):</span>
+                            <span class="result-value" id="presentValue">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Discount Applied:</span>
+                            <span class="result-value" id="totalDiscount">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Effective Annual Rate:</span>
+                            <span class="result-value" id="effectiveRate">0.00%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h3>📅 Payment Schedule</h3>
+                    <div class="payment-table-container">
+                        <table id="paymentTable">
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Payment Amount</th>
+                                    <th>Present Value</th>
+                                    <th>Cumulative Value</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paymentTableBody">
+                                <!-- Filled by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h3>💰 Comparison: Lump Sum vs Annuity</h3>
+                    <div class="comparison-chart">
+                        <canvas id="comparisonChart" width="400" height="300"></canvas>
+                    </div>
+                    <div class="comparison-summary">
+                        <p><strong>Lump Sum Offer:</strong> <span id="lumpSumOffer">$0.00</span></p>
+                        <p><strong>Present Value:</strong> <span id="presentValueComparison">$0.00</span></p>
+                        <p><strong>Difference:</strong> <span id="valueDifference">$0.00</span></p>
+                        <p class="comparison-note">*Present value helps you evaluate lump sum offers against your annuity</p>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h3>📊 Detailed Breakdown</h3>
+                    <div class="detailed-breakdown">
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Number of Payments:</span>
+                            <span class="breakdown-value" id="numPayments">0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Total Payments Made:</span>
+                            <span class="breakdown-value" id="totalPaymentsMade">$0.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Average Annual Return:</span>
+                            <span class="breakdown-value" id="avgAnnualReturn">0.00%</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Break-even Year:</span>
+                            <span class="breakdown-value" id="breakEvenYear">N/A</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-footer">
+                <div class="related-calculators">
+                    <h3>🔗 Related Financial Calculators</h3>
+                    <div class="calculator-links">
+                        <a href="/structured-settlement-calculator.html">Structured Settlement</a>
+                        <a href="/personal-injury-settlement-calculator.html">Personal Injury Settlement</a>
+                        <a href="/annuity-calculator.html">Annuity Calculator</a>
+                        <a href="/lump-sum-calculator.html">Lump Sum vs Annuity</a>
+                        <a href="/investment-return-calculator.html">Investment Return</a>
+                        <a href="/retirement-calculator.html">Retirement Planning</a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <div style="margin-top:16px">
-          <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:#6e6e73;cursor:pointer">
-            <input type="checkbox" id="partialSale" style="width:18px;height:18px;accent-color:#0071e3">
-            <span>Partial sale — sell only a portion of payments</span>
-          </label>
-          <div id="partialOptions" style="display:none;margin-top:12px">
-            <label style="display:block;font-size:14px;font-weight:600;color:#6e6e73;margin-bottom:6px">Years of Payments to Sell</label>
-            <input type="number" id="yearsToSell" value="5" min="1" max="50" step="1" style="width:200px;padding:14px 16px;border:2px solid #d2d2d7;border-radius:12px;font-size:16px">
-          </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="/finance/">Finance</a></li>
+                        <li><a href="/insurance/">Insurance</a></li>
+                        <li><a href="/health/">Health & Fitness</a></li>
+                        <li><a href="/math/">Math & Conversions</a></li>
+                        <li><a href="/home/">Home & DIY</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="/about.html">About CalcLeap</a></li>
+                        <li><a href="/contact.html">Contact Us</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CalcLeap. All calculators are free to use. Results are estimates only.</p>
+                <p><small>Structured settlement calculations are for educational purposes only. Consult a financial advisor for professional advice.</small></p>
+            </div>
         </div>
+    </footer>
 
-        <button onclick="calculate()" style="width:100%;margin-top:24px;padding:16px;background:#0071e3;color:#fff;border:none;border-radius:14px;font-size:17px;font-weight:600;cursor:pointer;transition:all 0.2s" onmouseover="this.style.background='#0077ED'" onmouseout="this.style.background='#0071e3'">Calculate Present Value</button>
-      </div>
-
-      <div id="results" style="display:none">
-        <!-- Summary Cards -->
-        <div class="calc-grid">
-          <div class="result-card">
-            <h3>📊 Total Future Payments</h3>
-            <div class="result-big" id="totalFuture">$0</div>
-            <div class="result-sub" id="totalFutureDetail">0 payments over 0 years</div>
-          </div>
-          <div class="result-card" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb)">
-            <h3>💵 Present Value (Lump Sum)</h3>
-            <div class="result-big" id="presentValue">$0</div>
-            <div class="result-sub" id="pvPercent">0% of total payments</div>
-          </div>
-        </div>
-
-        <div class="calc-grid">
-          <div class="result-card">
-            <h3>📉 Cost of Selling</h3>
-            <div class="result-big" id="costOfSelling" style="color:#ff3b30">-$0</div>
-            <div class="result-sub" id="costDetail">You'd give up $0 in future income</div>
-          </div>
-          <div class="result-card">
-            <h3>📅 Effective Annual Return</h3>
-            <div class="result-big" id="effectiveReturn" style="color:#34c759">0%</div>
-            <div class="result-sub">Return rate you'd need to match keeping payments</div>
-          </div>
-        </div>
-
-        <!-- Visual Comparison -->
-        <div style="background:#fff;border-radius:20px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,0.06);margin:24px 0">
-          <h3 style="font-size:18px;font-weight:700;margin-bottom:16px">Lump Sum vs. Total Payments</h3>
-          <div class="comparison-bar" id="comparisonBar"></div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;color:#86868b">
-            <span>🟢 What you'd receive</span>
-            <span>🔴 What you'd lose</span>
-          </div>
-        </div>
-
-        <!-- Discount Rate Comparison -->
-        <div style="background:#fff;border-radius:20px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,0.06);margin:24px 0">
-          <h3 style="font-size:18px;font-weight:700;margin-bottom:8px">💡 Discount Rate Comparison</h3>
-          <p style="font-size:14px;color:#86868b;margin-bottom:16px">See how different discount rates affect your lump sum offer</p>
-          <div class="discount-compare" id="discountCompare"></div>
-        </div>
-
-        <!-- Payment Schedule -->
-        <div style="background:#fff;border-radius:20px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,0.06);margin:24px 0">
-          <h3 style="font-size:18px;font-weight:700;margin-bottom:16px">📋 Payment Schedule (First 10 Years)</h3>
-          <div style="overflow-x:auto">
-            <table class="schedule-table" id="scheduleTable">
-              <thead><tr><th>Year</th><th>Annual Payment</th><th>Cumulative Received</th><th>Present Value</th></tr></thead>
-              <tbody id="scheduleBody"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Cumulative Chart -->
-        <div style="background:#fff;border-radius:20px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,0.06);margin:24px 0">
-          <h3 style="font-size:18px;font-weight:700;margin-bottom:16px">📈 Cumulative Payments vs. Lump Sum Invested</h3>
-          <canvas id="cumulativeChart" height="300"></canvas>
-        </div>
-
-        <!-- Warning -->
-        <div class="warning-box">
-          <strong>⚠️ Important Disclaimer:</strong> This calculator provides estimates for educational purposes only. Actual structured settlement values depend on specific contract terms, state laws, court approval requirements, and market conditions. Always consult a financial advisor and attorney before selling any structured settlement payments. Most states require court approval under the Structured Settlement Protection Act.
-        </div>
-
-        <!-- Tip -->
-        <div class="tip-box">
-          <strong>💡 Pro Tips for Getting the Best Offer:</strong>
-          <ul style="margin:8px 0 0 20px;line-height:1.8;font-size:14px">
-            <li><strong>Get 3-5 quotes</strong> — offers can vary by 15-20% between buyers</li>
-            <li><strong>Consider a partial sale</strong> — sell only what you need and keep the rest</li>
-            <li><strong>Lower discount rates = more money</strong> — negotiate below 12%</li>
-            <li><strong>Watch for hidden fees</strong> — ask about processing fees, court costs, and administration charges</li>
-            <li><strong>Don't rush</strong> — the court approval process takes 60-90 days anyway</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- SEO Content -->
-    <div style="margin-top:48px">
-      <h2 style="font-size:24px;font-weight:700;color:#1d1d1f;margin-bottom:16px">Understanding Structured Settlement Valuations</h2>
-      
-      <div class="info-columns">
-        <div>
-          <h3 style="font-size:18px;font-weight:600;margin-bottom:8px">What Determines Your Settlement's Value?</h3>
-          <p style="font-size:15px;line-height:1.7;color:#424245">The present value of a structured settlement is determined by the <strong>time value of money</strong> — a dollar today is worth more than a dollar in the future. Key factors include:</p>
-          <ul style="margin:12px 0 0 20px;line-height:2;font-size:15px;color:#424245">
-            <li><strong>Payment amount and frequency</strong> — larger, more frequent payments have higher present value</li>
-            <li><strong>Years remaining</strong> — longer payment periods have lower present value relative to total</li>
-            <li><strong>Discount rate</strong> — the buyer's required rate of return (higher = less money for you)</li>
-            <li><strong>Cost-of-living adjustments</strong> — COLA increases boost present value</li>
-            <li><strong>Payment certainty</strong> — guaranteed payments from insurance companies are more valuable</li>
-          </ul>
-        </div>
-        <div>
-          <h3 style="font-size:18px;font-weight:600;margin-bottom:8px">Average Structured Settlement Buyout Rates</h3>
-          <p style="font-size:15px;line-height:1.7;color:#424245">When you sell a structured settlement, you typically receive <strong>60-80% of the total remaining payments</strong>. Here's what to expect:</p>
-          <ul style="margin:12px 0 0 20px;line-height:2;font-size:15px;color:#424245">
-            <li><strong>Best offers:</strong> 75-85% (short-term, 1-5 year settlements)</li>
-            <li><strong>Average offers:</strong> 65-75% (medium-term, 5-15 years)</li>
-            <li><strong>Lower offers:</strong> 50-65% (long-term, 15+ years)</li>
-            <li><strong>Life contingent:</strong> 40-60% (payments tied to your lifespan)</li>
-          </ul>
-          <p style="font-size:15px;line-height:1.7;color:#424245;margin-top:12px">The gap between what you receive and the total payments represents the buyer's profit, risk premium, and administrative costs.</p>
-        </div>
-      </div>
-
-      <h3 style="font-size:18px;font-weight:600;margin:32px 0 12px">The Structured Settlement Protection Act</h3>
-      <p style="font-size:15px;line-height:1.7;color:#424245">All 50 states have enacted versions of the <strong>Structured Settlement Protection Act</strong>, which requires court approval before any structured settlement transfer. This protects payees from predatory buyers. The court must find that the transfer is in the <strong>"best interest"</strong> of the payee and their dependents. A judge reviews the discount rate, the payee's financial situation, and whether the payee received independent professional advice.</p>
-
-      <h3 style="font-size:18px;font-weight:600;margin:32px 0 12px">When Does Selling Make Financial Sense?</h3>
-      <p style="font-size:15px;line-height:1.7;color:#424245">While financial advisors generally recommend keeping structured settlements, there are situations where selling some or all payments may be appropriate:</p>
-      <ul style="margin:12px 0 0 20px;line-height:2;font-size:15px;color:#424245">
-        <li><strong>Medical emergencies</strong> — urgent healthcare costs that can't wait</li>
-        <li><strong>Debt elimination</strong> — paying off high-interest debt (20%+ credit cards)</li>
-        <li><strong>Home purchase</strong> — down payment that would save more in rent than settlement payments provide</li>
-        <li><strong>Education investment</strong> — degree that would significantly increase earning potential</li>
-        <li><strong>Business opportunity</strong> — starting a business with strong ROI potential</li>
-      </ul>
-
-      <h3 style="font-size:18px;font-weight:600;margin:32px 0 12px">Tax Implications of Selling a Structured Settlement</h3>
-      <p style="font-size:15px;line-height:1.7;color:#424245">If your original structured settlement was from a <strong>personal physical injury</strong> case, the periodic payments are tax-free under <strong>IRC Section 104(a)(2)</strong>. When you sell those payments for a lump sum, the proceeds are generally also tax-free. However, the IRS imposes a <strong>40% excise tax</strong> on the purchasing company under IRC Section 5891 if the transfer doesn't comply with state structured settlement protection acts — this cost is typically passed on to you through a lower offer. Always consult a tax professional before selling.</p>
-    </div>
-
-    <!-- Related Calculators -->
-    <div style="margin-top:48px;padding:32px;background:#f5f5f7;border-radius:20px">
-      <h3 style="font-size:18px;font-weight:700;margin-bottom:16px">Related Legal & Financial Calculators</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
-        <a href="/personal-injury-settlement-calculator.html" style="display:block;padding:16px;background:#fff;border-radius:12px;text-decoration:none;color:#1d1d1f;font-weight:600;font-size:14px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">⚖️ Personal Injury Calculator</a>
-        <a href="/wrongful-death-settlement-calculator.html" style="display:block;padding:16px;background:#fff;border-radius:12px;text-decoration:none;color:#1d1d1f;font-weight:600;font-size:14px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">🕊️ Wrongful Death Calculator</a>
-        <a href="/alimony-calculator.html" style="display:block;padding:16px;background:#fff;border-radius:12px;text-decoration:none;color:#1d1d1f;font-weight:600;font-size:14px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">💍 Alimony Calculator</a>
-        <a href="/workers-comp-settlement-calculator.html" style="display:block;padding:16px;background:#fff;border-radius:12px;text-decoration:none;color:#1d1d1f;font-weight:600;font-size:14px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">🏗️ Workers' Comp Calculator</a>
-        <a href="/child-support-calculator.html" style="display:block;padding:16px;background:#fff;border-radius:12px;text-decoration:none;color:#1d1d1f;font-weight:600;font-size:14px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">👶 Child Support Calculator</a>
-        <a href="/calc/" style="display:block;padding:16px;background:#fff;border-radius:12px;text-decoration:none;color:#0071e3;font-weight:600;font-size:14px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">📂 All Calculators →</a>
-      </div>
-    </div>
-
-    <p style="text-align:center;font-size:13px;color:#86868b;margin-top:32px">By the CalcLeap Editorial Team · Updated April 2026 · For educational purposes only — not legal or financial advice</p>
-  </section>
-</main>
-
-<footer style="background:#f5f5f7;padding:32px 24px;text-align:center;font-size:13px;color:#86868b;border-top:1px solid #d2d2d7">
-  <div style="max-width:800px;margin:0 auto">
-    <p>© 2026 CalcLeap. Free online calculators for everyone.</p>
-    <p style="margin-top:8px">
-      <a href="/" style="color:#0071e3;text-decoration:none">Home</a> · 
-      <a href="/calc/" style="color:#0071e3;text-decoration:none">Calculators</a> · 
-      <a href="/about.html" style="color:#0071e3;text-decoration:none">About</a> · 
-      <a href="/privacy.html" style="color:#0071e3;text-decoration:none">Privacy</a>
-    </p>
-  </div>
-</footer>
-
-<script>
-const fmt = n => n.toLocaleString('en-US', {style:'currency',currency:'USD',maximumFractionDigits:0});
-const fmtD = n => n.toLocaleString('en-US', {style:'currency',currency:'USD',maximumFractionDigits:2});
-
-document.getElementById('partialSale').addEventListener('change', function() {
-  document.getElementById('partialOptions').style.display = this.checked ? 'block' : 'none';
-});
-
-function calculate() {
-  const pmt = parseFloat(document.getElementById('paymentAmount').value) || 0;
-  const freq = parseInt(document.getElementById('payFrequency').value);
-  const years = parseFloat(document.getElementById('yearsRemaining').value) || 0;
-  const cola = parseFloat(document.getElementById('colaRate').value) / 100;
-  const dr = parseFloat(document.getElementById('discountRate').value) / 100;
-  const isPartial = document.getElementById('partialSale').checked;
-  const sellYears = isPartial ? Math.min(parseFloat(document.getElementById('yearsToSell').value) || years, years) : years;
-
-  if (pmt <= 0 || years <= 0) return;
-
-  const totalPeriods = Math.round(sellYears * freq);
-  const totalAllPeriods = Math.round(years * freq);
-  const periodicRate = dr / freq;
-  const colaPerPeriod = cola / freq;
-
-  // Calculate present value with COLA
-  let pv = 0, totalFuture = 0, totalFutureAll = 0;
-  let yearlyPayments = [], yearlyCumulative = [], yearlyPV = [];
-  let currentYearPay = 0, currentYearPV = 0, cumulative = 0;
-
-  for (let i = 1; i <= totalAllPeriods; i++) {
-    const adjPmt = pmt * Math.pow(1 + colaPerPeriod, i - 1);
-    totalFutureAll += adjPmt;
-    if (i <= totalPeriods) {
-      const pvPayment = adjPmt / Math.pow(1 + periodicRate, i);
-      pv += pvPayment;
-      totalFuture += adjPmt;
-      currentYearPay += adjPmt;
-      currentYearPV += pvPayment;
-    }
-    // Track yearly for schedule
-    if (i % freq === 0 || i === totalAllPeriods) {
-      const yr = Math.ceil(i / freq);
-      if (yr <= 10 && i <= totalPeriods) {
-        cumulative += currentYearPay;
-        yearlyPayments.push(currentYearPay);
-        yearlyCumulative.push(cumulative);
-        yearlyPV.push(currentYearPV);
-      }
-      currentYearPay = 0;
-      currentYearPV = 0;
-    }
-  }
-
-  const costOfSelling = totalFuture - pv;
-  const pvPercent = (pv / totalFuture * 100).toFixed(1);
-  
-  // Effective annual return needed to match keeping payments
-  // If you invested the lump sum at rate r, you'd need: PV * (1+r)^years = totalFuture
-  const effectiveReturn = (Math.pow(totalFuture / pv, 1 / sellYears) - 1) * 100;
-
-  // Update DOM
-  document.getElementById('totalFuture').textContent = fmt(totalFuture);
-  document.getElementById('totalFutureDetail').textContent = `${totalPeriods} payments over ${sellYears} years`;
-  document.getElementById('presentValue').textContent = fmt(pv);
-  document.getElementById('pvPercent').textContent = `${pvPercent}% of total payments at ${(dr*100).toFixed(1)}% discount`;
-  document.getElementById('costOfSelling').textContent = '-' + fmt(costOfSelling);
-  document.getElementById('costDetail').textContent = `You'd give up ${fmt(costOfSelling)} in future income`;
-  document.getElementById('effectiveReturn').textContent = effectiveReturn.toFixed(1) + '%';
-
-  // Comparison bar
-  const keptPct = Math.max(5, parseFloat(pvPercent));
-  const lostPct = 100 - keptPct;
-  document.getElementById('comparisonBar').innerHTML = 
-    `<div class="bar-kept" style="width:${keptPct}%">${fmt(pv)}</div>` +
-    `<div class="bar-lost" style="width:${lostPct}%">${fmt(costOfSelling)}</div>`;
-
-  // Discount rate comparison
-  const rates = [5, 7, 9, 12, 15, 18];
-  const currentDR = dr * 100;
-  let dcHTML = '';
-  rates.forEach(r => {
-    let rpv = 0;
-    for (let i = 1; i <= totalPeriods; i++) {
-      const adjPmt = pmt * Math.pow(1 + colaPerPeriod, i - 1);
-      rpv += adjPmt / Math.pow(1 + r/100/freq, i);
-    }
-    const isActive = Math.abs(r - currentDR) < 0.1;
-    const pct = (rpv / totalFuture * 100).toFixed(0);
-    dcHTML += `<div class="dc-card${isActive ? ' active' : ''}">
-      <div class="dc-rate">${r}%</div>
-      <div class="dc-value">${fmt(rpv)}</div>
-      <div class="dc-pct">${pct}% of total</div>
-    </div>`;
-  });
-  document.getElementById('discountCompare').innerHTML = dcHTML;
-
-  // Payment schedule
-  let tbody = '';
-  let cumulativePV = 0;
-  for (let i = 0; i < yearlyPayments.length; i++) {
-    cumulativePV += yearlyPV[i];
-    tbody += `<tr>
-      <td>Year ${i + 1}</td>
-      <td>${fmt(yearlyPayments[i])}</td>
-      <td>${fmt(yearlyCumulative[i])}</td>
-      <td>${fmt(cumulativePV)}</td>
-    </tr>`;
-  }
-  if (sellYears > 10) {
-    tbody += `<tr><td colspan="4" style="text-align:center;color:#86868b;font-style:italic">... ${Math.round(sellYears - 10)} more years ...</td></tr>`;
-    tbody += `<tr style="font-weight:700;background:#f5f5f7"><td>Total</td><td>${fmt(totalFuture / sellYears * sellYears)}</td><td>${fmt(totalFuture)}</td><td>${fmt(pv)}</td></tr>`;
-  }
-  document.getElementById('scheduleBody').innerHTML = tbody;
-
-  // Cumulative chart (canvas)
-  drawChart(pv, freq, dr, pmt, cola, sellYears, totalPeriods);
-
-  document.getElementById('results').style.display = 'block';
-  document.getElementById('results').scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-function drawChart(pv, freq, dr, pmt, cola, sellYears, totalPeriods) {
-  const canvas = document.getElementById('cumulativeChart');
-  const ctx = canvas.getContext('2d');
-  const W = canvas.width = canvas.parentElement.clientWidth - 64;
-  const H = canvas.height = 300;
-  ctx.clearRect(0, 0, W, H);
-
-  const pad = {top:20, right:20, bottom:40, left:70};
-  const cw = W - pad.left - pad.right;
-  const ch = H - pad.top - pad.bottom;
-  const maxYears = Math.min(Math.ceil(sellYears), 30);
-  const colaPerPeriod = (cola || 0) / freq;
-
-  // Calculate data points
-  let cumulativePayments = [], lumpSumGrowth = [];
-  let cumPay = 0;
-  const investRate = 0.07; // assume 7% annual return on lump sum
-  
-  for (let yr = 0; yr <= maxYears; yr++) {
-    // Cumulative payments received by year yr
-    cumPay = 0;
-    const periodsThisYear = yr * freq;
-    for (let i = 1; i <= Math.min(periodsThisYear, totalPeriods); i++) {
-      cumPay += pmt * Math.pow(1 + colaPerPeriod, i - 1);
-    }
-    cumulativePayments.push(cumPay);
-    
-    // Lump sum invested at 7%
-    lumpSumGrowth.push(pv * Math.pow(1 + investRate, yr));
-  }
-
-  const maxVal = Math.max(...cumulativePayments, ...lumpSumGrowth);
-  const yScale = ch / (maxVal * 1.1);
-  const xStep = cw / maxYears;
-
-  // Grid
-  ctx.strokeStyle = '#e8e8ed';
-  ctx.lineWidth = 1;
-  for (let i = 0; i <= 5; i++) {
-    const y = pad.top + ch - (ch / 5) * i;
-    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
-    ctx.fillStyle = '#86868b';
-    ctx.font = '11px -apple-system, sans-serif';
-    ctx.textAlign = 'right';
-    ctx.fillText(fmt(maxVal * 1.1 / 5 * i), pad.left - 8, y + 4);
-  }
-
-  // X axis labels
-  ctx.textAlign = 'center';
-  for (let yr = 0; yr <= maxYears; yr += Math.ceil(maxYears / 6)) {
-    const x = pad.left + yr * xStep;
-    ctx.fillText('Yr ' + yr, x, H - 8);
-  }
-
-  // Draw lines
-  function drawLine(data, color) {
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    data.forEach((val, i) => {
-      const x = pad.left + i * xStep;
-      const y = pad.top + ch - val * yScale;
-      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-    });
-    ctx.stroke();
-  }
-
-  drawLine(cumulativePayments, '#34c759');
-  drawLine(lumpSumGrowth, '#0071e3');
-
-  // Legend
-  ctx.font = '12px -apple-system, sans-serif';
-  ctx.fillStyle = '#34c759';
-  ctx.fillRect(pad.left + 10, pad.top + 5, 16, 3);
-  ctx.fillStyle = '#1d1d1f';
-  ctx.textAlign = 'left';
-  ctx.fillText('Keep Payments', pad.left + 32, pad.top + 12);
-  
-  ctx.fillStyle = '#0071e3';
-  ctx.fillRect(pad.left + 150, pad.top + 5, 16, 3);
-  ctx.fillStyle = '#1d1d1f';
-  ctx.fillText('Lump Sum @ 7%', pad.left + 172, pad.top + 12);
-}
-
-// Auto-calculate on load
-calculate();
-</script>
+    <script src="js/structured-settlement.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialize chart
+        const ctx = document.getElementById('comparisonChart').getContext('2d');
+        window.comparisonChart = new Chart(ctx, {
+            type: 'bar',
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
