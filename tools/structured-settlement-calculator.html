@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structured Settlement Calculator - CalcLeap</title>
+    <meta name="description" content="Calculate the present value of your structured settlement. Compare lump sum vs annuity payments and see which option maximizes your financial outcome.">
+    <meta name="keywords" content="structured settlement calculator, settlement value calculator, annuity calculator, lump sum vs annuity">
+    <link rel="canonical" href="https://calcleap.com/structured-settlement-calculator.html">
+    <meta property="og:title" content="Structured Settlement Calculator">
+    <meta property="og:description" content="Calculate the present value of your structured settlement. Compare lump sum vs annuity payments and see which option maximizes your financial outcome.">
+    <meta property="og:url" content="https://calcleap.com/structured-settlement-calculator.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Structured Settlement Calculator">
+    <meta name="twitter:description" content="Calculate the present value of your structured settlement. Compare lump sum vs annuity payments and see which option maximizes your financial outcome.">
+    <link rel="stylesheet" href="/gold.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Structured Settlement Calculator</h1>
+        <p>Calculate the present value of your structured settlement and compare lump sum vs annuity payments. This calculator helps you determine whether taking a lump sum payment or accepting structured payments would provide the best financial outcome based on your specific situation and current market conditions.</p>
+
+        <form class="calculator-form" id="settlementForm">
+            <div class="form-group">
+                <label for="totalSettlement">Total Settlement Amount ($)</label>
+                <input type="number" id="totalSettlement" placeholder="Enter total settlement amount" min="1000" step="1000" required>
+            </div>
+
+            <div class="form-group">
+                <label for="annuityAmount">Annual Annuity Payment ($)</label>
+                <input type="number" id="annuityAmount" placeholder="Enter annual annuity payment" min="100" step="100" required>
+            </div>
+
+            <div class="form-group">
+                <label for="annuityYears">Number of Years</label>
+                <input type="number" id="annuityYears" placeholder="Enter number of years" min="1" max="50" step="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="discountRate">Discount Rate (%)</label>
+                <input type="number" id="discountRate" placeholder="Enter discount rate (typically 3-7%)" min="1" max="20" step="0.1" value="5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="inflationRate">Expected Inflation Rate (%)</label>
+                <input type="number" id="inflationRate" placeholder="Enter expected inflation rate (typically 2-4%)" min="0" max="10" step="0.1" value="2.5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="taxRate">Tax Rate (%)</label>
+                <input type="number" id="taxRate" placeholder="Enter your marginal tax rate" min="0" max="50" step="1" value="24" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lumpSumOffer">Lump Sum Offer Percentage (%)</label>
+                <input type="number" id="lumpSumOffer" placeholder="Enter lump sum offer as percentage of total" min="1" max="100" step="1" value="70" required>
+            </div>
+
+            <button type="submit">Calculate Present Value & Compare Options</button>
+        </form>
+
+        <div id="results">
+            <h2>Your Structured Settlement Analysis</h2>
+            
+            <div class="result-item">
+                <span>Total Settlement Amount:</span>
+                <span id="resultTotalSettlement">$0</span>
+            </div>
+            <div class="result-item">
+                <span>Annual Annuity Payment:</span>
+                <span id="resultAnnuityAmount">$0</span>
+            </div>
+            <div class="result-item">
+                <span>Number of Years:</span>
+                <span id="resultAnnuityYears">0</span>
+            </div>
+            
+            <div class="result-item total">
+                <span>Total Annuity Payments (Gross):</span>
+                <span id="resultTotalPayments">$0</span>
+            </div>
+
+            <div class="result-item">
+                <span>Present Value of Annuity:</span>
+                <span id="resultPresentValue" style="color: #dc3545; font-weight: bold;">$0</span>
+            </div>
+
+            <div class="result-item">
+                <span>Lump Sum Offer Amount:</span>
+                <span id="resultLumpSum" style="color: #28a745; font-weight: bold;">$0</span>
+            </div>
+
+            <div class="result-item total">
+                <span>Difference (Lump Sum vs PV):</span>
+                <span id="resultDifference" style="font-weight: bold;">$0</span>
+            </div>
+
+            <div class="comparison">
+                <h3>Recommendation</h3>
+                <p id="recommendation"><strong>Loading recommendation...</strong></p>
+                <p id="explanation"></p>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="settlementChart"></canvas>
+            </div>
+
+            <div class="note">
+                <strong>Note:</strong> This calculator provides estimates based on financial formulas. Actual structured settlement purchases may vary based on company offers, fees, and market conditions. Always consult with a financial advisor and structured settlement specialist before making decisions.
+            </div>
+
+            <div class="disclaimer">
+                <strong>Disclaimer:</strong> This calculator is for educational purposes only and does not constitute financial or legal advice. Settlement values and tax implications vary by individual circumstances. Consult with qualified professionals before making financial decisions.
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.getElementById('settlementForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const totalSettlement = parseFloat(document.getElementById('totalSettlement').value) || 0;
+            const annuityAmount = parseFloat(document.getElementById('annuityAmount').value) || 0;
+            const annuityYears = parseFloat(document.getElementById('annuityYears').value) || 0;
+            const discountRate = parseFloat(document.getElementById('discountRate').value) || 5;
+            const inflationRate = parseFloat(document.getElementById('inflationRate').value) || 2.5;
+            const taxRate = parseFloat(document.getElementById('taxRate').value) || 24;
+            const lumpSumOfferPct = parseFloat(document.getElementById('lumpSumOffer').value) || 70;
+            
+            // Calculate total annuity payments
+            const totalPayments = annuityAmount * annuityYears;
+            
+            // Calculate present value using discount rate
+            let presentValue = 0;
+            for (let year = 0; year < annuityYears; year++) {
+                const payment = annuityAmount * Math.pow(1 + inflationRate/100, year);
+                presentValue += payment / Math.pow(1 + discountRate/100, year);
+            }
+            
+            // Calculate lump sum offer
+            const lumpSumOffer = totalSettlement * (lumpSumOfferPct / 100);
+            
+            // Calculate tax-adjusted values (structured settlements are typically tax-free)
+            const taxAdjustedPV = presentValue * (1 - taxRate/100);
+            const taxAdjustedLumpSum = lumpSumOffer * (1 - taxRate/100);
+            
+            // Calculate difference
+            const difference = taxAdjustedLumpSum - taxAdjustedPV;
+            const differencePct = (difference / taxAdjustedPV) * 100;
+            
+            // Display results
+            document.getElementById('resultTotalSettlement').textContent = '$' + totalSettlement.toLocaleString();
+            document.getElementById('resultAnnuityAmount').textContent = '$' + annuityAmount.toLocaleString();
+            document.getElementById('resultAnnuityYears').textContent = annuityYears;
+            document.getElementById('resultTotalPayments').textContent = '$' + Math.round(totalPayments).toLocaleString();
+            document.getElementById('resultPresentValue').textContent = '$' + Math.round(taxAdjustedPV).toLocaleString();
+            document.getElementById('resultLumpSum').textContent = '$' + Math.round(taxAdjustedLumpSum).toLocaleString();
+            document.getElementById('resultDifference').textContent = '$' + Math.round(difference).toLocaleString() + 
+                ' (' + differencePct.toFixed(1) + '%' + (difference > 0 ? ' better' : ' worse') + ')';
+            
+            // Generate recommendation
+            let recommendation = '';
+            let explanation = '';
+            
+            if (difference > 0) {
+                recommendation = 'Take the lump sum offer';
+                explanation = 'The lump sum offer provides ' + differencePct.toFixed(1) + '% more value after taxes. This is likely the better financial choice.';
+            } else if (difference < -10000) {
+                recommendation = 'Keep the structured settlement';
+                explanation = 'The structured settlement provides significantly more value. The guaranteed payments and tax advantages make this the better choice.';
+            } else {
+                recommendation = 'Consider both options carefully';
+                explanation = 'The values are close. Consider your financial needs, tax situation, and risk tolerance before deciding.';
+            }
+            
+            document.getElementById('recommendation').innerHTML = '<strong>' + recommendation + '</strong>';
+            document.getElementById('explanation').innerHTML = explanation;
+            
+            // Show results
+            document.getElementById('results').style.display = 'block';
+            
+            // Create chart
+            createChart(totalPayments, taxAdjustedPV, taxAdjustedLumpSum);
+            
+            // Scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        function createChart(totalPayments, presentValue, lumpSum) {
+            const ctx = document.getElementById('settlementChart').getContext('2d');
+            
+            if (window.settlementChart) {
+                window.settlementChart.destroy();
+            }
+            
+            window.settlementChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Structured Settlement (PV)', 'Lump Sum Offer', 'Total Annuity Payments'],
+                    datasets: [{
+                        label: 'Dollar Value ($)',
+                        data: [presentValue, lumpSum, totalPayments],
+                        backgroundColor: [
+                            'rgba(40, 167, 69, 0.8)',
+                            'rgba(0, 123, 255, 0.8)',
+                            'rgba(255, 193, 7, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(40, 167, 69, 1)',
+                            'rgba(0, 123, 255, 1)',
+                            'rgba(255, 193, 7, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return '$' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
