@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Injury Settlement Calculator - Get Fair Compensation</title>
+    <meta name="description" content="Calculate your potential personal injury settlement based on medical bills, lost wages, pain and suffering, and other damages. Free calculator helps estimate compensation.">
+    <meta name="keywords" content="personal injury settlement calculator, injury compensation calculator, pain and suffering calculator, settlement estimator, accident compensation">
+    <meta name="author" content="CalcLeap">
+    
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:title" content="Personal Injury Settlement Calculator">
+    <meta property="og:description" content="Calculate your potential personal injury settlement based on medical bills, lost wages, pain and suffering, and other damages.">
+    <meta property="og:url" content="https://calcleap.com/tools/personal-injury-settlement-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://calcleap.com/images/calcleap-logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://calcleap.com/tools/personal-injury-settlement-calculator.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://calcleap.com/favicon.png">
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="https://calcleap.com/css/gold.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://calcleap.com/css/gold.css"></noscript>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Calculator",
+      "name": "Personal Injury Settlement Calculator",
+      "description": "Calculate your potential personal injury settlement based on medical bills, lost wages, pain and suffering, and other damages.",
+      "url": "https://calcleap.com/tools/personal-injury-settlement-calculator.html",
+      "image": "https://calcleap.com/images/calcleap-logo.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "CalcLeap"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://calcleap.com/tools/personal-injury-settlement-calculator.html"
+      },
+      "potentialAction": {
+        "@type": "CalculateAction",
+        "target": "https://calcleap.com/tools/personal-injury-settlement-calculator.html#results",
+        "name": "Calculate Settlement"
+      }
+    }
+    </script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="header-content">
+                <a href="https://calcleap.com/" class="logo">Calc<span class="highlight">Leap</span></a>
+                <nav class="main-nav">
+                    <a href="https://calcleap.com/tools/">All Tools</a>
+                    <a href="https://calcleap.com/blog/">Blog</a>
+                    <a href="https://calcleap.com/about/">About</a>
+                    <a href="https://calcleap.com/contact/">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="tool-page">
+        <div class="tool-container">
+            <!-- Tool Header -->
+            <div class="tool-header">
+                <h1>Personal Injury Settlement Calculator</h1>
+                <p class="tool-subtitle">Estimate your potential compensation after an accident or injury</p>
+                <div class="tool-meta">
+                    <span class="tool-type">Legal Calculator</span>
+                    <span class="tool-updated">Last updated: April 14, 2026</span>
+                </div>
+            </div>
+            
+            <!-- Calculator Description -->
+            <div class="tool-description">
+                <p>If you've been injured in an accident due to someone else's negligence, you may be entitled to compensation. Our <strong>Personal Injury Settlement Calculator</strong> helps you estimate what your case might be worth based on key factors like medical expenses, lost wages, and pain and suffering.</p>
+                
+                <p><strong>Important:</strong> This calculator provides an <strong>estimate only</strong>. Actual settlement amounts depend on many factors including liability evidence, insurance policy limits, jurisdiction, and negotiation skills. For legal advice, consult a personal injury attorney.</p>
+            </div>
+            
+            <!-- Calculator Form -->
+            <div class="calculator-box">
+                <div class="calculator-header">
+                    <h2>Enter Your Information</h2>
+                    <p class="calculator-subtitle">Calculate your potential settlement</p>
+                </div>
+                
+                <form id="injuryCalculator" class="calculator-form">
+                    <div class="form-section">
+                        <h3>Medical Expenses</h3>
+                        <div class="form-group">
+                            <label for="medicalBills">Total Medical Bills ($)</label>
+                            <input type="number" id="medicalBills" min="0" step="1" value="15000" required>
+                            <div class="form-hint">Include hospital bills, doctor visits, physical therapy, prescriptions, etc.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="futureMedical">Future Medical Expenses ($)</label>
+                            <input type="number" id="futureMedical" min="0" step="1" value="5000">
+                            <div class="form-hint">Estimated future medical costs for ongoing treatment</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Lost Income</h3>
+                        <div class="form-group">
+                            <label for="lostWages">Lost Wages ($)</label>
+                            <input type="number" id="lostWages" min="0" step="1" value="8000">
+                            <div class="form-hint">Income lost due to inability to work</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="futureLostWages">Future Lost Income ($)</label>
+                            <input type="number" id="futureLostWages" min="0" step="1" value="12000">
+                            <div class="form-hint">Estimated future income loss if injury affects long-term earning capacity</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Pain and Suffering</h3>
+                        <div class="form-group">
+                            <label for="painSuffering">Pain and Suffering Multiplier</label>
+                            <select id="painSuffering" required>
+                                <option value="1.5">Mild injury (1.5x medical bills)</option>
+                                <option value="2.5" selected>Moderate injury (2.5x medical bills)</option>
+                                <option value="4">Severe injury (4x medical bills)</option>
+                                <option value="5">Permanent disability (5x medical bills)</option>
+                            </select>
+                            <div class="form-hint">Multiplier based on injury severity (varies by state and case)</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="painDuration">Duration of Pain and Suffering (months)</label>
+                            <input type="number" id="painDuration" min="1" max="240" value="6" required>
+                            <div class="form-hint">How long you experienced pain and suffering</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Additional Damages</h3>
+                        <div class="form-group">
+                            <label for="propertyDamage">Property Damage ($)</label>
+                            <input type="number" id="propertyDamage" min="0" step="1" value="3500">
+                            <div class="form-hint">Damage to your vehicle or other property</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="otherExpenses">Other Expenses ($)</label>
+                            <input type="number" id="otherExpenses" min="0" step="1" value="2000">
+                            <div class="form-hint">Towing, rental car, home modifications, etc.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Liability Factors</h3>
+                        <div class="form-group">
+                            <label for="liabilityPercentage">Your Percentage of Fault (%)</label>
+                            <input type="number" id="liabilityPercentage" min="0" max="100" value="0">
+                            <div class="form-hint">If you share fault, your compensation may be reduced</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="insurancePolicy">At-Fault Driver's Insurance Policy Limit ($)</label>
+                            <select id="insurancePolicy" required>
+                                <option value="15000">$15,000 (minimum in most states)</option>
+                                <option value="25000" selected>$25,000 (common minimum)</option>
+                                <option value="50000">$50,000</option>
+                                <option value="100000">$100,000</option>
+                                <option value="250000">$250,000</option>
+                                <option value="500000">$500,000</option>
+                                <option value="1000000">$1,000,000+</option>
+                            </select>
+                            <div class="form-hint">Maximum the insurance company will pay</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-calculate">Calculate My Settlement</button>
+                        <button type="reset" class="btn-reset">Reset Form</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Results Section -->
+            <div id="results" class="results-box" style="display: none;">
+                <div class="results-header">
+                    <h2>Your Settlement Estimate</h2>
+                    <p class="results-subtitle">Based on the information provided</p>
+                </div>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-label">Medical Expenses</div>
+                        <div class="result-value" id="resultMedical">$0</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Lost Wages</div>
+                        <div class="result-value" id="resultLostWages">$0</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Pain & Suffering</div>
+                        <div class="result-value" id="resultPainSuffering">$0</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Property Damage</div>
+                        <div class="result-value" id="resultPropertyDamage">$0</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Other Expenses</div>
+                        <div class="result-value" id="resultOtherExpenses">$0</div>
+                    </div>
+                    <div class="result-card highlight">
+                        <div class="result-label">SPECIAL DAMAGES (Economic)</div>
+                        <div class="result-value" id="resultSpecialDamages">$0</div>
+                    </div>
+                    <div class="result-card highlight">
+                        <div class="result-label">GENERAL DAMAGES (Non-Economic)</div>
+                        <div class="result-value" id="resultGeneralDamages">$0</div>
+                    </div>
+                    <div class="result-card total-card">
+                        <div class="result-label">TOTAL ESTIMATED SETTLEMENT</div>
+                        <div class="result-value" id="resultTotal">$0</div>
+                    </div>
+                </div>
+                
+                <div class="results-disclaimer">
+                    <h3>Important Notes:</h3>
+                    <ul>
+                        <li><strong>This is an estimate only.</strong> Actual settlements vary widely based on evidence, jurisdiction, and negotiation.</li>
+                        <li><strong>Contingency fees:</strong> Most personal injury attorneys work on a 33-40% contingency basis (they get this percentage of your settlement).</li>
+                        <li><strong>Case strength:</strong> Strong liability evidence and clear documentation increase settlement value.</li>
+                        <li><strong>Insurance limits:</strong> The at-fault party's policy limit caps your recovery.</li>
+                        <li><strong>Legal advice:</strong> For actual legal representation, consult a licensed personal injury attorney in your state.</li>
+                    </ul>
+                </div>
+                
+                <div class="results-actions">
+                    <button onclick="window.print()" class="btn-print">Print This Estimate</button>
+                    <button onclick="copyResults()" class="btn-copy">Copy Results</button>
+                </div>
+            </div>
+            
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h3>Related Legal Calculators</h3>
+                <div class="tools-grid">
+                    <a href="https://calcleap.com/tools/structured-settlement-calculator.html" class="tool-card">
+                        <h4>Structured Settlement Calculator</h4>
+                        <p>Calculate present value of future payments</p>
+                    </a>
+                    <a href="https://calcleap.com/tools/child-support-calculator.html" class="tool-card">
+                        <h4>Child Support Calculator</h4>
+                        <p>Estimate child support payments</p>
+                    </a>
+                    <a href="https://calcleap.com/tools/workers-compensation-calculator.html" class="tool-card">
+                        <h4>Workers' Comp Calculator</h4>
+                        <p>Calculate workers' compensation benefits</p>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Legal Resources -->
+            <div class="legal-resources">
+                <h3>Need Legal Help?</h3>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4>Find a Personal Injury Attorney</h4>
+                        <p>Search for licensed attorneys in your state who specialize in personal injury cases.</p>
+                        <a href="https://www.americanbar.org/find-a-lawyer/" target="_blank" class="btn-external">Find Attorney</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Understand Your Rights</h4>
+                        <p>Learn about personal injury laws in your state and what compensation you may be entitled to.</p>
+                        <a href="https://www.nolo.com/legal-encyclopedia/personal-injury" target="_blank" class="btn-external">Learn More</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Document Your Injury</h4>
+                        <p>Keep detailed records of medical treatment, expenses, and how the injury affects your daily life.</p>
+                        <a href="https://www.law.cornell.edu/wex/personal_injury" target="_blank" class="btn-external">Documentation Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="https://calcleap.com/" class="logo">Calc<span class="highlight">Leap</span></a>
+                    <p>Free calculators for life's important decisions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="https://calcleap.com/tools/">All Tools</a></li>
+                        <li><a href="https://calcleap.com/blog/">Blog</a></li>
+                        <li><a href="https://calcleap.com/about/">About Us</a></li>
+                        <li><a href="https://calcleap.com/contact/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="https://calcleap.com/privacy/">Privacy Policy</a></li>
+                        <li><a href="https://calcleap.com/terms/">Terms of Service</a></li>
+                        <li><a href="https://calcleap.com/disclaimer/">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('injuryCalculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const medicalBills = parseFloat(document.getElementById('medicalBills').value) || 0;
+            const futureMedical = parseFloat(document.getElementById('futureMedical').value) || 0;
+            const lostWages = parseFloat(document.getElementById('lostWages').value) || 0;
+            const futureLostWages = parseFloat(document.getElementById('futureLostWages').value) || 0;
+            const painSuffering = parseFloat(document.getElementById('painSuffering').value);
+            const painDuration = parseFloat(document.getElementById('painDuration').value) || 0;
+            const propertyDamage = parseFloat(document.getElementById('propertyDamage').value) || 0;
+            const otherExpenses = parseFloat(document.getElementById('otherExpenses').value) || 0;
+            const liabilityPercentage = parseFloat(document.getElementById('liabilityPercentage').value) || 0;
+            const insurancePolicy = parseFloat(document.getElementById('insurancePolicy').value) || 0;
+            
+            // Calculate special damages (economic)
+            const specialDamages = medicalBills + futureMedical + lostWages + futureLostWages + propertyDamage + otherExpenses;
+            
+            // Calculate general damages (pain and suffering)
+            // Formula: (medical bills + future medical) × multiplier × (duration in years)
+            const painSufferingAmount = (medicalBills + futureMedical) * painSuffering * (painDuration / 12);
+            
+            // Calculate total before fault reduction
+            const totalBeforeReduction = specialDamages + painSufferingAmount;
+            
+            // Apply liability reduction
+            const reductionFactor = 1 - (liabilityPercentage / 100);
+            const totalAfterReduction = totalBeforeReduction * reductionFactor;
+            
+            // Apply insurance policy cap
+            const finalTotal = Math.min(totalAfterReduction, insurancePolicy);
+            
+            // Display results
+            document.getElementById('resultMedical').textContent = formatCurrency(medicalBills);
+            document.getElementById('resultLostWages').textContent = formatCurrency(lostWages);
+            document.getElementById('resultPainSuffering').textContent = formatCurrency(painSufferingAmount);
+            document.getElementById('resultPropertyDamage').textContent = formatCurrency(propertyDamage);
+            document.getElementById('resultOtherExpenses').textContent = formatCurrency(otherExpenses);
+            document.getElementById('resultSpecialDamages').textContent = formatCurrency(specialDamages);
+            document.getElementById('resultGeneralDamages').textContent = formatCurrency(painSufferingAmount);
+            document.getElementById('resultTotal').textContent = formatCurrency(finalTotal);
+            
+            // Show results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+            
+            // Track calculation event
+            if (typeof gtag === 'function') {
+                gtag('event', 'calculate', {
+                    'calculator': 'personal_injury_settlement',
+                    'value': finalTotal
+                });
+            }
+        });
+        
+        function formatCurrency(value) {
+            return '$' + Math.round(value).toLocaleString();
+        }
+        
+        function copyResults() {
+            const resultText = `Personal Injury Settlement Estimate:\n
+Total Estimated Settlement: ${document.getElementById('resultTotal').textContent}
+
+Breakdown:
+- Medical Expenses: ${document.getElementById('resultMedical').textContent}
+- Lost Wages: ${document.getElementById('resultLostWages').textContent}
+- Pain & Suffering: ${document.getElementById('resultPainSuffering').textContent}
+- Property Damage: ${document.getElementById('resultPropertyDamage').textContent}
+- Other Expenses: ${document.getElementById('resultOtherExpenses').textContent}
+
+Calculator: https://calcleap.com/tools/personal-injury-settlement-calculator.html`;
+            
+            navigator.clipboard.writeText(resultText).then(() => {
+                alert('Results copied to clipboard!');
+            });
+        }
+        
+        // Reset form also clears results
+        document.getElementById('injuryCalculator').addEventListener('reset', function() {
+            document.getElementById('results').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
