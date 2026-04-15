@@ -3,29 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BMI Calculator - Free Body Mass Index Calculator 2026 | CalcLeap</title>
-<meta name="description" content="Calculate your Body Mass Index (BMI) instantly. Supports imperial and metric units. See your BMI category, healthy weight range, and visual BMI scale.">
+<title>BMI Calculator — Free Online Calculator | CalcLeap</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
 <link rel="canonical" href="https://calcleap.com/bmi-calculator.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="stylesheet" href="gold.css">
 <meta property="og:title" content="BMI Calculator — CalcLeap">
-<meta property="og:description" content="Calculate your Body Mass Index (BMI) with height and weight. Metric and imperial units.">
+<meta property="og:description" content="{{META_DESCRIPTION}}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://calcleap.com/bmi-calculator.html">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "BMI Calculator",
-  "description": "Calculate your Body Mass Index (BMI) with height and weight. Metric and imperial units.",
-  "url": "https://calcleap.com/bmi-calculator.html",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "Any",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "BMI Calculator",
+    "description": "{{META_DESCRIPTION}}",
+    "url": "https://calcleap.com/bmi-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
 }
 </script>
 <style>
+
 /* === CalcLeap Apple Design System === */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -143,8 +145,143 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   .related-grid{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr}
 }
+
+
+
+/* === COMPREHENSIVE COMPONENT STYLES === */
+
+/* Calc card (used by tax, mortgage, insurance pages) */
+.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+
+/* Input groups and grids */
+.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
+.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
+.input-group.full{grid-column:1/-1}
+.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
+.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
+.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+
+/* Field class (converter pages) */
+.field{margin-bottom:1rem}
+.row{display:flex;gap:.75rem;align-items:center}
+
+/* Radio buttons */
+.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
+.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
+.radio-label:hover{border-color:var(--accent);color:var(--accent)}
+.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
+.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
+
+/* Buttons */
+.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#1d1d1f;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
+.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+
+/* Result boxes */
+.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
+.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
+
+/* Result grid (tax, insurance calculators) */
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
+.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
+.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
+.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
+.result-card .value.green{color:#22c55e}
+
+/* Result rows */
+.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
+.result-row:last-child{border-bottom:none}
+.result-detail{font-size:.85rem;color:var(--text-2)}
+.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
+.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
+.result-item:last-child{border-bottom:none}
+
+/* Stat cards (state tax pages) */
+.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
+.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
+.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
+
+/* Section */
+.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+
+/* Container (fallback for old pages) */
+.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
+
+/* Tool cards (converter index pages) */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
+.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
+.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
+.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
+.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
+.tool-content{flex:1}
+
+/* Output area (dev tools) */
+.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
+
+/* Converter box */
+.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
+.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
+.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
+.conversion-table{margin-top:1rem}
+
+/* Bar charts */
+.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
+.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
+.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
+
+/* Badge */
+.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
+
+/* Table wrapper */
+.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
+.bracket-table{width:100%;border-collapse:collapse}
+
+/* Rate cards */
+.rate{font-size:.875rem;color:var(--text-2)}
+
+/* Header (old pages fallback) */
+.header{display:none} /* Old header hidden, replaced by .nav */
+
+/* Sub text */
+.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
+
+/* Ad placeholder — HIDE */
+.ad-placeholder{display:none !important}
+
+/* Hero override */
+.hero{padding:.5rem 0 1rem}
+.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
+.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
+
+/* FAQ items (old class) */
+.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+
+/* Toggle/tab buttons */
+.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
+.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#1d1d1f;border-color:var(--accent)}
+.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
+
+/* Color helpers */
+.green{color:#22c55e !important}
+.red{color:#ef4444 !important}
+
+/* Responsive */
+@media(max-width:768px){
+  .result-grid{grid-template-columns:1fr 1fr}
+  .radio-group{flex-direction:column}
+  .tool-grid{grid-template-columns:1fr}
+  .row{flex-direction:column}
+}
+@media(max-width:480px){
+  .result-grid{grid-template-columns:1fr}
+}
+
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is BMI and how is it calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Body Mass Index (BMI) is calculated by dividing weight in kilograms by height in meters squared (kg/m²). For imperial: (weight in lbs × 703) ÷ (height in inches)². It's a screening tool for weight-related health issues."}}, {"@type": "Question", "name": "Is BMI an accurate measure of health?", "acceptedAnswer": {"@type": "Answer", "text": "BMI is useful but has limitations. It doesn't distinguish between muscle and fat mass — athletes may have high BMI while being healthy. For a complete assessment, combine BMI with waist circumference, body fat %, and other markers."}}, {"@type": "Question", "name": "What is a healthy BMI range?", "acceptedAnswer": {"@type": "Answer", "text": "A healthy BMI is generally 18.5–24.9. Below 18.5 is underweight, 25–29.9 is overweight, and 30+ is obese. These are guidelines — individual health depends on fitness, muscle mass, and lifestyle."}}, {"@type": "Question", "name": "How can I improve my BMI?", "acceptedAnswer": {"@type": "Answer", "text": "Focus on balanced nutrition and 150+ minutes of moderate exercise weekly. Eat whole foods, lean protein, and whole grains. Aim for 1–2 lbs/week change. Consult a healthcare provider for personalized guidance."}}]}</script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5W5SEPQWV"></script>
@@ -158,7 +295,6 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#1d1d1f;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
 
-<!-- Nav -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="logo">Calc<span>Leap</span></a>
@@ -174,15 +310,13 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
 </nav>
 
-<!-- Page Content -->
 <div class="page" id="main-content" role="main">
-
   <div class="breadcrumb">
-    <a href="index.html">Home</a><span class="sep">›</span><a href="index.html#health">Health</a><span class="sep">›</span>BMI Calculator
+    <a href="index.html">Home</a><span class="sep">›</span><a href="index.html#tools">Tools</a><span class="sep">›</span>📊 BMI Calculator
   </div>
 
-  <h1 class="page-title">BMI Calculator</h1>
-  <p class="page-desc">Calculate your Body Mass Index instantly. See your category, healthy weight range, and a visual scale — no signup needed.</p>
+  <h1 class="page-title">📊 BMI Calculator</h1>
+  <p class="page-desc">{{META_DESCRIPTION}}</p>
     <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 0;margin-bottom:1rem;border-bottom:1px solid rgba(0,0,0,.06)">
     <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0071e3,#40a9ff);display:flex;align-items:center;justify-content:center;color:#1d1d1f;font-weight:700;font-size:.8rem">CL</div>
     <div>
@@ -192,121 +326,143 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </div>
 
 
-  <!-- Calculator -->
-  <div class="card">
-    <h2>Enter Your Measurements</h2>
+<!-- ===== BREADCRUMBS ===== -->
+<div class="cl-breadcrumbs">
+    <a href="index.html">Home</a>
+    <span class="sep">›</span>
+    <a href="index.html#health">Health</a>
+    <span class="sep">›</span>
+    <span>BMI Calculator</span>
+</div>
 
-    <div class="toggle-row">
-      <button class="toggle-btn active" onclick="setUnit('imperial')" id="btn-imperial">Imperial</button>
-      <button class="toggle-btn" onclick="setUnit('metric')" id="btn-metric">Metric</button>
-    </div>
+<!-- ===== AD SLOT 1 ===== -->
+<!-- ===== MAIN CONTENT ===== -->
+<div class="cl-main">
+    <div class="cl-content">
+        <!-- Calculator Box -->
+        <div class="cl-calc">
+            
+            <p class="cl-desc">{{META_DESCRIPTION}}</p>
 
-    <div id="imperial-inputs">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="feet">Height (feet)</label>
-          <input type="number" id="feet" min="1" max="8" value="5" aria-label="Feet">
+            <!-- ===== CALCULATOR FORM (replace this section) ===== -->
+            <div class="cl-row">
+                <div class="cl-field">
+                    <label class="cl-label">Input 1</label>
+                    <input type="number" class="cl-input" id="input1" value="0" aria-label="Input1">
+                </div>
+                <div class="cl-field">
+                    <label class="cl-label">Input 2</label>
+                    <input type="number" class="cl-input" id="input2" value="0" aria-label="Input2">
+                </div>
+            </div>
+            <button class="cl-btn" onclick="calculate()">Calculate</button>
+
+            <!-- Results -->
+            <div class="cl-results" id="results">
+                <h3 style="margin-bottom:.5rem">Results</h3>
+                <div class="cl-results-grid" id="resultsGrid">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+            <!-- ===== END CALCULATOR FORM ===== -->
         </div>
-        <div class="form-group">
-          <label for="inches">Height (inches)</label>
-          <input type="number" id="inches" min="0" max="11" value="10" aria-label="Inches">
+
+        <!-- ===== AD SLOT 2 ===== -->
+        <div style="margin:1.5rem 0">
+            <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="weight-lbs">Weight (lbs)</label>
-          <input type="number" id="weight-lbs" min="50" max="1000" value="170" aria-label="Weight Lbs">
-        </div>
-      </div>
-    </div>
 
-    <div id="metric-inputs" style="display:none">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="height-cm">Height (cm)</label>
-          <input type="number" id="height-cm" min="50" max="280" value="178" aria-label="Height Cm">
-        </div>
-        <div class="form-group">
-          <label for="weight-kg">Weight (kg)</label>
-          <input type="number" id="weight-kg" min="20" max="500" value="77" aria-label="Weight Kg">
-        </div>
-      </div>
-    </div>
-
-    <button class="btn" onclick="calculateBMI()">Calculate BMI</button>
-
-    <div class="result-area" id="result"></div>
-  </div>
-
-  <!-- Ad -->
-  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-
-  <!-- BMI Categories -->
-  <div class="info-card">
-    <h3>BMI Categories</h3>
-    <table>
-      <thead><tr><th>Category</th><th>BMI Range</th><th>Health Risk</th></tr></thead>
-      <tbody>
-        <tr><td><span class="dot" style="background:#38bdf8" aria-hidden="true"></span>Underweight <span style="font-size:.75rem;color:var(--text-3)">(Blue)</span></td><td>Below 18.5</td><td>Nutritional deficiency risk</td></tr>
-        <tr><td><span class="dot" style="background:#34d399" aria-hidden="true"></span>Normal <span style="font-size:.75rem;color:var(--text-3)">(Green)</span></td><td>18.5 – 24.9</td><td>Lowest health risk</td></tr>
-        <tr><td><span class="dot" style="background:#fbbf24" aria-hidden="true"></span>Overweight <span style="font-size:.75rem;color:var(--text-3)">(Yellow)</span></td><td>25.0 – 29.9</td><td>Moderate risk</td></tr>
-        <tr><td><span class="dot" style="background:#f87171" aria-hidden="true"></span>Obese <span style="font-size:.75rem;color:var(--text-3)">(Red)</span></td><td>30.0+</td><td>High risk</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Related Tools -->
-  <div class="info-card">
-    <h3>Related Health Tools</h3>
-    <div class="related-grid">
-      <a href="calc/calorie-calculator.html" class="related-link">Calorie Calculator</a>
-      <a href="calc/body-fat-calculator.html" class="related-link">Body Fat Calculator</a>
-      <a href="calc/ideal-weight.html" class="related-link">Ideal Weight</a>
-      <a href="calc/pregnancy-due-date.html" class="related-link">Pregnancy Due Date</a>
-      <a href="calc/bac-calculator.html" class="related-link">BAC Calculator</a>
-      <a href="calc/sleep-calculator.html" class="related-link">Sleep Calculator</a>
-    </div>
-  </div>
-
-  <!-- Ad -->
-  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-
-  <!-- FAQ -->
-  <div style="background:var(--white,#fff);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:1.5rem;margin:1.5rem 0">
+        <!-- ===== FAQ SECTION ===== -->
+        <div style="background:var(--white,#fff);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:1.5rem;margin:1.5rem 0">
     <h3 style="font-size:.95rem;font-weight:700;margin-bottom:.75rem">📐 How We Calculate This</h3>
-    <p style="font-size:.85rem;color:#424245;line-height:1.7;margin-bottom:.75rem">Our calculations follow clinical guidelines from the CDC, WHO, and NIH. BMI uses the standard formula: weight (kg) / height (m²). Caloric estimates use the Mifflin-St Jeor equation, validated as the most accurate resting metabolic rate formula.</p>
-    <p style="font-size:.85rem;color:#424245;line-height:1.7">These tools are for informational purposes and do not replace medical advice. Consult a healthcare provider for personalized health recommendations.</p>
+    <p style="font-size:.85rem;color:#424245;line-height:1.7;margin-bottom:.75rem">Our calculators use industry-standard formulas sourced from authoritative references including government agencies, academic institutions, and professional organizations. We validate all calculations against multiple independent sources.</p>
+    <p style="font-size:.85rem;color:#424245;line-height:1.7">Results are estimates for educational purposes. Professional advice from a licensed expert is recommended for important financial, health, or legal decisions.</p>
 </div>
 <div style="background:#f5f5f7;border-radius:12px;padding:1.25rem;margin:1.25rem 0">
     <h4 style="font-size:.85rem;font-weight:700;margin-bottom:.5rem">📚 Sources & References</h4>
-    <ul style="font-size:.82rem;color:#424245;line-height:1.8;padding-left:1.2rem;margin:0"><li><a href="https://www.cdc.gov/bmi/index.html" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">CDC — Health Assessment Tools</a></li><li><a href="https://www.nih.gov/health-information" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">NIH — Health Information</a></li><li><a href="https://www.who.int/health-topics" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">WHO — Health Topics</a></li></ul>
+    <ul style="font-size:.82rem;color:#424245;line-height:1.8;padding-left:1.2rem;margin:0">
+        <li><a href="https://www.bls.gov/" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">Bureau of Labor Statistics</a></li>
+        <li><a href="https://www.census.gov/" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">U.S. Census Bureau</a></li>
+        <li><a href="https://www.federalreserve.gov/data.htm" target="_blank" rel="noopener" style="color:#0071e3;text-decoration:none">Federal Reserve Economic Data</a></li>
+    </ul>
 </div>
 
 
-<div class="info-card">
-    <h3>Frequently Asked Questions</h3>
-    <div class="faq">
-      <div class="faq-q">What is BMI and how is it calculated?</div>
-      <div class="faq-a">Body Mass Index (BMI) is calculated by dividing weight in kilograms by height in meters squared (kg/m²). For imperial: (weight in lbs × 703) ÷ (height in inches)². It's a screening tool for weight-related health issues.</div>
+<div class="cl-faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="cl-faq-item">
+                <div class="cl-faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+                    What is BMI Calculator?
+                </div>
+                <div class="cl-faq-a">
+                    {{FAQ_ANSWER_1}}
+                </div>
+            </div>
+            <div class="cl-faq-item">
+                <div class="cl-faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+                    How do I use this calculator?
+                </div>
+                <div class="cl-faq-a">
+                    {{FAQ_ANSWER_2}}
+                </div>
+            </div>
+            <div class="cl-faq-item">
+                <div class="cl-faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+                    Is this tool accurate?
+                </div>
+                <div class="cl-faq-a">
+                    Our calculator uses industry-standard formulas and up-to-date data to provide accurate estimates. However, results are for informational purposes only and should not replace professional advice.
+                </div>
+            </div>
+            <!-- Add more FAQ items as needed -->
+        </div>
     </div>
-    <div class="faq">
-      <div class="faq-q">Is BMI an accurate measure of health?</div>
-      <div class="faq-a">BMI is useful but has limitations. It doesn't distinguish between muscle and fat mass — athletes may have high BMI while being healthy. For a complete assessment, combine BMI with waist circumference, body fat %, and other markers.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">What is a healthy BMI range?</div>
-      <div class="faq-a">A healthy BMI is generally 18.5–24.9. Below 18.5 is underweight, 25–29.9 is overweight, and 30+ is obese. These are guidelines — individual health depends on fitness, muscle mass, and lifestyle.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">How can I improve my BMI?</div>
-      <div class="faq-a">Focus on balanced nutrition and 150+ minutes of moderate exercise weekly. Eat whole foods, lean protein, and whole grains. Aim for 1–2 lbs/week change. Consult a healthcare provider for personalized guidance.</div>
-    </div>
-  </div>
 
-</div><!-- /page -->
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="cl-sidebar">
+        <!-- Related Tools -->
+        <div class="cl-sidebar-box">
+            <h3>🔗 Related Tools</h3>
+            <a href="{{RELATED_1_URL}}" class="cl-related-link">{{RELATED_1_NAME}}</a>
+            <a href="{{RELATED_2_URL}}" class="cl-related-link">{{RELATED_2_NAME}}</a>
+            <a href="{{RELATED_3_URL}}" class="cl-related-link">{{RELATED_3_NAME}}</a>
+            <a href="{{RELATED_4_URL}}" class="cl-related-link">{{RELATED_4_NAME}}</a>
+            <a href="{{RELATED_5_URL}}" class="cl-related-link">{{RELATED_5_NAME}}</a>
+            <a href="{{RELATED_6_URL}}" class="cl-related-link">{{RELATED_6_NAME}}</a>
+        </div>
 
-<!-- Footer -->
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator is for informational and educational purposes only. Results are not medical advice and should not be used to diagnose, treat, or prevent any health condition. Individual health needs vary. Always consult a qualified healthcare provider or physician before making health-related decisions. CalcLeap does not provide medical services or advice.</div>
+        <!-- Ad Slot 3 (Sidebar) -->
+        <div class="cl-sidebar-box" style="padding:0;border:none;background:none">
+            
+        </div>
+
+        <!-- Back to Category -->
+        <div class="cl-sidebar-box">
+            <h3>📂 Browse Category</h3>
+            <a href="index.html#health" class="cl-related-link" style="color:var(--a);font-weight:600">← Back to Health</a>
+            <a href="index.html" class="cl-related-link">View All Tools →</a>
+        </div>
+    </aside>
+</div>
+
+<!-- ===== FOOTER ===== -->
+
+
+<script>
+// ===== CALCULATOR LOGIC (replace this section) =====
+function calculate() {
+    const results = document.getElementById('results');
+    const grid = document.getElementById('resultsGrid');
+    // Your calculation logic here
+    grid.innerHTML = '<div class="cl-stat"><div class="val">$0</div><div class="lbl">Result</div></div>';
+    results.classList.add('show');
+}
+</script>
+
+</div>
+
+<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This tool provides estimates for informational and educational purposes only. Results may not reflect actual values and should be verified independently. CalcLeap makes no warranties regarding the accuracy or completeness of any calculations. Use at your own discretion.</div>
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
@@ -318,14 +474,12 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
       <a href="bmi-calculator.html">BMI Calculator</a>
       <a href="calc/mortgage-payment.html">Mortgage</a>
       <a href="income-tax-calculator.html">Income Tax</a>
-      <a href="calc/compound-interest.html">Compound Interest</a>
     </div>
     <div>
       <h4>Categories</h4>
       <a href="index.html#finance">Financial</a>
       <a href="index.html#insurance">Insurance</a>
       <a href="index.html#health">Health</a>
-      <a href="index.html#converters">Converters</a>
     </div>
     <div>
       <h4>Company</h4>
@@ -333,7 +487,6 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="contact.html">Contact</a>
-      <a href="blog/index.html">Blog</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -341,73 +494,6 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
 </footer>
 
-<script>
-let currentUnit = 'imperial';
-
-function setUnit(unit) {
-  currentUnit = unit;
-  document.getElementById('imperial-inputs').style.display = unit === 'imperial' ? '' : 'none';
-  document.getElementById('metric-inputs').style.display = unit === 'metric' ? '' : 'none';
-  document.getElementById('btn-imperial').classList.toggle('active', unit === 'imperial');
-  document.getElementById('btn-metric').classList.toggle('active', unit === 'metric');
-}
-
-function calculateBMI() {
-  let heightM, weightKg;
-  if (currentUnit === 'imperial') {
-    const ft = parseFloat(document.getElementById('feet').value) || 0;
-    const inc = parseFloat(document.getElementById('inches').value) || 0;
-    heightM = (ft * 12 + inc) * 0.0254;
-    weightKg = (parseFloat(document.getElementById('weight-lbs').value) || 0) * 0.453592;
-  } else {
-    heightM = (parseFloat(document.getElementById('height-cm').value) || 0) / 100;
-    weightKg = parseFloat(document.getElementById('weight-kg').value) || 0;
-  }
-  if (heightM <= 0 || weightKg <= 0) return alert('Please enter valid values.');
-
-  const bmi = weightKg / (heightM * heightM);
-  let cat, col, advice;
-  if (bmi < 18.5) { cat='Underweight (Blue)'; col='#38bdf8'; advice='You may need to gain weight. Consult a healthcare provider.'; }
-  else if (bmi < 25) { cat='Normal Weight (Green)'; col='#34d399'; advice='Your weight is in the healthy range. Keep it up!'; }
-  else if (bmi < 30) { cat='Overweight (Yellow)'; col='#fbbf24'; advice='Consider more exercise and balanced nutrition.'; }
-  else { cat='Obese (Red)'; col='#f87171'; advice='Consult a healthcare provider about weight management.'; }
-
-  const minH = (18.5 * heightM * heightM), maxH = (24.9 * heightM * heightM);
-  const isImp = currentUnit === 'imperial';
-  const minW = isImp ? (minH/.453592).toFixed(0) : minH.toFixed(1);
-  const maxW = isImp ? (maxH/.453592).toFixed(0) : maxH.toFixed(1);
-  const wu = isImp ? 'lbs' : 'kg';
-  const gp = Math.min(100, Math.max(0, ((bmi-10)/35)*100));
-
-  const el = document.getElementById('result');
-  el.innerHTML = `
-    <div style="text-align:center;margin-bottom:1.5rem">
-      <div class="bmi-big" style="color:${col}">${bmi.toFixed(1)}</div>
-      <div class="bmi-label" style="color:${col}">${cat}</div>
-      <div class="bmi-advice">${advice}</div>
-    </div>
-
-    <div class="gauge">
-      <div class="gauge-bar">
-        <div class="gauge-seg" style="width:24.3%;background:#38bdf8"></div>
-        <div class="gauge-seg" style="width:18.3%;background:#34d399"></div>
-        <div class="gauge-seg" style="width:14.3%;background:#fbbf24"></div>
-        <div class="gauge-seg" style="width:43.1%;background:#f87171"></div>
-      </div>
-      <div class="gauge-marker" style="left:${gp}%"></div>
-      <div class="gauge-labels"><span>10</span><span>18.5</span><span>25</span><span>30</span><span>45</span></div>
-    </div>
-
-    <div style="margin-top:1.25rem">
-      <div class="stat-row"><span class="stat-label">Your BMI</span><span class="stat-value" style="color:${col}">${bmi.toFixed(1)}</span></div>
-      <div class="stat-row"><span class="stat-label">Category</span><span class="stat-value">${cat}</span></div>
-      <div class="stat-row"><span class="stat-label">Healthy Range</span><span class="stat-value">${minW}–${maxW} ${wu}</span></div>
-    </div>
-  `;
-  el.style.display = 'block';
-  el.scrollIntoView({ behavior:'smooth', block:'nearest' });
-}
-</script>
 <div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#f5f5f7;color:#1d1d1f;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
 <p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
 <div style="display:flex;gap:.5rem;flex-shrink:0">
@@ -416,6 +502,5 @@ function calculateBMI() {
 </div>
 </div>
 <script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
-<script src="/email-capture.js" defer></script>
 </body>
 </html>
