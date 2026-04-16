@@ -3,255 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Calculate potential compensation for personal injury cases including medical bills, lost wages, pain and suffering, and punitive damages. Get an estimate of your personal injury settlement value.">
-    <meta name="keywords" content="personal injury settlement calculator, injury compensation calculator, pain and suffering calculator, medical bills calculator, lost wages calculator, personal injury claim calculator">
-    <title>Personal Injury Settlement Calculator - Calculate Your Compensation</title>
-    <link rel="stylesheet" href="/gold.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <script src="/app.js" defer></script>
-    <script src="/js/analytics.js" defer></script>
-    <meta property="og:title" content="Personal Injury Settlement Calculator - Calculate Your Compensation">
-    <meta property="og:description" content="Calculate potential compensation for personal injury cases including medical bills, lost wages, pain and suffering, and punitive damages. Get an estimate of your personal injury settlement value.">
-    <meta property="og:url" content="https://toolpulse.org/legal/personal-injury-settlement-calculator.html">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Personal Injury Settlement Calculator">
-    <meta name="twitter:description" content="Calculate potential compensation for personal injury cases">
+    <title>Personal Injury Settlement Calculator</title>
+    <meta name="description" content="Calculate your potential personal injury settlement compensation based on medical bills, lost wages, pain and suffering, and other damages.">
+    <link rel="stylesheet" href="../gold.css">
+    <link rel="stylesheet" href="../css/legal.css">
+    <script src="../app.js" defer></script>
+    <script src="personal-injury-settlement.js" defer></script>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcleap.com/legal/personal-injury-settlement-calculator.html">
 </head>
 <body>
-    <header>
-        <div class="container">
+    <div class="container">
+        <header>
             <h1>Personal Injury Settlement Calculator</h1>
-            <p class="subtitle">Calculate your potential compensation for personal injury claims</p>
-        </div>
-    </header>
+            <p class="subtitle">Estimate your potential compensation based on medical bills, lost wages, and pain & suffering</p>
+        </header>
 
-    <main class="container">
         <div class="calculator-container">
-            <div class="calculator-form">
-                <div class="form-group">
-                    <label for="medicalBills">Medical Bills ($)</label>
-                    <input type="number" id="medicalBills" class="form-control" placeholder="Enter total medical expenses" min="0" step="100" value="0">
+            <div class="calculator-card">
+                <div class="tool-header">
+                    <h2>📊 Your Settlement Estimate</h2>
+                    <button id="copyResults" class="btn secondary">Copy Results</button>
                 </div>
-
-                <div class="form-group">
-                    <label for="lostWages">Lost Wages ($)</label>
-                    <input type="number" id="lostWages" class="form-control" placeholder="Enter lost income" min="0" step="100" value="0">
+                <div class="tool-content">
+                    <div id="results" class="results-display">
+                        <p class="placeholder">Enter your details above to see your estimated settlement range.</p>
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="painSuffering">Pain & Suffering (1-10 scale)</label>
-                    <select id="painSuffering" class="form-control">
-                        <option value="1">1 - Minimal</option>
-                        <option value="2">2 - Slight</option>
-                        <option value="3">3 - Mild</option>
-                        <option value="4">4 - Moderate</option>
-                        <option value="5" selected>5 - Moderate to Severe</option>
-                        <option value="6">6 - Severe</option>
-                        <option value="7">7 - Very Severe</option>
-                        <option value="8">8 - Extreme</option>
-                        <option value="9">9 - Maximum</option>
-                        <option value="10">10 - Catastrophic</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="punitiveDamages">Punitive Damages ($)</label>
-                    <input type="number" id="punitiveDamages" class="form-control" placeholder="Enter punitive damages" min="0" step="1000" value="0">
-                </div>
-
-                <div class="form-group">
-                    <label for="insuranceCoverage">Insurance Coverage ($)</label>
-                    <input type="number" id="insuranceCoverage" class="form-control" placeholder="Enter available insurance coverage" min="0" step="10000" value="100000">
-                </div>
-
-                <div class="form-group">
-                    <label for="faultPercentage">Your Fault Percentage (%)</label>
-                    <input type="number" id="faultPercentage" class="form-control" placeholder="Enter your percentage of fault" min="0" max="100" step="5" value="0">
-                </div>
-
-                <button onclick="calculateSettlement()" class="btn btn-primary btn-block">Calculate Settlement</button>
-                <button onclick="resetForm()" class="btn btn-secondary btn-block">Reset</button>
             </div>
 
-            <div class="calculator-results">
-                <h2>Your Results</h2>
-                <div id="resultsContent">
-                    <p class="results-description">Enter your information above and click "Calculate Settlement" to see your estimated compensation.</p>
-                    
-                    <div class="result-item">
-                        <h3>Estimated Settlement Range</h3>
-                        <p id="settlementRange">$0 - $0</p>
-                    </div>
+            <div class="calculator-card">
+                <h2>📝 Injury Details</h2>
+                <div class="tool-content">
+                    <form id="injuryForm">
+                        <div class="form-group">
+                            <label for="medicalBills">Medical Bills ($)</label>
+                            <input type="number" id="medicalBills" min="0" step="100" placeholder="Enter total medical expenses">
+                            <small>Include hospital bills, doctor visits, physical therapy, prescriptions, etc.</small>
+                        </div>
 
-                    <div class="result-item">
-                        <h3>Medical Bills Recovered</h3>
-                        <p id="medicalRecovery">$0</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="lostWages">Lost Wages ($)</label>
+                            <input type="number" id="lostWages" min="0" step="100" placeholder="Enter lost income">
+                            <small>Time missed from work due to injury</small>
+                        </div>
 
-                    <div class="result-item">
-                        <h3>Lost Wages Recovered</h3>
-                        <p id="wagesRecovery">$0</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="painSuffering">Pain & Suffering (1-10)</label>
+                            <input type="number" id="painSuffering" min="1" max="10" value="5" placeholder="1-10 scale">
+                            <small>Rate your overall pain and suffering (1=minimal, 10=severe)</small>
+                        </div>
 
-                    <div class="result-item">
-                        <h3>Pain & Suffering Award</h3>
-                        <p id="painSufferingAward">$0</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="propertyDamage">Property Damage ($)</label>
+                            <input type="number" id="propertyDamage" min="0" step="100" placeholder="Enter repair/replacement cost">
+                            <small>Vehicle damage or other property loss</small>
+                        </div>
 
-                    <div class="result-item">
-                        <h3>Punitive Damages Award</h3>
-                        <p id="punitiveAward">$0</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="futureMedical">Future Medical Expenses ($)</label>
+                            <input type="number" id="futureMedical" min="0" step="100" placeholder="Enter projected future costs">
+                            <small>Estimated ongoing medical treatment</small>
+                        </div>
 
-                    <div class="result-item">
-                        <h3>Total Compensation</h3>
-                        <p id="totalCompensation" class="total-amount">$0</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="injuryType">Type of Injury</label>
+                            <select id="injuryType">
+                                <option value="minor">Minor Injury (sprains, bruises)</option>
+                                <option value="moderate">Moderate Injury (broken bones, whiplash)</option>
+                                <option value="severe">Severe Injury (permanent disability, traumatic brain injury)</option>
+                                <option value="catastrophic">Catastrophic Injury (life-altering)</option>
+                            </select>
+                        </div>
 
-                    <div class="result-item">
-                        <h3>After Insurance Adjustment</h3>
-                        <p id="afterInsurance" class="total-amount">$0</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="liability">Liability Percentage (%)</label>
+                            <input type="number" id="liability" min="0" max="100" value="100" placeholder="0-100%">
+                            <small>Percentage of fault assigned to the other party</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contingencyFee">Attorney Contingency Fee (%)</label>
+                            <input type="number" id="contingencyFee" min="0" max="50" value="33" placeholder="Typically 33-40%">
+                            <small>Percentage attorney takes if you win</small>
+                        </div>
+
+                        <button type="button" id="calculateBtn" class="btn primary">Calculate Settlement</button>
+                        <button type="reset" class="btn secondary">Reset Form</button>
+                    </form>
                 </div>
             </div>
         </div>
 
-        <div class="calculator-explanation">
-            <h2>How Personal Injury Settlements Are Calculated</h2>
-            <p>Personal injury settlements typically consider several key factors:</p>
-            
-            <ul>
-                <li><strong>Medical Expenses:</strong> All costs related to medical treatment, including future medical care</li>
-                <li><strong>Lost Wages:</strong> Income lost due to inability to work</li>
-                <li><strong>Pain and Suffering:</strong> Compensation for physical pain and emotional distress</li>
-                <li><strong>Property Damage:</strong> Repair or replacement of damaged property</li>
-                <li><strong>Punitive Damages:</strong> Additional compensation for egregious conduct (less common)</li>
-                <li><strong>Loss of Consortium:</strong> Compensation for impact on relationships</li>
-            </ul>
+        <div class="calculator-container">
+            <div class="calculator-card">
+                <h2>📈 How Settlement Calculations Work</h2>
+                <div class="tool-content">
+                    <div class="legal-content">
+                        <h3>Personal Injury Settlement Formula</h3>
+                        <p>Personal injury settlements are typically calculated using a multiplier method:</p>
+                        
+                        <div class="formula-display">
+                            <strong>Settlement Amount = (Medical Bills + Lost Wages + Future Medical) × Multiplier + Property Damage</strong>
+                        </div>
 
-            <h3>Multipliers vs. Per Diem</h3>
-            <p>Insurance companies often use two methods to calculate pain and suffering:</p>
-            <ul>
-                <li><strong>Multiplier Method:</strong> Medical bills × (1.5 to 5+) depending on injury severity</li>
-                <li><strong>Per Diem Method:</strong> Daily rate × number of days affected</li>
-            </ul>
+                        <h4>Multiplier Factors:</h4>
+                        <ul>
+                            <li><strong>1-2:</strong> Minor injuries with quick recovery</li>
+                            <li><strong>2-4:</strong> Moderate injuries with some ongoing effects</li>
+                            <li><strong>4-6:</strong> Severe injuries with permanent consequences</li>
+                            <li><strong>6-10:</strong> Catastrophic injuries (loss of limb, brain injury, wrongful death)</li>
+                        </ul>
 
-            <h3>Comparative Negligence</h3>
-            <p>In many states, if you share some fault for the accident, your compensation is reduced by your percentage of fault. This calculator accounts for comparative negligence.</p>
+                        <h4>Additional Factors That Affect Your Settlement:</h4>
+                        <ul>
+                            <li><strong>Pain and Suffering:</strong> Emotional distress, loss of enjoyment of life</li>
+                            <li><strong>Permanent Disability:</strong> Long-term effects on your life</li>
+                            <li><strong>Evidence Strength:</strong> Police reports, witness statements, medical records</li>
+                            <li><strong>Insurance Policy Limits:</strong> Maximum coverage available</li>
+                            <li><strong>Comparative Negligence:</strong> Your percentage of fault reduces compensation</li>
+                            <li><strong>Punitive Damages:</strong> Rare cases of gross negligence</li>
+                        </ul>
 
-            <h3>Average Settlement Ranges</h3>
-            <table class="settlement-ranges">
-                <tr>
-                    <th>Injury Type</th>
-                    <th>Typical Range</th>
-                </tr>
-                <tr>
-                    <td>Minor injuries (sprains, strains)</td>
-                    <td>$3,000 - $15,000</td>
-                </tr>
-                <tr>
-                    <td>Moderate injuries (broken bones, herniated discs)</td>
-                    <td>$15,000 - $75,000</td>
-                </tr>
-                <tr>
-                    <td>Severe injuries (permanent disability, disfigurement)</td>
-                    <td>$75,000 - $300,000+</td>
-                </tr>
-                <tr>
-                    <td>Catastrophic injuries (brain injury, paralysis)</td>
-                    <td>$300,000 - $1,000,000+</td>
-                </tr>
-            </table>
-        </div>
+                        <h4>What's NOT Included:</h4>
+                        <ul>
+                            <li>Future lost earning capacity (separate calculation needed)</li>
+                            <li>Loss of consortium (family relationships)</li>
+                            <li>Emotional distress separate from pain and suffering</li>
+                            <li>Future medical expenses beyond what's reasonable</li>
+                        </ul>
 
-        <div class="related-calculators">
-            <h2>Related Calculators</h2>
-            <div class="calculator-grid">
-                <div class="calculator-card">
-                    <h3><a href="/legal/workers-compensation-calculator.html">Workers' Comp Calculator</a></h3>
-                    <p>Calculate benefits for work-related injuries</p>
+                        <h3>Average Settlement Ranges (2026 Data)</h3>
+                        <table class="settlement-table">
+                            <thead>
+                                <tr>
+                                    <th>Injury Type</th>
+                                    <th>Average Settlement Range</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Minor Soft Tissue</td>
+                                    <td>$3,000 - $15,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Whiplash</td>
+                                    <td>$5,000 - $25,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Broken Bones</td>
+                                    <td>$15,000 - $50,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Back Injuries</td>
+                                    <td>$20,000 - $100,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Spinal Cord Injury</td>
+                                    <td>$100,000 - $1,000,000+</td>
+                                </tr>
+                                <tr>
+                                    <td>Traumatic Brain Injury</td>
+                                    <td>$75,000 - $500,000+</td>
+                                </tr>
+                                <tr>
+                                    <td>Wrongful Death</td>
+                                    <td>$250,000 - $2,000,000+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                
-                <div class="calculator-card">
-                    <h3><a href="/legal/auto-accident-settlement-calculator.html">Car Accident Calculator</a></h3>
-                    <p>Estimate compensation for vehicle accidents</p>
-                </div>
-                
-                <div class="calculator-card">
-                    <h3><a href="/legal/child-support-calculator.html">Child Support Calculator</a></h3>
-                    <p>Calculate child support obligations</p>
+            </div>
+
+            <div class="calculator-card">
+                <h2>💡 Settlement Tips</h2>
+                <div class="tool-content">
+                    <div class="legal-content">
+                        <h3>Maximizing Your Personal Injury Settlement</h3>
+                        
+                        <h4>Immediate Actions:</h4>
+                        <ol>
+                            <li><strong>Seek Medical Attention:</strong> Document all injuries immediately</li>
+                            <li><strong>Report the Incident:</strong> File police report and notify insurance</li>
+                            <li><strong>Gather Evidence:</strong> Photos, witness statements, medical records</li>
+                            <li><strong>Keep Detailed Records:</strong> Track all expenses and communications</li>
+                            <li><strong>Follow Doctor's Orders:</strong> Complete all treatment recommendations</li>
+                        </ol>
+
+                        <h4>Negotiation Strategies:</h4>
+                        <ul>
+                            <li><strong>Don't Accept First Offer:</strong> Insurance companies often lowball initially</li>
+                            <li><strong>Document Everything:</strong> Keep records of all expenses and communications</li>
+                            <li><strong>Be Patient:</strong> Rushing may result in accepting less than you deserve</li>
+                            <li><strong>Consider Future Costs:</strong> Factor in ongoing medical treatment and lost earning potential</li>
+                            <li><strong>Consult an Attorney:</strong> Many work on contingency (no upfront fees)</li>
+                        </ul>
+
+                        <h4>Common Mistakes to Avoid:</h4>
+                        <ul>
+                            <li>Giving recorded statements without legal advice</li>
+                            <li>Signing medical authorization forms without review</li>
+                            <li>Posting about your injury on social media</li>
+                            <li>Accepting a settlement before reaching maximum medical improvement</li>
+                            <li>Not considering tax implications of settlement amounts</li>
+                        </ul>
+
+                        <h4>When to Hire an Attorney:</h4>
+                        <ul>
+                            <li>Serious injuries with long-term consequences</li>
+                            <li>Disputed liability or complex accident circumstances</li>
+                            <li>Insurance company denying your claim</li>
+                            <li>Multiple parties involved (multi-vehicle accidents)</li>
+                            <li>Settlement offers that seem unfairly low</li>
+                        </ul>
+
+                        <h4>Statute of Limitations (2026):</h4>
+                        <p><strong>Personal injury claims generally have a 2-4 year statute of limitations</strong> from the date of injury, but this varies by state. Check your state's specific laws.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. All calculators are for informational purposes only.</p>
-            <p><a href="/legal/disclaimer.html">Disclaimer</a> | <a href="/legal/privacy.html">Privacy Policy</a></p>
+        <div class="calculator-container">
+            <div class="calculator-card">
+                <h2>📋 Settlement Breakdown</h2>
+                <div class="tool-content">
+                    <div id="breakdown" class="breakdown-display">
+                        <p class="placeholder">Calculate your settlement to see the detailed breakdown.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-card">
+                <h2>🔗 Related Calculators</h2>
+                <div class="tool-content">
+                    <div class="related-calculators">
+                        <ul>
+                            <li><a href="../auto-insurance/car-insurance-calculator.html">Car Insurance Calculator</a></li>
+                            <li><a href="../health-insurance/health-insurance-cost-estimator.html">Health Insurance Cost Estimator</a></li>
+                            <li><a href="../workers-compensation/workers-compensation-calculator.html">Workers' Compensation Calculator</a></li>
+                            <li><a href="../structured-settlement/structured-settlement-calculator.html">Structured Settlement Calculator</a></li>
+                            <li><a href="../child-support/child-support-calculator.html">Child Support Calculator</a></li>
+                            <li><a href="../alimony/alimony-calculator.html">Alimony Calculator</a></li>
+                            <li><a href="../malpractice/malpractice-settlement-calculator.html">Medical Malpractice Calculator</a></li>
+                            <li><a href="../accident/car-accident-settlement-calculator.html">Car Accident Settlement Calculator</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
+
+    <!-- Lead capture modal -->
+    <div id="leadModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Get a Free Case Review</h3>
+            <p>Enter your email to receive a free consultation from a personal injury attorney in your area.</p>
+            <form id="leadForm">
+                <input type="email" id="leadEmail" placeholder="Your email address" required>
+                <button type="submit" class="btn primary">Get Free Consultation</button>
+            </form>
+        </div>
+    </div>
 
     <script>
-        function calculateSettlement() {
-            // Get input values
-            const medicalBills = parseFloat(document.getElementById('medicalBills').value) || 0;
-            const lostWages = parseFloat(document.getElementById('lostWages').value) || 0;
-            const painSuffering = parseFloat(document.getElementById('painSuffering').value) || 5;
-            const punitiveDamages = parseFloat(document.getElementById('punitiveDamages').value) || 0;
-            const insuranceCoverage = parseFloat(document.getElementById('insuranceCoverage').value) || 100000;
-            const faultPercentage = parseFloat(document.getElementById('faultPercentage').value) || 0;
-
-            // Calculate pain and suffering (multiplier method)
-            // Base multiplier increases with pain level
-            const baseMultiplier = 1.5 + (painSuffering * 0.3);
-            const painSufferingAward = medicalBills * baseMultiplier;
-
-            // Calculate total special damages
-            const totalSpecialDamages = medicalBills + lostWages;
-
-            // Calculate total compensation before fault adjustment
-            const totalCompensationBeforeAdjustment = totalSpecialDamages + painSufferingAward + punitiveDamages;
-
-            // Apply comparative negligence
-            const faultAdjustment = 1 - (faultPercentage / 100);
-            const totalCompensation = totalCompensationBeforeAdjustment * faultAdjustment;
-
-            // Calculate amount after insurance adjustment
-            const afterInsurance = Math.min(totalCompensation, insuranceCoverage);
-
-            // Calculate settlement range (add/subtract 20% for realistic range)
-            const rangeLow = totalCompensation * 0.8;
-            const rangeHigh = totalCompensation * 1.2;
-
-            // Display results
-            document.getElementById('settlementRange').textContent = `$${Math.round(rangeLow).toLocaleString()} - $${Math.round(rangeHigh).toLocaleString()}`;
-            document.getElementById('medicalRecovery').textContent = `$${Math.round(medicalBills).toLocaleString()}`;
-            document.getElementById('wagesRecovery').textContent = `$${Math.round(lostWages).toLocaleString()}`;
-            document.getElementById('painSufferingAward').textContent = `$${Math.round(painSufferingAward).toLocaleString()}`;
-            document.getElementById('punitiveAward').textContent = `$${Math.round(punitiveDamages).toLocaleString()}`;
-            document.getElementById('totalCompensation').textContent = `$${Math.round(totalCompensation).toLocaleString()}`;
-            document.getElementById('afterInsurance').textContent = `$${Math.round(afterInsurance).toLocaleString()}`;
-        }
-
-        function resetForm() {
-            document.getElementById('medicalBills').value = '0';
-            document.getElementById('lostWages').value = '0';
-            document.getElementById('painSuffering').value = '5';
-            document.getElementById('punitiveDamages').value = '0';
-            document.getElementById('insuranceCoverage').value = '100000';
-            document.getElementById('faultPercentage').value = '0';
-            
-            // Reset results
-            document.getElementById('settlementRange').textContent = '$0 - $0';
-            document.getElementById('medicalRecovery').textContent = '$0';
-            document.getElementById('wagesRecovery').textContent = '$0';
-            document.getElementById('painSufferingAward').textContent = '$0';
-            document.getElementById('punitiveAward').textContent = '$0';
-            document.getElementById('totalCompensation').textContent = '$0';
-            document.getElementById('afterInsurance').textContent = '$0';
-        }
+        // Simple analytics tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track page view
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_view', {'page_title': 'Personal Injury Settlement Calculator'});
+            }
+        });
     </script>
 </body>
 </html>
