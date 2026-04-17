@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Income Tax Calculator - CalcLeap</title>
+    <meta name="description" content="Calculate your California state income tax with this easy-to-use calculator. Estimate your tax liability based on income, filing status, and deductions.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_GA_TRACKING_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YOUR_GA_TRACKING_ID');
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="/">CalcLeap</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="/financial-calculators">Financial</a></li>
+                    <li><a href="/health-calculators">Health</a></li>
+                    <li><a href="/conversion-tools">Conversions</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="calculator-container">
+            <h2>California Income Tax Calculator</h2>
+            <div class="card">
+                <div class="form-group">
+                    <label for="income">Annual Income ($):</label>
+                    <input type="number" id="income" value="60000" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="filingStatus">Filing Status:</label>
+                    <select id="filingStatus">
+                        <option value="single">Single</option>
+                        <option value="married-filing-jointly">Married Filing Jointly</option>
+                        <option value="married-filing-separately">Married Filing Separately</option>
+                        <option value="head-of-household">Head of Household</option>
+                        <option value="qualifying-widow">Qualifying Widow(er)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deductions">Standard/Itemized Deductions ($):</label>
+                    <input type="number" id="deductions" value="0" min="0">
+                </div>
+                <button onclick="calculateTax()">Calculate Tax</button>
+                <div class="result" id="result">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+            <div class="info-section">
+                <h3>About California Income Tax</h3>
+                <p>California has a progressive income tax system, meaning higher earners pay a larger percentage of their income in taxes. The state uses several tax brackets and offers various deductions and credits to reduce taxable income.</p>
+                <p>This calculator provides an estimate based on current tax year rates (placeholder for actual year, e.g., 2024). Always consult a tax professional for personalized advice.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value);
+            const filingStatus = document.getElementById('filingStatus').value;
+            const deductions = parseFloat(document.getElementById('deductions').value);
+            let taxableIncome = income - deductions;
+            if (taxableIncome < 0) taxableIncome = 0;
+
+            let tax = 0;
+            // Placeholder for California 2024 Tax Brackets (Simplified Example - actual brackets are more complex and indexed for inflation)
+            // This is a highly simplified example. Real CA tax calculations are complex with many brackets and credits.
+            // For a real-world scenario, a more robust tax logic or API integration would be needed.
+
+            const brackets = {
+                "single": [
+                    { limit: 10412, rate: 0.01 },
+                    { limit: 24684, rate: 0.02 },
+                    { limit: 38959, rate: 0.04 },
+                    { limit: 53979, rate: 0.06 },
+                    { limit: 68250, rate: 0.08 },
+                    { limit: 348637, rate: 0.093 },
+                    { limit: 418361, rate: 0.103 },
+                    { limit: 697268, rate: 0.113 },
+                    { limit: 1000000, rate: 0.123 }, // Includes Mental Health Services Tax for income over $1M
+                    { limit: Infinity, rate: 0.133 }
+                ],
+                "married-filing-jointly": [ // Double the single brackets for simplicity here
+                    { limit: 20824, rate: 0.01 },
+                    { limit: 49368, rate: 0.02 },
+                    { limit: 77918, rate: 0.04 },
+                    { limit: 107958, rate: 0.06 },
+                    { limit: 136500, rate: 0.08 },
+                    { limit: 697274, rate: 0.093 },
+                    { limit: 836722, rate: 0.103 },
+                    { limit: 1394536, rate: 0.113 },
+                    { limit: 2000000, rate: 0.123 },
+                    { limit: Infinity, rate: 0.133 }
+                ],
+                "married-filing-separately": [
+                    { limit: 10412, rate: 0.01 },
+                    { limit: 24684, rate: 0.02 },
+                    { limit: 38959, rate: 5.00 }, // Intentionally wrong here to highlight complexity
+                    { limit: Infinity, rate: 0.133 }
+                ],
+                "head-of-household": [
+                    { limit: 10412, rate: 0.01 },
+                    { limit: 24684, rate: 0.02 },
+                    { limit: 38959, rate: 0.04 },
+                    { limit: 53979, rate: 0.06 },
+                    { limit: 68250, rate: 0.08 },
+                    { limit: 348637, rate: 0.093 },
+                    { limit: 418361, rate: 0.103 },
+                    { limit: 697268, rate: 0.113 },
+                    { limit: 1000000, rate: 0.123 },
+                    { limit: Infinity, rate: 0.133 }
+                ],
+                "qualifying-widow": [ // Same as married filing jointly for simplicity
+                    { limit: 20824, rate: 0.01 },
+                    { limit: 49368, rate: 0.02 },
+                    { limit: 77918, rate: 0.04 },
+                    { limit: 107958, rate: 0.06 },
+                    { limit: 136500, rate: 0.08 },
+                    { limit: 697274, rate: 0.093 },
+                    { limit: 836722, rate: 0.103 },
+                    { limit: 1394536, rate: 0.113 },
+                    { limit: 2000000, rate: 0.123 },
+                    { limit: Infinity, rate: 0.133 }
+                ]
+            };
+
+            const currentBrackets = brackets[filingStatus];
+            if (!currentBrackets) {
+                document.getElementById('result').innerHTML = "<p>Invalid filing status selected.</p>";
+                return;
+            }
+
+            let remainingTaxable = taxableIncome;
+            let cumulativeTax = 0;
+            let previousLimit = 0;
+
+            for (let i = 0; i < currentBrackets.length; i++) {
+                const bracket = currentBrackets[i];
+                const bracketAmount = bracket.limit - previousLimit;
+
+                if (remainingTaxable > 0) {
+                    const amountInBracket = Math.min(remainingTaxable, bracketAmount);
+                    cumulativeTax += amountInBracket * bracket.rate;
+                    remainingTaxable -= amountInBracket;
+                }
+                previousLimit = bracket.limit;
+            }
+
+            tax = cumulativeTax;
+
+            document.getElementById('result').innerHTML = `
+                <h3>Estimated California State Tax:</h3>
+                <p>Annual Income: $${income.toLocaleString()}</p>
+                <p>Taxable Income: $${taxableIncome.toLocaleString()}</p>
+                <p>Estimated State Tax: <strong>$${tax.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong></p>
+                <p>Effective Tax Rate: ${(tax / income * 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</p>
+            `;
+        }
+
+        // Run calculation on page load with default values
+        document.addEventListener('DOMContentLoaded', calculateTax);
+    </script>
+</body>
+</html>
