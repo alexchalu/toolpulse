@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>California Income Tax Calculator - CalcLeap</title>
-    <meta name="description" content="Calculate your California state income tax with this easy-to-use calculator. Estimate your tax liability based on income, filing status, and deductions.">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="icon" href="/assets/img/favicon.png" type="image/png">
-    <!-- Google Analytics -->
+    <title>California Income Tax Calculator - Estimate Your CA State Tax</title>
+    <meta name="description" content="Use our free California Income Tax Calculator to estimate your state income tax liability based on your income, filing status, and deductions.">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="icon" href="../../images/favicon.png" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_GA_TRACKING_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -18,165 +19,138 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1><a href="/">CalcLeap</a></h1>
-            <nav>
-                <ul>
-                    <li><a href="/financial-calculators">Financial</a></li>
-                    <li><a href="/health-calculators">Health</a></li>
-                    <li><a href="/conversion-tools">Conversions</a></li>
-                    <li><a href="/about">About</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="navbar">
+            <a href="../../index.html" class="nav-brand">CalcLeap</a>
+            <ul class="nav-links">
+                <li><a href="../../calculators.html">Calculators</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="container">
-        <div class="calculator-container">
-            <h2>California Income Tax Calculator</h2>
-            <div class="card">
+        <h1>California Income Tax Calculator</h1>
+        <p>Estimate your California state income tax liability for the current tax year. This tool helps you understand your tax obligations based on your annual income, filing status, and dependents.</p>
+
+        <div class="calculator-card">
+            <div class="calculator-form">
                 <div class="form-group">
-                    <label for="income">Annual Income ($):</label>
-                    <input type="number" id="income" value="60000" min="0">
+                    <label for="annualIncome">Annual Income ($):</label>
+                    <input type="number" id="annualIncome" placeholder="e.g., 75000" min="0">
                 </div>
                 <div class="form-group">
                     <label for="filingStatus">Filing Status:</label>
                     <select id="filingStatus">
                         <option value="single">Single</option>
-                        <option value="married-filing-jointly">Married Filing Jointly</option>
-                        <option value="married-filing-separately">Married Filing Separately</option>
+                        <option value="married-joint">Married Filing Jointly</option>
+                        <option value="married-separate">Married Filing Separately</option>
                         <option value="head-of-household">Head of Household</option>
                         <option value="qualifying-widow">Qualifying Widow(er)</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="deductions">Standard/Itemized Deductions ($):</label>
-                    <input type="number" id="deductions" value="0" min="0">
+                    <label for="dependents">Number of Dependents:</label>
+                    <input type="number" id="dependents" value="0" min="0">
                 </div>
-                <button onclick="calculateTax()">Calculate Tax</button>
-                <div class="result" id="result">
-                    <!-- Results will be displayed here -->
-                </div>
+                <button id="calculateBtn">Calculate Tax</button>
             </div>
-            <div class="info-section">
-                <h3>About California Income Tax</h3>
-                <p>California has a progressive income tax system, meaning higher earners pay a larger percentage of their income in taxes. The state uses several tax brackets and offers various deductions and credits to reduce taxable income.</p>
-                <p>This calculator provides an estimate based on current tax year rates (placeholder for actual year, e.g., 2024). Always consult a tax professional for personalized advice.</p>
+            <div class="calculator-results">
+                <h2>Results</h2>
+                <p>Estimated California State Tax: <span id="estimatedTax">$0.00</span></p>
+                <p>Net Income (after CA tax): <span id="netIncome">$0.00</span></p>
             </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Understanding California Income Tax</h2>
+            <p>California has a progressive income tax system, meaning higher earners pay a larger percentage of their income in taxes. Tax rates range from 1% to 12.3%, with an additional 1% surcharge on income over $1 million.</p>
+            <p>Key factors affecting your California income tax include:</p>
+            <ul>
+                <li><strong>Gross Income:</strong> Your total income before any deductions.</li>
+                <li><strong>Filing Status:</strong> Single, Married Filing Jointly, Married Filing Separately, Head of Household, or Qualifying Widow(er).</li>
+                <li><strong>Deductions:</strong> Standard deduction or itemized deductions reduce your taxable income.</li>
+                <li><strong>Credits:</strong> Tax credits directly reduce the amount of tax you owe (e.g., dependent exemption credit).</li>
+            </ul>
+            <h3>Disclaimer</h3>
+            <p>This calculator provides an estimate for informational purposes only. It does not constitute financial or tax advice. For accurate tax planning, please consult a qualified tax professional or refer to the official California Franchise Tax Board (FTB) guidelines.</p>
         </div>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
-        </div>
+        <p>&copy; 2026 CalcLeap. All rights reserved.</p>
     </footer>
 
+    <script src="../../js/calculator-utils.js"></script>
     <script>
-        function calculateTax() {
-            const income = parseFloat(document.getElementById('income').value);
+        document.getElementById('calculateBtn').addEventListener('click', calculateCaliforniaTax);
+
+        function calculateCaliforniaTax() {
+            const annualIncome = parseFloat(document.getElementById('annualIncome').value);
             const filingStatus = document.getElementById('filingStatus').value;
-            const deductions = parseFloat(document.getElementById('deductions').value);
-            let taxableIncome = income - deductions;
-            if (taxableIncome < 0) taxableIncome = 0;
+            const dependents = parseInt(document.getElementById('dependents').value);
 
-            let tax = 0;
-            // Placeholder for California 2024 Tax Brackets (Simplified Example - actual brackets are more complex and indexed for inflation)
-            // This is a highly simplified example. Real CA tax calculations are complex with many brackets and credits.
-            // For a real-world scenario, a more robust tax logic or API integration would be needed.
-
-            const brackets = {
-                "single": [
-                    { limit: 10412, rate: 0.01 },
-                    { limit: 24684, rate: 0.02 },
-                    { limit: 38959, rate: 0.04 },
-                    { limit: 53979, rate: 0.06 },
-                    { limit: 68250, rate: 0.08 },
-                    { limit: 348637, rate: 0.093 },
-                    { limit: 418361, rate: 0.103 },
-                    { limit: 697268, rate: 0.113 },
-                    { limit: 1000000, rate: 0.123 }, // Includes Mental Health Services Tax for income over $1M
-                    { limit: Infinity, rate: 0.133 }
-                ],
-                "married-filing-jointly": [ // Double the single brackets for simplicity here
-                    { limit: 20824, rate: 0.01 },
-                    { limit: 49368, rate: 0.02 },
-                    { limit: 77918, rate: 0.04 },
-                    { limit: 107958, rate: 0.06 },
-                    { limit: 136500, rate: 0.08 },
-                    { limit: 697274, rate: 0.093 },
-                    { limit: 836722, rate: 0.103 },
-                    { limit: 1394536, rate: 0.113 },
-                    { limit: 2000000, rate: 0.123 },
-                    { limit: Infinity, rate: 0.133 }
-                ],
-                "married-filing-separately": [
-                    { limit: 10412, rate: 0.01 },
-                    { limit: 24684, rate: 0.02 },
-                    { limit: 38959, rate: 5.00 }, // Intentionally wrong here to highlight complexity
-                    { limit: Infinity, rate: 0.133 }
-                ],
-                "head-of-household": [
-                    { limit: 10412, rate: 0.01 },
-                    { limit: 24684, rate: 0.02 },
-                    { limit: 38959, rate: 0.04 },
-                    { limit: 53979, rate: 0.06 },
-                    { limit: 68250, rate: 0.08 },
-                    { limit: 348637, rate: 0.093 },
-                    { limit: 418361, rate: 0.103 },
-                    { limit: 697268, rate: 0.113 },
-                    { limit: 1000000, rate: 0.123 },
-                    { limit: Infinity, rate: 0.133 }
-                ],
-                "qualifying-widow": [ // Same as married filing jointly for simplicity
-                    { limit: 20824, rate: 0.01 },
-                    { limit: 49368, rate: 0.02 },
-                    { limit: 77918, rate: 0.04 },
-                    { limit: 107958, rate: 0.06 },
-                    { limit: 136500, rate: 0.08 },
-                    { limit: 697274, rate: 0.093 },
-                    { limit: 836722, rate: 0.103 },
-                    { limit: 1394536, rate: 0.113 },
-                    { limit: 2000000, rate: 0.123 },
-                    { limit: Infinity, rate: 0.133 }
-                ]
-            };
-
-            const currentBrackets = brackets[filingStatus];
-            if (!currentBrackets) {
-                document.getElementById('result').innerHTML = "<p>Invalid filing status selected.</p>";
+            if (isNaN(annualIncome) || annualIncome < 0) {
+                alert('Please enter a valid annual income.');
                 return;
             }
 
+            let taxableIncome = annualIncome;
+            let estimatedTax = 0;
+
+            // Simplified standard deductions (for illustrative purposes, not actual 2026 values)
+            const standardDeduction = {
+                'single': 5000, // Example
+                'married-joint': 10000, // Example
+                'married-separate': 5000, // Example
+                'head-of-household': 10000, // Example
+                'qualifying-widow': 10000 // Example
+            };
+
+            // Apply standard deduction
+            taxableIncome = Math.max(0, taxableIncome - (standardDeduction[filingStatus] || 0));
+
+            // Simplified CA Tax Brackets (for illustrative purposes, not actual 2026 values)
+            // This is a highly simplified example. Actual CA tax brackets are complex.
+            const taxBrackets = {
+                'single': [
+                    { limit: 10000, rate: 0.01 },
+                    { limit: 20000, rate: 0.02 },
+                    { limit: 30000, rate: 0.04 },
+                    { limit: 40000, rate: 0.06 },
+                    { limit: 50000, rate: 0.08 },
+                    { limit: Infinity, rate: 0.10 } // Simplified top rate
+                ],
+                'married-joint': [
+                    { limit: 20000, rate: 0.01 },
+                    { limit: 40000, rate: 0.02 },
+                    { limit: 60000, rate: 0.04 },
+                    { limit: 80000, rate: 0.06 },
+                    { limit: 100000, rate: 0.08 },
+                    { limit: Infinity, rate: 0.10 } // Simplified top rate
+                ],
+                // Other statuses would have their own brackets or use single/joint with adjustments
+            };
+
+            const bracketsToUse = taxBrackets[filingStatus] || taxBrackets['single']; // Fallback for simplicity
+
             let remainingTaxable = taxableIncome;
-            let cumulativeTax = 0;
-            let previousLimit = 0;
-
-            for (let i = 0; i < currentBrackets.length; i++) {
-                const bracket = currentBrackets[i];
-                const bracketAmount = bracket.limit - previousLimit;
-
-                if (remainingTaxable > 0) {
-                    const amountInBracket = Math.min(remainingTaxable, bracketAmount);
-                    cumulativeTax += amountInBracket * bracket.rate;
-                    remainingTaxable -= amountInBracket;
-                }
-                previousLimit = bracket.limit;
+            for (let i = 0; i < bracketsToUse.length && remainingTaxable > 0; i++) {
+                const bracket = bracketsToUse[i];
+                const prevLimit = i > 0 ? bracketsToUse[i-1].limit : 0;
+                const bracketTaxableAmount = Math.min(remainingTaxable, bracket.limit - prevLimit);
+                estimatedTax += bracketTaxableAmount * bracket.rate;
+                remainingTaxable -= bracketTaxableAmount;
             }
 
-            tax = cumulativeTax;
+            // Simplified dependent credit (for illustrative purposes)
+            const dependentCredit = 100; // Example credit per dependent
+            estimatedTax = Math.max(0, estimatedTax - (dependents * dependentCredit));
 
-            document.getElementById('result').innerHTML = `
-                <h3>Estimated California State Tax:</h3>
-                <p>Annual Income: $${income.toLocaleString()}</p>
-                <p>Taxable Income: $${taxableIncome.toLocaleString()}</p>
-                <p>Estimated State Tax: <strong>$${tax.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong></p>
-                <p>Effective Tax Rate: ${(tax / income * 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</p>
-            `;
+            const netIncome = annualIncome - estimatedTax;
+
+            document.getElementById('estimatedTax').textContent = `$${estimatedTax.toFixed(2)}`;
+            document.getElementById('netIncome').textContent = `$${netIncome.toFixed(2)}`;
         }
-
-        // Run calculation on page load with default values
-        document.addEventListener('DOMContentLoaded', calculateTax);
     </script>
 </body>
 </html>
