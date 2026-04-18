@@ -7,7 +7,7 @@ This script automates submission of new or updated pages to the IndexNow API for
 ## Files
 
 - `submit-new-page-indexnow.py` - Main Python script for IndexNow submissions
-- `INDEXNOW-KEY.txt` - IndexNow API key verification file (contains the key value)
+- `calc-leap-indexnow-key.txt` - IndexNow API key verification file (contains the key value)
 
 ## Usage
 
@@ -27,12 +27,22 @@ python3 submit-new-page-indexnow.py https://calcleap.com/page1.html https://calc
 
 ## Key Verification
 
-The key file must be accessible at:
+The key file content is read from the repository file `calc-leap-indexnow-key.txt`.
+
+The key value is:
 ```
-https://calcleap.com/INDEXNOW-KEY.txt
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ```
 
-The file should contain just the key value on a single line.
+For IndexNow verification, ensure this key is accessible at:
+```
+https://calcleap.com/calc-leap-indexnow-key.txt
+```
+
+Or use the raw GitHub URL:
+```
+https://raw.githubusercontent.com/alexchalu/toolpulse/main/calc-leap-indexnow-key.txt
+```
 
 ## IndexNow API
 

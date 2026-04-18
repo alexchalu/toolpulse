@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Comparison Calculator - Compare Monthly Payments & Total Cost</title>
+    <meta name="description" content="Easily compare two loans side-by-side to see monthly payments, total interest, and total cost. Make informed financial decisions.">
+    <link rel="stylesheet" href="../../css/style.css"> <!-- Assuming a global style.css exists -->
+    <style>
+        .loan-input-group {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .loan-input-group h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 17px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .results-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            gap: 20px;
+        }
+        .loan-result {
+            flex: 1;
+            min-width: 300px;
+            border: 1px solid #007bff;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #e7f3ff;
+        }
+        .loan-result h3 {
+            color: #0056b3;
+            text-align: center;
+        }
+        .loan-result p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .loan-result p strong {
+            color: #000;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Loan Comparison Calculator</h1>
+    </header>
+
+    <main class="container">
+        <div class="toolContent">
+            <p>Use this calculator to compare two different loans side-by-side. Enter the principal amount, interest rate, and loan term for each loan to see their monthly payments, total interest paid, and total cost.</p>
+
+            <div class="loan-input-group">
+                <h3>Loan 1 Details</h3>
+                <div class="form-group">
+                    <label for="principal1">Principal Amount ($):</label>
+                    <input type="number" id="principal1" value="100000" min="0" step="1000">
+                </div>
+                <div class="form-group">
+                    <label for="interestRate1">Annual Interest Rate (%):</label>
+                    <input type="number" id="interestRate1" value="4.5" min="0" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="loanTerm1">Loan Term (Years):</label>
+                    <input type="number" id="loanTerm1" value="30" min="1" step="1">
+                </div>
+            </div>
+
+            <div class="loan-input-group">
+                <h3>Loan 2 Details</h3>
+                <div class="form-group">
+                    <label for="principal2">Principal Amount ($):</label>
+                    <input type="number" id="principal2" value="105000" min="0" step="1000">
+                </div>
+                <div class="form-group">
+                    <label for="interestRate2">Annual Interest Rate (%):</label>
+                    <input type="number" id="interestRate2" value="4.0" min="0" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="loanTerm2">Loan Term (Years):</label>
+                    <input type="number" id="loanTerm2" value="20" min="1" step="1">
+                </div>
+            </div>
+
+            <button onclick="compareLoans()">Compare Loans</button>
+            <p id="errorMessage" class="error-message"></p>
+
+            <div class="results-container">
+                <div id="loan1Result" class="loan-result">
+                    <h3>Loan 1 Results</h3>
+                    <p>Monthly Payment: <strong id="monthlyPayment1">$0.00</strong></p>
+                    <p>Total Interest: <strong id="totalInterest1">$0.00</strong></p>
+                    <p>Total Cost: <strong id="totalCost1">$0.00</strong></p>
+                </div>
+                <div id="loan2Result" class="loan-result">
+                    <h3>Loan 2 Results</h3>
+                    <p>Monthly Payment: <strong id="monthlyPayment2">$0.00</strong></p>
+                    <p>Total Interest: <strong id="totalInterest2">$0.00</strong></p>
+                    <p>Total Cost: <strong id="totalCost2">$0.00</strong></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer content if any -->
+    </footer>
+
+    <script>
+        function calculateLoan(principal, annualInterestRate, loanTermYears) {
+            const monthlyInterestRate = (annualInterestRate / 100) / 12;
+            const numberOfPayments = loanTermYears * 12;
+
+            if (monthlyInterestRate === 0) {
+                const monthlyPayment = principal / numberOfPayments;
+                const totalCost = principal;
+                const totalInterest = 0;
+                return { monthlyPayment, totalInterest, totalCost };
+            }
+
+            const monthlyPayment = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+            const totalCost = monthlyPayment * numberOfPayments;
+            const totalInterest = totalCost - principal;
+
+            return { monthlyPayment, totalInterest, totalCost };
+        }
+
+        function displayResults(loanNumber, monthlyPayment, totalInterest, totalCost) {
+            document.getElementById(`monthlyPayment${loanNumber}`).textContent = `$${monthlyPayment.toFixed(2)}`;
+            document.getElementById(`totalInterest${loanNumber}`).textContent = `$${totalInterest.toFixed(2)}`;
+            document.getElementById(`totalCost${loanNumber}`).textContent = `$${totalCost.toFixed(2)}`;
+        }
+
+        function compareLoans() {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = '';
+
+            // Get inputs for Loan 1
+            const principal1 = parseFloat(document.getElementById('principal1').value);
+            const interestRate1 = parseFloat(document.getElementById('interestRate1').value);
+            const loanTerm1 = parseFloat(document.getElementById('loanTerm1').value);
+
+            // Get inputs for Loan 2
+            const principal2 = parseFloat(document.getElementById('principal2').value);
+            const interestRate2 = parseFloat(document.getElementById('interestRate2').value);
+            const loanTerm2 = parseFloat(document.getElementById('loanTerm2').value);
+
+            if (isNaN(principal1) || isNaN(interestRate1) || isNaN(loanTerm1) ||
+                isNaN(principal2) || isNaN(interestRate2) || isNaN(loanTerm2) ||
+                principal1 < 0 || interestRate1 < 0 || loanTerm1 < 1 ||
+                principal2 < 0 || interestRate2 < 0 || loanTerm2 < 1) {
+                errorMessage.textContent = 'Please enter valid positive numbers for all loan fields. Loan term must be at least 1 year.';
+                displayResults(1, 0, 0, 0); // Clear previous results
+                displayResults(2, 0, 0, 0); // Clear previous results
+                return;
+            }
+
+            // Calculate for Loan 1
+            const result1 = calculateLoan(principal1, interestRate1, loanTerm1);
+            displayResults(1, result1.monthlyPayment, result1.totalInterest, result1.totalCost);
+
+            // Calculate for Loan 2
+            const result2 = calculateLoan(principal2, interestRate2, loanTerm2);
+            displayResults(2, result2.monthlyPayment, result2.totalInterest, result2.totalCost);
+        }
+
+        // Run comparison on page load with default values
+        document.addEventListener('DOMContentLoaded', compareLoans);
+    </script>
+</body>
+</html>

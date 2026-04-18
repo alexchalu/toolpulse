@@ -29,7 +29,7 @@ import requests
 class IndexNowSubmitter:
     """Handles submission of URLs to IndexNow API."""
 
-    DEFAULT_KEY = "INDEXNOW-KEY.txt"
+    DEFAULT_KEY = "calc-leap-indexnow-key.txt"
     DEFAULT_HOST = "calcleap.com"
     INDEXNOW_API_URL = "https://api.indexnow.org/indexnow"
 
@@ -41,7 +41,7 @@ class IndexNowSubmitter:
     ):
         # If key is provided as a file path, read it
         key_value = key or os.getenv("INDEXNOW_KEY", self.DEFAULT_KEY)
-        if key_value == self.DEFAULT_KEY or key_value.endswith(".txt"):
+        if key_value.endswith(".txt"):
             # Read key from file
             key_file = os.path.join(os.path.dirname(__file__), key_value)
             if os.path.exists(key_file):
