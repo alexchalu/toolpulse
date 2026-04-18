@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York State Tax Calculator 2024</title>
+    <meta name="description" content="Calculate your New York State income tax for 2024 with our easy-to-use calculator. Estimate your state tax liability.">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_GA_TRACKING_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YOUR_GA_TRACKING_ID');
+    </script>
+    <style>
+        /* Basic styling for the calculator form */
+        .calculator-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        .result p {
+            margin: 0 0 8px 0;
+            font-size: 1.1em;
+        }
+        .result p:last-child {
+            margin-bottom: 0;
+        }
+        .disclaimer {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CalcLeap</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/calculators">Calculators</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="calculator-container">
+            <h2>New York State Income Tax Calculator</h2>
+            <p>Estimate your 2024 New York State income tax liability.</p>
+
+            <div class="form-group">
+                <label for="income">Annual Gross Income ($):</label>
+                <input type="number" id="income" value="60000" min="0">
+            </div>
+            <div class="form-group">
+                <label for="filingStatus">Filing Status:</label>
+                <select id="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="marriedFilingJointly">Married Filing Jointly</option>
+                    <option value="marriedFilingSeparately">Married Filing Separately</option>
+                    <option value="headOfHousehold">Head of Household</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button onclick="calculateTax()">Calculate Tax</button>
+            </div>
+
+            <div class="result" id="taxResult">
+                <p><strong>Your Estimated NY State Tax:</strong> <span id="nyStateTax">$0.00</span></p>
+                <p><strong>Effective Tax Rate:</strong> <span id="effectiveRate">0.00%</span></p>
+            </div>
+
+            <p class="disclaimer">
+                Disclaimer: This calculator provides an estimate based on simplified 2024 New York State tax brackets and standard deductions. It is not financial or tax advice. Consult a qualified tax professional for personalized guidance.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CalcLeap. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value);
+            const filingStatus = document.getElementById('filingStatus').value;
+            let nyStateTax = 0;
+            let standardDeduction = 0;
+
+            if (isNaN(income) || income < 0) {
+                alert('Please enter a valid annual gross income.');
+                return;
+            }
+
+            // Simplified 2024 NY Standard Deductions (example values, actual values vary)
+            switch (filingStatus) {
+                case 'single':
+                    standardDeduction = Math.min(income, 3500); // Example, actual is around $3,500
+                    break;
+                case 'marriedFilingJointly':
+                    standardDeduction = Math.min(income, 7100); // Example, actual is around $7,100
+                    break;
+                case 'marriedFilingSeparately':
+                    standardDeduction = Math.min(income, 3550); // Example, actual is around $3,550
+                    break;
+                case 'headOfHousehold':
+                    standardDeduction = Math.min(income, 3500); // Example, actual is around $3,500
+                    break;
+            }
+
+            const taxableIncome = Math.max(0, income - standardDeduction);
+
+            // Simplified 2024 NY State Tax Brackets (example values for illustrative purposes)
+            // These are NOT actual 2024 NY tax brackets and should be updated with real data.
+            if (taxableIncome <= 8500) { // Example bracket
+                nyStateTax = taxableIncome * 0.04;
+            } else if (taxableIncome <= 11700) { // Example bracket
+                nyStateTax = 340 + (taxableIncome - 8500) * 0.045;
+            } else if (taxableIncome <= 13900) { // Example bracket
+                nyStateTax = 484 + (taxableIncome - 11700) * 0.0525;
+            } else if (taxableIncome <= 21400) { // Example bracket
+                nyStateTax = 600.50 + (taxableIncome - 13900) * 0.0597;
+            } else if (taxableIncome <= 80650) { // Example bracket
+                nyStateTax = 1045.75 + (taxableIncome - 21400) * 0.0633;
+            } else if (taxableIncome <= 215400) { // Example bracket
+                nyStateTax = 4840.99 + (taxableIncome - 80650) * 0.0685;
+            } else if (taxableIncome <= 1077550) { // Example bracket
+                nyStateTax = 13959.84 + (taxableIncome - 215400) * 0.0965;
+            } else if (taxableIncome <= 5000000) { // Example bracket
+                nyStateTax = 97416.71 + (taxableIncome - 1077550) * 0.103;
+            } else { // Example bracket
+                nyStateTax = 482688.21 + (taxableIncome - 5000000) * 0.109;
+            }
+
+            const effectiveRate = income > 0 ? (nyStateTax / income) * 100 : 0;
+
+            document.getElementById('nyStateTax').textContent = `$${nyStateTax.toFixed(2)}`;
+            document.getElementById('effectiveRate').textContent = `${effectiveRate.toFixed(2)}%`;
+        }
+
+        // Run calculation on page load with default values
+        document.addEventListener('DOMContentLoaded', calculateTax);
+    </script>
+</body>
+</html>
