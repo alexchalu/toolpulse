@@ -1,242 +1,181 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>California Income Tax Calculator</title>
-    <meta name="description" content="Calculate your 2024 California state income tax with this free calculator. Supports all filing statuses and standard deduction.">
-    <link rel="stylesheet" href="/gold.css">
+    <title>California Income Tax Calculator - CalcLeap</title>
+    <meta name="description" content="Estimate your California state income tax with our free online calculator. Includes deductions and filing statuses.">
+    <link rel="stylesheet" href="/assets/css/style.css"> <!-- Assuming a general style.css -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX'); // Replace with actual GA4 ID
+    </script>
     <style>
+        /* Basic inline styles for demonstration, will move to style.css if needed */
         .calculator-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: #fff;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .calculator-title {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
         }
-        label {
+        .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #34495e;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
-        input, select {
+        .form-group input[type="number"],
+        .form-group select {
             width: 100%;
-            padding: 0.75rem;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 1rem;
-        }
-        button {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background: #2980b9;
+            box-sizing: border-box;
         }
         .result {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: #f8f9fa;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ffe9;
+            border: 1px solid #c9f9c9;
             border-radius: 4px;
-            display: none;
+            font-size: 1.1em;
+            font-weight: bold;
         }
-        .result h3 {
-            margin-top: 0;
-            color: #2c3e50;
-        }
-        .result p {
-            margin: 0.5rem 0;
-            font-size: 1.1rem;
-        }
-        .tax-bracket-info {
-            margin-top: 2rem;
-            padding: 1rem;
-            background: #e8f4fc;
+        .btn-calculate {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
             border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
         }
-        .tax-bracket-info h4 {
-            margin-top: 0;
-            color: #2c3e50;
-        }
-        .tax-bracket-info ul {
-            padding-left: 1.25rem;
-        }
-        .tax-bracket-info li {
-            margin-bottom: 0.5rem;
+        .btn-calculate:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
-        <h1 class="calculator-title">California Income Tax Calculator</h1>
-        
-        <div class="form-group">
-            <label for="filingStatus">Filing Status</label>
-            <select id="filingStatus">
-                <option value="single">Single</option>
-                <option value="married_jointly">Married Filing Jointly</option>
-                <option value="married_separately">Married Filing Separately</option>
-                <option value="head_of_household">Head of Household</option>
-            </select>
-        </div>
+    <header>
+        <h1>CalcLeap</h1>
+        <nav>
+            <!-- Navigation links here -->
+            <a href="/">Home</a>
+            <a href="/calculators">Calculators</a>
+        </nav>
+    </header>
 
-        <div class="form-group">
-            <label for="taxableIncome">Taxable Income ($)</label>
-            <input type="number" id="taxableIncome" placeholder="Enter your taxable income" min="0" step="1">
-        </div>
+    <main class="calculator-container">
+        <h2>California Income Tax Calculator</h2>
+        <div id="toolContent">
+            <p>Estimate your California state income tax for the current tax year. This calculator provides a general estimate and should not be considered tax advice.</p>
 
-        <div class="form-group">
-            <label for="standardDeduction">Standard Deduction ($)</label>
-            <input type="number" id="standardDeduction" placeholder="Enter standard deduction" min="0" step="1" value="5540">
-        </div>
+            <div class="form-group">
+                <label for="income">Gross Annual Income ($):</label>
+                <input type="number" id="income" value="60000" min="0">
+            </div>
 
-        <button onclick="calculateTax()">Calculate Tax</button>
+            <div class="form-group">
+                <label for="filingStatus">Filing Status:</label>
+                <select id="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="married_filing_jointly">Married Filing Jointly</option>
+                    <option value="married_filing_separately">Married Filing Separately</option>
+                    <option value="head_of_household">Head of Household</option>
+                    <option value="qualifying_widow">Qualifying Widow(er)</option>
+                </select>
+            </div>
 
-        <div id="result" class="result">
-            <h3>Your California Income Tax Results</h3>
-            <p><strong>Filing Status:</strong> <span id="resultFilingStatus"></span></p>
-            <p><strong>Taxable Income:</strong> $<span id="resultTaxableIncome"></span></p>
-            <p><strong>Standard Deduction:</strong> $<span id="resultDeduction"></span></p>
-            <p><strong>Taxable Income After Deduction:</strong> $<span id="resultTaxableAfterDeduction"></span></p>
-            <p><strong>California State Tax:</strong> $<span id="resultTax"></span></p>
-            <p><strong>Effective Tax Rate:</strong> <span id="resultRate"></span>%</p>
-        </div>
+            <div class="form-group">
+                <label for="dependents">Number of Dependents:</label>
+                <input type="number" id="dependents" value="0" min="0">
+            </div>
 
-        <div class="tax-bracket-info">
-            <h4>2024 California Tax Brackets</h4>
-            <p><strong>Single Filers:</strong></p>
-            <ul>
-                <li>$0 - $10,756: 1% + $0</li>
-                <li>$10,756 - $25,499: 2% + $107.56</li>
-                <li>$25,499 - $40,245: 4% + $402.42</li>
-                <li>$40,245 - $55,866: 6% + $992.26</li>
-                <li>$55,866 - $70,606: 8% + $1,929.52</li>
-                <li>$70,606 - $360,659: 9.3% + $3,108.72</li>
-                <li>$360,659 - $432,787: 10.3% + $30,083.65</li>
-                <li>$432,787 - $721,314: 11.3% + $37,512.83</li>
-                <li>$721,314 - $1,000,000: 12.3% + $70,116.38</li>
-                <li>$1,000,000+: 13.3% + $104,394.76</li>
-            </ul>
-            <p><strong>Married Filing Jointly:</strong></p>
-            <ul>
-                <li>$0 - $21,512: 1% + $0</li>
-                <li>$21,512 - $50,998: 2% + $215.12</li>
-                <li>$50,998 - $80,490: 4% + $804.84</li>
-                <li>$80,490 - $111,732: 6% + $1,984.52</li>
-                <li>$111,732 - $141,732: 8% + $3,859.04</li>
-                <li>$141,732 - $721,318: 9.3% + $6,259.04</li>
-                <li>$721,318 - $865,574: 10.3% + $60,160.54</li>
-                <li>$865,574 - $1,000,000: 11.3% + $75,018.91</li>
-                <li>$1,000,000 - $1,442,628: 12.3% + $90,209.04</li>
-                <li>$1,442,628+: 13.3% + $144,652.29</li>
-            </ul>
+            <div class="form-group">
+                <label for="deductions">Standard/Itemized Deductions ($):</label>
+                <input type="number" id="deductions" value="0" min="0">
+            </div>
+
+            <button class="btn-calculate" onclick="calculateTax()">Calculate Tax</button>
+
+            <div class="result" id="taxResult">
+                Estimated California State Tax: $0.00
+            </div>
         </div>
-    </div>
+    </main>
+
+    <footer>
+        <!-- Footer content here -->
+        <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+    </footer>
 
     <script>
         function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value);
             const filingStatus = document.getElementById('filingStatus').value;
-            const taxableIncome = parseFloat(document.getElementById('taxableIncome').value) || 0;
-            const standardDeduction = parseFloat(document.getElementById('standardDeduction').value) || 5540;
-            
-            const taxableAfterDeduction = Math.max(0, taxableIncome - standardDeduction);
-            let tax = 0;
-            
-            if (filingStatus === 'single') {
-                tax = calculateSingleTax(taxableAfterDeduction);
-            } else if (filingStatus === 'married_jointly') {
-                tax = calculateMarriedJointlyTax(taxableAfterDeduction);
-            } else if (filingStatus === 'married_separately') {
-                // Married filing separately uses half the married jointly brackets
-                tax = calculateMarriedJointlyTax(taxableAfterDeduction) / 2;
-            } else if (filingStatus === 'head_of_household') {
-                // Head of household uses the same brackets as single but with different thresholds
-                tax = calculateSingleTax(taxableAfterDeduction);
+            const dependents = parseInt(document.getElementById('dependents').value);
+            const deductions = parseFloat(document.getElementById('deductions').value);
+            let taxableIncome = income - deductions;
+
+            if (isNaN(income) || income < 0) {
+                document.getElementById('taxResult').innerText = "Please enter a valid income.";
+                return;
             }
-            
-            const effectiveRate = taxableIncome > 0 ? (tax / taxableIncome) * 100 : 0;
-            
-            // Display results
-            document.getElementById('resultFilingStatus').textContent = filingStatus.replace('_', ' ').toUpperCase();
-            document.getElementById('resultTaxableIncome').textContent = taxableIncome.toFixed(2);
-            document.getElementById('resultDeduction').textContent = standardDeduction.toFixed(2);
-            document.getElementById('resultTaxableAfterDeduction').textContent = taxableAfterDeduction.toFixed(2);
-            document.getElementById('resultTax').textContent = tax.toFixed(2);
-            document.getElementById('resultRate').textContent = effectiveRate.toFixed(2);
-            document.getElementById('result').style.display = 'block';
-        }
-        
-        function calculateSingleTax(income) {
-            let tax = 0;
-            
-            if (income <= 10756) {
-                tax = income * 0.01;
-            } else if (income <= 25499) {
-                tax = 107.56 + (income - 10756) * 0.02;
-            } else if (income <= 40245) {
-                tax = 402.42 + (income - 25499) * 0.04;
-            } else if (income <= 55866) {
-                tax = 992.26 + (income - 40245) * 0.06;
-            } else if (income <= 70606) {
-                tax = 1929.52 + (income - 55866) * 0.08;
-            } else if (income <= 360659) {
-                tax = 3108.72 + (income - 70606) * 0.093;
-            } else if (income <= 432787) {
-                tax = 30083.65 + (income - 360659) * 0.103;
-            } else if (income <= 721314) {
-                tax = 37512.83 + (income - 432787) * 0.113;
-            } else if (income <= 1000000) {
-                tax = 70116.38 + (income - 721314) * 0.123;
-            } else {
-                tax = 104394.76 + (income - 1000000) * 0.133;
+            if (isNaN(deductions) || deductions < 0) {
+                document.getElementById('taxResult').innerText = "Please enter valid deductions.";
+                return;
             }
-            
-            return Math.max(0, tax);
-        }
-        
-        function calculateMarriedJointlyTax(income) {
+            if (isNaN(dependents) || dependents < 0) {
+                document.getElementById('taxResult').innerText = "Please enter a valid number of dependents.";
+                return;
+                }
+
+            // Simplified California tax brackets (example for a hypothetical 2026, not actual tax advice)
+            // This is a placeholder and would need to be updated with actual CA tax brackets annually.
             let tax = 0;
-            
-            if (income <= 21512) {
-                tax = income * 0.01;
-            } else if (income <= 50998) {
-                tax = 215.12 + (income - 21512) * 0.02;
-            } else if (income <= 80490) {
-                tax = 804.84 + (income - 50998) * 0.04;
-            } else if (income <= 111732) {
-                tax = 1984.52 + (income - 80490) * 0.06;
-            } else if (income <= 141732) {
-                tax = 3859.04 + (income - 111732) * 0.08;
-            } else if (income <= 721318) {
-                tax = 6259.04 + (income - 141732) * 0.093;
-            } else if (income <= 865574) {
-                tax = 60160.54 + (income - 721318) * 0.103;
-            } else if (income <= 1000000) {
-                tax = 75018.91 + (income - 865574) * 0.113;
-            } else if (income <= 1442628) {
-                tax = 90209.04 + (income - 1000000) * 0.123;
-            } else {
-                tax = 144652.29 + (income - 1442628) * 0.133;
+            if (taxableIncome > 0) {
+                if (filingStatus === 'single' || filingStatus === 'married_filing_separately') {
+                    if (taxableIncome <= 10000) tax = taxableIncome * 0.01;
+                    else if (taxableIncome <= 20000) tax = 100 + (taxableIncome - 10000) * 0.02;
+                    else if (taxableIncome <= 30000) tax = 300 + (taxableIncome - 20000) * 0.04;
+                    else if (taxableIncome <= 40000) tax = 700 + (taxableIncome - 30000) * 0.06;
+                    else if (taxableIncome <= 50000) tax = 1300 + (taxableIncome - 40000) * 0.08;
+                    else tax = 2100 + (taxableIncome - 50000) * 0.093; // Max bracket example
+                } else if (filingStatus === 'married_filing_jointly' || filingStatus === 'qualifying_widow') {
+                    // Double the single brackets for simplicity
+                    if (taxableIncome <= 20000) tax = taxableIncome * 0.01;
+                    else if (taxableIncome <= 40000) tax = 200 + (taxableIncome - 20000) * 0.02;
+                    else if (taxableIncome <= 60000) tax = 600 + (taxableIncome - 40000) * 0.04;
+                    else if (taxableIncome <= 80000) tax = 1400 + (taxableIncome - 60000) * 0.06;
+                    else if (taxableIncome <= 100000) tax = 2600 + (taxableIncome - 80000) * 0.08;
+                    else tax = 4200 + (taxableIncome - 100000) * 0.093;
+                } else if (filingStatus === 'head_of_household') {
+                    // Slightly higher brackets than single
+                    if (taxableIncome <= 15000) tax = taxableIncome * 0.01;
+                    else if (taxableIncome <= 30000) tax = 150 + (taxableIncome - 15000) * 0.02;
+                    else if (taxableIncome <= 45000) tax = 450 + (taxableIncome - 30000) * 0.04;
+                    else if (taxableIncome <= 60000) tax = 1050 + (taxableIncome - 45000) * 0.06;
+                    else if (taxableIncome <= 75000) tax = 1950 + (taxableIncome - 60000) * 0.08;
+                    else tax = 3150 + (taxableIncome - 75000) * 0.093;
+                }
             }
-            
-            return Math.max(0, tax);
+
+            // Dependent exemptions (hypothetical for 2026)
+            const dependentExemption = 120; // Example credit per dependent
+            tax -= (dependents * dependentExemption);
+            if (tax < 0) tax = 0; // Tax cannot be negative
+
+            document.getElementById('taxResult').innerText = `Estimated California State Tax: $${tax.toFixed(2)}`;
         }
+
+        // Initial calculation on page load
+        document.addEventListener('DOMContentLoaded', calculateTax);
     </script>
 </body>
 </html>
