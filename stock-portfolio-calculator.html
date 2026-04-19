@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stock Portfolio Calculator: Calculate your portfolio value, returns, and asset allocation. Free tool to track investments.">
+    <title>Stock Portfolio Calculator | CalcLeap</title>
+    <meta name="theme-color" content="#007bff">
+    <meta property="og:title" content="Stock Portfolio Calculator">
+    <meta property="og:description" content="Calculate your stock portfolio value, returns, and asset allocation.">
+    <meta property="og:url" content="https://calc-leap.pages.dev/stock-portfolio-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://calc-leap.pages.dev/src/images/stock-portfolio-calculator-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stock Portfolio Calculator">
+    <meta name="twitter:description" content="Calculate your stock portfolio value, returns, and asset allocation.">
+    <meta name="twitter:image" content="https://calc-leap.pages.dev/src/images/stock-portfolio-calculator-og.jpg">
+    <link rel="canonical" href="https://calc-leap.pages.dev/stock-portfolio-calculator.html">
+    <link rel="stylesheet" href="https://calc-leap.pages.dev/src/css/stock-portfolio-calculator.css">
+    <link rel="stylesheet" href="https://calc-leap.pages.dev/src/css/calculator.css">
+    <link rel="stylesheet" href="https://calc-leap.pages.dev/src/css/nav.css">
+    <link rel="stylesheet" href="https://calc-leap.pages.dev/src/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="https://calc-leap.pages.dev" class="nav-logo">Calc<span style="color:#ff6b6b;">Leap</span></a>
+                <div class="nav-links">
+                    <a href="https://calc-leap.pages.dev/tools" class="nav-link">Tools</a>
+                    <a href="https://calc-leap.pages.dev/about" class="nav-link">About</a>
+                    <a href="https://calc-leap.pages.dev/contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <div class="calculator-header">
+                <h1>Stock Portfolio Calculator</h1>
+                <p class="subtitle">Calculate your portfolio value, returns, and asset allocation</p>
+            </div>
+
+            <div class="calculator-card">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="initialInvestment">Initial Investment ($)</label>
+                        <input type="number" id="initialInvestment" placeholder="e.g., 10000" min="0" step="100" value="10000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="monthlyContribution">Monthly Contribution ($)</label>
+                        <input type="number" id="monthlyContribution" placeholder="e.g., 500" min="0" step="50" value="500">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="years">Investment Period (years)</label>
+                        <input type="number" id="years" placeholder="e.g., 10" min="1" max="50" value="10">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expectedReturn">Expected Annual Return (%)</label>
+                        <input type="number" id="expectedReturn" placeholder="e.g., 7" min="1" max="30" step="0.1" value="7">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Asset Allocation</label>
+                        <div class="allocation-sliders">
+                            <div class="slider-group">
+                                <label for="stocks">Stocks (%): <span id="stocksValue">60</span></label>
+                                <input type="range" id="stocks" min="0" max="100" value="60">
+                            </div>
+                            <div class="slider-group">
+                                <label for="bonds">Bonds (%): <span id="bondsValue">30</span></label>
+                                <input type="range" id="bonds" min="0" max="100" value="30">
+                            </div>
+                            <div class="slider-group">
+                                <label for="cash">Cash/Other (%): <span id="cashValue">10</span></label>
+                                <input type="range" id="cash" min="0" max="100" value="10">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="calculateBtn" class="calculate-btn">Calculate Portfolio</button>
+                </div>
+
+                <div class="calculator-result">
+                    <h2>Your Results</h2>
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">Final Portfolio Value</div>
+                            <div class="result-value" id="finalValue">$0.00</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Total Contributions</div>
+                            <div class="result-value" id="totalContributions">$0.00</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Total Returns</div>
+                            <div class="result-value" id="totalReturns">$0.00</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Annualized Return</div>
+                            <div class="result-value" id="annualizedReturn">0.00%</div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-breakdown">
+                        <h3>Portfolio Breakdown</h3>
+                        <div class="breakdown-chart">
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background-color: #28a745;"></span>
+                                    <span>Stocks: <span id="stocksFinal">$0.00</span></span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background-color: #17a2b8;"></span>
+                                    <span>Bonds: <span id="bondsFinal">$0.00</span></span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background-color: #6c757d;"></span>
+                                    <span>Cash/Other: <span id="cashFinal">$0.00</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sharing-section">
+                        <p>Share this calculator:</p>
+                        <div class="social-share">
+                            <a href="#" class="share-btn twitter" data-url="https://calc-leap.pages.dev/stock-portfolio-calculator.html"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-btn facebook" data-url="https://calc-leap.pages.dev/stock-portfolio-calculator.html"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="share-btn linkedin" data-url="https://calc-leap.pages.dev/stock-portfolio-calculator.html"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-info">
+                <h2>About the Stock Portfolio Calculator</h2>
+                <p>This calculator helps you estimate the future value of your stock portfolio based on your investment strategy. It accounts for your initial investment, regular contributions, expected returns, and asset allocation across stocks, bonds, and cash.</p>
+                
+                <h3>How It Works</h3>
+                <ol>
+                    <li><strong>Enter your investment details:</strong> Initial investment amount, monthly contribution, and investment period.</li>
+                    <li><strong>Set your expected return:</strong> Based on historical market averages (typically 7-10% for stocks).</li>
+                    <li><strong>Define your asset allocation:</strong> Adjust the percentage allocated to stocks, bonds, and cash.</li>
+                    <li><strong>Calculate your results:</strong> See your final portfolio value, total contributions, and returns.</li>
+                </ol>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Real-time calculation of portfolio growth</li>
+                    <li>Asset allocation breakdown</li>
+                    <li>Total contributions vs. investment returns</li>
+                    <li>Annualized return calculation</li>
+                    <li>Mobile-friendly design</li>
+                </ul>
+
+                <h3>Investment Tips</h3>
+                <ul>
+                    <li><strong>Diversify your portfolio:</strong> Don't put all your money in one asset class.</li>
+                    <li><strong>Invest consistently:</strong> Regular contributions compound over time.</li>
+                    <li><strong>Consider your risk tolerance:</strong> Younger investors can typically take more risk.</li>
+                    <li><strong>Review periodically:</strong> Rebalance your portfolio as needed.</li>
+                </ul>
+
+                <h3>Related Calculators</h3>
+                <ul>
+                    <li><a href="/401k-withdrawal-calculator.html">401k Withdrawal Calculator</a></li>
+                    <li><a href="/ira-calculator.html">IRA Calculator</a></li>
+                    <li><a href="/compound-interest-calculator.html">Compound Interest Calculator</a></li>
+                    <li><a href="/inflation-calculator.html">Inflation Calculator</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="https://calc-leap.pages.dev/tools">Tools</a>
+                <a href="https://calc-leap.pages.dev/about">About</a>
+                <a href="https://calc-leap.pages.dev/contact">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 CalcLeap. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://calc-leap.pages.dev/src/js/stock-portfolio-calculator.js"></script>
+    <script src="https://calc-leap.pages.dev/src/js/calculator.js"></script>
+    <script>
+        // Update slider values in real-time
+        document.getElementById('stocks').addEventListener('input', function() {
+            document.getElementById('stocksValue').textContent = this.value;
+            updateCash();
+        });
+
+        document.getElementById('bonds').addEventListener('input', function() {
+            document.getElementById('bondsValue').textContent = this.value;
+            updateCash();
+        });
+
+        document.getElementById('cash').addEventListener('input', function() {
+            document.getElementById('cashValue').textContent = this.value;
+        });
+
+        function updateCash() {
+            const stocks = parseInt(document.getElementById('stocks').value) || 0;
+            const bonds = parseInt(document.getElementById('bonds').value) || 0;
+            const cash = 100 - stocks - bonds;
+            document.getElementById('cash').value = cash;
+            document.getElementById('cashValue').textContent = cash;
+        }
+    </script>
+</body>
+</html>
