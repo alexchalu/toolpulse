@@ -1,0 +1,127 @@
+---
+title: Personal Injury Settlement Calculator
+description: Calculate your estimated personal injury settlement value based on medical bills, lost wages, and pain & suffering. Free online tool.
+keywords: personal injury settlement calculator, injury compensation calculator, pain and suffering calculator, settlement estimator, accident compensation tool
+layout: calculator
+type: calculator
+category: legal
+subcategory: personal-injury
+---
+
+<!-- Calculator Content -->
+<div class="toolContent">
+  <h1>Personal Injury Settlement Calculator</h1>
+  
+  <div class="calculator-container">
+    <div class="calculator-form">
+      <div class="form-group">
+        <label for="medicalBills">Medical Bills ($)</label>
+        <input type="number" id="medicalBills" class="form-control" placeholder="Enter total medical expenses" min="0" step="1" value="5000">
+      </div>
+      
+      <div class="form-group">
+        <label for="lostWages">Lost Wages ($)</label>
+        <input type="number" id="lostWages" class="form-control" placeholder="Enter lost income" min="0" step="1" value="3000">
+      </div>
+      
+      <div class="form-group">
+        <label for="painMultiplier">Pain & Suffering Multiplier</label>
+        <select id="painMultiplier" class="form-control">
+          <option value="1">Mild Injury (1-2x medical bills)</option>
+          <option value="2" selected>Moderate Injury (2-3x medical bills)</option>
+          <option value="3">Severe Injury (3-5x medical bills)</option>
+          <option value="5">Permanent Disability (5-10x medical bills)</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="propertyDamage">Property Damage ($)</label>
+        <input type="number" id="propertyDamage" class="form-control" placeholder="Enter property damage costs" min="0" step="1" value="1000">
+      </div>
+      
+      <div class="form-group">
+        <label for="otherExpenses">Other Expenses ($)</label>
+        <input type="number" id="otherExpenses" class="form-control" placeholder="Enter other related expenses" min="0" step="1" value="500">
+      </div>
+      
+      <button onclick="calculateSettlement()" class="btn btn-primary">Calculate Settlement</button>
+      <button onclick="resetForm()" class="btn btn-secondary">Reset</button>
+    </div>
+    
+    <div class="calculator-result">
+      <h3>Your Estimated Settlement</h3>
+      <div id="settlementResult" class="result-box">
+        <p>Enter your information and click "Calculate Settlement" to see your estimated value.</p>
+      </div>
+      
+      <div id="breakdown" class="result-breakdown" style="display: none;">
+        <h4>Breakdown:</h4>
+        <ul id="breakdownList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Calculator Script -->
+<script>
+function calculateSettlement() {
+  const medicalBills = parseFloat(document.getElementById('medicalBills').value) || 0;
+  const lostWages = parseFloat(document.getElementById('lostWages').value) || 0;
+  const painMultiplier = parseFloat(document.getElementById('painMultiplier').value) || 2;
+  const propertyDamage = parseFloat(document.getElementById('propertyDamage').value) || 0;
+  const otherExpenses = parseFloat(document.getElementById('otherExpenses').value) || 0;
+  
+  // Calculate components
+  const painSuffering = medicalBills * painMultiplier;
+  const specialDamages = medicalBills + lostWages + propertyDamage + otherExpenses;
+  const totalSettlement = specialDamages + painSuffering;
+  
+  // Display result
+  const resultDiv = document.getElementById('settlementResult');
+  const breakdownDiv = document.getElementById('breakdown');
+  const breakdownList = document.getElementById('breakdownList');
+  
+  resultDiv.innerHTML = `
+    <h2>$${totalSettlement.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</h2>
+    <p><strong>Multiplier Used:</strong> ${painMultiplier}x</p>
+    <p class="result-description">This is an estimated range. Actual settlements vary based on evidence, liability, insurance policy limits, and jurisdiction.</p>
+  `;
+  
+  // Show breakdown
+  breakdownList.innerHTML = `
+    <li><strong>Medical Bills:</strong> $${medicalBills.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</li>
+    <li><strong>Lost Wages:</strong> $${lostWages.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</li>
+    <li><strong>Pain & Suffering:</strong> $${painSuffering.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} (${painMultiplier}x multiplier)</li>
+    <li><strong>Property Damage:</strong> $${propertyDamage.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</li>
+    <li><strong>Other Expenses:</strong> $${otherExpenses.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</li>
+    <li><strong>Total Special Damages:</strong> $${specialDamages.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</li>
+  `;
+  
+  breakdownDiv.style.display = 'block';
+}
+
+function resetForm() {
+  document.getElementById('medicalBills').value = '5000';
+  document.getElementById('lostWages').value = '3000';
+  document.getElementById('painMultiplier').value = '2';
+  document.getElementById('propertyDamage').value = '1000';
+  document.getElementById('otherExpenses').value = '500';
+  
+  document.getElementById('settlementResult').innerHTML = 
+    '<p>Enter your information and click "Calculate Settlement" to see your estimated value.</p>';
+  document.getElementById('breakdown').style.display = 'none';
+}
+</script>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a href="/">Home</a> &raquo; 
+  <a href="/calculators/">Calculators</a> &raquo; 
+  <a href="/calculators/legal/">Legal</a> &raquo; 
+  Personal Injury Settlement Calculator
+</div>
+
+<!-- Author Attribution -->
+<div class="author-attribution">
+  <p>Built by <a href="/about/">CalcLeap</a> | <a href="/contact/">Contact</a></p>
+</div>
