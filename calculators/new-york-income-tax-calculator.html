@@ -1,0 +1,185 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York State Income Tax Calculator - CalcLeap</title>
+    <meta name="description" content="Estimate your New York state income tax with our free online calculator. Includes deductions and filing statuses.">
+    <link rel="stylesheet" href="/assets/css/style.css"> <!-- Assuming a general style.css -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX'); // Replace with actual GA4 ID
+    </script>
+    <style>
+        /* Basic inline styles for demonstration, will move to style.css if needed */
+        .calculator-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ffe9;
+            border: 1px solid #c9f9c9;
+            border-radius: 4px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .btn-calculate {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .btn-calculate:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CalcLeap</h1>
+        <nav>
+            <!-- Navigation links here -->
+            <a href="/">Home</a>
+            <a href="/calculators">Calculators</a>
+        </nav>
+    </header>
+
+    <main class="calculator-container">
+        <h2>New York State Income Tax Calculator</h2>
+        <div id="toolContent">
+            <p>Estimate your New York state income tax for the current tax year. This calculator provides a general estimate and should not be considered tax advice.</p>
+
+            <div class="form-group">
+                <label for="income">Gross Annual Income ($):</label>
+                <input type="number" id="income" value="60000" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="filingStatus">Filing Status:</label>
+                <select id="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="married_filing_jointly">Married Filing Jointly</option>
+                    <option value="married_filing_separately">Married Filing Separately</option>
+                    <option value="head_of_household">Head of Household</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dependents">Number of Dependents:</label>
+                <input type="number" id="dependents" value="0" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="deductions">Standard/Itemized Deductions ($):</label>
+                <input type="number" id="deductions" value="0" min="0">
+            </div>
+
+            <button class="btn-calculate" onclick="calculateTax()">Calculate Tax</button>
+
+            <div class="result" id="taxResult">
+                Estimated New York State Tax: $0.00
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer content here -->
+        <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value);
+            const filingStatus = document.getElementById('filingStatus').value;
+            const dependents = parseInt(document.getElementById('dependents').value);
+            const deductions = parseFloat(document.getElementById('deductions').value);
+            let taxableIncome = income - deductions;
+
+            if (isNaN(income) || income < 0) {
+                document.getElementById('taxResult').innerText = "Please enter a valid income.";
+                return;
+            }
+            if (isNaN(deductions) || deductions < 0) {
+                document.getElementById('taxResult').innerText = "Please enter valid deductions.";
+                return;
+            }
+            if (isNaN(dependents) || dependents < 0) {
+                document.getElementById('taxResult').innerText = "Please enter a valid number of dependents.";
+                return;
+                }
+
+            // Simplified New York tax brackets (example for a hypothetical 2026, not actual tax advice)
+            let tax = 0;
+            if (taxableIncome > 0) {
+                if (filingStatus === 'single' || filingStatus === 'married_filing_separately') {
+                    if (taxableIncome <= 8500) tax = taxableIncome * 0.04;
+                    else if (taxableIncome <= 11700) tax = 340 + (taxableIncome - 8500) * 0.045;
+                    else if (taxableIncome <= 13900) tax = 482 + (taxableIncome - 11700) * 0.0525;
+                    else if (taxableIncome <= 21400) tax = 600.50 + (taxableIncome - 13900) * 0.059;
+                    else if (taxableIncome <= 80650) tax = 1047.20 + (taxableIncome - 21400) * 0.0633;
+                    else if (taxableIncome <= 215000) tax = 4838.22 + (taxableIncome - 80650) * 0.0657;
+                    else if (taxableIncome <= 1075000) tax = 13505.94 + (taxableIncome - 215000) * 0.0685;
+                    else tax = 73339.54 + (taxableIncome - 1075000) * 0.0965; // Max bracket example
+                } else if (filingStatus === 'married_filing_jointly') {
+                    // Double the single brackets for simplicity
+                    if (taxableIncome <= 17000) tax = taxableIncome * 0.04;
+                    else if (taxableIncome <= 23400) tax = 680 + (taxableIncome - 17000) * 0.045;
+                    else if (taxableIncome <= 27800) tax = 964 + (taxableIncome - 23400) * 0.0525;
+                    else if (taxableIncome <= 42800) tax = 1201 + (taxableIncome - 27800) * 0.059;
+                    else if (taxableIncome <= 161300) tax = 2094.40 + (taxableIncome - 42800) * 0.0633;
+                    else if (taxableIncome <= 322600) tax = 9676.44 + (taxableIncome - 161300) * 0.0657;
+                    else if (taxableIncome <= 2150000) tax = 27011.88 + (taxableIncome - 322600) * 0.0685;
+                    else tax = 146679.08 + (taxableIncome - 2150000) * 0.0965;
+                } else if (filingStatus === 'head_of_household') {
+                    // Slightly different brackets
+                    if (taxableIncome <= 12800) tax = taxableIncome * 0.04;
+                    else if (taxableIncome <= 17550) tax = 512 + (taxableIncome - 12800) * 0.045;
+                    else if (taxableIncome <= 20850) tax = 725.25 + (taxableIncome - 17550) * 0.0525;
+                    else if (taxableIncome <= 32100) tax = 902.75 + (taxableIncome - 20850) * 0.059;
+                    else if (taxableIncome <= 80650) tax = 1572.20 + (taxableIncome - 32100) * 0.0633;
+                    else if (taxableIncome <= 215000) tax = 4641.11 + (taxableIncome - 80650) * 0.0657;
+                    else if (taxableIncome <= 1075000) tax = 13167.56 + (taxableIncome - 215000) * 0.0685;
+                    else tax = 72504.56 + (taxableIncome - 1075000) * 0.0965;
+                }
+            }
+
+            // Dependent exemptions (hypothetical for 2026)
+            const dependentExemption = 120; // Example credit per dependent
+            tax -= (dependents * dependentExemption);
+            if (tax < 0) tax = 0; // Tax cannot be negative
+
+            document.getElementById('taxResult').innerText = `Estimated New York State Tax: $${tax.toFixed(2)}`;
+        }
+
+        // Initial calculation on page load
+        document.addEventListener('DOMContentLoaded', calculateTax);
+    </script>
+</body>
+</html>
