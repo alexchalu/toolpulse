@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colorado Income Tax Calculator - CalcLeap</title>
-    <meta name="description" content="Free Colorado Income Tax Calculator to estimate your state tax liability.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/calculator.css">
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <title>Colorado Income Tax Calculator - Estimate Your CO State Tax</title>
+    <meta name="description" content="Free Colorado Income Tax Calculator to estimate your state tax liability based on income, filing status, and deductions.">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="icon" href="../../images/favicon.png" type="image/x-icon">
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="index.html" class="nav-brand">CalcLeap</a>
+            <a href="../../index.html" class="nav-brand">CalcLeap</a>
             <ul class="nav-links">
-                <li><a href="calculators.html">Calculators</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="../../calculators.html">Calculators</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+
     <main class="container">
         <h1>Colorado Income Tax Calculator</h1>
-        <p>Estimate your Colorado state income tax for the current tax year.</p>
+        <p>Estimate your Colorado state income tax for the current tax year. This tool uses simplified brackets for illustration.</p>
         <div class="calculator-card">
             <div class="calculator-form">
                 <div class="form-group">
@@ -41,41 +42,47 @@
                     <label for="dependents">Number of Dependents:</label>
                     <input type="number" id="dependents" value="0" min="0">
                 </div>
-                <button id="calculateBtn" class="btn btn-primary">Calculate Tax</button>
+                <button id="calculateBtn">Calculate Tax</button>
             </div>
             <div class="calculator-results">
                 <h2>Results</h2>
-                <p>Estimated Colorado Tax: <span id="estimatedTax">$0.00</span></p>
-                <p>Net Income after Tax: <span id="netIncome">$0.00</span></p>
+                <p>Estimated Colorado State Tax: <span id="estimatedTax">$0.00</span></p>
+                <p>Net Income (after CO tax): <span id="netIncome">$0.00</span></p>
             </div>
         </div>
         <div class="info-section">
-            <h2>About Colorado Tax</h2>
-            <p>Colorado applies a flat income tax rate (4.4% as of 2026) after a standard deduction.</p>
+            <h2>Understanding Colorado Income Tax</h2>
+            <p>Colorado uses a flat income tax rate (currently 4.4%). This calculator applies that flat rate after a standard deduction.</p>
             <h3>Disclaimer</h3>
-            <p>Use this tool for estimates only. Consult a tax professional for official advice.</p>
+            <p>Numbers are illustrative. For official rates and guidance, consult the Colorado Department of Revenue or a tax professional.</p>
         </div>
     </main>
+
     <footer>
         <p>&copy; 2026 CalcLeap. All rights reserved.</p>
     </footer>
-    <script src="js/calculator-utils.js"></script>
+    <script src="../../js/calculator-utils.js"></script>
     <script>
-        document.getElementById('calculateBtn').addEventListener('click', () => {
+        document.getElementById('calculateBtn').addEventListener('click', calculateColoradoTax);
+        function calculateColoradoTax() {
             const income = parseFloat(document.getElementById('annualIncome').value) || 0;
-            const filing = document.getElementById('filingStatus').value;
+            const filingStatus = document.getElementById('filingStatus').value;
             const dependents = parseInt(document.getElementById('dependents').value) || 0;
+
+            // Simple standard deduction (example $12,500 for single, $25,000 for joint)
             const deductions = {
                 'single': 12500,
                 'married-joint': 25000,
                 'married-separate': 12500,
                 'head-of-household': 18750
             };
-            const taxable = Math.max(0, income - (deductions[filing] || 12500));
-            const tax = taxable * 0.044;
+            const taxable = Math.max(0, income - (deductions[filingStatus] || 12500));
+            const flatRate = 0.044; // 4.4%
+            const tax = taxable * flatRate;
+            const net = income - tax;
             document.getElementById('estimatedTax').textContent = `$${tax.toFixed(2)}`;
-            document.getElementById('netIncome').textContent = `$${(income - tax).toFixed(2)}`;
-        });
+            document.getElementById('netIncome').textContent = `$${net.toFixed(2)}`;
+        }
     </script>
 </body>
 </html>
