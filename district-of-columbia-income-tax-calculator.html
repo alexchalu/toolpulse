@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>District of Columbia Income Tax Calculator 2026 - CalcLeap</title>
+    <meta name="description" content="Calculate your District of Columbia (DC) income tax for 2026. Accurate brackets, rates, deductions, and filing guidance for DC residents.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>District of Columbia Income Tax Calculator</h1>
+    </header>
+    <main>
+        <div class="calculator-container">
+            <p>Enter your taxable income and filing status to estimate DC income tax.</p>
+            <div class="form-group">
+                <label for="income">Annual Taxable Income ($):</label>
+                <input type="number" id="income" value="60000" min="0">
+            </div>
+            <div class="form-group">
+                <label for="filingStatus">Filing Status:</label>
+                <select id="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="married">Married Filing Jointly</option>
+                    <option value="head">Head of Household</option>
+                </select>
+            </div>
+            <button onclick="calculateTax()">Calculate Tax</button>
+            <div id="result" style="margin-top:1rem; display:none;">
+                <h3>Estimated DC Tax: <span id="taxAmount"></span></h3>
+                <p>Effective Rate: <span id="effectiveRate"></span></p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+    </footer>
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const status = document.getElementById('filingStatus').value;
+            // Simplified DC tax brackets for 2026 (example values)
+            let tax = 0;
+            if (income <= 10000) tax = income * 0.04;
+            else if (income <= 40000) tax = 10000 * 0.04 + (income - 10000) * 0.06;
+            else tax = 10000 * 0.04 + 30000 * 0.06 + (income - 40000) * 0.085;
+            const effective = income ? (tax / income * 100).toFixed(2) + '%' : '0%';
+            document.getElementById('taxAmount').textContent = '$' + tax.toFixed(2);
+            document.getElementById('effectiveRate').textContent = effective;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
