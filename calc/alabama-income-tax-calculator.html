@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alabama State Income Tax Calculator 2026</title>
+<meta name="description" content="Calculate your Alabama state income tax for 2026. Simple calculator with current tax brackets.">
+<link rel="canonical" href="https://calcleap.com/calc/alabama-income-tax-calculator.html">
+<meta property="og:title" content="Alabama State Income Tax Calculator 2026"/>
+<meta property="og:description" content="Estimate your Alabama state tax liability for 2026."/>
+<meta property="og:url" content="https://calcleap.com/calc/alabama-income-tax-calculator.html"/>
+<style>
+body{font-family:Arial,sans-serif;background:#f9f9f9;padding:20px;}
+.container{max-width:600px;margin:auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+h1{color:#2c3e50;}
+label{display:block;margin-top:10px;}
+input,select{width:100%;padding:8px;margin-top:5px;}
+button{margin-top:15px;padding:10px 20px;background:#2980b9;color:#fff;border:none;cursor:pointer;}
+.result{margin-top:20px;padding:15px;background:#e8f4fd;border-left:4px solid #2980b9;}
+</style>
+<script>
+function calculateAlabamaTax(){
+  const income=parseFloat(document.getElementById('income').value)||0;
+  const filing=document.getElementById('filing').value;
+  // Simplified 2026 brackets (placeholder values)
+  const brackets={
+    single:[{limit:500,rate:0.02},{limit:3000,rate:0.04},{limit:Infinity,rate:0.05}],
+    marriedJoint:[{limit:1000,rate:0.02},{limit:6000,rate:0.04},{limit:Infinity,rate:0.05}],
+    marriedSeparate:[{limit:500,rate:0.02},{limit:3000,rate:0.04},{limit:Infinity,rate:0.05}],
+    headOfHousehold:[{limit:500,rate:0.02},{limit:3000,rate:0.04},{limit:Infinity,rate:0.05}]
+  };
+  const arr=brackets[filing];
+  let tax=0,prev=0;
+  for(const b of arr){
+    if(income>prev){
+      const taxable=Math.min(income,b.limit)-prev;
+      tax+=taxable*b.rate;
+    }
+    prev=b.limit;
+    if(income<=b.limit)break;
+  }
+  document.getElementById('tax').innerText=tax.toFixed(2);
+  document.getElementById('effective').innerText=((tax/income)*100||0).toFixed(2);
+  document.getElementById('result').style.display='block';
+}
+</script>
+</head>
+<body>
+<div class="container">
+<h1>Alabama State Income Tax Calculator</h1>
+<p>Enter your annual gross income and filing status to estimate Alabama state tax for 2026.</p>
+<label for="income">Annual Gross Income ($):</label>
+<input type="number" id="income" placeholder="e.g., 60000"/>
+<label for="filing">Filing Status:</label>
+<select id="filing">
+  <option value="single">Single</option>
+  <option value="marriedJoint">Married Filing Jointly</option>
+  <option value="marriedSeparate">Married Filing Separately</option>
+  <option value="headOfHousehold">Head of Household</option>
+</select>
+<button onclick="calculateAlabamaTax()">Calculate Tax</button>
+<div id="result" class="result" style="display:none;">
+<h2>Estimated Alabama Tax</h2>
+<p>Tax Owed: $<span id="tax">0.00</span></p>
+<p>Effective Tax Rate: <span id="effective">0.00</span>%</p>
+</div>
+</div>
+</body>
+</html>
