@@ -1,0 +1,12 @@
+2026-04-18 13:00 UTC
+
+BUILT: Texas Sales Tax Calculator
+- High-CPC: $25-50/click
+- Location: toolpulse/texas-sales-tax-calculator.html
+- GitHub commit: f0728e08
+- IndexNow submission: FAILED (API key invalid)
+
+Notes:
+- Calculator includes form, logic, styling, and CalcLeap template integration
+- Ready for deployment and indexing once IndexNow API key is updated by Alex
+- Part of "State-specific tax calculators" initiative to create 100-150 pages

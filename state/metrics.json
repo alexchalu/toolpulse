@@ -1,0 +1,20 @@
+{
+  "last_updated": "2026-04-28T01:18:00.000Z",
+  "cycle": 40,
+  "traffic": {
+    "calcleap_views_14d": 0,
+    "calcleap_unique_14d": 0
+  },
+  "revenue": {
+    "gumroad_sales": 0,
+    "gumroad_revenue": 0
+  },
+  "seo": {
+    "total_pages": 3012,
+    "domain_age_days": 27,
+    "indexed_pages": 8
+  },
+  "outreach": {
+    "emails_sent_total": 825
+  }
+}

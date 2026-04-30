@@ -1,0 +1,32 @@
+[
+  {
+    "to": "marissa@bergenlaw.com",
+    "company": "Bergen Law (Personal Injury)",
+    "industry": "Legal",
+    "vertical": "legal"
+  },
+  {
+    "to": "info@farviewvet.com",
+    "company": "Farview Animal Clinic",
+    "industry": "Veterinary",
+    "vertical": "veterinary"
+  },
+  {
+    "to": "contact@keyrenterbergencounty.com",
+    "company": "KeyRenter Property Management",
+    "industry": "Property Management",
+    "vertical": "property_mgmt"
+  },
+  {
+    "to": "info@cp-management.com",
+    "company": "Corner Property Management",
+    "industry": "Property Management",
+    "vertical": "property_mgmt"
+  },
+  {
+    "to": "info@youngandassoc.com",
+    "company": "Young and Associates",
+    "industry": "Property Management",
+    "vertical": "property_mgmt"
+  }
+]

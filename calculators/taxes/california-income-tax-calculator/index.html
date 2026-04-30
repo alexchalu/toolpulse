@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Income Tax Calculator 2024 - CalcLeap</title>
+    <meta name="description" content="Calculate your California state income tax for 2024 with our easy-to-use calculator. Includes standard deductions, exemptions, and tax brackets.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="/">CalcLeap</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="/calculators">Calculators</a></li>
+                    <li><a href="/converters">Converters</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <aside class="sidebar">
+            <!-- Navigation will be injected here if needed -->
+        </aside>
+        <article class="content">
+            <h2>California Income Tax Calculator (2024)</h2>
+            <p>Estimate your California state income tax liability for the 2024 tax year. This calculator takes into account standard deductions, exemptions, and the latest tax brackets.</p>
+
+            <div class="calculator-card">
+                <div class="input-group">
+                    <label for="income">Annual Income ($):</label>
+                    <input type="number" id="income" value="60000" min="0">
+                </div>
+
+                <div class="input-group">
+                    <label for="filingStatus">Filing Status:</label>
+                    <select id="filingStatus">
+                        <option value="single">Single</option>
+                        <option value="marriedFilingJointly">Married Filing Jointly / RDP</option>
+                        <option value="marriedFilingSeparately">Married Filing Separately / RDP</option>
+                        <option value="headOfHousehold">Head of Household</option>
+                        <option value="qualifyingWidow">Qualifying Widow(er)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="dependents">Number of Dependents (excluding yourself):</label>
+                    <input type="number" id="dependents" value="0" min="0">
+                </div>
+
+                <button onclick="calculateTax()">Calculate Tax</button>
+
+                <div class="result-section">
+                    <h3>Your Estimated California State Tax:</h3>
+                    <p>Taxable Income: <span id="taxableIncomeResult">$0.00</span></p>
+                    <p>Total Tax Owed: <span id="taxOwedResult">$0.00</span></p>
+                    <p>Effective Tax Rate: <span id="effectiveRateResult">0.00%</span></p>
+                </div>
+            </div>
+
+            <h3>Disclaimer</h3>
+            <p>This calculator provides estimates for informational purposes only. It is not tax advice. Consult a qualified tax professional for personalized advice. Tax laws are complex and subject to change.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CalcLeap. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

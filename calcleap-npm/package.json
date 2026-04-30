@@ -1,0 +1,30 @@
+{
+  "name": "calcleap",
+  "version": "1.0.0",
+  "description": "Node.js client for CalcLeap API - 2,900+ free calculators (mortgage, BMI, tax, insurance, crypto, etc.)",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "calculator",
+    "finance",
+    "mortgage",
+    "bmi",
+    "tax",
+    "insurance",
+    "api",
+    "calcleap"
+  ],
+  "author": "Alex Chalunkal <alex@calcleap.com>",
+  "license": "MIT",
+  "homepage": "https://calcleap.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexchalu/calcleap-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexchalu/calcleap-api/issues"
+  }
+}

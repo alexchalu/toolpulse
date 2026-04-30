@@ -1,0 +1,142 @@
+# Heartbeat Checklist
+
+**SOLE OBJECTIVE: GENERATE REVENUE. THINK CREATIVELY. THE WORLD IS YOUR OYSTER.**
+
+Every cycle = revenue-generating actions. Use ALL your capabilities: browser, web search, code, email, GitHub, sub-agents.
+
+---
+
+## PHASE 0: SELF-EVALUATION (RUNS FIRST, EVERY CYCLE)
+
+### 0.1 — Heartbeat Self-Audit
+1. Is every task in this heartbeat still producing value? Remove stale items.
+2. Did last cycle's actions produce measurable results? If not, change approach.
+3. Is there a new bug or regression on calcleap.com? Find and fix it.
+4. Am I repeating something from last cycle? STOP. Do something new.
+5. **Update HEARTBEAT.md immediately if any task is stale.**
+
+### 0.2 — Read State Files
+- `/data/workspace/state/metrics.json` — Current numbers
+- `/data/workspace/state/experiments.json` — Active experiments
+- `/data/workspace/state/learnings.json` — What worked/failed
+- Compare metrics to last cycle. If something degraded, investigate and fix.
+
+---
+
+## PHASE 1: BUG DETECTION & SITE HEALTH (5 min)
+
+### 1.1 — Automated Quality Scan
+```bash
+cd /data/workspace/toolpulse
+python3 audit.py 2>&1 | tee /tmp/audit_result.txt
+```
+- Spot-check 5 random pages for: CSS loading, nav present, GA4 present, no dark theme, no noindex on quality pages
+- Curl-test 3 live pages for HTTP 200
+- If ANY bugs found: fix immediately, regression test, then continue
+
+### 1.2 — Regression Test After Fixes
+After ANY code change: re-run audit.py, curl 3 affected pages, verify no downstream breakage.
+
+### 1.3 — Track Bug History
+Append to `/data/workspace/state/bugs.json` with date, found, fixed, regressions.
+
+---
+
+## PHASE 2: REVENUE EXECUTION (20 min)
+
+### 2.1 — Check Revenue (2 min)
+- Gumroad sales: `curl -s "https://api.gumroad.com/v2/products?access_token=TOKEN"`
+- CalcLeap traffic: `gh api repos/alexchalu/toolpulse/traffic/views`
+- If ANY revenue > $0 -> message Alex immediately
+
+### 2.2 — SEO & Indexing (5 min)
+- Check indexed count vs last cycle
+- Submit priority pages to IndexNow
+- Optimize 3 top pages (titles, meta, schema markup)
+- Internal linking improvements
+- Focus: get Google to index more pages
+
+### 2.3 — Distribution & Outreach (10 min)
+- Run outreach script if contact list not exhausted
+- Search for NEW distribution channels (forums, communities, directories)
+- **Think creatively**: What channels haven't been tried?
+  - Niche subreddits where calculators solve real problems
+  - Quora answers linking to relevant calculators
+  - Dev.to/Medium articles featuring tools
+  - YouTube shorts demonstrating calculators
+  - Partnerships with bloggers/content creators
+  - Product Hunt launch for unique calculators
+  - Embed widgets other sites can use (drives backlinks)
+
+### 2.4 — Creative Revenue Exploration (5 min)
+**This is the most important phase. Think beyond CalcLeap.**
+- What NEW revenue streams could Rando create?
+- What's trending that Alex could capitalize on?
+- What problems do people pay to solve that you could automate?
+- Ideas to explore each cycle (pick ONE and execute):
+  - Premium calculator features (PDF export, save results, email reports)
+  - API monetization (calculator APIs for developers)
+  - Lead generation for high-CPC verticals (insurance, legal, finance)
+  - Micro-SaaS tools (small recurring revenue tools)
+  - Affiliate content (comparison pages, "best of" lists)
+  - Data products (scraped/compiled datasets people pay for)
+  - Consulting lead gen (use calculators to attract business inquiries)
+  - White-label calculator widgets for businesses
+
+---
+
+## PHASE 3: MEMORY CONSOLIDATION & REPORTING
+
+### 3.1 — Log Everything
+- Update today's memory file: bugs, traffic, revenue, actions, experiments
+- Update state/metrics.json with current numbers
+- Weekly: consolidate important learnings into MEMORY.md
+
+### 3.2 — Report to Alex (Only If)
+- Any revenue (even $0.01)
+- A new bug was found and fixed
+- A creative opportunity that needs Alex's decision
+- Something broken after 3 fix attempts
+- **Otherwise: stay quiet, keep executing**
+
+---
+
+## RULES
+1. Self-audit FIRST every cycle. Remove stale tasks.
+2. Find and fix NEW bugs. Never re-report old ones.
+3. Regression test every fix. No downstream failures.
+4. Distribution > Building (until traffic exists).
+5. Measure everything. No unmeasured actions.
+6. **Think creatively about revenue.** Don't just repeat the same outreach loop.
+7. Never repeat stale reports. Each cycle = NEW info or silence.
+8. The heartbeat evolves. Replace failing tactics.
+9. Track all bugs in state/bugs.json.
+10. **Cost awareness**: Use free models. Only invoke Claude for high-value tasks.
+
+---
+
+## MANDATORY PRE-PUSH CHECKLIST
+
+1. All CSS/JS hrefs point to real files
+2. No empty toolContent divs
+3. Run audit.py — must pass
+4. Curl-test 3 affected pages (HTTP 200 + content)
+5. No lead wizard gates before showing results
+6. Regression check on CSS, nav, GA4, byline
+
+---
+
+## ERRORS ALEX HAS CAUGHT (Learn from each — never repeat)
+- 25 pages linking to nonexistent gold.css
+- 20 pages with empty toolContent divs
+- 13 insurance pages with lead wizards instead of calculators
+- Blog page using dark theme
+- Mortgage calculator empty on mobile
+- Contact form faking submissions
+- About page with fake metrics
+- 918 pages with broken absolute paths
+- AdSense rejected for "low value content" (58% auto-generated templates)
+- Reported same "17 bugs fixed" for days straight
+- 1,088 pages still had dark theme after "fix"
+
+**Root cause pattern:** Building without verifying, not checking regressions, repeating stale reports.

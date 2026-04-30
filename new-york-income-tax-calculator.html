@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York Income Tax Calculator - CalcLeap</title>
+    <meta name="description" content="Estimate your New York State income tax for 2024/2025 with a simple calculator.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        label { display: block; margin-bottom: 0.5em; }
+        input, select { width: 100%; padding: 8px; margin-bottom: 1em; border: 1px solid #ddd; border-radius: 4px; }
+        button { background-color: #0066cc; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0052a3; }
+        #result { margin-top: 1.5em; font-size: 1.1em; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>New York Income Tax Calculator</h1>
+        <p>Estimate your New York State income tax (2024). This is a simplified estimate; consult a tax professional for precise calculations.</p>
+        <div>
+            <label for="income">Annual Income ($):</label>
+            <input type="number" id="income" value="80000" min="0">
+        </div>
+        <div>
+            <label for="filingStatus">Filing Status:</label>
+            <select id="filingStatus">
+                <option value="single">Single</option>
+                <option value="married_jointly">Married Filing Jointly</option>
+                <option value="married_separately">Married Filing Separately</option>
+                <option value="head_of_household">Head of Household</option>
+            </select>
+        </div>
+        <button onclick="calculateTax()">Calculate Tax</button>
+        <div id="result">Estimated NY Tax: $0.00</div>
+    </div>
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value);
+            const status = document.getElementById('filingStatus').value;
+            const brackets = {
+                single: [
+                    { limit: 8500, rate: 0.04 },
+                    { limit: 11700, rate: 0.045 },
+                    { limit: 13900, rate: 0.0525 },
+                    { limit: 21400, rate: 0.0597 },
+                    { limit: 80650, rate: 0.0633 },
+                    { limit: 215400, rate: 0.0685 },
+                    { limit: 1077550, rate: 0.0965 },
+                    { limit: 5000000, rate: 0.103 },
+                    { limit: Infinity, rate: 0.108 }
+                ],
+                married_jointly: [
+                    { limit: 17150, rate: 0.04 },
+                    { limit: 23600, rate: 0.045 },
+                    { limit: 27900, rate: 0.0525 },
+                    { limit: 43000, rate: 0.0597 },
+                    { limit: 161300, rate: 0.0633 },
+                    { limit: 323200, rate: 0.0685 },
+                    { limit: 2155200, rate: 0.0965 },
+                    { limit: 5000000, rate: 0.103 },
+                    { limit: Infinity, rate: 0.108 }
+                ],
+                married_separately: [
+                    { limit: 8500, rate: 0.04 },
+                    { limit: 11700, rate: 0.045 },
+                    { limit: 13900, rate: 0.0525 },
+                    { limit: 21500, rate: 0.0597 },
+                    { limit: 80650, rate: 0.0633 },
+                    { limit: 161600, rate: 0.0685 },
+                    { limit: 1077600, rate: 0.0965 },
+                    { limit: 2500000, rate: 0.103 },
+                    { limit: Infinity, rate: 0.108 }
+                ],
+                head_of_household: [
+                    { limit: 11750, rate: 0.04 },
+                    { limit: 16100, rate: 0.045 },
+                    { limit: 19700, rate: 0.0525 },
+                    { limit: 27100, rate: 0.0597 },
+                    { limit: 101800, rate: 0.0633 },
+                    { limit: 202750, rate: 0.0685 },
+                    { limit: 1355800, rate: 0.0965 },
+                    { limit: 3000000, rate: 0.103 },
+                    { limit: Infinity, rate: 0.108 }
+                ]
+            };
+            const selected = brackets[status];
+            let tax = 0;
+            let remaining = income;
+            let prev = 0;
+            for (let i = 0; i < selected.length; i++) {
+                const { limit, rate } = selected[i];
+                const taxable = Math.min(remaining, limit - prev);
+                if (taxable > 0) {
+                    tax += taxable * rate;
+                    remaining -= taxable;
+                }
+                prev = limit;
+                if (remaining <= 0) break;
+            }
+            document.getElementById('result').innerText = `Estimated NY Tax: $${tax.toFixed(2)}`;
+        }
+        document.addEventListener('DOMContentLoaded', calculateTax);
+    </script>
+</body>
+</html>

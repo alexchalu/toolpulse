@@ -1,0 +1,4947 @@
+PROPERTY CONDITION REPORT
+Industrial Outdoor Storage Portfolio
+251 Monroe Ave
+Kenilworth, New Jersey 07033
+
+July 20, 2022
+Partner Project Number: C38-22-374607.52
+
+Prepared for:
+
+HPS Investment Partners, LLC
+New York, New York 10019
+
+Engineers who understand your business
+
+July 20, 2022
+Mr. Long Nguyen
+HPS Investment Partners, LLC
+40 West 57th Street, 33rd Floor
+New York, NY 10019
+Subject:
+
+Property Condition Report
+Industrial Outdoor Storage Portfolio
+251 Monroe Ave
+Kenilworth, New Jersey 07033
+Partner Project No. 22-374607.52
+
+Dear Mr. Nguyen:
+Partner Assessment Corporation is pleased to provide the results of the assessment performed on the
+above-referenced property. At a minimum, this assessment was performed in conformance with the scope
+and limitations as set forth by ASTM E2018-15 “Standard Guide for Property Condition Assessments:
+Baseline Property Condition Assessment Process” and as specified in the engagement agreement that
+initiated this work.
+The purpose of this assessment is to provide sufficient information to evaluate the condition of the real
+property in order to facilitate completion of due diligence as a secured lender. The findings of this report
+are intended to be used in support of securing the debt created through the prospective financing for which
+the subject property serves as collateral. This report may not be used for any other purpose, including,
+without limitation, use by owner, borrower or tenant for the purpose of evaluating specific building
+components and systems, or as an instrument in negotiations related to the acquisition or disposition of
+the property.
+We appreciate the opportunity to provide these assessment services. If you have any questions concerning
+this report, or if we can assist you in any other matter, please contact Wes Skinner at 810-936-4805 or
+wskinner@partneresi.com.
+Sincerely,
+Partner Assessment Corporation
+
+DRAFT
+
+DRAFT
+
+Richard Bender
+
+Wes Skinner
+
+Senior Reviewer
+
+Relationship Manager
+
+800-419-4923
+
+www.PARTNEResi.com
+
+EXECUTIVE SUMMARY AND PROPERTY DESCRIPTION
+Executive Summary
+Partner Assessment Corporation (Partner) has performed a property condition assessment (PCA) of the
+parcel and improvements defined in the following table (the “subject property”). The assessment was
+performed in accordance with ASTM E2018-15 “Standard Guide for Property Condition Assessments:
+Baseline Property Condition Assessment Process”. The purpose of this PCA was to observe and document
+readily visible materials and building system defects that might significantly affect the value of the subject
+property, and determine if conditions exist which may have a significant impact on the continued operation
+of the facility during the evaluation period.
+Property Data
+Name
+Address
+City, State and Zip Code
+Property use
+Land acreage (acres)
+Number of buildings
+
+Industrial Outdoor Storage Portfolio
+251 Monroe Ave, 55 Wilshire Dr.
+Kenilworth, New Jersey 07033
+Industrial
+43.40
+21
+
+Number of floors
+Year built
+Gross building area (sf)
+Net rentable area (sf)
+Number of tenant spaces
+Foundation / Substructure
+
+two-story
+c. 1910 & 1995
+261,171
+261,171
+Six occupied and 14 Vacant spaces
+Concrete slab-on-grade with perimeter and interior footings under
+load bearing structures
+Steel frame, Concrete masonry load bearing walls
+Painted stucco, Brick masonry, Painted, factory finished corrugated
+metal panels
+Pitched, slanting (shed type), low slope, and barrel type with
+skylights
+Asphalt paved surface lots
+unknown (faded striping)
+Unknown (faded striping) ADA designated spaces of which none
+was van-designated
+Gas-fired space heaters for heating in some of the warehouses only,
+small office areas in some of the buildings were noted to have a
+through-wall air conditioner unit, split unit with exterior condenser
+units, and self contained roof top units
+Copper
+Copper
+None provided
+Wet-pipe sprinkler system, fire extinguishers
+Central system with local notification
+
+Superstructure
+Façade
+Roof type
+Parking area
+Parking space count
+ADA-designated parking count
+HVAC system
+
+Water supply piping
+Electrical branch wiring
+Number of elevators
+Fire suppression
+Fire alarm
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page i
+
+The buildings on the subject property are further described as follows:
+Structure
+
+Address
+
+Building Area (SF)
+
+Construction Date
+
+Building #17
+
+251 Monroe Street
+
+2,520 SF
+
+Circa 1930+
+
+Building #19
+
+251 Monroe Street
+
+2,009 SF
+
+Circa 1930+
+
+Building #20
+
+251 Monroe Street
+
+2,029 SF
+
+Circa 1930+
+
+Building #21
+
+251 Monroe Street
+
+18,146 SF
+
+Circa 1930+
+
+Building #22
+
+251 Monroe Street
+
+21,986 SF
+
+Circa 1930+
+
+Building #23
+
+251 Monroe Street
+
+19,990 SF
+
+Circa 1930+
+
+Building #24
+
+251 Monroe Street
+
+19,988 SF
+
+Circa 1930+
+
+Building #25
+
+251 Monroe Street
+
+8,015 SF
+
+Circa 1930+
+
+Building #28
+
+251 Monroe Street
+
+2,428 SF
+
+Circa 1930+
+
+Building #30
+
+251 Monroe Street
+
+17,018 SF
+
+Circa 1930+
+
+Building #31 & #32
+
+251 Monroe Street
+
+25,000 SF
+
+Circa 1930+
+
+Building #33
+
+251 Monroe Street
+
+18,598 SF
+
+Circa 1930+
+
+Building #38
+
+251 Monroe Street
+
+10,800 SF
+
+Circa 1930+
+
+Building #39
+
+251 Monroe Street
+
+10,800 SF
+
+Circa 1930+
+
+Building #40
+
+251 Monroe Street
+
+3,608 SF
+
+Circa 1930+
+
+Building #41
+
+251 Monroe Street
+
+17,830 SF
+
+Circa 1930+
+
+Building #42
+
+251 Monroe Street
+
+15,583 SF
+
+Circa 1930+
+
+Building #43
+
+251 Monroe Street
+
+17,912 SF
+
+Circa 1930+
+
+Building #59
+
+251 Monroe Street
+
+20,785 SF
+
+Circa 1930+
+
+Building #60
+
+251 Monroe Street
+
+1,400 SF
+
+Circa 1930+
+
+Overall Condition
+Based on the systems and components observed during the site visit, the subject property appeared to be
+in good to fair condition. The overall level of preventative maintenance appeared to be good to fair. The
+detailed observations of reviewed systems are presented in the following Sections of this report, with
+tabulated opinions of cost presented in the tables below.
+Reported Capital Expenditures
+No recent or planned capital improvements were reported by property management.
+Immediate and Short-Term Repair Items
+This report presents opinions of costs for items or conditions that require immediate action as a result of
+the following: Material existing or potentially unsafe conditions, material code violations, or any other
+physical deficiencies that if left uncorrected would be expected to result in or contribute to the failure of
+critical elements or systems within one year or may result in a significant increase in remedial costs. These
+items should be addressed at the first practical opportunity.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page ii
+
+In addition, this report presents opinions of costs for items or conditions that may not require immediate
+action but should be conducted on a priority basis above and beyond routine maintenance. Generally, the
+recommended time frame for addressing these items is two years.
+Deferred maintenance items and/or physical deficiencies that are considered significant are also identified
+in Table 1- Immediate Repair and Deferred Maintenance Cost Opinion.
+Replacement Reserve Items
+In accordance with the terms under which this assessment was performed, this report includes opinions of
+costs for capital replacement reserve items that are anticipated to occur during a specified evaluation
+period. These items are identified in Table 2 – Long-Term Cost Opinion. Systems or components that are
+present at the subject property, but not listed in Table 2, are expected to realize a useful life that exceeds
+the evaluation period.
+Cost Exclusions
+This report excludes costs for systems or components that are reported to be a tenant responsibility to
+maintain and replace, that are generally associated with the normal operation of the subject property, that
+are part and parcel of a building renovation program, for enhancements to reposition the subject property
+within the marketplace, for work that is cosmetic or decorative, for work that is being conducted for warranty
+transfer purposes, and routine maintenance activities. This report also excludes costs that are below the
+reporting threshold established by the engagement agreement.
+Deviation from ASTM E2018
+The deviations listed below are part of the Partner standard operating procedures or were specified in the
+Client’s scope of work.
+•
+
+This report includes seismic zone information that is not required by the Standard.
+
+•
+
+This report includes an opinion of costs for anticipated capital expenditures for an evaluation period
+defined by the Addressee. The costs are presented in Table 2.
+
+•
+
+This report combines the opinions of immediate and short-term costs included in Table 1.
+
+Recommendations for Additional Investigations
+There were no issues observed or reported that indicate the need for additional investigations.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page iii
+
+TABLE 1 - IMMEDIATE REPAIRS & DEFERRED MAINTENANCE COST OPINION
+Industrial Outdoor Storage Portfolio
+251 Monroe Street
+
+Partner Project No. 22-374607.52
+
+Kenilworth, New Jersey 07033
+Sect.
+
+July 13, 2022
+Deficiency or Repair Item
+
+No.
+
+Quantity
+
+Unit
+
+Unit Cost
+
+Total Cost
+
+2.0 Regulatory Compliance
+None Noted
+
+3.0 Site Improvements
+Linear cracking, “map” or “alligator” cracking, and pothole formation were noted at the drive aisle and parking. Based
+3.2.2 on the EUL and apparent condition, Partner recommends asphalt pavement milling and overlay (2% - 3%) of asphalt
+
+20,000
+
+SF
+
+$2.50
+
+$50,000
+
+1
+
+Allowance
+
+$8,500
+
+$8,500
+
+1
+
+Allowance
+
+$5,500.00
+
+$5,500
+
+1
+
+Allowance
+
+$2,500.00
+
+$2,500
+
+1
+
+Allowance
+
+$4,500.00
+
+$4,500
+
+paved parking areas.
+
+4.0 Structural Frame and Building Envelope
+4.4.1
+
+The Buildings have unknown roof ages. Partner recommends a roof survey by a licensed roofing contractor to
+determine existing conditions and remaining useful lives on all buildings' roofs.
+
+5.0 Mechanical and Electrical Systems
+All buildings wet sprinkler risers and system were observed to have an expired inspection tags. The systems should be
+5.5.1 inspected, and documentary evidence provided immediately as a life safety issue. Partner recommends retaining a
+qualified fire safety contractor to perform inspection and to provide the tags needed.
+
+5.5.1
+
+5.5.2
+
+Expired certification tags were present at the fire extinguishers in tenant spaces of all buildings. Servicing and recertification of the fire extinguishers is recommended.
+An annual fire alarm certification tag were not present at the fire alarm control panel of each building. Servicing and
+recertification of the fire alarm system is recommended.
+
+6.0 Interior Elements
+None Noted
+
+7.0 Accessibility
+None Noted
+
+8.0 Water Intrusion and Microbial Growth
+None Noted
+TOTAL $
+
+71,000
+
+TABLE 2 - LONG-TERM COST OPINION
+Industrial Outdoor Storage Portfolio
+
+Rentable area (sf):
+
+251 Monroe Street
+
+Partner Project No. 22-374607.52
+
+Kenilworth, New Jersey 07033
+
+July 13, 2022
+Avg
+
+Sect.
+Description
+
+112
+
+Inflation rate:
+
+2.5%
+
+Evaluation period (years):
+
+12
+
+Eff
+
+Total
+
+Qty in Eval
+
+EUL Age RUL
+
+No.
+
+261,171
+
+Site effective age (years):
+
+(YR) (YR) (YR) On Site Qty
+
+Period
+
+Unit
+
+Unit Cost
+
+YR 1
+
+YR 2
+
+YR 3
+
+YR 4
+
+YR 5
+
+YR 6
+
+YR 7
+
+YR 8
+
+YR 9
+
+YR 10
+
+YR 11
+
+Cost
+
+YR 12
+
+3.0 Site Improvements
+3.2.2 Asphalt seal coat & striping
+
+5
+
+4
+
+1
+
+850,600
+
+2,551,800
+
+SF
+
+$0.12
+
+$ 102,072
+
+174,000
+
+SF
+
+$1.00
+
+$ 87,000
+
+$
+
+$ 102,072
+
+$ 102,072
+
+$ 306,216
+
+4.0 Structural Frame and Building Envelope
+Buildings exterior maintenance,
+4.3.1
+
+painting, pointing, caulking, sealant,
+and control joint replacement
+
+4.4.1 Roof maintenance and repair
+
+8
+
+7
+
+1
+
+87,000
+
+1
+
+0
+
+1
+
+1
+
+1
+
+ALLOW
+
+$90,000
+
+15
+
+5
+
+15
+
+15
+
+EA
+
+$3,000.00
+
+7,500
+
+$ 87,000
+
+$
+
+7,500
+
+$
+
+7,500
+
+$
+
+7,500
+
+$
+
+7,500
+
+$
+
+7,500
+
+$
+
+7,500
+
+$
+
+7,500
+
+$
+
+7,500
+
+$ 174,000
+
+$
+
+7,500
+
+$
+
+7,500
+
+$
+
+7,500
+
+$ 90,000
+
+5.0 Mechanical and Electrical Systems
+5.5.2 Fire alarm panel, Replace
+
+20
+
+$ 45,000
+
+$ 45,000
+
+6.0 Interior Elements
+None anticipated-tenant
+responsibility
+
+$
+
+-
+
+Uninflated Totals: $
+
+196,572
+
+$
+
+7,500
+
+$
+
+7,500
+
+$
+
+7,500
+
+$
+
+52,500
+
+$
+
+109,572
+
+$
+
+7,500
+
+$
+
+7,500
+
+$
+
+94,500
+
+$
+
+7,500
+
+$
+
+109,572
+
+$
+
+7,500
+
+$
+
+615,216
+
+Inflated Totals: $
+
+196,572
+
+$
+
+7,688
+
+$
+
+7,880
+
+$
+
+8,077
+
+$
+
+57,950
+
+$
+
+123,971
+
+$
+
+8,698
+
+$
+
+8,915
+
+$
+
+115,139
+
+$
+
+9,366
+
+$
+
+140,261
+
+$
+
+9,841
+
+$
+
+694,357
+
+Uninflated cost per square foot per year:
+
+$0.20
+
+Inflated cost per square foot per year:
+
+$0.22
+
+TABLE OF CONTENTS
+1.0
+1.1
+
+INTRODUCTION ............................................................................................................................... 1
+Purpose and Scope of Work ........................................................................................................................................ 1
+
+1.2
+
+Cost Evaluation Methodology .................................................................................................................................... 1
+
+1.3
+
+Descriptive Qualifiers ...................................................................................................................................................... 2
+
+1.4
+2.0
+2.1
+
+Addressee Reliance ......................................................................................................................................................... 2
+RECONNAISSANCE, REGULATORY AND DOCUMENT REVIEW ............................................... 3
+Site Reconnaissance ........................................................................................................................................................ 3
+
+2.2
+
+Property Personnel Interviewed/Contacted .......................................................................................................... 3
+
+2.3
+
+Regulatory Compliance Inquiry .................................................................................................................................. 3
+
+2.4
+3.0
+3.1
+
+Document Review ............................................................................................................................................................ 4
+PROPERTY CHARACTERISTICS ................................................................................................... 5
+Parcel Configuration ....................................................................................................................................................... 5
+
+3.2
+
+Site Improvements .......................................................................................................................................................... 5
+
+3.2.1
+
+Topography and Storm Water Drainage ........................................................................................................... 5
+
+3.2.2
+
+Vehicular Access, Paving .......................................................................................................................................... 5
+
+3.2.3
+
+Walkways, Grade-Level Steps and Ramps......................................................................................................... 6
+
+3.2.4
+
+Landscaping and Irrigation ..................................................................................................................................... 6
+
+3.2.5
+
+Retaining Walls ............................................................................................................................................................ 6
+
+3.2.6
+
+Site and Building Signage........................................................................................................................................ 6
+
+3.2.7
+
+Perimeter Walls, Gates, and Fences ..................................................................................................................... 6
+
+3.2.8
+
+Exterior Lights ............................................................................................................................................................... 6
+
+3.2.9
+
+Site Amenities ............................................................................................................................................................... 7
+
+3.2.10 Special Utility Systems .............................................................................................................................................. 7
+3.2.11 Utility Service Providers ............................................................................................................................................ 7
+4.0
+STRUCTURAL FRAME AND BUILDING ENVELOPE .................................................................... 8
+4.1
+Foundation/Substructure .............................................................................................................................................. 8
+4.2
+
+Building Frame .................................................................................................................................................................. 8
+
+4.3
+
+Facades or Curtain Walls ............................................................................................................................................... 8
+
+4.3.1
+
+Exterior Walls ................................................................................................................................................................ 8
+
+4.3.2
+
+Windows ......................................................................................................................................................................... 9
+
+4.3.3
+
+Doors................................................................................................................................................................................ 9
+
+4.4
+
+Roof ....................................................................................................................................................................................... 9
+
+4.4.1
+
+Roofing Materials ........................................................................................................................................................ 9
+
+4.4.2
+
+Roof Drainage ........................................................................................................................................................... 12
+
+4.5
+5.0
+5.1
+
+Fire Escapes, Stairs, Balconies, Upper-Level Walkways, and Breezeways ............................................... 12
+MECHANICAL AND ELECTRICAL SYSTEMS ............................................................................. 13
+Plumbing, Domestic Hot Water, and Sewer Systems ..................................................................................... 13
+
+5.2
+
+Heating, Ventilation, and Air Conditioning (HVAC) ........................................................................................ 13
+
+5.3
+
+Electrical ............................................................................................................................................................................ 14
+
+5.4
+
+Vertical Transportation ............................................................................................................................................... 15
+
+5.5
+
+Life Safety and Fire Protection ................................................................................................................................. 15
+
+5.5.1
+
+Fire Suppression Systems ..................................................................................................................................... 15
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+
+5.5.2
+
+Alarm Systems ........................................................................................................................................................... 16
+
+5.5.3 Other Systems ........................................................................................................................................................... 16
+6.0
+INTERIOR ELEMENTS .................................................................................................................. 17
+6.1
+Common Areas .............................................................................................................................................................. 17
+6.2
+
+Amenities and Special Features............................................................................................................................... 17
+
+6.3
+
+Support Areas ................................................................................................................................................................. 17
+
+6.4
+
+Commercial Tenant Spaces ....................................................................................................................................... 17
+
+6.5
+7.0
+8.0
+9.0
+9.1
+
+Residential Spaces ........................................................................................................................................................ 17
+ACCESSIBILITY ............................................................................................................................. 18
+SUSPECT WATER INTRUSION AND MICROBIAL GROWTH .................................................... 19
+NATURAL HAZARD INFORMATION ............................................................................................ 20
+Flood Zone....................................................................................................................................................................... 20
+
+9.2
+
+Seismic Zone ................................................................................................................................................................... 20
+
+9.3
+10.0
+11.0
+
+Wind Zone ....................................................................................................................................................................... 20
+OUT OF SCOPE CONSIDERATIONS ........................................................................................... 21
+LIMITATIONS ................................................................................................................................. 23
+
+FIGURES AND APPENDICES
+The following report Figures and Appendices are attached at the end of this report.
+Figures
+
+Figure 1: Site Location Map
+Figure 2: Site Plan
+
+Appendices
+
+Appendix A: Site Photographs
+Appendix B: Supporting Documentation
+Appendix C: Qualifications
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+
+1.0
+
+INTRODUCTION
+
+1.1
+
+Purpose and Scope of Work
+
+The purpose of this assessment is to provide information to evaluate the condition of the subject property
+in order to facilitate completion of due diligence by the addressee. This report is intended for use in
+evaluating the subject property as collateral for a mortgage loan. The purpose is accomplished by describing
+the primary systems and components of the subject property, identifying conspicuous defects or material
+deferred maintenance, and presenting an opinion of cost to remedy the observed conditions. In addition,
+this report identifies systems or components that are anticipated to reach the end of their expected useful
+life during the specified evaluation period and includes an opinion of cost for future capital replacements.
+This report may not be used for any purpose other than that described herein.
+This assessment was performed in conformance with the scope and limitations as set forth by ASTM E201815 “Standard Guide for Property Condition Assessments: Baseline Property Condition Assessment Process”
+(the Standard) and as specified in the engagement agreement that initiated this work.
+Due to time and budgetary constraints of the scope of work, this report does not reflect the investigative
+effort and detailed evaluation required to adequately address the risks associated with the purchase or
+operations of the subject property. Additionally, this report may contain conclusions and recommendations
+that reflect the stated or implied risk tolerances of the addressee.
+Opinions provided in the report are conceptual in nature and may be affected by the availability of
+information, concealed conditions, the objectives and scope of work as communicated by the addressee,
+management and maintenance activities, and other considerations.
+
+1.2
+
+Cost Evaluation Methodology
+
+Opinions of costs presented within this report are based on construction costs developed by construction
+resources such as Marshall & Swift, RS Means, Partner’s experience with past costs for similar projects, city
+cost indexes, consultations with local specialty contractors, client-provided information, and assumptions
+regarding future economic conditions. Actual cost estimates are determined by many factors including but
+not limited to: choice and availability of materials, choice and availability of a qualified contractor, regional
+climate zone, quality of existing materials, site compatibility, and access to the subject property and
+buildings. In addition, opinions of costs are based solely on material replacement and do not account for
+soft costs.
+Items included in the replacement reserve table are determined based upon the estimated useful life (EUL)
+of a system or component, the apparent effective age (EA) of the system, and the remaining useful life (RUL)
+of that system. Factors that may affect the age and condition of a system include, but are not limited to, the
+frequency of use, exposure to environmental elements, quality of construction and installation, and amount
+of maintenance provided. Based on these factors, a system may have an effective age that is greater or less
+than its actual chronological age.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 1
+
+1.3
+
+Descriptive Qualifiers
+
+The following definitions and terminology are used in this report regarding the physical condition of the
+project, and the estimated life expectancies/age of the components and systems.
+Good: In working condition and does not require immediate or short-term repairs above an agreed
+threshold.
+Fair: In working condition, but may require immediate or short-term repairs above an agreed threshold.
+Poor: Not in working condition or requires immediate or short-term repairs substantially above an agreed
+threshold.
+The agreed threshold is presumed to be the de minimis reporting threshold, unless otherwise specified in
+this report.
+Unless stated otherwise in this report, the systems reviewed are considered to be in good condition and
+their performance appeared to be satisfactory.
+
+1.4
+
+Addressee Reliance
+
+HPS Investment Partners, LLC engaged Partner to perform this assessment in accordance with an agreement
+governing the nature, scope and purpose of the work as well as other matters critical to the engagement.
+All reports, both verbal and written, are for the sole use and benefit of HPS Investment Partners, LLC. Either
+verbally or in writing, third parties may come into possession of this report or all or part of the information
+generated as a result of this work. In the absence of a written agreement with Partner granting such rights,
+no third parties shall have rights of recourse or recovery whatsoever under any course of action against
+Partner, its officers, employees, vendors, successors or assigns. Any such unauthorized user shall be
+responsible to hold Partner, Client and their respective officers, employees, vendors, successors and assigns
+for any unauthorized use of the report. Unauthorized use of this report shall constitute acceptance of and
+commitment to these responsibilities, which shall be irrevocable and shall apply regardless of the cause of
+action or legal theory pled or asserted. Additional legal penalties may apply.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 2
+
+2.0
+
+RECONNAISSANCE, REGULATORY AND DOCUMENT REVIEW
+
+2.1
+
+Site Reconnaissance
+
+Date:
+
+July 7, 2022
+
+Weather:
+
+Partial cloud cover, approximately 82° Fahrenheit
+
+Field Assessor:
+
+Renil George
+
+Escort:
+
+Shelton Rumph
+Security Guard, Criterion Group,
+973-583-9689
+
+Limiting Conditions
+The performance of this assessment was limited by the following conditions:
+•
+
+Observed tenant areas were selected by the escort. The observed conditions were presumed to
+be indicative of areas throughout the subject property.
+
+•
+
+Safe access was not provided to the roof of the building.
+
+•
+
+Roofs (20 buildings) were pitched slanting (shed type), low slope, barrel type with skylights, not
+safely accessible, and were observed from ground level.
+
+•
+
+A pre-survey questionnaire was not completed at the time of the assessment.
+
+•
+
+The site contact did not know roof ages, any CAPEX item in the last 3 to 5 years, or planned
+improvements.
+
+2.2
+
+•
+
+Existing tenant lease agreement type unknown (Tenant Vs landlord responsibilities)
+
+•
+
+Unknown roof ages, parking spaces, and dates of construction
+
+Property Personnel Interviewed/Contacted
+
+The site escort was interviewed during the course of the survey. Shelton Rumph has been associated with
+the subject property for approximately three years and was cooperative during the property observations.
+Shelton Rumph appeared to have limited knowledge about the subject property and maintenance practices.
+
+2.3
+
+Regulatory Compliance Inquiry
+
+Building Codes
+Contact:
+Findings:
+
+Borough of Kenilworth, Building Department
+
+Online OPRA
+Request:
+Laura Contact Info:
+Reinerstein – RMC, Borough Clerk
+No Violations
+Violations
+
+Phone: (908) 276-0685 Fax: (908)
+276-7688
+Awaiting response
+
+Awaiting response. A written request for information was submitted on June 23, 2022; no
+response was received prior to the preparation of this report.
+Fire or Life Safety
+Contact:
+Findings:
+
+Borough of Kenilworth, Fire Department
+
+Online OPRA
+Request:
+Laura Contact Info:
+Reinerstein – RMC, Borough Clerk
+No Violations
+Violations
+
+Phone: (908) 276-0685 Fax: (908)
+276-7688
+Awaiting response
+
+Awaiting response. A written request for information was submitted on June 23, 2022; no
+response was received prior to the preparation of this report.
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 3
+
+Zoning
+Contact:
+Findings:
+
+Borough of Kenilworth, Zoning Department
+Online PDF Zoning Map September Contact Info:
+2015
+No Violations
+Violations
+
+732-388-4765
+Awaiting response
+
+No violations reported. According to a review of the zoning map obtained from Borough
+of Kenilworth Online PDF Zoning Map dated September 2015, the subject property is
+zoned I- Industrial. The permitted uses listed in the zoning regulations include industrial
+and warehouse.
+This information does not constitute a detailed regulatory-compliance investigation and any code
+compliance issues noted in this report are based on information provided by the regulatory agencies noted
+above. If possible, the provided information was confirmed with on-site observations. Additional
+information that is received within 30 days of the site visit will be forwarded upon receipt.
+
+2.4
+
+Document Review
+
+The following documents were readily available or provided to Partner for review as part of this assessment.
+•
+
+New Jersey Online Property Information (https://newjersey.maps.arcgis.com/)
+
+•
+
+Borough of Kenilworth Zoning Map, dated September 2015
+
+•
+
+Federal Emergency Management Agency (FEMA) flood hazard layer map
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 4
+
+3.0
+
+PROPERTY CHARACTERISTICS
+
+3.1
+
+Parcel Configuration
+
+The subject property improvements were placed upon one parcel. The parcels were irregularly shaped 43.40
+
+3.2
+
+Site Improvements
+
+3.2.1 Topography and Storm Water Drainage
+The general vicinity was moderately sloped. The subject property sloped southwest.
+Storm water runoff from the roofs of the subject buildings, landscaped areas, and paved areas appeared to
+be removed primarily by sheet flow action across paved surfaces, which drain to the public right of way,
+and to on-site storm water drains. The subject property was connected to a storm sewer system that was
+owned and maintained by the municipality.
+Survey Condition and Analysis
+The topography appeared to be in good overall condition and appeared to adequately accommodate the
+built improvements. Routine maintenance is anticipated throughout the evaluation period.
+Precipitation was not present during the walk-through survey; consequently, direct observation of the
+operation of the storm water drainage system was not possible.
+
+3.2.2 Vehicular Access, Paving
+Vehicular access was provided by two-way drive lanes leading from the adjacent public right-of-way to the
+on-site parking areas and drive aisles. Signalization was not provided at the entrance point to the subject
+property.
+Parking Type
+
+Paving
+
+Total
+Spaces
+
+Surface lots
+
+Asphalt
+
+N/A
+
+ADA
+(Including
+Van)
+
+Van
+
+N/A
+
+N/A
+
+Curbing placed at the parking area perimeters and interior islands consisted of cast-in-place concrete.
+Survey Condition and Analysis
+Asphalt pavement appeared to be in good to fair condition. Linear cracking, “map” or “alligator” cracking,
+and pothole formation were noted at the drive aisle and parking. Based on the EUL and apparent condition,
+Partner recommends asphalt pavement milling and overlay (20%) of asphalt paved parking areas. An
+opinion of cost for this work is included in Table 1.
+Asphalt seal coat appeared to be in good to fair condition.
+Curbing appeared to be in good condition. Routine maintenance is anticipated throughout the evaluation
+period.
+Reapplication of seal coating and striping is anticipated throughout the evaluation period. An opinion of
+cost for this work is included in Table 2.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 5
+
+3.2.3 Walkways, Grade-Level Steps and Ramps
+Building entrance flatwork and pedestrian walkways consisted of cast-in-place concrete construction.
+Sidewalk grade changes were minor; steps and significant ramps were not present.
+Survey Condition and Analysis
+The pedestrian walkways appeared to be in good overall condition. Routine maintenance is anticipated
+throughout the evaluation period.
+
+3.2.4 Landscaping and Irrigation
+Landscaped areas consisted of shrubs, grass-covered lawns, and trees in areas not occupied by buildings,
+walkways, or pavement. An underground automatic irrigation system was not present.
+Survey Condition and Analysis
+Vegetative materials appeared to be in good overall condition. The overall conditions of the landscaping
+and maintenance practices by the landscape service appear to be adequate. Routine maintenance, including
+as-needed replacement of vegetation, is anticipated throughout the evaluation period.
+
+3.2.5 Retaining Walls
+Retaining walls were not present.
+
+3.2.6 Site and Building Signage
+Property identification was primarily provided by facade-mounted, tenant-specific, and building number
+signages.
+Survey Condition and Analysis
+The signage appeared to be in good condition. Sign painting or replacement can be conducted on an asneeded basis during the evaluation period as part of routine maintenance.
+
+3.2.7 Perimeter Walls, Gates, and Fences
+Chain-link fencing and metal security fencing were observed along the perimeter of the subject property.
+Survey Condition and Analysis
+The fencing and gates appeared to be in good overall condition. Routine maintenance is anticipated during
+the evaluation period.
+
+3.2.8 Exterior Lights
+Outdoor lighting was provided by pole-mounted light fixtures generally located in parking areas and along
+drive aisles and facade-mounted light fixtures. Soffit areas over entryways had recessed halogen and LED
+lighting. Photocells and manual switches controlled exterior lighting.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 6
+
+Survey Condition and Analysis
+The walk-through survey was conducted during daylight hours and lighting operation could not be verified.
+Based on the number of lights provided and the spacing, the lighting appeared to be adequate and was
+reported to be sufficient for the subject property.
+The light fixtures were reported and appeared to be in good overall condition. The light fixtures are
+anticipated to require minimal repairs and replacements that can be addressed as part of routine
+maintenance during the evaluation period.
+
+3.2.9 Site Amenities
+Recreational facilities and additional site amenities were not present.
+
+3.2.10 Special Utility Systems
+Special utility systems were not present at the subject property.
+
+3.2.11 Utility Service Providers
+Utility
+
+Provider
+
+Storm Water
+
+Borough of Kenilworth
+
+Electric
+
+Public Service Electric and Gas
+(PSE&G)
+
+Gas
+Water
+
+Public Service Electric and Gas
+(PSE&G)
+NJ American Water
+
+Sanitary Sewer
+
+Borough of Kenilworth
+
+Meter configuration and location
+Tenant unit meters were located on the
+exterior wall and electrical room of each
+building
+Tenant unit meters were located on the
+exterior of each building
+The building water meter was located in a
+below grade vault
+
+Survey Condition and Analysis
+No issues or service deficiencies were reported. Routine maintenance is anticipated throughout the
+evaluation period.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 7
+
+4.0
+4.1
+
+STRUCTURAL FRAME AND BUILDING ENVELOPE
+Foundation/Substructure
+
+Based on experience with similar structures in this geographic region, foundations were likely to consist of
+a conventional concrete spread footing system with a reinforced-concrete slab-on-grade over continuous
+footings at the perimeter and isolated pad footings at interior bearing locations. Cast-in-place concrete
+foundation walls were observed at the perimeters of the below grade structures of Building #60.
+Survey Condition and Analysis
+Evidence of structural distress indicative of foundation settlement was not observed. Foundations appeared
+to be in functional condition. Normal monitoring of the foundation is anticipated during the evaluation
+period.
+
+4.2
+
+Building Frame
+
+According to experience with similar structures in this geographic region and the observation of exposed
+structure, the buildings were constructed of concrete masonry unit load bearing walls with interior steel
+columns, wood framing, and steel-framing. Upper floors consisted of steel-framing with steel decking. The
+roof structure was constructed of steel-framing and pitched wood framing topped with plywood and metal
+decking.
+Survey Condition and Analysis
+Evidence of structural distress indicative of framing failure was not observed. Observed framing appeared
+to be in functional condition. Periodic monitoring of the framing is recommended throughout the
+evaluation period.
+
+4.3
+
+Facades or Curtain Walls
+
+4.3.1 Exterior Walls
+The exterior walls of the building consisted primarily of brick masonry, concrete masonry units, stucco, and
+corrugated metal panel. Soffits were stucco.
+Survey Condition and Analysis
+The exterior walls appeared to be in generally good condition.
+Exterior siding components were factory finished and are not anticipated to require painting during the
+evaluation period. Exterior paint was observed to be in good condition.
+Exterior wall sealants were observed to be in good condition. Reapplication of sealants is anticipated during
+the evaluation period. This work can be performed in conjunction with cleaning, painting and minor facade
+repairs.
+Exterior cleaning, painting, and sealing are anticipated during the evaluation period. An opinion of cost for
+this work is included in Table 2.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 8
+
+4.3.2 Windows
+Windows appeared to be double-pane, fixed units and single-pane, fixed units. Window framing appeared
+to be aluminum and vinyl.
+Survey Condition and Analysis
+Windows were reported and appeared to be in good condition. No signs of window leaks or condensation
+were evident during the observation. Window sealants appeared to be intact, with no signs of deterioration.
+Routine maintenance is anticipated during the evaluation period.
+
+4.3.3 Doors
+The main entrance consisted of painted metal doors and aluminum-framed doors with full-height glazing
+set in an aluminum storefront system. Hardware included exterior pulls, lever handles, horizontal exit bars,
+and closers.
+Multiple overhead doors are located are located at the side portion of each warehouse buildings. The
+overhead doors consisted of overhead, steel panel roll-up doors that were operated with electric openers.
+The dock doors were furnished with varying levels of dock equipment including bumpers, seals, levelers,
+and built-up concrete ramps permitting drive-in access.
+Survey Condition and Analysis
+Doors were reported and appeared to be in good condition. Routine maintenance is anticipated throughout
+the evaluation period.
+
+4.4
+
+Roof
+
+4.4.1 Roofing Materials
+Buildings #22, #23, #24, #39, #41, #42, and #43: Roof coverings consisted of single-ply thermoplastic
+membrane, single-ply thermoset membrane, and built-up roofing with mineral-surfaced cap sheet over
+barrel or bow truss roof construction.
+Buildings #17, #21, #20, #33, #31/32, #30, #59, and #60:
+
+Roof coverings consisted of single-ply
+
+thermoplastic membrane, single-ply thermoset membrane, and built-up roofing with mineral-surfaced cap
+sheet over low-slope roof construction.
+Buildings #19, #25, #28, and #40:
+
+Roof coverings consisted of corrugated metal panels, single-ply
+
+thermoplastic membrane, and built-up roofing with mineral-surfaced cap sheet over pitched roof
+construction.
+Exterior walls extended above the roof plane as parapets and were capped with coping. Roof materials
+covered the inboard sides of the parapets. Materials terminated under the metal coping. Flashing materials
+appeared to be metal.
+Conventional translucent plexiglass and curb-mounted skylights were provided. The skylights were factory
+flashed.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 9
+
+Structure
+
+Roof Type
+
+Approximate Area
+
+Installation
+Date
+
+Warranty Provider
+and Duration
+
+Building #17
+
+Flat, Single-ply
+thermoset
+membrane
+(EPDM)
+Pitched, Standing
+seam metal
+panels
+Built-up roofing
+with mineralsurfaced cap
+sheet
+Low Slope,
+Single-ply
+thermoplastic
+membrane (TPO
+or PVC)
+Gable, Single-ply
+thermoset
+membrane
+(EPDM)
+Gable, Single-ply
+thermoplastic
+membrane (TPO
+or PVC)
+Gable, Single-ply
+thermoplastic
+membrane (TPO
+or PVC)
+Pitched, Singleply thermoplastic
+membrane (TPO
+or PVC)
+Pitched, Singleply thermoplastic
+membrane (TPO
+or PVC)
+Flat, combination
+of single-ply
+thermoset
+membrane
+(EPDM) and
+thermoplastic
+membrane (TPO
+or PVC)
+
+2,800 SF
+
+Unknown
+
+Not provided
+
+2,600 SF
+
+Unknown
+
+Not provided
+
+1,200 SF
+
+Unknown
+
+Not provided
+
+20,800 SF
+
+Unknown
+
+Not provided
+
+25,200 SF
+
+Unknown
+
+Not provided
+
+22,100 SF
+
+Unknown
+
+Not provided
+
+22,500 SF
+
+Unknown
+
+Not provided
+
+11,600 SF
+
+Unknown
+
+Not provided
+
+3,600 SF
+
+Unknown
+
+Not provided
+
+20,700 SF
+
+Unknown
+
+Not provided
+
+Building #19
+
+Building #20
+
+Building #21
+
+Building #22
+
+Building #23
+
+Building #24
+
+Building #25
+
+Building #28
+
+Building #30
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 10
+
+Building #31 &
+#32
+
+Building #33
+
+Building #39
+
+Building #40
+
+Building #41
+
+Building #42
+
+Building #43
+
+Building #59
+
+Flat, combination
+of single-ply
+thermoset
+membrane
+(EPDM) and
+thermoplastic
+membrane (TPO
+or PVC)
+Flat, single-ply
+thermoplastic
+membrane (TPO
+or PVC)
+Combination of
+single-ply (Gable)
+thermoset
+membrane
+(EPDM) and
+(Pitched)
+thermoplastic
+membrane (TPO
+or PVC)
+Flat, single-ply
+thermoplastic
+membrane (TPO
+or PVC)
+Gable, Single-ply
+thermoset
+membrane
+(EPDM)
+Combination of
+single-ply (Gable)
+thermoset
+membrane
+(EPDM) and
+(Pitched)
+thermoplastic
+membrane (TPO
+or PVC)
+Gable, Single-ply
+thermoset
+membrane
+(EPDM)
+Flat, single-ply
+thermoset
+membrane
+(EPDM)
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 11
+
+32,500 SF
+
+Unknown
+
+Not provided
+
+19,500 SF
+
+Unknown
+
+Not provided
+
+12,300 SF
+
+Unknown
+
+Not provided
+
+5,200 SF
+
+Unknown
+
+Not provided
+
+19,100 SF
+
+Unknown
+
+Not provided
+
+19,300 SF
+
+Unknown
+
+Not provided
+
+19,100 SF
+
+Unknown
+
+Not provided
+
+22,200 SF
+
+Unknown
+
+Not provided
+
+Building #60
+
+Flat, built-up
+roofing with
+mineral-surfaced
+cap sheet
+
+12,500 SF
+
+Unknown
+
+Not provided
+
+Survey Condition and Analysis
+The roofing systems appeared to be in good to fair overall condition. The roof installation dates were not
+reported and the buildings have unknown roof ages. Partner recommends a roof survey by a licensed
+roofing contractor to determine existing conditions and remaining useful lives on all buildings' roofs. An
+opinion of cost for this work is included in Table 1. An allowance for roof maintenance is provided in Table
+2.
+Parapets appeared to be in good overall condition. Routine maintenance is anticipated throughout the
+evaluation period.
+Skylights appeared to be in good condition. No evidence of water intrusion was noted. Routine maintenance
+is expected throughout the evaluation period.
+
+4.4.2 Roof Drainage
+Storm water runoff for the roof was directed gutters and downspouts, scuppers, roof drains connected to
+internal leaders, over the edge, and drain over the edge of the roof that discharge at grade and directly into
+the storm drain system depending on location and gravity flow over the edge. Emergency overflow scuppers
+were provided at the rear of the building.
+Survey Condition and Analysis
+Roof drainage components appeared to be in good condition. Roof drainage components should be
+repaired or replaced as needed during roof replacement activities, or as part of routine maintenance.
+
+4.5
+
+Fire Escapes, Stairs, Balconies, Upper-Level Walkways, and Breezeways
+
+Roof access ladders were constructed of steel framing with steel treads.
+Interior stairs were steel framed with precast concrete treads. Open sides were protected by steel pipe and
+steel guardrails. Steel handrails were located on walls at closed sides.
+Survey Condition and Analysis
+Stairs and balconies appeared to be in good condition. Routine maintenance is anticipated throughout the
+evaluation period. Painting of the stairs, balconies, and guard rails can be performed in conjunction with
+the painting of the building exterior or interior common areas.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 12
+
+5.0
+5.1
+
+MECHANICAL AND ELECTRICAL SYSTEMS
+Plumbing, Domestic Hot Water, and Sewer Systems
+
+Observation of visible piping at plumbing stub-outs indicated that the piping was copper. Domestic water
+piping was reported to be copper by the site escort. Observation of visible vent piping indicated that the
+piping was cast iron. Sanitary drainage and vent piping were reported to be cast iron by the site escort.
+Hot water was supplied by individual unit electric / gas water heaters. Observed water heaters were
+manufactured by A.O. Smith and have a capacities of 20-40 gallons.
+Survey Condition and Analysis
+The plumbing, sanitary drainage, and vent systems were reported to be in good overall condition. Evidence
+of leaks and faulty piping was not observed. Routine maintenance is anticipated throughout the evaluation
+period.
+The water heating equipment appeared to be in good condition and varied in age. Routine maintenance is
+anticipated during the evaluation period. Reportedly repair or replacement of the water heating equipment
+was a tenant responsibility; as such, no costs for repair or replacement are included in the cost tables.
+
+5.2
+
+Heating, Ventilation, and Air Conditioning (HVAC)
+
+Equipment
+description
+Electric space
+radiators
+(Warehouse
+Building)
+Ceiling-hung
+space heater
+units
+(Warehouse
+Building)
+Through-wall
+air conditioning
+unit
+(Warehouse
+Building)
+Split system
+condenser unit
+(Warehouse
+Building)
+Electric
+perimeter
+radiator units
+(Office
+Building)
+Split system
+condenser unit
+
+Model number
+
+Size
+
+Manufacture
+date
+
+Condition
+
+Unknown
+
+Unknown
+
+Unknown
+
+Good to Fair condition
+
+Unknown
+
+Unknown
+
+Unknown
+
+Good to Fair condition
+
+Unknown
+
+Approx.
+0.5-1 ton
+
+Unknown
+
+Good to Fair condition
+
+Unknown
+
+Approx. 2
+tons
+
+Unknown
+
+Good to Fair condition
+
+Unknown
+
+Unknown
+
+Unknown
+
+Good to Fair condition
+
+Information not provided
+
+Approx.
+3-5 tons
+
+Unknown
+
+Good condition.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 13
+
+Split system
+furnace unit
+Self contained
+roof top unit
+
+Unknown
+
+Approx.
+1-2 tons
+
+Unknown
+
+Good to Fair condition
+
+Unknown
+
+Unknown
+
+Unknown
+
+Good to Fair condition
+
+Split system: Heating and cooling were provided by direct expansion HVAC split systems. The Office
+Building system had a gas-fired furnace, a condensing unit while the Warehouse Building had only a heat
+pump unit. The furnace units provided heat through gas-fired heating coils and were typically located in a
+utility closet and above the ceilings Manufactured by Varies, condensing units were located at grade. Units
+had a typical input capacity of 3-5 tons and used R410A refrigerant. Distribution of the conditioned air was
+by concealed sheet metal ductwork. Manufactured by Varies, the heat pumps were located at grade, had a
+typical input capacity of 2-3 tons. and utilized R410a refrigerant. Distribution of the conditioned air was by
+concealed sheet metal ductwork. Temperature was controlled by local thermostats located throughout the
+interior space. The Warehouse building were heated by propane gas-fired space heaters and ceiling-hung
+radiant units. Ventilation was provided by bathroom fans.
+Through-wall air conditioning unit: The office in the Warehouse Building is cooled by a through-wall air
+conditioning unit. Temperature was controlled by local thermostats located throughout the interior space.
+Electric Space Heaters: The Office areas and restrooms are heated by electric perimeter baseboard heaters.
+Temperature was controlled by local thermostats located throughout the interior space.
+Survey Condition and Analysis
+The split systems appeared to be in good condition and were observed to be of various ages. Split-system
+condensing and heat pump units replacement is anticipated throughout the evaluation period.
+The baseboard electric heater appeared to be in good conditon.
+The HVAC system appeared to be in good condition. Reportedly, repair or replacement of the packaged
+units was a tenant responsibility; as such, no costs for repair or replacement are included in the cost tables.
+
+5.3
+
+Electrical
+
+Electrical service was provided via several pad-mounted utility-owned transformers located near the
+property.
+Each building was configured with individual electrical service. Main electrical service was rated at 6001200-amp, 3 phase, 4 wire 120/240-volt at the main distribution panel. Breaker panels for lighting and
+power controls were located in the electrical space and along the inside face of the exterior wall. Observed
+panels were manufactured by Square D, Federal, and Siemens. Ground fault circuit interrupter (GFCI) outlets
+were observed in wet areas.
+According to the site escort the electrical branch wiring was copper.
+Federal Pacific Electric (FPE) Stab-Lok circuit breaker panels were not observed.
+Emergency electrical power was provided by an emergency generator. Located on the east side of the
+building #60, the diesel-powered generator was manufactured by Gillete (rating unknown). The generator
+reportedly provided power for emergency and life safety systems throughout the building.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 14
+
+Survey Condition and Analysis
+The electrical service was reported to be adequate for the current demands of the facility. The electrical
+systems appeared to be in good condition. Routine maintenance is anticipated throughout the evaluation
+period.
+The emergency generator was reported to be in good condition and was reportedly test-operated on a
+regular basis. Routine maintenance is anticipated during the evaluation period.
+
+5.4
+
+Vertical Transportation
+
+Vertical conveyances were not present.
+
+5.5
+
+Life Safety and Fire Protection
+
+5.5.1 Fire Suppression Systems
+The building was protected by a wet-pipe automatic sprinkler system. Building #17 was noted to be the
+central diesel-fired Fire Pump room for the wet sprinkler system for all the buildings. Water was supplied
+via a water storage tank. A 330,000-gallon water storage tank was located outside the fire suppression
+room. The fire suppression system was supplemented by a 200 horsepower electric motor manufactured
+by Cummins. Stairwells at each floor had a standpipe with fire department connection. Fire sprinkler piping
+appeared to be steel. A sprinkler head spares cabinet was not observed; therefore the manufacturing
+company could not be identified.
+Fire extinguishers were observed in corridors and in mechanical/electrical spaces. The fire extinguishers
+were reportedly inspected on a yearly basis, with the last inspection having occurred in September 2020.
+Fire hydrants were observed along the public right-of-way, around parking lot perimeters, and near building
+entrances.
+Survey Condition and Analysis
+The fire suppression system appeared to be in good to fair overall condition. All buildings wet sprinkler
+risers and system were observed to have an expired inspection tags. The systems should be inspected, and
+documentary evidence provided immediately as a life safety issue. Partner recommends retaining a qualified
+fire safety contractor to perform inspection and to provide the tags needed. An opinion of cost for this work
+is included in Table 1. The system was reportedly tested on an annual basis, with the last inspection having
+occurred January 2021.
+The fire extinguishers appeared to be in fair condition. Expired certification tags were present at the fire
+extinguishers in tenant spaces of all buildings. Servicing and re-certification of the fire extinguishers is
+recommended. An opinion of cost for this work is included in Table 1.
+Fire hydrants were noted to be in good condition. Routine maintenance is anticipated throughout the
+evaluation period.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 15
+
+5.5.2 Alarm Systems
+The fire alarm system was reportedly comprised of smoke detectors, pull stations, alarm horn/strobes, and
+central panel. The fire alarm system components were connected to a central panel located in the utility
+room of each building. Manufactured by ADT the fire alarm control panel monitored the initiating devices.
+Survey Condition and Analysis
+The fire alarm system appeared to be in fair condition. An annual fire alarm certification tag were not present
+at the fire alarm control panel of each building. Servicing and recertification of the fire alarm system is
+recommended. An opinion of cost for this work is included in Table 1. Routine maintenance, including
+regularly-scheduled testing, is anticipated during the evaluation period. Replacement of the fire alarm panel
+is anticipated during the evaluation period. An opinion of cost for this work is included in Table 2.
+
+5.5.3 Other Systems
+Emergency lighting was typically provided by wall- and ceiling-mounted battery-operated fixtures.
+Emergency means of egress locations were indicated by illuminated exit signs.
+Survey Condition and Analysis
+The observed components appeared to be in good condition. Routine maintenance, including regularly
+scheduled testing, is anticipated during the evaluation period.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 16
+
+6.0
+6.1
+
+INTERIOR ELEMENTS
+Common Areas
+
+No interior common areas were present. Property tenant spaces were accessed directly from exterior doors.
+
+6.2
+
+Amenities and Special Features
+
+Amenities were not provided.
+
+6.3
+
+Support Areas
+
+No support areas were present.
+
+6.4
+
+Commercial Tenant Spaces
+
+Tenant occupancy included single floor tenants in individual buildings. The Office areas flooring consisted
+of carpet and vinyl floor tile. The Warehouse Building flooring consisted of exposed concrete slab. Walls
+were typically wooden paneling and painted CMU in the office areas and exposed structure in the
+warehouse areas. Ceilings were typically suspended acoustic tiles (Office) and exposed structure
+(warehouse0.
+Interior doors in the offices were typically stained, solid core wood set in metal frames.
+
+Tenant Space
+
+Square
+
+Tenant
+
+Occupied
+
+Condition Notes
+
+ID
+
+Footage
+
+Bldgs. #23 and
+
+39,888
+
+Pinnacle
+
+Yes
+
+Observed, good condition.
+
+Bldg. #25
+
+8,015
+
+Fox
+
+Yes
+
+Observed, good condition.
+
+Bldgs. #20 and
+
+4,457
+
+Passiano
+
+Yes
+
+Observed, good condition.
+
+18,598
+
+Mahone
+
+Yes
+
+Observed, good condition.
+
+Yes
+
+Observed, good condition.
+
+#24
+
+#28
+Bldg. #33
+
+Landscaping and
+Flexi Lift Forklift
+Bldg. #30
+
+17,018
+
+Total
+
+87,976
+
+FDR Hitches
+
+Survey Condition and Analysis
+The tenant finishes appeared to be in good condition. Maintenance, repair, and replacement of the tenant
+area finishes were generally tenant responsibilities, and as such, an opinion of cost for this work is not
+included in this report.
+
+6.5
+
+Residential Spaces
+
+Residential spaces were not provided.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 17
+
+7.0
+
+ACCESSIBILITY
+
+Americans with Disabilities Act
+As part of this assessment, a limited, visual, accessibility survey was conducted. The survey did not include
+taking measurements or counting accessibility elements. The scope of the survey was limited to determining
+the existence of architectural barriers or physical attributes of the subject property, which affect on-site
+parking, path of travel into and through public areas of the building, and elevators, as applicable.
+Furthermore, the scope of our survey includes only the federal requirements of the ADA; it is not intended
+to address state or local codes. Our observations were limited to the places of public accommodation on
+the subject property.
+Survey Condition and Analysis
+Based on current use, the subject property was a "commercial/industrial facility". Common area elements
+were identified that are not accessible. Non-accessible issues have been listed for future planning purposes.
+Design of the means of access is beyond the scope of this report.
+No readily apparent barriers were observed at the time of the assessment.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 18
+
+8.0
+
+SUSPECT WATER INTRUSION AND MICROBIAL GROWTH
+
+As part of performing this PCA, visual observations for overt signs of suspect mold growth were also
+performed. These observations were not performed to discover all affected areas, nor were areas of the
+subject property observed specifically for the purpose of identifying areas of suspect mold growth. The
+subject property areas viewed were limited to those necessary to perform the primary scope of this PCA.
+Survey Condition and Analysis
+Visual or olfactory indications of significant suspect microbial growth were not observed.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 19
+
+9.0
+
+NATURAL HAZARD INFORMATION
+
+Partner reviewed readily-available materials to obtain the following information. Determination of sitespecific conditions is not within the scope of this report and may require additional investigation.
+
+9.1
+
+Flood Zone
+
+According to Flood Insurance Rate Map, Community Panel Number 34039C0021F, dated September 20,
+2006, the subject property appears to be located in Zone AE; defined as areas subject to inundation by the
+1-percent-annual-chance flood event determined by detailed methods. Zone X (unshaded); defined as
+minimal risk areas outside the 1-percent and 0.2-percent-annual-chance floodplains.
+
+9.2
+
+Seismic Zone
+
+According to the seismic zone map, published in the Uniform Building Code 1997, Volume 2, Table 16.2,
+the subject property appears to be located in Seismic Zone 2A, an area with low to moderate probability of
+damaging ground motion.
+
+9.3
+
+Wind Zone
+
+Partner performed a review of the Wind Zone Map, published by the Federal Emergency Management
+Agency. According to the map, the subject property appears to be located in Wind Zone II, an area with
+design winds speeds up to 160 miles per hour. The subject property does appear to be located in a
+hurricane-susceptible zone. The subject property does not appear to be located in a special wind region.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 20
+
+10.0 OUT OF SCOPE CONSIDERATIONS
+These following items are categorically excluded from the scope of work.
+•
+
+Utilities: Operating conditions of any systems or accessing manholes or utility pits.
+
+•
+
+Structural Frame and Building Envelope: Entering of crawl or confined space areas (however,
+the field observer will observe conditions to the extent easily visible from the point of access to
+the crawl or confined space areas), determination of previous substructure flooding or water
+penetration unless easily visible or if such information is provided.
+
+•
+
+Roofs: Walking on pitched roofs, or any roof areas that appear to be unsafe, or roofs with no
+built-in access, or determining any roofing design criteria.
+
+•
+
+Plumbing: Determining adequate pressure and flow rate, fixture unit values and counts,
+verifying pipe sizes, or verifying the point of discharge for underground systems.
+
+•
+
+Heating: Observation of flue connections, interiors of chimneys, flues or boiler stacks, or tenant
+owned or maintained equipment. Entering of plenum or confined space areas.
+
+•
+
+Air conditioning & Ventilation: Process-related equipment or condition of tenant owned or
+maintained equipment. Entering of plenum or confined space areas. Testing or measurements
+of equipment or air flow.
+
+•
+
+Electrical: Removing of electrical panel and device covers, except if removed by building staff,
+EMF issues, electrical testing, or operating any electrical devices. Opining on process related
+equipment or tenant-owned equipment.
+
+•
+
+Vertical Transportation: Examining of cables, sheaves, controllers, motors, inspection tags, or
+entering elevator/ escalator pits or shafts.
+
+•
+
+Life Safety/ Fire Protection: Determining NFPA hazard classifications, classifying, or testing fire
+rating of assemblies. Determination of the necessity for or the presence of fire areas, fire walls,
+fire barriers, paths of travel, construction groups or types, or use classifications.
+
+•
+
+Interior Elements: Operating appliances or fixtures, determining or reporting STC (Sound
+Transmission Class) ratings, and flammability issues/regulations.
+
+Activity Exclusions- These activities listed below generally are excluded from or otherwise represent
+limitations to the scope of a PCA prepared in accordance with this guide (ASTM 2018-15). These should
+not be construed as all-inclusive or imply that any exclusion not specifically identified is a PCA
+requirement under this guide.
+•
+
+Providing opinions of costs that are either individually or in the aggregate less than a threshold
+amount of $3,000 for like items unless specifically requested by the addressee.
+
+•
+
+Identifying capital improvements, enhancements, or upgrades to building components,
+systems, or finishes;
+
+•
+
+Removing, relocating, or repositioning of materials, ceiling, wall, or equipment panels, furniture,
+storage containers, personal effects, debris material or finishes; conducting exploratory probing
+or testing; dismantling or operating of equipment or appliances; or disturbing personal items
+or property, that obstruct access or visibility;
+
+•
+
+Determining adequate pressure and ﬂow rate, ﬁxture-unit values and counts, verifying pipe
+sizes, or verifying the point of discharge for underground drains;
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 21
+
+•
+
+Determining NFPA hazard classiﬁcations, identifying, classifying, or testing ﬁre rating of
+assemblies. Determination of the necessity for or the presence of ﬁre areas, ﬁre walls, ﬁre
+barriers, accessible routes, construction groups or types, or use classiﬁcations;
+
+•
+
+Preparing engineering calculations to determine any system’s, component’s or equipment’s
+adequacy or compliance with any specific or commonly accepted design requirements or
+building codes, or preparing designs or specifications to remedy any physical deficiencies;
+
+•
+
+Identification of code or OSHA compliance beyond what has been reported through
+communication with local regulatory offices.
+
+•
+
+Taking measurements or quantities to establish or confirm any information provided by the
+owner or user;
+
+•
+
+Reporting on the presence or absence of pests or insects;
+
+•
+
+Reporting on the condition of subterranean or concealed conditions as well as items or systems
+that are not permanently installed or are tenant-owned and maintained;
+
+•
+
+Entering or accessing any area deemed to potentially pose a threat of dangerous or adverse
+conditions with respect to the field observer’s health or safety;
+
+•
+
+Performing any procedure, that may damage or impair the physical integrity of the property,
+any system, or component;
+
+•
+
+Providing an opinion on the operation of any system or component that is shut down;
+
+•
+
+Evaluating the Sound Transmission Class or acoustical or insulating characteristics of systems
+or components;
+
+•
+
+Providing an opinion on matters regarding security and protection of occupants or users from
+unauthorized access;
+
+•
+
+Evaluating the ﬂammability of materials and related regulations;
+
+•
+
+Operating or witnessing the operation of lighting or any other system controlled by a timer,
+operated by the maintenance staff, or operated by service companies;
+
+•
+
+Providing an environmental assessment or opinion on the presence of any environmental issues
+such as potable water quality, asbestos, hazardous wastes, toxic materials, the location and
+presence of designated wetlands, IAQ, etc. unless specifically defined within the agreed scope;
+
+•
+
+Evaluating systems or components that require specialized knowledge or equipment;
+
+•
+
+Entering of plenum or conﬁned space areas.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 22
+
+11.0 LIMITATIONS
+This assessment is based upon the guidelines set forth by the ASTM Standard current to the issuance of
+this report and subject to the limitations stated therein. Our review of the subject property consisted of a
+visual assessment of the site, the structure(s) and the accessible interior spaces. Any technical analyses made
+are based on the appearance of the improvements at the time of this assessment and the evaluator’s
+judgment of the physical condition of the subject property components, their ages and their EUL.
+Consequently, this report represents the condition of the subject property at the time of observation.
+Acceptance and use of this report infers acknowledgment that the condition of the property may have
+changed subsequent to site observations and/or that additional information may have been discovered,
+and that Partner, its officers, employees, vendors, successors or assigns, are not liable for changes in the
+condition of the property, failures in property components or systems, and damages that may occur as a
+result of the changes or failures.
+Information regarding the subject property is obtained from a site walk-through survey, local government
+agency records review, interviews and client-, tenant- or property owner-provided documents. No material
+sampling, invasive or destructive investigations, equipment or system testing was performed. The
+observations and related comments within this report are limited in nature and should not be inferred as a
+full and comprehensive survey of the building components and systems.
+Information regarding operations, conditions, and test data provided by the Addressee, property owner, or
+their respective representatives has been assumed to be factual and complete. Information obtained from
+readily-available sources, including internet research and interview of municipal officials or representatives
+is assumed to be factual and complete. No warranty is expressed or implied, except that the services
+rendered have been performed in accordance with generally-accepted practices applicable at the time and
+location of the study.
+The actual performance of systems and components may vary from a reasonably expected standard and
+will be affected by circumstances that occur after the date of the evaluation. This assessment, analyses and
+opinions expressed within this report are not representations regarding either the design integrity or the
+structural soundness of the project.
+The report does not identify minor, inexpensive repairs or maintenance items, which should be part of the
+subject property owner’s current operating budget so long as these items appear to be addressed on a
+regular basis. The report does identify infrequently occurring maintenance items of significant cost, such as
+exterior painting, roofing, deferred maintenance and repairs and replacements that normally involve major
+expense or outside contracting.
+The assessment of the roof, façade and substructure contained herein cannot specifically state that these
+items are free of leaks and/or water intrusion and should not be interpreted as such. Comments made with
+respect to the condition of the systems are limited to visual observation and information provided by the
+designated site contacts and/or on-site representatives and their contractors/vendors. The evaluation of
+these systems did not include any sampling and/or testing. A more extensive evaluation may be required if
+a comprehensive report on the condition of these systems is required.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 23
+
+Performance of a comprehensive building, fire or zoning code review is outside of the scope of work for
+this report. Information provided within this report is based on readily-available information or interview of
+municipal officials.
+This report presents an evaluation of the accessibility of the subject property as specified in the engagement
+agreement. This report does not present an audit of all components specified in federal, state or local
+accessibility regulations. Instead, this review observed general design components such as routes of travel,
+door hardware, plumbing amenities, elevator controls and signals, basic emergency alarm components and
+signage. This report is not a comprehensive Americans with Disabilities Act review.
+Acceptance and use of this report infers acknowledgment that the condition of the property may have
+changed and that Partner, its officers, employees, vendors, successors or assigns, are not liable for changes
+in the condition of the property, failures in property components or systems, and damages that may occur
+as a result of the changes or failures.
+
+Property Condition Report
+Project No. 22-374607.52
+July 13, 2022
+Page 24
+
+FIGURES
+1. SITE LOCATION MAP
+2. SITE PLAN
+
+Site Location
+
+KEY:
+Subject Property
+
+FIGURE 1: SITE LOCATION MAP
+Project No. 22-374607.52
+
+Water
+Tank
+
+Guard
+house
+
+Property Line
+
+Site
+Entry
+
+Diesel &
+Gas Tanks
+
+KEY:
+Subject Property
+
+FIGURE 2: SITE PLAN
+Project No. 22-374607.52
+
+APPENDIX A: SITE PHOTOGRAPHS
+
+1.
+
+Elevation view of the Subject Property building #60
+
+2.
+
+Elevation view of the Subject Property building #59
+
+3.
+
+Elevation view of the Subject Property building
+
+4.
+
+Elevation view of the Subject Property buildings
+
+5.
+
+Elevation view of the Subject Property building #39
+
+6.
+
+Elevation view of the Subject Property buildings
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+7.
+
+Elevation view of the Subject Property buildings
+
+8.
+
+Elevation view of the Subject Property buildings
+
+9.
+
+Elevation view of the Subject Property buildings
+
+10.
+
+Storm water inlet drain
+
+11.
+
+Condition of the asphalt pavement parking area and
+drive-lanes
+
+12.
+
+Condition of the asphalt pavement parking area and
+drive-lanes
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+13.
+
+Condition of the asphalt pavement parking area and
+drive-lanes
+
+14.
+
+Condition of the asphalt pavement parking area and
+drive-lanes
+
+15.
+
+Condition of the asphalt pavement parking area and
+drive-lanes
+
+16.
+
+Condition of the asphalt pavement parking area and
+drive-lanes
+
+17.
+
+Loading area ramp; Building #30
+
+18.
+
+Overview of landscaping
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+19.
+
+Landscape island
+
+20.
+
+Lawn areas
+
+21.
+
+Building identification signage
+
+22.
+
+Steel-link fencing
+
+23.
+
+Security fencing and gates
+
+24.
+
+Guardhouse
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+25.
+
+Onsite waste dumpsters
+
+26.
+
+Utility gas meter
+
+27.
+
+Steel framing and decking inside a building
+
+28.
+
+Steel framing and decking inside a building
+
+29.
+
+Interior access stairs
+
+30.
+
+Exterior façade elements
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+31.
+
+Exterior façade elements
+
+32.
+
+Exterior façade elements
+
+33.
+
+Exterior façade elements
+
+34.
+
+Exterior façade elements
+
+35.
+
+Overhead doors
+
+36.
+
+Overhead doors
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+37.
+
+Roof parapet and flat roof finishes; building #60
+
+38.
+
+Flat roof surface view; building #60
+
+39.
+
+Roof access hatch; building #60
+
+40.
+
+Boiler unit (abandoned unit) in one of the buildings
+
+41.
+
+Hot water heater in one of the buildings
+
+42.
+
+Roof mounted condenser units
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+43.
+
+Pad-mounted condenser unit
+
+44.
+
+Electric baseboard for heating
+
+45.
+
+Ceiling electric space heater
+
+46.
+
+Pad-mounted utility transformer
+
+47.
+
+Electrical distribution panels
+
+48.
+
+Electrical distribution panels
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+49.
+
+Electrical breaker panel
+
+50.
+
+Electrical breaker panels
+
+51.
+
+Emergency generator for building #60
+
+52.
+
+Wet sprinkler fire pump
+
+53.
+
+Fire jockey pump
+
+54.
+
+Wet sprinkler riser
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+55.
+
+Wall mounted fire hydrants
+
+56.
+
+Fire hydrant
+
+57.
+
+Fire alarm control panel
+
+58.
+
+Fire extinguisher
+
+59.
+
+Restroom finishes
+
+60.
+
+Restroom finishes
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+61.
+
+Steel access stairs to the mezzanine floor
+
+62.
+
+Warehouse interior finishes
+
+63.
+
+Office interior finishes
+
+64.
+
+Warehouse area interior finishes
+
+65.
+
+Warehouse area interior finishes
+
+66.
+
+Warehouse area interior finishes
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+67.
+
+Vacant warehouse area interior finishes
+
+68.
+
+Vacant warehouse area interior finishes
+
+69.
+
+ADA toilet w/ grab bars
+
+70.
+
+General deterioration, alligator skin map cracking,
+faded striping, and some potholes on the asphalt
+pavement
+
+71.
+
+General deterioration, alligator skin map cracking,
+faded striping, and some potholes on the asphalt
+pavement
+
+72.
+
+General deterioration, alligator skin map cracking,
+faded striping, and some potholes on the asphalt
+pavement
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+73.
+
+Expired sprinkler inspection tags noted in all
+buildings
+
+75.
+
+Missing current FA panel inspection reports for all
+buildings
+
+Appendix A: Site Photographs
+Project No. 22-374607.52
+
+74.
+
+Expired Fire Extinguisher tags in all buildings
+
+APPENDIX B: SUPPORTING DOCUMENTATION
+
+SUBJECT PROPERTY:
+I - INDUSTRIAL
+Industrial Outdoor Storage
+Portfolio
+251 Monroe St
+KENILWORTH, NJ 07033
+
+N
+a
+tio
+n
+a
+lF
+lo
+o
+dH
+a
+z
+a
+rdL
+a
+y
+e
+rF
+IR
+M
+e
+tte
+
+L
+e
+g
+e
+n
+d
+
+7
+4
+°1
+8
+'3
+4
+"W
+4
+0
+°4
+0
+'5
+6
+"N
+
+S
+E
+EF
+ISR
+E
+P
+O
+R
+TF
+O
+RD
+E
+T
+A
+IL
+E
+DL
+E
+G
+E
+N
+DA
+N
+DIN
+D
+E
+XM
+A
+PF
+O
+RF
+IR
+M
+P
+A
+N
+E
+LL
+A
+Y
+O
+U
+T
+
+W
+ith
+o
+u
+tB
+a
+seF
+lo
+o
+dE
+le
+va
+tio
+n(B
+F
+E
+)
+
+SUBJECT PROPERTY:
+
+Z
+o
+n
+eA
+,V
+,A
+9
+9
+
+O
+,A
+H
+,V
+E
+,A
+R
+W
+ithB
+F
+Eo
+rD
+e
+p
+thZoneAE,A
+
+S
+P
+E
+C
+IA
+LF
+L
+O
+O
+D
+H
+A
+Z
+A
+R
+DA
+R
+E
+A
+S
+
+Industrial Outdoor Storage Portfolio
+251 Monroe St KENILWORTH, NJ 07033
+
+R
+e
+g
+u
+la
+to
+ryF
+lo
+o
+d
+w
+a
+y
+0
+.2
+%
+A
+n
+n
+u
+a
+lC
+h
+a
+n
+ceF
+lo
+o
+dH
+a
+za
+rd
+,A
+re
+a
+s
+o
+f1
+%
+a
+n
+n
+u
+a
+lch
+a
+n
+ceflo
+o
+dw
+itha
+ve
+ra
+g
+e
+d
+e
+p
+thle
+ssth
+a
+no
+n
+efo
+o
+to
+rw
+ithd
+ra
+in
+a
+g
+e
+a
+re
+a
+so
+fle
+ssth
+a
+no
+n
+esq
+u
+a
+rem
+ileZoneX
+F
+u
+tu
+reC
+o
+n
+d
+itio
+n
+s1
+%
+A
+n
+n
+u
+a
+l
+C
+h
+a
+n
+ceF
+lo
+o
+dH
+a
+za
+rdZoneX
+A
+re
+aw
+ithR
+e
+d
+u
+ce
+dF
+lo
+o
+dR
+iskd
+u
+eto
+L
+e
+ve
+e
+.S
+e
+eN
+o
+te
+s.ZoneX
+A
+re
+aw
+ithF
+lo
+o
+dR
+iskd
+u
+etoL
+e
+ve
+eZoneD
+
+O
+T
+H
+E
+RA
+R
+E
+A
+SO
+F
+F
+L
+O
+O
+DH
+A
+Z
+A
+R
+D
+
+re
+ao
+fM
+in
+im
+a
+lF
+lo
+o
+dH
+a
+za
+rd ZoneX
+N
+OS
+C
+R
+E
+E
+NA
+E
+ffe
+ctiveL
+O
+M
+R
+s
+
+O
+T
+H
+E
+RA
+R
+E
+A
+S
+
+A
+re
+ao
+fU
+n
+d
+e
+te
+rm
+in
+e
+dF
+lo
+o
+dH
+a
+za
+rdZoneD
+
+G
+E
+N
+E
+R
+A
+L
+S
+T
+R
+U
+C
+T
+U
+R
+E
+S
+
+C
+h
+a
+n
+n
+e
+l,C
+u
+lve
+rt,o
+rS
+to
+rm
+S
+e
+w
+e
+r
+L
+e
+ve
+e
+,D
+ik
+e
+,o
+rF
+lo
+o
+d
+w
+a
+ll
+
+B
+
+8
+
+O
+T
+H
+E
+R
+F
+E
+A
+T
+U
+R
+E
+S
+
+2
+0
+.2
+
+C
+ro
+ssS
+e
+ctio
+n
+sw
+ith1
+%
+A
+n
+n
+u
+a
+lC
+h
+a
+n
+ce
+
+1
+7
+.5 W
+a
+te
+rS
+u
+rfa
+ceE
+le
+va
+tio
+n
+
+C
+o
+a
+sta
+lT
+ra
+n
+se
+ct
+B
+a
+seF
+lo
+o
+dE
+le
+va
+tio
+nL
+in
+e(B
+F
+E
+)
+L
+im
+ito
+fS
+tu
+d
+y
+Ju
+risd
+ictio
+nB
+o
+u
+n
+d
+a
+ry
+C
+o
+a
+sta
+lT
+ra
+n
+se
+ctB
+a
+se
+lin
+e
+P
+ro
+fileB
+a
+se
+lin
+e
+H
+yd
+ro
+g
+ra
+p
+h
+icF
+e
+a
+tu
+re
+D
+ig
+ita
+lD
+a
+taA
+va
+ila
+b
+le
+N
+oD
+ig
+ita
+lD
+a
+taA
+va
+ila
+b
+le
+
+M
+A
+PP
+A
+N
+E
+L
+S
+
+U
+n
+m
+a
+p
+p
+e
+d
+
+Ü
+
+T
+h
+ep
+ind
+isp
+la
+ye
+do
+nth
+em
+a
+pisa
+na
+p
+p
+ro
+xim
+a
+te
+p
+o
+in
+tse
+le
+cte
+db
+yth
+eu
+se
+ra
+n
+dd
+o
+e
+sn
+o
+tre
+p
+re
+se
+n
+t
+a
+na
+u
+th
+o
+rita
+tivep
+ro
+p
+e
+rtylo
+ca
+tio
+n
+.
+T
+h
+ism
+a
+pco
+m
+p
+lie
+sw
+ithF
+E
+M
+A
+'ssta
+n
+d
+a
+rd
+sfo
+rth
+eu
+seo
+f
+d
+ig
+ita
+lflo
+o
+dm
+a
+p
+sifitisn
+o
+tvo
+ida
+sd
+e
+scrib
+e
+db
+e
+lo
+w
+.
+T
+h
+eb
+a
+se
+m
+a
+psh
+o
+w
+nco
+m
+p
+lie
+sw
+ithF
+E
+M
+A
+'sb
+a
+se
+m
+a
+p
+a
+ccu
+ra
+cysta
+n
+d
+a
+rd
+s
+T
+h
+eflo
+o
+dh
+a
+za
+rdin
+fo
+rm
+a
+tio
+nisd
+e
+rive
+dd
+ire
+ctlyfro
+m
+th
+e
+a
+u
+th
+o
+rita
+tiveN
+F
+H
+Lw
+e
+bse
+rvice
+sp
+ro
+vid
+e
+db
+yF
+E
+M
+A
+.T
+h
+ism
+a
+p
+w
+a
+se
+xp
+o
+rte
+do
+n7
+/
+7
+/
+2
+0
+2
+2a
+t8
+:0
+1A
+Ma
+n
+dd
+o
+e
+sn
+o
+t
+re
+fle
+ctch
+a
+n
+g
+e
+so
+ra
+m
+e
+n
+d
+m
+e
+n
+tssu
+b
+se
+q
+u
+e
+n
+ttoth
+isd
+a
+tea
+n
+d
+tim
+e
+.T
+h
+eN
+F
+H
+La
+n
+de
+ffe
+ctivein
+fo
+rm
+a
+tio
+nm
+a
+ych
+a
+n
+g
+eo
+r
+b
+e
+co
+m
+esu
+p
+e
+rse
+d
+e
+db
+yn
+e
+wd
+a
+tao
+ve
+rtim
+e
+.
+
+0
+
+2
+5
+0
+
+5
+0
+0
+
+1
+,0
+0
+0
+
+1
+,5
+0
+0
+
+F
+e
+e
+t
+2
+,0
+0
+0
+
+1
+:6
+,0
+0
+0
+
+7
+4
+°1
+7
+'5
+6
+"W
+4
+0
+°4
+0
+'2
+9
+"N
+
+B
+a
+se
+m
+a
+p
+:U
+S
+G
+SN
+a
+tio
+n
+a
+lM
+a
+p
+:O
+rth
+o
+im
+a
+g
+e
+ry:D
+a
+tare
+fre
+sh
+e
+dO
+c
+to
+b
+e
+r,2
+0
+2
+0
+
+T
+h
+ism
+a
+pim
+a
+g
+eisvo
+idifth
+eo
+n
+eo
+rm
+o
+reo
+fth
+efo
+llo
+w
+in
+gm
+a
+p
+e
+le
+m
+e
+n
+tsd
+on
+o
+ta
+p
+p
+e
+a
+r:b
+a
+se
+m
+a
+pim
+a
+g
+e
+ry,flo
+o
+dzo
+n
+ela
+b
+e
+ls,
+le
+g
+e
+n
+d
+,sca
+leb
+a
+r,m
+a
+pcre
+a
+tio
+nd
+a
+te
+,co
+m
+m
+u
+n
+ityid
+e
+n
+tifie
+rs,
+F
+IR
+M
+p
+a
+n
+e
+ln
+u
+m
+b
+e
+r,a
+n
+dF
+IR
+M
+e
+ffe
+ctived
+a
+te
+.M
+a
+pim
+a
+g
+e
+sfo
+r
+u
+n
+m
+a
+p
+p
+e
+da
+n
+du
+n
+m
+o
+d
+e
+rn
+ize
+da
+re
+a
+sca
+n
+n
+o
+tb
+eu
+se
+dfo
+r
+re
+g
+u
+la
+to
+ryp
+u
+rp
+o
+se
+s.
+
+ENGINEERING & SCIENCE, INC
+Property:
+
+Industrial; 251 Monroe Street, Kenilworth, NJ 07033
+PES Project No.: 22-374607.52
+Email: Online Sending (No email
+
+Department:
+
+Laura Reinerstein – RMC,
+Phone: (908) 276-0685
+Borough Clerk
+Fax: (908) 276-7688
+Borough of Kenilworth, Building Department
+
+PES Contact:
+
+Renil M. George
+
+metroconnections2018@gmail.com
+
+To:
+
+Phone: 201-838-4255
+
+attached at website)
+
+Partner Engineering & Science, Inc. has been engaged to conduct a Property Condition Assessment on the above
+referenced property. Please respond to the following documentation/information requests. Please call or email the PES
+contact person listed above to discuss questions and/or fees associated with this request.
+Thank you for your assistance.
+Building Code Compliance
+1. Are there outstanding building code violations associated with the Property? If “Yes”, please
+provide relevant documentation via email.
+
+☐Yes
+
+☐No
+
+2. Are there pending building code requirements associated with the Property? If “Yes”, briefly
+explain below.
+
+☐Yes
+
+☐No
+
+3. Are there any recent building code administrative actions associated with the Property? If
+“Yes”, briefly explain below.
+
+☐Yes
+
+☐No
+
+Information completed by:
+Please provide the Property’s Certificate of Occupancy via email.
+FOR PES Use ONLY:
+Information request was
+submitted on this date via:
+Information request was
+submitted on this date via:
+
+Email/fax/online form
+
+Telephone Interview
+
+In-person Interview
+
+ENGINEERING & SCIENCE, INC
+
+2154 Torrance Boulevard, Suite 200, Torrance, CA 90501
+
+Hard copy
+
+United States Seismic Zones Map
+Seattle
+Olympia
+
+Washington
+
+Portland
+
+North Dakota
+
+Helena
+
+Salem
+
+Montana
+
+Maine
+
+Bismarck
+Minnesota
+
+Idaho
+
+Oregon
+
+Wisconsin
+
+Pierre
+
+Lansing
+
+Cheyenne
+
+Salt Lake City
+
+Nevada
+
+San Francisco
+
+Lincoln
+
+Utah
+
+Kansas City
+
+Colorado
+
+Santa Fe
+Arizona
+
+West
+Virginia
+
+Jonesboro
+
+Richmond
+Raleigh
+North Carolina
+
+Tennessee
+
+Charlotte
+
+Memphis
+
+Little Rock
+
+Atlanta
+
+(Ground Acceleration)
+
+South Carolina
+
+Zone 0 = 0.0g
+
+Georgia
+
+Mississippi
+
+O‘ahu
+
+Seismic Zones
+
+Columbia
+
+Arkansas
+
+Dallas
+
+Fort Worth
+
+Maryland
+
+Kentucky
+
+Nashville
+
+Norman
+
+Annapolis
+
+Virginia
+
+St. Louis
+
+Oklahoma
+
+New Mexico
+
+Kaua‘i
+
+Delaware
+
+Charleston
+Frankfort
+
+Louisville
+
+Missouri
+
+Oklahoma City
+
+Phoenix
+
+Dover
+
+Washington D.C.
+
+Jefferson City
+
+Wichita
+Los Angeles
+
+New Jersey
+
+Ohio
+
+Topeka
+Kansas
+
+Las Vegas
+
+Columbus
+
+Indianapolis
+
+Springfield
+
+Trenton
+
+Harrisburg
+
+Chicago I n d i a n a
+Illinois
+
+Denver
+
+San Jose
+
+Pennsylvania
+
+Des Moines
+
+Nebraska
+
+Massachusetts
+
+Providence
+
+Rhode Island
+Connecticut
+
+Hartford
+White Plains
+
+Madison
+
+Iowa
+
+Reno
+Carson City
+
+Concord
+Albany
+Boston
+
+Michigan
+
+Wyoming
+
+Ogden
+
+San Diego
+
+New
+Hampshire
+
+New York
+
+St. Paul
+
+South Dakota
+
+Rexburg
+
+California
+
+Vermont
+
+Montpelier
+
+Boise
+
+Sacramento
+
+Augusta
+
+Montgomery
+
+Jackson
+
+Zone 1 = 0.075g
+
+Alabama
+
+Honolulu
+
+Louisiana
+
+Texas
+
+Maui
+
+Zone 2A = 0.15g
+
+Tallahassee
+
+Baton Rouge
+
+Austin
+
+Hawaii
+
+Houston
+
+Alaska
+
+Zone 2B = 0.20g
+
+Guam
+Hagatna
+
+Florida
+
+Anchorage
+
+Zone 3 = 0.30g
+
+Miami
+
+Zone 4 = 0.40g
+
+Juneau
+
+Puerto Rico
+
+Source: 1997 Edition UBC
+
+San Juan
+
+Caribbean & Virgin Islands
+
+Seattle
+Olympia
+
+Washington
+
+Portland
+
+North Dakota
+
+Helena
+
+Salem
+
+Montana
+
+Maine
+
+Bismarck
+Minnesota
+
+Idaho
+
+Oregon
+
+Wisconsin
+
+Pierre
+
+Lansing
+
+Cheyenne
+
+Salt Lake City
+
+Nevada
+
+Lincoln
+
+Utah
+
+Kansas City
+
+Colorado
+
+Jefferson City
+
+Santa Fe
+Arizona
+
+San Diego
+
+New Mexico
+
+Kaua‘i
+
+Fort Worth
+
+Little Rock
+
+Richmond
+
+North Carolina
+
+Tennessee
+
+Charlotte
+
+Memphis
+
+Columbia
+Atlanta
+
+Mississippi
+
+Jackson
+
+South Carolina
+
+Georgia
+
+Montgomery
+Alabama
+
+Maui
+
+Austin
+
+Hawaii
+
+Baton Rouge
+
+Wind Zones
+Zone I
+
+(130 mph)
+
+Zone II (160 mph)
+
+Louisiana
+
+Texas
+
+Honolulu
+
+Maryland
+
+Virginia
+
+Raleigh
+
+Arkansas
+
+Dallas
+
+Annapolis
+
+Kentucky
+
+Jonesboro
+
+O‘ahu
+
+Zone III (200 mph)
+
+Tallahassee
+
+Houston
+
+Zone IV (250 mph)
+
+Alaska
+
+Guam
+Hagatna
+
+Delaware
+
+West
+Virginia
+
+Charleston
+Frankfort
+
+Nashville
+
+Norman
+
+Dover
+
+Washington D.C.
+
+Louisville
+
+New Jersey
+
+Ohio
+
+St. Louis
+
+Oklahoma
+
+Oklahoma City
+
+Phoenix
+
+Indianapolis
+
+Missouri
+
+Wichita
+Los Angeles
+
+Columbus
+
+Topeka
+Kansas
+
+Las Vegas
+
+Springfield
+
+Trenton
+
+Harrisburg
+
+Chicago I n d i a n a
+Illinois
+
+Denver
+
+San Jose
+
+Pennsylvania
+
+Des Moines
+
+Nebraska
+
+Massachusetts
+
+Providence
+
+Rhode Island
+Connecticut
+
+Hartford
+White Plains
+
+Madison
+
+Iowa
+
+Reno
+Carson City
+
+Concord
+Albany
+Boston
+
+Michigan
+
+Wyoming
+
+Ogden
+
+California
+
+New
+Hampshire
+
+New York
+
+St. Paul
+
+South Dakota
+
+Rexburg
+
+San Francisco
+
+Vermont
+
+Montpelier
+
+Boise
+
+Sacramento
+
+Augusta
+
+Florida
+
+Anchorage
+
+Other Considerations
+
+Miami
+
+Puerto Rico
+
+Special Wind Region
+
+Juneau
+
+San Juan
+
+Hurricane
+Susceptible
+Regions
+
+Caribbean Islands
+
+Design Wind Speeds (3-second gust)
+consistent with ASCE 7-98
+
+N
+
+Un
+
+APPENDIX C: QUALIFICATIONS
+
+Renil M George
+Partner Associate
+
+Education
+Bachelor of Architecture - Madras University, India
+
+Registrations
+Financial Accounting Certificate from New York Institute of Finance
+
+Training
+Dale Carnegie Course on Effective Communication
+PCA 101 Course, EDR Common Ground University
+Defensive Driving Awareness by Click Safety
+Ladder Safety Awareness by Click Safety
+
+Highlights
+Mr. George has been involved in the construction and due diligence industry since 2003. In 2003 and 2004,
+Mr. George acted as a New York City as an Expeditor for one year, during which he gained experience
+obtaining building permits and resolving building violations. Mr. George translated that experience
+and his educational background to due diligence, working as a field assessor performing Property
+Condition Assessment (PCAs) for various building types.
+
+Experience Summary
+Mr. George has coordinated and conducted PCAs on commercial and residential buildings based on
+standard protocols such as ASTM, agency, HUD, Standard and Poor’s, client specific formats and/or an
+institution’s supplementary requirements. He has performed projects as a third party for various financial
+clients including PNC, Wells Fargo, GE Capital, and Capital Meridian, among others. Mr. George has
+successfully conducted and completed over 300 PCAs for various clients in the NY, NJ, CT, PA areas and
+other states such as MA, MI, etc.
+Mr. George has performed PCAs on numerous property types, including office complex, industrial flex
+buildings, warehouses, multifamily residential properties, retail strip centers, and hospitality type
+properties.
+He is also cross trained in other related disciplines such performing Zoning Analysis Reports and Energy
+Audit Services. He is fully proficient and knowledgeable with the web based reporting tool of Quire and
+Parcel.
+
+Project Experience
+Project experience for Mr. George for different property types including some notable property
+mentions:
+Zoning Analysis Reports ZARs – Self Storage Facilities, Alabama, Georgia and Florida
+Hospitality Type PCAs– Four Point Sheraton, Chelsea, New York, Homewood Suites, Newtown, PA. Hyatt
+Regency, Jersey City, NJ
+
+800-419-4923
+
+www.PARTNEResi.com
+
+Renil M George
+Multifamily Apartments PCAs– 1261 Merriam Ave, Bronx, NY, 128-134 Grand Street, Brooklyn, NY. 71
+Franklin St, NY, NY
+Office / Retail / Industrial Warehouse PCAs– 2591 Centre Ave, Reading, PA. 86 Chambers Street, NY,
+NY. Bridgewater Hills Corporate Center, Bridgewater, NJ. 53-55 Mountain Blvd, Warren, NJ. 400 Gotham
+Parkway, Carlstadt, NJ. 30 Montgomery St, Jersey City, NJ
+Beachfront Club house PCAs – 4 Tokeneke Beach Drive, Darien, CT.
+Mixed Use Buildings (Apartments + Retail stores) PCAs – 598 West 152nd St, NY, NY. 1787 Amsterdam
+Ave, NY, NY.
+Adult Nursing Home Facility PCAs – 122-124 Green Avenue, Woodbury, NJ
+Self-Storage Buildings PCAs – 104 Penns Trail, Newtown, PA. 138 Liberty Street, Metuchen, NJ
+Parking Garage Facility PCAs – 33 Spring st, Greenwich, CT
+Fitness Club Facility PCAs – 16 Old Track Rd, Greenwich, CT
+School Facility PCAs – 12 East 96 Street, NY, NY
+
+2|Page
+
+Richard A. Bender, AIAQ NCARB
+
+Senior Project Manager
+
+Education
+Bachelors of Architecture, University of Arkansas, Fayetteville, AR.
+
+Registrations
+Colorado State Architect License No. 203676
+National Counsel of Architectural Registration Board No. 63291
+American Institute of Architects No. 31074271
+
+Training
+Low-Slope Roofing, Water Infiltration Seminar, Mattison, WI
+Red-Vector Courses on Building Envelope Project Cost, ADA Guidelines, and Project Manager Professional
+
+Highlights
+Licensed Architect with 25-years of Experience
+Property Condition Assessment
+Construction Loan Monitoring
+Owner Representation
+Building Forensics
+Commercial/Residential Design
+
+Experience Summary
+Mr. Bender is a Senior Project Manager for Partner Engineering and Science, Inc. (Partner) and is located
+out of the Denver, Colorado office. With over 25 years of experience, he provides leadership as a Senior
+Project Manager during the design process, construction administration and post construction phases, as
+well as in the execution of various building assessments.
+Property Condition Assessments (PCA)
+With 11-years of experience in loan preparation including Freddie Mac and Fannie Mae guidelines, Mr.
+Bender offers technical knowledge for descriptive building issues and detailed cost evaluations for building
+types in equity acquisitions. Properties include: High-Rises Office/Apartment Buildings, Golf Course
+Facilities, Equity Portfolio’s up to 256-Buildings, Multi Building Office Parks, Office/Warehouse, and MultiFamily Residential Complexes.
+Construction Risk Management
+Mr. Bender’s construction experience allows him to compare the project budget and materials on site to
+the Construction Schedule to ascertain if the project is running smoothly. He then identifies key milestones
+during construction which keeps the project on time and on budget.
+This two-part function includes an initial Document and Cost Review (DCR) of the Construction Documents,
+Contracts, Budget, and Project Schedules to evaluate critical issues and deviations during the design process
+before costly Change Orders can occur. The second function is Construction Site Monitoring, which includes
+viewing the site during construction.
+
+(800) 419-4923
+
+www.PARTNEResi.com
+
+Richard A. Bender, AIA, NCARB
+Building Forensics
+As buildings age it becomes necessary to take precautionary measures to keep them healthy. Mr. Bender
+can skillfully identify the issues a building may have in regard to water and air infiltration, in order to
+minimize mold and mildew of materials and/or personal health related items. With 25-years of building
+design and structural identification, Mr. Bender understands why buildings either leak or swift, and can lead
+a team of Professionals in the remedy of the building issues.
+
+Project Experience
+PCA, High Rise Office Tower - Elevate Building Tower, Denver, Colorado - Property Condition Assessment of
+a 19-story concrete post and beam building built in 1984. The Commercial Office building is approximately
+209,814 SF in size, located on 3.65 acres with an adjacent 3-story concrete parking deck. 25 office tenants
+reside in the building. The overall building was in adequate condition. The 34-year old age indicated that
+most of the estimated useful life of major equipment, exterior elevations, and roof replacement was needed
+during the building purchase.
+PCA, Hospitality High Rise - Hotel Teatro, Denver, Colorado - Property Condition Assessment of a nine-story
+historic brick masonry building built in 1911 renovated into the Hotel in 1998 to include 110 guestrooms.
+The building is approximately 82,730 SF in size. Located on 0.17 acres of land in the center of the downtown
+Denver district. Issues identified on the exterior were the dry rot wood window frames, leaking roof system,
+and the outdated mechanical and elevator systems. Mr. Bender’s report indicated replacement costs for
+major renovation items including Life Health & Safety upgrades.
+PCA, Multi-Family - Velo Apartments, Denver, Colorado - Property Condition Assessment of a 10 two and
+three-story apartment buildings with 240 units constructed from wood framing and built in 1984. The
+complex is approximately 200,160 SF in size, located on 9.6 acres of land. Issues included the replacement
+of exterior windows, asphalt roof shingles and upgrading unit carpet and appliances.
+DCR, Office Building - Leef North 212, Saint Paul, Minnesota - The project consists of the demolition of the
+existing single-story building and the construction of a new core shell three-story commercial office
+building approximately 67,550 SF in size, placed on 1.8418 acres of land. The building elevations include
+brick veneer and cast-in-place concrete on the first and second floors with prefinished metal panel accents
+and metal shade screens located on the third floor with a patio trellis on the third floor. Mr. Bender’s task
+was to evaluate the viability of the Construction Documents compared to the budget of $109.00 dollars a
+square foot with a 14-month construction schedule.
+CPM, Multi-Family - McArthur Commons Station Apartment Complex, Oakland, California - Construction
+Progress Monitoring of three 475,071 SF, six-story podium level building with upper metal frame structure
+containing 383 residential units on 2.21 acres of Land. The total construction project budget was initially
+$179 million with a construction schedule of 22-months. The project included interaction with a multifacade team including the Developer, Design/Build Architect/Engineer team, Contractor, Owners Rep, and
+three different lending intuitions. On the onset of the Project concerns for Budget Change Orders were
+evident. Key issues identified were, labor issues, City Permit timing and fees, and material exportation from
+international destination.
+
+Richard A. Bender, AIA, NCARB
+Affiliations
+Denver Chapter of the American Institute of Architects (Member)
+National Counsel of Architectural Registration Board (Member)
+Denver Kickers Sports Club (Corresponding Secretary)
+Elbert County Planning Commission (Served 3-years as Vice-Chairman)
+
+Speaking
+Co-chairman Event organizer participant of the American Institute of Architects 1999-2001, Image Gala.
+
+Publications
+Delivering Success – Water Infiltration under slabs, May 2015
+Horse Connection - Equestrian Design, March 2014
+
+Contact
+rbender@partneresi.com
+
+Wes Skinner, CHMM
+
+Principal, National Client Manager
+
+Education
+Master of Business Administration, Broad College of Business, Michigan State University, Lansing, MI
+Beta Gamma Sigma
+Bachelor of Science, Environmental Geosciences, Michigan State University, Lansing, MI
+
+Registrations
+Certified Hazardous Materials Manager (#15324), 2010-Present
+OSHA 40-Hour HAZWOPER
+OSHA 8-Hour HAZWOPER Refreshers
+
+Training
+ASTM International Technical & Professional Training, Risk-Based Corrective Action at Petroleum Release
+Sites
+Michigan Department of Community Health Lead Supervisor / Inspector / Risk Assessor Training
+U.S. Department of Transportation Hazardous Materials Regulations General Awareness / Familiarization
+and Security Training
+Niton XRF Analyzer Operator’s Training
+Remediation Technologies and Health Risk Assessments, Alabama A&M University
+
+Highlights
+Over 19 years in the environmental and engineering consulting fields
+Management and execution of transactional due diligence services in 46 states and numerous provinces
+Development of specialized assessment and solution services for equity investors, CMBS lenders, Real Estate
+Investment Trusts, and traditional lenders
+Significant experience with numerous property types including large-scale industrial properties, golf
+courses, high-rise office buildings, retail centers, super-regional shopping centers, and multi-family
+residential properties
+Experience Summary
+Mr. Skinner is a Principal and National Client Manager for Partner Engineering and Science, Inc. (Partner),
+and is responsible for the origination, oversight, and management of environmental, engineering, seismic,
+survey, and industrial hygiene services in support of real estate transactions. Mr. Skinner also leads
+operations at the Partner Michigan office, including providing client relationship management, and provides
+quality assurance for Partner services. His experience includes the performance and/or management of
+Environmental, Social, and Governance (ESG) services, Property Condition Assessments (PCAs), Phase I
+Environmental Site Assessments (ESAs), Environmental Transaction Screens, Phase II and III Subsurface
+Investigations, Underground Storage Tank Removals, Baseline Environmental Assessments (BEAs),
+Documentation of Due Care Compliance (Due Care Plans), Geotechnical Investigations, Construction
+Progress Monitoring, Seismic Probable Maximum Loss Assessments, Regulatory Compliance Assessments,
+Asbestos Surveys, Lead-based Paint Surveys, Radon Studies, Mold and Moisture Assessments, National
+Environmental Policy Act (NEPA) Assessments, and Lead-in-water sampling and analysis. Mr. Skinner
+currently provides specialized services to a variety of real estate investors and lenders using his depth of
+experience to appropriately categorize, quantify, and address risk.
+
+(800) 419-4923
+
+www.PARTNEResi.com
+
+Wes Skinner, CHMM
+Mr. Skinner has performed and managed environmental and engineering due diligence in North America
+and Europe for hundreds of portfolios and thousands of sites in over 46 states and provinces. His work has
+included the assessment of a variety of properties including paint manufacturing facilities, transformer
+manufacturing plants, aluminum extrusion factories, plating facilities, bulk oil storage and distribution
+facilities, high-rise office buildings, super-regional shopping centers exceeding one million square feet, and
+400-home residential communities. Mr. Skinner also served as client liaison and project manager for several
+national telecommunications companies in the Greater Chicago area during the build out of tower facilities
+across Illinois, Wisconsin, Indiana, and Michigan.
+Mr. Skinner’s experience includes site characterization, feasibility studies, and/or the implementation of
+remediation strategies at properties in the states of California, Illinois, Indiana, Ohio, Wisconsin, and
+Michigan, as well as Alberta, Canada. Duties included the verification of regulatory requirements, design of
+assessment strategies, determination of potential remediation strategies and costs, and the oversight of the
+implementation of the most effective measures that meet the project objectives. Finally, Mr. Skinner’s
+diversity across residential, industrial, municipal, and commercial industry sectors is a major contribution to
+Partner’s team in the Midwest and Great Lakes regions of the United States.
+
+Project Experience
+Retail Property Portfolio, National - Client-facing senior project manager for the expedited execution of
+Phase I ESAs and PCAs on a 123-site retail property portfolio stretching across 29 states.
+Industrial Property Portfolio, International - Client-facing senior project manager for the execution of Phase
+I ESAs on an eight-site industrial property portfolio stretching across five states, Northern Ireland, and the
+Netherlands.
+Industrial Property Portfolio, National - Client-facing senior project manager for the expedited execution of
+Phase I ESAs and PCAs on a 40-site industrial property portfolio stretching across 17 states.
+Super-Regional Shopping Center Portfolio, National - Client-facing senior project manager for the execution
+of Phase I ESAs and PCAs on a 10-site super-regional shopping center portfolio, with assets averaging over
+700,000 square feet each, in support of a conduit offering totaling over one billion dollars.
+Luxury High-Rise Condominium Construction, Marina del Rey, California - Conducted and oversaw the
+characterization, excavation, segregation, and disposal of petroleum impacted soil for the development of
+a nineteen-story building, including Rule 1166 monitoring and NPDES permit compliance for dewatering.
+49-Story High-Rise Office Building, Manhattan, New York - Client-facing senior project manager for the
+execution of environmental and engineering due diligence on a Midtown Manhattan Class A high rise office
+building in support of a single-asset conduit offering exceeding one billion dollars.
+Federal High-Rise Complex, Chicago, Illinois - Supervised the mitigation of lead-based paint on the
+curtainwall of two 30+ story federal buildings, which required federal security clearance and included daily
+crew supervision, verification sampling, and municipal agency reporting.
+
+Wes Skinner, CHMM
+Casino Building, Detroit, Michigan - Project manager and client relationship manager for hazardous
+materials, asbestos, and lead-based paint surveys of a 600,000 SF casino in preparation for the renovation
+of the building into the headquarters for multiple municipal agencies.
+Sears, Roebuck & Co. Merchandise Development & Laboratory Building, Chicago, Illinois - Project manager
+and environmental professional for Phase I and II ESAs of the MD&L building on the original Sears, Roebuck
+& Company headquarters complex in preparation for the conversion of the property to residential use.
+Commercial Hog Farm Portfolio, Alberta, Canada - Project manager and client relationship manager for
+Phase I and II ESAs on a multi-property portfolio requiring the mobilization of resources to remote locations.
+
+Affiliations
+Michigan Association of Environmental Professionals
+Michigan Association of Hazardous Materials Managers
+Association for Corporate Growth
+International Council of Shopping Centers
+
+Contact
+wskinner@partneresi.com
+
+

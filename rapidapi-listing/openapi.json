@@ -1,0 +1,759 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CalcLeap Financial Calculator API",
+    "version": "1.0.0",
+    "description": "CalcLeap provides 8 powerful financial, health, and mathematical calculator endpoints. Perfect for fintech apps, financial planning tools, insurance platforms, health & fitness apps, and educational websites. Free tier available with 100 requests/day.",
+    "contact": {
+      "name": "Alex Chalunkal",
+      "email": "alexmathewc@gmail.com",
+      "url": "https://calcleap.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "x-logo": {
+      "url": "https://calcleap.com/logo.png"
+    },
+    "x-category": "Financial",
+    "x-tags": ["calculator", "finance", "mortgage", "compound-interest", "retirement", "insurance", "BMI", "loan", "tip", "percentage"],
+    "x-pricing": [
+      {
+        "name": "Free",
+        "price": "0",
+        "currency": "USD",
+        "period": "month",
+        "quota": 100,
+        "quotaPeriod": "day",
+        "description": "Perfect for testing and small projects. 100 requests per day."
+      },
+      {
+        "name": "Pro",
+        "price": "9",
+        "currency": "USD",
+        "period": "month",
+        "quota": 10000,
+        "quotaPeriod": "day",
+        "description": "For production apps and services. 10,000 requests per day with priority support."
+      },
+      {
+        "name": "Enterprise",
+        "price": "49",
+        "currency": "USD",
+        "period": "month",
+        "quota": -1,
+        "quotaPeriod": "unlimited",
+        "description": "For high-volume applications. Unlimited requests with dedicated support."
+      }
+    ]
+  },
+  "servers": [
+    {
+      "url": "https://calcleap.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/mortgage": {
+      "get": {
+        "summary": "Calculate Mortgage Payment",
+        "description": "Calculate monthly mortgage payment, total payment amount, and total interest over the life of the loan. Includes a 12-month amortization schedule showing principal, interest, and remaining balance.",
+        "operationId": "calculateMortgage",
+        "tags": ["Finance"],
+        "parameters": [
+          {
+            "name": "principal",
+            "in": "query",
+            "required": true,
+            "description": "Loan amount (principal) in dollars",
+            "schema": {
+              "type": "number",
+              "example": 300000,
+              "minimum": 1000
+            }
+          },
+          {
+            "name": "rate",
+            "in": "query",
+            "required": true,
+            "description": "Annual interest rate as percentage (e.g., 6.5 for 6.5%)",
+            "schema": {
+              "type": "number",
+              "example": 6.5,
+              "minimum": 0.1,
+              "maximum": 30
+            }
+          },
+          {
+            "name": "years",
+            "in": "query",
+            "required": true,
+            "description": "Loan term in years",
+            "schema": {
+              "type": "integer",
+              "example": 30,
+              "minimum": 1,
+              "maximum": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful mortgage calculation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "calculator": { "type": "string", "example": "mortgage" },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "monthlyPayment": { "type": "number", "example": 1896.20 },
+                        "totalPaid": { "type": "number", "example": 682632 },
+                        "totalInterest": { "type": "number", "example": 382632 },
+                        "loanTermMonths": { "type": "integer", "example": 360 },
+                        "schedule": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "month": { "type": "integer" },
+                              "payment": { "type": "number" },
+                              "principal": { "type": "number" },
+                              "interest": { "type": "number" },
+                              "balance": { "type": "number" }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "poweredBy": { "type": "string", "example": "CalcLeap.com" },
+                    "moreCalculators": { "type": "string", "example": "https://calcleap.com" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/compound": {
+      "get": {
+        "summary": "Calculate Compound Interest",
+        "description": "Calculate compound interest with optional regular contributions. Returns future value, total contributed, total interest earned, and year-by-year growth projections.",
+        "operationId": "calculateCompoundInterest",
+        "tags": ["Finance"],
+        "parameters": [
+          {
+            "name": "principal",
+            "in": "query",
+            "required": true,
+            "description": "Initial investment amount in dollars",
+            "schema": {
+              "type": "number",
+              "example": 10000,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "rate",
+            "in": "query",
+            "required": true,
+            "description": "Annual interest rate as percentage (e.g., 7 for 7%)",
+            "schema": {
+              "type": "number",
+              "example": 7,
+              "minimum": 0,
+              "maximum": 50
+            }
+          },
+          {
+            "name": "years",
+            "in": "query",
+            "required": true,
+            "description": "Investment period in years",
+            "schema": {
+              "type": "integer",
+              "example": 20,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "contribution",
+            "in": "query",
+            "required": false,
+            "description": "Regular contribution amount (per compounding period)",
+            "schema": {
+              "type": "number",
+              "example": 500,
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "compounding",
+            "in": "query",
+            "required": false,
+            "description": "Compounding frequency per year (1=annually, 12=monthly, 365=daily)",
+            "schema": {
+              "type": "integer",
+              "example": 12,
+              "default": 12,
+              "enum": [1, 4, 12, 365]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful compound interest calculation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "calculator": { "type": "string", "example": "compound" },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "futureValue": { "type": "number", "example": 274567.89 },
+                        "totalContributed": { "type": "number", "example": 130000 },
+                        "totalInterest": { "type": "number", "example": 144567.89 },
+                        "growth": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "year": { "type": "integer" },
+                              "value": { "type": "number" }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "poweredBy": { "type": "string" },
+                    "moreCalculators": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/retirement": {
+      "get": {
+        "summary": "Calculate Retirement Savings",
+        "description": "Project retirement savings based on current age, retirement age, current savings, and monthly contributions. Includes estimated monthly income using the 4% safe withdrawal rule.",
+        "operationId": "calculateRetirement",
+        "tags": ["Finance"],
+        "parameters": [
+          {
+            "name": "currentAge",
+            "in": "query",
+            "required": true,
+            "description": "Current age in years",
+            "schema": {
+              "type": "integer",
+              "example": 35,
+              "minimum": 18,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "retireAge",
+            "in": "query",
+            "required": true,
+            "description": "Desired retirement age",
+            "schema": {
+              "type": "integer",
+              "example": 65,
+              "minimum": 40,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "currentSavings",
+            "in": "query",
+            "required": false,
+            "description": "Current retirement savings in dollars",
+            "schema": {
+              "type": "number",
+              "example": 50000,
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "monthlyContribution",
+            "in": "query",
+            "required": true,
+            "description": "Monthly contribution amount in dollars",
+            "schema": {
+              "type": "number",
+              "example": 1000,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "annualReturn",
+            "in": "query",
+            "required": false,
+            "description": "Expected annual return as percentage",
+            "schema": {
+              "type": "number",
+              "example": 7,
+              "default": 7,
+              "minimum": 0,
+              "maximum": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retirement calculation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "calculator": { "type": "string", "example": "retirement" },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "projectedSavings": { "type": "number" },
+                        "totalContributed": { "type": "number" },
+                        "totalGrowth": { "type": "number" },
+                        "estimatedMonthlyIncome": { "type": "number" },
+                        "yearsToRetirement": { "type": "integer" },
+                        "withdrawalRate": { "type": "string", "example": "4%" }
+                      }
+                    },
+                    "poweredBy": { "type": "string" },
+                    "moreCalculators": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/loan": {
+      "get": {
+        "summary": "Calculate Loan Payment",
+        "description": "Calculate loan payments with optional down payment. Returns monthly payment, total amount paid, and total interest.",
+        "operationId": "calculateLoan",
+        "tags": ["Finance"],
+        "parameters": [
+          {
+            "name": "amount",
+            "in": "query",
+            "required": true,
+            "description": "Loan amount in dollars",
+            "schema": {
+              "type": "number",
+              "example": 25000,
+              "minimum": 100
+            }
+          },
+          {
+            "name": "rate",
+            "in": "query",
+            "required": true,
+            "description": "Annual interest rate as percentage",
+            "schema": {
+              "type": "number",
+              "example": 5.5,
+              "minimum": 0,
+              "maximum": 30
+            }
+          },
+          {
+            "name": "months",
+            "in": "query",
+            "required": true,
+            "description": "Loan term in months",
+            "schema": {
+              "type": "integer",
+              "example": 60,
+              "minimum": 1,
+              "maximum": 600
+            }
+          },
+          {
+            "name": "downPayment",
+            "in": "query",
+            "required": false,
+            "description": "Down payment amount in dollars",
+            "schema": {
+              "type": "number",
+              "example": 5000,
+              "default": 0,
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful loan calculation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "calculator": { "type": "string", "example": "loan" },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "loanAmount": { "type": "number" },
+                        "monthlyPayment": { "type": "number" },
+                        "totalPaid": { "type": "number" },
+                        "totalInterest": { "type": "number" }
+                      }
+                    },
+                    "poweredBy": { "type": "string" },
+                    "moreCalculators": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/insurance": {
+      "get": {
+        "summary": "Estimate Insurance Costs",
+        "description": "Get insurance premium estimates for auto or home insurance based on state, age, and coverage level. Uses real state-level average data.",
+        "operationId": "estimateInsurance",
+        "tags": ["Insurance"],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "Insurance type",
+            "schema": {
+              "type": "string",
+              "enum": ["auto", "home"],
+              "example": "auto"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "description": "US state abbreviation (e.g., CA, NY, TX)",
+            "schema": {
+              "type": "string",
+              "example": "CA",
+              "minLength": 2,
+              "maxLength": 2
+            }
+          },
+          {
+            "name": "age",
+            "in": "query",
+            "required": false,
+            "description": "Age of insured (for auto insurance)",
+            "schema": {
+              "type": "integer",
+              "example": 35,
+              "default": 35,
+              "minimum": 16,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "coverage",
+            "in": "query",
+            "required": false,
+            "description": "Coverage level",
+            "schema": {
+              "type": "string",
+              "enum": ["liability", "full"],
+              "example": "full",
+              "default": "full"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful insurance estimate",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "calculator": { "type": "string", "example": "insurance" },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "type": { "type": "string" },
+                        "state": { "type": "string" },
+                        "annualPremium": { "type": "number" },
+                        "monthlyPremium": { "type": "number" },
+                        "coverage": { "type": "string" },
+                        "age": { "type": "integer" },
+                        "stateAverage": { "type": "number" }
+                      }
+                    },
+                    "poweredBy": { "type": "string" },
+                    "moreCalculators": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bmi": {
+      "get": {
+        "summary": "Calculate Body Mass Index",
+        "description": "Calculate BMI with category classification (underweight, normal, overweight, obese) and healthy weight range. Supports both imperial and metric units.",
+        "operationId": "calculateBMI",
+        "tags": ["Health"],
+        "parameters": [
+          {
+            "name": "weight",
+            "in": "query",
+            "required": true,
+            "description": "Body weight (pounds for imperial, kg for metric)",
+            "schema": {
+              "type": "number",
+              "example": 180,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "required": true,
+            "description": "Height (inches for imperial, cm for metric)",
+            "schema": {
+              "type": "number",
+              "example": 70,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "unit",
+            "in": "query",
+            "required": false,
+            "description": "Unit system",
+            "schema": {
+              "type": "string",
+              "enum": ["imperial", "metric"],
+              "example": "imperial",
+              "default": "imperial"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful BMI calculation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "calculator": { "type": "string", "example": "bmi" },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "bmi": { "type": "number" },
+                        "category": { "type": "string", "example": "Normal weight" },
+                        "healthyRange": {
+                          "type": "object",
+                          "properties": {
+                            "min": { "type": "number" },
+                            "max": { "type": "number" }
+                          }
+                        },
+                        "unit": { "type": "string" }
+                      }
+                    },
+                    "poweredBy": { "type": "string" },
+                    "moreCalculators": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tip": {
+      "get": {
+        "summary": "Calculate Tip and Split Bill",
+        "description": "Calculate tip amount and split bill among multiple people. Returns total amount, tip amount, and per-person breakdown.",
+        "operationId": "calculateTip",
+        "tags": ["Utilities"],
+        "parameters": [
+          {
+            "name": "bill",
+            "in": "query",
+            "required": true,
+            "description": "Bill amount in dollars",
+            "schema": {
+              "type": "number",
+              "example": 85.50,
+              "minimum": 0.01
+            }
+          },
+          {
+            "name": "tipPercent",
+            "in": "query",
+            "required": false,
+            "description": "Tip percentage",
+            "schema": {
+              "type": "number",
+              "example": 20,
+              "default": 18,
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "people",
+            "in": "query",
+            "required": false,
+            "description": "Number of people splitting the bill",
+            "schema": {
+              "type": "integer",
+              "example": 4,
+              "default": 1,
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful tip calculation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "calculator": { "type": "string", "example": "tip" },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "billAmount": { "type": "number" },
+                        "tipAmount": { "type": "number" },
+                        "totalAmount": { "type": "number" },
+                        "perPerson": { "type": "number" },
+                        "tipPerPerson": { "type": "number" },
+                        "tipPercent": { "type": "number" }
+                      }
+                    },
+                    "poweredBy": { "type": "string" },
+                    "moreCalculators": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/percentage": {
+      "get": {
+        "summary": "Calculate Percentages",
+        "description": "Perform percentage calculations: what is X% of Y, percentage increase/decrease, or percentage change between two values.",
+        "operationId": "calculatePercentage",
+        "tags": ["Utilities"],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "required": true,
+            "description": "Base value",
+            "schema": {
+              "type": "number",
+              "example": 1000
+            }
+          },
+          {
+            "name": "percentage",
+            "in": "query",
+            "required": true,
+            "description": "Percentage value (for 'of', 'increase', 'decrease') or second value (for 'change')",
+            "schema": {
+              "type": "number",
+              "example": 15
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "Type of calculation",
+            "schema": {
+              "type": "string",
+              "enum": ["of", "increase", "decrease", "change"],
+              "example": "of"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful percentage calculation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "calculator": { "type": "string", "example": "percentage" },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "result": { "type": "number" },
+                        "description": { "type": "string" }
+                      }
+                    },
+                    "poweredBy": { "type": "string" },
+                    "moreCalculators": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "API key for Pro and Enterprise plans. Format: 'Bearer YOUR_API_KEY'"
+      }
+    }
+  },
+  "security": [],
+  "tags": [
+    {
+      "name": "Finance",
+      "description": "Financial calculation endpoints for mortgages, loans, compound interest, and retirement planning"
+    },
+    {
+      "name": "Insurance",
+      "description": "Insurance cost estimation tools"
+    },
+    {
+      "name": "Health",
+      "description": "Health and fitness calculations"
+    },
+    {
+      "name": "Utilities",
+      "description": "General utility calculators for everyday math"
+    }
+  ]
+}

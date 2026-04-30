@@ -1,0 +1,67 @@
+{
+  "learnings": [
+    {
+      "date": "2026-03-22",
+      "category": "infrastructure",
+      "learning": "Render free tier requires binding to 0.0.0.0, not localhost. Health check paths cause deploy timeouts on free tier.",
+      "impact": "high",
+      "applied_to": "calcleap-api deployment"
+    },
+    {
+      "date": "2026-03-26",
+      "category": "quality",
+      "learning": "Never push code without browser-testing the actual page. Audit.py checks HTML structure but misses empty toolContent divs, broken layouts, and missing JavaScript.",
+      "impact": "critical",
+      "applied_to": "All future deployments"
+    },
+    {
+      "date": "2026-03-27",
+      "category": "distribution",
+      "learning": "Most distribution platforms (HN, ProductHunt, AlternativeTo) are behind Cloudflare and can't be automated with headless browser. Email outreach via Resend API is the only scalable programmatic distribution channel.",
+      "impact": "high",
+      "applied_to": "Outreach strategy"
+    },
+    {
+      "date": "2026-03-28",
+      "category": "revenue",
+      "learning": "AdSense pays pennies. NerdWallet makes $632M from affiliate commissions ($25-100 per credit card app). CalcLeap must pivot to affiliate model.",
+      "impact": "critical",
+      "applied_to": "Revenue architecture"
+    },
+    {
+      "date": "2026-03-28",
+      "category": "seo",
+      "learning": "NerdWallet uses topic clusters (9 topics, pillar page + 20-50 cluster pages each, all interlinked). This is how they rank for 18M organic keywords. CalcLeap pages are scattered with no cluster structure.",
+      "impact": "critical",
+      "applied_to": "Site architecture redesign"
+    },
+    {
+      "date": "2026-03-28",
+      "category": "quality",
+      "learning": "Blog posts without images, charts, and visual hierarchy look amateur. Real publishers use SVG infographics, donut charts, comparison bars, author bylines, and FAQ accordions.",
+      "impact": "high",
+      "applied_to": "Blog template v3"
+    },
+    {
+      "date": "2026-03-29",
+      "category": "distribution",
+      "learning": "20 calculator pages had completely empty toolContent divs \u2014 broken since a migration. Testing with the browser tool BEFORE pushing is mandatory.",
+      "impact": "critical",
+      "applied_to": "QA process"
+    },
+    {
+      "date": "2026-03-30",
+      "category": "quality",
+      "learning": "Created 25 pages linking to gold.css but NEVER created the file. All 25 pages rendered as unstyled HTML. MUST verify that any referenced file actually exists before pushing. Add to pre-push checklist: check all href/src references resolve to real files.",
+      "impact": "critical",
+      "applied_to": "All future page creation"
+    },
+    {
+      "date": "2026-03-30",
+      "category": "process",
+      "learning": "Alex has caught: empty toolContent divs (20 pages), dark-themed blog, missing gold.css (25 pages), broken lead wizards (13 pages), missing blog posts (4 pages), broken contact form, fake about page metrics, broken mortgage calculator, broken links (918 pages). EVERY heartbeat must include visual browser testing of 5 random pages, not just audit.py grep checks.",
+      "impact": "critical",
+      "applied_to": "Heartbeat QA process"
+    }
+  ]
+}

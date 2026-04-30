@@ -1,0 +1,52 @@
+[
+  {
+    "target": "info@dentistinfranklinlakes.com",
+    "status": "failed",
+    "error": "HTTP 400: {\"statusCode\":400,\"name\":\"validation_error\",\"message\":\"Request body must be valid JSON.\"}"
+  },
+  {
+    "target": "info@wyckoffplumbing.com",
+    "status": "failed",
+    "error": "HTTP 400: <html>\r\n<head><title>400 Bad Request</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>cloudflare</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "target": "info@statefarm-wyckoff.com",
+    "status": "failed",
+    "error": "HTTP 400: {\"statusCode\":400,\"name\":\"validation_error\",\"message\":\"Request body must be valid JSON.\"}"
+  },
+  {
+    "target": "info@truyoudental.com",
+    "status": "failed",
+    "error": "HTTP 400: <html>\r\n<head><title>400 Bad Request</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>cloudflare</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "target": "contact@bergencountycpa.com",
+    "status": "failed",
+    "error": "HTTP 400: {\"statusCode\":400,\"name\":\"validation_error\",\"message\":\"Request body must be valid JSON.\"}"
+  },
+  {
+    "target": "info@ridgewooddental.com",
+    "status": "failed",
+    "error": "HTTP 400: <html>\r\n<head><title>400 Bad Request</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>cloudflare</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "target": "contact@oaklandplumbing.com",
+    "status": "failed",
+    "error": "HTTP 400: {\"statusCode\":400,\"name\":\"validation_error\",\"message\":\"Request body must be valid JSON.\"}"
+  },
+  {
+    "target": "info@bergenhvac.com",
+    "status": "failed",
+    "error": "HTTP 400: <html>\r\n<head><title>400 Bad Request</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>cloudflare</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "target": "hello@franklinlakesrealty.com",
+    "status": "failed",
+    "error": "HTTP 400: {\"statusCode\":400,\"name\":\"validation_error\",\"message\":\"Request body must be valid JSON.\"}"
+  },
+  {
+    "target": "info@njinsurancepros.com",
+    "status": "failed",
+    "error": "HTTP 400: <html>\r\n<head><title>400 Bad Request</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>cloudflare</center>\r\n</body>\r\n</html>\r\n"
+  }
+]

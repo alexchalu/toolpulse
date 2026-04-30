@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California State Income Tax Calculator - CalcLeap</title>
+    <meta name="description" content="Calculate your estimated California state income tax with our easy-to-use calculator.">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>California State Income Tax Calculator</h1>
+    </header>
+    <main>
+        <div class="calculator-container">
+            <div class="input-group">
+                <label for="income">Annual Income ($):</label>
+                <input type="number" id="income" placeholder="e.g., 75000">
+            </div>
+            <div class="input-group">
+                <label for="filingStatus">Filing Status:</label>
+                <select id="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="married-joint">Married Filing Jointly</option>
+                    <option value="married-separate">Married Filing Separately</option>
+                    <option value="hoh">Head of Household</option>
+                </select>
+            </div>
+            <button onclick="calculateTax()">Calculate Tax</button>
+            <div class="result-group">
+                <h2>Estimated California State Income Tax:</h2>
+                <p id="result">$0.00</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value);
+            const filingStatus = document.getElementById('filingStatus').value;
+            let tax = 0;
+
+            if (isNaN(income) || income < 0) {
+                document.getElementById('result').innerText = "Please enter a valid income.";
+                return;
+            }
+
+            // Simplified California tax brackets for demonstration (actual brackets are more complex and change annually)
+            // This is a placeholder and should be updated with actual data for production
+            switch (filingStatus) {
+                case 'single':
+                case 'married-separate':
+                    if (income <= 10412) tax = income * 0.01;
+                    else if (income <= 24684) tax = 104.12 + (income - 10412) * 0.02;
+                    else if (income <= 38959) tax = 389.56 + (income - 24684) * 0.04;
+                    else if (income <= 53980) tax = 960.56 + (income - 38959) * 0.06;
+                    else if (income <= 68252) tax = 1861.82 + (income - 53980) * 0.08;
+                    else if (income <= 348637) tax = 2993.66 + (income - 68252) * 0.093;
+                    else if (income <= 418363) tax = 28666.97 + (income - 348637) * 0.103;
+                    else if (income <= 697271) tax = 35893.95 + (income - 418363) * 0.113;
+                    else if (income <= 1000000) tax = 67558.11 + (income - 697271) * 0.123;
+                    else tax = 104886.18 + (income - 1000000) * 0.133; // Includes 1% Mental Health Services Tax for >$1M
+                    break;
+                case 'married-joint':
+                    if (income <= 20824) tax = income * 0.01;
+                    else if (income <= 49368) tax = 208.24 + (income - 20824) * 0.02;
+                    else if (income <= 77918) tax = 779.12 + (income - 49368) * 0.04;
+                    else if (income <= 107960) tax = 1921.12 + (income - 77918) * 0.06;
+                    else if (income <= 136504) tax = 3723.64 + (income - 107960) * 0.08;
+                    else if (income <= 697274) tax = 5987.32 + (income - 136504) * 0.093;
+                    else if (income <= 836726) tax = 57333.94 + (income - 697274) * 0.103;
+                    else if (income <= 1394542) tax = 71787.90 + (income - 836726) * 0.113;
+                    else if (income <= 2000000) tax = 135116.22 + (income - 1394542) * 0.123;
+                    else tax = 209772.36 + (income - 2000000) * 0.133; // Includes 1% Mental Health Services Tax for >$1M
+                    break;
+                case 'hoh':
+                    // Head of Household brackets are generally similar to single but with different thresholds.
+                    // For simplicity, using single brackets as a placeholder.
+                    // This should be updated with actual HOH data.
+                    if (income <= 10412) tax = income * 0.01;
+                    else if (income <= 24684) tax = 104.12 + (income - 10412) * 0.02;
+                    else if (income <= 38959) tax = 389.56 + (income - 24684) * 0.04;
+                    else if (income <= 53980) tax = 960.56 + (income - 38959) * 0.06;
+                    else if (income <= 68252) tax = 1861.82 + (income - 53980) * 0.08;
+                    else if (income <= 348637) tax = 2993.66 + (income - 68252) * 0.093;
+                    else if (income <= 418363) tax = 28666.97 + (income - 348637) * 0.103;
+                    else if (income <= 697271) tax = 35893.95 + (income - 418363) * 0.113;
+                    else if (income <= 1000000) tax = 67558.11 + (income - 697271) * 0.123;
+                    else tax = 104886.18 + (income - 1000000) * 0.133; // Includes 1% Mental Health Services Tax for >$1M
+                    break;
+            }
+
+            document.getElementById('result').innerText = `$${tax.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

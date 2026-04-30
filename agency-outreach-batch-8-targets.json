@@ -1,0 +1,32 @@
+[
+  {
+    "to": "ad.landscapingg@gmail.com",
+    "company": "A&D Landscaping",
+    "industry": "Home Services - Landscaping",
+    "vertical": "home_services"
+  },
+  {
+    "to": "rayroofingnj@gmail.com",
+    "company": "Ray Roofing NJ",
+    "industry": "Home Services - Roofing",
+    "vertical": "home_services"
+  },
+  {
+    "to": "info@PangioneDevelopers.com",
+    "company": "Pangione Developers",
+    "industry": "Home Remodeling & Additions",
+    "vertical": "home_services"
+  },
+  {
+    "to": "AJMandSonsElectric@Gmail.com",
+    "company": "AJM & Sons Electric",
+    "industry": "Electrical Contractor",
+    "vertical": "home_services"
+  },
+  {
+    "to": "info@kayvonhvac.com",
+    "company": "Kayvon HVAC",
+    "industry": "HVAC Services",
+    "vertical": "home_services"
+  }
+]

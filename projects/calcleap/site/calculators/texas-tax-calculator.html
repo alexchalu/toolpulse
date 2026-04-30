@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texas Tax Calculator - CalcLeap</title>
+    <meta name="description" content="Calculate Texas property tax, sales tax, and other taxes with our comprehensive Texas tax calculator.">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Texas Tax Calculator</h1>
+    </header>
+    <main>
+        <div class="calculator-container">
+            <div class="input-group">
+                <label for="homeValue">Home Value ($):</label>
+                <input type="number" id="homeValue" placeholder="e.g., 300000">
+            </div>
+            <div class="input-group">
+                <label for="county">County:</label>
+                <select id="county">
+                    <option value="harris">Harris County</option>
+                    <option value="dallas">Dallas County</option>
+                    <option value="tarrant">Tarrant County</option>
+                    <option value="bexar">Bexar County</option>
+                    <option value=" Travis">Travis County</option>
+                    <option value="el paso">El Paso County</option>
+                    <option value="other">Other County</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="schoolDistrict">School District Rate (%):</label>
+                <input type="number" id="schoolDistrict" step="0.01" placeholder="e.g., 1.25">
+            </div>
+            <div class="input-group">
+                <label for="cityRate">City Tax Rate (%):</label>
+                <input type="number" id="cityRate" step="0.01" placeholder="e.g., 0.75">
+            </div>
+            <div class="input-group">
+                <label for="purchaseAmount">Purchase Amount ($):</label>
+                <input type="number" id="purchaseAmount" placeholder="e.g., 100">
+            </div>
+            <div class="input-group">
+                <label for="salesTaxRate">Local Sales Tax Rate (%):</label>
+                <input type="number" id="salesTaxRate" step="0.01" placeholder="e.g., 8.25">
+            </div>
+            <button onclick="calculateTaxes()">Calculate Taxes</button>
+            <div class="result-group">
+                <h2>Estimated Annual Property Tax:</h2>
+                <p id="propertyTax">$0.00</p>
+                <h2>Estimated Sales Tax:</h2>
+                <p id="salesTax">$0.00</p>
+                <h2>Total Annual Tax Impact:</h2>
+                <p id="totalTax">$0.00</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function calculateTaxes() {
+            const homeValue = parseFloat(document.getElementById('homeValue').value);
+            const county = document.getElementById('county').value;
+            const schoolDistrict = parseFloat(document.getElementById('schoolDistrict').value);
+            const cityRate = parseFloat(document.getElementById('cityRate').value);
+            const purchaseAmount = parseFloat(document.getElementById('purchaseAmount').value);
+            const salesTaxRate = parseFloat(document.getElementById('salesTaxRate').value);
+
+            // Reset results
+            document.getElementById('propertyTax').innerText = '$0.00';
+            document.getElementById('salesTax').innerText = '$0.00';
+            document.getElementById('totalTax').innerText = '$0.00';
+
+            // Validate inputs
+            if (isNaN(homeValue) || homeValue < 0) {
+                alert('Please enter a valid home value.');
+                return;
+            }
+
+            // Calculate property tax
+            let propertyTax = 0;
+            const homesteadExemption = 40; // Texas homestead exemption is $40k for school district taxes
+            
+            // County tax rates (approximate - should be updated with actual data)
+            const countyRates = {
+                'harris': 0.395,
+                'dallas': 0.359,
+                'tarrant': 0.366,
+                'bexar': 0.419,
+                ' travis': 0.398,
+                'el paso': 0.392,
+                'other': 0.380
+            };
+
+            const countyRate = countyRates[county] || 0.380;
+            const taxableValue = Math.max(homeValue - homesteadExemption, 0);
+            
+            propertyTax = taxableValue * (schoolDistrict / 100) + taxableValue * (cityRate / 100) + taxableValue * (countyRate / 100);
+
+            // Calculate sales tax
+            let salesTax = 0;
+            if (!isNaN(purchaseAmount) && purchaseAmount > 0 && !isNaN(salesTaxRate)) {
+                salesTax = purchaseAmount * (salesTaxRate / 100);
+            }
+
+            // Calculate total annual tax impact
+            const annualSalesTax = salesTax * 12; // Assuming monthly purchases
+            const totalTax = propertyTax + annualSalesTax;
+
+            // Display results
+            document.getElementById('propertyTax').innerText = `$${propertyTax.toFixed(2)}`;
+            document.getElementById('salesTax').innerText = `$${salesTax.toFixed(2)}`;
+            document.getElementById('totalTax').innerText = `$${totalTax.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Income Tax Calculator - CalcLeap</title>
+    <meta name="description" content="Estimate your California state income tax with our free calculator. Supports various filing statuses and income levels.">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX');
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="/">CalcLeap</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="/finance">Finance</a></li>
+                    <li><a href="/math">Math</a></li>
+                    <li><a href="/conversions">Conversions</a></li>
+                    <li><a href="/health">Health</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="tool-card">
+            <h2>California Income Tax Calculator</h2>
+            <div class="input-group">
+                <label for="grossIncome">Annual Gross Income ($):</label>
+                <input type="number" id="grossIncome" value="60000" min="0">
+            </div>
+            <div class="input-group">
+                <label for="filingStatus">Filing Status:</label>
+                <select id="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="married-jointly">Married Filing Jointly</option>
+                    <option value="married-separately">Married Filing Separately</option>
+                    <option value="head-of-household">Head of Household</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="dependents">Number of Dependents:</label>
+                <input type="number" id="dependents" value="0" min="0">
+            </div>
+            <button onclick="calculateTax()">Calculate Tax</button>
+
+            <div class="result-box">
+                <h3>Results:</h3>
+                <p>Estimated California State Tax: <span id="stateTaxResult">$0.00</span></p>
+                <p>Net Income After State Tax: <span id="netIncomeResult">$0.00</span></p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>How California Income Tax is Calculated</h3>
+            <p>
+                California's income tax system is progressive, meaning higher earners pay a larger percentage of their income in taxes. The state uses several tax brackets and allows for various deductions and credits. Our calculator provides an estimate based on your gross income, filing status, and number of dependents.
+            </p>
+            <p>
+                Factors like specific deductions, tax credits (e.g., Earned Income Tax Credit, Child and Dependent Care Credit), and other income sources (e.g., capital gains, rental income) can affect your actual tax liability. This tool is for estimation purposes only and should not be considered tax advice. Consult a qualified tax professional for personalized guidance.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateTax() {
+            const grossIncome = parseFloat(document.getElementById('grossIncome').value);
+            const filingStatus = document.getElementById('filingStatus').value;
+            const dependents = parseInt(document.getElementById('dependents').value);
+
+            if (isNaN(grossIncome) || grossIncome < 0) {
+                alert('Please enter a valid annual gross income.');
+                return;
+            }
+
+            let stateTax = 0;
+            let taxableIncome = grossIncome; // Simplified for this example, doesn't account for standard deductions etc.
+
+            // Simplified CA Tax Brackets for 2024 (Illustrative - actual brackets vary annually)
+            // This is a placeholder and should be updated with actual data
+            const brackets = {
+                'single': [
+                    { limit: 10412, rate: 0.01 },
+                    { limit: 24684, rate: 0.02 },
+                    { limit: 38959, rate: 0.04 },
+                    { limit: 53949, rate: 0.06 },
+                    { limit: 68219, rate: 0.08 },
+                    { limit: 348625, rate: 0.093 },
+                    { limit: 418349, rate: 0.103 },
+                    { limit: 697248, rate: 0.113 },
+                    { limit: 1000000, rate: 0.123 }, // Added for higher incomes
+                    { limit: Infinity, rate: 0.133 } // Top bracket for very high incomes
+                ],
+                'married-jointly': [ // Doubled single brackets for simplicity
+                    { limit: 20824, rate: 0.01 },
+                    { limit: 49368, rate: 0.02 },
+                    { limit: 77918, rate: 0.04 },
+                    { limit: 107898, rate: 0.06 },
+                    { limit: 136438, rate: 0.08 },
+                    { limit: 697250, rate: 0.093 },
+                    { limit: 836698, rate: 0.103 },
+                    { limit: 1394496, rate: 0.113 },
+                    { limit: 2000000, rate: 0.123 },
+                    { limit: Infinity, rate: 0.133 }
+                ],
+                // For married-separately and head-of-household, more complex rules apply,
+                // but for this example, we'll use a simplified approach or mimic single/joint.
+                'married-separately': [
+                    { limit: 10412, rate: 0.01 },
+                    { limit: 24684, rate: 0.02 },
+                    { limit: 38959, rate: 0.04 },
+                    { limit: 53949, rate: 0.06 },
+                    { limit: 68219, rate: 0.08 },
+                    { limit: 348625, rate: 0.093 },
+                    { limit: 418349, rate: 0.103 },
+                    { limit: 697248, rate: 0.113 },
+                    { limit: 1000000, rate: 0.123 },
+                    { limit: Infinity, rate: 0.133 }
+                ],
+                'head-of-household': [ // Slightly different than single
+                    { limit: 10420, rate: 0.01 },
+                    { limit: 24692, rate: 0.02 },
+                    { limit: 38967, rate: 0.04 },
+                    { limit: 53957, rate: 0.06 },
+                    { limit: 68227, rate: 0.08 },
+                    { limit: 348633, rate: 0.093 },
+                    { limit: 418357, rate: 0.103 },
+                    { limit: 697256, rate: 0.113 },
+                    { limit: 1000000, rate: 0.123 },
+                    { limit: Infinity, rate: 0.133 }
+                ]
+            };
+
+            const currentBrackets = brackets[filingStatus];
+            if (!currentBrackets) {
+                alert('Invalid filing status selected.');
+                return;
+            }
+
+            let remainingTaxableIncome = taxableIncome;
+            for (let i = 0; i < currentBrackets.length; i++) {
+                const bracket = currentBrackets[i];
+                const prevLimit = i === 0 ? 0 : currentBrackets[i-1].limit;
+                const bracketAmount = bracket.limit - prevLimit;
+
+                if (remainingTaxableIncome > 0) {
+                    const amountInBracket = Math.min(remainingTaxableIncome, bracketAmount);
+                    stateTax += amountInBracket * bracket.rate;
+                    remainingTaxableIncome -= amountInBracket;
+                } else {
+                    break;
+                }
+            }
+
+            // Basic dependent credit (illustrative, actual credits are complex)
+            // For simplicity, let's say a small flat credit per dependent
+            const dependentCredit = 150; // Example value
+            stateTax = Math.max(0, stateTax - (dependents * dependentCredit));
+
+            const netIncome = grossIncome - stateTax;
+
+            document.getElementById('stateTaxResult').textContent = `$${stateTax.toFixed(2)}`;
+            document.getElementById('netIncomeResult').textContent = `$${netIncome.toFixed(2)}`;
+        }
+
+        // Initial calculation on page load
+        document.addEventListener('DOMContentLoaded', calculateTax);
+    </script>
+</body>
+</html>

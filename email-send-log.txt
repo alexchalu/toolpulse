@@ -1,0 +1,76 @@
+
+🚀 Agency Email Campaign - Batch 1
+Total targets: 10
+Dry run: NO
+
+[2026-03-27T12:52:58.328Z] Sending to Schulman Dental Studio (info@dentistinfranklinlakes.com)...
+  ✗ Failed: HTTP 400: {"statusCode":400,"name":"validation_error","message":"Request body must be valid JSON."}
+
+[2026-03-27T12:52:58.435Z] Sending to Wyckoff Plumbing & Heating (info@wyckoffplumbing.com)...
+  ✗ Failed: HTTP 400: <html>
+<head><title>400 Bad Request</title></head>
+<body>
+<center><h1>400 Bad Request</h1></center>
+<hr><center>cloudflare</center>
+</body>
+</html>
+
+
+[2026-03-27T12:52:58.437Z] Sending to State Farm - Wyckoff (info@statefarm-wyckoff.com)...
+  ✗ Failed: HTTP 400: {"statusCode":400,"name":"validation_error","message":"Request body must be valid JSON."}
+
+[2026-03-27T12:52:58.473Z] Sending to TruYou Dental (info@truyoudental.com)...
+  ✗ Failed: HTTP 400: <html>
+<head><title>400 Bad Request</title></head>
+<body>
+<center><h1>400 Bad Request</h1></center>
+<hr><center>cloudflare</center>
+</body>
+</html>
+
+
+[2026-03-27T12:52:58.474Z] Sending to Bergen County CPA Services (contact@bergencountycpa.com)...
+  ✗ Failed: HTTP 400: {"statusCode":400,"name":"validation_error","message":"Request body must be valid JSON."}
+
+[2026-03-27T12:52:58.515Z] Sending to Ridgewood Dental Associates (info@ridgewooddental.com)...
+  ✗ Failed: HTTP 400: <html>
+<head><title>400 Bad Request</title></head>
+<body>
+<center><h1>400 Bad Request</h1></center>
+<hr><center>cloudflare</center>
+</body>
+</html>
+
+
+[2026-03-27T12:52:58.518Z] Sending to Oakland Plumbing Services (contact@oaklandplumbing.com)...
+  ✗ Failed: HTTP 400: {"statusCode":400,"name":"validation_error","message":"Request body must be valid JSON."}
+
+[2026-03-27T12:52:58.556Z] Sending to Bergen HVAC Solutions (info@bergenhvac.com)...
+  ✗ Failed: HTTP 400: <html>
+<head><title>400 Bad Request</title></head>
+<body>
+<center><h1>400 Bad Request</h1></center>
+<hr><center>cloudflare</center>
+</body>
+</html>
+
+
+[2026-03-27T12:52:58.557Z] Sending to Franklin Lakes Realty Group (hello@franklinlakesrealty.com)...
+  ✗ Failed: HTTP 400: {"statusCode":400,"name":"validation_error","message":"Request body must be valid JSON."}
+
+[2026-03-27T12:52:58.591Z] Sending to NJ Insurance Professionals (info@njinsurancepros.com)...
+  ✗ Failed: HTTP 400: <html>
+<head><title>400 Bad Request</title></head>
+<body>
+<center><h1>400 Bad Request</h1></center>
+<hr><center>cloudflare</center>
+</body>
+</html>
+
+
+
+📊 Campaign complete. Log saved to /data/workspace/email-campaign-batch-1-log.json
+
+✓ Sent: 0
+✗ Failed: 10
+Total: 10

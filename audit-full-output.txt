@@ -1,0 +1,56 @@
+============================================================
+CALCLEAP.COM — COMPREHENSIVE QUALITY AUDIT
+============================================================
+
+Total pages: 2886
+✅ Passing all checks: 2638
+❌ Duplicate H1: 0
+❌ Excess ads (>7): 0
+❌ Missing page-title: 34
+❌ Missing gold CSS: 26
+❌ Missing footer: 32
+❌ Missing comprehensive CSS: 213
+❌ Calculator pages with no JS: 2
+
+--- no_page_title (showing first 10) ---
+  ./air-conditioning-cost-calculator.html
+  ./api-docs.html
+  ./blog/calcleap-launch-2800-calculators.html
+  ./blog/free-calculator-api-developers.html
+  ./calc/1099-tax-calculator.html
+  ./calc/401k-match-calculator.html
+  ./calc/estimated-quarterly-tax-calculator.html
+  ./calc/home-office-deduction-calculator.html
+  ./calc/hvac-installation-cost-calculator.html
+  ./calc/kitchen-remodel-cost-calculator.html
+  ... and 24 more
+
+--- no_gold_css (showing first 10) ---
+  ./air-conditioning-cost-calculator.html
+  ./calc/1099-tax-calculator.html
+  ./calc/401k-match-calculator.html
+  ./calc/business-mileage-deduction-calculator.html
+  ./calc/estimated-quarterly-tax-calculator.html
+  ./calc/hvac-installation-cost-calculator.html
+  ./calc/kitchen-remodel-cost-calculator.html
+  ./calc/loan-comparison-calculator.html
+  ./calc/natural-gas-cost-calculator.html
+  ./calc/new-york-income-tax-calculator.html
+  ... and 16 more
+
+--- no_footer (showing first 10) ---
+  ./air-conditioning-cost-calculator.html
+  ./api-docs.html
+  ./calc/1099-tax-calculator.html
+  ./calc/business-mileage-deduction-calculator.html
+  ./calc/estimated-quarterly-tax-calculator.html
+  ./calc/home-office-deduction-calculator.html
+  ./calc/hvac-installation-cost-calculator.html
+  ./calc/kitchen-remodel-cost-calculator.html
+  ./calc/loan-comparison-calculator.html
+  ./calc/natural-gas-cost-calculator.html
+  ... and 22 more
+
+--- no_js (showing first 10) ---
+  ./home-energy-audit-calculator.html
+  ./reverse-mortgage-payout-calculator.html

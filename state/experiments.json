@@ -1,0 +1,62 @@
+{
+  "active_experiments": [
+    {
+      "id": "EXP-003",
+      "name": "Topic cluster restructuring",
+      "hypothesis": "Organizing pages into NerdWallet-style topic clusters will improve Google's understanding of site authority per topic",
+      "started": "2026-03-30",
+      "action": "Restructure site into /credit-cards/, /mortgages/, /insurance/, /taxes/ clusters with pillar pages",
+      "success_criteria": "Index rate improves from 14% to 30%+ within 30 days",
+      "measure_date": "2026-04-30",
+      "status": "planned",
+      "result": null
+    },
+    {
+      "id": "EXP-004",
+      "name": "Blog quality upgrade with visuals",
+      "hypothesis": "Blog posts with SVG charts, infographics, and NerdWallet-quality writing will rank better and earn more backlinks",
+      "started": "2026-03-29",
+      "action": "Rewriting all blog posts with donut charts, bar graphs, comparison tables, FAQ accordions",
+      "success_criteria": "Blog posts indexed and appearing for target keywords within 21 days",
+      "measure_date": "2026-04-19",
+      "status": "failed",
+      "result": "Blog posts not indexed or ranking for target keywords within 21 days. Zero traffic from blog posts."
+    },
+    {
+      "id": "EXP-005",
+      "name": "Reddit karma farming for organic link drops",
+      "hypothesis": "High-karma Reddit account can post CalcLeap links in relevant subreddits without triggering spam filters. Need 500+ karma first.",
+      "started": "2026-04-06",
+      "action": "Create u/CalcLeapBot, participate in r/AskReddit, r/LifeProTips, r/PersonalFinance to build karma organically for 2 weeks, then post CalcLeap links",
+      "success_criteria": "500+ karma within 14 days, then 1 successful post to r/InternetIsBeautiful that generates 50+ clicks",
+      "measure_date": "2026-04-20",
+      "status": "planned",
+      "result": null
+    }
+  ],
+  "completed_experiments": [
+    {
+      "id": "EXP-001",
+      "name": "Publisher backlink outreach",
+      "hypothesis": "Emailing DR-90+ finance publishers will generate backlinks that improve domain authority and indexing speed",
+      "started": "2026-03-27",
+      "action": "Sent 27 emails to Investopedia, Bankrate, Balance, ProductHunt, BetaList, etc.",
+      "success_criteria": "At least 1 backlink from DR-50+ site within 14 days",
+      "measure_date": "2026-04-10",
+      "status": "failed",
+      "result": "No backlinks detected from 27 emails."
+    },
+    {
+      "id": "EXP-002",
+      "name": "Comparison pages for affiliate revenue",
+      "hypothesis": "NerdWallet-style 'Best X' comparison pages will generate affiliate clicks once traffic arrives",
+      "started": "2026-03-28",
+      "action": "Built best-credit-cards.html and best-savings-accounts.html with professional design",
+      "success_criteria": "Pages indexed by Google within 14 days",
+      "measure_date": "2026-04-11",
+      "status": "failed",
+      "result": "Comparison pages not indexed within 14 days."
+    }
+  ],
+  "next_experiment_id": 6
+}

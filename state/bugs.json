@@ -1,0 +1,18 @@
+{
+  "date": "2026-04-05",
+  "found": [
+    "personal-injury-settlement-calculator.html had 9 ad references (>7 threshold)",
+    "workers-compensation-calculator.html had 9 ad references (>7 threshold)",
+    "child-support-calculator.html linked to non-existent styles.css file",
+    "child-support-calculator.html missing footer"
+  ],
+  "fixed": [
+    "Removed 1 ad slot from personal-injury-settlement-calculator.html (9→7 refs)",
+    "Removed 1 ad slot from workers-compensation-calculator.html (9→7 refs)",
+    "Removed broken styles.css link from child-support-calculator.html",
+    "Added footer to child-support-calculator.html"
+  ],
+  "regressions": [],
+  "time_to_fix": "8 minutes",
+  "commit": "0e1bb325"
+}

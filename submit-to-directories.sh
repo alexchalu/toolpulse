@@ -1,0 +1,28 @@
+#!/bin/bash
+# Top 20 high-DA directory submission sites from research
+
+SITE_TITLE="CalcLeap - 2900+ Free Online Calculators"
+SITE_URL="https://calcleap.com"
+SITE_DESC="Comprehensive calculator platform with 2,900+ free tools for finance, health, tax, insurance, crypto, and more. No signup required."
+CATEGORY="Finance"
+EMAIL="alex@calcleap.com"
+
+echo "=== Directory Submission URLs ==="
+echo ""
+echo "1. Viesearch (DA 48): https://www.viesearch.com/submit.php"
+echo "2. ABC Directory (DA 37): https://www.abc-directory.com/submit.php"  
+echo "3. SoMuch (DA 35): https://www.somuch.com/submit.php"
+echo "4. Jayde (DA 39): https://www.jayde.com/submit/"
+echo "5. BusinessSeek (DA 32): https://www.businessseek.biz/submit.php"
+echo "6. ProLink Directory (DA 33): https://www.prolinkdirectory.com/submit.php"
+echo "7. Directory.ac (DA 36): https://www.directory.ac/submit.php"
+echo "8. SubmissionWebDirectory (DA 32): https://www.submissionwebdirectory.com/submit.php"
+echo "9. HDVConnect (DA 33): http://www.hdvconnect.com/submit.php"
+echo "10. Cipinet (DA 33): https://www.cipinet.com/submit.php"
+echo ""
+echo "Site Details to Submit:"
+echo "Title: $SITE_TITLE"
+echo "URL: $SITE_URL"
+echo "Description: $SITE_DESC"
+echo "Category: $CATEGORY"
+echo "Email: $EMAIL"

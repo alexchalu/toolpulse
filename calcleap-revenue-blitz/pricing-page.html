@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalcLeap API - Pricing</title>
+    <meta name="description" content="Simple, transparent pricing for the CalcLeap API. Start free, scale as you grow.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+        }
+        .badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .plan-price span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #666;
+        }
+        .plan-description {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+        .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        .features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+        .features li:last-child {
+            border-bottom: none;
+        }
+        .features li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #667eea;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #5568d3;
+        }
+        .cta-button.secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        .cta-button.secondary:hover {
+            background: #f8f9ff;
+        }
+        .faq {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+        .faq h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .faq-item {
+            margin-bottom: 25px;
+        }
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+        }
+        .contact-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .contact-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .contact-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .contact-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        .contact-button:hover {
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1rem; }
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simple, Transparent Pricing</h1>
+            <p class="subtitle">Start free. Scale as you grow. No hidden fees.</p>
+        </header>
+
+        <div class="pricing-grid">
+            <!-- FREE TIER -->
+            <div class="pricing-card">
+                <div class="plan-name">Starter</div>
+                <div class="plan-price">$0<span>/month</span></div>
+                <p class="plan-description">Perfect for testing and small projects</p>
+                <ul class="features">
+                    <li>1,000 API calls/month</li>
+                    <li>All 8 calculators</li>
+                    <li>Community support</li>
+                    <li>Basic analytics</li>
+                    <li>Free forever</li>
+                </ul>
+                <a href="mailto:alex@chalunkal.com?subject=CalcLeap%20API%20-%20Starter%20Plan" class="cta-button secondary">Get Started Free</a>
+            </div>
+
+            <!-- PRO TIER -->
+            <div class="pricing-card featured">
+                <span class="badge">Most Popular</span>
+                <div class="plan-name">Pro</div>
+                <div class="plan-price">$49<span>/month</span></div>
+                <p class="plan-description">For growing apps and businesses</p>
+                <ul class="features">
+                    <li>50,000 API calls/month</li>
+                    <li>All 8 calculators</li>
+                    <li>Priority email support</li>
+                    <li>Advanced analytics</li>
+                    <li>SLA guarantee (99.9%)</li>
+                    <li>Custom branding options</li>
+                </ul>
+                <a href="mailto:alex@chalunkal.com?subject=CalcLeap%20API%20-%20Pro%20Plan" class="cta-button">Start Pro Trial</a>
+            </div>
+
+            <!-- BUSINESS TIER -->
+            <div class="pricing-card">
+                <div class="plan-name">Business</div>
+                <div class="plan-price">$199<span>/month</span></div>
+                <p class="plan-description">For high-traffic applications</p>
+                <ul class="features">
+                    <li>250,000 API calls/month</li>
+                    <li>All 8 calculators</li>
+                    <li>Dedicated support</li>
+                    <li>Advanced analytics + reporting</li>
+                    <li>SLA guarantee (99.95%)</li>
+                    <li>Custom branding</li>
+                    <li>White-label options</li>
+                    <li>Volume discounts available</li>
+                </ul>
+                <a href="mailto:alex@chalunkal.com?subject=CalcLeap%20API%20-%20Business%20Plan" class="cta-button">Contact Sales</a>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do I need a credit card to start?</div>
+                <div class="faq-answer">No! The Starter plan is completely free forever. No credit card required.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What happens if I exceed my monthly limit?</div>
+                <div class="faq-answer">We'll send you an email notification. You can upgrade anytime or wait until next month. We don't cut off access immediately.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I change plans later?</div>
+                <div class="faq-answer">Absolutely! Upgrade or downgrade at any time. Changes take effect immediately, and we'll prorate charges.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is there a setup fee?</div>
+                <div class="faq-answer">No setup fees. No hidden costs. Just simple, transparent pricing.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's included in all plans?</div>
+                <div class="faq-answer">Every plan includes access to all 8 calculators: mortgage, compound interest, retirement, loan, insurance, BMI, tip, and percentage. Plus full API documentation and code examples.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you offer custom enterprise plans?</div>
+                <div class="faq-answer">Yes! If you need more than 250k calls/month, on-premise deployment, or custom features, contact us for a custom quote.</div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="contact-cta">
+            <h2>Need a Custom Solution?</h2>
+            <p>Enterprise plans, custom calculators, white-label solutions, and volume discounts available.</p>
+            <a href="mailto:alex@chalunkal.com?subject=CalcLeap%20API%20-%20Enterprise%20Inquiry" class="contact-button">Talk to Sales</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Invoice Generator</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8f9fa;color:#1a1a2e;line-height:1.6}
+.container{max-width:900px;margin:0 auto;padding:2rem}
+h1{font-size:1.8rem;margin-bottom:1.5rem;text-align:center}
+.invoice-form{background:white;border-radius:12px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.08);margin-bottom:2rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group label{font-size:.8rem;font-weight:600;text-transform:uppercase;color:#666}
+.form-group input,.form-group textarea,.form-group select{padding:.6rem .8rem;border:1px solid #ddd;border-radius:8px;font-size:.95rem;font-family:inherit}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:#0071e3;box-shadow:0 0 0 3px rgba(0,113,227,.1)}
+textarea{resize:vertical;min-height:80px}
+.items-table{width:100%;border-collapse:collapse;margin:1.5rem 0}
+.items-table th{background:#0071e3;color:white;padding:.6rem;text-align:left;font-size:.8rem;text-transform:uppercase}
+.items-table td{padding:.5rem;border-bottom:1px solid #eee}
+.items-table input{width:100%;padding:.4rem;border:1px solid #ddd;border-radius:4px;font-size:.9rem}
+.items-table input[type="number"]{text-align:right}
+.btn{background:#0071e3;color:white;border:none;padding:.7rem 1.5rem;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn:hover{background:#005bb5}
+.btn-outline{background:transparent;color:#0071e3;border:2px solid #0071e3}
+.btn-outline:hover{background:#0071e3;color:white}
+.btn-row{display:flex;gap:.75rem;margin-top:1rem;justify-content:center}
+.totals{text-align:right;margin-top:1rem;padding:1rem;background:#f8f9fa;border-radius:8px}
+.totals .line{display:flex;justify-content:flex-end;gap:2rem;padding:.3rem 0}
+.totals .total{font-size:1.3rem;font-weight:800;color:#0071e3;border-top:2px solid #0071e3;padding-top:.5rem;margin-top:.5rem}
+.invoice-preview{background:white;border-radius:12px;padding:3rem;box-shadow:0 2px 12px rgba(0,0,0,.08);display:none}
+.preview-header{display:flex;justify-content:space-between;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:3px solid #0071e3}
+.preview-header h2{font-size:2rem;color:#0071e3;letter-spacing:-.03em}
+.preview-meta{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem}
+.preview-meta h4{font-size:.75rem;text-transform:uppercase;color:#999;margin-bottom:.3rem}
+.preview-table{width:100%;border-collapse:collapse;margin:1.5rem 0}
+.preview-table th{background:#f8f9fa;padding:.7rem;text-align:left;font-size:.8rem;text-transform:uppercase;color:#666;border-bottom:2px solid #ddd}
+.preview-table td{padding:.7rem;border-bottom:1px solid #eee}
+.preview-table .amount{text-align:right;font-weight:600}
+.preview-totals{text-align:right;padding:1rem 0}
+.preview-totals .line{padding:.25rem 0;font-size:.95rem}
+.preview-totals .grand-total{font-size:1.5rem;font-weight:800;color:#0071e3;padding-top:.5rem;border-top:2px solid #0071e3}
+.notes{margin-top:2rem;padding-top:1rem;border-top:1px solid #eee;font-size:.85rem;color:#666}
+@media print{body{background:white}.invoice-form,.btn-row{display:none!important}.invoice-preview{display:block!important;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📄 Professional Invoice Generator</h1>
+
+<div class="invoice-form">
+<h3 style="margin-bottom:1rem">Your Business Info</h3>
+<div class="form-row">
+<div class="form-group"><label>Business Name</label><input type="text" id="bizName" value="Your Business Name"></div>
+<div class="form-group"><label>Email</label><input type="email" id="bizEmail" value="you@example.com"></div>
+</div>
+<div class="form-group"><label>Address</label><textarea id="bizAddr">123 Main Street\nCity, State 12345</textarea></div>
+
+<h3 style="margin:1.5rem 0 1rem">Client Info</h3>
+<div class="form-row">
+<div class="form-group"><label>Client Name</label><input type="text" id="clientName" value="Client Company"></div>
+<div class="form-group"><label>Client Email</label><input type="email" id="clientEmail" value="client@example.com"></div>
+</div>
+<div class="form-group"><label>Client Address</label><textarea id="clientAddr">456 Business Ave\nCity, State 67890</textarea></div>
+
+<h3 style="margin:1.5rem 0 1rem">Invoice Details</h3>
+<div class="form-row">
+<div class="form-group"><label>Invoice Number</label><input type="text" id="invNum" value="INV-001"></div>
+<div class="form-group"><label>Due Date</label><input type="date" id="dueDate"></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label>Tax Rate (%)</label><input type="number" id="taxRate" value="0" step="0.1"></div>
+<div class="form-group"><label>Currency</label><select id="currency"><option>USD ($)</option><option>EUR (€)</option><option>GBP (£)</option><option>CAD (C$)</option></select></div>
+</div>
+
+<h3 style="margin:1.5rem 0 1rem">Line Items</h3>
+<table class="items-table">
+<thead><tr><th>Description</th><th style="width:80px">Qty</th><th style="width:100px">Rate</th><th style="width:100px">Amount</th><th style="width:40px"></th></tr></thead>
+<tbody id="items">
+<tr>
+<td><input type="text" value="Web Design Services" class="desc"></td>
+<td><input type="number" value="1" class="qty" min="0" onchange="calcTotals()"></td>
+<td><input type="number" value="500" class="rate" min="0" step="0.01" onchange="calcTotals()"></td>
+<td class="line-total" style="text-align:right;font-weight:600">$500.00</td>
+<td><button onclick="this.closest('tr').remove();calcTotals()" style="background:none;border:none;color:#e74c3c;cursor:pointer;font-size:1.2rem">×</button></td>
+</tr>
+</tbody>
+</table>
+<button class="btn btn-outline" onclick="addItem()" style="margin-bottom:1rem">+ Add Item</button>
+
+<div class="totals" id="totals">
+<div class="line"><span>Subtotal:</span><span id="subtotal">$500.00</span></div>
+<div class="line"><span>Tax (0%):</span><span id="taxAmt">$0.00</span></div>
+<div class="line total"><span>Total:</span><span id="grandTotal">$500.00</span></div>
+</div>
+
+<div class="form-group" style="margin-top:1rem"><label>Notes</label><textarea id="notes">Payment due within 30 days. Thank you for your business!</textarea></div>
+</div>
+
+<div class="btn-row">
+<button class="btn" onclick="generatePreview()">Preview Invoice</button>
+<button class="btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+</div>
+
+<div class="invoice-preview" id="preview"></div>
+</div>
+
+<script>
+function addItem(){
+const tbody=document.getElementById('items');
+const tr=document.createElement('tr');
+tr.innerHTML=`<td><input type="text" value="" class="desc" placeholder="Description"></td><td><input type="number" value="1" class="qty" min="0" onchange="calcTotals()"></td><td><input type="number" value="0" class="rate" min="0" step="0.01" onchange="calcTotals()"></td><td class="line-total" style="text-align:right;font-weight:600">$0.00</td><td><button onclick="this.closest('tr').remove();calcTotals()" style="background:none;border:none;color:#e74c3c;cursor:pointer;font-size:1.2rem">×</button></td>`;
+tbody.appendChild(tr);
+}
+
+function calcTotals(){
+const rows=document.querySelectorAll('#items tr');
+let sub=0;
+const sym=document.getElementById('currency').value.match(/\((.)\)/)[1];
+rows.forEach(r=>{
+const q=parseFloat(r.querySelector('.qty')?.value||0);
+const rate=parseFloat(r.querySelector('.rate')?.value||0);
+const amt=q*rate;
+sub+=amt;
+const td=r.querySelector('.line-total');
+if(td)td.textContent=sym+amt.toFixed(2);
+});
+const taxRate=parseFloat(document.getElementById('taxRate').value||0)/100;
+const tax=sub*taxRate;
+document.getElementById('subtotal').textContent=sym+sub.toFixed(2);
+document.getElementById('taxAmt').textContent=sym+tax.toFixed(2);
+document.getElementById('grandTotal').textContent=sym+(sub+tax).toFixed(2);
+}
+
+function generatePreview(){
+calcTotals();
+const sym=document.getElementById('currency').value.match(/\((.)\)/)[1];
+const rows=document.querySelectorAll('#items tr');
+let itemsHtml='';
+let sub=0;
+rows.forEach(r=>{
+const desc=r.querySelector('.desc')?.value||'';
+const q=parseFloat(r.querySelector('.qty')?.value||0);
+const rate=parseFloat(r.querySelector('.rate')?.value||0);
+const amt=q*rate;
+sub+=amt;
+itemsHtml+=`<tr><td>${desc}</td><td>${q}</td><td>${sym}${rate.toFixed(2)}</td><td class="amount">${sym}${amt.toFixed(2)}</td></tr>`;
+});
+const taxRate=parseFloat(document.getElementById('taxRate').value||0)/100;
+const tax=sub*taxRate;
+const total=sub+tax;
+
+const preview=document.getElementById('preview');
+preview.style.display='block';
+preview.innerHTML=`
+<div class="preview-header"><h2>INVOICE</h2><div style="text-align:right"><div style="font-size:1.5rem;font-weight:700">${document.getElementById('invNum').value}</div><div style="color:#666">Date: ${new Date().toLocaleDateString()}</div><div style="color:#666">Due: ${document.getElementById('dueDate').value||'On Receipt'}</div></div></div>
+<div class="preview-meta"><div><h4>From</h4><strong>${document.getElementById('bizName').value}</strong><br>${document.getElementById('bizAddr').value.replace(/\n/g,'<br>')}<br>${document.getElementById('bizEmail').value}</div><div><h4>To</h4><strong>${document.getElementById('clientName').value}</strong><br>${document.getElementById('clientAddr').value.replace(/\n/g,'<br>')}<br>${document.getElementById('clientEmail').value}</div></div>
+<table class="preview-table"><thead><tr><th>Description</th><th>Qty</th><th>Rate</th><th style="text-align:right">Amount</th></tr></thead><tbody>${itemsHtml}</tbody></table>
+<div class="preview-totals"><div class="line">Subtotal: ${sym}${sub.toFixed(2)}</div><div class="line">Tax (${(taxRate*100).toFixed(1)}%): ${sym}${tax.toFixed(2)}</div><div class="line grand-total">Total: ${sym}${total.toFixed(2)}</div></div>
+<div class="notes"><strong>Notes:</strong><br>${document.getElementById('notes').value}</div>`;
+preview.scrollIntoView({behavior:'smooth'});
+}
+
+// Set default due date to 30 days from now
+const d=new Date();d.setDate(d.getDate()+30);
+document.getElementById('dueDate').value=d.toISOString().split('T')[0];
+calcTotals();
+</script>
+</body>
+</html>

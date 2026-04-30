@@ -1,0 +1,12 @@
+Title: Show HN: CalcLeap – 2,900+ free calculators (finance, health, tax, crypto)
+
+URL: https://calcleap.com
+
+Text:
+I built a comprehensive calculator platform with 2,900+ tools covering finance (mortgage, retirement, compound interest), health (BMI, calories, body fat), taxes (all 50 states), insurance estimators, crypto converters, and developer utilities.
+
+Everything is free, no signup, no email gates. Each calculator includes educational content explaining the math.
+
+Also built a free API for developers: https://github.com/alexchalu/calcleap-api
+
+Feedback welcome on what calculators to add next.

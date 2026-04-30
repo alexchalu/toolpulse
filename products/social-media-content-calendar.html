@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Content Calendar & Planner</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{--bg:#0f172a;--surface:#1e293b;--surface2:#334155;--border:#475569;--text:#f1f5f9;--muted:#94a3b8;--accent:#8b5cf6;--green:#22c55e;--red:#ef4444;--blue:#3b82f6;--yellow:#f59e0b;--pink:#ec4899;--orange:#f97316}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem}
+.container{max-width:1400px;margin:0 auto}
+h1{font-size:1.8rem;font-weight:800}
+.sub{color:var(--muted);margin-bottom:1.5rem;font-size:0.9rem}
+.toolbar{display:flex;gap:0.75rem;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap}
+.toolbar select,.toolbar input{padding:0.5rem 0.75rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Inter',sans-serif;font-size:0.85rem}
+.btn{padding:0.5rem 1rem;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600;font-family:'Inter',sans-serif;font-size:0.85rem}
+.btn:hover{opacity:0.9}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text)}
+.btn-outline:hover{background:var(--surface2)}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:1.5rem}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center}
+.stat-card .num{font-size:1.5rem;font-weight:800}
+.stat-card .lbl{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-top:0.25rem}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:1.5rem}
+.cal-header{background:var(--surface);padding:0.75rem;text-align:center;font-size:0.75rem;font-weight:700;text-transform:uppercase;color:var(--muted);letter-spacing:0.5px}
+.cal-day{background:var(--surface);min-height:120px;padding:0.5rem;border:1px solid transparent;cursor:pointer;transition:all 0.2s;position:relative}
+.cal-day:hover{border-color:var(--accent);background:var(--surface2)}
+.cal-day.today{border-color:var(--accent);background:rgba(139,92,246,0.1)}
+.cal-day.other-month{opacity:0.3}
+.cal-day .day-num{font-size:0.8rem;font-weight:600;margin-bottom:0.4rem}
+.cal-day .post{font-size:0.65rem;padding:0.2rem 0.4rem;border-radius:4px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.cal-day .post.instagram{background:rgba(236,72,153,0.2);color:var(--pink)}
+.cal-day .post.twitter{background:rgba(59,130,246,0.2);color:var(--blue)}
+.cal-day .post.linkedin{background:rgba(59,130,246,0.3);color:#60a5fa}
+.cal-day .post.facebook{background:rgba(59,130,246,0.15);color:#93c5fd}
+.cal-day .post.tiktok{background:rgba(248,113,113,0.2);color:var(--red)}
+.cal-day .post.youtube{background:rgba(239,68,68,0.2);color:var(--red)}
+.cal-day .post.pinterest{background:rgba(239,68,68,0.15);color:#fca5a5}
+.cal-day .post.draft{opacity:0.5;border:1px dashed}
+.cal-day .post.published{opacity:1}
+.section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+.section h2{font-size:1.1rem;font-weight:700;margin-bottom:1rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.75rem;margin-bottom:1rem}
+.field label{display:block;font-size:0.75rem;color:var(--muted);margin-bottom:0.25rem}
+.field input,.field select,.field textarea{width:100%;padding:0.5rem 0.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Inter',sans-serif;font-size:0.85rem;outline:none}
+.field textarea{min-height:80px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:0.85rem}
+th,td{padding:0.6rem 0.75rem;text-align:left;border-bottom:1px solid var(--border)}
+th{color:var(--muted);font-weight:600;font-size:0.7rem;text-transform:uppercase}
+.platform-badge{display:inline-block;padding:0.15rem 0.5rem;border-radius:4px;font-size:0.7rem;font-weight:600}
+.status-badge{display:inline-block;padding:0.15rem 0.5rem;border-radius:4px;font-size:0.7rem;font-weight:600}
+.status-draft{background:rgba(148,163,184,0.2);color:var(--muted)}
+.status-scheduled{background:rgba(59,130,246,0.2);color:var(--blue)}
+.status-published{background:rgba(34,197,94,0.2);color:var(--green)}
+.ideas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
+.idea-card{background:var(--surface2);border-radius:8px;padding:1rem;cursor:pointer;border:1px solid transparent;transition:all 0.2s}
+.idea-card:hover{border-color:var(--accent)}
+.idea-card h4{font-size:0.9rem;margin-bottom:0.35rem}
+.idea-card p{font-size:0.75rem;color:var(--muted);line-height:1.4}
+.idea-card .tags{margin-top:0.5rem;display:flex;gap:0.25rem;flex-wrap:wrap}
+.idea-card .tag{font-size:0.6rem;padding:0.15rem 0.4rem;border-radius:3px;background:rgba(139,92,246,0.2);color:var(--accent)}
+.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center}
+.modal.show{display:flex}
+.modal-content{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;max-width:500px;width:90%}
+.modal-content h3{margin-bottom:1rem}
+@media(max-width:768px){.stats{grid-template-columns:repeat(3,1fr)}.form-grid{grid-template-columns:1fr}.calendar{grid-template-columns:repeat(7,1fr)}.ideas-grid{grid-template-columns:1fr}}
+@media print{body{background:#fff;color:#000}.card,.section,.stat-card,.cal-day,.cal-header{background:#f9f9f9;border-color:#ddd}}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📅 Social Media Content Calendar</h1>
+  <p class="sub">Plan, schedule, and track your content across all platforms</p>
+
+  <div class="toolbar">
+    <button class="btn" onclick="prevMonth()">← Prev</button>
+    <span id="monthLabel" style="font-weight:700;font-size:1.1rem;min-width:180px;text-align:center"></span>
+    <button class="btn" onclick="nextMonth()">Next →</button>
+    <div style="flex:1"></div>
+    <select id="filterPlatform" onchange="renderAll()">
+      <option value="all">All Platforms</option>
+      <option value="instagram">Instagram</option>
+      <option value="twitter">Twitter/X</option>
+      <option value="linkedin">LinkedIn</option>
+      <option value="facebook">Facebook</option>
+      <option value="tiktok">TikTok</option>
+      <option value="youtube">YouTube</option>
+      <option value="pinterest">Pinterest</option>
+    </select>
+    <button class="btn" onclick="showAddForm()">+ New Post</button>
+    <button class="btn btn-outline" onclick="exportCSV()">Export CSV</button>
+  </div>
+
+  <div class="stats" id="statsCards"></div>
+  <div class="calendar" id="calendar"></div>
+
+  <div class="section">
+    <h2>📝 Add / Edit Post</h2>
+    <div class="form-grid">
+      <div class="field"><label>Platform</label>
+        <select id="postPlatform"><option>Instagram</option><option>Twitter</option><option>LinkedIn</option><option>Facebook</option><option>TikTok</option><option>YouTube</option><option>Pinterest</option></select>
+      </div>
+      <div class="field"><label>Date</label><input type="date" id="postDate"></div>
+      <div class="field"><label>Time</label><input type="time" id="postTime" value="10:00"></div>
+      <div class="field"><label>Status</label>
+        <select id="postStatus"><option>Draft</option><option>Scheduled</option><option>Published</option></select>
+      </div>
+    </div>
+    <div class="form-grid" style="grid-template-columns:1fr 1fr">
+      <div class="field"><label>Title / Hook</label><input type="text" id="postTitle" placeholder="Attention-grabbing hook..."></div>
+      <div class="field"><label>Hashtags</label><input type="text" id="postHashtags" placeholder="#marketing #business #tips"></div>
+    </div>
+    <div class="field"><label>Content / Caption</label><textarea id="postContent" placeholder="Write your post content here..."></textarea></div>
+    <div style="display:flex;gap:0.5rem">
+      <button class="btn" onclick="savePost()">Save Post</button>
+      <button class="btn btn-outline" onclick="clearForm()">Clear</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📋 All Posts</h2>
+    <table><thead><tr><th>Date</th><th>Platform</th><th>Title</th><th>Status</th><th>Actions</th></tr></thead>
+    <tbody id="postsTable"></tbody></table>
+  </div>
+
+  <div class="section">
+    <h2>💡 Content Ideas Bank</h2>
+    <div class="ideas-grid" id="ideasGrid"></div>
+  </div>
+</div>
+
+<script>
+let currentDate=new Date();
+let posts=JSON.parse(localStorage.getItem('smcal_posts')||'[]');
+let editingIndex=-1;
+
+// Seed data
+if(posts.length===0){
+  const today=new Date();
+  const seeds=[
+    {platform:'Instagram',date:fmt(0),time:'10:00',title:'5 productivity tips for entrepreneurs',content:'Here are 5 game-changing productivity tips...',hashtags:'#productivity #entrepreneur #tips',status:'Scheduled'},
+    {platform:'Twitter',date:fmt(0),time:'14:00',title:'Thread: How I grew my business 10x',content:'1/ Let me tell you how I grew my business 10x in 12 months...',hashtags:'#growth #startup',status:'Draft'},
+    {platform:'LinkedIn',date:fmt(1),time:'09:00',title:'The future of remote work in 2026',content:'Remote work is evolving rapidly...',hashtags:'#remotework #future',status:'Draft'},
+    {platform:'Instagram',date:fmt(2),time:'18:00',title:'Behind the scenes of our product launch',content:'Swipe to see how we built this →',hashtags:'#bts #startup #launch',status:'Scheduled'},
+    {platform:'TikTok',date:fmt(3),time:'12:00',title:'Day in my life as a founder',content:'POV: You run a startup...',hashtags:'#founder #dayinmylife',status:'Draft'},
+    {platform:'YouTube',date:fmt(5),time:'15:00',title:'Complete guide to financial modeling',content:'In this video, I walk you through...',hashtags:'#finance #tutorial',status:'Draft'},
+    {platform:'Facebook',date:fmt(-1),time:'11:00',title:'New feature announcement!',content:'We are thrilled to announce...',hashtags:'#announcement #product',status:'Published'},
+    {platform:'Twitter',date:fmt(-2),time:'16:00',title:'Quick poll: What tool do you use most?',content:'What is your go-to productivity tool?',hashtags:'#poll #tools',status:'Published'},
+  ];
+  posts=seeds;save();
+}
+
+function fmt(daysFromNow){const d=new Date();d.setDate(d.getDate()+daysFromNow);return d.toISOString().slice(0,10)}
+function save(){localStorage.setItem('smcal_posts',JSON.stringify(posts))}
+
+function renderAll(){
+  renderStats();renderCalendar();renderTable();renderIdeas();
+}
+
+function renderStats(){
+  const filter=document.getElementById('filterPlatform').value;
+  const filtered=filter==='all'?posts:posts.filter(p=>p.platform.toLowerCase()===filter);
+  const total=filtered.length;
+  const published=filtered.filter(p=>p.status==='Published').length;
+  const scheduled=filtered.filter(p=>p.status==='Scheduled').length;
+  const drafts=filtered.filter(p=>p.status==='Draft').length;
+  const platforms=new Set(filtered.map(p=>p.platform)).size;
+  document.getElementById('statsCards').innerHTML=`
+    <div class="stat-card"><div class="num" style="color:var(--accent)">${total}</div><div class="lbl">Total Posts</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--green)">${published}</div><div class="lbl">Published</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--blue)">${scheduled}</div><div class="lbl">Scheduled</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--yellow)">${drafts}</div><div class="lbl">Drafts</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--pink)">${platforms}</div><div class="lbl">Platforms</div></div>
+  `;
+}
+
+function renderCalendar(){
+  const year=currentDate.getFullYear(),month=currentDate.getMonth();
+  document.getElementById('monthLabel').textContent=new Date(year,month).toLocaleDateString('en-US',{month:'long',year:'numeric'});
+  const firstDay=new Date(year,month,1).getDay();
+  const daysInMonth=new Date(year,month+1,0).getDate();
+  const today=new Date().toISOString().slice(0,10);
+  const filter=document.getElementById('filterPlatform').value;
+
+  let html='';
+  ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d=>{html+=`<div class="cal-header">${d}</div>`});
+
+  const prevDays=new Date(year,month,0).getDate();
+  for(let i=firstDay-1;i>=0;i--){html+=`<div class="cal-day other-month"><div class="day-num">${prevDays-i}</div></div>`}
+
+  for(let d=1;d<=daysInMonth;d++){
+    const dateStr=`${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const isToday=dateStr===today;
+    const dayPosts=posts.filter(p=>p.date===dateStr&&(filter==='all'||p.platform.toLowerCase()===filter));
+    html+=`<div class="cal-day${isToday?' today':''}" onclick="addPostOnDate('${dateStr}')"><div class="day-num">${d}</div>`;
+    dayPosts.forEach(p=>{
+      const cls=p.platform.toLowerCase().replace('/','');
+      html+=`<div class="post ${cls} ${p.status.toLowerCase()}" title="${p.title}">${p.platform.slice(0,2)} ${p.title}</div>`;
+    });
+    html+=`</div>`;
+  }
+
+  const totalCells=firstDay+daysInMonth;
+  const remaining=7-(totalCells%7);
+  if(remaining<7){for(let i=1;i<=remaining;i++){html+=`<div class="cal-day other-month"><div class="day-num">${i}</div></div>`}}
+
+  document.getElementById('calendar').innerHTML=html;
+}
+
+function renderTable(){
+  const filter=document.getElementById('filterPlatform').value;
+  const filtered=(filter==='all'?posts:posts.filter(p=>p.platform.toLowerCase()===filter)).sort((a,b)=>a.date.localeCompare(b.date));
+  document.getElementById('postsTable').innerHTML=filtered.map((p,i)=>{
+    const idx=posts.indexOf(p);
+    const cls=p.platform.toLowerCase();
+    const statusCls=p.status.toLowerCase();
+    return`<tr>
+      <td>${p.date} ${p.time||''}</td>
+      <td><span class="platform-badge ${cls}" style="background:rgba(139,92,246,0.15);color:var(--accent)">${p.platform}</span></td>
+      <td>${p.title}</td>
+      <td><span class="status-badge status-${statusCls}">${p.status}</span></td>
+      <td><button class="btn btn-outline" style="padding:0.2rem 0.5rem;font-size:0.75rem" onclick="editPost(${idx})">Edit</button> <button class="btn btn-outline" style="padding:0.2rem 0.5rem;font-size:0.75rem;color:var(--red)" onclick="deletePost(${idx})">×</button></td>
+    </tr>`;
+  }).join('');
+}
+
+function renderIdeas(){
+  const ideas=[
+    {title:'User-Generated Content',desc:'Feature customer photos and testimonials. Builds trust and community.',tags:['Instagram','Facebook']},
+    {title:'Behind the Scenes',desc:'Show your workspace, process, or team. People love authenticity.',tags:['Instagram','TikTok']},
+    {title:'Industry Statistics',desc:'Share surprising data points. Great for engagement and shares.',tags:['LinkedIn','Twitter']},
+    {title:'Tutorial / How-To',desc:'Teach something valuable. Position yourself as an expert.',tags:['YouTube','TikTok']},
+    {title:'Poll / Question',desc:'Ask your audience a question. Boosts engagement metrics.',tags:['Twitter','LinkedIn']},
+    {title:'Trending Topic Take',desc:'Share your perspective on industry news. Shows thought leadership.',tags:['Twitter','LinkedIn']},
+    {title:'Carousel Post',desc:'Multi-image educational content. High save rates on Instagram.',tags:['Instagram','LinkedIn']},
+    {title:'Quick Tips Thread',desc:'5-10 quick tips in a thread format. Highly shareable.',tags:['Twitter']},
+    {title:'Product Demo',desc:'Show your product in action. Short and punchy.',tags:['TikTok','YouTube']},
+  ];
+  document.getElementById('ideasGrid').innerHTML=ideas.map(idea=>`
+    <div class="idea-card" onclick="useIdea('${idea.title}')">
+      <h4>${idea.title}</h4>
+      <p>${idea.desc}</p>
+      <div class="tags">${idea.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+    </div>
+  `).join('');
+}
+
+function savePost(){
+  const post={
+    platform:document.getElementById('postPlatform').value,
+    date:document.getElementById('postDate').value||new Date().toISOString().slice(0,10),
+    time:document.getElementById('postTime').value,
+    title:document.getElementById('postTitle').value||'Untitled',
+    content:document.getElementById('postContent').value,
+    hashtags:document.getElementById('postHashtags').value,
+    status:document.getElementById('postStatus').value
+  };
+  if(editingIndex>=0){posts[editingIndex]=post;editingIndex=-1}
+  else{posts.push(post)}
+  save();clearForm();renderAll();
+}
+
+function editPost(i){
+  const p=posts[i];editingIndex=i;
+  document.getElementById('postPlatform').value=p.platform;
+  document.getElementById('postDate').value=p.date;
+  document.getElementById('postTime').value=p.time||'10:00';
+  document.getElementById('postTitle').value=p.title;
+  document.getElementById('postContent').value=p.content||'';
+  document.getElementById('postHashtags').value=p.hashtags||'';
+  document.getElementById('postStatus').value=p.status;
+  window.scrollTo({top:document.querySelector('.section').offsetTop-100,behavior:'smooth'});
+}
+
+function deletePost(i){if(confirm('Delete this post?')){posts.splice(i,1);save();renderAll()}}
+function clearForm(){editingIndex=-1;['postTitle','postContent','postHashtags'].forEach(id=>document.getElementById(id).value='');document.getElementById('postDate').value=new Date().toISOString().slice(0,10)}
+function addPostOnDate(date){document.getElementById('postDate').value=date;window.scrollTo({top:document.querySelector('.section').offsetTop-100,behavior:'smooth'})}
+function useIdea(title){document.getElementById('postTitle').value=title;window.scrollTo({top:document.querySelector('.section').offsetTop-100,behavior:'smooth'})}
+function prevMonth(){currentDate.setMonth(currentDate.getMonth()-1);renderAll()}
+function nextMonth(){currentDate.setMonth(currentDate.getMonth()+1);renderAll()}
+function showAddForm(){clearForm();window.scrollTo({top:document.querySelector('.section').offsetTop-100,behavior:'smooth'})}
+
+function exportCSV(){
+  let csv='Platform,Date,Time,Title,Content,Hashtags,Status\n';
+  posts.forEach(p=>{csv+=`"${p.platform}","${p.date}","${p.time}","${p.title}","${(p.content||'').replace(/"/g,'""')}","${p.hashtags||''}","${p.status}"\n`});
+  const blob=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='content-calendar.csv';a.click();
+}
+
+document.getElementById('postDate').value=new Date().toISOString().slice(0,10);
+renderAll();
+</script>
+</body>
+</html>

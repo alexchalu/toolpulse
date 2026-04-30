@@ -1,0 +1,32 @@
+# Render.com deployment configuration for CalcLeap API
+# Place this file in the root of the calcleap-api repository
+
+services:
+  - type: web
+    name: calcleap-api
+    env: node
+    plan: free  # Start with free tier, upgrade to 'starter' ($7/mo) for always-on
+    region: oregon  # Choose: oregon, frankfurt, singapore
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: NODE_ENV
+        value: production
+
+# Free tier limitations:
+# - Spins down after 15 minutes of inactivity
+# - 30-60 second cold start when waking up
+# - 750 hours/month (enough for 24/7)
+# - 100 GB bandwidth/month
+#
+# To prevent spin-down (optional):
+# - Upgrade to Starter plan ($7/mo) for always-on
+# - OR set up a cron job to ping every 10 minutes
+#
+# Upgrade to Starter plan when:
+# - Revenue > $7/mo from API subscriptions
+# - Cold starts hurt user experience
+# - Need guaranteed uptime SLA

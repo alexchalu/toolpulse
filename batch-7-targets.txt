@@ -1,0 +1,36 @@
+# Batch 7 — Dental Offices (High-Value Vertical)
+
+1. Ridge Dental Associates
+   ridgedentalassociates@gmail.com
+   201-444-5222
+   Location: Bergen County
+
+2. Paramus Park Dental
+   info@paramusdental.com
+   201-599-1700
+   Location: Paramus
+
+3. Gentle Care Dentistry
+   info@gentlecarenj.com
+   201-262-3000
+   Location: Ridgewood
+
+4. Family Dental Care of Bergen County
+   info@familydentalcarenj.com
+   201-587-8989
+   Location: Hackensack
+
+5. Oradell Dental Associates
+   info@oradelldentalassociates.com
+   201-261-8778
+   Location: Oradell
+
+6. Modern Smiles Dental
+   contact@modernsmilesnj.com
+   201-880-0640
+   Location: Fair Lawn
+
+7. Elite Dental Specialists
+   info@elitedentalnjspecialists.com
+   201-288-5777
+   Location: Englewood

@@ -1,0 +1,39 @@
+name: Deploy to RapidAPI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'openapi.json'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Upload API to RapidAPI
+        id: rapidapi-upload
+        uses: RapidAPI/create_or_update_rapidapi_listing@v0
+        with:
+          spec_path: openapi.json
+          owner_id: ${{ secrets.RAPIDAPI_OWNER_ID }}
+          x_rapidapi_key: ${{ secrets.RAPIDAPI_KEY }}
+          x_rapidapi_graphql_host: ${{ secrets.RAPIDAPI_GRAPHQL_HOST }}
+          graphql_url: ${{ secrets.RAPIDAPI_GRAPHQL_URL }}
+
+      - name: Display API info
+        run: |
+          echo "✅ API deployed to RapidAPI successfully!"
+          echo "API ID: ${{ steps.rapidapi-upload.outputs.api_id }}"
+          echo "API Version: ${{ steps.rapidapi-upload.outputs.api_version_name }}"
+          echo "API Version ID: ${{ steps.rapidapi-upload.outputs.api_version_id }}"
+          echo ""
+          echo "Next steps:"
+          echo "1. Visit RapidAPI Provider Dashboard"
+          echo "2. Add logo and screenshots"
+          echo "3. Review pricing tiers"
+          echo "4. Submit for marketplace review"
