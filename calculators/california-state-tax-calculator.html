@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California State Tax Calculator 2024 - Take Home Pay Calculator</title>
+    <meta name="description" content="Calculate your California state income tax, take home pay, and tax liabilities. Updated with 2024 tax rates and brackets.">
+    <link rel="stylesheet" href="california-state-tax-calculator.css">
+    <link rel="canonical" href="https://calcleap.com/calculators/california-state-tax-calculator.html">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>California State Tax Calculator</h1>
+            <p class="subtitle">Calculate your 2024 California state income tax and take-home pay</p>
+        </div>
+
+        <div class="calculator-container">
+            <div class="input-section">
+                <h2>Income Information</h2>
+                
+                <div class="input-group">
+                    <label for="annual-income">Annual Income ($)</label>
+                    <input type="number" id="annual-income" placeholder="50000" min="0" step="1000">
+                    <div class="slider-container">
+                        <input type="range" id="income-slider" min="0" max="200000" value="50000" step="1000">
+                        <span class="slider-value">$50,000</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="filing-status">Filing Status</label>
+                    <select id="filing-status">
+                        <option value="single">Single</option>
+                        <option value="married-joint">Married Filing Jointly</option>
+                        <option value="married-separate">Married Filing Separately</option>
+                        <option value="head-household">Head of Household</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="pre-tax-deductions">Pre-tax Deductions ($)</label>
+                    <input type="number" id="pre-tax-deductions" placeholder="3000" min="0" step="100">
+                    <div class="slider-container">
+                        <input type="range" id="deductions-slider" min="0" max="20000" value="3000" step="100">
+                        <span class="slider-value">$3,000</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="dependent-count">Number of Dependents</label>
+                    <input type="number" id="dependent-count" placeholder="0" min="0" max="20">
+                </div>
+            </div>
+
+            <div class="results-section">
+                <h2>Results</h2>
+                
+                <div class="result-grid">
+                    <div class="result-item">
+                        <div class="result-label">Gross Income</div>
+                        <div class="result-value" id="gross-income">$50,000</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-label">Taxable Income</div>
+                        <div class="result-value" id="taxable-income">$47,000</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-label">Federal Tax</div>
+                        <div class="result-value" id="federal-tax">$5,490</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-label">California State Tax</div>
+                        <div class="result-value" id="state-tax">$2,492</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-label">FICA Taxes</div>
+                        <div class="result-value" id="fica-taxes">$3,825</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-label">Total Taxes</div>
+                        <div class="result-value" id="total-taxes">$11,807</div>
+                    </div>
+                    
+                    <div class="result-item highlighted">
+                        <div class="result-label">Take Home Pay</div>
+                        <div class="result-value" id="take-home-pay">$38,193</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-label">Effective Tax Rate</div>
+                        <div class="result-value" id="effective-rate">23.6%</div>
+                    </div>
+                </div>
+
+                <div class="tax-brackets">
+                    <h3>California Tax Brackets</h3>
+                    <div class="bracket-list">
+                        <div class="bracket-item">
+                            <span class="bracket-range">1% - $0 - $10,908</span>
+                            <span class="bracket-amount">1%</span>
+                        </div>
+                        <div class="bracket-item">
+                            <span class="bracket-range">2% - $10,909 - $25,916</span>
+                            <span class="bracket-amount">2%</span>
+                        </div>
+                        <div class="bracket-item">
+                            <span class="bracket-range">4% - $25,917 - $40,773</span>
+                            <span class="bracket-amount">4%</span>
+                        </div>
+                        <div class="bracket-item">
+                            <span class="bracket-range">6% - $40,774 - $51,540</span>
+                            <span class="bracket-amount">6%</span>
+                        </div>
+                        <div class="bracket-item">
+                            <span class="bracket-range">8% - $51,541 - $65,144</span>
+                            <span class="bracket-amount">8%</span>
+                        </div>
+                        <div class="bracket-item">
+                            <span class="bracket-range">9.3% - $65,145 - $57,835</span>
+                            <span class="bracket-amount">9.3%</span>
+                        </div>
+                        <div class="bracket-item">
+                            <span class="bracket-range">10.3% - $57,836 - $295,373</span>
+                            <span class="bracket-amount">10.3%</span>
+                        </div>
+                        <div class="bracket-item">
+                            <span class="bracket-range">11.3% - $295,374 - $590,737</span>
+                            <span class="bracket-amount">11.3%</span>
+                        </div>
+                        <div class="bracket-item">
+                            <span class="bracket-range">12.3% - $590,738+</span>
+                            <span class="bracket-amount">12.3%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>About California State Taxes</h3>
+            <p>California has one of the highest state income tax rates in the United States. The state uses a progressive tax system with 9 tax brackets ranging from 1% to 12.3%. In addition to state income tax, California residents also pay Federal income tax and FICA taxes (Social Security and Medicare).</p>
+            
+            <h3>Important Notes</h3>
+            <ul>
+                <li>These calculations are estimates for tax year 2024</li>
+                <li>Actual tax liability may vary based on deductions, credits, and other factors</li>
+                <li>California does not allow itemized deductions on state return</li>
+                <li>Standard deduction amounts vary by filing status</li>
+                <li>Consider consulting a tax professional for personalized advice</li>
+            </ul>
+
+            <div class="related-tools">
+                <h3>Related Calculators</h3>
+                <div class="related-links">
+                    <a href="/calculators/federal-income-tax-calculator.html">Federal Income Tax Calculator</a>
+                    <a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a>
+                    <a href="/calculators/tax-bracket-calculator.html">Tax Bracket Calculator</a>
+                    <a href="/calculators/retirement-calculator.html">Retirement Savings Calculator</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="california-state-tax-calculator.js"></script>
+</body>
+</html>
