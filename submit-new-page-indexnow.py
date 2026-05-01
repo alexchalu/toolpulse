@@ -84,7 +84,7 @@ class IndexNowSubmitter:
         """Create the JSON payload for IndexNow API."""
         # Use the raw GitHub URL for key location
         # IndexNow documentation states keyLocation can be any URL that returns the key value
-        key_location = f"https://raw.githubusercontent.com/alexchalu/toolpulse/main/INDEXNOW-KEY.txt"
+        key_location = "https://calcleap.com/INDEXNOW-KEY.txt"
         return {
             "host": self.host,
             "key": self.key,
