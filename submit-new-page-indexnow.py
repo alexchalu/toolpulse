@@ -178,7 +178,8 @@ def main():
         
         # Verify key location
         print("\n🔍 Verifying key location...")
-        key_url = f"https://{submitter.host}/{submitter.key}.txt"
+        # The key file is located at the URL used in the payload (keyLocation)
+        key_url = "https://calcleap.com/INDEXNOW-KEY.txt"
         try:
             key_response = requests.head(key_url, timeout=10)
             if key_response.status_code == 200:
