@@ -9,7 +9,8 @@ API_URL="https://api.indexnow.org/indexnow"
 # List of new/updated pages to submit
 PAGES=(
     "https://calcleap.com/structured-settlement-calculator.html"
-    "https://calcleap.com/calc/structured-settlement-calculator.html"
+    "https://calcleap.com/calc/structured-settlement-calculator.html",
+    "https://calcleap.com/calc/loan-comparison-tool.html"
 )
 
 # Submit each page to IndexNow
