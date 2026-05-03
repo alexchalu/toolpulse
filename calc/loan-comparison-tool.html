@@ -1,116 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loan Comparison Tool — Free Online | CalcLeap</title>
-<meta name="description" content="Compare multiple loan offers, total interest, and find the best loan options.">
-<link rel="canonical" href="https://calcleap.com/calc/loan-comparison-tool.html">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-<link rel="stylesheet" href="gold.css">
-<meta property="og:title" content="Loan Comparison Tool — CalcLeap">
-<meta property="og:description" content="Compare multiple loan offers, total interest, and find the best loan options.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://calcleap.com/calc/loan-comparison-tool.html">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"Loan Comparison Tool","description":"Compare multiple loan offers, total interest, and find the best loan options.","url":"https://calcleap.com/calc/loan-comparison-tool.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-</script>
-<style>
-/* Use same CSS as other calculators (omitted for brevity) */
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compare multiple loan offers side-by-side. Calculate total interest, monthly payments, and total costs for up to 4 loans to find the best option.">
+    <meta name="keywords" content="loan comparison tool, compare loans, loan offers, interest comparison, best loan rate">
+    <title>Loan Comparison Tool - Compare Up to 4 Loan Offers | CalcLeap</title>
+    <link rel="canonical" href="https://calcleap.com/calc/loan-comparison-tool.html">
+    <meta property="og:title" content="Loan Comparison Tool - Compare Multiple Loan Offers">
+    <meta property="og:description" content="Compare up to 4 loan offers side-by-side with detailed payment schedules and total cost analysis.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/calc/loan-comparison-tool.html">
+    <meta property="og:image" content="https://calcleap.com/og-default.png">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Reuse styles from loan-comparison-calculator.html for consistency */
+        .comparison-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));gap: 20px;margin: 30px 0;}
+        .loan-card{background:#f8f9fa;border:2px solid #e9ecef;border-radius:12px;padding:20px;position:relative;}
+        .loan-card.best-option{border-color:#28a745;background:#f0fff4;}
+        .best-badge{position:absolute;top:10px;right:10px;background:#28a745;color:white;padding:4px 12px;border-radius:20px;font-size:0.85em;font-weight:600;}
+        .loan-header{margin-bottom:15px;padding-bottom:10px;border-bottom:2px solid #dee2e6;}
+        .loan-number{font-size:1.2em;font-weight:700;color:#495057;}
+        .input-group-loan{margin-bottom:15px;}
+        .input-group-loan label{display:block;margin-bottom:5px;font-weight:500;font-size:0.9em;}
+        .comparison-table{width:100%;margin-top:30px;border-collapse:collapse;overflow-x:auto;display:block;}
+        .comparison-table th,.comparison-table td{padding:12px;text-align:left;border-bottom:1px solid #dee2e6;}
+        .comparison-table th{background:#f8f9fa;font-weight:600;position:sticky;top:0;}
+        .comparison-table tr:hover{background:#f8f9fa;}
+    </style>
 </head>
 <body>
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="/index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="/index.html#finance">Finance</a>
-      <a href="/index.html#insurance">Insurance</a>
-      <a href="/index.html#tax">Tax</a>
-      <a href="/index.html#health">Health</a>
-      <a href="/index.html#converters">Converters</a>
-      <a href="/index.html#dev">Dev Tools</a>
-      <a href="/about.html">About</a>
-    </div>
-  </div>
-</nav>
-<div class="page" id="main-content" role="main">
-  <div class="breadcrumb">
-    <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#finance">Finance</a><span class="sep">›</span>Loan Comparison Tool
-  </div>
-  <h1 class="page-title">Loan Comparison Tool</h1>
-  <p class="page-desc">Compare multiple loan offers, total interest, and find the best loan options.</p>
-  <div class="calc">
-    <div class="row">
-      <div class="field"><label class="label">Loan Amount ($)</label><input type="number" id="amount" value="20000" aria-label="Amount"></div>
-      <div class="field"><label class="label">Interest Rate 1 (%)</label><input type="number" id="rate1" value="5.5" step="0.1" aria-label="Rate1"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label class="label">Term 1 (months)</label><input type="number" id="term1" value="60" aria-label="Term1"></div>
-      <div class="field"><label class="label">Interest Rate 2 (%)</label><input type="number" id="rate2" value="6.0" step="0.1" aria-label="Rate2"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label class="label">Term 2 (months)</label><input type="number" id="term2" value="60" aria-label="Term2"></div>
-      <div class="field"><label class="label">Interest Rate 3 (%)</label><input type="number" id="rate3" value="6.5" step="0.1" aria-label="Rate3"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label class="label">Term 3 (months)</label><input type="number" id="term3" value="60" aria-label="Term3"></div>
-    </div>
-    <button class="btn" onclick="compare()">Compare</button>
-    <div id="results"></div>
-  </div>
-  <script>
-function calcMonthly(principal, rate, months){
-  const r = rate/100/12;
-  return principal * (r*Math.pow(1+r, months)) / (Math.pow(1+r, months)-1);
-}
-function compare(){
-  const P = +document.getElementById('amount').value;
-  const rates = [document.getElementById('rate1').value, document.getElementById('rate2').value, document.getElementById('rate3').value];
-  const terms = [document.getElementById('term1').value, document.getElementById('term2').value, document.getElementById('term3').value];
-  let html = '<h3>Comparison Results</h3><ul>';
-  for(let i=0;i<rates.length;i++){
-    if(rates[i]){
-      const m = calcMonthly(P, +rates[i], +terms[i]);
-      const total = m*+terms[i];
-      html += `<li>Option ${i+1}: $${m.toFixed(2)}/mo, total $${total.toFixed(2)} (Rate ${rates[i]}% for ${terms[i]} months)</li>`;
-    }
-  }
-  html += '</ul>';
-  document.getElementById('results').innerHTML = html;
-}
-  </script>
-</div>
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="/index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
-    </div>
-    <div>
-      <h4>Popular</h4>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="/calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
-    </div>
-    <div>
-      <h4>Categories</h4>
-      <a href="/index.html#finance">Financial</a>
-      <a href="/index.html#insurance">Insurance</a>
-      <a href="/index.html#health">Health</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="/about.html">About</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
-</footer>
+    <nav style="background:#2c3e50;color:white;padding:1rem 0;">
+        <div class="container" style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;">
+            <a href="../index.html" style="color:white;text-decoration:none;font-size:1.5rem;font-weight:bold;">CalcLeap</a>
+            <div>
+                <a href="../index.html" style="color:white;text-decoration:none;margin-left:20px;">Home</a>
+                <a href="../index.html#calculators" style="color:white;text-decoration:none;margin-left:20px;">Calculators</a>
+            </div>
+        </div>
+    </nav>
+    <main class="container" style="max-width:1200px;margin:2rem auto;padding:0 20px;">
+        <h1>Loan Comparison Tool</h1>
+        <p>Enter details for up to four loan offers to see which is most cost‑effective.</p>
+        <div class="comparison-grid">
+            <div class="loan-card" id="loan1-card"><div class="loan-header"><div class="loan-number">Loan 1</div></div>
+                <div class="input-group-loan"><label for="loan1-amount">Amount ($)</label><input type="number" id="loan1-amount" value="300000" min="1000" step="1000"></div>
+                <div class="input-group-loan"><label for="loan1-rate">Rate (%)</label><input type="number" id="loan1-rate" value="6.5" min="0" max="30" step="0.01"></div>
+                <div class="input-group-loan"><label for="loan1-term">Term (years)</label><input type="number" id="loan1-term" value="30" min="1" max="50"></div>
+                <div class="input-group-loan"><label for="loan1-fees">Fees ($)</label><input type="number" id="loan1-fees" value="5000" min="0" step="100"></div>
+            </div>
+            <div class="loan-card" id="loan2-card"><div class="loan-header"><div class="loan-number">Loan 2</div></div>
+                <div class="input-group-loan"><label for="loan2-amount">Amount ($)</label><input type="number" id="loan2-amount" value="300000" min="1000" step="1000"></div>
+                <div class="input-group-loan"><label for="loan2-rate">Rate (%)</label><input type="number" id="loan2-rate" value="6.25" min="0" max="30" step="0.01"></div>
+                <div class="input-group-loan"><label for="loan2-term">Term (years)</label><input type="number" id="loan2-term" value="30" min="1" max="50"></div>
+                <div class="input-group-loan"><label for="loan2-fees">Fees ($)</label><input type="number" id="loan2-fees" value="8000" min="0" step="100"></div>
+            </div>
+            <div class="loan-card" id="loan3-card"><div class="loan-header"><div class="loan-number">Loan 3</div></div>
+                <div class="input-group-loan"><label for="loan3-amount">Amount ($)</label><input type="number" id="loan3-amount" value="300000" min="1000" step="1000"></div>
+                <div class="input-group-loan"><label for="loan3-rate">Rate (%)</label><input type="number" id="loan3-rate" value="7.0" min="0" max="30" step="0.01"></div>
+                <div class="input-group-loan"><label for="loan3-term">Term (years)</label><input type="number" id="loan3-term" value="15" min="1" max="50"></div>
+                <div class="input-group-loan"><label for="loan3-fees">Fees ($)</label><input type="number" id="loan3-fees" value="4000" min="0" step="100"></div>
+            </div>
+            <div class="loan-card" id="loan4-card"><div class="loan-header"><div class="loan-number">Loan 4</div></div>
+                <div class="input-group-loan"><label for="loan4-amount">Amount ($)</label><input type="number" id="loan4-amount" value="300000" min="1000" step="1000"></div>
+                <div class="input-group-loan"><label for="loan4-rate">Rate (%)</label><input type="number" id="loan4-rate" value="6.75" min="0" max="30" step="0.01"></div>
+                <div class="input-group-loan"><label for="loan4-term">Term (years)</label><input type="number" id="loan4-term" value="20" min="1" max="50"></div>
+                <div class="input-group-loan"><label for="loan4-fees">Fees ($)</label><input type="number" id="loan4-fees" value="6000" min="0" step="100"></div>
+            </div>
+        </div>
+        <button onclick="compareLoans()" style="background:#007bff;color:white;border:none;padding:12px 30px;border-radius:6px;font-size:1.1em;font-weight:600;cursor:pointer;width:100%;margin-top:20px;">Compare Loans</button>
+        <div id="results" style="display:none;margin-top:30px;"></div>
+    </main>
+    <script>
+        function compareLoans(){
+            const loans=[];for(let i=1;i<=4;i++){
+                const amt=parseFloat(document.getElementById('loan'+i+'-amount').value)||0;
+                const rate=parseFloat(document.getElementById('loan'+i+'-rate').value)||0;
+                const term=parseFloat(document.getElementById('loan'+i+'-term').value)||0;
+                const fees=parseFloat(document.getElementById('loan'+i+'-fees').value)||0;
+                if(amt>0&&rate>0&&term>0){
+                    const mRate=rate/100/12;const n=term*12;
+                    const mp=amt*(mRate*Math.pow(1+mRate,n))/(Math.pow(1+mRate,n)-1);
+                    const total=mp*n;const interest=total-amt;const cost=total+fees;
+                    loans.push({num:i,mp,interest,cost});
+                }
+            }
+            if(!loans.length){alert('Enter at least one loan');return;}
+            let best=loans[0];loans.forEach(l=>{if(l.cost<best.cost)best=l;});
+            let html='<h2>Results</h2>';loans.forEach(l=>{html+=`<div>Loan ${l.num}: Monthly $${l.mp.toFixed(2)}, Interest $${l.interest.toFixed(2)}, Total Cost $${l.cost.toFixed(2)}${l.num===best.num?" (Best)":""}</div>`;});
+            document.getElementById('results').innerHTML=html;document.getElementById('results').style.display='block';
+        }
+    </script>
 </body>
 </html>
