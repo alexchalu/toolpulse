@@ -35,11 +35,22 @@ const currencies = {
     TRY: { name: 'Turkish Lira', symbol: '₺', rate: 30.2 },
     COP: { name: 'Colombian Peso', symbol: 'COL$', rate: 3950 },
     TWD: { name: 'Taiwan Dollar', symbol: 'NT$', rate: 31.5 },
+    // Additional high-value currencies expanded from 16 to 35
+    RUB: { name: 'Russian Ruble', symbol: '₽', rate: 92.5 },
+    ILS: { name: 'Israeli Shekel', symbol: '₪', rate: 3.72 },
+    DKK: { name: 'Danish Krone', symbol: 'kr', rate: 7.05 },
+    CZK: { name: 'Czech Koruna', symbol: 'Kč', rate: 22.8 },
+    HUF: { name: 'Hungarian Forint', symbol: 'Ft', rate: 368 },
+    RON: { name: 'Romanian Leu', symbol: 'lei', rate: 4.65 },
+    HRK: { name: 'Croatian Kuna', symbol: 'kn', rate: 7.25 },
+    BGN: { name: 'Bulgarian Lev', symbol: 'лв', rate: 1.83 },
+    ISK: { name: 'Icelandic Krona', symbol: 'kr', rate: 137 },
+    SEK: { name: 'Swedish Krona', symbol: 'kr', rate: 10.35 },
 };
 
 // High-traffic pairs to generate
 const pairs = [];
-const majorCodes = ['USD', 'EUR', 'GBP', 'JPY', 'CAD', 'AUD', 'CHF', 'CNY', 'INR', 'MXN', 'BRL', 'KRW', 'SGD', 'NZD', 'AED', 'PHP'];
+const majorCodes = ['USD', 'EUR', 'GBP', 'JPY', 'CAD', 'AUD', 'CHF', 'CNY', 'INR', 'MXN', 'BRL', 'KRW', 'SGD', 'NZD', 'AED', 'PHP', 'RUB', 'ILS', 'DKK', 'CZK', 'HUF', 'RON', 'HRK', 'BGN', 'ISK'];
 
 for (const from of majorCodes) {
     for (const to of majorCodes) {
