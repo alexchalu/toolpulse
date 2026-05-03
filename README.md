@@ -77,3 +77,4 @@ Available embeds: [BMI](https://calcleap.com/embed/bmi.html) · [Mortgage](https
 ---
 
 **[→ Explore All 2,800+ Calculators at CalcLeap.com](https://calcleap.com)**
+# Rebuild trigger
