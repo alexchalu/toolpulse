@@ -73,6 +73,13 @@
     </main>
     <script>
         function compareLoans(){
+    // Track user interaction for analytics
+    if (typeof gtag === 'function') {
+        gtag('event', 'compare_loans', {
+            'event_category': 'engagement',
+            'event_label': 'Loan Comparison'
+        });
+    }
             const loans=[];for(let i=1;i<=4;i++){
                 const amt=parseFloat(document.getElementById('loan'+i+'-amount').value)||0;
                 const rate=parseFloat(document.getElementById('loan'+i+'-rate').value)||0;
