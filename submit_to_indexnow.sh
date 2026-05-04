@@ -11,6 +11,7 @@ PAGES=(
     "https://calcleap.com/structured-settlement-calculator.html"
     "https://calcleap.com/calc/structured-settlement-calculator.html",
     "https://calcleap.com/calc/loan-comparison-tool.html"
+    "https://calcleap.com/state-tax-calculator-illinois.html"
 )
 
 # Submit each page to IndexNow
