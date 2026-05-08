@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illinois State Income Tax Calculator - CalcLeap</title>
+    <meta name="description" content="Calculate your estimated Illinois state income tax with our easy-to-use calculator.">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Illinois State Income Tax Calculator</h1>
+    </header>
+    <main>
+        <div class="calculator-container">
+            <div class="input-group">
+                <label for="income">Annual Income ($):</label>
+                <input type="number" id="income" placeholder="e.g., 75000">
+            </div>
+            <div class="input-group">
+                <label for="filingStatus">Filing Status:</label>
+                <select id="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="married-joint">Married Filing Jointly</option>
+                    <option value="married-separate">Married Filing Separately</option>
+                    <option value="hoh">Head of Household</option>
+                </select>
+            </div>
+            <button onclick="calculateTax()">Calculate Tax</button>
+            <div class="result-group">
+                <h2>Estimated Illinois State Income Tax:</h2>
+                <p id="result">$0.00</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value);
+            if (isNaN(income) || income < 0) {
+                document.getElementById('result').innerText = "Please enter a valid income.";
+                return;
+            }
+            // Illinois flat tax rate 4.95%
+            const tax = income * 0.0495;
+            document.getElementById('result').innerText = "$" + tax.toFixed(2);
+        }
+    </script>
+</body>
+</html>
