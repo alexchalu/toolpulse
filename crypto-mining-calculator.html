@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Mining Profitability Calculator 2026 - Bitcoin & Ethereum Mining ROI</title>
+    <meta name="description" content="Calculate cryptocurrency mining profitability for Bitcoin, Ethereum, and other altcoins. Estimate daily revenue, electricity costs, and ROI with our free mining calculator.">
+    <link rel="canonical" href="https://calcleap.com/crypto-mining-calculator.html">
+    <meta property="og:title" content="Crypto Mining Profitability Calculator 2026">
+    <meta property="property="og:description" content="Calculate Bitcoin and Ethereum mining profitability. Estimate daily revenue, electricity costs, and ROI for your mining operation.">
+    <meta property="og:url" content="https://calcleap.com/crypto-mining-calculator.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .main {
+            padding: 3rem 0;
+        }
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .calc-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid #333;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .calc-card h2 {
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+        }
+        .calc-btn {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .calc-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+        .results-card {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid #ffd700;
+            margin-top: 2rem;
+            display: none;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .result-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        .result-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+        .result-label {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .info-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid #333;
+        }
+        .info-section h3 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .info-section p {
+            color: #e0e0e0;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .info-section ul {
+            color: #e0e0e0;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .info-section li {
+            margin-bottom: 0.5rem;
+        }
+        .footer {
+            background: #0a0a0a;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid #333;
+            margin-top: 3rem;
+        }
+        .footer a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Crypto Mining Profitability Calculator 2026</h1>
+            <p>Calculate Bitcoin, Ethereum, and altcoin mining profitability. Estimate daily revenue, electricity costs, and ROI for your mining operation.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="calc-grid">
+            <div class="calc-card">
+                <h2>⛏️ Mining Hardware</h2>
+                <div class="input-group">
+                    <label for="crypto-select">Cryptocurrency</label>
+                    <select id="crypto-select">
+                        <option value="bitcoin">Bitcoin (BTC)</option>
+                        <option value="ethereum">Ethereum (ETH)</option>
+                        <option value="bitcoin-cash">Bitcoin Cash (BCH)</option>
+                        <option value="litecoin">Litecoin (LTC)</option>
+                        <option value="monero">Monero (XMR)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="hashrate">Hashrate</label>
+                    <input type="number" id="hashrate" placeholder="e.g., 110 for 110 TH/s" value="110">
+                </div>
+                <div class="input-group">
+                    <label for="power-consumption">Power Consumption (Watts)</label>
+                    <input type="number" id="power-consumption" placeholder="e.g., 3300" value="3300">
+                </div>
+                <div class="input-group">
+                    <label for="electricity-cost">Electricity Cost ($/kWh)</label>
+                    <input type="number" id="electricity-cost" placeholder="e.g., 0.10" value="0.10" step="0.01">
+                </div>
+            </div>
+
+            <div class="calc-card">
+                <h2>📊 Market Data</h2>
+                <div class="input-group">
+                    <label for="crypto-price">Cryptocurrency Price</label>
+                    <input type="number" id="crypto-price" placeholder="e.g., 45000" value="45000">
+                </div>
+                <div class="input-group">
+                    <label for="network-difficulty">Network Difficulty</label>
+                    <input type="number" id="network-difficulty" placeholder="e.g., 72000000000000" value="72000000000000">
+                </div>
+                <div class="input-group">
+                    <label for="block-reward">Block Reward</label>
+                    <input type="number" id="block-reward" placeholder="e.g., 6.25" value="6.25" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="pool-fee">Pool Fee (%)</label>
+                    <input type="number" id="pool-fee" placeholder="e.g., 1" value="1" step="0.1">
+                </div>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calculateMiningProfit()">Calculate Mining Profitability</button>
+
+        <div class="results-card" id="results">
+            <h2>💰 Mining Profitability Results</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-value" id="daily-revenue">$0</div>
+                    <div class="result-label">Daily Revenue</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value" id="daily-cost">$0</div>
+                    <div class="result-label">Daily Electricity Cost</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value" id="daily-profit">$0</div>
+                    <div class="result-label">Daily Profit</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value" id="monthly-profit">$0</div>
+                    <div class="result-label">Monthly Profit</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value" id="roi">0%</div>
+                    <div class="result-label">ROI (Monthly)</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value" id="payback">0 days</div>
+                    <div class="result-label">Payback Period</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>📈 Mining Profitability Factors</h3>
+            <p>Several factors affect your mining profitability:</p>
+            <ul>
+                <li><strong>Hashrate:</strong> Your mining device's computational power</li>
+                <li><strong>Electricity Costs:</strong> The biggest expense in mining operations</li>
+                <li><strong>Network Difficulty:</strong> How hard it is to mine blocks</li>
+                <li><strong>Cryptocurrency Price:</strong> Directly impacts your revenue</li>
+                <li><strong>Pool Fees:</strong> deducted from your earnings</li>
+                <li><strong>Hardware Costs:</strong> Initial investment in mining equipment</li>
+            </ul>
+            <p>This calculator provides estimates based on current market conditions. Actual results may vary based on network changes, electricity rates, and market volatility.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 CalcLeap - Free Crypto Mining Calculator. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateMiningProfit() {
+            const crypto = document.getElementById('crypto-select').value;
+            const hashrate = parseFloat(document.getElementById('hashrate').value);
+            const powerConsumption = parseFloat(document.getElementById('power-consumption').value);
+            const electricityCost = parseFloat(document.getElementById('electricity-cost').value);
+            const cryptoPrice = parseFloat(document.getElementById('crypto-price').value);
+            const networkDifficulty = parseFloat(document.getElementById('network-difficulty').value);
+            const blockReward = parseFloat(document.getElementById('block-reward').value);
+            const poolFee = parseFloat(document.getElementById('pool-fee').value);
+
+            // Bitcoin-specific calculations
+            const targetHashrate = 2 ** 48 / networkDifficulty;
+            const blocksPerDay = 144; // Bitcoin blocks per day
+            const btcPerDay = (hashrate / targetHashrate) * blocksPerDay * blockReward;
+            
+            // Apply pool fee
+            const netBtcPerDay = btcPerDay * (1 - poolFee / 100);
+            
+            // Convert to USD
+            const dailyRevenue = netBtcPerDay * cryptoPrice;
+            
+            // Calculate electricity costs
+            const dailyElectricityCost = (powerConsumption / 1000) * 24 * electricityCost;
+            
+            // Calculate profits
+            const dailyProfit = dailyRevenue - dailyElectricityCost;
+            const monthlyProfit = dailyProfit * 30;
+            
+            // Estimate ROI (assuming $10,000 hardware cost)
+            const hardwareCost = 10000; // Default assumption
+            const monthlyROI = (monthlyProfit / hardwareCost) * 100;
+            const paybackDays = hardwareCost / dailyProfit;
+
+            // Display results
+            document.getElementById('daily-revenue').textContent = '$' + dailyRevenue.toFixed(2);
+            document.getElementById('daily-cost').textContent = '$' + dailyElectricityCost.toFixed(2);
+            document.getElementById('daily-profit').textContent = '$' + dailyProfit.toFixed(2);
+            document.getElementById('monthly-profit').textContent = '$' + monthlyProfit.toFixed(2);
+            document.getElementById('roi').textContent = monthlyROI.toFixed(1) + '%';
+            document.getElementById('payback').textContent = Math.ceil(paybackDays) + ' days';
+            
+            document.getElementById('results').style.display = 'block';
+        }
+
+        // Auto-update calculations when inputs change
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.addEventListener('change', calculateMiningProfit);
+            });
+        });
+    </script>
+</body>
+</html>
