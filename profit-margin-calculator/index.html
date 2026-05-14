@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Margin Calculator - Calculate Your Business Profitability</title>
+    <meta name="description" content="Free online profit margin calculator to calculate gross margin, operating margin, and net profit margin. Essential tool for small business owners and entrepreneurs.">
+    <meta name="keywords" content="profit margin calculator, gross margin, operating margin, net profit margin, business profitability, small business calculator">
+    <meta name="author" content="ToolPulse">
+    <meta property="og:title" content="Profit Margin Calculator - Calculate Your Business Profitability">
+    <meta property="og:description" content="Free online profit margin calculator to calculate gross margin, operating margin, and net profit margin. Essential tool for small business owners and entrepreneurs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexchalu.github.io/toolpulse/profit-margin-calculator/index.html">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .calculator-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            overflow: hidden;
+        }
+        
+        .header-gradient {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header-gradient h1 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-gradient p {
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        
+        .form-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .form-card h3 {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .input-group {
+            margin-bottom: 1rem;
+        }
+        
+        .input-group label {
+            font-weight: 500;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+            border: 1px solid #e9ecef;
+            text-align: center;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        .result-label {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gross-margin { color: #28a745; }
+        .operating-margin { color: #17a2b8; }
+        .net-margin { color: #6f42c1; }
+        
+        .formula-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem;
+        }
+        
+        .formula-section h4 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+        
+        .formula {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #667eea;
+        }
+        
+        .formula-title {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .formula-equation {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+        }
+        
+        .info-icon {
+            color: #6c757d;
+            cursor: pointer;
+            margin-left: 0.5rem;
+        }
+        
+        .footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .footer a {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .result-value {
+                font-size: 2rem;
+            }
+            
+            .calculator-container {
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-container">
+            <div class="header-gradient">
+                <h1><i class="fas fa-calculator me-3"></i>Profit Margin Calculator</h1>
+                <p>Calculate your business profitability with gross margin, operating margin, and net profit margin</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-card">
+                        <h3><i class="fas fa-chart-line me-2"></i>Financial Inputs</h3>
+                        
+                        <div class="input-group">
+                            <label for="revenue">Total Revenue ($)</label>
+                            <input type="number" class="form-control" id="revenue" placeholder="Enter total revenue" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="cogs">Cost of Goods Sold ($)</label>
+                            <input type="number" class="form-control" id="cogs" placeholder="Enter cost of goods sold" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="operating-expenses">Operating Expenses ($)</label>
+                            <input type="number" class="form-control" id="operating-expenses" placeholder="Enter operating expenses" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="interest-expense">Interest Expense ($)</label>
+                            <input type="number" class="form-control" id="interest-expense" placeholder="Enter interest expense" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="tax-rate">Tax Rate (%)</label>
+                            <input type="number" class="form-control" id="tax-rate" placeholder="Enter tax rate" step="0.01" min="0" max="100" value="21">
+                        </div>
+                    </div>
+                    
+                    <div class="formula-section">
+                        <h4><i class="fas fa-info-circle me-2"></i>Understanding Profit Margins</h4>
+                        
+                        <div class="formula">
+                            <div class="formula-title">Gross Profit Margin</div>
+                            <p>Meures profitability after direct costs of goods sold.</p>
+                            <div class="formula-equation">Gross Margin = (Revenue - COGS) ÷ Revenue × 100%</div>
+                        </div>
+                        
+                        <div class="formula">
+                            <div class="formula-title">Operating Profit Margin</div>
+                            <p>Meures profitability from core business operations.</p>
+                            <div class="formula-equation">Operating Margin = (Gross Profit - Operating Expenses) ÷ Revenue × 100%</div>
+                        </div>
+                        
+                        <div class="formula">
+                            <div class="formula-title">Net Profit Margin</div>
+                            <p>Shows overall profitability after all expenses and taxes.</p>
+                            <div class="formula-equation">Net Margin = Net Income ÷ Revenue × 100%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="result-card">
+                        <h3><i class="fas fa-chart-pie me-2"></i>Profitability Analysis</h3>
+                        
+                        <div class="result-label">Gross Profit Margin</div>
+                        <div class="result-value gross-margin" id="gross-margin">0.00%</div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-success" id="gross-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-label">Operating Profit Margin</div>
+                        <div class="result-value operating-margin" id="operating-margin">0.00%</div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-info" id="operating-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-label">Net Profit Margin</div>
+                        <div class="result-value net-margin" id="net-margin">0.00%</div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" id="net-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h4><i class="fas fa-coins me-2"></i>Financial Summary</h4>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="result-label">Gross Profit</div>
+                                <div class="fw-bold" id="gross-profit">$0.00</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="result-label">Operating Income</div>
+                                <div class="fw-bold" id="operating-income">$0.00</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="result-label">Net Income</div>
+                                <div class="fw-bold" id="net-income">$0.00</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="result-label">Break-even Point</div>
+                                <div class="fw-bold" id="break-even">$0.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2026 ToolPulse. Free business calculators for entrepreneurs and small business owners.</p>
+            <p><a href="https://alexchalu.github.io/toolpulse/">View all calculators</a> | <a href="https://alexchalu.github.io/toolpulse/profit-margin-calculator/README.md">Documentation</a></p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Real-time calculation function
+        function calculateProfitMargin() {
+            const revenue = parseFloat(document.getElementById('revenue').value) || 0;
+            const cogs = parseFloat(document.getElementById('cogs').value) || 0;
+            const operatingExpenses = parseFloat(document.getElementById('operating-expenses').value) || 0;
+            const interestExpense = parseFloat(document.getElementById('interest-expense').value) || 0;
+            const taxRate = parseFloat(document.getElementById('tax-rate').value) || 21;
+            
+            // Calculate gross profit and margin
+            const grossProfit = revenue - cogs;
+            const grossMargin = revenue > 0 ? (grossProfit / revenue) * 100 : 0;
+            
+            // Calculate operating profit and margin
+            const operatingIncome = grossProfit - operatingExpenses;
+            const operatingMargin = revenue > 0 ? (operatingIncome / revenue) * 100 : 0;
+            
+            // Calculate net profit and margin
+            const earningsBeforeTax = operatingIncome - interestExpense;
+            const taxAmount = earningsBeforeTax > 0 ? (earningsBeforeTax * taxRate / 100) : 0;
+            const netIncome = earningsBeforeTax - taxAmount;
+            const netMargin = revenue > 0 ? (netIncome / revenue) * 100 : 0;
+            
+            // Calculate break-even point (fixed costs / contribution margin ratio)
+            const contributionMarginRatio = revenue > 0 ? (revenue - cogs) / revenue : 0;
+            const breakEvenPoint = contributionMarginRatio > 0 ? (operatingExpenses + interestExpense) / contributionMarginRatio : 0;
+            
+            // Update display values
+            document.getElementById('gross-margin').textContent = grossMargin.toFixed(2) + '%';
+            document.getElementById('operating-margin').textContent = operatingMargin.toFixed(2) + '%';
+            document.getElementById('net-margin').textContent = netMargin.toFixed(2) + '%';
+            document.getElementById('gross-profit').textContent = '$' + grossProfit.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('operating-income').textContent = '$' + operatingIncome.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('net-income').textContent = '$' + netIncome.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('break-even').textContent = '$' + breakEvenPoint.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            
+            // Update progress bars
+            document.getElementById('gross-bar').style.width = Math.min(grossMargin, 100) + '%';
+            document.getElementById('operating-bar').style.width = Math.min(operatingMargin, 100) + '%';
+            document.getElementById('net-bar').style.width = Math.min(netMargin, 100) + '%';
+            
+            // Color coding for margins
+            const grossMarginElement = document.getElementById('gross-margin');
+            const operatingMarginElement = document.getElementById('operating-margin');
+            const netMarginElement = document.getElementById('net-margin');
+            
+            // Color based on margin percentage
+            grossMarginElement.className = 'result-value ' + (grossMargin >= 20 ? 'text-success' : grossMargin >= 10 ? 'text-warning' : 'text-danger');
+            operatingMarginElement.className = 'result-value operating-margin ' + (operatingMargin >= 15 ? 'text-success' : operatingMargin >= 5 ? 'text-warning' : 'text-danger');
+            netMarginElement.className = 'result-value net-margin ' + (netMargin >= 10 ? 'text-success' : netMargin >= 5 ? 'text-warning' : 'text-danger');
+        }
+        
+        // Add event listeners for real-time calculation
+        document.getElementById('revenue').addEventListener('input', calculateProfitMargin);
+        document.getElementById('cogs').addEventListener('input', calculateProfitMargin);
+        document.getElementById('operating-expenses').addEventListener('input', calculateProfitMargin);
+        document.getElementById('interest-expense').addEventListener('input', calculateProfitMargin);
+        document.getElementById('tax-rate').addEventListener('input', calculateProfitMargin);
+        
+        // Initialize calculation on page load
+        calculateProfitMargin();
+        
+        // Add some example data for demonstration
+        document.getElementById('revenue').value = '100000';
+        document.getElementById('cogs').value = '60000';
+        document.getElementById('operating-expenses').value = '25000';
+        document.getElementById('interest-expense').value = '2000';
+        calculateProfitMargin();
+    </script>
+</body>
+</html>
