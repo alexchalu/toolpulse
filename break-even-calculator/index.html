@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break-Even Calculator - Calculate Your Business Break-Even Point</title>
+    <meta name="description" content="Free online break-even calculator to determine when your business will become profitable. Calculate break-even point in units, sales dollars, and time period. Essential tool for small business owners and entrepreneurs.">
+    <meta name="keywords" content="break-even calculator, break-even point, profitability analysis, business calculator, small business planning, financial planning">
+    <meta name="author" content="ToolPulse">
+    <meta property="og:title" content="Break-Even Calculator - Calculate Your Business Break-Even Point">
+    <meta property="og:description" content="Free online break-even calculator to determine when your business will become profitable. Calculate break-even point in units, sales dollars, and time period. Essential tool for small business owners and entrepreneurs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexchalu.github.io/toolpulse/break-even-calculator/index.html">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .calculator-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            overflow: hidden;
+        }
+        
+        .header-gradient {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header-gradient h1 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-gradient p {
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        
+        .form-section {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        .result-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .analysis-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .analysis-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .insight-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .insight-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-calculate {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border: 1px solid #b8daff;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .info-box i {
+            color: #0066cc;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-container">
+            <div class="header-gradient">
+                <h1><i class="fas fa-chart-line me-2"></i>Break-Even Calculator</h1>
+                <p>Determine when your business will become profitable</p>
+            </div>
+            
+            <div class="form-section">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-label">Fixed Costs ($)</label>
+                            <input type="number" class="form-control" id="fixedCosts" placeholder="e.g., 5000" step="0.01">
+                            <small class="text-muted">Rent, salaries, insurance, etc. - costs that don't change with sales</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Variable Cost per Unit ($)</label>
+                            <input type="number" class="form-control" id="variableCostPerUnit" placeholder="e.g., 10" step="0.01">
+                            <small class="text-muted">Cost to produce each unit - materials, labor, etc.</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Price per Unit ($)</label>
+                            <input type="number" class="form-control" id="pricePerUnit" placeholder="e.g., 25" step="0.01">
+                            <small class="text-muted">Selling price of each unit</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Target Monthly Profit ($)</label>
+                            <input type="number" class="form-control" id="targetProfit" placeholder="e.g., 3000" step="0.01" value="0">
+                            <small class="text-muted">Monthly profit goal (optional, defaults to 0)</small>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-label">Average Monthly Sales Volume (units)</label>
+                            <input type="number" class="form-control" id="monthlySales" placeholder="e.g., 1000" step="1">
+                            <small class="text-muted">Current or expected monthly sales</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Time Period Analysis</label>
+                            <select class="form-control" id="timePeriod">
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="annual">Annual</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn btn-calculate w-100" onclick="calculateBreakEven()">
+                            <i class="fas fa-calculator me-2"></i>Calculate Break-Even
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>What is Break-Even Analysis?</strong> Break-even analysis helps you determine the point at which your business revenue equals its costs, resulting in neither profit nor loss. This is crucial for pricing strategy, production planning, and financial forecasting.
+                </div>
+            </div>
+            
+            <div class="form-section" id="resultsSection" style="display: none;">
+                <h3 class="mb-4"><i class="fas fa-chart-bar me-2"></i>Break-Even Analysis Results</h3>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="result-card text-center">
+                            <div class="result-label">Break-Even Units</div>
+                            <div class="result-value" id="breakEvenUnits">$0</div>
+                            <div class="result-label">Units to sell</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="result-card text-center">
+                            <div class="result-label">Break-Even Sales ($)</div>
+                            <div class="result-value" id="breakEvenSales">$0</div>
+                            <div class="result-label">Revenue needed</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="result-card text-center">
+                            <div class="result-label">Contribution Margin</div>
+                            <div class="result-value" id="contributionMargin">0%</div>
+                            <div class="result-label">Profit per unit</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analysis-section">
+                    <h4 class="analysis-title"><i class="fas fa-lightbulb me-2"></i>Business Insights</h4>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="insight-card">
+                                <div class="insight-title">Profitability Status</div>
+                                <div id="profitabilityStatus">-</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="insight-card">
+                                <div class="insight-title">Time to Break-Even</div>
+                                <div id="timeToBreakEven">-</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <div class="insight-title">Recommendations</div>
+                        <div id="recommendations">-</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h4 class="analysis-title"><i class="fas fa-chart-line me-2"></i>Break-Even Chart</h4>
+                    <canvas id="breakEvenChart" width="400" height="200"></canvas>
+                </div>
+                
+                <div class="analysis-section">
+                    <h4 class="analysis-title"><i class="fas fa-calculator me-2"></i>Additional Analysis</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="insight-card">
+                                <div class="insight-title">Margin of Safety</div>
+                                <div id="marginOfSafety">-</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="insight-card">
+                                <div class="insight-title">Operating Leverage</div>
+                                <div id="operatingLeverage">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let breakEvenChart = null;
+        
+        function calculateBreakEven() {
+            const fixedCosts = parseFloat(document.getElementById('fixedCosts').value) || 0;
+            const variableCostPerUnit = parseFloat(document.getElementById('variableCostPerUnit').value) || 0;
+            const pricePerUnit = parseFloat(document.getElementById('pricePerUnit').value) || 0;
+            const targetProfit = parseFloat(document.getElementById('targetProfit').value) || 0;
+            const monthlySales = parseFloat(document.getElementById('monthlySales').value) || 0;
+            const timePeriod = document.getElementById('timePeriod').value;
+            
+            if (fixedCosts <= 0 || variableCostPerUnit <= 0 || pricePerUnit <= 0) {
+                alert('Please enter valid positive values for all required fields.');
+                return;
+            }
+            
+            if (pricePerUnit <= variableCostPerUnit) {
+                alert('Price per unit must be greater than variable cost per unit to make a profit.');
+                return;
+            }
+            
+            const contributionMarginPerUnit = pricePerUnit - variableCostPerUnit;
+            const contributionMarginRatio = contributionMarginPerUnit / pricePerUnit;
+            const breakEvenUnits = (fixedCosts + targetProfit) / contributionMarginPerUnit;
+            const breakEvenSales = breakEvenUnits * pricePerUnit;
+            
+            document.getElementById('breakEvenUnits').textContent = formatCurrency(breakEvenUnits);
+            document.getElementById('breakEvenSales').textContent = formatCurrency(breakEvenSales);
+            document.getElementById('contributionMargin').textContent = (contributionMarginRatio * 100).toFixed(1) + '%';
+            
+            // Calculate profitability status
+            const currentProfit = (monthlySales * contributionMarginPerUnit) - fixedCosts;
+            let profitabilityStatus = '';
+            if (currentProfit > 0) {
+                profitabilityStatus = `<span class="text-success">Profitable: ${formatCurrency(currentProfit)} monthly profit</span>`;
+            } else if (currentProfit < 0) {
+                profitabilityStatus = `<span class="text-danger">Loss: ${formatCurrency(Math.abs(currentProfit))} monthly loss</span>`;
+            } else {
+                profitabilityStatus = `<span class="text-warning">Exactly at break-even point</span>`;
+            }
+            document.getElementById('profitabilityStatus').innerHTML = profitabilityStatus;
+            
+            // Calculate time to break-even
+            const timeToBreakEven = calculateTimeToBreakEven(breakEvenUnits, monthlySales, timePeriod);
+            document.getElementById('timeToBreakEven').textContent = timeToBreakEven;
+            
+            // Generate recommendations
+            const recommendations = generateRecommendations(contributionMarginRatio, breakEvenUnits, monthlySales, currentProfit);
+            document.getElementById('recommendations').innerHTML = recommendations;
+            
+            // Calculate margin of safety
+            if (monthlySales > 0) {
+                const marginOfSafety = ((monthlySales - breakEvenUnits) / monthlySales) * 100;
+                document.getElementById('marginOfSafety').innerHTML = `${marginOfSafety.toFixed(1)}%`;
+            } else {
+                document.getElementById('marginOfSafety').innerHTML = 'N/A';
+            }
+            
+            // Calculate operating leverage
+            if (currentProfit > 0) {
+                const operatingLeverage = contributionMarginPerUnit * monthlySales / currentProfit;
+                document.getElementById('operatingLeverage').innerHTML = operatingLeverage.toFixed(2) + 'x';
+            } else {
+                document.getElementById('operatingLeverage').innerHTML = 'N/A';
+            }
+            
+            // Show results section
+            document.getElementById('resultsSection').style.display = 'block';
+            
+            // Create chart
+            createBreakEvenChart(breakEvenUnits, breakEvenSales, fixedCosts);
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+        
+        function calculateTimeToBreakEven(breakEvenUnits, monthlySales, timePeriod) {
+            if (monthlySales <= 0) return 'N/A';
+            
+            const ratio = breakEvenUnits / monthlySales;
+            let timeFrame = '';
+            
+            switch (timePeriod) {
+                case 'monthly':
+                    timeFrame = 'months';
+                    if (ratio < 1) {
+                        return `${(ratio * 30).toFixed(1)} days`;
+                    }
+                    break;
+                case 'quarterly':
+                    timeFrame = 'quarters';
+                    if (ratio < 3) {
+                        return `${(ratio / 3 * 90).toFixed(1)} days`;
+                    }
+                    break;
+                case 'annual':
+                    timeFrame = 'years';
+                    if (ratio < 12) {
+                        return `${(ratio / 12 * 365).toFixed(1)} days`;
+                    }
+                    break;
+            }
+            
+            if (ratio >= 1000) {
+                return 'Over 1000 ' + timeFrame.split('s')[0];
+            }
+            
+            return `${Math.ceil(ratio)} ${timeFrame}`;
+        }
+        
+        function generateRecommendations(contributionMarginRatio, breakEvenUnits, monthlySales, currentProfit) {
+            let recommendations = [];
+            
+            if (contributionMarginRatio < 0.3) {
+                recommendations.push('<strong>Low contribution margin:</strong> Consider increasing prices or reducing variable costs.');
+            } else if (contributionMarginRatio > 0.6) {
+                recommendations.push('<strong>High contribution margin:</strong> Excellent profitability potential!');
+            }
+            
+            if (breakEvenUnits > monthlySales * 12) {
+                recommendations.push('<strong>High break-even point:</strong> Consider reducing fixed costs or increasing prices.');
+            }
+            
+            if (currentProfit < 0) {
+                recommendations.push('<strong>Current losses:</strong> Focus on increasing sales volume or improving operational efficiency.');
+            }
+            
+            if (recommendations.length === 0) {
+                recommendations.push('<strong>Good financial position:</strong> Continue current strategy and monitor key metrics.');
+            }
+            
+            return recommendations.join('<br>');
+        }
+        
+        function createBreakEvenChart(breakEvenUnits, breakEvenSales, fixedCosts) {
+            const ctx = document.getElementById('breakEvenChart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (breakEvenChart) {
+                breakEvenChart.destroy();
+            }
+            
+            const maxUnits = Math.ceil(breakEvenUnits * 1.5);
+            const labels = [];
+            const totalCosts = [];
+            const totalRevenues = [];
+            
+            for (let units = 0; units <= maxUnits; units += Math.ceil(maxUnits / 10)) {
+                labels.push(units);
+                const variableCost = units * parseFloat(document.getElementById('variableCostPerUnit').value);
+                const totalCost = fixedCosts + variableCost;
+                const totalRevenue = units * parseFloat(document.getElementById('pricePerUnit').value);
+                
+                totalCosts.push(totalCost);
+                totalRevenues.push(totalRevenue);
+            }
+            
+            breakEvenChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Total Costs',
+                        data: totalCosts,
+                        borderColor: '#dc3545',
+                        backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                        fill: true
+                    }, {
+                        label: 'Total Revenue',
+                        data: totalRevenues,
+                        borderColor: '#28a745',
+                        backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Break-Even Analysis Chart'
+                        },
+                        legend: {
+                            display: true
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Units Sold'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Amount ($)'
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Add real-time calculation
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = ['fixedCosts', 'variableCostPerUnit', 'pricePerUnit', 'targetProfit', 'monthlySales'];
+            inputs.forEach(id => {
+                document.getElementById(id).addEventListener('input', function() {
+                    if (this.value !== '') {
+                        calculateBreakEven();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
